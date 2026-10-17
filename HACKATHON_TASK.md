@@ -9,7 +9,7 @@
 
 **Name:** NeoCloud Debt Intelligence. **Tagline:** Which AI infrastructure companies survive higher rates?
 
-User enters **one or two stock tickers** (MVP supported: `CRWV`, `NBIS`, `IREN`; optional `APLD`, `CORZ` later). Example: compare `CRWV` vs `NBIS`.
+User enters **one or two stock tickers** (MVP supported: `CRWV`, `NBIS`, `IREN`, `BTDR`; optional `APLD`, `CORZ` later). Example: compare `CRWV` vs `NBIS`.
 
 App shows:
 1. **Company summary:** outstanding debt as of filing date; recourse/nonrecourse where available; cash, interest cost, maturities, fixed/floating/hedged exposure; disclosure coverage and caveats.
@@ -38,11 +38,11 @@ Suggested agents operating at **application runtime**:
 
 **Prove recursion:** E.g., for CRWV investigator captures 2032 9.625% fixed note, market analyst sees a ~15% secondary yield, auditor flags an invalid inference that annual contractual coupon jumped to 15%, manager spawns `Verify bond issue coupon vs secondary market yield and refinancing implications`, specialized child collects SEC/IR evidence, result is corrected, timeline shows full sequence. Or hedge gap on IREN triggers hedge-research task. Only count as a live Crusoe agent workflow if a model actually initiated the follow-up; a fixture test must be labeled as simulated.
 
-**Persistence:** Save runs, tasks, parent_task_id, agent event log, sources, evidence assertions, instruments and price observations in SQLite. Run background task worker independent of browser tab. Browser can close/refresh without stopping active run so long as server remains running. Handle timeout, retries, duplicate tasks and crash recovery. Caps: max 18 delegated tasks, 25 Crusoe LLM calls, 15 searches, 2 retries/task, 5-minute runtime/run. Display explicit status and stop reason.
+**Persistence:** Save runs, tasks, parent_task_id, agent event log, sources, evidence assertions, instruments and price observations in Neon Postgres. Run background task worker independent of browser tab. Browser can close/refresh without stopping active run so long as server remains running. Handle timeout, retries, duplicate tasks and crash recovery. Caps: max 18 delegated tasks, 25 Crusoe LLM calls, 15 searches, 2 retries/task, 5-minute runtime/run. Display explicit status and stop reason.
 
 ## Data model (minimum practical)
 
-`companies`: ticker, name, asset/filing base currency, sector, URL.
+`companies`: ticker, name, asset/filing base currency, sector, URL. Include **Bitdeer Technologies Group (BTDR)** and distinguish its Bitcoin-mining legacy from newer AI/HPC activity; do not assume all revenue/capex is AI-specific.
 `customer_deals`: company_id, counterparties, announced date, nominal contract value, value currency, duration, deal status, evidence_id.
 `instruments`: company_id, instrument_id/name, parent entity/SPV, issue date, type, commitment_amount, drawn_amount, outstanding_principal, snapshot_date, currency, coupon_pct, rate_type, reference_index, spread_bps, maturity, recourse_type, secured, convertible, hedge_status, hedge_notional, evidence_id.
 `deal_financing_links`: contract_id, instrument_id, link_type (explicit / uncertain), linked capex amount where disclosed, evidence_id.
@@ -96,7 +96,7 @@ Use primary SEC and investor disclosures first. Secondary press reporting as con
 
 ## Technical architecture
 
-- Python 3.11+, FastAPI server, SQLite persistence, simple responsive HTML/CSS/JS or lightweight charts (Plotly CDN only if available, otherwise simple SVG/JS). No React build chain required for initial proof.
+- Python 3.11+, FastAPI server, Neon Postgres persistence, simple responsive HTML/CSS/JS or lightweight charts (Plotly CDN only if available, otherwise simple SVG/JS). No React build chain required for initial proof.
 - Crusoe Managed Inference via OpenAI-compatible client `https://api.inference.crusoecloud.com/v1`, `CRUSOE_API_KEY` from secure environment; test available Nemotron model and structured JSON responses first.
 - Search via available provider, preferably You.com with optional `YDC_API_KEY`. If live discovery isn't accessible, seeded known primary URLs with actual retrieval/extracting and citations; fall back to labeled curated offline fixtures if external internet blocked.
 - Equity OHLC source optional, must have explicit source/as-of and use real data; fallback show **Market data unavailable**, not simulated market performance unless a DEMO MODE label. Financial chart is secondary to robust debt analysis.
@@ -105,8 +105,8 @@ Use primary SEC and investor disclosures first. Secondary press reporting as con
 
 ## Realistic 2-hour build order
 
-**0–15 mins**: verify Crusoe API, build skeleton and run SQLite migration, start FastAPI app. A real inference test is the gate.
-**15–40 mins**: create sourced CRWV/NBIS/IREN instrument seed with 2–4 instruments each, develop calculator for basic debt-rate sensitivity.
+**0–15 mins**: verify Crusoe API, build skeleton and run Postgres schema migration, start FastAPI app. A real inference test is the gate.
+**15–40 mins**: create sourced CRWV/NBIS/IREN instrument seeds with 2–4 instruments each and add source-backed BTDR instruments as research permits; develop rate-sensitivity calculator. Prioritize accurate two-ticker demo and don't fabricate BTDR loan terms.
 **40–75 mins**: implement Crusoe manager + researcher + auditor dynamic spawn/persistent queue (live or exact-URL tools).
 **75–100 mins**: ticker input & comparison dashboard, evidence link cells, 100/200 bp calculator and activity feed.
 **100–120 mins**: test actual end-to-end run, capture demo, polish README, commit and open PR; deployment only if core fully works.
@@ -123,15 +123,33 @@ Use primary SEC and investor disclosures first. Secondary press reporting as con
 ## Definition of done
 
 - [ ] Real Crusoe Nemotron call succeeds and logs sanitized model metadata.
-- [ ] Two ticker comparison works with at least 2 actual companies; three preferred: CRWV/NBIS/IREN.
+- [ ] Two ticker comparison works for any of **CRWV/NBIS/IREN/BTDR**. All four appear in ticker search; at least two are fully researched in demo. Unsupported BTDR figures are flagged unknown.
 - [ ] At least 5 source-backed debt instruments with dated principal, rate and maturity.
 - [ ] At least one verified customer deal documented, but unlinked to debt if linkage absent.
 - [ ] A real manager-initiated dynamic child task generated after auditor concern.
-- [ ] Persistent manager, task queue, status feed and findings; browser refresh safe.
+- [ ] Persistent manager, task queue, status feed and findings in **Neon Postgres**; browser refresh safe.
 - [ ] Clear coupon vs market yield distinction, hedge handling, correct unhedged floating sensitivity.
 - [ ] Finite budgets, retries, crash-safe states and unit test for calculator.
 - [ ] Real market data with timestamp OR explicit unavailable label; no invented prices.
 - [ ] Public GitHub commits, instructions, truthful demo state, simple README.
+
+
+## Database decision: Neon Postgres, NOT SQLite
+
+The user already has Neon, Supabase and Cloudflare accounts. **Use Neon as primary production and hackathon database** to store companies, contracts, debt instruments, market observations, evidence, investigations, parent-child tasks and agent event history. Avoid adding Supabase unless essential, and don't choose Cloudflare D1. Cloudflare can be used later for static frontend hosting, but it does not replace the persistent Python agent worker.
+
+- Create a fresh Neon project or branch dedicated to the hackathon.
+- Expect `DATABASE_URL` to be provided securely by the user in Codex Cloud environment/personal vault; never prompt them to paste it in chat or commit it.
+- Configure `DATABASE_URL` and `CRUSOE_API_KEY` in Codex Cloud via the UI. Prefer **Network secret** for Crusoe on allowlisted `api.inference.crusoecloud.com` (HTTPS 443). Neon Postgres URI is a direct TCP connection, not a request eligible for HTTPS network-secret substitution; use a scoped **Personal vault environment variable** if needed, keeping its value from logs and commits.
+- For managed deployment, set the same environment variables in the hosting provider's secret manager; Codex Cloud is for building and testing, not durable hosting.
+- Use Postgres-specific SQL types sparingly. `NUMERIC` for financial amounts, `TIMESTAMPTZ`, `JSONB` for structured claims, foreign keys, and indexes on `ticker`, `instrument_id`, and `parent_task_id`.
+- Pooled Neon connection string is recommended for the web app, SSL required. Check if Codex Cloud network supports outbound Postgres TCP; if restricted, test using deployed backend or use Neon's HTTPS Data API as a fallback. Never pretend a DB connection succeeded.
+- If Neon is temporarily inaccessible, continue writing pure calculation and orchestration tests with fake repositories or mocks, but do not pivot to a SQLite-only solution.
+- Restrict DB privileges and use a dedicated hackathon database to protect other user data.
+
+## BTDR research requirements
+
+**Bitdeer Technologies Group (NASDAQ: BTDR)** is added alongside CoreWeave (CRWV), Nebius (NBIS) and IREN (IREN). Extract primary financing facts from BTDR's SEC filings / official IR, capturing convertible issuance, coupons, security, and maturity where disclosed. Be careful to distinguish its Bitcoin mining and ASIC manufacturing activities from AI/HPC/neocloud initiatives. Show that mixed business model openly in the compare UI. This app tests financing exposure across AI-compute infrastructure companies, not an assertion that all four are pure-play neoclouds.
 
 ## Codex instruction
 
