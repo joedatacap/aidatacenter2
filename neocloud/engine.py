@@ -151,7 +151,7 @@ class Engine:
 
     async def call(self,run,instruction,context):
         current=next((t for t in run['tasks'] if t['status']=='running'),run['tasks'][-1])
-        if current.pop('reuse_response',False) and current.get('response_checkpoint'):
+        if current.pop('reuse_response',False) and 'response_checkpoint' in current:
             event(run,'inference_recovered','Reused durable response; no repeated model call',current['id'])
             return deepcopy(current['response_checkpoint'])
         if run['budgets']['llm_calls']>=MAX_CALLS:
@@ -174,8 +174,10 @@ class Engine:
             else:
                 response=await self.model.json(instruction,context)
         except Exception as exc:
+            if run['mode']=='live' and hasattr(self.model,'last_metadata'):
+                attempt.update(deepcopy(self.model.last_metadata))
             attempt.update(status='failed',finished_at=now(),category=getattr(exc,'category','application_error'),
-                           http_status=getattr(exc,'status_code',None))
+                           http_status=getattr(exc,'status_code',None),provider_retry_after=getattr(exc,'provider_retry_after',None))
             current.setdefault('failed_models',[]).append(selected)
             if hasattr(self.model,'note_failure'):
                 self.model.note_failure(selected,exc)
@@ -194,7 +196,7 @@ class Engine:
             if run["status"] in ("running","queued"):
                 for item in run["tasks"]:
                     if item["status"] == "running":
-                        if item.get('response_checkpoint'):
+                        if 'response_checkpoint' in item:
                             item['reuse_response']=True
                         else:
                             item['retries']+=1
@@ -321,7 +323,7 @@ class Engine:
                             and (t.get("result",{}).get("concerns") or t.get("result",{}).get("rule_objections"))]
         has_followup = any(audit_ancestor(run,t) in auditor_concerns for t in run["tasks"])
         followed={t['ticker'] for t in run['tasks'] if t['status']=='completed' and audit_ancestor(run,t)}
-        exhausted_after_followup=sorted(set(exhausted_sources(run))&followed)
+        exhausted_after_followup=exhausted_sources(run) if followed else []
         return {"tickers":run["tickers"],
                 "budgets":{"used":run["budgets"],"limits":{"llm_calls":MAX_CALLS,"source_fetches":MAX_FETCHES},
                            "remaining":{"llm_calls":MAX_CALLS-run["budgets"]["llm_calls"],

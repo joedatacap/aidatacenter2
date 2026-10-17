@@ -119,3 +119,15 @@ def test_exhausted_sources_prevent_repeated_child_research():
         assert len([t for t in run['tasks'] if t['role']=='debt'])==0
         assert any(e['kind']=='task_suppressed' for e in run['events'])
     asyncio.run(check())
+
+def test_one_audited_policy_followup_can_close_both_blocked_tickers():
+    from neocloud.catalog import SOURCES
+    run=new_run(['CRWV','NBIS']);run['tasks'][0]['status']='completed'
+    auditor=task('auditor','CRWV','Review shared policy restriction',run['tasks'][0]['id'])
+    auditor.update(status='completed',result={'concerns':['All source hosts blocked']});run['tasks'].append(auditor)
+    followup=task('followup','CRWV','Verify the shared access restriction',auditor['id'])
+    followup.update(status='completed',result={'summary':'Policy unchanged'});run['tasks'].append(followup)
+    run['source_cache']={u:{'url':u,'status':'unavailable','category':'network_policy_restriction'} for ticker in run['tickers'] for u in SOURCES[ticker]}
+    context=Engine(MemoryRepository(),None).context(run)
+    assert context['allowed_next_roles']==['dossier']
+    assert context['exhausted_source_tickers_after_followup']==['CRWV','NBIS']
