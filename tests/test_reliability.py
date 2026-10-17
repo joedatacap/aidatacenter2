@@ -99,3 +99,23 @@ def test_replanning_retains_auditor_ancestry_after_interleaved_tasks():
         assert child['parent_task_id']==manager['id']
         assert any(e['kind']=='recursive_child' and e['auditor_task_id']==auditor['id'] for e in run['events'])
     asyncio.run(check())
+
+def test_exhausted_sources_prevent_repeated_child_research():
+    from neocloud.catalog import SOURCES
+    from neocloud.engine import exhausted_sources
+    class RepeatingManager:
+        async def json(self,instruction,context):
+            assert context['allowed_next_roles']==['dossier']
+            return {'tasks':[{'role':'debt','ticker':'CRWV','goal':'Rephrase the blocked search again'}]}
+    async def check():
+        run=new_run(['CRWV']);run['tasks'][0]['status']='completed'
+        auditor=task('auditor','CRWV','Source access review',run['tasks'][0]['id'])
+        auditor.update(status='completed',result={'concerns':['Source inaccessible']});run['tasks'].append(auditor)
+        followup=task('followup','CRWV','Verify source gap',auditor['id'])
+        followup.update(status='completed',result={'summary':'All source hosts denied'});run['tasks'].append(followup)
+        run['source_cache']={u:{'url':u,'status':'unavailable','category':'network_policy_restriction'} for u in SOURCES['CRWV']}
+        assert exhausted_sources(run)==['CRWV']
+        await Engine(MemoryRepository(),RepeatingManager()).step(run)
+        assert len([t for t in run['tasks'] if t['role']=='debt'])==0
+        assert any(e['kind']=='task_suppressed' for e in run['events'])
+    asyncio.run(check())

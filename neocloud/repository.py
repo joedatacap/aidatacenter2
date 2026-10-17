@@ -32,6 +32,9 @@ class PostgresRepository:
     mode = "Neon/Postgres"
     def __init__(self, url):
         parsed = urlsplit(url)
+        if not parsed.hostname:
+            raise ValueError('DATABASE_URL must include a hostname')
+        parsed.port  # Validate the port before any connection attempt.
         if parsed.scheme not in ("postgresql", "postgres"):
             raise ValueError("DATABASE_URL must be a Postgres URI")
         if parse_qs(parsed.query).get("sslmode", [""])[0] not in ("require", "verify-ca", "verify-full"):

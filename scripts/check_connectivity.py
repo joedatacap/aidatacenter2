@@ -45,6 +45,9 @@ async def main(include_inference,output):
         uri=os.getenv('DATABASE_URL')
         if not uri:
             record({'service':'Neon','category':'missing_configuration'});return
+        config=database_configuration(uri)
+        if config.get('configuration_error') or not config.get('host') or not config.get('postgres_scheme') or not config.get('tls_required'):
+            record({'service':'Neon','category':'incorrect_configuration'});return
         part=urlsplit(uri)
         try:
             await asyncio.wait_for(asyncio.to_thread(socket.getaddrinfo,part.hostname,part.port or 5432,type=socket.SOCK_STREAM),timeout=8)
