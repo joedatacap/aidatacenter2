@@ -87,3 +87,34 @@ def test_exhausted_call_budget_stops_without_another_call():
         assert run["status"]=="budget_exhausted"
         assert run["budgets"]["llm_calls"]==MAX_CALLS
     asyncio.run(check())
+
+def test_rate_limit_backoff_does_not_spin_or_spawn_more_tasks():
+    from neocloud.crusoe import InferenceError
+    class LimitedModel:
+        async def json(self,*args):
+            raise InferenceError('Crusoe inference HTTP 429',429,15)
+    async def check():
+        run=new_run(['NBIS'])
+        engine=Engine(MemoryRepository(),LimitedModel())
+        await engine.step(run)
+        assert run['tasks'][0]['next_attempt_at']
+        assert run['budgets']['llm_calls']==1
+        await engine.step(run)
+        assert run['budgets']['llm_calls']==1
+        assert len(run['tasks'])==1
+    asyncio.run(check())
+
+def test_manager_cannot_claim_completion_without_a_dossier():
+    class PrematureModel:
+        async def json(self,*args):
+            return {'finish':True,'reason':'No sources'}
+    async def check():
+        run=new_run(['BTDR'])
+        engine=Engine(MemoryRepository(),PrematureModel())
+        for _ in range(3):
+            await engine.step(run)
+        assert run['status']=='failed'
+        assert run['tasks'][0]['retries']==3
+        assert 'validation_feedback' in run['tasks'][0]['result']
+        assert run['stop_reason']=='Research manager failed after two retries'
+    asyncio.run(check())

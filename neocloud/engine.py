@@ -68,6 +68,8 @@ objections. Before a dossier or finish, delegate at least one targeted followup 
 The manager MUST choose the actual followup goal and parent; the worker never invents it.
 Do not schedule identical work twice. Stop after resolving or honestly documenting unknowns.
 Request a dossier task after auditing. Finish true only after dossier completed, or evidence is unavailable.
+Even when sources are unavailable, ask an auditor to review that limitation, delegate its targeted
+followup, then request a caveated dossier. Do not repeat identical failed retrieval tasks.
 Each task must concern a selected ticker. Source/network failures are evidence limitations, not facts.
 """
 
@@ -213,7 +215,10 @@ class Engine:
         auditor_concerns = [t["id"] for t in run["tasks"] if t["role"]=="auditor" and t["status"]=="completed"
                             and (t.get("result",{}).get("concerns") or t.get("result",{}).get("rule_objections"))]
         has_followup = any(t["role"]=="followup" and t["parent_task_id"] in auditor_concerns for t in run["tasks"])
-        return {"tickers":run["tickers"],"budgets":run["budgets"],
+        return {"tickers":run["tickers"],
+                "budgets":{"used":run["budgets"],"limits":{"llm_calls":MAX_CALLS,"source_fetches":MAX_FETCHES},
+                           "remaining":{"llm_calls":MAX_CALLS-run["budgets"]["llm_calls"],
+                                        "source_fetches":MAX_FETCHES-run["budgets"]["source_fetches"]}},
                 "tasks":[{k:v for k,v in t.items() if k != "result"} | {"result":t.get("result")} for t in run["tasks"]],
                 "instruments":run["instruments"],"evidence":run["evidence"][-20:],
                 "rule_objections":audit(run) if any(t["role"]!="manager" and t["status"]=="completed" for t in run["tasks"]) else [],
@@ -226,6 +231,9 @@ class Engine:
             context = self.context(run)
             response = await self.call(run,MANAGER,context)
             current["result"] = response
+            if response.get("finish") is True and not any(t["role"]=="dossier" and t["status"]=="completed" for t in run["tasks"]):
+                current["result"]["validation_feedback"] = "Before concluding, obtain auditor review, its targeted followup if concerned, and a caveated dossier. Unavailable sources must remain explicitly unknown."
+                raise ValueError("Manager omitted final review/dossier")
             if context["followup_required_for_auditors"]:
                 proposals = response.get("tasks",[])
                 valid_followup = any(isinstance(p,dict) and p.get("role")=="followup" and
@@ -264,7 +272,8 @@ class Engine:
                       initiated_by="Crusoe model" if run["mode"]=="live" else "simulated model")
                 added += 1
             if not added:
-                self.finish(run,"Manager returned no valid new tasks; disclosure remains incomplete")
+                current["result"]["validation_feedback"] = "No new tasks accepted. Avoid duplicate role/ticker/goal. Use an auditor to review unavailable evidence, then a targeted followup and dossier; finish only after those reviews."
+                raise ValueError("Manager plan contained no valid new tasks")
             return
 
         context = self.context(run)

@@ -30,7 +30,7 @@ def test_neon_repository_schema_atomic_snapshot_recovery_and_worker_ownership():
             await first.save(run)
             await first.save(run)  # Idempotent task, event, evidence, instrument upserts.
             with psycopg.connect(uri) as conn:
-                assert conn.info.ssl_in_use
+                assert conn.execute("SELECT ssl FROM pg_stat_ssl WHERE pid=pg_backend_pid()").fetchone()[0]
                 assert conn.execute("SELECT count(*) FROM instruments WHERE run_id=%s",(run["id"],)).fetchone()[0]==1
                 assert conn.execute("SELECT count(*) FROM agent_events WHERE run_id=%s",(run["id"],)).fetchone()[0]==1
             await first.close()
