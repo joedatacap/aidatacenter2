@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NeoCloud Debt Intelligence</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header><a class="brand" href="/">N / DI</a><span>AI INFRASTRUCTURE · CREDIT RESEARCH</span><span class="pill">RESEARCH PREVIEW</span></header>
+<main><div class="eyebrow">NEOCLOUD DEBT INTELLIGENCE</div><h1>Which AI infrastructure companies<br>survive higher rates?</h1>
+<p class="intro">Trace debt, challenge assumptions, and compare exposure through a research team with a visible evidence trail.</p>
+<div id="health" class="notice" role="status">Checking inference and storage…</div>
+<form id="investigate" class="controls"><label>Company<input id="ticker1" list="tickers" value="CRWV" maxlength="5" required></label>
+<label>Compare with<input id="ticker2" list="tickers" value="NBIS" maxlength="5"></label>
+<datalist id="tickers"><option value="CRWV">CoreWeave</option><option value="NBIS">Nebius</option><option value="IREN">IREN</option><option value="BTDR">Bitdeer</option></datalist>
+<label>Research mode<select id="mode"><option value="live">Live · Crusoe agents</option><option value="simulated">Simulated · curated fixtures</option></select></label>
+<button type="submit">Investigate ↗</button><button type="button" id="verify" class="secondary">Verify Crusoe</button></form>
+<p id="error" role="alert"></p>
+<div class="runbar"><label>Investigation<select id="history"><option value="">Select a run</option></select></label><span id="run-status">Ready to investigate</span></div>
+<div id="mode-banner" class="notice" hidden></div>
+<section><div class="section-title"><h2>01 / Exposure overview</h2><span id="coverage">Disclosure incomplete</span></div>
+<div id="companies" class="company-grid"><p class="muted">Start an investigation to compare financing structures and disclosure gaps.</p></div></section>
+<section><div class="section-title"><h2>02 / Rate sensitivity</h2><label>Benchmark shock<select id="shock"><option value="-100">−100 bps</option><option value="0">0 bps</option><option value="100">+100 bps</option><option value="200" selected>+200 bps</option><option value="300">+300 bps</option></select></label></div>
+<p>Near-term annualized cash interest change on known unhedged floating principal. Fixed coupons do not reprice with market yields.</p>
+<label class="check"><input type="checkbox" id="assume"> Explicitly assume unknown hedge status is unhedged</label>
+<div id="scenarios" class="company-grid"></div>
+<details><summary>Future refinancing illustration</summary><p>Separate from current expense. Requires verified outstanding principal and maturity; some debt may amortize or repay.</p>
+<form id="refinance" class="controls"><label>Instrument<select id="refi-instrument"></select></label><label>Principal to refinance<input id="refi-principal" type="number" min="0" step="any" required></label><label>Old rate %<input id="old-rate" type="number" min="0" step="any" required></label><label>Assumed new rate %<input id="new-rate" type="number" min="0" step="any" value="10" required></label><label>Horizon<input id="horizon" type="date" value="2031-12-31" required></label><button>Calculate</button></form><p id="refi-result" role="status">Verified balances and maturities required.</p></details></section>
+<section><div class="section-title"><h2>03 / Instrument ledger</h2><span>Commitment ≠ borrowings</span></div><div id="ledger" class="scroll"></div></section>
+<section><div class="section-title"><h2>04 / Customer deals & markets</h2></div><div class="company-grid"><article><h3>Customer commitments</h3><div id="deals">No verified customer deal yet. Financing linkage unverified.</div></article><article><h3>Market context</h3><p>Market data unavailable.</p><p class="muted">No invented closing prices, returns, bond yields, or causal explanations. Coupon, traded yield, and refinancing rate are separate quantities.</p></article></div></section>
+<section><div class="section-title"><h2>05 / Research dossier</h2><span>AI synthesis · check supporting evidence</span></div><div id="dossier">The manager has not approved a final dossier.</div></section>
+<section><div class="section-title"><h2>06 / Investigation feed</h2><label>Ticker<select id="feed-filter"><option value="">All tickers</option></select></label></div><div id="budget" class="muted"></div><div id="feed"></div></section>
+<section><div class="section-title"><h2>07 / Source evidence</h2><span>Exact excerpts · dated lineage</span></div><div id="evidence"></div></section>
+</main><footer>Research and scenario analysis only. No investment recommendations. Missing disclosure is unknown, never zero.</footer><script src="/static/app.js" defer></script></body></html>
