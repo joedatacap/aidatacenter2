@@ -87,5 +87,12 @@ def validate_instrument_fields(candidate,evidence):
     if item.get('outstanding_principal') is not None and item.get('snapshot_date') is None:
         item['outstanding_principal']=None
         warnings.append('outstanding_principal: no supported as-of date; kept unknown.')
+    if item.get('hedge_status')=='unhedged':
+        if item.get('hedge_notional') is not None and Decimal(str(item['hedge_notional']))>0:
+            item['hedge_status']='partial'
+            warnings.append('hedge_status: disclosed positive hedge notional excludes an entirely unhedged classification.')
+        elif not any(re.search(r'unhedged|not hedged|no[^.]{0,50}(?:interest rate hedg|derivative instruments|interest rate swaps)',q,re.I) for q in quotes):
+            item['hedge_status']='unknown'
+            warnings.append('hedge_status: absence of hedge disclosure is not proof of no hedge.')
     item['validation_warnings']=warnings
     return item

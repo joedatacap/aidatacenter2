@@ -24,3 +24,9 @@ def test_secondary_yield_cannot_replace_fixed_coupon():
     text='The 9.625% senior notes have a secondary market yield of 15%.'
     assert validate_instrument_fields({'coupon_pct':'15'},evidence(text))['coupon_pct'] is None
     assert validate_instrument_fields({'coupon_pct':'9.625'},evidence(text))['coupon_pct']=='9.625'
+
+def test_missing_hedge_disclosure_never_becomes_assumed_unhedged():
+    item=validate_instrument_fields({'hedge_status':'unhedged'},evidence('The facility bears interest at SOFR plus 225 basis points.'))
+    assert item['hedge_status']=='unknown'
+    hedged=validate_instrument_fields({'hedge_status':'unhedged','hedge_notional':'394000000'},evidence('Interest rate swaps hedge $394 million of the facility.'))
+    assert hedged['hedge_status']=='partial'
