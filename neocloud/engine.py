@@ -199,6 +199,8 @@ class Engine:
             event(run,"task_error","Task failed; " + ("retry queued" if current["status"]=="pending" else "retry limit reached"),
                   current["id"],error_type=type(exc).__name__,http_status=getattr(exc,"status_code",None),
                   next_attempt_at=current.get("next_attempt_at"))
+            if current["role"]=="manager" and current["status"]=="failed":
+                self.finish(run,"Research manager failed after two retries","failed")
         await self.repo.save(run)
 
     def context(self, run):

@@ -14,5 +14,8 @@ test = ["pytest>=8,<10"]
 [tool.setuptools.package-data]
 neocloud = ["static/*", "schema.sql"]
 
+[tool.setuptools.packages.find]
+include = ["neocloud*"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

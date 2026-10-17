@@ -32,7 +32,9 @@ class Crusoe:
     async def verify(self) -> dict:
         available = await self.models()
         if not self.model:
-            self.model = next((m for m in available if "nemotron" in m.lower()), "")
+            preferred = ("nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B", "nvidia/Nemotron-3.5-Lightning-30B-A3B")
+            self.model = next((m for m in preferred if m in available),
+                              next((m for m in available if "nemotron" in m.lower()), ""))
         if not self.model or self.model not in available:
             raise InferenceError("Select an available Nemotron model with CRUSOE_MODEL")
         for attempt in range(3):
@@ -54,7 +56,7 @@ class Crusoe:
         async with httpx.AsyncClient(timeout=45) as client:
             response = await client.post(self.base + "/chat/completions",
                 headers={"Authorization": "Bearer " + self.key},
-                json={"model": self.model, "temperature": 0.1, "max_tokens": 2200,
+                json={"model": self.model, "temperature": 0.1, "max_tokens": 4096,
                       "response_format": {"type": "json_object"},
                       "messages": [{"role": "system", "content": instruction},
                                    {"role": "user", "content": json.dumps(context, default=str)}]})
