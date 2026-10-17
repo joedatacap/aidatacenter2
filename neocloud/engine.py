@@ -76,6 +76,8 @@ Tasks may include source_urls chosen ONLY from source_catalog; followup tasks ca
 Initial missing data is expected: FIRST delegate debt and deal retrieval, then audit what they found.
 Capabilities: debt/deals/followup retrieve primary URLs; auditor only reviews supplied evidence;
 markets has no quote provider and must report unavailable. Do not ask an auditor to search.
+No web search provider is configured: research tasks can fetch only catalogued or observed primary URLs,
+not run SEC search parameters or general search queries. Unreachable sources must stay unavailable.
 Plan debt, customer deals and markets research for selected tickers. Use an auditor to challenge findings.
 AFTER an auditor concern, choose targeted research children of the auditor task (or its reporting manager), based on its actual
 objections. Before a dossier or finish, delegate at least one targeted followup when auditor concerns exist.
@@ -300,7 +302,7 @@ class Engine:
             cache_key = ticker + "|" + "|".join(current.get("source_urls",[])) if current.get("source_urls") else ticker
             if cache_key in run["source_cache"]:
                 bundle = run["source_cache"][cache_key]
-                event(run,"source_cache","Reused retrieved passages",current["id"])
+                event(run,"source_cache","Reused cached source results",current["id"])
             else:
                 from .catalog import SOURCES
                 needed = len(current.get("source_urls") or SOURCES[ticker])
@@ -344,9 +346,15 @@ class Engine:
                             "retrieved_at":source["retrieved_at"],"excerpt":excerpt,
                             "confidence":candidate.get("confidence","low"),
                             "claim":str(candidate.get("claim",""))[:1000],"task_id":current["id"],"provenance":"live" if run["mode"]=="live" else "fixture"}
-                run["evidence"].append(evidence)
-                refs[index] = evidence["id"]
-                event(run,"evidence_accepted",evidence["claim"],current["id"],evidence_id=evidence["id"])
+                existing = next((e for e in run["evidence"] if e["source_url"]==evidence["source_url"]
+                                 and e["excerpt"]==excerpt and e["claim"]==evidence["claim"]),None)
+                if existing:
+                    refs[index] = existing["id"]
+                    event(run,"evidence_reused",existing["claim"],current["id"],evidence_id=existing["id"])
+                else:
+                    run["evidence"].append(evidence)
+                    refs[index] = evidence["id"]
+                    event(run,"evidence_accepted",evidence["claim"],current["id"],evidence_id=evidence["id"])
             except (KeyError,IndexError,TypeError,ValueError):
                 event(run,"evidence_rejected","Excerpt did not match retrieved primary source",current["id"])
         for candidate in response.get("instruments",[])[:12]:

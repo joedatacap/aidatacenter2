@@ -55,7 +55,7 @@ Tests also cover six possible two-ticker pairs in simulated mode, evidence rejec
 ## Current verified state and limitations
 
 - Real authenticated Crusoe model discovery and Nemotron structured JSON inference succeeded on October 17, 2026. The provider also intermittently returns HTTP 429; success on verification does not guarantee later capacity.
-- A live manager/delegate/auditor run was exercised. Initial planning looped on missing sources and stopped at its task cap; role guidance and audit-follow-up plan validation were tightened. See `docs/IMPLEMENTATION_STATUS.md` for final run evidence.
+- A live manager/delegate/auditor run was exercised. The manager dynamically spawned two debt research children after auditor concerns; both children completed. Its final turn exhausted retries after inference errors, so no final live dossier is claimed. See `docs/IMPLEMENTATION_STATUS.md` for final run evidence.
 - The configured Neon connection failed DNS resolution in this build environment. No successful Neon connection or project provisioning is claimed. Source hosts (SEC and investor sites) are outside the current environment's HTTP allowlist; primary-source retrieval is unavailable here. Enable those destinations and the Neon host's outbound Postgres TCP access in the managed environment configuration to complete live evidence research.
 - Six curated instrument fixtures illustrate the ledger, but **zero are presented as live-verified instruments**. Later outstanding balances remain unknown. BTDR terms are unknown until sourced.
 - There is no verified customer deal or explicit financing link yet. No market-price provider is connected; the UI shows **Market data unavailable** and computes no fabricated returns.

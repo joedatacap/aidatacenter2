@@ -67,7 +67,12 @@ class Crusoe:
                 delay = 15
             raise InferenceError("Crusoe inference HTTP " + str(response.status_code), response.status_code, delay)
         try:
-            content = response.json()["choices"][0]["message"]["content"]
+            choice = response.json()["choices"][0]
+            content = choice["message"]["content"]
+            if choice.get("finish_reason") == "length":
+                raise InferenceError("Crusoe structured response exceeded output-token budget")
+            if isinstance(content,str) and content.strip().startswith("```json") and content.strip().endswith("```"):
+                content = content.strip()[7:-3].strip()
             result = json.loads(content)
             if not isinstance(result, dict):
                 raise ValueError()

@@ -1,0 +1,245 @@
+{
+  "disclosure": "Real Crusoe calls, not simulated. Primary sources unavailable; no verified financial terms. Task goals are model proposals, not evidence of completed web searches.",
+  "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+  "storage_mode": "Development memory; no successful Neon connection",
+  "run_id": "ac9dc0eb-dd54-44b1-b35c-0d7d4448b18c",
+  "tickers": [
+    "CRWV",
+    "NBIS"
+  ],
+  "created_at_utc": "2026-10-17T22:32:25.438472+00:00",
+  "status": "failed",
+  "stop_reason": "Research manager failed after two retries",
+  "budgets": {
+    "llm_calls": 13,
+    "source_fetches": 4
+  },
+  "live_recursive_children": 2,
+  "accepted_instruments": 0,
+  "accepted_evidence": 0,
+  "dossier_completed": false,
+  "tasks": [
+    {
+      "id": "bf54a7d2-1ecf-406d-964d-1b2d3e977486",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Plan the investigation",
+      "parent_task_id": null,
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "aa400429-b2bf-481e-86da-c22484f7d7ff",
+      "role": "debt",
+      "ticker": "CRWV",
+      "goal": "Retrieve and analyze debt instruments from SEC filing and press release sources",
+      "parent_task_id": "bf54a7d2-1ecf-406d-964d-1b2d3e977486",
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "e65c0870-eaef-4a03-a2b1-6c3fedc7f8bf",
+      "role": "debt",
+      "ticker": "NBIS",
+      "goal": "Retrieve and analyze debt instruments from SEC filing and news sources",
+      "parent_task_id": "bf54a7d2-1ecf-406d-964d-1b2d3e977486",
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "4523a777-cd90-4eb8-81dc-6630c6a6a615",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "e65c0870-eaef-4a03-a2b1-6c3fedc7f8bf",
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "73bcc569-b747-4aa8-9264-27318dff98ba",
+      "role": "auditor",
+      "ticker": "CRWV",
+      "goal": "Review and document all source retrieval failures for CRWV debt instrument analysis; catalog unavailable SEC filing and press release URLs, confirm zero primary-source passages accessed, and record uncertainties preventing debt term extraction",
+      "parent_task_id": "bf54a7d2-1ecf-406d-964d-1b2d3e977486",
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "6bd9eaed-338e-4359-b1f2-b3353812b2f1",
+      "role": "auditor",
+      "ticker": "NBIS",
+      "goal": "Review and document all source retrieval failures for NBIS debt instrument analysis; catalog unavailable SEC filing and news source URLs, confirm zero primary-source passages accessed, and record uncertainties preventing debt term extraction",
+      "parent_task_id": "bf54a7d2-1ecf-406d-964d-1b2d3e977486",
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "a03cf0f7-eb72-402f-992b-399292dda435",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "6bd9eaed-338e-4359-b1f2-b3353812b2f1",
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "107a014e-f827-421c-928d-a8c9d955d8cc",
+      "role": "debt",
+      "ticker": "CRWV",
+      "goal": "Attempt alternative source retrieval for CRWV debt instruments using modified SEC EDGAR search parameters and additional press release search queries beyond catalogued URLs",
+      "parent_task_id": "a03cf0f7-eb72-402f-992b-399292dda435",
+      "status": "completed",
+      "retries": 0
+    },
+    {
+      "id": "4d81b117-07b4-47f9-9b79-94ea3dad2190",
+      "role": "debt",
+      "ticker": "NBIS",
+      "goal": "Attempt alternative source retrieval for NBIS debt instruments using modified SEC EDGAR search parameters and additional news source search queries beyond catalogued URLs",
+      "parent_task_id": "a03cf0f7-eb72-402f-992b-399292dda435",
+      "status": "completed",
+      "retries": 1
+    },
+    {
+      "id": "2c6ab457-3350-4dab-9d53-5fafdd913089",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "4d81b117-07b4-47f9-9b79-94ea3dad2190",
+      "status": "failed",
+      "retries": 3
+    }
+  ],
+  "events": [
+    {
+      "id": "789e7b29-856d-40a5-a33a-0d1fa4c07a11",
+      "timestamp": "2026-10-17T22:32:31.122107+00:00",
+      "kind": "manager_decision",
+      "message": "Initial debt and deal retrieval for both tickers per catalog sources",
+      "task_id": "bf54a7d2-1ecf-406d-964d-1b2d3e977486"
+    },
+    {
+      "id": "08268cf8-4cd0-4037-8d1d-9454d0462ad2",
+      "timestamp": "2026-10-17T22:32:31.659479+00:00",
+      "kind": "source_unavailable",
+      "message": "retrieval_failed: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "aa400429-b2bf-481e-86da-c22484f7d7ff"
+    },
+    {
+      "id": "3a0bd26b-2070-412d-ba6d-84e08456c7ed",
+      "timestamp": "2026-10-17T22:32:31.659492+00:00",
+      "kind": "source_unavailable",
+      "message": "retrieval_failed: https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "aa400429-b2bf-481e-86da-c22484f7d7ff"
+    },
+    {
+      "id": "4b704f59-6dc4-41b0-987a-d3cf9840c309",
+      "timestamp": "2026-10-17T22:32:43.645898+00:00",
+      "kind": "source_unavailable",
+      "message": "retrieval_failed: https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "e65c0870-eaef-4a03-a2b1-6c3fedc7f8bf"
+    },
+    {
+      "id": "2176efa7-f8f5-4973-9f79-4440e65ea631",
+      "timestamp": "2026-10-17T22:32:43.645912+00:00",
+      "kind": "source_unavailable",
+      "message": "retrieval_failed: https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "task_id": "e65c0870-eaef-4a03-a2b1-6c3fedc7f8bf"
+    },
+    {
+      "id": "737c7928-779d-4f23-8075-c759fd9ec2cc",
+      "timestamp": "2026-10-17T22:33:25.381781+00:00",
+      "kind": "manager_decision",
+      "message": "All catalogued source URLs for CRWV and NBIS returned retrieval_failed status. Per protocol, auditor must review source retrieval limitations before targeted followup and caveated dossier can be requested. Documenting unknowns is prerequisite to avoiding inferred zero-debt conclusions.",
+      "task_id": "4523a777-cd90-4eb8-81dc-6630c6a6a615"
+    },
+    {
+      "id": "e63cc413-106d-4585-ae6e-b6d73caaacba",
+      "timestamp": "2026-10-17T22:33:40.052235+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"No primary-source passages were successfully retrieved for tickers CRWV or NBIS. All catalogued SEC filings, press releases, and news sources returned retrieval_failed status. No debt instrument details, terms, balances, or citations can be extracted or verified. Per protocol, zero debt or outstanding balances must not be inferred.\", \"concerns\": [\"All catalogued source URLs for CRWV and NBIS returned retrieval_failed status; no primary-source text was accessible.\", \"No verified debt instruments available for analysis; do not infer zero debt or outstanding principal.\", \"Source retrieval failures prevent any confirmation of commitment amounts, drawn amounts, issue dates, coupons, maturities, or hedge statuses.\"], \"rule_objections\": [\"CRWV: no verified debt instruments; do not infer zero debt.\", \"NBIS: no verified debt instruments; do not infer zero debt.\"]}",
+      "task_id": "73bcc569-b747-4aa8-9264-27318dff98ba"
+    },
+    {
+      "id": "006cb38f-f21f-4c54-a0c0-12f68b0ac6f3",
+      "timestamp": "2026-10-17T22:33:56.924506+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"No primary-source passages were successfully retrieved for tickers CRWV or NBIS. All catalogued SEC filings, press releases, and news sources returned retrieval_failed status. No debt instrument details, terms, balances, or citations can be extracted or verified. Per protocol, zero debt or outstanding balances must not be inferred.\", \"concerns\": [\"All catalogued source URLs for CRWV and NBIS returned retrieval_failed status; no primary-source text was accessible.\", \"No verified debt instruments available for analysis; do not infer zero debt or outstanding principal.\", \"Source retrieval failures prevent any confirmation of commitment amounts, drawn amounts, issue dates, coupons, maturities, or hedge statuses.\"], \"rule_objections\": [\"CRWV: no verified debt instruments; do not infer zero debt.\", \"NBIS: no verified debt instruments; do not infer zero debt.\"]}",
+      "task_id": "6bd9eaed-338e-4359-b1f2-b3353812b2f1"
+    },
+    {
+      "id": "5c737c56-9d9a-4eb5-bdfd-c475b081101e",
+      "timestamp": "2026-10-17T22:34:13.247961+00:00",
+      "kind": "manager_decision",
+      "message": "Targeted followup tasks to address auditor concerns about unverified debt instruments; based on auditor task objections that no verified debt instruments are available for CRWV and NBIS per source retrieval failures",
+      "task_id": "a03cf0f7-eb72-402f-992b-399292dda435"
+    },
+    {
+      "id": "5f18d9ac-2d4e-42f7-98c3-be4d65205608",
+      "timestamp": "2026-10-17T22:34:13.247989+00:00",
+      "kind": "recursive_child",
+      "message": "debt: Attempt alternative source retrieval for CRWV debt instruments using modified SEC EDGAR search parameters and additional press release search queries beyond catalogued URLs",
+      "task_id": "107a014e-f827-421c-928d-a8c9d955d8cc",
+      "parent_task_id": "a03cf0f7-eb72-402f-992b-399292dda435",
+      "auditor_task_id": "6bd9eaed-338e-4359-b1f2-b3353812b2f1",
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "35fcefc3-9b28-4335-80ab-dbc85f1793d3",
+      "timestamp": "2026-10-17T22:34:13.247999+00:00",
+      "kind": "recursive_child",
+      "message": "debt: Attempt alternative source retrieval for NBIS debt instruments using modified SEC EDGAR search parameters and additional news source search queries beyond catalogued URLs",
+      "task_id": "4d81b117-07b4-47f9-9b79-94ea3dad2190",
+      "parent_task_id": "a03cf0f7-eb72-402f-992b-399292dda435",
+      "auditor_task_id": "6bd9eaed-338e-4359-b1f2-b3353812b2f1",
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "d7306492-49fe-4f09-9997-4c59bddae651",
+      "timestamp": "2026-10-17T22:34:43.164920+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry queued",
+      "task_id": "4d81b117-07b4-47f9-9b79-94ea3dad2190",
+      "error_type": "TypeError",
+      "http_status": null,
+      "next_attempt_at": null
+    },
+    {
+      "id": "6e1c3788-9b56-4b0e-aef7-8102d5ef0346",
+      "timestamp": "2026-10-17T22:35:18.147870+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry queued",
+      "task_id": "2c6ab457-3350-4dab-9d53-5fafdd913089",
+      "error_type": "InferenceError",
+      "http_status": null,
+      "next_attempt_at": null
+    },
+    {
+      "id": "b4307f10-c643-4a72-a5aa-ff76b558c6d8",
+      "timestamp": "2026-10-17T22:35:48.068308+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry queued",
+      "task_id": "2c6ab457-3350-4dab-9d53-5fafdd913089",
+      "error_type": "InferenceError",
+      "http_status": null,
+      "next_attempt_at": null
+    },
+    {
+      "id": "cd58ef2d-7a5d-44ec-89a7-6222d3d063c3",
+      "timestamp": "2026-10-17T22:36:20.095554+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry limit reached",
+      "task_id": "2c6ab457-3350-4dab-9d53-5fafdd913089",
+      "error_type": "InferenceError",
+      "http_status": null,
+      "next_attempt_at": null
+    },
+    {
+      "id": "03b1a52b-0c63-4993-8803-9bd336391839",
+      "timestamp": "2026-10-17T22:36:20.095592+00:00",
+      "kind": "stopped",
+      "message": "Research manager failed after two retries",
+      "task_id": null
+    }
+  ]
+}
