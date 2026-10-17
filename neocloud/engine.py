@@ -7,6 +7,7 @@ from uuid import uuid4
 from pydantic import ValidationError
 from .catalog import COMPANIES
 from .finance import Instrument
+from .validation import validate_instrument_fields
 from .sources import source_bundle
 from .crusoe import InferenceError,backoff_delay
 from .reporting import build_dossier,complete_evidence,meaningful_research,source_results
@@ -269,6 +270,10 @@ class Engine:
             current.pop('response_checkpoint',None)
             if isinstance(exc,InferenceError):
                 delay=backoff_delay(current['retries'],exc.provider_retry_after)
+                if delay>=MAX_SECONDS-elapsed:
+                    self.finish(run,'Provider Retry-After exceeds remaining run budget','failed')
+                    await self.repo.save(run)
+                    return
                 current['next_attempt_at']=(datetime.now(timezone.utc)+timedelta(seconds=delay)).isoformat()
                 if not exc.retryable:
                     current['status']='failed'
@@ -314,7 +319,7 @@ class Engine:
             context = self.context(run)
             response = await self.call(run,MANAGER,context)
             current["result"] = response
-            if response.get("finish") is True and not any(t["role"]=="dossier" and t["status"]=="completed" for t in run["tasks"]):
+            if response.get("finish") is True and (not any(t['role']=='auditor' and t['status']=='completed' for t in run['tasks']) or not any(t["role"]=="dossier" and t["status"]=="completed" for t in run["tasks"])):
                 current["result"]["validation_feedback"] = "Before concluding, obtain auditor review, its targeted followup if concerned, and a caveated dossier. Unavailable sources must remain explicitly unknown."
                 raise ValueError("Manager omitted final review/dossier")
             if context["followup_required_for_auditors"]:
@@ -455,6 +460,10 @@ class Engine:
                 candidate['verification_status']='source_matched' if run['mode']=='live' else 'fixture'
                 # Namespace identifiers to prevent cross-ticker collisions.
                 candidate["instrument_id"] = current["ticker"] + ":" + str(candidate["instrument_id"]).split(":")[-1][:120]
+                if run['mode']=='live':
+                    candidate=validate_instrument_fields(candidate,[e for e in run['evidence'] if e['id'] in ids])
+                    for warning in candidate['validation_warnings']:
+                        event(run,'financial_field_unknown',warning,current['id'])
                 item = Instrument.model_validate(candidate).model_dump(mode="json")
                 old = next((i for i in run["instruments"] if i["instrument_id"]==item["instrument_id"]),None)
                 if old:

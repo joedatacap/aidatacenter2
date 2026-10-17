@@ -38,12 +38,16 @@ class PostgresRepository:
             raise ValueError("DATABASE_URL must require TLS with sslmode=require or stronger")
         self.url = url
         self.owner = str(uuid4())
+        self.leased = False
+
+    def _connection(self):
+        return psycopg.connect(self.url,connect_timeout=10)
 
     async def initialize(self):
         await asyncio.to_thread(self._initialize)
 
     def _initialize(self):
-        with psycopg.connect(self.url, connect_timeout=10) as conn:
+        with self._connection() as conn:
             conn.execute(Path(__file__).with_name("schema.sql").read_text())
             for ticker, company in COMPANIES.items():
                 conn.execute("INSERT INTO companies VALUES (%s,%s,%s,%s,%s) ON CONFLICT(ticker) DO NOTHING",
@@ -52,7 +56,7 @@ class PostgresRepository:
         self._heartbeat()
 
     def _heartbeat(self):
-        with psycopg.connect(self.url, connect_timeout=10) as conn:
+        with self._connection() as conn:
             row = conn.execute("""INSERT INTO worker_leases(name,owner,expires_at)
                 VALUES('research',%s,now()+interval '120 seconds')
                 ON CONFLICT(name) DO UPDATE SET owner=EXCLUDED.owner,expires_at=EXCLUDED.expires_at
@@ -60,6 +64,7 @@ class PostgresRepository:
                 RETURNING owner""",(self.owner,)).fetchone()
             if row is None:
                 raise RuntimeError("Another worker owns this database queue")
+            self.leased=True
 
     async def heartbeat(self):
         await asyncio.to_thread(self._heartbeat)
@@ -70,7 +75,7 @@ class PostgresRepository:
     def _save(self, run):
         # Refuse writes after ownership is lost.
         self._heartbeat()
-        with psycopg.connect(self.url, connect_timeout=10) as conn:
+        with self._connection() as conn:
             conn.execute("""INSERT INTO runs(id,status,created_at,body) VALUES(%s,%s,%s,%s)
                 ON CONFLICT(id) DO UPDATE SET status=EXCLUDED.status,body=EXCLUDED.body,updated_at=now()""",
                 (run["id"], run["status"], run["created_at"], Jsonb(run)))
@@ -107,22 +112,34 @@ class PostgresRepository:
     async def get(self, run_id):
         return await asyncio.to_thread(self._get, run_id)
     def _get(self, run_id):
-        with psycopg.connect(self.url, connect_timeout=10) as conn:
+        with self._connection() as conn:
             row = conn.execute("SELECT body FROM runs WHERE id=%s", (run_id,)).fetchone()
             return row[0] if row else None
     async def all(self):
         return await asyncio.to_thread(self._all)
     def _all(self):
-        with psycopg.connect(self.url, connect_timeout=10) as conn:
+        with self._connection() as conn:
             return [row[0] for row in conn.execute("SELECT body FROM runs ORDER BY created_at DESC LIMIT 100")]
     async def close(self):
-        await asyncio.to_thread(self._release)
+        if self.leased:
+            await asyncio.to_thread(self._release)
+            self.leased=False
 
     def _release(self):
-        with psycopg.connect(self.url,connect_timeout=10) as conn:
+        with self._connection() as conn:
             conn.execute("DELETE FROM worker_leases WHERE name='research' AND owner=%s",(self.owner,))
 
 
 def make_repository():
     url = os.getenv("DATABASE_URL")
-    return PostgresRepository(url) if url else MemoryRepository()
+    if not url:
+        return MemoryRepository()
+    transport=os.getenv('DATABASE_TRANSPORT','auto')
+    if transport=='postgres':
+        return PostgresRepository(url)
+    from .neon_http import NeonHTTPRepository,AutoNeonRepository
+    if transport=='neon_http':
+        return NeonHTTPRepository(url)
+    if transport!='auto':
+        raise ValueError('DATABASE_TRANSPORT must be auto, postgres or neon_http')
+    return AutoNeonRepository(url) if (urlsplit(url).hostname or '').endswith('.neon.tech') else PostgresRepository(url)

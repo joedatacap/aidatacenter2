@@ -1,6 +1,7 @@
 """One network attempt per json() call; the durable worker owns retries and budgets."""
 import asyncio
 import json
+import math
 import os
 import random
 import time
@@ -12,7 +13,8 @@ from .connectivity import classify_error
 
 def retry_seconds(value,default=0):
     try:
-        return max(0,float(value))
+        number=float(value)
+        return max(0,number) if math.isfinite(number) else default
     except (TypeError,ValueError):
         try:
             stamp=parsedate_to_datetime(value)
@@ -64,7 +66,7 @@ class Crusoe:
                                  retry_seconds(response.headers.get('retry-after')))
         try:
             self.available_models=[m['id'] for m in response.json()['data'] if isinstance(m.get('id'),str)]
-        except (ValueError,KeyError,TypeError):
+        except (ValueError,KeyError,TypeError,AttributeError):
             raise InferenceError('Crusoe model discovery returned invalid metadata') from None
         return list(self.available_models)
 
@@ -134,7 +136,8 @@ class Crusoe:
         try:
             payload=response.json();choice=payload['choices'][0]
             self.last_metadata['finish_reason']=choice.get('finish_reason')
-            self.last_metadata['usage']={k:v for k,v in payload.get('usage',{}).items()
+            usage=payload.get('usage')
+            self.last_metadata['usage']={k:v for k,v in (usage if isinstance(usage,dict) else {}).items()
                                          if k in ('prompt_tokens','completion_tokens','total_tokens') and isinstance(v,int)}
             content=choice['message']['content']
             if choice.get('finish_reason')=='length':

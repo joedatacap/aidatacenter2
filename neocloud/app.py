@@ -37,7 +37,7 @@ async def lifespan(app):
         app.state.database = {**database_configuration(os.getenv("DATABASE_URL")),
                               "connected":not isinstance(repo,MemoryRepository)}
     except Exception as exc:
-        database_failure=classify_error(exc) if not isinstance(exc,ValueError) else "incorrect_configuration"
+        database_failure=getattr(exc,"category",classify_error(exc)) if not isinstance(exc,ValueError) else "incorrect_configuration"
         if candidate_repo is not None:
             try:
                 await candidate_repo.close()
@@ -45,7 +45,7 @@ async def lifespan(app):
                 pass
         repo = MemoryRepository()
         app.state.database = {**database_configuration(os.getenv("DATABASE_URL")),"connected":False,
-                              "failure_category":database_failure,"warning":"Postgres unavailable; using nonpersistent development memory"}
+                              "failure_category":database_failure,"connection_attempts":getattr(exc,"attempts",[]),"warning":"Postgres unavailable; using nonpersistent development memory"}
     app.state.repo = repo
     app.state.engine = Engine(repo,app.state.crusoe)
     worker = asyncio.create_task(app.state.engine.serve())
@@ -132,7 +132,7 @@ async def read_run(run_id: str):
 async def scenario(run_id: str, delta_bps: int = 200, assume_unknown_unhedged: bool = False):
     run = await get_run(run_id)
     try:
-        return {ticker:rate_scenario([Instrument.model_validate(i) for i in run["instruments"] if i["ticker"]==ticker],
+        return {ticker:rate_scenario([Instrument.model_validate(i) for i in run["instruments"] if i["ticker"]==ticker and (run['mode']=='simulated' or i.get('verification_status')=='auditor_verified')],
                                     delta_bps,date.today(),assume_unknown_unhedged)
                 for ticker in run["tickers"]}
     except ValueError:
@@ -151,6 +151,8 @@ async def refinancing(run_id: str, request: RefinanceRequest):
     candidate = next((i for i in run["instruments"] if i["instrument_id"]==request.instrument_id),None)
     if candidate is None:
         raise HTTPException(422,"A verified instrument is required")
+    if run['mode']=='live' and candidate.get('verification_status')!='auditor_verified':
+        raise HTTPException(422,'Auditor review required before modeling this live instrument')
     try:
         return refinancing_scenario(Instrument.model_validate(candidate),request.principal_to_refinance,
                                     request.old_rate_pct,request.new_rate_pct,request.horizon,date.today())
