@@ -1,12 +1,15 @@
 """Bounded, server-owned research manager with model-selected recursive tasks."""
 import asyncio
 import json
+from copy import deepcopy
 from datetime import datetime, timezone, timedelta
 from uuid import uuid4
 from pydantic import ValidationError
 from .catalog import COMPANIES
 from .finance import Instrument
 from .sources import source_bundle
+from .crusoe import InferenceError,backoff_delay
+from .reporting import build_dossier,complete_evidence,meaningful_research,source_results
 
 MAX_TASKS, MAX_CALLS, MAX_FETCHES, MAX_RETRIES, MAX_SECONDS = 18, 25, 15, 2, 300
 ROLES = {"debt", "deals", "markets", "auditor", "followup", "dossier"}
@@ -30,7 +33,7 @@ def new_run(tickers, mode="live"):
             "started_at":None,"stop_reason":None,"tasks":[task("manager",None,"Plan the investigation")],
             "events":[],"evidence":[],"instruments":[],"customer_deals":[],"deal_financing_links":[],"market_observations":[],
             "budgets":{"llm_calls":0,"source_fetches":0},
-            "dossier":None, "disclosure":"Disclosure incomplete", "source_cache":{}}
+            "outcome":None,"dossier":None, "disclosure":"Disclosure incomplete", "source_cache":{}}
 
 def audit(run):
     issues = []
@@ -82,6 +85,9 @@ Plan debt, customer deals and markets research for selected tickers. Use an audi
 AFTER an auditor concern, choose targeted research children of the auditor task (or its reporting manager), based on its actual
 objections. Before a dossier or finish, delegate at least one targeted followup when auditor concerns exist.
 The manager MUST choose the actual followup goal and parent; the worker never invents it.
+Consult source_status: never assign a repeated fetch of a failed URL or an already-denied host.
+A followup may inspect alternate approved URLs or document the specific unavailable disclosure.
+After one targeted followup per concern, stop seeking inaccessible sources and request a caveated dossier.
 Do not schedule identical work twice. Stop after resolving or honestly documenting unknowns.
 Request a dossier task after auditing. Finish true only after dossier completed, or evidence is unavailable.
 Even when sources are unavailable, ask an auditor to review that limitation, delegate its targeted
@@ -110,6 +116,9 @@ Never use issue size as a later outstanding balance. Do not assume unhedged with
 Markets: if no dated equity prices provided, state Market data unavailable; return no observations.
 Customer deals: keep financing linkage unverified unless direct evidence is retrieved.
 Auditor: challenge sourced figures, coverage and earlier reasoning; do not manufacture a contradiction.
+Also return instrument_reviews:[{instrument_id,verdict:"supported|needs_followup|reject",reason,evidence_ids:[]}].
+Only mark supported if the actual excerpts support all populated financial fields, amount units, dates and
+outstanding-vs-commitment classification. Cite the instrument's evidence IDs. Missing fields stay unknown.
 Dossier: synthesize only accepted findings, comparing risk dimensions and unknowns, not total debt rankings.
 """
 
@@ -121,23 +130,56 @@ class Engine:
         self.repo, self.model = repository, model
         self.stop = asyncio.Event()
 
-    async def call(self, run, instruction, context):
-        if run["budgets"]["llm_calls"] >= MAX_CALLS:
-            raise BudgetStop("25-call model budget reached")
-        run["budgets"]["llm_calls"] += 1
-        await self.repo.save(run)  # Reserve before request; interrupted calls still consume budget.
-        if run["mode"] == "simulated":
-            from .fixtures import SimulatedModel
-            return await SimulatedModel().json(instruction,context)
-        return await self.model.json(instruction, context)
+    async def call(self,run,instruction,context):
+        current=next((t for t in run['tasks'] if t['status']=='running'),run['tasks'][-1])
+        if current.pop('reuse_response',False) and current.get('response_checkpoint'):
+            event(run,'inference_recovered','Reused durable response; no repeated model call',current['id'])
+            return deepcopy(current['response_checkpoint'])
+        if run['budgets']['llm_calls']>=MAX_CALLS:
+            raise BudgetStop('25-call model budget reached')
+        selected='simulated'
+        if run['mode']=='live':
+            selected=self.model.select_model(current.get('failed_models',[])) if hasattr(self.model,'select_model') else getattr(self.model,'model','test-double')
+        current['model_used']=selected
+        attempt={'model':selected,'started_at':now(),'status':'started','attempt':len(current.get('inference_attempts',[]))+1}
+        current.setdefault('inference_attempts',[]).append(attempt)
+        run['budgets']['llm_calls']+=1
+        event(run,'inference_attempt',current['role']+' using '+selected,current['id'],model=selected,attempt=attempt['attempt'])
+        await self.repo.save(run)
+        try:
+            if run['mode']=='simulated':
+                from .fixtures import SimulatedModel
+                response=await SimulatedModel().json(instruction,context)
+            elif hasattr(self.model,'select_model'):
+                response=await self.model.json(instruction,context,model=selected)
+            else:
+                response=await self.model.json(instruction,context)
+        except Exception as exc:
+            attempt.update(status='failed',finished_at=now(),category=getattr(exc,'category','application_error'),
+                           http_status=getattr(exc,'status_code',None))
+            current.setdefault('failed_models',[]).append(selected)
+            if hasattr(self.model,'note_failure'):
+                self.model.note_failure(selected,exc)
+            event(run,'inference_error',attempt['category'],current['id'],model=selected,http_status=attempt['http_status'])
+            await self.repo.save(run)
+            raise
+        attempt.update(status='succeeded',finished_at=now())
+        if run['mode']=='live' and hasattr(self.model,'last_metadata'):
+            attempt.update(deepcopy(self.model.last_metadata))
+        current['response_checkpoint']=deepcopy(response)
+        await self.repo.save(run)
+        return response
 
     async def recover(self):
         for run in await self.repo.all():
             if run["status"] in ("running","queued"):
                 for item in run["tasks"]:
                     if item["status"] == "running":
-                        item["retries"] += 1
-                        item["status"] = "pending" if item["retries"] <= MAX_RETRIES else "failed"
+                        if item.get('response_checkpoint'):
+                            item['reuse_response']=True
+                        else:
+                            item['retries']+=1
+                        item['status']='pending' if item['retries']<=MAX_RETRIES else 'failed'
                 event(run,"recovery","Recovered interrupted tasks; reserved calls remain counted.")
                 await self.repo.save(run)
 
@@ -166,12 +208,24 @@ class Engine:
             except TimeoutError:
                 pass
 
-    def finish(self, run, reason, status="completed"):
-        run["status"], run["stop_reason"] = status, reason
-        for item in run["tasks"]:
-            if item["status"] in ("pending","running"):
-                item["status"] = "cancelled"
-        event(run,"stopped",reason)
+    def finish(self,run,reason,status='completed'):
+        has_results=meaningful_research(run)
+        model_dossier=bool(run.get('dossier'))
+        if status=='completed' and model_dossier and complete_evidence(run):
+            outcome='completed'
+        elif has_results:
+            outcome='partially_completed'
+        else:
+            outcome='failed'
+        run['outcome']=outcome
+        run['status']=status if status=='budget_exhausted' and not has_results else outcome
+        run['stop_reason']=reason
+        run['dossier']=build_dossier(run,outcome,reason)
+        for item in run['tasks']:
+            if item['status'] in ('pending','running'):
+                item['status']='cancelled'
+        event(run,'dossier_finalized',outcome+': grounded evidence snapshot',generator='evidence_snapshot')
+        event(run,'stopped',reason,outcome=outcome)
 
     async def step(self, run):
         if run["started_at"] is None:
@@ -200,6 +254,7 @@ class Engine:
         try:
             await asyncio.wait_for(self.execute(run,current),timeout=max(0.1,MAX_SECONDS-elapsed))
             current["status"] = "completed"
+            current.pop('response_checkpoint',None)
             event(run,"task_completed",current["role"] + " completed",current["id"])
         except BudgetStop as exc:
             self.finish(run,str(exc),"budget_exhausted")
@@ -211,11 +266,18 @@ class Engine:
         except Exception as exc:
             current["retries"] += 1
             current["status"] = "pending" if current["retries"] <= MAX_RETRIES else "failed"
-            if getattr(exc,"status_code",None) == 429:
-                delay = getattr(exc,"retry_after",15) * current["retries"]
-                current["next_attempt_at"] = (datetime.now(timezone.utc)+timedelta(seconds=delay)).isoformat()
+            current.pop('response_checkpoint',None)
+            if isinstance(exc,InferenceError):
+                delay=backoff_delay(current['retries'],exc.provider_retry_after)
+                current['next_attempt_at']=(datetime.now(timezone.utc)+timedelta(seconds=delay)).isoformat()
+                if not exc.retryable:
+                    current['status']='failed'
+            elif isinstance(exc,ValueError) and current.get('model_used'):
+                current.setdefault('failed_models',[]).append(current['model_used'])
+                if current.get('inference_attempts'):
+                    current['inference_attempts'][-1]['validation_status']='rejected'
             event(run,"task_error","Task failed; " + ("retry queued" if current["status"]=="pending" else "retry limit reached"),
-                  current["id"],error_type=type(exc).__name__,http_status=getattr(exc,"status_code",None),
+                  current["id"],error_type=type(exc).__name__,category=getattr(exc,"category","task_validation_error" if isinstance(exc,ValueError) else "application_error"),http_status=getattr(exc,"status_code",None),
                   next_attempt_at=current.get("next_attempt_at"))
             if current["role"]=="manager" and current["status"]=="failed":
                 self.finish(run,"Research manager failed after two retries","failed")
@@ -224,8 +286,8 @@ class Engine:
     def context(self, run):
         from .catalog import SOURCES
         source_catalog = {t:list(SOURCES[t]) for t in run["tickers"]}
-        for sources in run["source_cache"].values():
-            for source in sources:
+        for source in source_results(run):
+            if source:
                 for ticker in run["tickers"]:
                     source_catalog[ticker].extend(source.get("discovered_links",[]))
         auditor_concerns = [t["id"] for t in run["tasks"] if t["role"]=="auditor" and t["status"]=="completed"
@@ -235,10 +297,15 @@ class Engine:
                 "budgets":{"used":run["budgets"],"limits":{"llm_calls":MAX_CALLS,"source_fetches":MAX_FETCHES},
                            "remaining":{"llm_calls":MAX_CALLS-run["budgets"]["llm_calls"],
                                         "source_fetches":MAX_FETCHES-run["budgets"]["source_fetches"]}},
-                "tasks":[{k:v for k,v in t.items() if k != "result"} | {"result":t.get("result")} for t in run["tasks"]],
+                "tasks":[{k:t.get(k) for k in ('id','role','ticker','parent_task_id','status','goal')} |
+                         {'result':{'summary':str((t.get('result') or {}).get('summary',''))[:900],
+                                    'concerns':(t.get('result') or {}).get('concerns',[])[:6],
+                                    'reason':str((t.get('result') or {}).get('reason',''))[:500],
+                                    'validation_feedback':(t.get('result') or {}).get('validation_feedback')}} for t in run['tasks']],
                 "instruments":run["instruments"],"evidence":run["evidence"][-20:],
                 "rule_objections":audit(run) if any(t["role"]!="manager" and t["status"]=="completed" for t in run["tasks"]) else [],
                 "source_catalog":source_catalog,
+                "source_status":[{k:source.get(k) for k in ('url','status','category')} for source in source_results(run)],
                 "followup_required_for_auditors":auditor_concerns if not has_followup else [],
                 "remaining_tasks":MAX_TASKS-len(run["tasks"])}
 
@@ -298,33 +365,51 @@ class Engine:
         context["assignment"] = current
         bundle = []
         if current["role"] in ("debt","deals","followup"):
-            ticker = current["ticker"]
-            cache_key = ticker + "|" + "|".join(current.get("source_urls",[])) if current.get("source_urls") else ticker
-            if cache_key in run["source_cache"]:
-                bundle = run["source_cache"][cache_key]
-                event(run,"source_cache","Reused cached source results",current["id"])
-            else:
-                from .catalog import SOURCES
-                needed = len(current.get("source_urls") or SOURCES[ticker])
-                if run["budgets"]["source_fetches"] + needed > MAX_FETCHES:
-                    raise BudgetStop("15-source-fetch budget reached (no search provider configured)")
-                run["budgets"]["source_fetches"] += needed
-                await self.repo.save(run)
-                if run["mode"] == "simulated":
-                    from .fixtures import bundle as fixture_bundle
-                    bundle = fixture_bundle(ticker)
-                else:
-                    bundle = await source_bundle(ticker,current.get("source_urls") or None)
-                run["source_cache"][cache_key] = bundle
+            ticker=current['ticker']
+            if run['mode']=='simulated':
+                from .fixtures import bundle as fixture_bundle
+                bundle=fixture_bundle(ticker)
                 for source in bundle:
-                    event(run,"source_retrieved" if source["status"]=="retrieved" else ("fixture_loaded" if source["status"]=="fixture" else "source_unavailable"),
-                          source["status"] + ": " + source["url"],current["id"])
+                    run['source_cache'][source['url']]=source
+                    event(run,'fixture_loaded','Curated fixture, not live research',current['id'])
+            else:
+                async def reserve(url):
+                    if run['budgets']['source_fetches']>=MAX_FETCHES:
+                        raise BudgetStop('15-source-fetch budget reached')
+                    run['budgets']['source_fetches']+=1
+                    event(run,'source_attempt','Fetching '+url,current['id'])
+                    await self.repo.save(run)
+                async def record(source,cached):
+                    kind='source_cache' if cached else ('source_retrieved' if source['status']=='retrieved' else 'source_unavailable')
+                    event(run,kind,source.get('category',source['status'])+': '+source['url'],current['id'],
+                          category=source.get('category'),http_status=source.get('http_status'))
+                    await self.repo.save(run)
+                bundle=await source_bundle(ticker,current.get('source_urls') or None,run['source_cache'],reserve,record)
+            if not any(source['status'] in ('retrieved','fixture') for source in bundle):
+                current['result']={'summary':'No primary-source text accessible; no financial facts extracted.',
+                    'concerns':[source.get('category','unavailable')+': '+source['url'] for source in bundle],
+                    'execution':'retrieval_tools_only'}
+                event(run,'specialist_limited','No source text; unnecessary extraction inference skipped',current['id'])
+                return
+        if current['role']=='markets':
+            current['result']={'summary':'Market data unavailable; no quote provider configured.','concerns':[],
+                               'execution':'capability_check_only'}
+            event(run,'specialist_limited',current['result']['summary'],current['id'])
+            return
         context["sources"] = bundle
         response = await self.call(run,RESEARCH,context)
         # Keep unvalidated agent prose for manager review; UI dossiers remain caveated.
         current["result"] = {"summary":str(response.get("summary",""))[:6000],
                              "concerns":response.get("concerns",[])[:15]}
         if current["role"] == "auditor":
+            for review in response.get('instrument_reviews',[]):
+                item=next((i for i in run['instruments'] if i['instrument_id']==review.get('instrument_id')),None)
+                if item and item.get('provenance')=='live':
+                    refs=review.get('evidence_ids',[])
+                    supported=review.get('verdict')=='supported' and bool(refs) and set(refs)<=set(item['evidence_ids'])
+                    item['verification_status']='auditor_verified' if supported else 'needs_review'
+                    item['audit_reason']=str(review.get('reason',''))[:1000]
+                    event(run,'instrument_audit',item['verification_status']+': '+item['instrument_id'],current['id'])
             current["result"]["rule_objections"] = audit(run)
             event(run,"auditor_objection",json.dumps(current["result"],default=str)[:7000],current["id"])
         if current["role"] == "dossier":
@@ -336,12 +421,16 @@ class Engine:
         refs = {}
         for index, candidate in enumerate(response.get("evidence",[])[:20]):
             try:
-                source = bundle[candidate["source_index"]]
+                source_index=candidate['source_index']
+                if not isinstance(source_index,int) or isinstance(source_index,bool) or not 0<=source_index<len(bundle):
+                    raise ValueError()
+                source = bundle[source_index]
                 excerpt = candidate["excerpt"]
-                if source["status"] not in (("retrieved",) if run["mode"]=="live" else ("fixture",)) or not isinstance(excerpt,str) or len(excerpt)<20 or len(excerpt)>4000 or excerpt not in source["text"]:
+                if source["status"] not in (("retrieved",) if run["mode"]=="live" else ("fixture",)) or not isinstance(excerpt,str) or len(excerpt)<20 or len(excerpt)>4000 or excerpt not in source["text"] or '\n[…]\n' in excerpt:
                     raise ValueError()
                 evidence = {"id":uid(),"source_url":source["url"],"source_title":source["title"],
-                            "publisher":source["url"].split("/")[2],
+                            "publisher":source["url"].split("/")[2],"final_url":source.get('final_url',source['url']),
+                            "verification_status":"source_excerpt_matched",
                             "publication_or_filing_date":candidate.get("publication_or_filing_date"),
                             "retrieved_at":source["retrieved_at"],"excerpt":excerpt,
                             "confidence":candidate.get("confidence","low"),
@@ -363,6 +452,7 @@ class Engine:
                 if not ids or candidate.get("ticker") != current["ticker"]:
                     raise ValueError()
                 candidate["evidence_ids"],candidate["provenance"] = ids,("live" if run["mode"]=="live" else "fixture")
+                candidate['verification_status']='source_matched' if run['mode']=='live' else 'fixture'
                 # Namespace identifiers to prevent cross-ticker collisions.
                 candidate["instrument_id"] = current["ticker"] + ":" + str(candidate["instrument_id"]).split(":")[-1][:120]
                 item = Instrument.model_validate(candidate).model_dump(mode="json")

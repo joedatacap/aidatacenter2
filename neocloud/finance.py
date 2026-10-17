@@ -30,6 +30,7 @@ class Instrument(BaseModel):
     hedge_end_date: date | None = None
     evidence_ids: list[str] = Field(default_factory=list)
     provenance: Literal["live", "fixture"] = "live"
+    verification_status: Literal["needs_review", "source_matched", "auditor_verified", "fixture"] = "needs_review"
 
     @model_validator(mode="after")
     def dated_balance(self):

@@ -14,3 +14,8 @@ SOURCES = {
  "IREN": ["https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm"],
  "BTDR": ["https://ir.bitdeer.com/financial-information/sec-filings"],
 }
+
+# Official discovery roots, not financial evidence until retrieved and excerpted.
+SOURCES['CRWV'] += ['https://investors.coreweave.com/financials/sec-filings/default.aspx',
+                    'https://investors.coreweave.com/news/default.aspx']
+SOURCES['NBIS'] += ['https://nebius.com/newsroom','https://nebius.com/financials']

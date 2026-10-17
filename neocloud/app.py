@@ -1,4 +1,5 @@
 import asyncio
+import os
 from contextlib import asynccontextmanager
 from datetime import date
 from decimal import Decimal
@@ -10,6 +11,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, model_validator
 from .catalog import COMPANIES
+from .connectivity import classify_error,database_configuration
 from .crusoe import Crusoe, InferenceError
 from .engine import Engine, new_run
 from .finance import Instrument, rate_scenario, refinancing_scenario
@@ -26,23 +28,24 @@ async def lifespan(app):
             app.state.inference = {"verified":True,**await app.state.crusoe.verify()}
         except (InferenceError,httpx.HTTPError):
             app.state.inference = {"verified":False,"reason":"Crusoe connectivity or structured-output verification failed"}
-    app.state.database = {"configured":False,"connected":False}
+    app.state.database = {**database_configuration(os.getenv("DATABASE_URL")),"connected":False}
     candidate_repo = None
     try:
         candidate_repo = make_repository()
         await candidate_repo.initialize()
         repo = candidate_repo
-        app.state.database = {"configured":not isinstance(repo,MemoryRepository),
+        app.state.database = {**database_configuration(os.getenv("DATABASE_URL")),
                               "connected":not isinstance(repo,MemoryRepository)}
-    except Exception:
+    except Exception as exc:
+        database_failure=classify_error(exc) if not isinstance(exc,ValueError) else "incorrect_configuration"
         if candidate_repo is not None:
             try:
                 await candidate_repo.close()
             except Exception:
                 pass
         repo = MemoryRepository()
-        app.state.database = {"configured":True,"connected":False,
-                              "warning":"Postgres unavailable; using nonpersistent development memory"}
+        app.state.database = {**database_configuration(os.getenv("DATABASE_URL")),"connected":False,
+                              "failure_category":database_failure,"warning":"Postgres unavailable; using nonpersistent development memory"}
     app.state.repo = repo
     app.state.engine = Engine(repo,app.state.crusoe)
     worker = asyncio.create_task(app.state.engine.serve())
@@ -54,7 +57,7 @@ async def lifespan(app):
         worker.cancel()
         try:
             await worker
-        except asyncio.CancelledError:
+        except (asyncio.CancelledError,Exception):
             pass
         await repo.close()
 
@@ -110,7 +113,7 @@ async def start_run(request: RunRequest):
 
 @app.get("/api/runs")
 async def list_runs():
-    return [{k:r.get(k) for k in ("id","tickers","mode","status","created_at","stop_reason")}
+    return [{k:r.get(k) for k in ("id","tickers","mode","status","outcome","created_at","stop_reason")}
             for r in await app.state.repo.all()]
 
 async def get_run(run_id):
