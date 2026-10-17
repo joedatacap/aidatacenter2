@@ -47,6 +47,7 @@ def database_configuration(uri):
         return {'configured':bool(uri),'host':host,'port':port,
                 'postgres_scheme':part.scheme in ('postgres','postgresql'),
                 'tls_required':parse_qs(part.query).get('sslmode',[''])[0] in ('require','verify-ca','verify-full'),
+                'https_endpoint_host':('api.'+host.split('.',1)[1]) if host and host.endswith('.neon.tech') else None,
                 'tcp_grant_configured':any(fnmatch.fnmatchcase(host or '',entry if isinstance(entry,str) else entry.get('host',''))
                     for entry in policy_snapshot().get('tcp_network_access',{}).get('domains',[]))}
     except (ValueError,TypeError):

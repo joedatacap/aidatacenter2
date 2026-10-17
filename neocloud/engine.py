@@ -247,7 +247,9 @@ class Engine:
                 self.finish(run,"18-task budget reached","budget_exhausted")
                 await self.repo.save(run)
                 return
-            current = task("manager",None,"Replan from intermediate results",run["tasks"][-1]["id"])
+            audited=[t for t in run['tasks'] if t['role']=='auditor' and t['status']=='completed']
+            parent=audited[-1]['id'] if audited else run['tasks'][-1]['id']
+            current = task("manager",None,"Replan from intermediate results",parent)
             run["tasks"].append(current)
         current["status"] = "running"
         event(run,"task_started",current["role"] + ": " + current["goal"],current["id"])

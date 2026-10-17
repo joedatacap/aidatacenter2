@@ -79,3 +79,23 @@ def test_late_manager_failure_returns_grounded_partial_dossier():
         assert 'private-error-body' not in str(run)
         assert research['parent_task_id']==run['tasks'][0]['id']
     asyncio.run(check())
+
+def test_replanning_retains_auditor_ancestry_after_interleaved_tasks():
+    class Manager:
+        async def json(self,instruction,context):
+            current=next(t for t in context['tasks'] if t['role']=='manager' and t['status']=='running')
+            return {'tasks':[{'role':'debt','ticker':'CRWV','goal':'Verify the auditor hedge concern','parent_task_id':current['id']}],'reason':'Auditor identified missing hedge dates'}
+    async def check():
+        run=new_run(['CRWV']);run['tasks'][0]['status']='completed'
+        auditor=task('auditor','CRWV','Check hedges',run['tasks'][0]['id'])
+        auditor.update(status='completed',result={'concerns':['Hedge dates unknown']})
+        run['tasks'].append(auditor)
+        other=task('followup','CRWV','Earlier unrelated check',run['tasks'][0]['id'])
+        other.update(status='completed',result={'summary':'Limited sources'})
+        run['tasks'].append(other)
+        await Engine(MemoryRepository(),Manager()).step(run)
+        child=run['tasks'][-1];manager=run['tasks'][-2]
+        assert manager['parent_task_id']==auditor['id']
+        assert child['parent_task_id']==manager['id']
+        assert any(e['kind']=='recursive_child' and e['auditor_task_id']==auditor['id'] for e in run['events'])
+    asyncio.run(check())

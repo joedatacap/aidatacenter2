@@ -73,7 +73,7 @@ class Crusoe:
     def candidates(self):
         configured=[m.strip() for m in os.getenv('CRUSOE_FALLBACK_MODELS','').split(',') if m.strip()]
         preferred=[self.model,*configured,'nvidia/Nemotron-3.5-Lightning-30B-A3B',
-                   'nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B','zai-org/GLM-5.3-Flash',
+                   'zai-org/GLM-5.3-Flash','nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B',
                    'openai/gpt-oss-120b','deepseek-ai/Deepseek-V4-Flash']
         return list(dict.fromkeys(m for m in preferred if m and m in self.available_models))
 
@@ -81,6 +81,8 @@ class Crusoe:
         candidates=self.candidates()
         if not candidates:
             raise InferenceError('No configured model appears in Crusoe account discovery',category='model_unavailable')
+        failed_families={m.split('/')[0] for m in failed_models}
+        candidates=sorted(candidates,key=lambda m:m.split('/')[0] in failed_families)
         ready=[m for m in candidates if self.cooldowns.get(m,0)<=time.monotonic()]
         return next((m for m in ready if m not in failed_models),
                     next((m for m in candidates if m not in failed_models),ready[0] if ready else candidates[0]))
@@ -116,13 +118,15 @@ class Crusoe:
         if not self.key or not selected:
             raise InferenceError('Crusoe credentials/model not configured; run connectivity verification',category='missing_configuration')
         started=time.monotonic()
-        self.last_metadata={'model':selected,'status':'started'}
+        self.last_metadata={'model':selected,'status':'started',
+                            'requested_thinking_disabled':'nemotron' in selected.lower() and os.getenv('CRUSOE_DISABLE_THINKING','1')=='1'}
         try:
             async with httpx.AsyncClient(timeout=40) as client:
                 response=await client.post(self.base+'/chat/completions',
                     headers={'Authorization':'Bearer '+self.key},
                     json={'model':selected,'temperature':0.1,'max_tokens':4096,
                           'response_format':{'type':'json_object'},
+                          **({'chat_template_kwargs':{'enable_thinking':False}} if 'nemotron' in selected.lower() and os.getenv('CRUSOE_DISABLE_THINKING','1')=='1' else {}),
                           'messages':[{'role':'system','content':instruction},
                                       {'role':'user','content':json.dumps(context,default=str)}]})
         except httpx.HTTPError as exc:
