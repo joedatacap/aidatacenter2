@@ -4,11 +4,11 @@
 
 **Which AI infrastructure companies survive higher rates?**
 
-An autonomous research system that investigates publicly listed AI cloud companies' debt structures, links financing to customer deals where supported by actual disclosures, and compares exposure to rising rates and refinancing risk.
+An autonomous research system that investigates debt structures of publicly traded GPU clouds and AI compute infrastructure companies, links financing to customer deals where supported by actual disclosures, and compares exposure to rising rates and refinancing risk.
 
 ## MVP
 
-Enter one or two tickers (initially **CRWV**, **NBIS**, **IREN**) and investigate:
+Enter one or two tickers (initially **CRWV**, **NBIS**, **IREN**, **BTDR**, **BTDR**) and investigate:
 
 - Debt financing instruments, principal outstanding, coupon or floating spread, maturity, hedges and recourse.
 - AI customer contracts and **evidence-verified** financing relationships.
