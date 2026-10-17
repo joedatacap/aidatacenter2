@@ -25,6 +25,6 @@ The source-access gap was not resolved: all four primary URLs were unavailable, 
 
 ## Validation and remaining work
 
-CI passed 25 tests including real TLS Postgres migration, repeat saves, worker ownership and restart recovery. Additional parser and duplicate-evidence changes have local coverage and are included in the final CI run. Browser verification found no JavaScript errors and no horizontal page overflow at 390px. The running server completed a simulated IREN/BTDR investigation and returned the same investigation after repeated page requests.
+CI passed **28 tests**, including real TLS Postgres migration, repeat saves, worker ownership, restart recovery, rate-limit backoff, structured-response parsing and all six simulated ticker pairs. [Passing code validation](https://github.com/joedatacap/aidatacenter2/actions/runs/39075814388). Browser verification found no JavaScript errors and no horizontal page overflow at 390px. The running server completed a simulated IREN/BTDR investigation and returned the same investigation after repeated page requests.
 
 Completing the hackathon definition of done still requires reachable primary sources, verified dated balances and maturities, a source-backed customer deal, a successful final live dossier and a working Neon connection. The V2 backlog added concurrently on main is preserved and intentionally not implemented in this V1 task.
