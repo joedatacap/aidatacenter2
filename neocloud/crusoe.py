@@ -32,7 +32,7 @@ class Crusoe:
     async def verify(self) -> dict:
         available = await self.models()
         if not self.model:
-            preferred = ("nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B", "nvidia/Nemotron-3.5-Lightning-30B-A3B")
+            preferred = ("nvidia/Nemotron-3.5-Lightning-30B-A3B", "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B")
             self.model = next((m for m in preferred if m in available),
                               next((m for m in available if "nemotron" in m.lower()), ""))
         if not self.model or self.model not in available:

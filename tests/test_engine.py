@@ -118,3 +118,17 @@ def test_manager_cannot_claim_completion_without_a_dossier():
         assert 'validation_feedback' in run['tasks'][0]['result']
         assert run['stop_reason']=='Research manager failed after two retries'
     asyncio.run(check())
+
+def test_specialized_debt_child_can_follow_auditor_through_manager():
+    from neocloud.engine import task,audit_ancestor
+    run=new_run(['CRWV'])
+    auditor=task('auditor','CRWV','Challenge hedge disclosure',run['tasks'][0]['id'])
+    auditor['status']='completed'
+    auditor['result']={'concerns':['Hedge effective date missing']}
+    run['tasks'].append(auditor)
+    manager=task('manager',None,'Choose targeted followup',auditor['id'])
+    run['tasks'].append(manager)
+    specialist=task('debt','CRWV','Verify swap effective date in filing',manager['id'])
+    assert audit_ancestor(run,specialist)==auditor['id']
+    run['tasks'].append(specialist)
+    assert Engine(MemoryRepository(),None).context(run)['followup_required_for_auditors']==[]
