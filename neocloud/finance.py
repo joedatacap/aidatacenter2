@@ -78,7 +78,7 @@ def rate_scenario(instruments: list[Instrument], delta_bps: int, as_of: date,
                      "annual_increment": str(impact) if impact is not None else None, "warning": reason})
     return {"delta_bps": delta_bps, "as_of": str(as_of),
             "known_annual_increment_by_currency": {k: str(v) for k, v in totals.items()},
-            "coverage": "Disclosure incomplete" if any(r["warning"] for r in rows) else "Provided instruments only",
+            "coverage": "Disclosure incomplete" if not rows or any(r["warning"] for r in rows) else "Provided instruments only",
             "assumptions": "Parallel benchmark shock; annualized illustration; floors, amortization and future draws excluded. Fixed contractual coupons do not reprice.",
             "rows": rows, "warnings": sorted(set(warnings))}
 

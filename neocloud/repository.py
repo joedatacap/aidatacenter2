@@ -4,6 +4,7 @@ import copy
 import os
 from pathlib import Path
 from urllib.parse import urlsplit, parse_qs
+from uuid import uuid4
 import psycopg
 from psycopg.types.json import Jsonb
 from .catalog import COMPANIES
@@ -21,6 +22,8 @@ class MemoryRepository:
         return copy.deepcopy(self.runs.get(run_id))
     async def all(self):
         return copy.deepcopy(list(self.runs.values()))
+    async def heartbeat(self):
+        return None
     async def close(self):
         return None
 
@@ -34,7 +37,7 @@ class PostgresRepository:
         if parse_qs(parsed.query).get("sslmode", [""])[0] not in ("require", "verify-ca", "verify-full"):
             raise ValueError("DATABASE_URL must require TLS with sslmode=require or stronger")
         self.url = url
-        self.lease = None
+        self.owner = str(uuid4())
 
     async def initialize(self):
         await asyncio.to_thread(self._initialize)
@@ -45,19 +48,28 @@ class PostgresRepository:
             for ticker, company in COMPANIES.items():
                 conn.execute("INSERT INTO companies VALUES (%s,%s,%s,%s,%s) ON CONFLICT(ticker) DO NOTHING",
                              (ticker, company["name"], company["base_currency"], company["sector"], company["url"]))
-        # One worker process owns the queue; fail visibly rather than run duplicate model calls.
-        self.lease = psycopg.connect(self.url, connect_timeout=10, autocommit=True)
-        if not self.lease.execute("SELECT pg_try_advisory_lock(734903211)").fetchone()[0]:
-            self.lease.close()
-            self.lease = None
-            raise RuntimeError("Another worker owns this database queue; use one Uvicorn worker")
+        # Row lease works through Neon's transaction pooler; no session locks required.
+        self._heartbeat()
+
+    def _heartbeat(self):
+        with psycopg.connect(self.url, connect_timeout=10) as conn:
+            row = conn.execute("""INSERT INTO worker_leases(name,owner,expires_at)
+                VALUES('research',%s,now()+interval '120 seconds')
+                ON CONFLICT(name) DO UPDATE SET owner=EXCLUDED.owner,expires_at=EXCLUDED.expires_at
+                WHERE worker_leases.owner=EXCLUDED.owner OR worker_leases.expires_at < now()
+                RETURNING owner""",(self.owner,)).fetchone()
+            if row is None:
+                raise RuntimeError("Another worker owns this database queue")
+
+    async def heartbeat(self):
+        await asyncio.to_thread(self._heartbeat)
 
     async def save(self, run):
         await asyncio.to_thread(self._save, copy.deepcopy(run))
 
     def _save(self, run):
-        # Check the worker's dedicated lock connection before each persistent transition.
-        self.lease.execute("SELECT 1")
+        # Refuse writes after ownership is lost.
+        self._heartbeat()
         with psycopg.connect(self.url, connect_timeout=10) as conn:
             conn.execute("""INSERT INTO runs(id,status,created_at,body) VALUES(%s,%s,%s,%s)
                 ON CONFLICT(id) DO UPDATE SET status=EXCLUDED.status,body=EXCLUDED.body,updated_at=now()""",
@@ -84,6 +96,13 @@ class PostgresRepository:
             for item in run["customer_deals"]:
                 conn.execute("INSERT INTO customer_deals VALUES(%s,%s,%s,%s) ON CONFLICT(id) DO NOTHING",
                              (item["id"],run["id"],item["ticker"],Jsonb(item)))
+            for item in run.get("deal_financing_links",[]):
+                conn.execute("INSERT INTO deal_financing_links VALUES(%s,%s,%s) ON CONFLICT(id) DO UPDATE SET body=EXCLUDED.body",
+                             (item["id"],run["id"],Jsonb(item)))
+            for item in run["market_observations"]:
+                conn.execute("INSERT INTO market_observations VALUES(%s,%s,%s,%s,%s,%s,%s) ON CONFLICT(id) DO NOTHING",
+                             (item["id"],run["id"],item["ticker_or_security"],item["observation_date"],
+                              item["metric_type"],item["value"],Jsonb(item)))
 
     async def get(self, run_id):
         return await asyncio.to_thread(self._get, run_id)
@@ -97,8 +116,11 @@ class PostgresRepository:
         with psycopg.connect(self.url, connect_timeout=10) as conn:
             return [row[0] for row in conn.execute("SELECT body FROM runs ORDER BY created_at DESC LIMIT 100")]
     async def close(self):
-        if self.lease:
-            await asyncio.to_thread(self.lease.close)
+        await asyncio.to_thread(self._release)
+
+    def _release(self):
+        with psycopg.connect(self.url,connect_timeout=10) as conn:
+            conn.execute("DELETE FROM worker_leases WHERE name='research' AND owner=%s",(self.owner,))
 
 
 def make_repository():

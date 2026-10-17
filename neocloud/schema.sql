@@ -43,3 +43,7 @@ CREATE TABLE IF NOT EXISTS market_observations (
  ticker_or_security TEXT NOT NULL, observation_date DATE NOT NULL,
  metric_type TEXT NOT NULL, value NUMERIC NOT NULL, body JSONB NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS worker_leases (
+ name TEXT PRIMARY KEY, owner TEXT NOT NULL, expires_at TIMESTAMPTZ NOT NULL
+);

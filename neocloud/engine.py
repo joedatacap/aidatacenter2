@@ -1,7 +1,7 @@
 """Bounded, server-owned research manager with model-selected recursive tasks."""
 import asyncio
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from uuid import uuid4
 from pydantic import ValidationError
 from .catalog import COMPANIES
@@ -28,7 +28,7 @@ def task(role, ticker, goal, parent_task_id=None):
 def new_run(tickers, mode="live"):
     return {"id":uid(),"tickers":tickers,"mode":mode,"status":"queued","created_at":now(),
             "started_at":None,"stop_reason":None,"tasks":[task("manager",None,"Plan the investigation")],
-            "events":[],"evidence":[],"instruments":[],"customer_deals":[],"market_observations":[],
+            "events":[],"evidence":[],"instruments":[],"customer_deals":[],"deal_financing_links":[],"market_observations":[],
             "budgets":{"llm_calls":0,"source_fetches":0},
             "dossier":None, "disclosure":"Disclosure incomplete", "source_cache":{}}
 
@@ -58,9 +58,15 @@ MANAGER = GUARDRAILS + """
 You are the Research Manager. Dynamically decide the next bounded tasks from intermediate evidence.
 Return {"tasks":[{"role":"debt|deals|markets|auditor|followup|dossier", "ticker":"CRWV|NBIS|IREN|BTDR",
 "goal":"specific question", "parent_task_id":"existing task id"}], "finish":false, "reason":"..."}.
+Tasks may include source_urls chosen ONLY from source_catalog; followup tasks can fetch newly discovered primary links.
+Initial missing data is expected: FIRST delegate debt and deal retrieval, then audit what they found.
+Capabilities: debt/deals/followup retrieve primary URLs; auditor only reviews supplied evidence;
+markets has no quote provider and must report unavailable. Do not ask an auditor to search.
 Plan debt, customer deals and markets research for selected tickers. Use an auditor to challenge findings.
 AFTER an auditor concern, choose targeted followup children of the auditor task, based on its actual
-objections. Do not schedule identical work twice. Stop after resolving or honestly documenting unknowns.
+objections. Before a dossier or finish, delegate at least one targeted followup when auditor concerns exist.
+The manager MUST choose the actual followup goal and parent; the worker never invents it.
+Do not schedule identical work twice. Stop after resolving or honestly documenting unknowns.
 Request a dossier task after auditing. Finish true only after dossier completed, or evidence is unavailable.
 Each task must concern a selected ticker. Source/network failures are evidence limitations, not facts.
 """
@@ -117,7 +123,21 @@ class Engine:
                 event(run,"recovery","Recovered interrupted tasks; reserved calls remain counted.")
                 await self.repo.save(run)
 
+    async def keep_lease(self):
+        while not self.stop.is_set():
+            await self.repo.heartbeat()
+            try:
+                await asyncio.wait_for(self.stop.wait(),timeout=20)
+            except TimeoutError:
+                pass
+
     async def serve(self):
+        # TaskGroup stops processing if the lease heartbeat fails.
+        async with asyncio.TaskGroup() as group:
+            group.create_task(self.keep_lease())
+            group.create_task(self.process_queue())
+
+    async def process_queue(self):
         await self.recover()
         while not self.stop.is_set():
             for run in reversed(await self.repo.all()):
@@ -144,7 +164,10 @@ class Engine:
             self.finish(run,"Five-minute runtime budget reached","budget_exhausted")
             await self.repo.save(run)
             return
-        current = next((x for x in run["tasks"] if x["status"] == "pending"),None)
+        pending = [x for x in run["tasks"] if x["status"] == "pending"]
+        current = next((x for x in pending if not x.get("next_attempt_at") or x["next_attempt_at"] <= now()),None)
+        if current is None and pending:
+            return
         if current is None:
             # The manager is called again with results, including auditor objections.
             if len(run["tasks"]) >= MAX_TASKS:
@@ -170,21 +193,44 @@ class Engine:
         except Exception as exc:
             current["retries"] += 1
             current["status"] = "pending" if current["retries"] <= MAX_RETRIES else "failed"
+            if getattr(exc,"status_code",None) == 429:
+                delay = getattr(exc,"retry_after",15) * current["retries"]
+                current["next_attempt_at"] = (datetime.now(timezone.utc)+timedelta(seconds=delay)).isoformat()
             event(run,"task_error","Task failed; " + ("retry queued" if current["status"]=="pending" else "retry limit reached"),
-                  current["id"],error_type=type(exc).__name__)
+                  current["id"],error_type=type(exc).__name__,http_status=getattr(exc,"status_code",None),
+                  next_attempt_at=current.get("next_attempt_at"))
         await self.repo.save(run)
 
     def context(self, run):
+        from .catalog import SOURCES
+        source_catalog = {t:list(SOURCES[t]) for t in run["tickers"]}
+        for sources in run["source_cache"].values():
+            for source in sources:
+                for ticker in run["tickers"]:
+                    source_catalog[ticker].extend(source.get("discovered_links",[]))
+        auditor_concerns = [t["id"] for t in run["tasks"] if t["role"]=="auditor" and t["status"]=="completed"
+                            and (t.get("result",{}).get("concerns") or t.get("result",{}).get("rule_objections"))]
+        has_followup = any(t["role"]=="followup" and t["parent_task_id"] in auditor_concerns for t in run["tasks"])
         return {"tickers":run["tickers"],"budgets":run["budgets"],
                 "tasks":[{k:v for k,v in t.items() if k != "result"} | {"result":t.get("result")} for t in run["tasks"]],
                 "instruments":run["instruments"],"evidence":run["evidence"][-20:],
-                "rule_objections":audit(run),
+                "rule_objections":audit(run) if any(t["role"]!="manager" and t["status"]=="completed" for t in run["tasks"]) else [],
+                "source_catalog":source_catalog,
+                "followup_required_for_auditors":auditor_concerns if not has_followup else [],
                 "remaining_tasks":MAX_TASKS-len(run["tasks"])}
 
     async def execute(self, run, current):
         if current["role"] == "manager":
-            response = await self.call(run,MANAGER,self.context(run))
+            context = self.context(run)
+            response = await self.call(run,MANAGER,context)
             current["result"] = response
+            if context["followup_required_for_auditors"]:
+                proposals = response.get("tasks",[])
+                valid_followup = any(isinstance(p,dict) and p.get("role")=="followup" and
+                    p.get("parent_task_id") in context["followup_required_for_auditors"] for p in proposals)
+                if response.get("finish") is True or not valid_followup:
+                    current["result"]["validation_feedback"] = "Unresolved auditor concern: choose a targeted followup with parent_task_id from followup_required_for_auditors before concluding."
+                    raise ValueError("Manager omitted required audit followup")
             event(run,"manager_decision",str(response.get("reason","No reason supplied"))[:1500],current["id"])
             if response.get("finish") is True:
                 self.finish(run,str(response.get("reason","Manager stopped"))[:1000])
@@ -207,6 +253,7 @@ class Engine:
                 if any(t["role"]==role and t["ticker"]==ticker and t["goal"]==goal[:1000] for t in run["tasks"]):
                     continue
                 child = task(role,ticker,goal,parent)
+                child["source_urls"] = [u for u in proposal.get("source_urls",[]) if u in context["source_catalog"][ticker]][:3]
                 run["tasks"].append(child)
                 parent_task = next(t for t in run["tasks"] if t["id"]==parent)
                 recursive = role=="followup" and parent_task["role"]=="auditor" and parent_task["status"]=="completed"
@@ -223,12 +270,13 @@ class Engine:
         bundle = []
         if current["role"] in ("debt","deals","followup"):
             ticker = current["ticker"]
-            if ticker in run["source_cache"]:
-                bundle = run["source_cache"][ticker]
+            cache_key = ticker + "|" + "|".join(current.get("source_urls",[])) if current.get("source_urls") else ticker
+            if cache_key in run["source_cache"]:
+                bundle = run["source_cache"][cache_key]
                 event(run,"source_cache","Reused retrieved passages",current["id"])
             else:
                 from .catalog import SOURCES
-                needed = len(SOURCES[ticker])
+                needed = len(current.get("source_urls") or SOURCES[ticker])
                 if run["budgets"]["source_fetches"] + needed > MAX_FETCHES:
                     raise BudgetStop("15-source-fetch budget reached (no search provider configured)")
                 run["budgets"]["source_fetches"] += needed
@@ -237,8 +285,8 @@ class Engine:
                     from .fixtures import bundle as fixture_bundle
                     bundle = fixture_bundle(ticker)
                 else:
-                    bundle = await source_bundle(ticker)
-                run["source_cache"][ticker] = bundle
+                    bundle = await source_bundle(ticker,current.get("source_urls") or None)
+                run["source_cache"][cache_key] = bundle
                 for source in bundle:
                     event(run,"source_retrieved" if source["status"]=="retrieved" else ("fixture_loaded" if source["status"]=="fixture" else "source_unavailable"),
                           source["status"] + ": " + source["url"],current["id"])

@@ -2,7 +2,7 @@
 import os
 import re
 from datetime import datetime, timezone
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urljoin
 import httpx
 from bs4 import BeautifulSoup
 from .catalog import SOURCES
@@ -32,18 +32,30 @@ async def retrieve(url: str) -> dict:
         tag.decompose()
     text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True))
     # Scope long SEC filings to relevant financing passages instead of prompting entire documents.
-    matches = list(re.finditer(r"debt|credit facility|convertible|hedg|swap|customer|agreement|senior notes", text, re.I))
+    # Put note tables and hedge paragraphs ahead of incidental mentions in filing front matter.
+    priority = list(re.finditer(r"note\s*10[. :–—-]*\s*debt|notes? payable|debt financing|interest rate swaps|hedging activities",text,re.I))
+    matches = priority + list(re.finditer(r"debt|credit facility|convertible|hedg|swap|customer|agreement|senior notes", text, re.I))
     passages = []
-    last_end = 0
+    ranges = []
     for match in matches:
         start, end = max(0, match.start()-500), min(len(text), match.start()+2100)
-        if start < last_end:
+        if any(start < b and end > a for a,b in ranges):
             continue
         passages.append(text[start:end])
-        last_end = end
+        ranges.append((start,end))
         if sum(map(len,passages)) >= 22000:
             break
+    links = []
+    for anchor in soup.find_all("a",href=True):
+        target = urljoin(url,anchor["href"]).split("#")[0]
+        part = urlsplit(target)
+        if part.scheme=="https" and part.hostname in ALLOWED_HOSTS and not part.username and part.port in (None,443) and target not in links:
+            if re.search(r"debt|financ|senior|notes|filing|sec|2026|agreement|customer",target,re.I):
+                links.append(target)
+        if len(links)>=40:
+            break
     return {"url":url, "status":"retrieved", "title":soup.title.get_text() if soup.title else parsed.hostname,
+            "discovered_links":links,
             "retrieved_at":datetime.now(timezone.utc).isoformat(),
             "text":"\n[…]\n".join(passages) if passages else text[:22000],
             "scope_warning":"Scoped passages; absence is not proof of no debt."}

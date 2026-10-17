@@ -1,11 +1,15 @@
 """OpenAI-compatible Crusoe client. Never log headers, keys, or raw errors."""
+import asyncio
 import json
 import os
 import httpx
 
 
 class InferenceError(RuntimeError):
-    pass
+    def __init__(self, message, status_code=None, retry_after=2):
+        super().__init__(message)
+        self.status_code = status_code
+        self.retry_after = min(max(float(retry_after), 1), 30)
 
 
 class Crusoe:
@@ -31,8 +35,15 @@ class Crusoe:
             self.model = next((m for m in available if "nemotron" in m.lower()), "")
         if not self.model or self.model not in available:
             raise InferenceError("Select an available Nemotron model with CRUSOE_MODEL")
-        result = await self.json("Return a JSON object with connectivity set to ok.",
-                                 {"purpose": "connectivity verification"})
+        for attempt in range(3):
+            try:
+                result = await self.json("Return a JSON object with connectivity set to ok.",
+                                         {"purpose": "connectivity verification"})
+                break
+            except InferenceError as exc:
+                if exc.status_code != 429 or attempt == 2:
+                    raise
+                await asyncio.sleep(exc.retry_after)
         if result.get("connectivity") != "ok":
             raise InferenceError("Crusoe JSON connectivity response failed validation")
         return {"provider": "Crusoe Managed Inference", "model": self.model, "json_verified": True}
@@ -48,7 +59,11 @@ class Crusoe:
                       "messages": [{"role": "system", "content": instruction},
                                    {"role": "user", "content": json.dumps(context, default=str)}]})
         if response.status_code != 200:
-            raise InferenceError("Crusoe inference HTTP " + str(response.status_code))
+            try:
+                delay = float(response.headers.get("retry-after", "15" if response.status_code == 429 else "2"))
+            except ValueError:
+                delay = 15
+            raise InferenceError("Crusoe inference HTTP " + str(response.status_code), response.status_code, delay)
         try:
             content = response.json()["choices"][0]["message"]["content"]
             result = json.loads(content)

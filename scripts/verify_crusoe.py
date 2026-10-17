@@ -1,12 +1,13 @@
 """Run before demo; outputs only sanitized connectivity metadata."""
 import asyncio
 import json
+import httpx
 from neocloud.crusoe import Crusoe, InferenceError
 
 async def main():
     try:
         print(json.dumps(await Crusoe().verify()))
-    except (InferenceError, OSError) as exc:
+    except (InferenceError, OSError, httpx.HTTPError) as exc:
         # Do not print raw SDK/network errors that might contain credentials.
         print(json.dumps({"verified": False, "reason": str(exc) if isinstance(exc,InferenceError) else "Network unavailable"}))
         raise SystemExit(1)

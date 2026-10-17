@@ -5,7 +5,7 @@ const money=(v,c)=>v===null||v===undefined?'Unknown':c+' '+Number(v).toLocaleStr
 async function api(path,options){const r=await fetch(path,options);const body=await r.json();if(!r.ok)throw new Error(typeof body.detail==='string'?body.detail:'Request failed');return body}
 function link(url,text){try{const u=new URL(url);if(u.protocol==='https:'){const a=node('a',text);a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';return a}}catch{}return node('span',text)}
 function clear(id){$(id).replaceChildren();return $(id)}
-async function health(){const h=await api('/api/health');$('health').textContent=(h.inference.verified?'Crusoe verified · '+h.inference.model:'Crusoe unverified · '+h.inference.reason)+' | Storage: '+h.storage+(h.database.warning?' | '+h.database.warning:'');return h}
+async function health(){const h=await api('/api/health');$('health').textContent=(h.inference.verified?'Crusoe verified · '+h.inference.model:'Crusoe unverified · '+h.inference.reason)+' | Storage: '+h.storage+(h.database.warning?' | '+h.database.warning:'')+(!h.worker?' | WORKER STOPPED':'');return h}
 async function history(){const runs=await api('/api/runs');const select=clear('history');select.append(node('option','Select a run'));select.firstChild.value='';runs.forEach(r=>{const o=node('option',r.tickers.join(' vs ')+' · '+r.mode+' · '+r.status);o.value=r.id;select.append(o)});if(runId)select.value=runId}
 function selectRun(id){runId=id;localStorage.setItem('neocloudRun',id);historyReplace(id)}
 function historyReplace(id){const url=new URL(location.href);url.searchParams.set('run',id);window.history.replaceState({},'',url)}

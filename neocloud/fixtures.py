@@ -20,6 +20,7 @@ DATA = {
  "IREN": [
   {"instrument_id":"gpu-ddtl","ticker":"IREN","name":"GPU financing DDTL",
    "currency":"USD","commitment_amount":"1500000000","drawn_amount":"413000000",
+   "snapshot_date":"2026-06-30",
    "rate_type":"floating","reference_index":"1-month SOFR","spread_bps":"225",
    "excerpt":"Task brief fixture: IREN GPU DDTL commitment approximately $1.5B at 1-month SOFR plus 225 basis points. $413M drawn June 30 2026; roughly $394M forward swap, effective terms require verification."},
   {"instrument_id":"gpu-notes","ticker":"IREN","name":"GPU private secured notes",

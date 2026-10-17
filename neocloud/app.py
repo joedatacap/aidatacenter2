@@ -36,7 +36,10 @@ async def lifespan(app):
                               "connected":not isinstance(repo,MemoryRepository)}
     except Exception:
         if candidate_repo is not None:
-            await candidate_repo.close()
+            try:
+                await candidate_repo.close()
+            except Exception:
+                pass
         repo = MemoryRepository()
         app.state.database = {"configured":True,"connected":False,
                               "warning":"Postgres unavailable; using nonpersistent development memory"}
@@ -96,6 +99,8 @@ async def verify():
 async def start_run(request: RunRequest):
     if request.mode=="live" and not app.state.inference["verified"]:
         raise HTTPException(503,"Verify Crusoe connectivity before a live run; simulated mode is available")
+    if app.state.worker.done():
+        raise HTTPException(503,"Research worker unavailable; restart after checking database connectivity")
     active = [r for r in await app.state.repo.all() if r["status"] in ("queued","running")]
     if len(active) >= 5:
         raise HTTPException(429,"Five runs already active")
