@@ -2,7 +2,53 @@
 
 **Which AI infrastructure companies survive higher rates?**
 
-FastAPI research application for **CRWV, NBIS, IREN and BTDR**, with a Crusoe research manager, evidence ledger, rate scenarios and visible agent history. Bitdeer combines Bitcoin mining, ASIC manufacturing and emerging AI/HPC activity; it is not treated as a pure-play GPU cloud. This implements V1 from [HACKATHON_TASK.md](HACKATHON_TASK.md); the V2 backlog remains out of scope.
+FastAPI research application for **CRWV, NBIS, IREN, BTDR and HUT**, with a Crusoe research manager, evidence ledger, rate scenarios and visible agent history. Bitdeer combines Bitcoin mining, ASIC manufacturing and emerging AI/HPC activity; it is not treated as a pure-play GPU cloud. The V2 financing engine implements [V2_FINANCING_RISK.md](V2_FINANCING_RISK.md) while preserving the V1 ledger, APIs and Postgres interface.
+
+## V2 financing dashboard
+
+Open `/` or `/v2` for the comparison dashboard; `/v1` retains the original ledger. Default comparison is **CRWV vs HUT**, with quick switches to CRWV/NBIS and IREN/BTDR. Five panels cover 12/18-month funding, dated instrument yields, contract backing, cash-interest coverage and a 24-month principal wall. Every metric keeps its currency, observation date and evidence or assumption label. No quote or equity-market feed is configured; missing quotes and incomplete forecasts remain unavailable.
+
+Select **Illustrative scenario demo** to exercise Base, Downside and Tight credit waterfalls without runtime inference or source retrieval. Demo funding, equity, cash-flow and floating-debt inputs are synthetic assumptions, deliberately labeled; they are not estimates of the actual companies. CRWV's illustrative funding is less committed and its floating debt less hedged than HUT's illustrative inputs, so tight credit and rate shocks produce different effects. SEC-backed HUT reference excerpts are displayed separately from those assumptions.
+
+Live runs use role-routed Crusoe specialists and two audits: initial audit → manager-selected targeted followup → final audit → dossier. Only reviewed structured records feed live financial calculations. Explicit user funding assumptions can be added after a run finishes; they retain a separate `user_assumption` status and cannot become auditor-approved facts. Provisional extraction and model prose remain subject to review. No guarantee of full disclosure coverage is implied by a completed task.
+
+HUT reference: River Bend **$3.25B, 6.192%, November 15 2042**, Beacon Point **$4.25B, 6.129%, November 30 2042**, both principal amounts dated June 30 2026; parent revolver **$1.07B commitment**, with drawn balance unknown. Beacon Point's Baa2 rating belongs to its project notes. Google backs River Bend lease payments and pass-through obligations; it does not guarantee all Hut 8 debt. Source excerpts, restricted project cash and annual maturity buckets are included in `neocloud/data/hut_reference.json`; live use requires runtime audit.
+
+V2 JSON/CSV exports include source lineage and parent-child investigations. `/api/v2/routing` shows account-tested model routes, latency, usage, pricing estimates and budget diagnostics. The actual discovered IDs are `zai-org/GLM-5.3`, `deepseek-ai/Deepseek-V4-Flash`, `zai-org/GLM-5.3-Flash`, `openai/gpt-oss-120b` and `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B`. All five passed real JSON probes. Overrides use `CRUSOE_ROUTE_<ROLE>` (comma-separated IDs); only discovered, JSON-tested, priced models are eligible. DeepSeek V4 Pro is discoverable but excluded from runtime selection until a maintained price is available. GPT-OSS is served by Crusoe, without an OpenAI API key or runtime OpenAI billing.
+
+V2 reserves conservative cost before each call: default **$2/run** and **$40 global soft cap**, configurable with `CRUSOE_RUN_BUDGET_USD` and `CRUSOE_GLOBAL_SOFT_BUDGET_USD`. A durable ledger survives Postgres restarts; failed or interrupted calls retain conservative reservations. Verification probes are shown separately in diagnostics and are outside investigation budgets. Pricing is estimated, not provider billing. Existing 18-task, 25-call, 15-fetch, 2-retry and 5-minute limits remain. Codex development continues on the user's subscription.
+
+The additive [V2 migration](neocloud/migrations/002_financing_risk.sql) is included in startup `schema.sql` and this PR for coordination with the separate Neon connectivity task. It adds `schema_migrations`, `v2_financing_records`, `v2_model_attempts` and a risk JSON index. Authoritative V2 facts and cost reservations remain in the existing atomic `runs.body` snapshot; SQL views expose queryable records without a second write path. No Neon transport, hostname, credentials or infrastructure changes are included. The migration has been tested only on disposable TLS Postgres, including the existing HTTPS protocol bridge.
+
+Run a bounded real investigation (no Neon network diagnosis):
+
+```sh
+python scripts/run_v2_investigation.py CRWV HUT --output work/v2-live.json
+# Optional persistence proof against an explicitly disposable TEST_DATABASE_URL:
+python scripts/run_v2_investigation.py CRWV NBIS --test-postgres --output work/v2-persisted.json
+```
+
+See [V2 validation and limitations](docs/V2_IMPLEMENTATION.md) and [runtime verification](docs/V2_LIVE_VERIFICATION.json). Financial calculations use Decimal and do not combine currencies, issue size with outstanding balances, or annual maturity buckets with overlapping bullet schedules. A dated project balance is not a current corporate total. Negative EBITDA gives N/M; unknown hedge coverage does not imply zero hedging.
+
+To add your own funding assumptions, open the dashboard's **Use your own funding assumptions** panel after a run finishes, paste a FundingPlan JSON object, and save. For example, this deliberately small illustrative scenario has a $100 funding gap and a $1,000 equity denominator (10%):
+
+```json
+{
+  "id": "example", "ticker": "CRWV", "currency": "USD", "as_of": "2026-10-17",
+  "horizon_months": 12, "scope": "Illustrative parent obligations", "complete": true,
+  "market_cap": "1000", "market_cap_at": "2026-10-17",
+  "lines": [
+    {"id":"capex","ticker":"CRWV","currency":"USD","as_of":"2026-10-17","horizon_months":12,
+     "side":"use","category":"capex","amount":"300","entity":"Parent",
+     "certainty":"analyst_estimated","cashflow_key":"capex"},
+    {"id":"cash","ticker":"CRWV","currency":"USD","as_of":"2026-10-17","horizon_months":12,
+     "side":"source","category":"cash","amount":"200","entity":"Parent","usable":true,
+     "certainty":"analyst_estimated","cashflow_key":"opening-cash"}
+  ]
+}
+```
+
+Amounts are actual currency units. Mark `complete` only when the scenario intentionally covers every relevant use and source in its stated scope. Add an independent 18-month plan rather than extrapolating 12-month rows. Models cannot create user-assumption status; this endpoint strips claimed verification and citation IDs.
 
 ## Start
 

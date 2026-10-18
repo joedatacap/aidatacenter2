@@ -13,7 +13,9 @@ from pydantic import BaseModel, Field, model_validator
 from .catalog import COMPANIES
 from .connectivity import classify_error,database_configuration
 from .crusoe import Crusoe, InferenceError
-from .engine import Engine, new_run
+from .engine import new_run
+from .v2_engine import V2Engine
+from .routing import RoleRouter
 from .finance import Instrument, rate_scenario, refinancing_scenario
 from .repository import make_repository, MemoryRepository
 
@@ -22,12 +24,18 @@ STATIC = Path(__file__).with_name("static")
 @asynccontextmanager
 async def lifespan(app):
     app.state.crusoe = Crusoe()
+    app.state.crusoe.router = RoleRouter(app.state.crusoe)
     app.state.inference = {"verified":False,"reason":"CRUSOE_API_KEY not configured"}
     if app.state.crusoe.key:
         try:
             app.state.inference = {"verified":True,**await app.state.crusoe.verify()}
         except (InferenceError,httpx.HTTPError):
             app.state.inference = {"verified":False,"reason":"Crusoe connectivity or structured-output verification failed"}
+    if app.state.crusoe.key:
+        try:
+            await app.state.crusoe.router.verify()
+        except (InferenceError,httpx.HTTPError):
+            pass
     app.state.database = {**database_configuration(os.getenv("DATABASE_URL")),"connected":False}
     candidate_repo = None
     try:
@@ -47,7 +55,7 @@ async def lifespan(app):
         app.state.database = {**database_configuration(os.getenv("DATABASE_URL")),"connected":False,
                               "failure_category":database_failure,"connection_attempts":getattr(exc,"attempts",[]),"warning":"Postgres unavailable; using nonpersistent development memory"}
     app.state.repo = repo
-    app.state.engine = Engine(repo,app.state.crusoe)
+    app.state.engine = V2Engine(repo,app.state.crusoe)
     worker = asyncio.create_task(app.state.engine.serve())
     app.state.worker = worker
     try:
@@ -72,12 +80,12 @@ class RunRequest(BaseModel):
     def supported(self):
         self.tickers = list(dict.fromkeys(t.upper().strip() for t in self.tickers))
         if any(t not in COMPANIES for t in self.tickers):
-            raise ValueError("Supported tickers: CRWV, NBIS, IREN, BTDR")
+            raise ValueError("Supported tickers: CRWV, NBIS, IREN, BTDR, HUT")
         return self
 
 @app.get("/")
 async def home():
-    return FileResponse(STATIC / "index.html")
+    return FileResponse(STATIC / "v2.html")
 
 @app.get("/api/health")
 async def health():
@@ -92,6 +100,7 @@ async def companies():
 async def verify():
     try:
         result = await app.state.crusoe.verify()
+        await app.state.crusoe.router.verify()
         app.state.inference = {"verified":True,**result}
         return app.state.inference
     except (InferenceError,httpx.HTTPError):
@@ -114,7 +123,7 @@ async def start_run(request: RunRequest):
 @app.get("/api/runs")
 async def list_runs():
     return [{k:r.get(k) for k in ("id","tickers","mode","status","outcome","created_at","stop_reason")}
-            for r in await app.state.repo.all()]
+            for r in await app.state.repo.all() if r.get("tickers")]
 
 async def get_run(run_id):
     run = await app.state.repo.get(run_id)
@@ -158,3 +167,10 @@ async def refinancing(run_id: str, request: RefinanceRequest):
                                     request.old_rate_pct,request.new_rate_pct,request.horizon,date.today())
     except ValueError as exc:
         raise HTTPException(422,str(exc))
+
+from .v2_api import router as v2_router
+app.include_router(v2_router)
+
+@app.get("/v1")
+async def v1_dashboard():
+    return FileResponse(STATIC / "index.html")
