@@ -1,6 +1,6 @@
 # V2 implementation and validation
 
-Branch: `codex/v2-financing-risk`, based on main `482d091` (merged PR #3). Implements Issue #2 and V2_FINANCING_RISK.md. Neon connectivity is owned by the independent task; this implementation makes no Neon infrastructure or transport changes and claims no actual Neon persistence test.
+Branch: `codex/v2-financing-risk`, started on main `482d091` (merged PR #3), then integrated main `c01b04d` and its new repository instructions. Implements Issue #2 and V2_FINANCING_RISK.md. Neon connectivity is owned by the independent task; this implementation makes no Neon infrastructure or transport changes and claims no actual Neon persistence test.
 
 ## Financial behavior
 
@@ -27,11 +27,14 @@ Two real comparison investigations reached a partial dossier with actual manager
 
 The HUT corpus contains exact retrieved public SEC excerpts, not model-generated evidence. It distinguishes June 30 principal balances from later commitments and preserves unknown legal conditions. The issuer website was policy-blocked; its Baa2 claim was independently located in the SEC 10-Q instead. No request was made to alter that policy.
 
+The final HUT investigation completed both GLM-5.3 audits, two real manager-selected followups and a constrained dossier: 16 tasks, 22 inference attempts, 4 source fetches, estimated $0.2587. One instrument and two annual repayment buckets received runtime audit approval; other records stayed provisional. The persisted outcome is `partially_completed`, accurately reflecting missing funding forecasts, quotes and TTM data.
+
 ## Validation
 
 - Full Python suite: **77 tests passed**, including all V1 tests, real disposable TLS Postgres, existing HTTPS protocol bridge, idempotent migrations, V2 snapshot recovery, formulas, numerical provenance gates, route verification/fallback, budgets and API user-assumption status.
+- GitHub Actions passed for implementation commit `744d934` (run 39088139269).
 - Python compilation and syntax checks for both JavaScript entry points pass.
-- Chromium: CRWV/HUT demo, Base/Tight credit behavior, visible source-backed HUT data, audit ancestry, refresh recovery, desktop and 390px mobile layout, no horizontal overflow and no JavaScript errors. V1 remains accessible at `/v1`.
+- Chromium: CRWV/HUT demo, Base/Tight credit behavior, visible source-backed HUT data, audit ancestry, refresh recovery, desktop and 390px mobile layout, no horizontal overflow and no JavaScript errors. V1 remains accessible at `/v1`. The final browser run also saved explicit user assumptions and verified the second audit in the task tree.
 - All synthetic demo inputs are labeled. Actual live partial runs do not invent market capitalization, a 12/18-month forecast, TTM cash-interest denominator or a licensed bond quote when the supplied sources do not establish it.
 
 ## Remaining disclosure limits
