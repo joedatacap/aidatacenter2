@@ -107,6 +107,10 @@ Missing or inaccessible `DATABASE_URL` uses explicitly labeled **development mem
 
 ## Diagnostics and tests
 
+For a database-only check in a normal runtime, run `python scripts/verify_neon.py`.
+It checks authenticated TLS SQL and temporary-table write/read without application
+writes. See [Neon connectivity findings and exact network permission](docs/NEON_CONNECTIVITY.md).
+
 ```sh
 python scripts/check_connectivity.py --output work/connectivity.json
 # Optional bounded real JSON inference verification:
