@@ -1,0 +1,967 @@
+{
+  "disclosure": "Real browser-started Crusoe workflow, not fixtures. No primary-source text was reachable. Research goals are proposals, not verified financial facts. Cached host denials are not separate HTTP requests.",
+  "run_id": "325031c2-e472-40b4-92ca-1ba432b1f50c",
+  "tickers": [
+    "CRWV",
+    "NBIS"
+  ],
+  "mode": "live",
+  "storage": "Development memory; actual Neon connection blocked",
+  "status": "partially_completed",
+  "outcome": "partially_completed",
+  "stop_reason": "Primary sources unavailable; manager-approved dossier finalized",
+  "created_at_utc": "2026-10-17T23:30:59.121375+00:00",
+  "budgets": {
+    "llm_calls": 9,
+    "source_fetches": 3
+  },
+  "task_count": 15,
+  "recursive_children": 2,
+  "model_report_completed": true,
+  "verified_live_instruments": 0,
+  "source_evidence_count": 0,
+  "dossier": {
+    "summary": "Partially completed. 0 auditor-verified live instrument records; 0 provisional or fixture records. Primary sources unavailable; manager-approved dossier finalized",
+    "outcome": "partially_completed",
+    "generator": "evidence_snapshot",
+    "model_notes": "Both CRWV and NBIS debt retrievals failed due to network policy restrictions on all attempted primary sources. No verified debt instrument details (coupons, maturities, structures, or terms) could be extracted from supplied URLs. Per policy, no debt balances or terms should be inferred as zero or otherwise. The reported note sizes ($1.25B and $2.0B for CRWV; $775M for NBIS) remain UNVERIFIED regarding instrument type, currency, coupon, maturity, commitment vs drawn vs outstanding, and hedge status. Zero debt must NOT be inferred.",
+    "verified_information": [],
+    "provisional_information": [],
+    "concerns": [
+      "CRWV: no auditor-verified live instrument; outstanding debt remains unknown.",
+      "NBIS: no auditor-verified live instrument; outstanding debt remains unknown.",
+      "All CRWV source URLs (SEC filing, CoreWeave investor pages) returned network_policy_restriction.",
+      "All NBIS source URLs (SEC TM filing, Nebius investor pages) returned network_policy_restriction.",
+      "No primary-source text was accessible for either ticker.",
+      "Cannot verify instrument type, currency, outstanding principal, commitment, coupon, maturity, or hedge status.",
+      "Do not infer zero debt or terms; mark all fields unknown.",
+      "8 primary source URLs unavailable; these are access failures, not evidence of no debt.",
+      "Market data unavailable. No prices, yields or returns fabricated."
+    ],
+    "source_failures": [
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+        "category": "network_policy_restriction",
+        "http_status": null
+      },
+      {
+        "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+        "category": "network_policy_restriction",
+        "http_status": null
+      },
+      {
+        "url": "https://investors.coreweave.com/financials/sec-filings/default.aspx",
+        "category": "network_policy_restriction",
+        "http_status": null
+      },
+      {
+        "url": "https://investors.coreweave.com/news/default.aspx",
+        "category": "network_policy_restriction",
+        "http_status": null
+      },
+      {
+        "url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+        "category": "network_policy_restriction",
+        "http_status": null
+      },
+      {
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+        "category": "network_policy_restriction",
+        "http_status": null
+      },
+      {
+        "url": "https://nebius.com/newsroom",
+        "category": "network_policy_restriction",
+        "http_status": null
+      },
+      {
+        "url": "https://nebius.com/financials",
+        "category": "network_policy_restriction",
+        "http_status": null
+      }
+    ],
+    "evidence_ids": [],
+    "completion_note": "Missing financial amounts remain unknown; no totals inferred from incomplete coverage."
+  },
+  "tasks": [
+    {
+      "id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Plan the investigation",
+      "parent_task_id": null,
+      "status": "completed",
+      "retries": 0,
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:30:59.129080+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:00.386021+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1255,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 1166,
+            "total_tokens": 1363,
+            "completion_tokens": 197
+          }
+        }
+      ]
+    },
+    {
+      "id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5",
+      "role": "debt",
+      "ticker": "CRWV",
+      "goal": "Retrieve and summarize CRWV's debt issuance details from the 1.25B and 2B senior notes pricing announcement and any SEC filings",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "status": "completed",
+      "retries": 0,
+      "model_used": null,
+      "inference_attempts": null
+    },
+    {
+      "id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223",
+      "role": "debt",
+      "ticker": "NBIS",
+      "goal": "Retrieve and summarize NBIS's 775M secured debt financing terms from the Nebius announcement and any SEC TM filing",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "status": "completed",
+      "retries": 0,
+      "model_used": null,
+      "inference_attempts": null
+    },
+    {
+      "id": "3c757a06-750b-46b3-8197-6209aa54a7f1",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223",
+      "status": "completed",
+      "retries": 0,
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:31:01.956218+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:03.447128+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1489,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 2387,
+            "total_tokens": 2560,
+            "completion_tokens": 173
+          }
+        }
+      ]
+    },
+    {
+      "id": "2ea1589e-e594-4a62-81d0-99e0ec1dff59",
+      "role": "debt",
+      "ticker": "CRWV",
+      "goal": "Fetch CRWV debt terms from alternative approved SEC filing or coreweave investor page",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "status": "completed",
+      "retries": 0,
+      "model_used": null,
+      "inference_attempts": null
+    },
+    {
+      "id": "1a63419e-5e8b-4b32-a46f-097cd01affb9",
+      "role": "debt",
+      "ticker": "NBIS",
+      "goal": "Fetch NBIS debt terms from alternative approved SEC TM filing or nebius investor page",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "status": "completed",
+      "retries": 0,
+      "model_used": null,
+      "inference_attempts": null
+    },
+    {
+      "id": "afcdcc92-80b3-4409-8a08-87f9a56fdbd1",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "1a63419e-5e8b-4b32-a46f-097cd01affb9",
+      "status": "completed",
+      "retries": 0,
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:31:04.955590+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:06.193579+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1236,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3135,
+            "total_tokens": 3325,
+            "completion_tokens": 190
+          }
+        }
+      ]
+    },
+    {
+      "id": "6af7becd-438f-45bf-910a-e8b286627dbf",
+      "role": "auditor",
+      "ticker": "CRWV",
+      "goal": "Review CRWV debt retrieval failures and identify any accessible alternate disclosures or confirm source unavailability",
+      "parent_task_id": "3c757a06-750b-46b3-8197-6209aa54a7f1",
+      "status": "completed",
+      "retries": 0,
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:31:06.695518+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:08.394181+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1697,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3714,
+            "total_tokens": 3906,
+            "completion_tokens": 192
+          }
+        }
+      ]
+    },
+    {
+      "id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "role": "auditor",
+      "ticker": "NBIS",
+      "goal": "Review NBIS debt retrieval failures and identify any accessible alternate disclosures or confirm source unavailability",
+      "parent_task_id": "3c757a06-750b-46b3-8197-6209aa54a7f1",
+      "status": "completed",
+      "retries": 0,
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:31:08.896140+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:10.175569+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1277,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3901,
+            "total_tokens": 4099,
+            "completion_tokens": 198
+          }
+        }
+      ]
+    },
+    {
+      "id": "6ff9116f-1e2b-4562-8a93-52b6204d2534",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "status": "completed",
+      "retries": 0,
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:31:10.678057+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:11.926317+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1246,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 3954,
+            "total_tokens": 4149,
+            "completion_tokens": 195
+          }
+        }
+      ]
+    },
+    {
+      "id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "role": "followup",
+      "ticker": "CRWV",
+      "goal": "Locate alternate approved SEC filing or investor disclosure for CRWV debt terms, avoiding previously blocked URLs",
+      "parent_task_id": "6af7becd-438f-45bf-910a-e8b286627dbf",
+      "status": "completed",
+      "retries": 0,
+      "model_used": null,
+      "inference_attempts": null
+    },
+    {
+      "id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "role": "followup",
+      "ticker": "NBIS",
+      "goal": "Locate alternate approved SEC TM filing or Nebius disclosure for debt terms, avoiding previously blocked URLs",
+      "parent_task_id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "status": "completed",
+      "retries": 0,
+      "model_used": null,
+      "inference_attempts": null
+    },
+    {
+      "id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "status": "completed",
+      "retries": 1,
+      "model_used": "zai-org/GLM-5.3-Flash",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:31:13.436770+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:14.878684+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1440,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4648,
+            "total_tokens": 4900,
+            "completion_tokens": 252
+          },
+          "validation_status": "rejected"
+        },
+        {
+          "model": "zai-org/GLM-5.3-Flash",
+          "started_at": "2026-10-17T23:31:15.382456+00:00",
+          "status": "succeeded",
+          "attempt": 2,
+          "finished_at": "2026-10-17T23:31:22.720567+00:00",
+          "requested_thinking_disabled": false,
+          "http_status": 200,
+          "latency_ms": 7336,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 4277,
+            "total_tokens": 6410,
+            "completion_tokens": 2133
+          }
+        }
+      ]
+    },
+    {
+      "id": "12053b80-5301-41ed-a848-feedf7261a73",
+      "role": "dossier",
+      "ticker": "CRWV",
+      "goal": "Compile a caveated dossier for CRWV: document that every catalogued primary source (SEC filing crwv-20260630.htm, CoreWeave investor news and SEC-filings pages) was unavailable due to network_policy_restriction across debt retrieval and followup; state that the reported $1.25B and $2.0B senior notes pricing remains UNVERIFIED (instrument type, currency, coupon, maturity, commitment vs drawn vs outstanding, hedge status all unknown); explicitly record that zero debt must NOT be inferred; list verified findings (none) and limitations.",
+      "parent_task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "status": "completed",
+      "retries": 0,
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-17T23:31:23.222644+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-17T23:31:24.931398+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1707,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 5627,
+            "total_tokens": 5932,
+            "completion_tokens": 305
+          }
+        }
+      ]
+    },
+    {
+      "id": "1ea8b84f-b8cc-473c-862a-088cf5e19f15",
+      "role": "dossier",
+      "ticker": "NBIS",
+      "goal": "Compile a caveated dossier for NBIS: document that every catalogued primary source (Nebius $775M secured debt newsroom announcement, SEC exhibit tm2623863d1_ex99-1.htm, nebius.com newsroom and financials pages) was unavailable due to network_policy_restriction across debt retrieval and followup; state that the reported $775M secured debt financing remains UNVERIFIED (amount, currency, collateral, coupon vs secondary yield vs refinancing rate, maturity, commitment vs drawn, hedge status all unknown); explicitly record that zero debt must NOT be inferred; list verified findings (none) and limitations.",
+      "parent_task_id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "status": "cancelled",
+      "retries": 0,
+      "model_used": null,
+      "inference_attempts": null
+    }
+  ],
+  "events": [
+    {
+      "id": "d0d2deeb-01f2-4d47-babb-9c6eaccdd79e",
+      "timestamp": "2026-10-17T23:30:59.129089+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "332684ec-3ce9-426d-b9b8-4e13c8fbf7d7",
+      "timestamp": "2026-10-17T23:31:00.386183+00:00",
+      "kind": "manager_decision",
+      "message": "First delegate debt retrieval for both tickers to establish baseline terms before audit review",
+      "task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec"
+    },
+    {
+      "id": "220d14b3-8bad-45b4-99cb-629328c9d08e",
+      "timestamp": "2026-10-17T23:31:00.386204+00:00",
+      "kind": "task_spawned",
+      "message": "debt: Retrieve and summarize CRWV's debt issuance details from the 1.25B and 2B senior notes pricing announcement and any SEC filings",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "2d3e8f53-d6d2-4948-a9e8-6998b284d0f4",
+      "timestamp": "2026-10-17T23:31:00.386216+00:00",
+      "kind": "task_spawned",
+      "message": "debt: Retrieve and summarize NBIS's 775M secured debt financing terms from the Nebius announcement and any SEC TM filing",
+      "task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "7af0bb8f-79a8-4544-b860-2d0402a09c95",
+      "timestamp": "2026-10-17T23:31:00.888210+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5"
+    },
+    {
+      "id": "3689461b-63cf-492d-9d9b-192fee972638",
+      "timestamp": "2026-10-17T23:31:00.907229+00:00",
+      "kind": "source_unavailable",
+      "message": "network_policy_restriction: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "02d8f177-710a-4fbc-99d5-0af819ef3458",
+      "timestamp": "2026-10-17T23:31:00.907402+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5"
+    },
+    {
+      "id": "43aad6c1-36b3-41ff-8b85-703050e6d52b",
+      "timestamp": "2026-10-17T23:31:00.938100+00:00",
+      "kind": "source_unavailable",
+      "message": "network_policy_restriction: https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "c71b104f-70fd-4e88-b5ea-b89c10522e06",
+      "timestamp": "2026-10-17T23:31:00.938205+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "56529530-4aad-4acc-902e-485e6aa164fd",
+      "timestamp": "2026-10-17T23:31:00.938299+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/news/default.aspx",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "9f360b35-64aa-4e98-8f71-688a4e58c879",
+      "timestamp": "2026-10-17T23:31:00.938367+00:00",
+      "kind": "specialist_limited",
+      "message": "No source text; unnecessary extraction inference skipped",
+      "task_id": "ad4a207f-8318-41d8-a39f-ea3f579b31d5"
+    },
+    {
+      "id": "535f5b1c-48ec-4976-ac92-38fb357210c8",
+      "timestamp": "2026-10-17T23:31:01.439449+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223"
+    },
+    {
+      "id": "4478c399-8762-457a-90dd-2c04a9638289",
+      "timestamp": "2026-10-17T23:31:01.454171+00:00",
+      "kind": "source_unavailable",
+      "message": "network_policy_restriction: https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "43358a88-eb50-447f-9862-60df5964c29c",
+      "timestamp": "2026-10-17T23:31:01.454295+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "93e69e3f-04f8-4354-9925-a77b584e4b3d",
+      "timestamp": "2026-10-17T23:31:01.454382+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/newsroom",
+      "task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "fea08fe9-5362-4138-abe4-90d2bcf2c95c",
+      "timestamp": "2026-10-17T23:31:01.454466+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/financials",
+      "task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "78364fd1-d111-4007-8075-0f6c0c3dac6b",
+      "timestamp": "2026-10-17T23:31:01.454551+00:00",
+      "kind": "specialist_limited",
+      "message": "No source text; unnecessary extraction inference skipped",
+      "task_id": "ea1d89ca-54f0-49ad-884f-94fd4ab46223"
+    },
+    {
+      "id": "4197b8dc-a4b0-4d9c-a805-9b60c571f07d",
+      "timestamp": "2026-10-17T23:31:01.956227+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "3c757a06-750b-46b3-8197-6209aa54a7f1",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "01df44b6-8801-4bf7-b333-9fe7e624f8bf",
+      "timestamp": "2026-10-17T23:31:03.447620+00:00",
+      "kind": "manager_decision",
+      "message": "Both debt retrievals failed via primary URLs; need alternate approved sources before audit review.",
+      "task_id": "3c757a06-750b-46b3-8197-6209aa54a7f1"
+    },
+    {
+      "id": "1f340d06-c775-4dd1-a656-786c8cdb270c",
+      "timestamp": "2026-10-17T23:31:03.447640+00:00",
+      "kind": "task_spawned",
+      "message": "debt: Fetch CRWV debt terms from alternative approved SEC filing or coreweave investor page",
+      "task_id": "2ea1589e-e594-4a62-81d0-99e0ec1dff59",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "f619680c-5d09-4abc-bb93-9eabcf594a77",
+      "timestamp": "2026-10-17T23:31:03.447650+00:00",
+      "kind": "task_spawned",
+      "message": "debt: Fetch NBIS debt terms from alternative approved SEC TM filing or nebius investor page",
+      "task_id": "1a63419e-5e8b-4b32-a46f-097cd01affb9",
+      "parent_task_id": "902809f9-e7ad-4262-b956-3e62547fa8ec",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "15dd90e5-f433-45fc-953b-38ea013b32fb",
+      "timestamp": "2026-10-17T23:31:03.949863+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "2ea1589e-e594-4a62-81d0-99e0ec1dff59",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "86e715f1-526d-46dc-8d7a-a7aec9b6f9b5",
+      "timestamp": "2026-10-17T23:31:03.950004+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "2ea1589e-e594-4a62-81d0-99e0ec1dff59",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "806340d2-4489-4797-ada8-a1f1fdd6d946",
+      "timestamp": "2026-10-17T23:31:03.950125+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "task_id": "2ea1589e-e594-4a62-81d0-99e0ec1dff59",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "0dc831e7-50fb-424c-8800-2c6d57d48b04",
+      "timestamp": "2026-10-17T23:31:03.950244+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/news/default.aspx",
+      "task_id": "2ea1589e-e594-4a62-81d0-99e0ec1dff59",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "a56f7fea-12c1-42b8-9237-44ba8e060bbd",
+      "timestamp": "2026-10-17T23:31:03.950384+00:00",
+      "kind": "specialist_limited",
+      "message": "No source text; unnecessary extraction inference skipped",
+      "task_id": "2ea1589e-e594-4a62-81d0-99e0ec1dff59"
+    },
+    {
+      "id": "cc8f25ba-ada8-4c37-bab9-e75568616f14",
+      "timestamp": "2026-10-17T23:31:04.452773+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "1a63419e-5e8b-4b32-a46f-097cd01affb9",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "052448b3-e01c-4244-a392-81ee4b39dbe4",
+      "timestamp": "2026-10-17T23:31:04.452921+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "task_id": "1a63419e-5e8b-4b32-a46f-097cd01affb9",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "0e5e9c03-b366-421b-8548-aa99882307f4",
+      "timestamp": "2026-10-17T23:31:04.453056+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/newsroom",
+      "task_id": "1a63419e-5e8b-4b32-a46f-097cd01affb9",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "b031141f-60b4-41a3-86e9-50b9d3156db4",
+      "timestamp": "2026-10-17T23:31:04.453190+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/financials",
+      "task_id": "1a63419e-5e8b-4b32-a46f-097cd01affb9",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "45f49f45-aab2-413b-b923-4066b7b1b847",
+      "timestamp": "2026-10-17T23:31:04.453348+00:00",
+      "kind": "specialist_limited",
+      "message": "No source text; unnecessary extraction inference skipped",
+      "task_id": "1a63419e-5e8b-4b32-a46f-097cd01affb9"
+    },
+    {
+      "id": "a61ddb28-b99e-49c2-b594-32f76b7cfe7d",
+      "timestamp": "2026-10-17T23:31:04.955599+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "afcdcc92-80b3-4409-8a08-87f9a56fdbd1",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "6e9d97ac-abd8-4a72-8d3b-316a64a3fd81",
+      "timestamp": "2026-10-17T23:31:06.194128+00:00",
+      "kind": "manager_decision",
+      "message": "Both debt retrievals failed via primary and alternate URLs; need auditor assessment of source limitations before any followup.",
+      "task_id": "afcdcc92-80b3-4409-8a08-87f9a56fdbd1"
+    },
+    {
+      "id": "bce81792-16a7-48a9-8987-3d93328817d0",
+      "timestamp": "2026-10-17T23:31:06.194147+00:00",
+      "kind": "task_spawned",
+      "message": "auditor: Review CRWV debt retrieval failures and identify any accessible alternate disclosures or confirm source unavailability",
+      "task_id": "6af7becd-438f-45bf-910a-e8b286627dbf",
+      "parent_task_id": "3c757a06-750b-46b3-8197-6209aa54a7f1",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "a03f9d7c-3976-46ef-9f41-2df91906d0c7",
+      "timestamp": "2026-10-17T23:31:06.194156+00:00",
+      "kind": "task_spawned",
+      "message": "auditor: Review NBIS debt retrieval failures and identify any accessible alternate disclosures or confirm source unavailability",
+      "task_id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "parent_task_id": "3c757a06-750b-46b3-8197-6209aa54a7f1",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "93ed857f-8615-4a6a-a7b8-bb8a3838e998",
+      "timestamp": "2026-10-17T23:31:06.695527+00:00",
+      "kind": "inference_attempt",
+      "message": "auditor using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "6af7becd-438f-45bf-910a-e8b286627dbf",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "2eaa7569-af91-4508-99e7-7c42758569ce",
+      "timestamp": "2026-10-17T23:31:08.394851+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"Both CRWV and NBIS debt retrievals failed due to network policy restrictions on all attempted primary sources. No verified debt instrument details (coupons, maturities, structures, or terms) could be extracted from supplied URLs. Per policy, no debt balances or terms should be inferred as zero or otherwise.\", \"concerns\": [\"All CRWV source URLs (SEC filing, CoreWeave investor pages) returned network_policy_restriction.\", \"All NBIS source URLs (SEC TM filing, Nebius investor pages) returned network_policy_restriction.\", \"No primary-source text was accessible for either ticker.\", \"Cannot verify instrument type, currency, outstanding principal, commitment, coupon, maturity, or hedge status.\", \"Do not infer zero debt or terms; mark all fields unknown.\"], \"rule_objections\": [\"CRWV: no verified debt instruments; do not infer zero debt.\", \"NBIS: no verified debt instruments; do not infer zero debt.\"]}",
+      "task_id": "6af7becd-438f-45bf-910a-e8b286627dbf"
+    },
+    {
+      "id": "6ce1c2fb-df75-4730-a4c7-1eef9d6eafbd",
+      "timestamp": "2026-10-17T23:31:08.896149+00:00",
+      "kind": "inference_attempt",
+      "message": "auditor using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "1200a433-abd8-48ac-9a77-81cd23797792",
+      "timestamp": "2026-10-17T23:31:10.175954+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"Both CRWV and NBIS debt retrievals failed due to network policy restrictions on all attempted primary sources. No verified debt instrument details (coupons, maturities, structures, or terms) could be extracted. Per policy, no debt balances or terms should be inferred as zero or otherwise.\", \"concerns\": [\"All CRWV source URLs (SEC filing, CoreWeave investor pages) returned network_policy_restriction.\", \"All NBIS source URLs (SEC TM filing, Nebius investor pages) returned network_policy_restriction.\", \"No primary-source text was accessible for either ticker.\", \"Cannot verify instrument type, currency, outstanding principal, commitment, coupon, maturity, or hedge status.\", \"Do not infer zero debt or terms; mark all fields unknown.\"], \"rule_objections\": [\"CRWV: no verified debt instruments; do not infer zero debt.\", \"NBIS: no verified debt instruments; do not infer zero debt.\"]}",
+      "task_id": "27b8778d-1868-4169-ae9a-aa036f701903"
+    },
+    {
+      "id": "133a1d78-a8d9-4ca2-99d5-7acaeaa9314a",
+      "timestamp": "2026-10-17T23:31:10.678065+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "6ff9116f-1e2b-4562-8a93-52b6204d2534",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "33f4fd72-4df8-490e-a947-abedfda91585",
+      "timestamp": "2026-10-17T23:31:11.926719+00:00",
+      "kind": "manager_decision",
+      "message": "Auditor confirmed both tickers have no accessible primary sources. Need targeted followup to find any alternate approved disclosures before requesting a caveated dossier.",
+      "task_id": "6ff9116f-1e2b-4562-8a93-52b6204d2534"
+    },
+    {
+      "id": "467889c3-ee33-43ff-a1f7-f99bd9a7ae2e",
+      "timestamp": "2026-10-17T23:31:11.926738+00:00",
+      "kind": "recursive_child",
+      "message": "followup: Locate alternate approved SEC filing or investor disclosure for CRWV debt terms, avoiding previously blocked URLs",
+      "task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "parent_task_id": "6af7becd-438f-45bf-910a-e8b286627dbf",
+      "auditor_task_id": "6af7becd-438f-45bf-910a-e8b286627dbf",
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "3eb1b459-92b4-46d8-9169-83dd435fe86f",
+      "timestamp": "2026-10-17T23:31:11.926748+00:00",
+      "kind": "recursive_child",
+      "message": "followup: Locate alternate approved SEC TM filing or Nebius disclosure for debt terms, avoiding previously blocked URLs",
+      "task_id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "parent_task_id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "auditor_task_id": "27b8778d-1868-4169-ae9a-aa036f701903",
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "d73f77bc-9369-4353-aedf-cc96059d6c5d",
+      "timestamp": "2026-10-17T23:31:12.430184+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "0c081fe0-ed70-441b-843a-9e7e1403ebbe",
+      "timestamp": "2026-10-17T23:31:12.430461+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "921d8c10-3883-4866-8ca9-c7fba28f3dd6",
+      "timestamp": "2026-10-17T23:31:12.430690+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "fd712534-d6e5-491c-97b7-5fb9e4ee6eab",
+      "timestamp": "2026-10-17T23:31:12.430915+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://investors.coreweave.com/news/default.aspx",
+      "task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "9dccac52-7765-4e4c-a471-9401da937b8d",
+      "timestamp": "2026-10-17T23:31:12.431174+00:00",
+      "kind": "specialist_limited",
+      "message": "No source text; unnecessary extraction inference skipped",
+      "task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e"
+    },
+    {
+      "id": "5b574e9a-5163-487f-bdbf-33e158aa14f2",
+      "timestamp": "2026-10-17T23:31:12.933548+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "0413dc90-993f-46e2-9d4b-b281444d40ce",
+      "timestamp": "2026-10-17T23:31:12.933808+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "task_id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "bf6b2816-1353-45d7-b07f-fa7cf77d653a",
+      "timestamp": "2026-10-17T23:31:12.934046+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/newsroom",
+      "task_id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "cae95bde-d48f-4ea4-bad2-c3f345e0982a",
+      "timestamp": "2026-10-17T23:31:12.934301+00:00",
+      "kind": "source_cache",
+      "message": "network_policy_restriction: https://nebius.com/financials",
+      "task_id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "category": "network_policy_restriction",
+      "http_status": null
+    },
+    {
+      "id": "443448a3-3637-4cd8-9493-de2175171a6f",
+      "timestamp": "2026-10-17T23:31:12.934543+00:00",
+      "kind": "specialist_limited",
+      "message": "No source text; unnecessary extraction inference skipped",
+      "task_id": "205aeb2f-2624-434a-9fc7-df240034ad54"
+    },
+    {
+      "id": "b158a28f-90ab-4831-aa91-03be4d87445b",
+      "timestamp": "2026-10-17T23:31:13.436778+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "ec96174f-908d-4bbe-9227-c7428712b4b1",
+      "timestamp": "2026-10-17T23:31:14.879118+00:00",
+      "kind": "manager_decision",
+      "message": "Targeted followup to locate alternate approved disclosures for both tickers before dossier compilation, as auditor confirmed source unavailability and exhausted_source_tickers_after_followup marks both tickers at follow-up limit.",
+      "task_id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34"
+    },
+    {
+      "id": "e8cd02a2-d3c9-43ca-8496-c50a54d13cd7",
+      "timestamp": "2026-10-17T23:31:14.879125+00:00",
+      "kind": "task_suppressed",
+      "message": "Source options exhausted after followup; request a caveated dossier",
+      "task_id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34",
+      "ticker": "CRWV"
+    },
+    {
+      "id": "e3a7a466-b1dd-4dc3-aeae-8648bfba9789",
+      "timestamp": "2026-10-17T23:31:14.879130+00:00",
+      "kind": "task_suppressed",
+      "message": "Source options exhausted after followup; request a caveated dossier",
+      "task_id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34",
+      "ticker": "NBIS"
+    },
+    {
+      "id": "9dfa6ec4-0e4c-4126-a06b-562e4767d3b3",
+      "timestamp": "2026-10-17T23:31:14.879150+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry queued",
+      "task_id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34",
+      "error_type": "ValueError",
+      "category": "task_validation_error",
+      "http_status": null,
+      "next_attempt_at": null
+    },
+    {
+      "id": "d208f28e-4444-4729-bc06-dcfa972467dd",
+      "timestamp": "2026-10-17T23:31:15.382464+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using zai-org/GLM-5.3-Flash",
+      "task_id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34",
+      "model": "zai-org/GLM-5.3-Flash",
+      "attempt": 2
+    },
+    {
+      "id": "d6c2173f-2293-4bd0-bd0a-96aeda74c120",
+      "timestamp": "2026-10-17T23:31:22.721056+00:00",
+      "kind": "manager_decision",
+      "message": "Both CRWV and NBIS are in exhausted_source_tickers_after_followup and allowed_next_roles is dossier only. Auditors confirmed all primary sources returned network_policy_restriction, and the mandated one targeted followup per concern was completed for each ticker with identical failures. No further debt/deals/followup tasks are permitted and no untried approved URLs remain. Requesting per-ticker caveated dossiers that compile limitations and the absence of verified findings, without another round of inaccessible retrieval; finish will follow dossier completion.",
+      "task_id": "4871644d-fa5d-4614-a6b1-1e0b582e9c34"
+    },
+    {
+      "id": "f1f28ac0-aaac-4343-93fa-7fa69c457a55",
+      "timestamp": "2026-10-17T23:31:22.721073+00:00",
+      "kind": "task_spawned",
+      "message": "dossier: Compile a caveated dossier for CRWV: document that every catalogued primary source (SEC filing crwv-20260630.htm, CoreWeave investor news and SEC-filings pages) was unavailable due to network_policy_restriction across debt retrieval and followup; state that the reported $1.25B and $2.0B senior notes pricing remains UNVERIFIED (instrument type, currency, coupon, maturity, commitment vs drawn vs outstanding, hedge status all unknown); explicitly record that zero debt must NOT be inferred; list verified findings (none) and limitations.",
+      "task_id": "12053b80-5301-41ed-a848-feedf7261a73",
+      "parent_task_id": "220ccfcf-e348-45b5-8dd9-62807f6aa89e",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "b846e9e9-0730-4041-97f2-e36da184a466",
+      "timestamp": "2026-10-17T23:31:22.721083+00:00",
+      "kind": "task_spawned",
+      "message": "dossier: Compile a caveated dossier for NBIS: document that every catalogued primary source (Nebius $775M secured debt newsroom announcement, SEC exhibit tm2623863d1_ex99-1.htm, nebius.com newsroom and financials pages) was unavailable due to network_policy_restriction across debt retrieval and followup; state that the reported $775M secured debt financing remains UNVERIFIED (amount, currency, collateral, coupon vs secondary yield vs refinancing rate, maturity, commitment vs drawn, hedge status all unknown); explicitly record that zero debt must NOT be inferred; list verified findings (none) and limitations.",
+      "task_id": "1ea8b84f-b8cc-473c-862a-088cf5e19f15",
+      "parent_task_id": "205aeb2f-2624-434a-9fc7-df240034ad54",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "5bd54598-749b-468e-8dfe-59729963a98d",
+      "timestamp": "2026-10-17T23:31:23.222653+00:00",
+      "kind": "inference_attempt",
+      "message": "dossier using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "12053b80-5301-41ed-a848-feedf7261a73",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "e62b25d4-5dbd-44cf-8b6f-0a2f3949d0af",
+      "timestamp": "2026-10-17T23:31:24.932372+00:00",
+      "kind": "dossier_finalized",
+      "message": "partially_completed: grounded evidence snapshot",
+      "task_id": null,
+      "generator": "evidence_snapshot"
+    },
+    {
+      "id": "bd68aab3-76b2-4ddd-a9b8-b51f53edb81c",
+      "timestamp": "2026-10-17T23:31:24.932380+00:00",
+      "kind": "stopped",
+      "message": "Primary sources unavailable; manager-approved dossier finalized",
+      "task_id": null,
+      "outcome": "partially_completed"
+    }
+  ]
+}

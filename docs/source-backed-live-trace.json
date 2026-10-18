@@ -1,0 +1,2535 @@
+{
+  "id": "9ea3c09e-e446-4c91-978a-728c0e64f0f7",
+  "tickers": [
+    "CRWV",
+    "NBIS"
+  ],
+  "mode": "live",
+  "status": "partially_completed",
+  "created_at": "2026-10-18T01:03:01.912344+00:00",
+  "started_at": "2026-10-18T01:03:01.912636+00:00",
+  "stop_reason": "Manager-approved dossier finalized; disclosure gaps preserved",
+  "tasks": [
+    {
+      "id": "feacefa3-8eab-4b10-8175-10dc698f4b0d",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Plan the investigation",
+      "parent_task_id": null,
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "tasks": [
+          {
+            "role": "debt",
+            "ticker": "CRWV",
+            "goal": "Extract all debt issuance details, amounts, and terms from the CoreWeave 10-K and senior notes pricing releases",
+            "parent_task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d"
+          },
+          {
+            "role": "debt",
+            "ticker": "NBIS",
+            "goal": "Extract all debt issuance details, amounts, and terms from Nebius 6-K and secured financing disclosures",
+            "parent_task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d"
+          }
+        ],
+        "finish": false,
+        "reason": "First delegate debt retrieval for both tickers from their primary SEC and investor relations sources"
+      },
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:03:01.913062+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:03:03.154889+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1238,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 1262,
+            "total_tokens": 1446,
+            "completion_tokens": 184
+          }
+        }
+      ]
+    },
+    {
+      "id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "role": "debt",
+      "ticker": "CRWV",
+      "goal": "Extract all debt issuance details, amounts, and terms from the CoreWeave 10-K and senior notes pricing releases",
+      "parent_task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "CoreWeave's 10-K and pricing releases detail multiple debt instruments as of June 30, 2026. Recourse debt includes DDTL facilities (4.0, 5.0), senior notes (2030-2032, various coupons 9-10%), EUR-denominated senior notes, and convertible notes. Non-recourse debt includes DDTL 4.0 and OEM/Software financing. The DDTL 4.0 Facility ($8.5B commitment) has $1.4B floating-rate and $1.5B fixed-rate outstanding; DDTL 5.0 Facility ($3.1B commitment) had $1.1B drawn as of June 30, 2026. Cross currency swaps hedge the 2032 EUR Senior Notes. Senior notes pricing: $1.25B 9.625% 2032 and \u20ac2B 8.50% 2032 issued June 2026 at par.",
+        "concerns": [
+          "Floating-rate SOFR spread and base rate options not fully specified for all DDTL draws; fixed-rate blended Treasury component for DDTL 4.0; exact drawn amounts for DDTL 5.0 require verification against commitment totals; EUR senior notes non-recourse status and swap notional details limited in excerpt",
+          "Market data unavailable: no dated equity prices provided to observe market terms",
+          "Customer deals: financing linkage unverified unless direct evidence retrieved"
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:03:06.003265+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:03:13.978502+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 7967,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 10957,
+            "total_tokens": 13271,
+            "completion_tokens": 2314
+          }
+        }
+      ]
+    },
+    {
+      "id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "role": "debt",
+      "ticker": "NBIS",
+      "goal": "Extract all debt issuance details, amounts, and terms from Nebius 6-K and secured financing disclosures",
+      "parent_task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "Nebius Group N.V. (Nasdaq: NBIS) entered into a $775 million senior secured debt facility on July 17, 2026, maturing October 31, 2030, priced at SOFR + 2.50%, backed by GPU infrastructure and contracted cash flows from an investment-grade customer.",
+        "concerns": [
+          "No explicit outstanding principal, drawn amount, or commitment breakdown provided in sourced excerpts; SOFR + 2.50% is a spread over a reference index but effective rate not specified",
+          "No hedge status, notional, or effective dates disclosed",
+          "No Form 6-K or 20-F details confirming principal outstanding, amortization, or covenants",
+          "Customer agreement described as investment-grade but counterparty name not specified in excerpts"
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:03:17.997579+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:03:21.513797+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 3512,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 7565,
+            "total_tokens": 8528,
+            "completion_tokens": 963
+          }
+        }
+      ]
+    },
+    {
+      "id": "83d15508-a7c7-4b90-a088-53e5d8380855",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "tasks": [
+          {
+            "role": "auditor",
+            "ticker": "CRWV",
+            "goal": "Review CRWV debt instruments for hedge effectiveness, outstanding principal gaps, and recourse classification consistency with 10-K table and cross-currency swap disclosures",
+            "parent_task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+          },
+          {
+            "role": "auditor",
+            "ticker": "NBIS",
+            "goal": "Review NBIS secured debt facility for outstanding principal, drawn amount, commitment breakdown, and hedge status disclosures",
+            "parent_task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d"
+          }
+        ],
+        "finish": false,
+        "reason": "Audit phase triggered by review_due=true. Must challenge findings from debt extraction before proceeding to dossier. Auditor tasks target the specific validation warnings and rule objections for each ticker."
+      },
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:03:22.021685+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:03:23.149000+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1123,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 10628,
+            "total_tokens": 10840,
+            "completion_tokens": 212
+          }
+        }
+      ]
+    },
+    {
+      "id": "718c304f-e829-4a3e-94ae-0da269384a6b",
+      "role": "auditor",
+      "ticker": "CRWV",
+      "goal": "Review CRWV debt instruments for hedge effectiveness, outstanding principal gaps, and recourse classification consistency with 10-K table and cross-currency swap disclosures",
+      "parent_task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories, including DDTL facilities, senior notes, convertible notes, and cross-currency swaps. NBIS announced a $775M senior secured debt facility on July 17, 2026, priced at SOFR + 2.50%, maturing Oct 31, 2030, backed by GPU infrastructure and investment-grade customer cash flows. Key gaps remain: DDTL 4.0/5.0 exact drawn amounts, DDTL 4.0 fixed/floating split, EUR senior notes non-recourse status, and NBIS outstanding principal/hedge details are unsupported by excerpts.",
+        "concerns": [
+          "CRWV:DDTL_4.0_Facility: outstanding principal unknown; commitment $8.5B and split 4.0/5.0 floating/fixed not fully resolved in excerpt; hedge effectiveness requires verification.",
+          "CRWV:DDTL_5.0_Facility: drawn amount $1.1B vs commitment $3.1B needs verification against 10-K table; SOFR + 4.50% spread not fully specified for all draws.",
+          "CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; non-recourse status and swap notional/terms limited in excerpt.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; coupon 9.625% is market yield, not necessarily contractual coupon per excerpt.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt.",
+          "NBIS:NBIS_2026_secured_debt: hedge status, notional, and effective dates undisclosed."
+        ],
+        "rule_objections": [
+          "CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_4.0_Facility: hedge effectiveness requires further verification.",
+          "CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification."
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:03:23.658785+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:03:37.979158+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 14316,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 11386,
+            "total_tokens": 15933,
+            "completion_tokens": 4547
+          }
+        }
+      ]
+    },
+    {
+      "id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "role": "auditor",
+      "ticker": "NBIS",
+      "goal": "Review NBIS secured debt facility for outstanding principal, drawn amount, commitment breakdown, and hedge status disclosures",
+      "parent_task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories, including DDTL facilities, senior notes, convertible notes, and cross-currency swaps. NBIS announced a $775M senior secured debt facility on July 17, 2026, priced at SOFR + 2.50%, maturing Oct 31, 2030, backed by GPU infrastructure and investment-grade customer cash flows. Key gaps remain: DDTL 4.0/5.0 exact drawn amounts, DDTL 4.0 fixed/floating split, EUR senior notes non-recourse status, and NBIS outstanding principal/hedge details are unsupported by excerpts.",
+        "concerns": [
+          "CRWV:DDTL_4.0_Facility: outstanding principal unknown; commitment $8.5B and split 4.0/5.0 floating/fixed not fully resolved in excerpt; hedge effectiveness requires verification.",
+          "CRWV:DDTL_5.0_Facility: drawn amount $1.1B vs commitment $3.1B needs verification against 10-K table; SOFR + 4.50% spread not fully specified for all draws.",
+          "CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; non-recourse status and swap notional/terms limited in excerpt.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; coupon 9.625% is market yield, not necessarily contractual coupon per excerpt.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt.",
+          "NBIS:NBIS_2026_secured_debt: hedge status, notional, and effective dates undisclosed."
+        ],
+        "rule_objections": [
+          "CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_4.0_Facility: hedge effectiveness requires further verification.",
+          "CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification."
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:03:38.486597+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:03:49.043211+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 10552,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 12134,
+            "total_tokens": 15378,
+            "completion_tokens": 3244
+          }
+        }
+      ]
+    },
+    {
+      "id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "status": "completed",
+      "retries": 2,
+      "result": {
+        "tasks": [
+          {
+            "role": "debt",
+            "ticker": "CRWV",
+            "goal": "Retrieve precise outstanding principal and drawn amounts for the DDTL 4.0 and DDTL 5.0 facilities, and confirm the hedge notional, effective date and effectiveness of the cross\u2011currency swap covering the 2032 EUR Senior Notes, using the CoreWeave 2026 Form 10\u2011K exhibits (e.g., exhibit311q22026.htm, exhibit312q22026.htm) and any related swap documentation.",
+            "parent_task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+          },
+          {
+            "role": "debt",
+            "ticker": "NBIS",
+            "goal": "Extract the outstanding principal, drawn amount, and any hedge details (swap notional, effective and termination dates) for Nebius Group's $775\u202fmillion senior secured debt facility from the NBIS 2026 Form\u202f6\u2011K filing or associated SEC exhibit, confirming recourse status and hedge effectiveness.",
+            "parent_task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e"
+          }
+        ],
+        "finish": false,
+        "reason": "Auditor concerns require targeted debt extraction to resolve unknown outstanding principal and hedge effectiveness for CRWV DDTL facilities and NBIS secured debt. Assigned debt tasks as children of the respective auditor tasks."
+      },
+      "model_used": "openai/gpt-oss-120b",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:03:49.552315+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:03:50.858606+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1303,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 12279,
+            "total_tokens": 12515,
+            "completion_tokens": 236
+          },
+          "validation_status": "rejected"
+        },
+        {
+          "model": "zai-org/GLM-5.3-Flash",
+          "started_at": "2026-10-18T01:03:51.365839+00:00",
+          "status": "failed",
+          "attempt": 2,
+          "requested_thinking_disabled": false,
+          "http_status": null,
+          "latency_ms": 29309,
+          "finish_reason": "length",
+          "usage": {
+            "prompt_tokens": 10587,
+            "total_tokens": 18779,
+            "completion_tokens": 8192
+          },
+          "finished_at": "2026-10-18T01:04:20.675674+00:00",
+          "category": "output_limit",
+          "provider_retry_after": 2.0
+        },
+        {
+          "model": "openai/gpt-oss-120b",
+          "started_at": "2026-10-18T01:04:25.715901+00:00",
+          "status": "succeeded",
+          "attempt": 3,
+          "finished_at": "2026-10-18T01:04:28.888985+00:00",
+          "requested_thinking_disabled": false,
+          "http_status": 200,
+          "latency_ms": 3169,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 10219,
+            "total_tokens": 11454,
+            "completion_tokens": 1235
+          }
+        }
+      ],
+      "failed_models": [
+        "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+        "zai-org/GLM-5.3-Flash"
+      ],
+      "next_attempt_at": "2026-10-18T01:04:25.212118+00:00"
+    },
+    {
+      "id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "role": "debt",
+      "ticker": "CRWV",
+      "goal": "Retrieve precise outstanding principal and drawn amounts for the DDTL 4.0 and DDTL 5.0 facilities, and confirm the hedge notional, effective date and effectiveness of the cross\u2011currency swap covering the 2032 EUR Senior Notes, using the CoreWeave 2026 Form 10\u2011K exhibits (e.g., exhibit311q22026.htm, exhibit312q22026.htm) and any related swap documentation.",
+      "parent_task_id": "718c304f-e829-4a3e-94ae-0da269384a6b",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "DDTL 4.0: outstanding principal $2.837B (non-recourse, 7% fixed) as of 2026-06-30; DDTL 5.0: drawn $1.101B (non-recourse, 9% effective) as of 2026-06-30; 2032 EUR Senior Notes hedged via cross-currency swap with notional EUR 2B, effective June 2026, fair value hedge designation.",
+        "concerns": [
+          "DDTL 4.0 outstanding principal vs commitment split not explicitly separated in table row '2,837'\u2014may reflect drawn amount only; fixed-rate classification inferred from 7% coupon but SOFR + spread terms also present.",
+          "DDTL 5.0 drawn amount $1.101B derived from non-recourse table row; commitment $3.1B separately stated; exact drawn/outstanding split not confirmed by dedicated excerpt.",
+          "Cross-currency swap hedge effective date and end date not specified in excerpt; only June 2026 effective date and fair value hedge designation confirmed."
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:04:29.846508+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:04:38.450156+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 8599,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 15236,
+            "total_tokens": 17837,
+            "completion_tokens": 2601
+          }
+        }
+      ]
+    },
+    {
+      "id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "role": "debt",
+      "ticker": "NBIS",
+      "goal": "Extract the outstanding principal, drawn amount, and any hedge details (swap notional, effective and termination dates) for Nebius Group's $775\u202fmillion senior secured debt facility from the NBIS 2026 Form\u202f6\u2011K filing or associated SEC exhibit, confirming recourse status and hedge effectiveness.",
+      "parent_task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "$775M senior secured facility, SOFR+2.50%, matures Oct 31 2030; no outstanding principal, drawn amount, or hedge details disclosed in source.",
+        "concerns": [
+          "No outstanding principal or drawn amount reported; no hedge (swap) notional, effective or termination dates provided; recourse type unconfirmed"
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:04:40.578457+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:04:43.230296+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 2645,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 10276,
+            "total_tokens": 10973,
+            "completion_tokens": 697
+          }
+        }
+      ]
+    },
+    {
+      "id": "44f53d27-94b6-4a8c-8abb-267670711b5a",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "status": "completed",
+      "retries": 1,
+      "result": {
+        "tasks": [
+          {
+            "role": "auditor",
+            "ticker": "CRWV",
+            "goal": "Final review of the targeted followup record (task aa7e9b55): verify DDTL 4.0 outstanding principal $2.837B (7% fixed, non-recourse, Mar 2032) and DDTL 5.0 drawn $1.101B (SOFR+4.50%, $3.1B commitment, Nov 2031) against the 10-K debt table; confirm the EUR 2B cross-currency swap is a fair value hedge on the 2032 EUR Senior Notes effective June 2026; challenge whether coupon-vs-effective-rate distinctions (e.g., 9.625% coupon vs 10% effective on the 2032 Senior Notes) and remaining unknowns (swap end date, commitment/drawn splits) are preserved rather than fabricated.",
+            "parent_task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+          },
+          {
+            "role": "auditor",
+            "ticker": "NBIS",
+            "goal": "Final review of the targeted followup record (task 78ec1ade): confirm that the $775M senior secured facility (SOFR+2.50%, matures 2030-10-31) genuinely lacks disclosed outstanding principal, drawn amount, and hedge details in the already-retrieved sources, that the $775M commitment is not conflated with drawn or outstanding balances, and that the recourse status and hedge-status unknowns are properly documented as limitations for a caveated dossier.",
+            "parent_task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42"
+          }
+        ],
+        "finish": false,
+        "reason": "final_review_due=true and allowed_next_roles is hard-constrained to [auditor]: schedule final auditor reviews of the completed targeted followup records for both tickers. CRWV followup reported new balances (DDTL 4.0 $2.837B, DDTL 5.0 $1.101B drawn, EUR 2B swap) that need challenge; NBIS followup confirmed the outstanding principal and hedge details remain undisclosed, which must be validated as an honest limitation before any dossier. No further extraction is scheduled at this stage."
+      },
+      "model_used": "zai-org/GLM-5.3-Flash",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:04:43.756823+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:04:45.371991+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1607,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 15253,
+            "total_tokens": 15568,
+            "completion_tokens": 315
+          },
+          "validation_status": "rejected"
+        },
+        {
+          "model": "zai-org/GLM-5.3-Flash",
+          "started_at": "2026-10-18T01:04:45.884846+00:00",
+          "status": "succeeded",
+          "attempt": 2,
+          "finished_at": "2026-10-18T01:04:56.510475+00:00",
+          "requested_thinking_disabled": false,
+          "http_status": 200,
+          "latency_ms": 10614,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 13254,
+            "total_tokens": 15423,
+            "completion_tokens": 2169
+          }
+        }
+      ],
+      "failed_models": [
+        "nvidia/Nemotron-3.5-Lightning-30B-A3B"
+      ]
+    },
+    {
+      "id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729",
+      "role": "auditor",
+      "ticker": "CRWV",
+      "goal": "Final review of the targeted followup record (task aa7e9b55): verify DDTL 4.0 outstanding principal $2.837B (7% fixed, non-recourse, Mar 2032) and DDTL 5.0 drawn $1.101B (SOFR+4.50%, $3.1B commitment, Nov 2031) against the 10-K debt table; confirm the EUR 2B cross-currency swap is a fair value hedge on the 2032 EUR Senior Notes effective June 2026; challenge whether coupon-vs-effective-rate distinctions (e.g., 9.625% coupon vs 10% effective on the 2032 Senior Notes) and remaining unknowns (swap end date, commitment/drawn splits) are preserved rather than fabricated.",
+      "parent_task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories. DDTL 4.0 Facility: $2.837B outstanding (non-recourse, 7% fixed) as of 2026-06-30. DDTL 5.0 Facility: $1.101B drawn (non-recourse, SOFR+4.50% effective) as of 2026-06-30, $3.1B commitment, maturity Nov 2031. 2032 EUR Senior Notes (EUR 2.279B principal) hedged via cross-currency swap with notional EUR 2B, effective June 2026, fair value hedge designation. 2032 9.625% Senior Notes (USD 1.25B) listed with 10% effective rate in table; coupon not confirmed. NBIS: $775M senior secured debt facility announced July 17, 2026, SOFR+2.50%, matures Oct 31, 2030; no outstanding principal, drawn amount, or hedge details disclosed in sourced excerpts.",
+        "concerns": [
+          "CRWV:DDTL_4.0_Facility: outstanding principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present.",
+          "CRWV:DDTL_5.0_Facility: drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt.",
+          "CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; 9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size, not confirmed as drawn or outstanding.",
+          "NBIS:NBIS_2026_secured_debt: hedge status, notional, effective and termination dates undisclosed; no swap documentation in excerpts."
+        ],
+        "rule_objections": [
+          "CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_5.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_5.0_Facility: hedge effectiveness requires further verification.",
+          "CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification."
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:04:57.019644+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:05:10.350072+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 13326,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 16492,
+            "total_tokens": 20586,
+            "completion_tokens": 4094
+          }
+        }
+      ]
+    },
+    {
+      "id": "8399eae4-4424-4013-b689-869a93107054",
+      "role": "auditor",
+      "ticker": "NBIS",
+      "goal": "Final review of the targeted followup record (task 78ec1ade): confirm that the $775M senior secured facility (SOFR+2.50%, matures 2030-10-31) genuinely lacks disclosed outstanding principal, drawn amount, and hedge details in the already-retrieved sources, that the $775M commitment is not conflated with drawn or outstanding balances, and that the recourse status and hedge-status unknowns are properly documented as limitations for a caveated dossier.",
+      "parent_task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories. DDTL 4.0 Facility: $2.837B outstanding (non-recourse, 7% fixed) as of 2026-06-30. DDTL 5.0 Facility: $1.101B drawn (non-recourse, SOFR+4.50% effective) as of 2026-06-30, $3.1B commitment, maturity Nov 2031. 2032 EUR Senior Notes (EUR 2.279B principal) hedged via cross-currency swap with notional EUR 2B, effective June 2026, fair value hedge designation. 2032 9.625% Senior Notes (USD 1.25B) listed with 10% effective rate in table; coupon not confirmed. NBIS: $775M senior secured debt facility announced July 17, 2026, SOFR+2.50%, matures Oct 31, 2030; no outstanding principal, drawn amount, or hedge details disclosed in sourced excerpts.",
+        "concerns": [
+          "CRWV:DDTL_4.0_Facility: outstanding principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present.",
+          "CRWV:DDTL_5.0_Facility: drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt.",
+          "CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; 9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size, not confirmed as drawn or outstanding.",
+          "NBIS:NBIS_2026_secured_debt: hedge status, notional, effective and termination dates undisclosed; no swap documentation in excerpts."
+        ],
+        "rule_objections": [
+          "CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_5.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "CRWV:DDTL_5.0_Facility: hedge effectiveness requires further verification.",
+          "CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.",
+          "NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification."
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:05:10.859652+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:05:23.890684+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 13024,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 17159,
+            "total_tokens": 21170,
+            "completion_tokens": 4011
+          }
+        }
+      ]
+    },
+    {
+      "id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50",
+      "role": "manager",
+      "ticker": null,
+      "goal": "Replan from intermediate results",
+      "parent_task_id": "8399eae4-4424-4013-b689-869a93107054",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "tasks": [
+          {
+            "role": "dossier",
+            "ticker": "CRWV",
+            "goal": "Compile verified debt findings and explicit limitations for CRWV 10-K and pricing disclosures, preserving all unknowns and audit caveats",
+            "parent_task_id": null
+          },
+          {
+            "role": "dossier",
+            "ticker": "NBIS",
+            "goal": "Compile verified debt findings and explicit limitations for NBIS $775M secured facility, preserving all unknowns and audit caveats",
+            "parent_task_id": null
+          }
+        ],
+        "finish": false,
+        "reason": "final_review_due=true and allowed_next_roles is hard-constrained to [dossier]. Both tickers have completed debt extraction and auditor reviews. No further extraction can be accepted. Request caveated dossiers for each ticker summarizing verified findings and documented limitations."
+      },
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:05:24.402939+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:05:25.785871+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 1377,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 17368,
+            "total_tokens": 17545,
+            "completion_tokens": 177
+          }
+        }
+      ]
+    },
+    {
+      "id": "17f32d3d-b370-4bf4-b063-1ab2711288c1",
+      "role": "dossier",
+      "ticker": "CRWV",
+      "goal": "Compile verified debt findings and explicit limitations for CRWV 10-K and pricing disclosures, preserving all unknowns and audit caveats",
+      "parent_task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50",
+      "status": "completed",
+      "retries": 0,
+      "result": {
+        "summary": "CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories. DDTL 4.0 Facility: $2.837B outstanding (non-recourse, 7% fixed) as of 2026-06-30. DDTL 5.0 Facility: $1.101B drawn (non-recourse, SOFR+4.50% effective) as of 2026-06-30, $3.1B commitment, maturity Nov 2031. 2032 EUR Senior Notes (EUR 2.279B principal) hedged via cross-currency swap with notional EUR 2B, effective June 2026, fair value hedge designation. 2032 9.625% Senior Notes (USD 1.25B) listed with 10% effective rate in table; coupon not confirmed. NBIS: $775M senior secured debt facility announced July 17, 2026, SOFR+2.50%, matures Oct 31, 2030; no outstanding principal, drawn amount, or hedge details disclosed in sourced excerpts.",
+        "concerns": [
+          "CRWV:DDTL_4.0_Facility: outstanding principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present.",
+          "CRWV:DDTL_5.0_Facility: drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt.",
+          "CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed.",
+          "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; 9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual.",
+          "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size, not confirmed as drawn or outstanding.",
+          "NBIS:NBIS_2026_secured_debt: hedge status, notional, effective and termination dates undisclosed; no swap documentation in excerpts."
+        ]
+      },
+      "source_urls": [],
+      "model_used": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "inference_attempts": [
+        {
+          "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+          "started_at": "2026-10-18T01:05:26.315856+00:00",
+          "status": "succeeded",
+          "attempt": 1,
+          "finished_at": "2026-10-18T01:05:40.766517+00:00",
+          "requested_thinking_disabled": true,
+          "http_status": 200,
+          "latency_ms": 14396,
+          "finish_reason": "stop",
+          "usage": {
+            "prompt_tokens": 18149,
+            "total_tokens": 22692,
+            "completion_tokens": 4543
+          }
+        }
+      ]
+    },
+    {
+      "id": "6027b775-9013-4eed-ba18-e024e7727d25",
+      "role": "dossier",
+      "ticker": "NBIS",
+      "goal": "Compile verified debt findings and explicit limitations for NBIS $775M secured facility, preserving all unknowns and audit caveats",
+      "parent_task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50",
+      "status": "cancelled",
+      "retries": 0,
+      "result": null,
+      "source_urls": []
+    }
+  ],
+  "events": [
+    {
+      "id": "4d2a7643-ee93-411d-ab88-c2fbcd92e1ae",
+      "timestamp": "2026-10-18T01:03:01.912672+00:00",
+      "kind": "task_started",
+      "message": "manager: Plan the investigation",
+      "task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d"
+    },
+    {
+      "id": "d33ce126-041e-43cb-a1b0-03fa34b78ff6",
+      "timestamp": "2026-10-18T01:03:01.913080+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "474e02ef-8ddc-4801-bcad-522b42b3567e",
+      "timestamp": "2026-10-18T01:03:03.156295+00:00",
+      "kind": "manager_decision",
+      "message": "First delegate debt retrieval for both tickers from their primary SEC and investor relations sources",
+      "task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d"
+    },
+    {
+      "id": "036ee1ef-9b98-4840-9bd9-606b91512e45",
+      "timestamp": "2026-10-18T01:03:03.156367+00:00",
+      "kind": "task_spawned",
+      "message": "debt: Extract all debt issuance details, amounts, and terms from the CoreWeave 10-K and senior notes pricing releases",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "parent_task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "eb60c7e7-10d6-4fd4-a408-5f9152d95bc7",
+      "timestamp": "2026-10-18T01:03:03.156391+00:00",
+      "kind": "task_spawned",
+      "message": "debt: Extract all debt issuance details, amounts, and terms from Nebius 6-K and secured financing disclosures",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "parent_task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "bcfba9e2-fb35-40d9-85ac-398689a5ec26",
+      "timestamp": "2026-10-18T01:03:03.156421+00:00",
+      "kind": "task_completed",
+      "message": "manager completed",
+      "task_id": "feacefa3-8eab-4b10-8175-10dc698f4b0d"
+    },
+    {
+      "id": "a70ff44f-57b9-4016-9c6d-809d7bc1d9e5",
+      "timestamp": "2026-10-18T01:03:03.658803+00:00",
+      "kind": "task_started",
+      "message": "debt: Extract all debt issuance details, amounts, and terms from the CoreWeave 10-K and senior notes pricing releases",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "44cb10a7-5f46-466b-9cef-29f3e91dd3b9",
+      "timestamp": "2026-10-18T01:03:03.660209+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "3e069e5d-aea0-4a59-88b5-f0cb460234a0",
+      "timestamp": "2026-10-18T01:03:04.954398+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "45879310-a27c-4037-9131-c24d34dd5e86",
+      "timestamp": "2026-10-18T01:03:04.954727+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "84b06206-85cc-4cd6-8275-0bd0a6c78a0c",
+      "timestamp": "2026-10-18T01:03:05.568523+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "aa641c5f-d77f-4305-9666-3e3fb1779615",
+      "timestamp": "2026-10-18T01:03:05.569651+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "c45ca919-1a1b-4788-857f-303ed8684fd2",
+      "timestamp": "2026-10-18T01:03:06.002648+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "837883ee-b4d8-4ed0-83ae-92a935fb7463",
+      "timestamp": "2026-10-18T01:03:06.003602+00:00",
+      "kind": "inference_attempt",
+      "message": "debt using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "c52b4761-e50e-42ee-96fa-4509a12b2712",
+      "timestamp": "2026-10-18T01:03:13.981079+00:00",
+      "kind": "evidence_accepted",
+      "message": "Recourse and non-recourse debt table as of June 30, 2026 with maturities, coupons, and principal amounts in millions",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "evidence_id": "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+    },
+    {
+      "id": "703107ef-b742-46d7-bdb0-328ab069f6ee",
+      "timestamp": "2026-10-18T01:03:13.981113+00:00",
+      "kind": "evidence_rejected",
+      "message": "Excerpt did not match retrieved primary source",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "2265dbf3-e09a-4570-a173-0fe44c5ee78e",
+      "timestamp": "2026-10-18T01:03:13.981153+00:00",
+      "kind": "evidence_accepted",
+      "message": "DDTL 5.0 Facility stated interest rate SOFR + 4.50% and commitment amount $3.1 billion",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "evidence_id": "1203727e-0a0a-459a-82c7-ff3e1e01a3f7"
+    },
+    {
+      "id": "095a1837-b719-4449-a3e1-54b911f01212",
+      "timestamp": "2026-10-18T01:03:13.984055+00:00",
+      "kind": "financial_field_unknown",
+      "message": "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "f3c53c7a-93f3-4e1a-a1d5-5b4db8acbff6",
+      "timestamp": "2026-10-18T01:03:13.984134+00:00",
+      "kind": "financial_field_unknown",
+      "message": "commitment_amount: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "e3eb3db7-0559-45f5-bf73-576e88eb0b0f",
+      "timestamp": "2026-10-18T01:03:13.984141+00:00",
+      "kind": "financial_field_unknown",
+      "message": "drawn_amount: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "91db69e1-f7fb-4902-9416-1db2ea851793",
+      "timestamp": "2026-10-18T01:03:13.984147+00:00",
+      "kind": "financial_field_unknown",
+      "message": "issue_date: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "a93f2f7d-6eae-4e55-b85e-d4d78e7308a0",
+      "timestamp": "2026-10-18T01:03:13.984152+00:00",
+      "kind": "financial_field_unknown",
+      "message": "maturity: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "0647de00-e91e-4877-855c-1f53beee1b22",
+      "timestamp": "2026-10-18T01:03:13.984157+00:00",
+      "kind": "financial_field_unknown",
+      "message": "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "a9d211ab-5273-4eb2-825a-ed4da8254744",
+      "timestamp": "2026-10-18T01:03:13.986415+00:00",
+      "kind": "financial_field_unknown",
+      "message": "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "05334c90-c664-461f-a646-aeacee00dcde",
+      "timestamp": "2026-10-18T01:03:13.986425+00:00",
+      "kind": "financial_field_unknown",
+      "message": "drawn_amount: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "1520883e-c40f-4e92-ac5e-bfd80397b224",
+      "timestamp": "2026-10-18T01:03:13.986430+00:00",
+      "kind": "financial_field_unknown",
+      "message": "issue_date: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "af0211a9-f2fc-4011-bd9c-0ae827923ee6",
+      "timestamp": "2026-10-18T01:03:13.986435+00:00",
+      "kind": "financial_field_unknown",
+      "message": "maturity: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "8bec973c-e8f9-4f64-a4b1-17bc664af5a2",
+      "timestamp": "2026-10-18T01:03:13.986439+00:00",
+      "kind": "financial_field_unknown",
+      "message": "hedge_effective_date: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "673e9cfe-1131-4f00-9fd3-458cfa040e57",
+      "timestamp": "2026-10-18T01:03:13.986470+00:00",
+      "kind": "financial_field_unknown",
+      "message": "hedge_end_date: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "052c7b86-5a7f-4171-8e75-9add3656b43c",
+      "timestamp": "2026-10-18T01:03:13.986475+00:00",
+      "kind": "financial_field_unknown",
+      "message": "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "8730b4ba-0a52-4a6e-b571-b2c6f900e096",
+      "timestamp": "2026-10-18T01:03:13.987456+00:00",
+      "kind": "financial_field_unknown",
+      "message": "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "65b9264c-efb9-4dd2-b79e-ab2a28c4e108",
+      "timestamp": "2026-10-18T01:03:13.987467+00:00",
+      "kind": "financial_field_unknown",
+      "message": "commitment_amount: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "d1ac0238-bc7d-4e88-be19-849db1d1ea21",
+      "timestamp": "2026-10-18T01:03:13.987472+00:00",
+      "kind": "financial_field_unknown",
+      "message": "drawn_amount: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "1b3f93cc-80b4-47df-855d-2e788b538a6a",
+      "timestamp": "2026-10-18T01:03:13.987477+00:00",
+      "kind": "financial_field_unknown",
+      "message": "issue_date: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "c7a684e1-12ed-47dc-8ebd-6c055e0aeec9",
+      "timestamp": "2026-10-18T01:03:13.987481+00:00",
+      "kind": "financial_field_unknown",
+      "message": "maturity: exact date not supported; kept unknown.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "ae82c226-c811-4078-8e5c-a2d15c57ade7",
+      "timestamp": "2026-10-18T01:03:13.987486+00:00",
+      "kind": "financial_field_unknown",
+      "message": "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "2e68e6a3-9417-441a-b1c8-810887d0615b",
+      "timestamp": "2026-10-18T01:03:13.987508+00:00",
+      "kind": "financial_field_unknown",
+      "message": "hedge_status: absence of hedge disclosure is not proof of no hedge.",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "2034d5d2-b843-4316-bb97-64c6ccaa4cb7",
+      "timestamp": "2026-10-18T01:03:13.987660+00:00",
+      "kind": "task_completed",
+      "message": "debt completed",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc"
+    },
+    {
+      "id": "b78ae76f-bdcd-4923-ae5b-52709fc25adb",
+      "timestamp": "2026-10-18T01:03:14.491104+00:00",
+      "kind": "task_started",
+      "message": "debt: Extract all debt issuance details, amounts, and terms from Nebius 6-K and secured financing disclosures",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d"
+    },
+    {
+      "id": "23c5499f-3efa-4d07-8b00-6a22af4a48d5",
+      "timestamp": "2026-10-18T01:03:14.494911+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d"
+    },
+    {
+      "id": "eee2fed5-bc11-4440-a272-d21bb8b1a6ec",
+      "timestamp": "2026-10-18T01:03:16.291053+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "eacc5bda-8868-43b2-872e-160d8d00b308",
+      "timestamp": "2026-10-18T01:03:16.293548+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d"
+    },
+    {
+      "id": "5dcb1d42-d3fe-4f1b-9423-8554de7fa768",
+      "timestamp": "2026-10-18T01:03:16.484787+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "c6beaced-ca96-4ebf-90c7-2a082f166191",
+      "timestamp": "2026-10-18T01:03:16.486163+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://nebius.com/newsroom",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d"
+    },
+    {
+      "id": "dc1301c4-70f3-45a7-9b8f-8b0bd36bb8a4",
+      "timestamp": "2026-10-18T01:03:17.996764+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://nebius.com/newsroom",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "65f93863-e40d-48ff-830f-109c93c16caf",
+      "timestamp": "2026-10-18T01:03:17.997603+00:00",
+      "kind": "inference_attempt",
+      "message": "debt using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "e2010b12-1f89-4f47-84f4-03e1f0aaebb3",
+      "timestamp": "2026-10-18T01:03:21.516252+00:00",
+      "kind": "evidence_accepted",
+      "message": "$775M senior secured debt facility, SOFR + 2.50%, matures Oct 31 2030, backed by GPU infrastructure and contracted cash flows",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "evidence_id": "0dbaa94f-6a0f-4149-83cb-c4ff7f510e39"
+    },
+    {
+      "id": "6c26f3a2-1511-4284-96d2-250303b88d1b",
+      "timestamp": "2026-10-18T01:03:21.516287+00:00",
+      "kind": "evidence_accepted",
+      "message": "Facility led by MUFG as structuring agent; syndicate includes Bank of America, Deutsche Bank, HSBC, Citi, Cr\u00e9dit Agricole CIB, ING, Morgan Stanley, Goldman Sachs",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "evidence_id": "b7a21559-a6ae-4b8e-8389-ea3714dcc963"
+    },
+    {
+      "id": "5ab12188-beb8-40e9-8aad-5785832008d9",
+      "timestamp": "2026-10-18T01:03:21.516942+00:00",
+      "kind": "task_completed",
+      "message": "debt completed",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d"
+    },
+    {
+      "id": "30797a6c-c60f-4559-aba2-fb3036b8ef84",
+      "timestamp": "2026-10-18T01:03:22.020346+00:00",
+      "kind": "task_started",
+      "message": "manager: Replan from intermediate results",
+      "task_id": "83d15508-a7c7-4b90-a088-53e5d8380855"
+    },
+    {
+      "id": "f4cb721e-c411-407b-a9f8-be8ff61ec808",
+      "timestamp": "2026-10-18T01:03:22.021709+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "83d15508-a7c7-4b90-a088-53e5d8380855",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "8b74bbbe-dc5b-4533-bf08-aacf56b364d5",
+      "timestamp": "2026-10-18T01:03:23.152655+00:00",
+      "kind": "manager_decision",
+      "message": "Audit phase triggered by review_due=true. Must challenge findings from debt extraction before proceeding to dossier. Auditor tasks target the specific validation warnings and rule objections for each ticker.",
+      "task_id": "83d15508-a7c7-4b90-a088-53e5d8380855"
+    },
+    {
+      "id": "9b29c020-21ec-4cbe-b83b-8dba30607d3c",
+      "timestamp": "2026-10-18T01:03:23.152696+00:00",
+      "kind": "task_spawned",
+      "message": "auditor: Review CRWV debt instruments for hedge effectiveness, outstanding principal gaps, and recourse classification consistency with 10-K table and cross-currency swap disclosures",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b",
+      "parent_task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "2da8b2e2-fbec-415b-9e32-5fb21fc2e2a2",
+      "timestamp": "2026-10-18T01:03:23.152712+00:00",
+      "kind": "task_spawned",
+      "message": "auditor: Review NBIS secured debt facility for outstanding principal, drawn amount, commitment breakdown, and hedge status disclosures",
+      "task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "parent_task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "bbd93e75-55b2-41d7-9576-ad848e0d4ae0",
+      "timestamp": "2026-10-18T01:03:23.152761+00:00",
+      "kind": "task_completed",
+      "message": "manager completed",
+      "task_id": "83d15508-a7c7-4b90-a088-53e5d8380855"
+    },
+    {
+      "id": "f2711c81-eca5-4888-8257-2b02886fac7b",
+      "timestamp": "2026-10-18T01:03:23.657431+00:00",
+      "kind": "task_started",
+      "message": "auditor: Review CRWV debt instruments for hedge effectiveness, outstanding principal gaps, and recourse classification consistency with 10-K table and cross-currency swap disclosures",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+    },
+    {
+      "id": "9e9f9b51-f090-45ca-9752-de579c8d8dbe",
+      "timestamp": "2026-10-18T01:03:23.658814+00:00",
+      "kind": "inference_attempt",
+      "message": "auditor using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "24e8a59b-8c9b-4b9a-b599-13fe4b02c861",
+      "timestamp": "2026-10-18T01:03:37.981620+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:DDTL_4.0_Facility",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+    },
+    {
+      "id": "d7f4408b-a501-416f-b965-579b1027025b",
+      "timestamp": "2026-10-18T01:03:37.981771+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:EUR_Senior_Notes_2032",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+    },
+    {
+      "id": "3b291eb3-7cb4-4a7f-903c-dcb128c43ebd",
+      "timestamp": "2026-10-18T01:03:37.981782+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:Senior_Notes_2032_9.625",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+    },
+    {
+      "id": "6cf7d6cf-721b-4b6a-b280-bbea06f48ae8",
+      "timestamp": "2026-10-18T01:03:37.981789+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: NBIS:NBIS_2026_secured_debt",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+    },
+    {
+      "id": "33cf5b4b-2622-4e38-8c19-2973f6b5639c",
+      "timestamp": "2026-10-18T01:03:37.981837+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories, including DDTL facilities, senior notes, convertible notes, and cross-currency swaps. NBIS announced a $775M senior secured debt facility on July 17, 2026, priced at SOFR + 2.50%, maturing Oct 31, 2030, backed by GPU infrastructure and investment-grade customer cash flows. Key gaps remain: DDTL 4.0/5.0 exact drawn amounts, DDTL 4.0 fixed/floating split, EUR senior notes non-recourse status, and NBIS outstanding principal/hedge details are unsupported by excerpts.\", \"concerns\": [\"CRWV:DDTL_4.0_Facility: outstanding principal unknown; commitment $8.5B and split 4.0/5.0 floating/fixed not fully resolved in excerpt; hedge effectiveness requires verification.\", \"CRWV:DDTL_5.0_Facility: drawn amount $1.1B vs commitment $3.1B needs verification against 10-K table; SOFR + 4.50% spread not fully specified for all draws.\", \"CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; non-recourse status and swap notional/terms limited in excerpt.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; coupon 9.625% is market yield, not necessarily contractual coupon per excerpt.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt.\", \"NBIS:NBIS_2026_secured_debt: hedge status, notional, and effective dates undisclosed.\"], \"rule_objections\": [\"CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_4.0_Facility: hedge effectiveness requires further verification.\", \"CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification.\"]}",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+    },
+    {
+      "id": "6ac76376-95dc-408c-8ff9-d630f5ecffed",
+      "timestamp": "2026-10-18T01:03:37.981874+00:00",
+      "kind": "task_completed",
+      "message": "auditor completed",
+      "task_id": "718c304f-e829-4a3e-94ae-0da269384a6b"
+    },
+    {
+      "id": "259a007e-a311-48f9-96cc-5cdb2354ce3d",
+      "timestamp": "2026-10-18T01:03:38.485514+00:00",
+      "kind": "task_started",
+      "message": "auditor: Review NBIS secured debt facility for outstanding principal, drawn amount, commitment breakdown, and hedge status disclosures",
+      "task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e"
+    },
+    {
+      "id": "9c0f370e-1bb3-42b9-93a4-a72b5a09b83d",
+      "timestamp": "2026-10-18T01:03:38.486749+00:00",
+      "kind": "inference_attempt",
+      "message": "auditor using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "d9447ba5-f5ca-4b89-87aa-5e474125dfae",
+      "timestamp": "2026-10-18T01:03:49.045940+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:EUR_Senior_Notes_2032",
+      "task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e"
+    },
+    {
+      "id": "fda425e1-bf0d-4bbb-ae66-88423738b66c",
+      "timestamp": "2026-10-18T01:03:49.045960+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: NBIS:NBIS_2026_secured_debt",
+      "task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e"
+    },
+    {
+      "id": "c22256ab-3d91-4eac-8e83-2f4f3d148350",
+      "timestamp": "2026-10-18T01:03:49.046008+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories, including DDTL facilities, senior notes, convertible notes, and cross-currency swaps. NBIS announced a $775M senior secured debt facility on July 17, 2026, priced at SOFR + 2.50%, maturing Oct 31, 2030, backed by GPU infrastructure and investment-grade customer cash flows. Key gaps remain: DDTL 4.0/5.0 exact drawn amounts, DDTL 4.0 fixed/floating split, EUR senior notes non-recourse status, and NBIS outstanding principal/hedge details are unsupported by excerpts.\", \"concerns\": [\"CRWV:DDTL_4.0_Facility: outstanding principal unknown; commitment $8.5B and split 4.0/5.0 floating/fixed not fully resolved in excerpt; hedge effectiveness requires verification.\", \"CRWV:DDTL_5.0_Facility: drawn amount $1.1B vs commitment $3.1B needs verification against 10-K table; SOFR + 4.50% spread not fully specified for all draws.\", \"CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; non-recourse status and swap notional/terms limited in excerpt.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; coupon 9.625% is market yield, not necessarily contractual coupon per excerpt.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt.\", \"NBIS:NBIS_2026_secured_debt: hedge status, notional, and effective dates undisclosed.\"], \"rule_objections\": [\"CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_4.0_Facility: hedge effectiveness requires further verification.\", \"CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification.\"]}",
+      "task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e"
+    },
+    {
+      "id": "fd5b1003-f00e-49d2-82db-33d9778c6199",
+      "timestamp": "2026-10-18T01:03:49.046306+00:00",
+      "kind": "task_completed",
+      "message": "auditor completed",
+      "task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e"
+    },
+    {
+      "id": "5a107baf-b617-4b10-bee1-dce17aab153b",
+      "timestamp": "2026-10-18T01:03:49.550371+00:00",
+      "kind": "task_started",
+      "message": "manager: Replan from intermediate results",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2"
+    },
+    {
+      "id": "693c83cb-ff4f-4cbf-94b5-a303b8ac45d2",
+      "timestamp": "2026-10-18T01:03:49.552352+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "9bb053c8-b460-4ca2-a16d-0816b41cd34c",
+      "timestamp": "2026-10-18T01:03:50.861089+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry queued",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2",
+      "error_type": "ValueError",
+      "category": "task_validation_error",
+      "http_status": null,
+      "next_attempt_at": null
+    },
+    {
+      "id": "f16e4c3a-1273-4401-a3ad-bb8c36fa0380",
+      "timestamp": "2026-10-18T01:03:51.364831+00:00",
+      "kind": "task_started",
+      "message": "manager: Replan from intermediate results",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2"
+    },
+    {
+      "id": "8fa0af81-ab20-43a3-a573-f913953f2528",
+      "timestamp": "2026-10-18T01:03:51.365860+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using zai-org/GLM-5.3-Flash",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2",
+      "model": "zai-org/GLM-5.3-Flash",
+      "attempt": 2
+    },
+    {
+      "id": "e1458fa8-0cb8-4e90-8cc7-1e812587e0be",
+      "timestamp": "2026-10-18T01:04:20.675785+00:00",
+      "kind": "inference_error",
+      "message": "output_limit",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2",
+      "model": "zai-org/GLM-5.3-Flash",
+      "http_status": null
+    },
+    {
+      "id": "9ca2fddf-a308-4a99-87cc-df5a40705193",
+      "timestamp": "2026-10-18T01:04:20.677779+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry queued",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2",
+      "error_type": "InferenceError",
+      "category": "output_limit",
+      "http_status": null,
+      "next_attempt_at": "2026-10-18T01:04:25.212118+00:00"
+    },
+    {
+      "id": "5bc967e1-85ec-4741-9171-7d25e4ba0a30",
+      "timestamp": "2026-10-18T01:04:25.714979+00:00",
+      "kind": "task_started",
+      "message": "manager: Replan from intermediate results",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2"
+    },
+    {
+      "id": "7cdfd8e0-694a-4de1-b96c-8973bde99fcb",
+      "timestamp": "2026-10-18T01:04:25.715919+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using openai/gpt-oss-120b",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2",
+      "model": "openai/gpt-oss-120b",
+      "attempt": 3
+    },
+    {
+      "id": "c6b6f3ff-6615-4af6-aedf-60acd2fcdf5a",
+      "timestamp": "2026-10-18T01:04:28.891492+00:00",
+      "kind": "manager_decision",
+      "message": "Auditor concerns require targeted debt extraction to resolve unknown outstanding principal and hedge effectiveness for CRWV DDTL facilities and NBIS secured debt. Assigned debt tasks as children of the respective auditor tasks.",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2"
+    },
+    {
+      "id": "074b95d6-fcbb-4c36-9d2e-8fd7480b41f7",
+      "timestamp": "2026-10-18T01:04:28.891529+00:00",
+      "kind": "recursive_child",
+      "message": "debt: Retrieve precise outstanding principal and drawn amounts for the DDTL 4.0 and DDTL 5.0 facilities, and confirm the hedge notional, effective date and effectiveness of the cross\u2011currency swap covering the 2032 EUR Senior Notes, using the CoreWeave 2026 Form 10\u2011K exhibits (e.g., exhibit311q22026.htm, exhibit312q22026.htm) and any related swap documentation.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "parent_task_id": "718c304f-e829-4a3e-94ae-0da269384a6b",
+      "auditor_task_id": "718c304f-e829-4a3e-94ae-0da269384a6b",
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "497c16e3-d3bd-4666-a700-09ee92803b00",
+      "timestamp": "2026-10-18T01:04:28.891607+00:00",
+      "kind": "recursive_child",
+      "message": "debt: Extract the outstanding principal, drawn amount, and any hedge details (swap notional, effective and termination dates) for Nebius Group's $775\u202fmillion senior secured debt facility from the NBIS 2026 Form\u202f6\u2011K filing or associated SEC exhibit, confirming recourse status and hedge effectiveness.",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "parent_task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "auditor_task_id": "157ab4c6-e420-4485-bbd1-d4f38ac1ce5e",
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "cb939518-5d30-4075-8e33-53d8757d1d2a",
+      "timestamp": "2026-10-18T01:04:28.892782+00:00",
+      "kind": "task_completed",
+      "message": "manager completed",
+      "task_id": "dc8cadd6-0777-4410-a9fd-a033caeb82b2"
+    },
+    {
+      "id": "f9b790e9-3a4d-43c6-b199-75a0ccb88388",
+      "timestamp": "2026-10-18T01:04:29.397287+00:00",
+      "kind": "task_started",
+      "message": "debt: Retrieve precise outstanding principal and drawn amounts for the DDTL 4.0 and DDTL 5.0 facilities, and confirm the hedge notional, effective date and effectiveness of the cross\u2011currency swap covering the 2032 EUR Senior Notes, using the CoreWeave 2026 Form 10\u2011K exhibits (e.g., exhibit311q22026.htm, exhibit312q22026.htm) and any related swap documentation.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "0188aa1f-09a3-48af-b31a-d5ecd9d6fbe8",
+      "timestamp": "2026-10-18T01:04:29.399276+00:00",
+      "kind": "source_cache",
+      "message": "retrieved: https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "2fc63139-7c1e-484b-923e-60344c1d5088",
+      "timestamp": "2026-10-18T01:04:29.400031+00:00",
+      "kind": "source_cache",
+      "message": "retrieved: https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "d91f12ee-9b29-40c7-8964-bbfd20fcb79f",
+      "timestamp": "2026-10-18T01:04:29.400768+00:00",
+      "kind": "source_cache",
+      "message": "retrieved: https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "8b3415e2-16f1-4874-8640-f839d26f9557",
+      "timestamp": "2026-10-18T01:04:29.401531+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://investors.coreweave.com/news/default.aspx",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "9f513f31-be87-4690-a4f3-c8d86cee2a6b",
+      "timestamp": "2026-10-18T01:04:29.845140+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://investors.coreweave.com/news/default.aspx",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "e6863e4b-bac6-403a-b59e-260c1d51cc02",
+      "timestamp": "2026-10-18T01:04:29.846538+00:00",
+      "kind": "inference_attempt",
+      "message": "debt using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "2b282e32-6c5b-4903-ad0c-bec4dfe5a2c0",
+      "timestamp": "2026-10-18T01:04:38.452788+00:00",
+      "kind": "evidence_reused",
+      "message": "Recourse and non-recourse debt table as of June 30, 2026 with maturities, coupons, and principal amounts in millions",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "evidence_id": "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+    },
+    {
+      "id": "140a1761-eb4d-418d-aebf-d2df53428eb3",
+      "timestamp": "2026-10-18T01:04:38.452823+00:00",
+      "kind": "evidence_accepted",
+      "message": "DDTL 5.0 Facility stated interest rate SOFR + 4.50% and commitment amount $3.1 billion",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "evidence_id": "d7eb7382-c7be-423b-bfee-f6f26f6c0442"
+    },
+    {
+      "id": "eb1276f2-0a9a-486d-94bf-b91771ef4ec4",
+      "timestamp": "2026-10-18T01:04:38.453177+00:00",
+      "kind": "financial_field_unknown",
+      "message": "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "d540239a-0eb8-4a3a-b996-d6757b5ec058",
+      "timestamp": "2026-10-18T01:04:38.453184+00:00",
+      "kind": "financial_field_unknown",
+      "message": "maturity: exact date not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "be98b15d-ae27-4c72-bae6-8acdd215c8d6",
+      "timestamp": "2026-10-18T01:04:38.453190+00:00",
+      "kind": "financial_field_unknown",
+      "message": "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "b0d48b61-7ddc-4d14-896c-54c9ce30d1ad",
+      "timestamp": "2026-10-18T01:04:38.507606+00:00",
+      "kind": "financial_field_unknown",
+      "message": "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "6a6ef670-2256-473e-8b57-5b1ca28b67e0",
+      "timestamp": "2026-10-18T01:04:38.507621+00:00",
+      "kind": "financial_field_unknown",
+      "message": "commitment_amount: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "93747678-0366-4461-89d0-8add400f3e4f",
+      "timestamp": "2026-10-18T01:04:38.507627+00:00",
+      "kind": "financial_field_unknown",
+      "message": "maturity: exact date not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "63173793-9fc2-4979-811f-9e209bf7ffcc",
+      "timestamp": "2026-10-18T01:04:38.507632+00:00",
+      "kind": "financial_field_unknown",
+      "message": "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "5f988ac2-6302-4f3a-8e91-cfd164a24ade",
+      "timestamp": "2026-10-18T01:04:38.520510+00:00",
+      "kind": "financial_field_unknown",
+      "message": "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "c503497d-3a34-4abd-b5f8-9c16b81fbe18",
+      "timestamp": "2026-10-18T01:04:38.520543+00:00",
+      "kind": "financial_field_unknown",
+      "message": "maturity: exact date not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "20bc4791-3f85-4c82-b15c-e1de5de95994",
+      "timestamp": "2026-10-18T01:04:38.520549+00:00",
+      "kind": "financial_field_unknown",
+      "message": "hedge_effective_date: exact date not supported; kept unknown.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "55eea94b-07f4-4a30-97af-153ba88bacf8",
+      "timestamp": "2026-10-18T01:04:38.520554+00:00",
+      "kind": "financial_field_unknown",
+      "message": "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "d1d2d63b-b40b-4623-8897-b8fdd193e6d2",
+      "timestamp": "2026-10-18T01:04:38.520686+00:00",
+      "kind": "task_completed",
+      "message": "debt completed",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb"
+    },
+    {
+      "id": "25bbec15-e9b7-41c8-948c-984a71ef8bf2",
+      "timestamp": "2026-10-18T01:04:39.025806+00:00",
+      "kind": "task_started",
+      "message": "debt: Extract the outstanding principal, drawn amount, and any hedge details (swap notional, effective and termination dates) for Nebius Group's $775\u202fmillion senior secured debt facility from the NBIS 2026 Form\u202f6\u2011K filing or associated SEC exhibit, confirming recourse status and hedge effectiveness.",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42"
+    },
+    {
+      "id": "dd584892-151a-4d78-ba78-6eff4f45074e",
+      "timestamp": "2026-10-18T01:04:39.027881+00:00",
+      "kind": "source_cache",
+      "message": "retrieved: https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "a5c0390c-597c-4964-a6eb-7ded0e03e319",
+      "timestamp": "2026-10-18T01:04:39.029338+00:00",
+      "kind": "source_cache",
+      "message": "retrieved: https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "e18ccd60-89a9-4309-a9c6-c281b1bf580b",
+      "timestamp": "2026-10-18T01:04:39.030501+00:00",
+      "kind": "source_cache",
+      "message": "retrieved: https://nebius.com/newsroom",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "90d7007c-1b74-403f-92ae-8f7cce1dac1f",
+      "timestamp": "2026-10-18T01:04:39.031526+00:00",
+      "kind": "source_attempt",
+      "message": "Fetching https://nebius.com/financials",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42"
+    },
+    {
+      "id": "9a47e350-7660-4a7b-bc4a-4e03a6852649",
+      "timestamp": "2026-10-18T01:04:40.576128+00:00",
+      "kind": "source_retrieved",
+      "message": "retrieved: https://nebius.com/financials",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "category": null,
+      "http_status": null
+    },
+    {
+      "id": "63b68281-50b4-4779-b429-a39c219f7767",
+      "timestamp": "2026-10-18T01:04:40.578608+00:00",
+      "kind": "inference_attempt",
+      "message": "debt using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "2da39f71-9df1-4a72-a6cc-e55ba528b7de",
+      "timestamp": "2026-10-18T01:04:43.233301+00:00",
+      "kind": "evidence_accepted",
+      "message": "Facility size $775M, SOFR+2.50%, maturity Oct 31 2030, backed by GPU infrastructure and contracted cash flows",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "evidence_id": "78b6666f-031f-4bcc-8652-4f881fd0d671"
+    },
+    {
+      "id": "3264d486-9bb1-476a-96df-2809fab6a1e0",
+      "timestamp": "2026-10-18T01:04:43.234476+00:00",
+      "kind": "task_completed",
+      "message": "debt completed",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42"
+    },
+    {
+      "id": "f97d8c9e-3354-4a3c-8f7f-9a93a97fa99b",
+      "timestamp": "2026-10-18T01:04:43.751915+00:00",
+      "kind": "task_started",
+      "message": "manager: Replan from intermediate results",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a"
+    },
+    {
+      "id": "d2f4e502-7832-40f1-9708-36952cedfce6",
+      "timestamp": "2026-10-18T01:04:43.756870+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "aa54dc55-93d8-41e8-8dd2-e5016b62a385",
+      "timestamp": "2026-10-18T01:04:45.375463+00:00",
+      "kind": "manager_decision",
+      "message": "Targeted debt extraction tasks assigned to resolve auditor-identified gaps in outstanding principal, drawn amounts, and hedge details for both tickers before dossier compilation.",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a"
+    },
+    {
+      "id": "4fc9f537-90d9-4d20-8beb-9a31a3523830",
+      "timestamp": "2026-10-18T01:04:45.375520+00:00",
+      "kind": "task_suppressed",
+      "message": "Source options exhausted after followup; request a caveated dossier",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a",
+      "ticker": "CRWV"
+    },
+    {
+      "id": "184f57c1-a752-4090-bec4-e2e87212816d",
+      "timestamp": "2026-10-18T01:04:45.375530+00:00",
+      "kind": "task_suppressed",
+      "message": "Source options exhausted after followup; request a caveated dossier",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a",
+      "ticker": "NBIS"
+    },
+    {
+      "id": "18dd7816-4413-419c-8a8b-4d34d2bb7c82",
+      "timestamp": "2026-10-18T01:04:45.375644+00:00",
+      "kind": "task_error",
+      "message": "Task failed; retry queued",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a",
+      "error_type": "ValueError",
+      "category": "task_validation_error",
+      "http_status": null,
+      "next_attempt_at": null
+    },
+    {
+      "id": "5b167be6-42cb-47f4-bcec-5c95ff59f85d",
+      "timestamp": "2026-10-18T01:04:45.883014+00:00",
+      "kind": "task_started",
+      "message": "manager: Replan from intermediate results",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a"
+    },
+    {
+      "id": "a2b24487-93ed-49b3-bbf3-d5a671dde539",
+      "timestamp": "2026-10-18T01:04:45.884873+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using zai-org/GLM-5.3-Flash",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a",
+      "model": "zai-org/GLM-5.3-Flash",
+      "attempt": 2
+    },
+    {
+      "id": "6dc290fd-9455-4b2e-87ca-d29def5ac2a6",
+      "timestamp": "2026-10-18T01:04:56.512587+00:00",
+      "kind": "manager_decision",
+      "message": "final_review_due=true and allowed_next_roles is hard-constrained to [auditor]: schedule final auditor reviews of the completed targeted followup records for both tickers. CRWV followup reported new balances (DDTL 4.0 $2.837B, DDTL 5.0 $1.101B drawn, EUR 2B swap) that need challenge; NBIS followup confirmed the outstanding principal and hedge details remain undisclosed, which must be validated as an honest limitation before any dossier. No further extraction is scheduled at this stage.",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a"
+    },
+    {
+      "id": "a66da893-60fb-499f-826f-a900b46fdf9e",
+      "timestamp": "2026-10-18T01:04:56.512646+00:00",
+      "kind": "task_spawned",
+      "message": "auditor: Final review of the targeted followup record (task aa7e9b55): verify DDTL 4.0 outstanding principal $2.837B (7% fixed, non-recourse, Mar 2032) and DDTL 5.0 drawn $1.101B (SOFR+4.50%, $3.1B commitment, Nov 2031) against the 10-K debt table; confirm the EUR 2B cross-currency swap is a fair value hedge on the 2032 EUR Senior Notes effective June 2026; challenge whether coupon-vs-effective-rate distinctions (e.g., 9.625% coupon vs 10% effective on the 2032 Senior Notes) and remaining unknowns (swap end date, commitment/drawn splits) are preserved rather than fabricated.",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729",
+      "parent_task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "d1fb8131-a61e-460b-84f2-59cee8d7afcf",
+      "timestamp": "2026-10-18T01:04:56.512663+00:00",
+      "kind": "task_spawned",
+      "message": "auditor: Final review of the targeted followup record (task 78ec1ade): confirm that the $775M senior secured facility (SOFR+2.50%, matures 2030-10-31) genuinely lacks disclosed outstanding principal, drawn amount, and hedge details in the already-retrieved sources, that the $775M commitment is not conflated with drawn or outstanding balances, and that the recourse status and hedge-status unknowns are properly documented as limitations for a caveated dossier.",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054",
+      "parent_task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "19c2e0e2-2537-400b-b657-04128fae506c",
+      "timestamp": "2026-10-18T01:04:56.512720+00:00",
+      "kind": "task_completed",
+      "message": "manager completed",
+      "task_id": "44f53d27-94b6-4a8c-8abb-267670711b5a"
+    },
+    {
+      "id": "0ccb202f-20b6-41bd-9b2e-c1d7e2205bb8",
+      "timestamp": "2026-10-18T01:04:57.018050+00:00",
+      "kind": "task_started",
+      "message": "auditor: Final review of the targeted followup record (task aa7e9b55): verify DDTL 4.0 outstanding principal $2.837B (7% fixed, non-recourse, Mar 2032) and DDTL 5.0 drawn $1.101B (SOFR+4.50%, $3.1B commitment, Nov 2031) against the 10-K debt table; confirm the EUR 2B cross-currency swap is a fair value hedge on the 2032 EUR Senior Notes effective June 2026; challenge whether coupon-vs-effective-rate distinctions (e.g., 9.625% coupon vs 10% effective on the 2032 Senior Notes) and remaining unknowns (swap end date, commitment/drawn splits) are preserved rather than fabricated.",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "8e7ce730-46e1-45c4-ba74-f95fc4fcc207",
+      "timestamp": "2026-10-18T01:04:57.019675+00:00",
+      "kind": "inference_attempt",
+      "message": "auditor using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "c95bc94a-097e-4a1a-b7ae-2ee57a3883d8",
+      "timestamp": "2026-10-18T01:05:10.353323+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:DDTL_4.0_Facility",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "b67ad0f2-190a-47c7-9bfd-43315fc842c7",
+      "timestamp": "2026-10-18T01:05:10.353340+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:DDTL_5.0_Facility",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "0c5a9ac5-7477-4856-ae73-c42ad5c76ed5",
+      "timestamp": "2026-10-18T01:05:10.353347+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:2032_EUR_Senior_Notes",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "4632dcd6-e732-40ff-81d5-4a386554b0b3",
+      "timestamp": "2026-10-18T01:05:10.353353+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:Senior_Notes_2032_9.625",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "852df550-f3cf-4b4a-926b-3806ab49f6bf",
+      "timestamp": "2026-10-18T01:05:10.353359+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: NBIS:NBIS_2026_secured_debt",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "9f2130aa-c1b4-4625-abb9-1e4366559d8e",
+      "timestamp": "2026-10-18T01:05:10.353410+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories. DDTL 4.0 Facility: $2.837B outstanding (non-recourse, 7% fixed) as of 2026-06-30. DDTL 5.0 Facility: $1.101B drawn (non-recourse, SOFR+4.50% effective) as of 2026-06-30, $3.1B commitment, maturity Nov 2031. 2032 EUR Senior Notes (EUR 2.279B principal) hedged via cross-currency swap with notional EUR 2B, effective June 2026, fair value hedge designation. 2032 9.625% Senior Notes (USD 1.25B) listed with 10% effective rate in table; coupon not confirmed. NBIS: $775M senior secured debt facility announced July 17, 2026, SOFR+2.50%, matures Oct 31, 2030; no outstanding principal, drawn amount, or hedge details disclosed in sourced excerpts.\", \"concerns\": [\"CRWV:DDTL_4.0_Facility: outstanding principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present.\", \"CRWV:DDTL_5.0_Facility: drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt.\", \"CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; 9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size, not confirmed as drawn or outstanding.\", \"NBIS:NBIS_2026_secured_debt: hedge status, notional, effective and termination dates undisclosed; no swap documentation in excerpts.\"], \"rule_objections\": [\"CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_5.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_5.0_Facility: hedge effectiveness requires further verification.\", \"CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification.\"]}",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "1293d5dd-7bbf-4ce6-8e79-6c2a00ab3f08",
+      "timestamp": "2026-10-18T01:05:10.353469+00:00",
+      "kind": "task_completed",
+      "message": "auditor completed",
+      "task_id": "266c33d6-ea62-4b3b-b4ed-854ad22d5729"
+    },
+    {
+      "id": "b2585c41-c348-4b46-9650-1cbee89166e6",
+      "timestamp": "2026-10-18T01:05:10.857940+00:00",
+      "kind": "task_started",
+      "message": "auditor: Final review of the targeted followup record (task 78ec1ade): confirm that the $775M senior secured facility (SOFR+2.50%, matures 2030-10-31) genuinely lacks disclosed outstanding principal, drawn amount, and hedge details in the already-retrieved sources, that the $775M commitment is not conflated with drawn or outstanding balances, and that the recourse status and hedge-status unknowns are properly documented as limitations for a caveated dossier.",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "410d821a-07d7-48b2-8126-2492ccc7a9d4",
+      "timestamp": "2026-10-18T01:05:10.859678+00:00",
+      "kind": "inference_attempt",
+      "message": "auditor using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "b4b940a7-b35a-41ff-b52d-03de826cb8a7",
+      "timestamp": "2026-10-18T01:05:23.895219+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:DDTL_4.0_Facility",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "af07029c-23c9-4768-9e09-52e10b814318",
+      "timestamp": "2026-10-18T01:05:23.895269+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:DDTL_5.0_Facility",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "5a691355-afe8-4941-909a-806fb5352396",
+      "timestamp": "2026-10-18T01:05:23.895276+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:2032_EUR_Senior_Notes",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "4cf78456-5466-4d61-86dd-d77e1cf566b9",
+      "timestamp": "2026-10-18T01:05:23.895282+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: CRWV:Senior_Notes_2032_9.625",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "891ced72-1919-4036-8d1d-95d5c62907e0",
+      "timestamp": "2026-10-18T01:05:23.895371+00:00",
+      "kind": "instrument_audit",
+      "message": "needs_review: NBIS:NBIS_2026_secured_debt",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "f3b2e65e-5b47-4ebf-b94c-966864534496",
+      "timestamp": "2026-10-18T01:05:23.895418+00:00",
+      "kind": "auditor_objection",
+      "message": "{\"summary\": \"CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories. DDTL 4.0 Facility: $2.837B outstanding (non-recourse, 7% fixed) as of 2026-06-30. DDTL 5.0 Facility: $1.101B drawn (non-recourse, SOFR+4.50% effective) as of 2026-06-30, $3.1B commitment, maturity Nov 2031. 2032 EUR Senior Notes (EUR 2.279B principal) hedged via cross-currency swap with notional EUR 2B, effective June 2026, fair value hedge designation. 2032 9.625% Senior Notes (USD 1.25B) listed with 10% effective rate in table; coupon not confirmed. NBIS: $775M senior secured debt facility announced July 17, 2026, SOFR+2.50%, matures Oct 31, 2030; no outstanding principal, drawn amount, or hedge details disclosed in sourced excerpts.\", \"concerns\": [\"CRWV:DDTL_4.0_Facility: outstanding principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present.\", \"CRWV:DDTL_5.0_Facility: drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt.\", \"CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; 9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size, not confirmed as drawn or outstanding.\", \"NBIS:NBIS_2026_secured_debt: hedge status, notional, effective and termination dates undisclosed; no swap documentation in excerpts.\"], \"rule_objections\": [\"CRWV:EUR_Senior_Notes_2032: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_4.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_5.0_Facility: outstanding principal unknown; issuance or facility size cannot substitute.\", \"CRWV:DDTL_5.0_Facility: hedge effectiveness requires further verification.\", \"CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: outstanding principal unknown; issuance or facility size cannot substitute.\", \"NBIS:NBIS_2026_secured_debt: hedge effectiveness requires further verification.\"]}",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "06326273-9721-423e-84b8-83609fcf8042",
+      "timestamp": "2026-10-18T01:05:23.895471+00:00",
+      "kind": "task_completed",
+      "message": "auditor completed",
+      "task_id": "8399eae4-4424-4013-b689-869a93107054"
+    },
+    {
+      "id": "3cd55303-5c4c-4901-9bb1-82919baec009",
+      "timestamp": "2026-10-18T01:05:24.401105+00:00",
+      "kind": "task_started",
+      "message": "manager: Replan from intermediate results",
+      "task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50"
+    },
+    {
+      "id": "999c8db7-0b36-4be8-91be-1bc4cebb1b39",
+      "timestamp": "2026-10-18T01:05:24.402966+00:00",
+      "kind": "inference_attempt",
+      "message": "manager using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "148fbd30-c872-4f73-95a8-86f5e933a12d",
+      "timestamp": "2026-10-18T01:05:25.794395+00:00",
+      "kind": "manager_decision",
+      "message": "final_review_due=true and allowed_next_roles is hard-constrained to [dossier]. Both tickers have completed debt extraction and auditor reviews. No further extraction can be accepted. Request caveated dossiers for each ticker summarizing verified findings and documented limitations.",
+      "task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50"
+    },
+    {
+      "id": "aaf58c9d-768c-4d5c-a2a4-9acd125ebfb2",
+      "timestamp": "2026-10-18T01:05:25.794596+00:00",
+      "kind": "task_spawned",
+      "message": "dossier: Compile verified debt findings and explicit limitations for CRWV 10-K and pricing disclosures, preserving all unknowns and audit caveats",
+      "task_id": "17f32d3d-b370-4bf4-b063-1ab2711288c1",
+      "parent_task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "01c70b8e-7d4f-44a4-ac56-8b41c6ce40b8",
+      "timestamp": "2026-10-18T01:05:25.794622+00:00",
+      "kind": "task_spawned",
+      "message": "dossier: Compile verified debt findings and explicit limitations for NBIS $775M secured facility, preserving all unknowns and audit caveats",
+      "task_id": "6027b775-9013-4eed-ba18-e024e7727d25",
+      "parent_task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50",
+      "auditor_task_id": null,
+      "initiated_by": "Crusoe model"
+    },
+    {
+      "id": "c7a35532-db7e-4fe5-9296-4336f02d1df7",
+      "timestamp": "2026-10-18T01:05:25.794664+00:00",
+      "kind": "task_completed",
+      "message": "manager completed",
+      "task_id": "731db280-a17e-4f9b-a3e7-c916f9e6ed50"
+    },
+    {
+      "id": "37273848-7af6-490a-9612-fdca6b405b93",
+      "timestamp": "2026-10-18T01:05:26.309432+00:00",
+      "kind": "task_started",
+      "message": "dossier: Compile verified debt findings and explicit limitations for CRWV 10-K and pricing disclosures, preserving all unknowns and audit caveats",
+      "task_id": "17f32d3d-b370-4bf4-b063-1ab2711288c1"
+    },
+    {
+      "id": "193a931f-4555-4faf-bf5c-3f3055640f6a",
+      "timestamp": "2026-10-18T01:05:26.315997+00:00",
+      "kind": "inference_attempt",
+      "message": "dossier using nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "task_id": "17f32d3d-b370-4bf4-b063-1ab2711288c1",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "attempt": 1
+    },
+    {
+      "id": "25720bef-4ea9-4d76-baa9-7106bd5f4640",
+      "timestamp": "2026-10-18T01:05:40.771044+00:00",
+      "kind": "task_completed",
+      "message": "dossier completed",
+      "task_id": "17f32d3d-b370-4bf4-b063-1ab2711288c1"
+    },
+    {
+      "id": "822b5680-356e-48f1-884a-185330f9865b",
+      "timestamp": "2026-10-18T01:05:40.771876+00:00",
+      "kind": "dossier_finalized",
+      "message": "partially_completed: grounded evidence snapshot",
+      "task_id": null,
+      "generator": "evidence_snapshot"
+    },
+    {
+      "id": "c801aa04-170e-44db-ab1a-74238eaadd44",
+      "timestamp": "2026-10-18T01:05:40.771888+00:00",
+      "kind": "stopped",
+      "message": "Manager-approved dossier finalized; disclosure gaps preserved",
+      "task_id": null,
+      "outcome": "partially_completed"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "source_title": "crwv-20260630",
+      "publisher": "www.sec.gov",
+      "final_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "verification_status": "source_excerpt_matched",
+      "publication_or_filing_date": "2026-06-30",
+      "retrieved_at": "2026-10-18T01:03:04.867324+00:00",
+      "excerpt": "10. Debt The total debt obligations are as follows (dollars in millions): Maturities Effective Interest Rates June 30, 2026 December 31, 2025 Recourse debt: DDTL 1.0 Facility Mar 2028 15 % $ 1,300 $ 1,553 DDTL 2.0 Facility Aug 2030 11 % 3,190 5,037 DDTL 2.1 Facility Mar 2031 9 % 3,000 2,741 DDTL 3.0 Facility Aug 2030 9 % 2,215 340 DDTL 5.0 Facility Nov 2031 9 % 1,101 \u2014 2030 Senior Notes Jun 2030 10 % 2,000 2,000 2031 9.00 % Senior Notes Feb 2031 10 % 1,750 1,750 2031 9.75% Senior Notes Oct 2031 10 % 2,750 \u2014 2032 9.625% Senior Notes Jul 2032 10 % 1,250 \u2014 2032 EUR Senior Notes (1) Jul 2032 9 % 2,279 \u2014 2031 Convertible Senior Notes Dec 2031 2 % 2,588 2,588 2032 Convertible Senior Notes Oct 2032 2 % 4,000 \u2014 Convertible Promissory Notes Apr 2026 7 % \u2014 168 Revolving Credit Facility Nov 2029 7 % \u2014 1,000 OEM and Software License Financing Arrangements Dec 2026 - Jul 2030 11 % 4,220 3,518 Magnetar Loan Jan 2029 12 % 189 273 Less: Unamortized discount and issuance costs ( 427 ) ( 242 ) Total recourse debt, net of unamortized discount and issuance costs 31,405 20,726 Less: Recourse debt, current ( 6,235 ) ( 6,118 ) Total recourse debt, non-current $ 25,170 $ 14,608 Non-recourse debt: DDTL 4.0 Facility Mar 2032 7 % 2,837 \u2014 OEM and Software License Financing Arrangements Aug 2026 - Aug 2028 9 % 882 647 Less: Unamortized discount and issuance costs ( 56 ) \u2014 Total non-recourse debt, net of unamortized discount and issuance costs $ 3,663 $ 647 Less: Non-recourse debt, current $ ( 1,278 ) $ ( 590 ) Total non-recourse debt, non-current $ 2,385 $ 57 (1) In June 2026, the Company entered into cross currency interest rate swaps designated as a fair value hedge, to hedge changes in the fair value on the 2032 EUR Senior Notes, attributable to changes in foreign currency exchange rate. As of J",
+      "confidence": "high",
+      "claim": "Recourse and non-recourse debt table as of June 30, 2026 with maturities, coupons, and principal amounts in millions",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "provenance": "live"
+    },
+    {
+      "id": "1203727e-0a0a-459a-82c7-ff3e1e01a3f7",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "source_title": "crwv-20260630",
+      "publisher": "www.sec.gov",
+      "final_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "verification_status": "source_excerpt_matched",
+      "publication_or_filing_date": "2026-06-30",
+      "retrieved_at": "2026-10-18T01:03:04.867324+00:00",
+      "excerpt": "10. Debt The total debt obligations are as follows (dollars in millions): Maturities Effective Interest Rates June 30, 2026 December 31, 2025 Recourse debt: DDTL 1.0 Facility Mar 2028 15 % $ 1,300 $ 1,553 DDTL 2.0 Facility Aug 2030 11 % 3,190 5,037 DDTL 2.1 Facility Mar 2031 9 % 3,000 2,741 DDTL 3.0 Facility Aug 2030 9 % 2,215 340 DDTL 5.0 Facility Nov 2031 9 % 1,101 \u2014 2030 Senior Notes Jun 2030 10 % 2,000 2,000 2031 9.00 % Senior Notes Feb 2031 10 % 1,750 1,750 2031 9.75% Senior Notes Oct 2031 10 % 2,750 \u2014 2032 9.625% Senior Notes Jul 2032 10 % 1,250 \u2014 2032 EUR Senior Notes (1) Jul 2032 9 % 2,279 \u2014 2031 Convertible Senior Notes Dec 2031 2 % 2,588 2,588 2032 Convertible Senior Notes Oct 2032 2 % 4,000 \u2014 Convertible Promissory Notes Apr 2026 7 % \u2014 168 Revolving Credit Facility Nov 2029 7 % \u2014 1,000 OEM and Software License Financing Arrangements Dec 2026 - Jul 2030 11 % 4,220 3,518 Magnetar Loan Jan 2029 12 % 189 273 Less: Unamortized discount and issuance costs ( 427 ) ( 242 ) Total recourse debt, net of unamortized discount and issuance costs 31,405 20,726 Less: Recourse debt, current ( 6,235 ) ( 6,118 ) Total recourse debt, non-current $ 25,170 $ 14,608 Non-recourse debt: DDTL 4.0 Facility Mar 2032 7 % 2,837 \u2014 OEM and Software License Financing Arrangements Aug 2026 - Aug 2028 9 % 882 647 Less: Unamortized discount and issuance costs ( 56 ) \u2014 Total non-recourse debt, net of unamortized discount and issuance costs $ 3,663 $ 647 Less: Non-recourse debt, current $ ( 1,278 ) $ ( 590 ) Total non-recourse debt, non-current $ 2,385 $ 57 (1) In June 2026, the Company entered into cross currency interest rate swaps designated as a fair value hedge, to hedge changes in the fair value on the 2032 EUR Senior Notes, attributable to changes in foreign currency exchange rate. As of J",
+      "confidence": "high",
+      "claim": "DDTL 5.0 Facility stated interest rate SOFR + 4.50% and commitment amount $3.1 billion",
+      "task_id": "bb9a41fc-0684-4ee2-96f7-0e7efa60f0bc",
+      "provenance": "live"
+    },
+    {
+      "id": "0dbaa94f-6a0f-4149-83cb-c4ff7f510e39",
+      "source_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "source_title": "Nebius raises $775 million in first secured debt financing to accelerate global buildout",
+      "publisher": "nebius.com",
+      "final_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "verification_status": "source_excerpt_matched",
+      "publication_or_filing_date": "2026-07-17",
+      "retrieved_at": "2026-10-18T01:03:16.286021+00:00",
+      "excerpt": "Nebius raises $775 million in first secured debt financing to accelerate global buildout Skip to main content Products Solutions Why Nebius Developers Pricing Company Investors Contact sales Log in Newsroom / Nebius raises $775 million in first secured debt financing to accelerate global buildout July 17, 2026 Senior secured debt backed by GPU infrastructure and contracted cash flows Demonstrates ability to fund growth at attractive terms Repeatable financing framework for more than $40 billion of additional customer commitments Amsterdam, July 17, 2026 \u2014 Nebius Group N.V. (Nasdaq: NBIS), the AI cloud company, today announced that it has entered into its first senior secured debt facility for approximately $775 million. Nebius intends to use the proceeds of the transaction to further accelerate the global build-out of its full-stack AI cloud platform. The vehicle is backed by deployed GPU infrastructure and contracted cash flows from an agreement with an investment-grade customer. The facility matures October 31, 2030, and is priced at SOFR + 2.50%. Together with cash flows under the customer agreement, the facility covers more than 100% of the capital expenditure required to deploy the underlying GPU infrastructure. As the contract is now in the servicing phase, this financing can be used to invest in capacity that will serve AI-native and enterprise customers on Nebius\u2019s full-stack AI cloud platform. The transaction enables Nebius to convert an operational infrastructure asset into growth capital, providing a framework for Nebius to secure asset-level financing on other long-term customer deployments. With more than $40 billion of additional contracted revenue from investment-grade customers such as Microsoft and Meta already in place, Nebius expects to raise more cap",
+      "confidence": "high",
+      "claim": "$775M senior secured debt facility, SOFR + 2.50%, matures Oct 31 2030, backed by GPU infrastructure and contracted cash flows",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "provenance": "live"
+    },
+    {
+      "id": "b7a21559-a6ae-4b8e-8389-ea3714dcc963",
+      "source_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "source_title": "Nebius raises $775 million in first secured debt financing to accelerate global buildout",
+      "publisher": "nebius.com",
+      "final_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "verification_status": "source_excerpt_matched",
+      "publication_or_filing_date": "2026-07-17",
+      "retrieved_at": "2026-10-18T01:03:16.286021+00:00",
+      "excerpt": "set into growth capital, providing a framework for Nebius to secure asset-level financing on other long-term customer deployments. With more than $40 billion of additional contracted revenue from investment-grade customers such as Microsoft and Meta already in place, Nebius expects to raise more capital at similarly attractive terms. Nebius recently delivered the latest planned capacity tranche to Microsoft, and remains on track to deliver the remaining tranches consistent with the terms of the contracted schedule. This funding strategy is consistent with Nebius\u2019s focus on building a sustainable, profitable business through disciplined financing and a strong balance sheet. Ophir Nave, Chief Operating Officer of Nebius, said: \u201cWe are executing across all the areas that matter for growth: securing capacity, raising capital, strengthening our product offering, and developing other capital-efficient models to scale even further and faster. This financing is an important step in that strategy, and reinforces our confidence that our disciplined, diversified approach \u2014 from owned data centers to asset-light partnerships \u2014 together with robust demand for our high-value software stack, will enable us to build a sustainable AI cloud business with strong and durable margins.\u201d The transaction was significantly oversubscribed. The facility was led by MUFG as Structuring Agent, Sole Bookrunner, and Underwriter. MUFG, together with ABN AMRO Bank N.V., Bank of America, Deutsche Bank and HSBC acted as Mandated Lead Arrangers. Citi, Cr\u00e9dit Agricole CIB, ING, and Morgan Stanley, acted as Senior Lead Arrangers. Goldman Sachs also participated in the syndicate. About Nebius About Nebius Nebius, the AI cloud company, is building the full-stack platform for developers and companies to take ch",
+      "confidence": "high",
+      "claim": "Facility led by MUFG as structuring agent; syndicate includes Bank of America, Deutsche Bank, HSBC, Citi, Cr\u00e9dit Agricole CIB, ING, Morgan Stanley, Goldman Sachs",
+      "task_id": "8816141a-9b66-4e36-bbcf-0a8d1eb56e3d",
+      "provenance": "live"
+    },
+    {
+      "id": "d7eb7382-c7be-423b-bfee-f6f26f6c0442",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "source_title": "crwv-20260630",
+      "publisher": "www.sec.gov",
+      "final_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "verification_status": "source_excerpt_matched",
+      "publication_or_filing_date": null,
+      "retrieved_at": "2026-10-18T01:03:04.867324+00:00",
+      "excerpt": " 590 ) Total non-recourse debt, non-current $ 2,385 $ 57 (1) In June 2026, the Company entered into cross currency interest rate swaps designated as a fair value hedge, to hedge changes in the fair value on the 2032 EUR Senior Notes, attributable to changes in foreign currency exchange rate. As of June 30, 2026, the Company's weighted-average interest rate on short-term debt instruments related to certain of the OEM Financing Arrangements was 9 %. Non-recourse debt represents debt facilities and financing arrangements entered into by certain of the Company\u2019s subsidiaries for which recourse is limited to the assets of the applicable subsidiaries. CoreWeave, Inc., the ultimate parent company, is not otherwise liable for such debt, except in cases where the Company provides limited guarantees under which recourse may arise only upon specified events, such as actual fraud, willful misconduct, misappropriation of collateral, certain voluntary or consented bankruptcy actions, or other customary non-recourse carve-out obligations. These limited guarantees do not represent general guarantees of repayment of principal, interest or other ordinary debt service payments. Recourse debt represents debt facilities and financing arrangements that are either direct obligations of 27 Table of Contents CoreWeave, Inc. or obligations of certain of the Company\u2019s subsidiaries that are unconditionally and irrevocably guaranteed by CoreWeave, Inc. As of June 30, 2026, the future principal payments for the Company's total debt were as follows (in millions): Years Ending December 31, Amount Remaining portion of 2026 $ 4,413 2027 6,184 2028 4,416 2029 2,421 2030 3,221 Thereafter 14,896 Total $ 35,551 The total interest expense for the Company's debt obligations was as follows (in millions): Three",
+      "confidence": "low",
+      "claim": "DDTL 5.0 Facility stated interest rate SOFR + 4.50% and commitment amount $3.1 billion",
+      "task_id": "aa7e9b55-de08-4d2b-b976-1b47e5fcd7fb",
+      "provenance": "live"
+    },
+    {
+      "id": "78b6666f-031f-4bcc-8652-4f881fd0d671",
+      "source_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "source_title": "Nebius raises $775 million in first secured debt financing to accelerate global buildout",
+      "publisher": "nebius.com",
+      "final_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "verification_status": "source_excerpt_matched",
+      "publication_or_filing_date": "2026-07-17",
+      "retrieved_at": "2026-10-18T01:03:16.286021+00:00",
+      "excerpt": "Nebius raises $775 million in first secured debt financing to accelerate global buildout Skip to main content Products Solutions Why Nebius Developers Pricing Company Investors Contact sales Log in Newsroom / Nebius raises $775 million in first secured debt financing to accelerate global buildout July 17, 2026 Senior secured debt backed by GPU infrastructure and contracted cash flows Demonstrates ability to fund growth at attractive terms Repeatable financing framework for more than $40 billion of additional customer commitments Amsterdam, July 17, 2026 \u2014 Nebius Group N.V. (Nasdaq: NBIS), the AI cloud company, today announced that it has entered into its first senior secured debt facility for approximately $775 million. Nebius intends to use the proceeds of the transaction to further accelerate the global build-out of its full-stack AI cloud platform. The vehicle is backed by deployed GPU infrastructure and contracted cash flows from an agreement with an investment-grade customer. The facility matures October 31, 2030, and is priced at SOFR + 2.50%. Together with cash flows under the customer agreement, the facility covers more than 100% of the capital expenditure required to deploy the underlying GPU infrastructure. As the contract is now in the servicing phase, this financing can be used to invest in capacity that will serve AI-native and enterprise customers on Nebius\u2019s full-stack AI cloud platform. The transaction enables Nebius to convert an operational infrastructure asset into growth capital, providing a framework for Nebius to secure asset-level financing on other long-term customer deployments. With more than $40 billion of additional contracted revenue from investment-grade customers such as Microsoft and Meta already in place, Nebius expects to raise more cap",
+      "confidence": "high",
+      "claim": "Facility size $775M, SOFR+2.50%, maturity Oct 31 2030, backed by GPU infrastructure and contracted cash flows",
+      "task_id": "78ec1ade-f694-4b2d-bc05-90b4644c4b42",
+      "provenance": "live"
+    }
+  ],
+  "instruments": [
+    {
+      "instrument_id": "CRWV:EUR_Senior_Notes_2032",
+      "ticker": "CRWV",
+      "name": "2032 EUR Senior Notes",
+      "currency": "EUR",
+      "snapshot_date": "2026-06-30",
+      "issue_date": null,
+      "commitment_amount": null,
+      "drawn_amount": null,
+      "outstanding_principal": null,
+      "coupon_pct": null,
+      "rate_type": "fixed",
+      "reference_index": null,
+      "spread_bps": null,
+      "maturity": null,
+      "parent_entity": null,
+      "recourse_type": "non-recourse",
+      "secured": null,
+      "convertible": null,
+      "hedge_status": "hedged",
+      "hedge_notional": "2000000000",
+      "hedge_effective_date": null,
+      "hedge_end_date": null,
+      "evidence_ids": [
+        "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+      ],
+      "provenance": "live",
+      "validation_warnings": [
+        "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+        "drawn_amount: quoted amount/units or balance classification not supported; kept unknown.",
+        "issue_date: exact date not supported; kept unknown.",
+        "maturity: exact date not supported; kept unknown.",
+        "hedge_effective_date: exact date not supported; kept unknown.",
+        "hedge_end_date: exact date not supported; kept unknown.",
+        "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+      ],
+      "verification_status": "needs_review",
+      "audit_reason": "Excerpt states 9% coupon and EUR 2.279B principal in 10-K table but does not confirm outstanding principal, issue date, maturity date, or hedge effective/end dates; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed."
+    },
+    {
+      "instrument_id": "CRWV:Senior_Notes_2032_9.625",
+      "ticker": "CRWV",
+      "name": "2032 9.625% Senior Notes",
+      "currency": "USD",
+      "snapshot_date": "2026-06-30",
+      "issue_date": null,
+      "commitment_amount": null,
+      "drawn_amount": null,
+      "outstanding_principal": null,
+      "coupon_pct": null,
+      "rate_type": "fixed",
+      "reference_index": null,
+      "spread_bps": null,
+      "maturity": null,
+      "parent_entity": null,
+      "recourse_type": "recourse",
+      "secured": null,
+      "convertible": null,
+      "hedge_status": "unknown",
+      "hedge_notional": null,
+      "hedge_effective_date": null,
+      "hedge_end_date": null,
+      "evidence_ids": [
+        "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+      ],
+      "provenance": "live",
+      "validation_warnings": [
+        "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+        "commitment_amount: quoted amount/units or balance classification not supported; kept unknown.",
+        "drawn_amount: quoted amount/units or balance classification not supported; kept unknown.",
+        "issue_date: exact date not supported; kept unknown.",
+        "maturity: exact date not supported; kept unknown.",
+        "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+        "hedge_status: absence of hedge disclosure is not proof of no hedge."
+      ],
+      "verification_status": "needs_review",
+      "audit_reason": "9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual; outstanding principal unknown"
+    },
+    {
+      "instrument_id": "CRWV:DDTL_4.0_Facility",
+      "ticker": "CRWV",
+      "name": "Delayed Draw Term Loan 4.0 Facility",
+      "currency": "USD",
+      "snapshot_date": "2026-06-30",
+      "issue_date": null,
+      "commitment_amount": null,
+      "drawn_amount": null,
+      "outstanding_principal": null,
+      "coupon_pct": null,
+      "rate_type": "fixed",
+      "reference_index": null,
+      "spread_bps": null,
+      "maturity": null,
+      "parent_entity": null,
+      "recourse_type": "non-recourse",
+      "secured": null,
+      "convertible": null,
+      "hedge_status": "partial",
+      "hedge_notional": null,
+      "hedge_effective_date": null,
+      "hedge_end_date": null,
+      "evidence_ids": [
+        "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+      ],
+      "provenance": "live",
+      "validation_warnings": [
+        "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+        "maturity: exact date not supported; kept unknown.",
+        "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+      ],
+      "verification_status": "needs_review",
+      "audit_reason": "outstanding_principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present; hedge_status partial unsupported by excerpt detail"
+    },
+    {
+      "instrument_id": "CRWV:DDTL_5.0_Facility",
+      "ticker": "CRWV",
+      "name": "Delayed Draw Term Loan 5.0 Facility",
+      "currency": "USD",
+      "snapshot_date": "2026-06-30",
+      "issue_date": null,
+      "commitment_amount": null,
+      "drawn_amount": null,
+      "outstanding_principal": null,
+      "coupon_pct": null,
+      "rate_type": "floating",
+      "reference_index": "SOFR",
+      "spread_bps": "450",
+      "maturity": null,
+      "parent_entity": null,
+      "recourse_type": "non-recourse",
+      "secured": null,
+      "convertible": null,
+      "hedge_status": "unknown",
+      "hedge_notional": null,
+      "hedge_effective_date": null,
+      "hedge_end_date": null,
+      "evidence_ids": [
+        "d7eb7382-c7be-423b-bfee-f6f26f6c0442"
+      ],
+      "provenance": "live",
+      "validation_warnings": [
+        "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+        "commitment_amount: quoted amount/units or balance classification not supported; kept unknown.",
+        "maturity: exact date not supported; kept unknown.",
+        "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+      ],
+      "verification_status": "needs_review",
+      "audit_reason": "drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt"
+    },
+    {
+      "instrument_id": "CRWV:2032_EUR_Senior_Notes",
+      "ticker": "CRWV",
+      "name": "2032 EUR Senior Notes",
+      "currency": "EUR",
+      "snapshot_date": "2026-06-30",
+      "issue_date": null,
+      "commitment_amount": null,
+      "drawn_amount": null,
+      "outstanding_principal": null,
+      "coupon_pct": null,
+      "rate_type": "fixed",
+      "reference_index": null,
+      "spread_bps": null,
+      "maturity": null,
+      "parent_entity": null,
+      "recourse_type": "non-recourse",
+      "secured": null,
+      "convertible": null,
+      "hedge_status": "hedged",
+      "hedge_notional": "2000000000",
+      "hedge_effective_date": null,
+      "hedge_end_date": null,
+      "evidence_ids": [
+        "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+      ],
+      "provenance": "live",
+      "validation_warnings": [
+        "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+        "maturity: exact date not supported; kept unknown.",
+        "hedge_effective_date: exact date not supported; kept unknown.",
+        "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+      ],
+      "verification_status": "needs_review",
+      "audit_reason": "outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed"
+    },
+    {
+      "instrument_id": "NBIS:NBIS_2026_secured_debt",
+      "ticker": "NBIS",
+      "name": "Senior Secured Debt Facility",
+      "currency": "USD",
+      "snapshot_date": "2026-07-17",
+      "issue_date": "2026-07-17",
+      "commitment_amount": "775000000",
+      "drawn_amount": null,
+      "outstanding_principal": null,
+      "coupon_pct": null,
+      "rate_type": "floating",
+      "reference_index": "SOFR",
+      "spread_bps": "250",
+      "maturity": "2030-10-31",
+      "parent_entity": null,
+      "recourse_type": "unknown",
+      "secured": null,
+      "convertible": null,
+      "hedge_status": "unknown",
+      "hedge_notional": null,
+      "hedge_effective_date": null,
+      "hedge_end_date": null,
+      "evidence_ids": [
+        "78b6666f-031f-4bcc-8652-4f881fd0d671"
+      ],
+      "provenance": "live",
+      "validation_warnings": [],
+      "verification_status": "needs_review",
+      "audit_reason": "outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size not confirmed as drawn or outstanding; hedge status, notional, effective and termination dates undisclosed"
+    }
+  ],
+  "customer_deals": [],
+  "deal_financing_links": [],
+  "market_observations": [],
+  "budgets": {
+    "llm_calls": 17,
+    "source_fetches": 8
+  },
+  "outcome": "partially_completed",
+  "dossier": {
+    "summary": "Partially completed. 0 auditor-verified live instrument records; 6 provisional or fixture records. Manager-approved dossier finalized; disclosure gaps preserved",
+    "outcome": "partially_completed",
+    "generator": "evidence_snapshot",
+    "model_notes": "CRWV 10-K (June 30, 2026) details multiple debt instruments across recourse and non-recourse categories. DDTL 4.0 Facility: $2.837B outstanding (non-recourse, 7% fixed) as of 2026-06-30. DDTL 5.0 Facility: $1.101B drawn (non-recourse, SOFR+4.50% effective) as of 2026-06-30, $3.1B commitment, maturity Nov 2031. 2032 EUR Senior Notes (EUR 2.279B principal) hedged via cross-currency swap with notional EUR 2B, effective June 2026, fair value hedge designation. 2032 9.625% Senior Notes (USD 1.25B) listed with 10% effective rate in table; coupon not confirmed. NBIS: $775M senior secured debt facility announced July 17, 2026, SOFR+2.50%, matures Oct 31, 2030; no outstanding principal, drawn amount, or hedge details disclosed in sourced excerpts.",
+    "verified_information": [],
+    "provisional_information": [
+      {
+        "instrument_id": "CRWV:EUR_Senior_Notes_2032",
+        "ticker": "CRWV",
+        "name": "2032 EUR Senior Notes",
+        "currency": "EUR",
+        "snapshot_date": "2026-06-30",
+        "issue_date": null,
+        "commitment_amount": null,
+        "drawn_amount": null,
+        "outstanding_principal": null,
+        "coupon_pct": null,
+        "rate_type": "fixed",
+        "reference_index": null,
+        "spread_bps": null,
+        "maturity": null,
+        "parent_entity": null,
+        "recourse_type": "non-recourse",
+        "secured": null,
+        "convertible": null,
+        "hedge_status": "hedged",
+        "hedge_notional": "2000000000",
+        "hedge_effective_date": null,
+        "hedge_end_date": null,
+        "evidence_ids": [
+          "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+        ],
+        "provenance": "live",
+        "validation_warnings": [
+          "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+          "drawn_amount: quoted amount/units or balance classification not supported; kept unknown.",
+          "issue_date: exact date not supported; kept unknown.",
+          "maturity: exact date not supported; kept unknown.",
+          "hedge_effective_date: exact date not supported; kept unknown.",
+          "hedge_end_date: exact date not supported; kept unknown.",
+          "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+        ],
+        "verification_status": "needs_review",
+        "audit_reason": "Excerpt states 9% coupon and EUR 2.279B principal in 10-K table but does not confirm outstanding principal, issue date, maturity date, or hedge effective/end dates; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed."
+      },
+      {
+        "instrument_id": "CRWV:Senior_Notes_2032_9.625",
+        "ticker": "CRWV",
+        "name": "2032 9.625% Senior Notes",
+        "currency": "USD",
+        "snapshot_date": "2026-06-30",
+        "issue_date": null,
+        "commitment_amount": null,
+        "drawn_amount": null,
+        "outstanding_principal": null,
+        "coupon_pct": null,
+        "rate_type": "fixed",
+        "reference_index": null,
+        "spread_bps": null,
+        "maturity": null,
+        "parent_entity": null,
+        "recourse_type": "recourse",
+        "secured": null,
+        "convertible": null,
+        "hedge_status": "unknown",
+        "hedge_notional": null,
+        "hedge_effective_date": null,
+        "hedge_end_date": null,
+        "evidence_ids": [
+          "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+        ],
+        "provenance": "live",
+        "validation_warnings": [
+          "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+          "commitment_amount: quoted amount/units or balance classification not supported; kept unknown.",
+          "drawn_amount: quoted amount/units or balance classification not supported; kept unknown.",
+          "issue_date: exact date not supported; kept unknown.",
+          "maturity: exact date not supported; kept unknown.",
+          "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon.",
+          "hedge_status: absence of hedge disclosure is not proof of no hedge."
+        ],
+        "verification_status": "needs_review",
+        "audit_reason": "9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual; outstanding principal unknown"
+      },
+      {
+        "instrument_id": "CRWV:DDTL_4.0_Facility",
+        "ticker": "CRWV",
+        "name": "Delayed Draw Term Loan 4.0 Facility",
+        "currency": "USD",
+        "snapshot_date": "2026-06-30",
+        "issue_date": null,
+        "commitment_amount": null,
+        "drawn_amount": null,
+        "outstanding_principal": null,
+        "coupon_pct": null,
+        "rate_type": "fixed",
+        "reference_index": null,
+        "spread_bps": null,
+        "maturity": null,
+        "parent_entity": null,
+        "recourse_type": "non-recourse",
+        "secured": null,
+        "convertible": null,
+        "hedge_status": "partial",
+        "hedge_notional": null,
+        "hedge_effective_date": null,
+        "hedge_end_date": null,
+        "evidence_ids": [
+          "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+        ],
+        "provenance": "live",
+        "validation_warnings": [
+          "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+          "maturity: exact date not supported; kept unknown.",
+          "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+        ],
+        "verification_status": "needs_review",
+        "audit_reason": "outstanding_principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present; hedge_status partial unsupported by excerpt detail"
+      },
+      {
+        "instrument_id": "CRWV:DDTL_5.0_Facility",
+        "ticker": "CRWV",
+        "name": "Delayed Draw Term Loan 5.0 Facility",
+        "currency": "USD",
+        "snapshot_date": "2026-06-30",
+        "issue_date": null,
+        "commitment_amount": null,
+        "drawn_amount": null,
+        "outstanding_principal": null,
+        "coupon_pct": null,
+        "rate_type": "floating",
+        "reference_index": "SOFR",
+        "spread_bps": "450",
+        "maturity": null,
+        "parent_entity": null,
+        "recourse_type": "non-recourse",
+        "secured": null,
+        "convertible": null,
+        "hedge_status": "unknown",
+        "hedge_notional": null,
+        "hedge_effective_date": null,
+        "hedge_end_date": null,
+        "evidence_ids": [
+          "d7eb7382-c7be-423b-bfee-f6f26f6c0442"
+        ],
+        "provenance": "live",
+        "validation_warnings": [
+          "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+          "commitment_amount: quoted amount/units or balance classification not supported; kept unknown.",
+          "maturity: exact date not supported; kept unknown.",
+          "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+        ],
+        "verification_status": "needs_review",
+        "audit_reason": "drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt"
+      },
+      {
+        "instrument_id": "CRWV:2032_EUR_Senior_Notes",
+        "ticker": "CRWV",
+        "name": "2032 EUR Senior Notes",
+        "currency": "EUR",
+        "snapshot_date": "2026-06-30",
+        "issue_date": null,
+        "commitment_amount": null,
+        "drawn_amount": null,
+        "outstanding_principal": null,
+        "coupon_pct": null,
+        "rate_type": "fixed",
+        "reference_index": null,
+        "spread_bps": null,
+        "maturity": null,
+        "parent_entity": null,
+        "recourse_type": "non-recourse",
+        "secured": null,
+        "convertible": null,
+        "hedge_status": "hedged",
+        "hedge_notional": "2000000000",
+        "hedge_effective_date": null,
+        "hedge_end_date": null,
+        "evidence_ids": [
+          "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e"
+        ],
+        "provenance": "live",
+        "validation_warnings": [
+          "outstanding_principal: quoted amount/units or balance classification not supported; kept unknown.",
+          "maturity: exact date not supported; kept unknown.",
+          "hedge_effective_date: exact date not supported; kept unknown.",
+          "coupon_pct: contractual coupon not established by excerpt; market yield is not a coupon."
+        ],
+        "verification_status": "needs_review",
+        "audit_reason": "outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed"
+      },
+      {
+        "instrument_id": "NBIS:NBIS_2026_secured_debt",
+        "ticker": "NBIS",
+        "name": "Senior Secured Debt Facility",
+        "currency": "USD",
+        "snapshot_date": "2026-07-17",
+        "issue_date": "2026-07-17",
+        "commitment_amount": "775000000",
+        "drawn_amount": null,
+        "outstanding_principal": null,
+        "coupon_pct": null,
+        "rate_type": "floating",
+        "reference_index": "SOFR",
+        "spread_bps": "250",
+        "maturity": "2030-10-31",
+        "parent_entity": null,
+        "recourse_type": "unknown",
+        "secured": null,
+        "convertible": null,
+        "hedge_status": "unknown",
+        "hedge_notional": null,
+        "hedge_effective_date": null,
+        "hedge_end_date": null,
+        "evidence_ids": [
+          "78b6666f-031f-4bcc-8652-4f881fd0d671"
+        ],
+        "provenance": "live",
+        "validation_warnings": [],
+        "verification_status": "needs_review",
+        "audit_reason": "outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size not confirmed as drawn or outstanding; hedge status, notional, effective and termination dates undisclosed"
+      }
+    ],
+    "concerns": [
+      "CRWV: no auditor-verified live instrument; outstanding debt remains unknown.",
+      "NBIS: no auditor-verified live instrument; outstanding debt remains unknown.",
+      "CRWV:EUR_Senior_Notes_2032: unknown issue_date, outstanding_principal, maturity.",
+      "CRWV:Senior_Notes_2032_9.625: unknown issue_date, outstanding_principal, maturity.",
+      "CRWV:DDTL_4.0_Facility: unknown issue_date, outstanding_principal, maturity.",
+      "CRWV:DDTL_5.0_Facility: unknown issue_date, outstanding_principal, maturity.",
+      "CRWV:DDTL_5.0_Facility: hedge exposure unverified; not assumed unhedged.",
+      "CRWV:2032_EUR_Senior_Notes: unknown issue_date, outstanding_principal, maturity.",
+      "NBIS:NBIS_2026_secured_debt: unknown outstanding_principal.",
+      "NBIS:NBIS_2026_secured_debt: hedge exposure unverified; not assumed unhedged.",
+      "CRWV:DDTL_4.0_Facility: outstanding principal $2.837B quoted but maturity date and exact coupon classification not fully resolved in excerpt; fixed-rate inferred from 7% but SOFR + spread terms also present.",
+      "CRWV:DDTL_5.0_Facility: drawn amount $1.101B vs commitment $3.1B needs verification against 10-K table; SOFR+4.50% spread not fully specified for all draws; maturity date not confirmed in excerpt.",
+      "CRWV:2032_EUR_Senior_Notes: outstanding principal unknown; issuance date, maturity date, and hedge effective/end dates not supported; hedge notional EUR 2B referenced but swap terms and effectiveness not detailed.",
+      "CRWV:Senior_Notes_2032_9.625: outstanding principal unknown; 9.625% vs 10% effective rate distinction not resolved; coupon not confirmed as contractual.",
+      "NBIS:NBIS_2026_secured_debt: outstanding principal unknown; drawn amount and commitment breakdown not provided in excerpt; $775M is announced size, not confirmed as drawn or outstanding.",
+      "NBIS:NBIS_2026_secured_debt: hedge status, notional, effective and termination dates undisclosed; no swap documentation in excerpts.",
+      "Market data unavailable. No prices, yields or returns fabricated."
+    ],
+    "source_failures": [],
+    "evidence_ids": [
+      "f876ce72-8f6d-4ac4-b981-6dfd9ad7111e",
+      "1203727e-0a0a-459a-82c7-ff3e1e01a3f7",
+      "0dbaa94f-6a0f-4149-83cb-c4ff7f510e39",
+      "b7a21559-a6ae-4b8e-8389-ea3714dcc963",
+      "d7eb7382-c7be-423b-bfee-f6f26f6c0442",
+      "78b6666f-031f-4bcc-8652-4f881fd0d671"
+    ],
+    "completion_note": "Missing financial amounts remain unknown; no totals inferred from incomplete coverage."
+  },
+  "disclosure": "Disclosure incomplete",
+  "source_cache": {
+    "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "final_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "crwv-20260630",
+      "retrieved_at": "2026-10-18T01:03:04.867324+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    },
+    "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx": {
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "final_url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Announces-Pricing-of-1-25-Billion-of-Senior-Notes-and-2-Billion-of-Senior-Notes/default.aspx",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "\r\n\tCoreWeave - CoreWeave Announces Pricing of $1.25 Billion of Senior Notes and \u20ac2 Billion of Senior Notes\r\n",
+      "retrieved_at": "2026-10-18T01:03:05.566677+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    },
+    "https://investors.coreweave.com/financials/sec-filings/default.aspx": {
+      "url": "https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "final_url": "https://investors.coreweave.com/financials/sec-filings/default.aspx",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "\r\n\tCoreWeave - Financials - SEC Filings\r\n",
+      "retrieved_at": "2026-10-18T01:03:05.993665+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    },
+    "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout": {
+      "url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "final_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "Nebius raises $775 million in first secured debt financing to accelerate global buildout",
+      "retrieved_at": "2026-10-18T01:03:16.286021+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    },
+    "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "final_url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "",
+      "retrieved_at": "2026-10-18T01:03:16.481834+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    },
+    "https://nebius.com/newsroom": {
+      "url": "https://nebius.com/newsroom",
+      "final_url": "https://nebius.com/newsroom",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "Nebius Newsroom",
+      "retrieved_at": "2026-10-18T01:03:17.993442+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    },
+    "https://investors.coreweave.com/news/default.aspx": {
+      "url": "https://investors.coreweave.com/news/default.aspx",
+      "final_url": "https://investors.coreweave.com/news/default.aspx",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "\r\n\tCoreWeave - News\r\n",
+      "retrieved_at": "2026-10-18T01:04:29.840380+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    },
+    "https://nebius.com/financials": {
+      "url": "https://nebius.com/financials",
+      "final_url": "https://nebius.com/financials",
+      "redirects": [],
+      "status": "retrieved",
+      "title": "Financials",
+      "retrieved_at": "2026-10-18T01:04:40.572460+00:00",
+      "scope_warning": "Scoped passages; absence is not proof of no debt."
+    }
+  }
+}

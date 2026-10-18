@@ -1,0 +1,51 @@
+{
+  "checks": [
+    {
+      "service": "Neon executor DNS",
+      "category": "dns_resolution_failure",
+      "error_type": "gaierror"
+    },
+    {
+      "service": "www.sec.gov",
+      "http_status": 200,
+      "category": "success"
+    },
+    {
+      "service": "iren.com",
+      "http_status": 200,
+      "category": "success"
+    },
+    {
+      "service": "ir.bitdeer.com",
+      "http_status": 200,
+      "category": "success"
+    },
+    {
+      "service": "Crusoe inference",
+      "category": "success",
+      "provider": "Crusoe Managed Inference",
+      "model": "nvidia/Nemotron-3.5-Lightning-30B-A3B",
+      "json_verified": true,
+      "verification_attempts": 1
+    },
+    {
+      "service": "investors.coreweave.com",
+      "http_status": 200,
+      "category": "success"
+    },
+    {
+      "service": "nebius.com",
+      "http_status": 200,
+      "category": "success"
+    },
+    {
+      "service": "Neon Postgres",
+      "category": "dns_resolution_failure"
+    },
+    {
+      "service": "Neon HTTPS",
+      "category": "network_policy_restriction"
+    }
+  ],
+  "publication_note": "Sanitized service checks only; credentials, database endpoint identity and private environment configuration omitted."
+}
