@@ -1,0 +1,33 @@
+{
+  "run_id": "9ea3c09e-e446-4c91-978a-728c0e64f0f7",
+  "outcome": "partially_completed",
+  "evidence_rendered": 6,
+  "instrument_rows": 6,
+  "dossier_text_length": 2898,
+  "model_synthesis_visible": true,
+  "reload_preserved_dossier": true,
+  "javascript_errors": [],
+  "desktop_overflow": false,
+  "mobile_overflow": false,
+  "scenario": {
+    "CRWV": {
+      "delta_bps": 200,
+      "as_of": "2026-10-18",
+      "known_annual_increment_by_currency": {},
+      "coverage": "Disclosure incomplete",
+      "assumptions": "Parallel benchmark shock; annualized illustration; floors, amortization and future draws excluded. Fixed contractual coupons do not reprice.",
+      "rows": [],
+      "warnings": []
+    },
+    "NBIS": {
+      "delta_bps": 200,
+      "as_of": "2026-10-18",
+      "known_annual_increment_by_currency": {},
+      "coverage": "Disclosure incomplete",
+      "assumptions": "Parallel benchmark shock; annualized illustration; floors, amortization and future draws excluded. Fixed contractual coupons do not reprice.",
+      "rows": [],
+      "warnings": []
+    }
+  },
+  "storage": "development memory; replay of actual live engine trace, not Neon persistence"
+}

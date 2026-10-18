@@ -54,3 +54,24 @@ def test_policy_denial_is_classified_and_not_retried_for_same_host(monkeypatch):
     assert all(r['category']=='network_policy_restriction' for r in results)
     assert results[1]['skipped_known_host_failure']
     assert 'sensitive-proxy-body' not in str(results)
+
+
+def test_debt_note_keeps_units_and_rows_before_incidental_cross_references():
+    text=('Refer to Note 10—Debt for details. interest rate swaps '+ 'front matter '*3000+
+          '10. Debt The total debt obligations are as follows (dollars in millions): '
+          'June 30, 2026 2032 9.625% Senior Notes Jul 2032 1,250. '+
+          'More debt detail '*1500)
+    scoped=sources.scoped_passages(text)
+    assert scoped.startswith('10. Debt The total debt obligations')
+    assert '(dollars in millions)' in scoped
+    assert 'June 30, 2026 2032 9.625% Senior Notes Jul 2032 1,250' in scoped
+    assert sum(map(len,scoped.split('\n[…]\n'))) <= 22000
+
+
+def test_hidden_inline_xbrl_is_excluded_from_financial_passages(monkeypatch):
+    transport(monkeypatch,lambda r:httpx.Response(200,headers={'content-type':'text/html'},
+        text='<html><ix:header><ix:hidden>debt SECRET_HIDDEN_CONTEXT</ix:hidden></ix:header>'
+             '<body><p>Debt facility outstanding is $100 million.</p></body></html>'))
+    result=asyncio.run(sources.retrieve('https://www.sec.gov/test.htm'))
+    assert 'SECRET_HIDDEN_CONTEXT' not in result['text']
+    assert 'Debt facility outstanding' in result['text']

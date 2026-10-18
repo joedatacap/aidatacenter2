@@ -2,7 +2,7 @@ import asyncio
 from datetime import datetime, timedelta, timezone
 from itertools import combinations
 import pytest
-from neocloud.engine import Engine, new_run, MAX_TASKS, MAX_CALLS
+from neocloud.engine import Engine, new_run, task, MAX_TASKS, MAX_CALLS
 from neocloud.repository import MemoryRepository
 from neocloud.fixtures import bundle
 
@@ -132,3 +132,26 @@ def test_specialized_debt_child_can_follow_auditor_through_manager():
     assert audit_ancestor(run,specialist)==auditor['id']
     run['tasks'].append(specialist)
     assert Engine(MemoryRepository(),None).context(run)['followup_required_for_auditors']==[]
+
+
+def test_numbered_passage_citation_uses_retrieved_text_and_rejects_invalid_indices():
+    run=new_run(['NBIS'])
+    item=task('debt','NBIS','Read facility terms')
+    excerpt='The facility commitment is $775 million and matures October 31, 2030.'
+    bundle=[{'status':'retrieved','url':'https://nebius.com/newsroom/test','title':'Financing',
+             'retrieved_at':run['created_at'],'text':excerpt,'citation_passages':[excerpt]}]
+    response={'evidence':[{'source_index':0,'citation_passage_index':0,
+                          'excerpt':'Model retyping is ignored when a passage is selected.',
+                          'claim':'Facility terms'},
+                         {'source_index':0,'citation_passage_index':-1,'claim':'Invalid'},
+                         {'source_index':0,'citation_passage_index':True,'claim':'Invalid'},
+                         {'source_index':0,'citation_passage_index':99,'claim':'Invalid'}],
+              'instruments':[{'instrument_id':'facility','ticker':'NBIS','name':'Secured facility',
+                 'currency':'USD','commitment_amount':'775000000','maturity':'2030-10-31',
+                 'evidence_refs':[0]}]}
+    Engine(MemoryRepository(),None).accept_findings(run,item,response,bundle)
+    assert len(run['evidence'])==1
+    assert run['evidence'][0]['excerpt']==excerpt
+    assert run['instruments'][0]['commitment_amount']=='775000000'
+    assert run['instruments'][0]['maturity']=='2030-10-31'
+    assert sum(e['kind']=='evidence_rejected' for e in run['events'])==3

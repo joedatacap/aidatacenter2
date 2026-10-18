@@ -57,10 +57,14 @@ def validate_instrument_fields(candidate,evidence):
             supported=False
         if field=='outstanding_principal':
             supported=supported and any(re.search(r'outstanding|carrying amount|principal balance|borrowings',q,re.I) for q in quotes)
+        if field in ('commitment_amount','drawn_amount') and re.search(r'notes?|bonds?',item.get('name',''),re.I):
+            supported=False  # Original note issuance is not a loan-facility commitment.
+        if field=='drawn_amount':
+            supported=supported and any(re.search(r'\bdrawn\b|\bdrawdowns?\b',q,re.I) for q in quotes)
         if not supported:
             item[field]=None
             warnings.append(field+': quoted amount/units or balance classification not supported; kept unknown.')
-    for field in ('issue_date','maturity','snapshot_date'):
+    for field in ('issue_date','maturity','snapshot_date','hedge_effective_date','hedge_end_date'):
         if item.get(field) is not None and not date_supported(item[field],evidence,field=='snapshot_date'):
             item[field]=None
             warnings.append(field+': exact date not supported; kept unknown.')
@@ -69,12 +73,15 @@ def validate_instrument_fields(candidate,evidence):
         supported=False
         try:
             for quote in quotes:
+                if re.search(r'effective\s+interest\s+rates?',quote,re.I):
+                    continue  # Table yields/rates cannot establish a contractual coupon.
                 for match in re.finditer(r'(\d+(?:\.\d+)?)\s*%',quote):
                     if Decimal(match.group(1))!=Decimal(str(coupon)):
                         continue
                     before=quote[max(0,match.start()-50):match.start()].lower()
                     after=quote[match.end():match.end()+40].lower()
-                    contractual=max(before.rfind('coupon'),before.rfind('interest'),before.rfind('fixed'))
+                    contractual=max(before.rfind(word) for word in
+                        ('coupon','stated interest','bear interest','bears interest','fixed'))
                     if before.rfind('yield')>contractual:
                         continue
                     if contractual>=0 or re.search(r'^\s*(senior|secured|convertible|fixed|notes)',after):

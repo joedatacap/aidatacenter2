@@ -102,6 +102,10 @@ AFTER an auditor concern, choose targeted research children of the auditor task 
 objections. Before a dossier or finish, delegate at least one targeted followup when auditor concerns exist.
 The manager MUST choose the actual followup goal and parent; the worker never invents it.
 Consult source_status: never assign a repeated fetch of a failed URL or an already-denied host.
+allowed_next_roles is a hard constraint. If review_due is true, schedule an auditor now;
+missing balances do not justify repeating initial extraction before the first review.
+If final_review_due is true, review the followup records with an auditor. If dossier_due
+is true, schedule the dossier immediately: no further extraction can be accepted.
 A followup may inspect alternate approved URLs or document the specific unavailable disclosure.
 After one targeted followup per concern, stop seeking inaccessible sources and request a caveated dossier.
 If exhausted_source_tickers_after_followup contains a ticker, do NOT assign further debt/deals/followup
@@ -116,7 +120,18 @@ Each task must concern a selected ticker. Source/network failures are evidence l
 
 RESEARCH = GUARDRAILS + """
 You are the assigned specialist. Analyze only supplied scoped primary-source passages.
-Return {"summary":"...", "concerns":["..."], "evidence":[{"source_index":0,
+Only extract instruments for assignment.ticker. Prior summaries are fallible interpretations,
+not source evidence. Copy excerpts verbatim, including spaces, punctuation and currency symbols;
+never retype a table in a different format. Evidence source_index is the zero-based index in sources.
+Keep the response within 4096 output tokens: extract at most THREE instruments and SIX evidence
+excerpts per task, each excerpt at most 1200 characters. Prefer a few fully supported instruments
+over an exhaustive ledger. State remaining coverage gaps in concerns for targeted followup.
+For debt tables, retain the heading, units, as-of date and relevant row in the same excerpt.
+Effective interest rates in a table are not necessarily contractual coupons.
+Sources include numbered citation_passages copied from the primary text. Prefer citing the
+explicit index field as citation_passage_index instead of retyping an excerpt; the worker resolves it to
+the exact retrieved text. Each claim must be supported by that selected passage.
+Return {"summary":"...", "concerns":["..."], "evidence":[{"source_index":0, "citation_passage_index":0,
 "excerpt":"EXACT contiguous text copied from that source", "claim":"narrow supported claim",
 "publication_or_filing_date":"YYYY-MM-DD or null","confidence":"high|medium|low"}],
 "instruments":[{"instrument_id":"stable descriptive id","ticker":"...",
@@ -279,8 +294,11 @@ class Engine:
             current["status"] = "completed"
             current.pop('response_checkpoint',None)
             event(run,"task_completed",current["role"] + " completed",current["id"])
-            if current['role']=='dossier' and set(exhausted_sources(run))==set(run['tickers']):
-                self.finish(run,'Primary sources unavailable; manager-approved dossier finalized')
+            if current['role']=='dossier':
+                reason=('Primary sources unavailable; manager-approved dossier finalized'
+                        if set(exhausted_sources(run))==set(run['tickers']) else
+                        'Manager-approved dossier finalized; disclosure gaps preserved')
+                self.finish(run,reason)
         except BudgetStop as exc:
             self.finish(run,str(exc),"budget_exhausted")
         except TimeoutError:
@@ -320,10 +338,21 @@ class Engine:
                 for ticker in run["tickers"]:
                     source_catalog[ticker].extend(source.get("discovered_links",[]))
         auditor_concerns = [t["id"] for t in run["tasks"] if t["role"]=="auditor" and t["status"]=="completed"
-                            and (t.get("result",{}).get("concerns") or t.get("result",{}).get("rule_objections"))]
+                            and ((t.get("result") or {}).get("concerns") or (t.get("result") or {}).get("rule_objections"))]
         has_followup = any(audit_ancestor(run,t) in auditor_concerns for t in run["tasks"])
         followed={t['ticker'] for t in run['tasks'] if t['status']=='completed' and audit_ancestor(run,t)}
         exhausted_after_followup=exhausted_sources(run) if followed else []
+        initial_research_done=all(any(t.get('ticker')==ticker and t['role']=='debt' and
+            t['status']=='completed' for t in run['tasks']) for ticker in run['tickers'])
+        review_due=initial_research_done and not any(t['role']=='auditor' and t['status']=='completed'
+                                                    for t in run['tasks'])
+        followup_round_done=set(run['tickers'])<=followed
+        last_followup=max((index for index,t in enumerate(run['tasks'])
+                           if t['status']=='completed' and audit_ancestor(run,t)),default=-1)
+        reviewed_after_followup=any(t['role']=='auditor' and t['status']=='completed'
+                                   for t in run['tasks'][last_followup+1:])
+        final_review_due=followup_round_done and not reviewed_after_followup
+        dossier_due=followup_round_done and reviewed_after_followup
         return {"tickers":run["tickers"],
                 "budgets":{"used":run["budgets"],"limits":{"llm_calls":MAX_CALLS,"source_fetches":MAX_FETCHES},
                            "remaining":{"llm_calls":MAX_CALLS-run["budgets"]["llm_calls"],
@@ -337,7 +366,10 @@ class Engine:
                 "rule_objections":audit(run) if any(t["role"]!="manager" and t["status"]=="completed" for t in run["tasks"]) else [],
                 "source_catalog":source_catalog,
                 "exhausted_source_tickers_after_followup":exhausted_after_followup,
-                "allowed_next_roles":['dossier'] if set(exhausted_after_followup)==set(run['tickers']) else sorted(ROLES),
+                "allowed_next_roles":(['dossier'] if dossier_due or set(exhausted_after_followup)==set(run['tickers']) else
+                                      ['auditor'] if review_due or final_review_due else sorted(ROLES)),
+                "review_due":review_due,
+                "final_review_due":final_review_due,"dossier_due":dossier_due,
                 "source_status":[{k:source.get(k) for k in ('url','status','category')} for source in source_results(run)],
                 "followup_required_for_auditors":auditor_concerns if not has_followup else [],
                 "remaining_tasks":MAX_TASKS-len(run["tasks"])}
@@ -374,7 +406,7 @@ class Engine:
                 if role not in ROLES or ticker not in run["tickers"] or not isinstance(goal,str) or not goal.strip():
                     continue
                 if role not in context['allowed_next_roles'] or (role!='dossier' and ticker in context['exhausted_source_tickers_after_followup']):
-                    event(run,'task_suppressed','Source options exhausted after followup; request a caveated dossier',current['id'],ticker=ticker)
+                    event(run,'task_suppressed','Further extraction suppressed; complete the required review or dossier',current['id'],ticker=ticker)
                     continue
                 parent = proposal.get("parent_task_id") or current["id"]
                 if parent not in {t["id"] for t in run["tasks"]}:
@@ -393,7 +425,8 @@ class Engine:
                       initiated_by="Crusoe model" if run["mode"]=="live" else "simulated model")
                 added += 1
             if not added:
-                current["result"]["validation_feedback"] = "No new tasks accepted. Avoid duplicate role/ticker/goal and respect allowed_next_roles. Source options exhausted after followup must lead to a dossier, not more research. Use an auditor and targeted followup before concluding."
+                current["result"]["validation_feedback"] = ("No new tasks accepted. Choose a nonduplicate task with one of these roles: " +
+                    ', '.join(context['allowed_next_roles']) + ". Respect final_review_due and dossier_due; do not repeat completed extraction.")
                 raise ValueError("Manager plan contained no valid new tasks")
             return
 
@@ -433,7 +466,33 @@ class Engine:
             event(run,'specialist_limited',current['result']['summary'],current['id'])
             return
         context["sources"] = bundle
-        response = await self.call(run,RESEARCH,context)
+        if run['mode']=='live' and current['role'] in ('debt','deals','followup'):
+            # Manager plans and cross-company summaries can contaminate extraction.
+            # Give specialists primary text and the specific question, then let the auditor
+            # reconcile against the full investigation separately.
+            for source in bundle:
+                if source.get('status')=='retrieved':
+                    text=source['text']
+                    source['citation_passages']=[part[start:start+1800]
+                        for part in text.split('\n[…]\n')
+                        for start in range(0,len(part),1500)]
+            context = {'assignment':{k:current[k] for k in ('role','ticker','goal')},
+                       'sources':[{k:v for k,v in source.items() if k not in ('text','citation_passages')} |
+                           {'citation_passages':[{'index':index,'excerpt':excerpt} for index,excerpt in
+                               enumerate(source.get('citation_passages',[]))]} for source in bundle],
+                       'instruments':[i for i in run['instruments'] if i['ticker']==current['ticker']],
+                       'evidence':[e for e in run['evidence'] if e.get('task_id') in
+                           {t['id'] for t in run['tasks'] if t.get('ticker')==current['ticker']}]}
+        instruction=RESEARCH
+        if run['mode']=='live' and current['role'] in ('debt','followup'):
+            instruction += """
+OUTPUT BOUND FOR THIS CALL: Return at most ONE instrument and TWO evidence entries.
+Choose one directly supported instrument relevant to the assignment; leave the rest for
+another task. Cite explicit passage indices, without also copying excerpt text.
+Summary must be under 400 characters; concerns at most three short strings.
+Return no customer_deals or instrument_reviews for this extraction call.
+"""
+        response = await self.call(run,instruction,context)
         # Keep unvalidated agent prose for manager review; UI dossiers remain caveated.
         current["result"] = {"summary":str(response.get("summary",""))[:6000],
                              "concerns":response.get("concerns",[])[:15]}
@@ -461,7 +520,13 @@ class Engine:
                 if not isinstance(source_index,int) or isinstance(source_index,bool) or not 0<=source_index<len(bundle):
                     raise ValueError()
                 source = bundle[source_index]
-                excerpt = candidate["excerpt"]
+                passage_index=candidate.get('citation_passage_index')
+                if passage_index is not None:
+                    if not isinstance(passage_index,int) or isinstance(passage_index,bool) or passage_index<0:
+                        raise ValueError()
+                    excerpt=source['citation_passages'][passage_index]
+                else:
+                    excerpt = candidate["excerpt"]
                 if source["status"] not in (("retrieved",) if run["mode"]=="live" else ("fixture",)) or not isinstance(excerpt,str) or len(excerpt)<20 or len(excerpt)>4000 or excerpt not in source["text"] or '\n[…]\n' in excerpt:
                     raise ValueError()
                 evidence = {"id":uid(),"source_url":source["url"],"source_title":source["title"],

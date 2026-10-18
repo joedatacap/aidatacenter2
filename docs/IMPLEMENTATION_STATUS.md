@@ -1,3 +1,5 @@
+> Superseded connectivity findings: see [latest published environment verification](LATEST_ENVIRONMENT_VERIFICATION.md). SEC/IR access now works; actual Neon remains blocked separately.
+
 # V1 connectivity and reliability status — October 17, 2026
 
 Implementation continues on `codex/neocloud-debt-intelligence`, [draft PR #3](https://github.com/joedatacap/aidatacenter2/pull/3). No V2, new database, hosting service or SQLite replacement was introduced.
@@ -38,7 +40,7 @@ This proves live orchestration and graceful partial completion, **not successful
 | Real structured inference | Successful, including Nemotron; fallback exercised in the live workflow |
 | Neon executor DNS | Resolution failed |
 | Direct Neon PostgreSQL | Failed during DNS resolution; no authenticated DB session established |
-| Neon SQL-over-HTTPS | Explicit proxy/network-policy denial at `api.c-7.us-east-2.aws.neon.tech` |
+| Neon SQL-over-HTTPS | Explicit proxy/network-policy denial at `<regional Neon HTTPS host>` |
 | SEC and primary IR sources | Explicit proxy/network-policy denials; no source content retrieved |
 | Actual Neon schema/save/read/restart | Not verified because connectivity is blocked |
 | Disposable TLS Postgres and HTTPS protocol bridge | Passing CI integration tests; not a claim of actual Neon connectivity |
@@ -56,7 +58,7 @@ nebius.com
 iren.com
 ir.iren.com
 ir.bitdeer.com
-api.c-7.us-east-2.aws.neon.tech
+<regional Neon HTTPS host>
 ```
 
 Retain the existing Crusoe permission. These are general network rules, separate from the API key's credential allowed-domain binding. Apply the saved configuration to the active/replacement environment, then restart the app and start a fresh investigation. The HTTPS path uses the existing DATABASE_URL; no new credentials need to be supplied.

@@ -1,0 +1,62 @@
+{
+  "checked_at": "2026-10-18T00:52:18.992121+00:00",
+  "records": [
+    {
+      "ticker": "CRWV",
+      "name": "DDTL 4.0",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "as_of": "2026-06-30",
+      "commitment_usd": "8500000000",
+      "outstanding_floating_usd_rounded": "1400000000",
+      "outstanding_fixed_usd_rounded": "1500000000",
+      "floating_spread_bps": "225",
+      "maturity_month": "2032-03",
+      "excerpt": "In March 2026, one of the Company's subsidiaries, CoreWeave Compute Acquisition Co. VIII, LLC (\"CCAC VIII\"), entered into a delayed draw term loan facility agreement with various lenders and MUFG Bank, LTD., as the administrative agent. The agreement provides an $ 8.5 billion delayed draw term loan facility (the \u201cDDTL 4.0 Facility\u201d) available in one or more draws through June 30, 2027, the commitment termination date. As of June 30, 2026, the facility has $ 1.4 billion of outstanding floating-rate loan and $ 1.5 billion of outstanding fixed-rate loan. Amounts borrowed under the floating-rate commitments bear interest, at the Company\u2019s option, at daily compounded SOFR plus 2.25 % per annum or the alternative base rate plus 1.25 % per annum. Amounts borrowed under the fixed-rate commitments bear interest at 2.00 % per annum plus a blended rate based upon the applicable United States Treasury securities per the credit agreement at the time of the borrowing. 28 Table of Contents The DDTL 4.0 Facility matures in March 2032.",
+      "verification": "Exact contiguous excerpt matched to actually retrieved primary-source HTML; independently reviewed during development. This is separate from model auditor status."
+    },
+    {
+      "ticker": "CRWV",
+      "name": "2032 9.625% Senior Notes",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+      "as_of": "2026-06-30",
+      "reported_debt_obligation_usd": "1250000000",
+      "contractual_coupon_pct": "9.625",
+      "maturity_month": "2032-07",
+      "excerpt": "10. Debt The total debt obligations are as follows (dollars in millions): Maturities Effective Interest Rates June 30, 2026 December 31, 2025 Recourse debt: DDTL 1.0 Facility Mar 2028 15 % $ 1,300 $ 1,553 DDTL 2.0 Facility Aug 2030 11 % 3,190 5,037 DDTL 2.1 Facility Mar 2031 9 % 3,000 2,741 DDTL 3.0 Facility Aug 2030 9 % 2,215 340 DDTL 5.0 Facility Nov 2031 9 % 1,101 \u2014 2030 Senior Notes Jun 2030 10 % 2,000 2,000 2031 9.00 % Senior Notes Feb 2031 10 % 1,750 1,750 2031 9.75% Senior Notes Oct 2031 10 % 2,750 \u2014 2032 9.625% Senior Notes Jul 2032 10 % 1,250 \u2014 2032 EUR Senior Notes (1)",
+      "verification": "Exact contiguous excerpt matched to actually retrieved primary-source HTML; independently reviewed during development. This is separate from model auditor status."
+    },
+    {
+      "ticker": "NBIS",
+      "name": "Senior secured facility",
+      "source_url": "https://nebius.com/newsroom/nebius-raises-775-million-in-first-secured-debt-financing-to-accelerate-global-buildout",
+      "announced": "2026-07-17",
+      "facility_amount_usd_approximate": "775000000",
+      "outstanding_principal": null,
+      "reference_index": "SOFR",
+      "spread_bps": "250",
+      "maturity": "2030-10-31",
+      "excerpt": "Amsterdam, July 17, 2026 \u2014 Nebius Group N.V. (Nasdaq: NBIS), the AI cloud company, today announced that it has entered into its first senior secured debt facility for approximately $775 million. Nebius intends to use the proceeds of the transaction to further accelerate the global build-out of its full-stack AI cloud platform. The vehicle is backed by deployed GPU infrastructure and contracted cash flows from an agreement with an investment-grade customer. The facility matures October 31, 2030, and is priced at SOFR + 2.50%.",
+      "verification": "Exact contiguous excerpt matched to actually retrieved primary-source HTML; independently reviewed during development. This is separate from model auditor status."
+    },
+    {
+      "ticker": "NBIS",
+      "name": "2030 and 2034 convertible notes",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "closed": "2026-08-24",
+      "original_principal_2030_usd": "3450000000",
+      "coupon_2030_pct": "0.50",
+      "original_principal_2034_usd": "2300000000",
+      "coupon_2034_pct": "4.50",
+      "outstanding_principal_later": null,
+      "excerpt": "Amsterdam, August 24, 2026 \u2014Nebius Group N.V. (\u201cNebius Group\u201d or the \u201cCompany\u201d; NASDAQ: NBIS), the AI cloud company, today announced the closing of its previously announced offering of convertible senior notes, in two series: 0.50% convertible notes due 2030 (the \u201c2030 Notes\u201d) and 4.50% convertible notes due 2034 (the \u201c2034 Notes\u201d, and together with the 2030 Notes, the \u201cNotes\u201d), in a private offering to qualified institutional buyers pursuant to Rule 144A under the Securities Act of 1933, as amended. The initial purchasers exercised in full their options to purchase an additional $450 million aggregate original principal amount of 2030 Notes and $300 million aggregate original principal amount of 2034 Notes. Accordingly, the aggregate original principal amount of the 2030 Notes is $3.45 billion, the aggregate original principal amount of the 2034 Notes is $2.3 billion, and the total aggregate original principal amount of the Notes is $5.75 billion.",
+      "verification": "Exact contiguous excerpt matched to actually retrieved primary-source HTML; independently reviewed during development. This is separate from model auditor status."
+    }
+  ],
+  "limitations": [
+    "No company-wide debt totals inferred.",
+    "CRWV DDTL balances are rounded disclosed figures. Effective table rates are not substituted for contractual coupons.",
+    "NBIS facility size and convertible original issuance are not later outstanding balances.",
+    "Hedge coverage and named-customer financing linkage remain unverified.",
+    "Actual Neon persistence is blocked; this report is a local artifact."
+  ]
+}

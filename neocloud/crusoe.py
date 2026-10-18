@@ -124,7 +124,7 @@ class Crusoe:
             async with httpx.AsyncClient(timeout=40) as client:
                 response=await client.post(self.base+'/chat/completions',
                     headers={'Authorization':'Bearer '+self.key},
-                    json={'model':selected,'temperature':0.1,'max_tokens':4096,
+                    json={'model':selected,'temperature':0.1,'max_tokens':8192,
                           'response_format':{'type':'json_object'},
                           **({'chat_template_kwargs':{'enable_thinking':False}} if 'nemotron' in selected.lower() and os.getenv('CRUSOE_DISABLE_THINKING','1')=='1' else {}),
                           'messages':[{'role':'system','content':instruction},

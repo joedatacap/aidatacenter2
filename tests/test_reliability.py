@@ -131,3 +131,67 @@ def test_one_audited_policy_followup_can_close_both_blocked_tickers():
     context=Engine(MemoryRepository(),None).context(run)
     assert context['allowed_next_roles']==['dossier']
     assert context['exhausted_source_tickers_after_followup']==['CRWV','NBIS']
+
+
+def test_specialist_context_does_not_import_cross_company_summary_errors(monkeypatch):
+    from neocloud import engine as module
+    class Specialist:
+        async def json(self, instruction, context):
+            assert context['assignment']['ticker']=='NBIS'
+            assert 'tasks' not in context
+            assert 'tickers' not in context
+            assert all(i['ticker']=='NBIS' for i in context['instruments'])
+            assert context['sources'][0]['citation_passages']==[{'index':0,'excerpt':'Primary NBIS facility amount is $775 million.'}]
+            return {'summary':'Source checked', 'evidence':[], 'instruments':[]}
+    async def bundle(*args):
+        return [{'status':'retrieved','text':'Primary NBIS facility amount is $775 million.'}]
+    monkeypatch.setattr(module,'source_bundle',bundle)
+    async def check():
+        run=new_run(['CRWV','NBIS']);run['tasks'][0]['status']='completed'
+        run['tasks'][0]['result']={'summary':'Untrusted earlier claim: NBIS EUR 775 million'}
+        item=task('debt','NBIS','Verify currency from primary source',run['tasks'][0]['id'])
+        run['tasks'].append(item)
+        await Engine(MemoryRepository(),Specialist()).step(run)
+        assert item['status']=='completed'
+    asyncio.run(check())
+
+
+def test_completed_initial_debt_research_requires_review_before_repetition():
+    run=new_run(['CRWV','NBIS']);run['tasks'][0]['status']='completed'
+    for ticker in run['tickers']:
+        item=task('debt',ticker,'Read initial primary sources',run['tasks'][0]['id'])
+        item['status']='completed';run['tasks'].append(item)
+    context=Engine(MemoryRepository(),None).context(run)
+    assert context['review_due']
+    assert context['allowed_next_roles']==['auditor']
+
+
+def test_completed_followup_round_requires_final_review_then_dossier():
+    run=new_run(['CRWV','NBIS']);run['tasks'][0]['status']='completed'
+    auditor=task('auditor','CRWV','Review initial findings',run['tasks'][0]['id'])
+    auditor.update(status='completed',result={'concerns':['Missing terms']});run['tasks'].append(auditor)
+    for ticker in run['tickers']:
+        child=task('followup',ticker,'Verify terms',auditor['id'])
+        child['status']='completed';run['tasks'].append(child)
+    engine=Engine(MemoryRepository(),None)
+    assert engine.context(run)['allowed_next_roles']==['auditor']
+    assert engine.context(run)['final_review_due']
+    final=task('auditor','NBIS','Review all followup records',auditor['id'])
+    final['status']='completed';run['tasks'].append(final)
+    assert engine.context(run)['allowed_next_roles']==['dossier']
+    assert engine.context(run)['dossier_due']
+
+
+def test_model_dossier_closes_source_accessible_partial_run_without_another_manager():
+    class Dossier:
+        async def json(self,*args):return {'summary':'Compared accepted evidence; balances remain unknown.','concerns':['Disclosure incomplete']}
+    async def check():
+        run=new_run(['CRWV']);run['tasks'][0]['status']='completed'
+        item=task('dossier','CRWV','Write the approved dossier',run['tasks'][0]['id'])
+        run['tasks'].append(item)
+        await Engine(MemoryRepository(),Dossier()).step(run)
+        assert run['outcome']=='partially_completed'
+        assert run['dossier']['model_notes']=='Compared accepted evidence; balances remain unknown.'
+        assert len(run['tasks'])==2
+        assert run['stop_reason']=='Manager-approved dossier finalized; disclosure gaps preserved'
+    asyncio.run(check())

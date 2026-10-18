@@ -14,6 +14,31 @@ ALLOWED_HOSTS = {"www.sec.gov", "investors.coreweave.com", "nebius.com", "iren.c
                  "ir.iren.com", "ir.bitdeer.com"}
 
 
+def scoped_passages(text):
+    if len(text) <= 22000:
+        return text
+    # Actual note headings precede cross-references and generic financing mentions.
+    # Include whole debt tables and their units rather than isolated row fragments.
+    sections = list(re.finditer(r"\b\d+\.\s+Debt\s+(?:The total|As of|Debt obligations)", text, re.I))
+    passages = []
+    ranges = []
+    for match in sections[:1]:
+        start, end = match.start(), min(len(text), match.start()+14000)
+        passages.append(text[start:end]); ranges.append((start,end))
+    priority = list(re.finditer(r"interest rate swaps|hedging activities|notes? payable|debt financing", text, re.I))
+    matches = priority + list(re.finditer(r"debt|credit facility|convertible|hedg|swap|customer|agreement|senior notes", text, re.I))
+    for match in matches:
+        start, end = max(0, match.start()-500), min(len(text), match.start()+2100)
+        if any(start < b and end > a for a,b in ranges):
+            continue
+        remaining = 22000-sum(map(len,passages))
+        if remaining <= 0:
+            break
+        end = min(end,start+remaining)
+        passages.append(text[start:end]); ranges.append((start,end))
+    return "\n[…]\n".join(passages) if passages else text[:22000]
+
+
 async def retrieve(url: str) -> dict:
     parsed = urlsplit(url)
     if parsed.scheme != "https" or parsed.hostname not in ALLOWED_HOSTS or parsed.port not in (None,443) or parsed.username:
@@ -59,21 +84,11 @@ async def retrieve(url: str) -> dict:
     soup = BeautifulSoup(bytes(data), "html.parser")
     for tag in soup(["script","style","noscript"]):
         tag.decompose()
+    for tag in soup.find_all(lambda tag: tag.name.lower() in ('ix:hidden','ix:header')):
+        tag.decompose()
     text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True))
     # Scope long SEC filings to relevant financing passages instead of prompting entire documents.
     # Put note tables and hedge paragraphs ahead of incidental mentions in filing front matter.
-    priority = list(re.finditer(r"note\s*10[. :–—-]*\s*debt|notes? payable|debt financing|interest rate swaps|hedging activities",text,re.I))
-    matches = priority + list(re.finditer(r"debt|credit facility|convertible|hedg|swap|customer|agreement|senior notes", text, re.I))
-    passages = []
-    ranges = []
-    for match in matches:
-        start, end = max(0, match.start()-500), min(len(text), match.start()+2100)
-        if any(start < b and end > a for a,b in ranges):
-            continue
-        passages.append(text[start:end])
-        ranges.append((start,end))
-        if sum(map(len,passages)) >= 22000:
-            break
     links = []
     for anchor in soup.find_all("a",href=True):
         target = urljoin(url,anchor["href"]).split("#")[0]
@@ -86,7 +101,7 @@ async def retrieve(url: str) -> dict:
     return {"url":original_url, "final_url":url, "redirects":redirects, "status":"retrieved", "title":soup.title.get_text() if soup.title else parsed.hostname,
             "discovered_links":links,
             "retrieved_at":datetime.now(timezone.utc).isoformat(),
-            "text":"\n[…]\n".join(passages) if passages else text[:22000],
+            "text":scoped_passages(text),
             "scope_warning":"Scoped passages; absence is not proof of no debt."}
 
 

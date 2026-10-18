@@ -30,3 +30,24 @@ def test_missing_hedge_disclosure_never_becomes_assumed_unhedged():
     assert item['hedge_status']=='unknown'
     hedged=validate_instrument_fields({'hedge_status':'unhedged','hedge_notional':'394000000'},evidence('Interest rate swaps hedge $394 million of the facility.'))
     assert hedged['hedge_status']=='partial'
+
+
+def test_effective_rate_table_cannot_supply_another_notes_coupon():
+    quote='Effective Interest Rates 2031 9.00% Senior Notes 2032 EUR Senior Notes Jul 2032 9% 2,279'
+    item=validate_instrument_fields({'name':'2032 EUR Senior Notes','coupon_pct':'9'},evidence(quote))
+    assert item['coupon_pct'] is None
+
+
+def test_note_original_issuance_is_not_a_facility_commitment():
+    item=validate_instrument_fields({'name':'2032 Senior Notes','commitment_amount':'1250000000'},
+          evidence('The company issued $1.25 billion of 9.625% senior notes.'))
+    assert item['commitment_amount'] is None
+
+
+def test_facility_size_is_not_drawn_and_month_only_swap_dates_stay_unknown():
+    item=validate_instrument_fields({'name':'Facility','drawn_amount':'775000000',
+        'hedge_effective_date':'2026-06-01','hedge_end_date':'2032-07-15'},
+        evidence('The $775 million facility is hedged by a swap entered in June 2026, ending in July 2032.'))
+    assert item['drawn_amount'] is None
+    assert item['hedge_effective_date'] is None
+    assert item['hedge_end_date'] is None
