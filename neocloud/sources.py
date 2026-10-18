@@ -11,7 +11,7 @@ from .catalog import SOURCES
 from .connectivity import classify_error,http_policy_allows,policy_snapshot
 
 ALLOWED_HOSTS = {"www.sec.gov", "investors.coreweave.com", "nebius.com", "iren.com",
-                 "ir.iren.com", "ir.bitdeer.com"}
+                 "ir.iren.com", "ir.bitdeer.com", "www.hut8.com"}
 
 
 def scoped_passages(text):
@@ -19,9 +19,12 @@ def scoped_passages(text):
         return text
     # Actual note headings precede cross-references and generic financing mentions.
     # Include whole debt tables and their units rather than isolated row fragments.
-    sections = list(re.finditer(r"\b\d+\.\s+Debt\s+(?:The total|As of|Debt obligations)", text, re.I))
+    sections = list(re.finditer(r"\b\d+\.\s+Debt\s+(?:The total|As of|Debt obligations)|Note 9\. Loans, notes payable, and other financial liabilities Details", text, re.I))
     passages = []
     ranges = []
+    for match in list(re.finditer(r"River Bend Notes . On April 30, 2026|Beacon Point Notes . On June 9, 2026|The Beacon Point Notes are rated Baa2", text))[:3]:
+        start, end = match.start(), min(len(text), match.start()+1800)
+        passages.append(text[start:end]); ranges.append((start,end))
     for match in sections[:1]:
         start, end = match.start(), min(len(text), match.start()+14000)
         passages.append(text[start:end]); ranges.append((start,end))

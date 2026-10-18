@@ -13,7 +13,7 @@ def amount_supported(value,excerpts):
         return False
     for text in excerpts:
         global_scale=1
-        heading=re.search(r'\bin\s+(?:u\.?s\.?\s*dollars?\s+)?(millions|thousands|billions)\b',text,re.I)
+        heading=re.search(r'\bin\s+(?:(?:u\.?s\.?\s*dollars?|USD)\s+)?(millions|thousands|billions)\b',text,re.I)
         if heading:
             global_scale=SCALE[heading.group(1).lower().rstrip('s')]
         for match in NUMBER.finditer(text):
@@ -47,7 +47,7 @@ def validate_instrument_fields(candidate,evidence):
     item=dict(candidate)
     quotes=[e['excerpt'] for e in evidence]
     warnings=[]
-    for field in ('outstanding_principal','commitment_amount','drawn_amount','hedge_notional'):
+    for field in ('outstanding_principal','commitment_amount','drawn_amount','hedge_notional','issue_amount'):
         value=item.get(field)
         if value is None:
             continue

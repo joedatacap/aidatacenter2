@@ -113,20 +113,20 @@ class Crusoe:
                     raise
                 await asyncio.sleep(delay)
 
-    async def json(self,instruction,context,model=None):
+    async def json(self,instruction,context,model=None,max_tokens=8192):
         selected=model or self.model
         if not self.key or not selected:
             raise InferenceError('Crusoe credentials/model not configured; run connectivity verification',category='missing_configuration')
         started=time.monotonic()
         self.last_metadata={'model':selected,'status':'started',
-                            'requested_thinking_disabled':'nemotron' in selected.lower() and os.getenv('CRUSOE_DISABLE_THINKING','1')=='1'}
+                            'requested_thinking_disabled':any(family in selected.lower() for family in ('nemotron','glm')) and os.getenv('CRUSOE_DISABLE_THINKING','1')=='1'}
         try:
             async with httpx.AsyncClient(timeout=40) as client:
                 response=await client.post(self.base+'/chat/completions',
                     headers={'Authorization':'Bearer '+self.key},
-                    json={'model':selected,'temperature':0.1,'max_tokens':8192,
+                    json={'model':selected,'temperature':0.1,'max_tokens':max_tokens,
                           'response_format':{'type':'json_object'},
-                          **({'chat_template_kwargs':{'enable_thinking':False}} if 'nemotron' in selected.lower() and os.getenv('CRUSOE_DISABLE_THINKING','1')=='1' else {}),
+                          **({'chat_template_kwargs':{'enable_thinking':False}} if any(family in selected.lower() for family in ('nemotron','glm')) and os.getenv('CRUSOE_DISABLE_THINKING','1')=='1' else {}),
                           'messages':[{'role':'system','content':instruction},
                                       {'role':'user','content':json.dumps(context,default=str)}]})
         except httpx.HTTPError as exc:

@@ -12,7 +12,7 @@ dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.30,<1", "httpx>=0.27,<1", "psyc
 test = ["pytest>=8,<10"]
 
 [tool.setuptools.package-data]
-neocloud = ["static/*", "schema.sql"]
+neocloud = ["static/*", "schema.sql", "migrations/*.sql", "data/*.json"]
 
 [tool.setuptools.packages.find]
 include = ["neocloud*"]

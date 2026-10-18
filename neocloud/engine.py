@@ -1,6 +1,7 @@
 """Bounded, server-owned research manager with model-selected recursive tasks."""
 import asyncio
 import json
+import os
 from copy import deepcopy
 from datetime import datetime, timezone, timedelta
 from uuid import uuid4
@@ -173,7 +174,29 @@ class Engine:
             raise BudgetStop('25-call model budget reached')
         selected='simulated'
         if run['mode']=='live':
-            selected=self.model.select_model(current.get('failed_models',[])) if hasattr(self.model,'select_model') else getattr(self.model,'model','test-double')
+            selected=(self.model.router.select(current['role'],current.get('failed_models',[]))
+                      if getattr(self.model,'router',None) else
+                      self.model.select_model(current.get('failed_models',[])) if hasattr(self.model,'select_model') else getattr(self.model,'model','test-double'))
+        if run['mode']=='live' and run.get('version')==2 and hasattr(self.model,'available_models'):
+            from .routing import PRICES
+            # Reserve worst-case output and a conservative UTF-8 input upper bound before spending.
+            prices=PRICES.get(selected)
+            if prices is None:
+                raise BudgetStop('Model pricing unknown; configure a priced verified fallback')
+            reservation=(len((instruction+json.dumps(context,default=str)).encode('utf-8'))*prices[0]+8192*prices[1])/1_000_000
+            spent=run['budgets'].get('estimated_cost_usd',0)
+            limit=float(os.getenv('CRUSOE_RUN_BUDGET_USD','2'))
+            ledger=await self.repo.get('crusoe-v2-budget-ledger')
+            if ledger is None:
+                ledger=new_run([], 'live')
+                ledger.update(id='crusoe-v2-budget-ledger',status='telemetry',tasks=[],budgets={'estimated_cost_usd':0})
+            global_spent=ledger['budgets']['estimated_cost_usd']
+            if spent+reservation>limit or global_spent+reservation>float(os.getenv('CRUSOE_GLOBAL_SOFT_BUDGET_USD','40')):
+                raise BudgetStop('Crusoe estimated dollar budget reached')
+            ledger['budgets']['estimated_cost_usd']=global_spent+reservation
+            await self.repo.save(ledger)
+            run['budgets']['estimated_cost_usd']=spent+reservation
+            current['cost_reservation_usd']=reservation
         current['model_used']=selected
         attempt={'model':selected,'started_at':now(),'status':'started','attempt':len(current.get('inference_attempts',[]))+1}
         current.setdefault('inference_attempts',[]).append(attempt)
@@ -193,6 +216,8 @@ class Engine:
                 attempt.update(deepcopy(self.model.last_metadata))
             attempt.update(status='failed',finished_at=now(),category=getattr(exc,'category','application_error'),
                            http_status=getattr(exc,'status_code',None),provider_retry_after=getattr(exc,'provider_retry_after',None))
+            attempt['estimated_cost_usd']=current.get('cost_reservation_usd',0)
+            attempt['cost_is_estimate']=True
             current.setdefault('failed_models',[]).append(selected)
             if hasattr(self.model,'note_failure'):
                 self.model.note_failure(selected,exc)
@@ -202,6 +227,17 @@ class Engine:
         attempt.update(status='succeeded',finished_at=now())
         if run['mode']=='live' and hasattr(self.model,'last_metadata'):
             attempt.update(deepcopy(self.model.last_metadata))
+        if run['mode']=='live' and run.get('version')==2 and hasattr(self.model,'available_models'):
+            from .routing import token_cost
+            cost=token_cost(selected,attempt.get('usage',{})) if attempt.get('usage') else None
+            attempt['estimated_cost_usd']=cost if cost is not None else current.get('cost_reservation_usd',0)
+            attempt['cost_is_estimate']=True
+            reservation=current.pop('cost_reservation_usd',0)
+            run['budgets']['estimated_cost_usd']=max(0,run['budgets'].get('estimated_cost_usd',0)-reservation+attempt['estimated_cost_usd'])
+            ledger=await self.repo.get('crusoe-v2-budget-ledger')
+            if ledger:
+                ledger['budgets']['estimated_cost_usd']=max(0,ledger['budgets']['estimated_cost_usd']-reservation+attempt['estimated_cost_usd'])
+                await self.repo.save(ledger)
         current['response_checkpoint']=deepcopy(response)
         await self.repo.save(run)
         return response
@@ -572,3 +608,4 @@ Return no customer_deals or instrument_reviews for this extraction call.
             if ids and candidate.get("counterparties"):
                 run["customer_deals"].append({**candidate,"id":uid(),"ticker":current["ticker"],
                     "evidence_ids":ids,"financing_linkage":"Financing linkage unverified","provenance":"live" if run["mode"]=="live" else "fixture"})
+        return refs

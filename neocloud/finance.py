@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field, model_validator
 
 class Instrument(BaseModel):
     instrument_id: str
-    ticker: Literal["CRWV", "NBIS", "IREN", "BTDR"]
+    ticker: Literal["CRWV", "NBIS", "IREN", "BTDR", "HUT"]
     name: str
     currency: str
     snapshot_date: date | None = None
@@ -20,6 +20,17 @@ class Instrument(BaseModel):
     reference_index: str | None = None
     spread_bps: Decimal | None = None
     maturity: date | None = None
+    security_id: str | None = None
+    original_issue_yield_pct: Decimal | None = Field(default=None, ge=0)
+    issue_amount: Decimal | None = Field(default=None, ge=0)
+    debt_entity: str | None = None
+    project: str | None = None
+    credit_rating: str | None = None
+    rating_scope: str | None = None
+    rating_date: date | None = None
+    floor_pct: Decimal | None = Field(default=None, ge=0)
+    reference_rate_pct: Decimal | None = Field(default=None, ge=0)
+    repricing_cadence: str | None = None
     parent_entity: str | None = None
     recourse_type: str = "unknown"
     secured: bool | None = None

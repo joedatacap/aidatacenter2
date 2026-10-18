@@ -26,6 +26,15 @@ DATA = {
   {"instrument_id":"gpu-notes","ticker":"IREN","name":"GPU private secured notes",
    "currency":"USD","coupon_pct":"5.96","rate_type":"fixed","secured":True,
    "excerpt":"Task brief fixture: IREN GPU financing included approximately $2.1B private secured notes at 5.96% fixed. Outstanding balance and exact maturity require primary-source verification."}],
+ "HUT": [
+  {"instrument_id":"river-bend-2042","ticker":"HUT","name":"River Bend project senior secured notes",
+   "currency":"USD","issue_amount":"3250000000","coupon_pct":"6.192","rate_type":"fixed",
+   "maturity":"2042-11-15","debt_entity":"Hut 8 DC LLC","project":"River Bend",
+   "excerpt":"V2 task-brief fixture: Hut 8 DC LLC River Bend project notes issued $3.25 billion at 6.192%, due November 15 2042. Fluidstack lease obligations have a limited Google backstop; this does not guarantee all Hut 8 debt. Outstanding principal is unknown."},
+  {"instrument_id":"beacon-point-2042","ticker":"HUT","name":"Beacon Point project senior secured notes",
+   "currency":"USD","issue_amount":"4250000000","coupon_pct":"6.129","rate_type":"fixed",
+   "project":"Beacon Point","credit_rating":"Baa2","rating_scope":"Beacon Point project notes only",
+   "excerpt":"V2 task-brief fixture: Beacon Point $4.25 billion 6.129% senior secured project notes due 2042, rated Baa2. Exact maturity date, current outstanding balance and wider corporate rating are unknown."}],
  "BTDR": []
 }
 

@@ -1,0 +1,1348 @@
+{
+  "verification_date_local": "2026-10-17 America/Los_Angeles",
+  "trace_timestamps": "UTC",
+  "storage": "Disposable TLS PostgreSQL; not actual Neon",
+  "model_probes": [
+    {
+      "model": "zai-org/GLM-5.3",
+      "advertised": true,
+      "json_verified": true,
+      "latency_ms": 536,
+      "estimated_cost_usd": 7.7e-05
+    },
+    {
+      "model": "deepseek-ai/DeepSeek-V4-Pro",
+      "advertised": true,
+      "json_verified": true,
+      "latency_ms": 547,
+      "estimated_cost_usd": null
+    },
+    {
+      "model": "zai-org/GLM-5.3-Flash",
+      "advertised": true,
+      "json_verified": true,
+      "latency_ms": 406,
+      "estimated_cost_usd": 8.449999999999999e-06
+    },
+    {
+      "model": "deepseek-ai/Deepseek-V4-Flash",
+      "advertised": true,
+      "json_verified": true,
+      "latency_ms": 555,
+      "estimated_cost_usd": 5.460000000000001e-06
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "advertised": true,
+      "json_verified": true,
+      "latency_ms": 383,
+      "estimated_cost_usd": 2.12e-05
+    },
+    {
+      "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+      "advertised": true,
+      "json_verified": true,
+      "latency_ms": 207,
+      "estimated_cost_usd": 3.25e-06
+    }
+  ],
+  "investigations": [
+    {
+      "tickers": [
+        "CRWV",
+        "HUT"
+      ],
+      "status": "partially_completed",
+      "stop_reason": "Manager-approved dossier finalized; disclosure gaps preserved",
+      "budgets": {
+        "llm_calls": 17,
+        "source_fetches": 6,
+        "estimated_cost_usd": 0.24587227999999994
+      },
+      "evidence_count": 29,
+      "tasks": [
+        {
+          "id": "1dc17fe0-9c11-48d9-8d60-2b7a6d8121c7",
+          "parent_task_id": null,
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 7353,
+              "usage": {
+                "total_tokens": 6156,
+                "prompt_tokens": 3505,
+                "completion_tokens": 2651
+              },
+              "estimated_cost_usd": 0.0165714
+            }
+          ]
+        },
+        {
+          "id": "44cd7a49-c7ad-48c4-8dde-ca6e894d91fc",
+          "parent_task_id": "1dc17fe0-9c11-48d9-8d60-2b7a6d8121c7",
+          "role": "debt",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 10787,
+              "usage": {
+                "total_tokens": 16950,
+                "prompt_tokens": 12673,
+                "completion_tokens": 4277
+              },
+              "estimated_cost_usd": 0.0029717800000000007
+            }
+          ]
+        },
+        {
+          "id": "e03978c1-e48c-4596-864a-76e13a480069",
+          "parent_task_id": "1dc17fe0-9c11-48d9-8d60-2b7a6d8121c7",
+          "role": "debt",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 5129,
+              "usage": {
+                "total_tokens": 16841,
+                "prompt_tokens": 15483,
+                "completion_tokens": 1358
+              },
+              "estimated_cost_usd": 0.0025478600000000007
+            }
+          ]
+        },
+        {
+          "id": "88b72732-fc6f-4947-944d-3d7dce2d768b",
+          "parent_task_id": "1dc17fe0-9c11-48d9-8d60-2b7a6d8121c7",
+          "role": "contract_backing",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 8041,
+              "usage": {
+                "total_tokens": 20919,
+                "prompt_tokens": 18713,
+                "completion_tokens": 2206
+              },
+              "estimated_cost_usd": 0.00390995
+            }
+          ]
+        },
+        {
+          "id": "3471b4b9-812e-4a4d-87bf-37f8b50ab6c7",
+          "parent_task_id": "1dc17fe0-9c11-48d9-8d60-2b7a6d8121c7",
+          "role": "contract_backing",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 4242,
+              "usage": {
+                "total_tokens": 12456,
+                "prompt_tokens": 11497,
+                "completion_tokens": 959
+              },
+              "estimated_cost_usd": 0.0022040500000000004
+            }
+          ]
+        },
+        {
+          "id": "babbac09-081b-447c-9e4f-cdd4397f0d9e",
+          "parent_task_id": "1dc17fe0-9c11-48d9-8d60-2b7a6d8121c7",
+          "role": "coverage",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 5664,
+              "usage": {
+                "total_tokens": 12826,
+                "prompt_tokens": 11322,
+                "completion_tokens": 1504
+              },
+              "estimated_cost_usd": 0.0020062
+            }
+          ]
+        },
+        {
+          "id": "89e43f5a-e391-4fa8-bdec-de7e61c961e9",
+          "parent_task_id": "1dc17fe0-9c11-48d9-8d60-2b7a6d8121c7",
+          "role": "coverage",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 4433,
+              "usage": {
+                "total_tokens": 14523,
+                "prompt_tokens": 13591,
+                "completion_tokens": 932
+              },
+              "estimated_cost_usd": 0.0021637
+            }
+          ]
+        },
+        {
+          "id": "9bc3d212-15b3-4011-b1b1-5788792f6ae8",
+          "parent_task_id": "89e43f5a-e391-4fa8-bdec-de7e61c961e9",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2773,
+              "usage": {
+                "total_tokens": 11696,
+                "prompt_tokens": 11056,
+                "completion_tokens": 640
+              },
+              "estimated_cost_usd": 0.018294400000000002
+            }
+          ]
+        },
+        {
+          "id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "parent_task_id": "9bc3d212-15b3-4011-b1b1-5788792f6ae8",
+          "role": "auditor",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 8149,
+              "usage": {
+                "total_tokens": 27162,
+                "prompt_tokens": 24663,
+                "completion_tokens": 2499
+              },
+              "estimated_cost_usd": 0.045523799999999996
+            }
+          ]
+        },
+        {
+          "id": "2ea30122-a48d-4eeb-9168-e2e442433bf9",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "failed",
+              "category": "output_limit",
+              "latency_ms": 18366,
+              "usage": {
+                "total_tokens": 20469,
+                "prompt_tokens": 12277,
+                "completion_tokens": 8192
+              },
+              "estimated_cost_usd": 0.0905594
+            },
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 7727,
+              "usage": {
+                "total_tokens": 13534,
+                "prompt_tokens": 12277,
+                "completion_tokens": 1257
+              },
+              "estimated_cost_usd": 0.00247005
+            }
+          ]
+        },
+        {
+          "id": "c8152a25-0a66-4219-b532-6b779f3cf6ce",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "role": "followup",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 8810,
+              "usage": {
+                "total_tokens": 16362,
+                "prompt_tokens": 12982,
+                "completion_tokens": 3380
+              },
+              "estimated_cost_usd": 0.0027638800000000002
+            }
+          ]
+        },
+        {
+          "id": "cf63e1db-8082-4b58-949e-bdbeeed50551",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "role": "followup",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 5327,
+              "usage": {
+                "total_tokens": 12967,
+                "prompt_tokens": 11366,
+                "completion_tokens": 1601
+              },
+              "estimated_cost_usd": 0.0020395200000000004
+            }
+          ]
+        },
+        {
+          "id": "c2e54ef9-7caa-4245-a4b4-8a1fc37e720e",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "role": "followup",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 3907,
+              "usage": {
+                "total_tokens": 14859,
+                "prompt_tokens": 13647,
+                "completion_tokens": 1212
+              },
+              "estimated_cost_usd": 0.00224994
+            }
+          ]
+        },
+        {
+          "id": "79630488-7a0e-462f-b565-f7433b9d59fc",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 6871,
+              "usage": {
+                "total_tokens": 16374,
+                "prompt_tokens": 14622,
+                "completion_tokens": 1752
+              },
+              "estimated_cost_usd": 0.0281796
+            }
+          ]
+        },
+        {
+          "id": "e7bda69b-02b0-49e4-9099-188a9b21b06d",
+          "parent_task_id": "79630488-7a0e-462f-b565-f7433b9d59fc",
+          "role": "dossier",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "openai/gpt-oss-120b",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "failed",
+              "category": "output_limit",
+              "latency_ms": 19548,
+              "usage": {
+                "total_tokens": 40220,
+                "prompt_tokens": 32028,
+                "completion_tokens": 8192
+              },
+              "estimated_cost_usd": 0.01917685
+            },
+            {
+              "model": "openai/gpt-oss-120b",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 5866,
+              "usage": {
+                "total_tokens": 33610,
+                "prompt_tokens": 30813,
+                "completion_tokens": 2797
+              },
+              "estimated_cost_usd": 0.0022399
+            }
+          ]
+        }
+      ],
+      "model_initiated_followups": [
+        {
+          "task_id": "c8152a25-0a66-4219-b532-6b779f3cf6ce",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "parent_role": "auditor",
+          "initiated_by": "Crusoe model"
+        },
+        {
+          "task_id": "cf63e1db-8082-4b58-949e-bdbeeed50551",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "parent_role": "auditor",
+          "initiated_by": "Crusoe model"
+        },
+        {
+          "task_id": "c2e54ef9-7caa-4245-a4b4-8a1fc37e720e",
+          "parent_task_id": "cf16946e-63af-4993-89e5-540392ffbed3",
+          "parent_role": "auditor",
+          "initiated_by": "Crusoe model"
+        }
+      ]
+    },
+    {
+      "tickers": [
+        "CRWV",
+        "NBIS"
+      ],
+      "status": "partially_completed",
+      "stop_reason": "Manager-approved dossier finalized; disclosure gaps preserved",
+      "budgets": {
+        "llm_calls": 17,
+        "source_fetches": 4,
+        "estimated_cost_usd": 0.10391461000000003
+      },
+      "evidence_count": 15,
+      "tasks": [
+        {
+          "id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "parent_task_id": null,
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2478,
+              "usage": {
+                "total_tokens": 2058,
+                "prompt_tokens": 1192,
+                "completion_tokens": 866
+              },
+              "estimated_cost_usd": 0.0054792
+            }
+          ]
+        },
+        {
+          "id": "3c832490-b026-4e96-af96-a97fb3e54dec",
+          "parent_task_id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "role": "funding",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 3884,
+              "usage": {
+                "total_tokens": 11178,
+                "prompt_tokens": 10032,
+                "completion_tokens": 1146
+              },
+              "estimated_cost_usd": 0.0017253600000000004
+            }
+          ]
+        },
+        {
+          "id": "218fca5c-6263-41d1-ac6d-4df85bf9bbef",
+          "parent_task_id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "role": "debt",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 3165,
+              "usage": {
+                "total_tokens": 8170,
+                "prompt_tokens": 7460,
+                "completion_tokens": 710
+              },
+              "estimated_cost_usd": 0.0012432
+            }
+          ]
+        },
+        {
+          "id": "95cb3e51-bce6-43e0-a1cb-f6a8f79333b8",
+          "parent_task_id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "role": "funding",
+          "ticker": "NBIS",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2170,
+              "usage": {
+                "total_tokens": 7285,
+                "prompt_tokens": 6742,
+                "completion_tokens": 543
+              },
+              "estimated_cost_usd": 0.00109592
+            }
+          ]
+        },
+        {
+          "id": "b957e8eb-725e-400c-898a-7a27d55c7f50",
+          "parent_task_id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "role": "debt",
+          "ticker": "NBIS",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 1985,
+              "usage": {
+                "total_tokens": 6057,
+                "prompt_tokens": 5494,
+                "completion_tokens": 563
+              },
+              "estimated_cost_usd": 0.0009268000000000001
+            }
+          ]
+        },
+        {
+          "id": "57927f14-a22d-435c-b452-c9b084556eb4",
+          "parent_task_id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "role": "contract_backing",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "failed",
+              "category": "provider_timeout",
+              "latency_ms": null,
+              "usage": null,
+              "estimated_cost_usd": 0.009172
+            },
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2625,
+              "usage": {
+                "total_tokens": 8727,
+                "prompt_tokens": 8065,
+                "completion_tokens": 662
+              },
+              "estimated_cost_usd": 0.00131446
+            }
+          ]
+        },
+        {
+          "id": "06764fcf-9d48-41fb-8adf-4289a7393750",
+          "parent_task_id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "role": "coverage",
+          "ticker": "NBIS",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 1401,
+              "usage": {
+                "total_tokens": 3798,
+                "prompt_tokens": 3523,
+                "completion_tokens": 275
+              },
+              "estimated_cost_usd": 0.0005702200000000001
+            }
+          ]
+        },
+        {
+          "id": "3cec49b2-632d-49fd-9538-cf5578866de0",
+          "parent_task_id": "06764fcf-9d48-41fb-8adf-4289a7393750",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 9303,
+              "usage": {
+                "total_tokens": 9037,
+                "prompt_tokens": 4781,
+                "completion_tokens": 4256
+              },
+              "estimated_cost_usd": 0.025419800000000003
+            },
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 7707,
+              "usage": {
+                "total_tokens": 5060,
+                "prompt_tokens": 4803,
+                "completion_tokens": 257
+              },
+              "estimated_cost_usd": 0.0008489499999999999
+            }
+          ]
+        },
+        {
+          "id": "3afac4d6-857d-4ddc-81d2-65e4a1f9ece0",
+          "parent_task_id": "a6702e8b-704b-41a0-a4d5-98057a5ea55b",
+          "role": "auditor",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 4849,
+              "usage": {
+                "total_tokens": 16841,
+                "prompt_tokens": 15054,
+                "completion_tokens": 1787
+              },
+              "estimated_cost_usd": 0.0289384
+            }
+          ]
+        },
+        {
+          "id": "a13b8149-b480-4845-a9e7-94eb54ab5fd7",
+          "parent_task_id": "3afac4d6-857d-4ddc-81d2-65e4a1f9ece0",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 1485,
+              "usage": {
+                "total_tokens": 5728,
+                "prompt_tokens": 5319,
+                "completion_tokens": 409
+              },
+              "estimated_cost_usd": 0.0092462
+            }
+          ]
+        },
+        {
+          "id": "17a65144-08ac-40e7-b02b-e6c1fb540b6d",
+          "parent_task_id": "3afac4d6-857d-4ddc-81d2-65e4a1f9ece0",
+          "role": "followup",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2838,
+              "usage": {
+                "total_tokens": 12683,
+                "prompt_tokens": 12035,
+                "completion_tokens": 648
+              },
+              "estimated_cost_usd": 0.0018663400000000002
+            }
+          ]
+        },
+        {
+          "id": "76f286de-5743-4daa-baaf-45e7e121c7df",
+          "parent_task_id": "3afac4d6-857d-4ddc-81d2-65e4a1f9ece0",
+          "role": "followup",
+          "ticker": "NBIS",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2166,
+              "usage": {
+                "total_tokens": 10600,
+                "prompt_tokens": 10056,
+                "completion_tokens": 544
+              },
+              "estimated_cost_usd": 0.00156016
+            }
+          ]
+        },
+        {
+          "id": "9102743d-dd82-4920-b053-964551a608f9",
+          "parent_task_id": "3afac4d6-857d-4ddc-81d2-65e4a1f9ece0",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2098,
+              "usage": {
+                "total_tokens": 6782,
+                "prompt_tokens": 6273,
+                "completion_tokens": 509
+              },
+              "estimated_cost_usd": 0.0110218
+            }
+          ]
+        },
+        {
+          "id": "df8939f4-b476-43c7-82ba-1295d6929ee6",
+          "parent_task_id": "9102743d-dd82-4920-b053-964551a608f9",
+          "role": "dossier",
+          "ticker": "CRWV",
+          "status": "completed",
+          "model_used": "openai/gpt-oss-120b",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 1625,
+              "usage": {
+                "total_tokens": 14182,
+                "prompt_tokens": 14078,
+                "completion_tokens": 104
+              },
+              "estimated_cost_usd": 0.0021636999999999997
+            },
+            {
+              "model": "openai/gpt-oss-120b",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 5296,
+              "usage": {
+                "total_tokens": 16226,
+                "prompt_tokens": 13672,
+                "completion_tokens": 2554
+              },
+              "estimated_cost_usd": 0.0013220999999999999
+            }
+          ]
+        },
+        {
+          "id": "9f3bde6e-da9e-41f8-b80b-33cf586bff11",
+          "parent_task_id": "9102743d-dd82-4920-b053-964551a608f9",
+          "role": "dossier",
+          "ticker": "NBIS",
+          "status": "cancelled",
+          "model_used": null,
+          "attempts": []
+        }
+      ],
+      "model_initiated_followups": [
+        {
+          "task_id": "17a65144-08ac-40e7-b02b-e6c1fb540b6d",
+          "parent_task_id": "3afac4d6-857d-4ddc-81d2-65e4a1f9ece0",
+          "parent_role": "auditor",
+          "initiated_by": "Crusoe model"
+        },
+        {
+          "task_id": "76f286de-5743-4daa-baaf-45e7e121c7df",
+          "parent_task_id": "3afac4d6-857d-4ddc-81d2-65e4a1f9ece0",
+          "parent_role": "auditor",
+          "initiated_by": "Crusoe model"
+        }
+      ]
+    },
+    {
+      "tickers": [
+        "CRWV",
+        "HUT"
+      ],
+      "status": "partially_completed",
+      "stop_reason": "Research manager failed after two retries",
+      "budgets": {
+        "llm_calls": 2,
+        "source_fetches": 0,
+        "estimated_cost_usd": 0.017371650000000002
+      },
+      "evidence_count": 8,
+      "tasks": [
+        {
+          "id": "4feb2954-aafc-4a16-911b-10902ba1d4ab",
+          "parent_task_id": null,
+          "role": "manager",
+          "ticker": null,
+          "status": "failed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 4452,
+              "usage": {
+                "total_tokens": 4411,
+                "prompt_tokens": 2480,
+                "completion_tokens": 1931
+              },
+              "estimated_cost_usd": 0.011968400000000002
+            },
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "failed",
+              "category": "rate_limited",
+              "latency_ms": 242,
+              "usage": null,
+              "estimated_cost_usd": 0.00540325
+            }
+          ]
+        }
+      ],
+      "model_initiated_followups": []
+    },
+    {
+      "tickers": [
+        "HUT"
+      ],
+      "final_implementation": true,
+      "status": "partially_completed",
+      "stop_reason": "Manager-approved dossier finalized; disclosure gaps preserved",
+      "budgets": {
+        "llm_calls": 22,
+        "source_fetches": 4,
+        "estimated_cost_usd": 0.25868406
+      },
+      "evidence_count": 28,
+      "verified_record_counts": {
+        "instruments": 1,
+        "balances": 0,
+        "contracts": 0,
+        "cash_flows": 0,
+        "repayments": 2,
+        "bond_quotes": 0,
+        "funding_plans": 0
+      },
+      "tasks": [
+        {
+          "id": "8677fd76-1bde-4579-a289-446536f6e0d4",
+          "parent_task_id": null,
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 3645,
+              "usage": {
+                "total_tokens": 3433,
+                "prompt_tokens": 2307,
+                "completion_tokens": 1126
+              },
+              "estimated_cost_usd": 0.0081842
+            }
+          ]
+        },
+        {
+          "id": "f5d7c45c-2988-4712-8bfa-3d229f276af8",
+          "parent_task_id": "8677fd76-1bde-4579-a289-446536f6e0d4",
+          "role": "funding",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 4352,
+              "usage": {
+                "total_tokens": 14183,
+                "prompt_tokens": 12870,
+                "completion_tokens": 1313
+              },
+              "estimated_cost_usd": 0.00216944
+            }
+          ]
+        },
+        {
+          "id": "2b48b590-1e6c-427f-86df-4b40e5031311",
+          "parent_task_id": "8677fd76-1bde-4579-a289-446536f6e0d4",
+          "role": "debt",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2889,
+              "usage": {
+                "total_tokens": 12407,
+                "prompt_tokens": 11612,
+                "completion_tokens": 795
+              },
+              "estimated_cost_usd": 0.00184828
+            }
+          ]
+        },
+        {
+          "id": "5429444d-2bbd-4b46-a7dc-95828f4a4b7e",
+          "parent_task_id": "8677fd76-1bde-4579-a289-446536f6e0d4",
+          "role": "contract_backing",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 10146,
+              "usage": {
+                "total_tokens": 16023,
+                "prompt_tokens": 15535,
+                "completion_tokens": 488
+              },
+              "estimated_cost_usd": 0.00257425
+            },
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 4621,
+              "usage": {
+                "total_tokens": 16630,
+                "prompt_tokens": 15499,
+                "completion_tokens": 1131
+              },
+              "estimated_cost_usd": 0.0024865399999999998
+            }
+          ]
+        },
+        {
+          "id": "57196b2d-860b-4559-9423-4bf1287f3cf4",
+          "parent_task_id": "8677fd76-1bde-4579-a289-446536f6e0d4",
+          "role": "coverage",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2869,
+              "usage": {
+                "total_tokens": 10623,
+                "prompt_tokens": 9875,
+                "completion_tokens": 748
+              },
+              "estimated_cost_usd": 0.0015919400000000002
+            }
+          ]
+        },
+        {
+          "id": "1d0a2581-9041-414c-9f99-5d8f365ac30f",
+          "parent_task_id": "8677fd76-1bde-4579-a289-446536f6e0d4",
+          "role": "maturity",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2998,
+              "usage": {
+                "total_tokens": 10666,
+                "prompt_tokens": 9727,
+                "completion_tokens": 939
+              },
+              "estimated_cost_usd": 0.0016247000000000002
+            }
+          ]
+        },
+        {
+          "id": "b1247fb1-71ac-4d43-8d41-f56c7f130bca",
+          "parent_task_id": "8677fd76-1bde-4579-a289-446536f6e0d4",
+          "role": "bond_market",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "failed",
+              "category": "output_limit",
+              "latency_ms": 38527,
+              "usage": {
+                "total_tokens": 18229,
+                "prompt_tokens": 10037,
+                "completion_tokens": 8192
+              },
+              "estimated_cost_usd": 0.009319
+            },
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2052,
+              "usage": {
+                "total_tokens": 10451,
+                "prompt_tokens": 10008,
+                "completion_tokens": 443
+              },
+              "estimated_cost_usd": 0.00152516
+            }
+          ]
+        },
+        {
+          "id": "b41e1a51-d3b9-45d7-adc7-f484264b321b",
+          "parent_task_id": "b1247fb1-71ac-4d43-8d41-f56c7f130bca",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 1300,
+              "usage": {
+                "total_tokens": 5700,
+                "prompt_tokens": 5441,
+                "completion_tokens": 259
+              },
+              "estimated_cost_usd": 0.008757
+            }
+          ]
+        },
+        {
+          "id": "6fa87d7e-465e-4833-b754-d79855489b78",
+          "parent_task_id": "b41e1a51-d3b9-45d7-adc7-f484264b321b",
+          "role": "auditor",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 5635,
+              "usage": {
+                "total_tokens": 26167,
+                "prompt_tokens": 24432,
+                "completion_tokens": 1735
+              },
+              "estimated_cost_usd": 0.041838799999999995
+            }
+          ]
+        },
+        {
+          "id": "9d5ddd10-7e18-4df6-8565-078ce5a05e8f",
+          "parent_task_id": "6fa87d7e-465e-4833-b754-d79855489b78",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "failed",
+              "category": "output_limit",
+              "latency_ms": 15648,
+              "usage": {
+                "total_tokens": 14135,
+                "prompt_tokens": 5943,
+                "completion_tokens": 8192
+              },
+              "estimated_cost_usd": 0.063013
+            },
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2796,
+              "usage": {
+                "total_tokens": 6224,
+                "prompt_tokens": 5943,
+                "completion_tokens": 281
+              },
+              "estimated_cost_usd": 0.0010319499999999998
+            }
+          ]
+        },
+        {
+          "id": "61015fa8-9dc1-49ba-9f8c-5878c7a43603",
+          "parent_task_id": "6fa87d7e-465e-4833-b754-d79855489b78",
+          "role": "followup",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 1812,
+              "usage": {
+                "total_tokens": 8257,
+                "prompt_tokens": 7970,
+                "completion_tokens": 287
+              },
+              "estimated_cost_usd": 0.0011961600000000004
+            }
+          ]
+        },
+        {
+          "id": "5cfd6ae3-08f8-419a-8742-b4c7880363d9",
+          "parent_task_id": "6fa87d7e-465e-4833-b754-d79855489b78",
+          "role": "followup",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "deepseek-ai/Deepseek-V4-Flash",
+          "attempts": [
+            {
+              "model": "deepseek-ai/Deepseek-V4-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 2586,
+              "usage": {
+                "total_tokens": 14849,
+                "prompt_tokens": 14317,
+                "completion_tokens": 532
+              },
+              "estimated_cost_usd": 0.00215334
+            }
+          ]
+        },
+        {
+          "id": "7fc49a71-de16-495b-9f14-9a87040b834b",
+          "parent_task_id": "6fa87d7e-465e-4833-b754-d79855489b78",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 1870,
+              "usage": {
+                "total_tokens": 6825,
+                "prompt_tokens": 6565,
+                "completion_tokens": 260
+              },
+              "estimated_cost_usd": 0.00111475
+            }
+          ]
+        },
+        {
+          "id": "42125944-3ac2-4efe-b2cd-040ebf20bdd8",
+          "parent_task_id": "7fc49a71-de16-495b-9f14-9a87040b834b",
+          "role": "auditor",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "failed",
+              "category": "provider_timeout",
+              "latency_ms": null,
+              "usage": null,
+              "estimated_cost_usd": 0.017649099999999997
+            },
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 6405,
+              "usage": {
+                "total_tokens": 29791,
+                "prompt_tokens": 28158,
+                "completion_tokens": 1633
+              },
+              "estimated_cost_usd": 0.04660639999999999
+            }
+          ]
+        },
+        {
+          "id": "b0eb7668-3aac-42ba-a49e-98e03aedc8a6",
+          "parent_task_id": "42125944-3ac2-4efe-b2cd-040ebf20bdd8",
+          "role": "manager",
+          "ticker": null,
+          "status": "completed",
+          "model_used": "zai-org/GLM-5.3-Flash",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 14249,
+              "usage": {
+                "total_tokens": 13613,
+                "prompt_tokens": 7055,
+                "completion_tokens": 6558
+              },
+              "estimated_cost_usd": 0.038732199999999994
+            },
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 8082,
+              "usage": {
+                "total_tokens": 7312,
+                "prompt_tokens": 7069,
+                "completion_tokens": 243
+              },
+              "estimated_cost_usd": 0.00118185
+            }
+          ]
+        },
+        {
+          "id": "4a82e0da-7750-4bef-a6e1-5703da213f63",
+          "parent_task_id": "42125944-3ac2-4efe-b2cd-040ebf20bdd8",
+          "role": "dossier",
+          "ticker": "HUT",
+          "status": "completed",
+          "model_used": "openai/gpt-oss-120b",
+          "attempts": [
+            {
+              "model": "zai-org/GLM-5.3-Flash",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 22817,
+              "usage": {
+                "total_tokens": 10283,
+                "prompt_tokens": 5622,
+                "completion_tokens": 4661
+              },
+              "estimated_cost_usd": 0.0031738
+            },
+            {
+              "model": "openai/gpt-oss-120b",
+              "status": "succeeded",
+              "category": null,
+              "latency_ms": 9161,
+              "usage": {
+                "total_tokens": 8136,
+                "prompt_tokens": 5609,
+                "completion_tokens": 2527
+              },
+              "estimated_cost_usd": 0.0009122000000000001
+            }
+          ]
+        }
+      ],
+      "model_initiated_followups": [
+        {
+          "task_id": "61015fa8-9dc1-49ba-9f8c-5878c7a43603",
+          "parent_task_id": "6fa87d7e-465e-4833-b754-d79855489b78",
+          "parent_role": "auditor",
+          "initiated_by": "Crusoe model"
+        },
+        {
+          "task_id": "5cfd6ae3-08f8-419a-8742-b4c7880363d9",
+          "parent_task_id": "6fa87d7e-465e-4833-b754-d79855489b78",
+          "parent_role": "auditor",
+          "initiated_by": "Crusoe model"
+        }
+      ]
+    }
+  ],
+  "browser": {
+    "desktop": true,
+    "mobile": true,
+    "comparison": "CRWV vs HUT",
+    "scenario_changed": true,
+    "reload_restores_tree": true,
+    "final_audit_visible": true,
+    "user_assumption_saved": true,
+    "v1_available": true,
+    "javascript_errors": []
+  },
+  "limitations": [
+    "Both completed comparison workflows were partial financial datasets.",
+    "No unsupported market yield, equity capitalization or complete TTM coverage is claimed.",
+    "Earlier comparison runs preceded final-audit/dossier-context hardening; the final HUT investigation exercised both audits and the constrained dossier successfully.",
+    "A later HUT/CRWV verification attempt returned malformed manager output and rate limiting; it stopped honestly without new financial results."
+  ],
+  "ci": {
+    "implementation_commit": "744d93470bffb4a5011aabdfea9fe7becc8d123e",
+    "conclusion": "success",
+    "run_url": "https://github.com/joedatacap/aidatacenter2/actions/runs/39088139269"
+  }
+}

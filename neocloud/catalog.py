@@ -2,6 +2,7 @@ COMPANIES = {
  "CRWV": {"name": "CoreWeave", "base_currency": "USD", "sector": "GPU cloud", "url": "https://investors.coreweave.com"},
  "NBIS": {"name": "Nebius Group", "base_currency": "USD", "sector": "AI infrastructure", "url": "https://nebius.com"},
  "IREN": {"name": "IREN", "base_currency": "USD", "sector": "AI cloud and Bitcoin mining", "url": "https://iren.com"},
+ "HUT": {"name": "Hut 8", "base_currency": "USD", "sector": "Data centers, power and Bitcoin mining; mixed segments", "url": "https://www.hut8.com"},
  "BTDR": {"name": "Bitdeer Technologies Group", "base_currency": "USD", "sector": "Bitcoin mining, ASIC manufacturing and emerging AI/HPC", "url": "https://ir.bitdeer.com"},
 }
 SOURCES = {
@@ -19,3 +20,10 @@ SOURCES = {
 SOURCES['CRWV'] += ['https://investors.coreweave.com/financials/sec-filings/default.aspx',
                     'https://investors.coreweave.com/news/default.aspx']
 SOURCES['NBIS'] += ['https://nebius.com/newsroom','https://nebius.com/financials']
+
+SOURCES['HUT'] = [
+ 'https://www.sec.gov/Archives/edgar/data/1964789/000110465925122052/hut-20251217xex99d1.htm',
+ 'https://www.sec.gov/Archives/edgar/data/1964789/000110465926090025/hut-20260630x10q.htm',
+ 'https://www.hut8.com/news-insights/press-releases/hut-8-closes-usd4-25-billion-of-investment-grade-senior-secured-notes-for-beacon-point-data',
+ 'https://www.sec.gov/Archives/edgar/data/1964789/000110465926111154/tm2625691d1_ex99-1.htm',
+]
