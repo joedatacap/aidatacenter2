@@ -328,12 +328,13 @@
         "quoted_words": 18,
         "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
       }
-    ]
+    ],
+    "unit_metadata_note": "Source boxes that include rate excerpts distinguish percentage rates from USD currency or monetary table scales."
   },
   "polish_integrity_check": {
     "baseline_commit": "106ad4d",
     "financial_fields_compared": 2159,
     "result": "Financial amount, unit, currency, snapshot date, issue/maturity, instrument identity, outstanding-status, scope and source-link fields unchanged.",
-    "current_canonical_sha256": "ee4f6514653e024b52764cde457249487df6f47d98656a4fd3580e80c237a6cc"
+    "current_canonical_sha256": "8c934de000975ddd98cf02dc00ed81db0a2b21c3c91f447c5893eb4f6d2032b2"
   }
 }

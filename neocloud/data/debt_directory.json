@@ -4497,7 +4497,7 @@
       "published_at": "2026-08-12",
       "retrieved_at": "2026-11-11",
       "excerpt": "2032 9.625% Senior Notes; 2031 9.75% Senior Notes; Total $ 35,551",
-      "source_unit": "USD millions"
+      "source_unit": "USD millions for monetary amounts; rates are percentages"
     },
     {
       "id": "deep-cloud-nbis-q2",
@@ -4527,7 +4527,7 @@
       "published_at": "2026-08-27",
       "retrieved_at": "2026-11-11",
       "excerpt": "Stated interest rate 3.25 % 3.50 % 0% 0.25% 1.00% 1.00%",
-      "source_unit": "USD thousands"
+      "source_unit": "Percent / stated interest rates"
     },
     {
       "id": "deep-cloud-btdr-q3",
@@ -4547,7 +4547,7 @@
       "published_at": "2026-09-29",
       "retrieved_at": "2026-11-11",
       "excerpt": "Balance at June 30, 2026 364,912; 4.875 % Convertible Senior Notes due 2031",
-      "source_unit": "USD thousands"
+      "source_unit": "USD thousands for monetary amounts; rates are percentages"
     },
     {
       "id": "deep-cloud-hut-q3",
@@ -4567,7 +4567,7 @@
       "published_at": "2026-06-18",
       "retrieved_at": "2026-11-11",
       "excerpt": "On June 18, 2026, CoreWeave, Inc.; 9.625% Senior Notes due 2032",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-crwv-apr-issue",
@@ -4577,7 +4577,7 @@
       "published_at": "2026-04-14",
       "retrieved_at": "2026-11-11",
       "excerpt": "On April 14, 2026, CoreWeave, Inc.; 9.750% Senior Notes due 2031",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-nbis-aug-issue",
@@ -4587,7 +4587,7 @@
       "published_at": "2026-08-24",
       "retrieved_at": "2026-11-11",
       "excerpt": "0.50% convertible notes due 2030",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-nbis-jun2025-issue",
@@ -4607,7 +4607,7 @@
       "published_at": "2025-09-15",
       "retrieved_at": "2026-11-11",
       "excerpt": "Amsterdam, September 15, 2025; 1.00% convertible notes due 2030; 2.75% convertible notes due 2032",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-nbis-sep2025-note",
@@ -4617,7 +4617,7 @@
       "published_at": "2025-09-15",
       "retrieved_at": "2026-11-11",
       "excerpt": "Dated as of September 15, 2025; 1.00% Convertible Senior Notes due 2030",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-nbis-mar2026-pricing",
@@ -4627,7 +4627,7 @@
       "published_at": "2026-03-17",
       "retrieved_at": "2026-11-11",
       "excerpt": "1.250% convertible notes due 2031; 2.625% convertible notes due 2033",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-iren-selected-issue",
@@ -4637,7 +4637,7 @@
       "published_at": "2026-05-14",
       "retrieved_at": "2026-11-11",
       "excerpt": "On May 14, 2026; IREN Limited; 1.00% Convertible Senior Notes due 2033",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-btdr-selected-issue",
@@ -4647,7 +4647,7 @@
       "published_at": "2025-06-23",
       "retrieved_at": "2026-11-11",
       "excerpt": "Bitdeer Technologies Group; 4.875% Convertible Senior Notes due 2031; Date: June 23, 2025",
-      "source_unit": "USD"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-cloud-hut-prior-issue",
@@ -4766,7 +4766,7 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "November 4, 2024; 2.75%; June 1, 2030",
       "normalized_text_sha256": "03749ce9651e684f36fc18c3e5ced1c52455b533554ce6c3d2213d8dbfd5707e",
-      "source_unit": "USD / stated note terms"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-transition-corz-775-close",
@@ -4777,7 +4777,7 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "May 6, 2026; May 15, 2031; 7.750%",
       "normalized_text_sha256": "07e6ecb46dccacb1180e72d821d181ea7a776f0cb7ddab9351769102c50d4d24",
-      "source_unit": "USD / stated note terms"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-transition-corz-775-indenture",
@@ -4810,7 +4810,7 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "October 25, 2024; 2.75%; February 1, 2030",
       "normalized_text_sha256": "a8c6988dbd5733791b30ba0805d0253095843e185453aec15dab10e3a5ed97ad",
-      "source_unit": "USD / stated note terms"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-transition-wulf-100-close",
@@ -4821,7 +4821,7 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "August 20, 2025; 1.00%; September 1, 2031",
       "normalized_text_sha256": "e45d1aff8b15defca181a5c6c1e54109c7960c84495d187552a23c97ead9bdc8",
-      "source_unit": "USD / stated note terms"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-transition-wulf-100-tap",
@@ -4843,7 +4843,7 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "October 31, 2025; 0.00%; May 1, 2032",
       "normalized_text_sha256": "55c8111d310f4f9a66ca8782a1583f4b68d46c510dfce22b2ad8db483c73d314",
-      "source_unit": "USD / stated note terms"
+      "source_unit": "USD instruments; rates are percentages"
     },
     {
       "id": "deep-adj-RIOT",
@@ -4917,7 +4917,7 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "19,618,975; Unamortized net discounts (39,593); Unamortized deferred financing costs (84,767); 4.450% notes due 2028; 650,000",
       "locator": "Note 9 Debt of Operating Partnership; Current-quarter senior unsecured note table; consolidated balance sheet",
-      "source_unit": "USD thousands"
+      "source_unit": "USD thousands for monetary amounts; rates are percentages"
     },
     {
       "id": "deep-legal-DLR",
@@ -4948,7 +4948,7 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "6,748,432; 210,478; 6,937,907; 2,312,004; 31,593; 2,343,597; 2,612,219; 17,313; 1,324,759; 16,416,746; 9.875% Senior Secured Notes due 2031",
       "locator": "Statement of financial position; Note5 digital borrowing and collateral; Note13 Leases; Note16 Loans and Notes Payable; contractual obligations footnote4",
-      "source_unit": "USD thousands"
+      "source_unit": "USD thousands for monetary amounts; rates are percentages"
     },
     {
       "id": "deep-legal-GLXY",
