@@ -7,7 +7,12 @@ You are the **lead engineering agent** for this repository. Manage implementatio
 - **November 11 product direction:** The static preview now starts with a curated
   16-company actual borrowing directory: two company rankings (borrowing carrying
   values excluding all leases, and same-date borrowings/assets) plus an unranked
-  44-note instrument-coupon reference. Nscale is a private IPO applicant with
+  44-note instrument-coupon reference. Main borrowing rows must show the numeric
+  borrowings/assets percentage and fixed 0–100% asset meter with dated denominator.
+  The Financing rates view adds 36 typed references; only APLD and DLR have
+  sourced issuer-reported averages, with different methods/scopes. Never infer a
+  full-company average or maximum from selected instruments. Floating formulas
+  need a dated benchmark fixing before displaying an all-in numeric rate. Nscale is a private IPO applicant with
   publicly filed actual financials; preserve its customer-financing/lease caveat.
   Crusoe, Lambda and Vultr remain a separate unranked coverage watchlist. `neocloud/data/debt_directory.json` is the primary
   source ledger, validated/exported by `neocloud/directory.py` and

@@ -13,7 +13,7 @@ test('actual directory has dated borrowing ranks, honest unknowns and distinct p
   await expect(page.locator('[data-ticker="CRWV"] .metric-value')).toHaveText('$46.87B');
   await expect(page.locator('[data-ticker="GLXY"] .rank-number')).toHaveText('—');
   await expect(page.locator('[data-ticker="GLXY"] .metric-value')).toContainText('unknown');
-  await expect(page.locator('[data-ticker="NBIS"]')).toContainText('Jun 30, 2026');
+  await expect(page.locator('#ranking-rows tr[data-ticker="NBIS"]')).toContainText('Jun 30, 2026');
   await page.locator('[data-group="all"]').click();
   await expect(page.locator('#ranking-rows tr')).toHaveCount(16);
   await expect(page.locator('#result-count')).toContainText('15 ranked');
@@ -190,7 +190,7 @@ test('tabs support keyboard navigation and focus indicators on light and dark su
 test('small directory text and keyboard outlines retain contrast on actual backgrounds',async({page})=>{
   await page.goto('/');
   await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
-  const ratios=await page.locator('.eyebrow,.metric-tabs small,.group-note,.rank-number,.row-date,.evidence-pill,footer p').evaluateAll(elements=>{
+  const ratios=await page.locator('.eyebrow,.metric-tabs small,.group-note,.rank-number,.row-date,.evidence-pill,.asset-meter-label,.asset-meter-axis,.financing-rate-label,.financing-rate-kind,.financing-rate-instrument,footer p').evaluateAll(elements=>{
     const rgb=value=>value.match(/[\d.]+/g).map(Number);
     const luminance=values=>values.slice(0,3).map(v=>{const c=v/255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4;}).reduce((sum,c,i)=>sum+c*[.2126,.7152,.0722][i],0);
     return elements.filter(e=>e.getClientRects().length).map(element=>{
@@ -202,7 +202,7 @@ test('small directory text and keyboard outlines retain contrast on actual backg
   for(const r of ratios)expect(r.ratio,r.text).toBeGreaterThanOrEqual(4.5);
 });
 
-test('search preserves peer-group ranks and bar scale instead of making each lookup number one',async({page})=>{
+test('search preserves peer-group ranks and the fixed asset-share meter',async({page})=>{
   await page.goto('/');
   const row=page.locator('[data-ticker="NBIS"]');
   await expect(row.locator('.rank-number')).toHaveText('3');
@@ -215,6 +215,43 @@ test('search preserves peer-group ranks and bar scale instead of making each loo
   const downloadPromise=page.waitForEvent('download');await page.locator('#download-json').click();
   const payload=JSON.parse(fs.readFileSync(await (await downloadPromise).path(),'utf8'));
   expect(payload.rows[0].cohort_rank).toBe(3);
+});
+
+test('borrowing amounts display their actual asset percentage and sourced denominator',async({page})=>{
+  await page.goto('/?q=CRWV');
+  const row=page.locator('[data-ticker="CRWV"]');
+  await expect(row.locator('.metric-value')).toHaveText('$46.87B');
+  await expect(row.locator('.asset-share-value')).toHaveText('51.24%');
+  await expect(row.locator('.asset-meter-label')).toHaveText('Borrowings / recorded assets');
+  const width=await row.locator('.asset-meter-fill').evaluate(e=>parseFloat(e.style.width));
+  expect(width).toBeCloseTo(51.23796,4);
+  await expect(row.locator('.asset-meter')).toHaveAttribute('aria-label',/0 to 100 percent/);
+  const denominator=row.locator('.asset-denominator');
+  await denominator.locator('summary').focus();await page.keyboard.press('Enter');
+  await expect(denominator).toHaveAttribute('open','');
+  await expect(denominator).toContainText('$91,481,000,000');
+  await expect(denominator).toContainText('$46,873,000,000');
+  await expect(denominator).toContainText('Sep 30, 2026');
+  await expect(denominator).toContainText('Nov 10, 2026');
+  await expect(denominator).toContainText('leases excluded');
+});
+
+test('asset meters retain values above 100 percent and suppress mismatched snapshots',async({page})=>{
+  await page.route('**/data.json',async route=>{
+    const response=await route.fetch(),payload=await response.json();
+    const crwv=payload.companies.find(c=>c.ticker==='CRWV');
+    crwv.metrics.debt_assets.value='125.75';
+    const nbis=payload.companies.find(c=>c.ticker==='NBIS');
+    nbis.metrics.assets.as_of='2026-03-31';
+    await route.fulfill({json:payload});
+  });
+  await page.goto('/');
+  await expect(page.locator('[data-ticker="CRWV"] .asset-share-value')).toHaveText('125.75%');
+  expect(await page.locator('[data-ticker="CRWV"] .asset-meter-fill').evaluate(e=>parseFloat(e.style.width))).toBe(100);
+  await expect(page.locator('[data-ticker="CRWV"] .asset-meter-overflow')).toBeVisible();
+  await expect(page.locator('[data-ticker="NBIS"] .asset-meter')).toHaveCount(0);
+  await expect(page.locator('[data-ticker="NBIS"] .asset-share-unknown')).toBeVisible();
+  await expect(page.locator('[data-ticker="GLXY"] .asset-meter')).toHaveCount(0);
 });
 
 test('up to three companies compare side by side with dated scopes and restored source-dialog focus',async({page})=>{
@@ -273,8 +310,8 @@ test('private IPO applicant has actual filing data but no invented ticker or fix
   await page.goto('/?q=NSCALE&group=all');
   await expect(page.locator('#ranking-rows tr')).toHaveCount(1);
   await expect(page.locator('[data-ticker="NSCALE"] .metric-value')).toHaveText('$137.4M');
-  await expect(page.locator('[data-ticker="NSCALE"]')).toContainText('Private');
-  await expect(page.locator('[data-ticker="NSCALE"]')).toContainText('customer financing');
+  await expect(page.locator('#ranking-rows tr[data-ticker="NSCALE"]')).toContainText('Private');
+  await expect(page.locator('#ranking-rows tr[data-ticker="NSCALE"]')).toContainText('customer financing');
   await page.locator('.company-button').click();
   await expect(page.locator('#detail-content')).toContainText('proposed NSCL is not a verified listed ticker');
   await expect(page.locator('#detail-content')).toContainText('6.4926');
@@ -540,4 +577,67 @@ test('funding summaries exclude capacity from a different snapshot date',async({
   await page.goto('/?metric=cash&group=all&q=EQIX');
   await expect(page.locator('.funding-summary-cell .funding-amount')).toHaveCount(0);
   await expect(page.locator('.funding-summary-cell')).toContainText('Total not established');
+});
+
+test('named rates appear beside borrowings without inventing floating totals or company averages',async({page})=>{
+  await page.goto('/');
+  const crwv=page.locator('[data-ticker="CRWV"] .financing-rate-summary');
+  await expect(crwv.locator('.financing-rate-value').first()).toContainText('Term SOFR + 5.5 percentage points');
+  await expect(crwv.locator('.financing-rate-kind').first()).toHaveText('Floating-rate formula');
+  await expect(crwv.locator('.financing-rate-instrument').first()).toContainText('DDTL5.5');
+  await expect(crwv.locator('.floating-rate-unknown').first()).toContainText('All-in rate: Unknown');
+  await expect(crwv.locator('.financing-rate-status').first()).toContainText('Aug 7, 2026');
+  await expect(crwv).not.toContainText('7.9%');
+  const nbis=page.locator('[data-ticker="NBIS"] .financing-rate-summary');
+  await expect(nbis.locator('.financing-rate-value').first()).toHaveText('7.06%');
+  await expect(nbis.locator('.financing-rate-kind').first()).toContainText('accounting effective');
+  await expect(nbis).toContainText('not the cash coupon');
+  const apld=page.locator('[data-ticker="APLD"] .financing-rate-summary');
+  await expect(apld.locator('.financing-rate-label')).toHaveText('Company-reported average');
+  await expect(apld.locator('.financing-rate-value').first()).toHaveText('7.3%');
+  await expect(apld.locator('.financing-rate-scope').first()).toContainText('Term-loan portfolio');
+  await expect(page.locator('[data-ticker="BTDR"] .financing-rate-summary .financing-rate-value')).toHaveText('Unknown');
+});
+
+test('rate cards retain types and scope separately from the complete fixed-coupon ledger',async({page})=>{
+  await page.goto('/?metric=coupon&group=all');
+  await expect(page.locator('#company-rate-cards .company-rate-card')).toHaveCount(16);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(44);
+  const dlr=page.locator('.company-rate-card[data-ticker="DLR"]');
+  await expect(dlr.locator('.financing-rate-value').first()).toHaveText('3.07%');
+  await expect(dlr.locator('.financing-rate-label')).toHaveText('Company-reported average');
+  const details=dlr.locator('.financing-rate-details');await details.locator('summary').first().focus();
+  await page.keyboard.press('Enter');await expect(details).toHaveAttribute('open','');
+  await expect(details).toContainText('cross-currency');
+  await expect(details).toContainText('Source publication');
+  const nscale=page.locator('.company-rate-card[data-ticker="NSCALE"]');
+  await expect(nscale.locator('.financing-rate-value').first()).toContainText('Term SOFR + 5.00 percentage points');
+  await expect(nscale.locator('.floating-rate-unknown').first()).toBeVisible();
+  await page.locator('#note-type').selectOption('convertible');
+  await expect(page.locator('#company-rate-cards .company-rate-card')).toHaveCount(16);
+  await expect(page.locator('#download-csv')).toContainText('Fixed-note ledger');
+});
+
+test('ratio and typed rate exports preserve private profiles and machine-readable nested examples',async({page})=>{
+  await page.goto('/?group=all&q=NBIS');
+  const jsonPromise=page.waitForEvent('download');await page.locator('#download-json').click();
+  const payload=JSON.parse(fs.readFileSync(await (await jsonPromise).path(),'utf8'));
+  const row=payload.rows[0];expect(row.borrowings_assets_percent).not.toBeNull();
+  expect(row.assets_value).toBe('27961500000');expect(row.assets_as_of).toBe('2026-06-30');
+  expect(row.primary_financing_rate.kind).toBe('effective_instrument_rate');
+  expect(row.primary_financing_rate.rate_percent).toBe('7.06');
+  expect(row.financing_rate_summary.computed_average).toBeNull();
+  expect(row.rate_source_ids.every(id=>payload.sources.some(s=>s.id===id))).toBe(true);
+  const csvPromise=page.waitForEvent('download');await page.locator('#download-csv').click();
+  const csv=fs.readFileSync(await (await csvPromise).path(),'utf8');
+  expect(csv).toContain('financing_rate_examples');expect(csv).not.toContain('[object Object]');
+  await page.goto('/?metric=coupon&group=all&q=NSCALE');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(0);
+  await expect(page.locator('.company-rate-card')).toHaveCount(1);
+  const ratesPromise=page.waitForEvent('download');await page.locator('#download-json').click();
+  const profiles=JSON.parse(fs.readFileSync(await (await ratesPromise).path(),'utf8'));
+  expect(profiles.company_rate_profiles).toHaveLength(1);
+  expect(profiles.company_rate_profiles[0].trading_ticker).toBeNull();
+  expect(profiles.company_rate_profiles[0].listing_status).toBe('private_pending_ipo');
+  expect(profiles.company_rate_profiles[0].primary_financing_rate.rate_percent).toBeNull();
 });

@@ -88,6 +88,7 @@ def test_published_coverage_and_special_scope_cases_are_explicit():
     assert companies['NSCALE']['listing_status'] == 'private_pending_ipo'
     assert companies['NSCALE']['metrics']['coupon']['value'] is None
     assert companies['NSCALE']['comparison_caveat']
+    assert Decimal(companies['CRWV']['metrics']['debt_assets']['value']).quantize(Decimal('0.01')) == Decimal('51.24')
     dlr_finance_lease = next(lease for lease in companies['DLR']['debt_context']['leases']
                              if lease['kind'] == 'finance')
     assert dlr_finance_lease['value'] is None
@@ -183,6 +184,86 @@ def test_liquidity_rejects_mixed_dates_unsupported_capacity_and_cash_totals(fail
     if failure == 'duplicate': liquidity['facilities'].append(deepcopy(facility))
     if failure == 'synthetic': fact['provenance'] = 'fixture'
     if failure == 'condition_type': facility['conditions'] = 'unknown'
+    with pytest.raises(ValueError): build_directory(raw)
+
+
+def rate_sample():
+    raw = sample()
+    raw['financing_rates'] = [{
+        'id': 'RATE-1', 'ticker': 'TEST', 'kind': 'fixed_loan_rate',
+        'instrument': 'Named loan', 'borrower': 'Test company', 'scope': 'Selected corporate loan',
+        'currency_scope': 'USD instrument', 'as_of': '2026-09-30', 'rate_percent': '7.25',
+        'benchmark': None, 'spread_percent': None, 'formula': None,
+        'coverage': 'One reviewed instrument, not a complete rate inventory.',
+        'method': 'Contractual rate.', 'status': 'verified_at_snapshot',
+        'source_ids': ['filing'], 'market_yield': None}]
+    raw['companies'][0]['financing_rate_summary'] = {
+        'primary_rate_id': 'RATE-1', 'reported_average_id': None,
+        'computed_average': None, 'company_highest_rate': None}
+    return raw
+
+
+def test_named_financing_rates_are_typed_and_never_become_company_averages_or_ranks():
+    result = build_directory(rate_sample())
+    assert result['financing_rates'][0]['rate_percent'] == '7.25'
+    assert result['financing_rates'][0]['ranked'] is False
+    assert result['companies'][0]['financing_rate_summary']['reported_average_id'] is None
+
+
+def test_floating_terms_do_not_invent_an_all_in_rate():
+    raw = rate_sample()
+    rate = raw['financing_rates'][0]
+    rate.update(kind='floating_formula', rate_percent=None, benchmark='Term SOFR', spread_percent='5.50')
+    result = build_directory(raw)['financing_rates'][0]
+    assert result['rate_percent'] is None
+    assert result['spread_percent'] == '5.50'
+
+
+def test_published_rate_examples_preserve_scoped_averages_unknowns_and_rate_types():
+    data = json.loads(Path('preview/data.json').read_text())
+    rates = {r['id']: r for r in data['financing_rates']}
+    companies = {c['ticker']: c for c in data['companies']}
+    assert len(rates) == 36
+    assert sum(r['kind'] == 'issuer_reported_average' for r in rates.values()) == 2
+    assert all(r['ranked'] is False and r['market_yield'] is None for r in rates.values())
+    assert all(c['financing_rate_summary']['computed_average'] is None
+               and c['financing_rate_summary']['company_highest_rate'] is None for c in companies.values())
+    assert companies['BTDR']['financing_rate_summary']['primary_rate_id'] is None
+    crwv = rates[companies['CRWV']['financing_rate_summary']['primary_rate_id']]
+    assert crwv['rate_percent'] is None and crwv['spread_percent'] == '5.5'
+    assert crwv['status'] == 'terms_only' and crwv['as_of'] == '2026-08-07'
+    assert '7.9%' not in json.dumps(data)
+    assert rates['RATE-HUT-TZRC']['kind'] == 'reported_floating_rate'
+    assert rates['RATE-HUT-TZRC']['rate_percent'] == '15.25'
+    assert rates['RATE-HIVE-2031-JUN000-coupon']['rate_percent'] == '0.0'
+    assert rates['RATE-NSCALE-GPU-formula']['rate_percent'] is None
+    assert rates['RATE-NSCALE-Macquarie-effective']['kind'] == 'effective_instrument_rate'
+    assert rates['RATE-NSCALE-Macquarie-effective']['rate_percent'] == '22.74'
+    assert rates['RATE-glxy-helios2-9875'].get('balance') is None
+    assert 'Multicurrency' in rates['RATE-dlr-reported-average']['currency_scope']
+    assert 'portfolio' in rates['RATE-apld-reported-termloan-average']['currency_scope']
+
+
+@pytest.mark.parametrize('failure', ['computed_average', 'company_maximum', 'false_issuer_average',
+                                   'invented_floating_total', 'missing_evidence', 'wrong_company',
+                                   'missing_method', 'future_date', 'market_yield', 'synthetic',
+                                   'stale_snapshot_rate', 'unverified_benchmark'])
+def test_partial_rate_evidence_cannot_establish_averages_maxima_or_market_yields(failure):
+    raw = rate_sample()
+    rate = raw['financing_rates'][0]
+    summary = raw['companies'][0]['financing_rate_summary']
+    if failure == 'computed_average': summary['computed_average'] = '7.25'
+    if failure == 'company_maximum': summary['company_highest_rate'] = '7.25'
+    if failure == 'false_issuer_average': summary['reported_average_id'] = 'RATE-1'
+    if failure == 'invented_floating_total': rate.update(kind='floating_formula', benchmark='SOFR', spread_percent='2.5')
+    if failure == 'missing_evidence': rate['source_ids'] = []
+    if failure == 'wrong_company': rate['ticker'] = 'OTHER'
+    if failure == 'missing_method': rate.update(kind='issuer_reported_average', method='')
+    if failure == 'future_date': rate['as_of'] = '2027-01-01'
+    if failure == 'market_yield': rate['market_yield'] = '8'
+    if failure == 'synthetic': rate['provenance'] = 'assumption'
+    if failure == 'stale_snapshot_rate': rate['as_of'] = '2026-06-30'
+    if failure == 'unverified_benchmark': rate.update(benchmark='SOFR', benchmark_value_percent='4')
     with pytest.raises(ValueError): build_directory(raw)
 
 

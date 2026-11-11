@@ -221,6 +221,19 @@
           "August facility/draw disclosures and forecast customer receipts do not establish September remaining capacity and are not added to the snapshot."
         ],
         "takeaway": "The reviewed quarter-end release does not establish unused credit. Expected customer receipts are future funding, not cash already available."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-CRWV-DDTL55",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named floating loan terms",
+        "selection_scope": "FinancingSPV,unconditional CoreWeaveInc parent guarantee;customer-contract GPUcapex",
+        "note": "Original August contract terms, with closing confirmed in the third-quarter release. The actual September all-in rate, current instrument balance and company-wide average have not been established.",
+        "source_ids": [
+          "rate-crwv-ddtl55",
+          "crwv-q3-2026"
+        ]
       }
     },
     {
@@ -453,6 +466,18 @@
           "July secured financing postdates the June balance sheet and is excluded from June facility facts."
         ],
         "takeaway": "This is the June snapshot. Later financing announcements are excluded from its cash and credit figures."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-NBIS-Jun2029-effective",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named instrument effective rate",
+        "selection_scope": "Parent senior unsecured convertible; original-principal cash coupons plus accreting maturity principal",
+        "note": "The selected 7.06% is an instrument accounting effective rate. Its 2.00% cash coupon and accreted contractual principal are different; no company average or total funding-cost rate is established.",
+        "source_ids": [
+          "rate-nbis-jun2029-effective"
+        ]
       }
     },
     {
@@ -877,6 +902,18 @@
           "Three explicitly quantified conditional unfunded commitments verified; display separately by borrower/purpose, with no company cash-plus-credit sum."
         ],
         "takeaway": "Unused GPU funding has draw conditions and project uses. Note proceeds already held in restricted escrow are not extra available credit."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-IREN-GPU2-fixed",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named fixed loan rate",
+        "selection_scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+        "note": "Selected current examples only; not a company average or maximum.",
+        "source_ids": [
+          "rate-iren-gpu2-fixed"
+        ]
       }
     },
     {
@@ -1108,6 +1145,18 @@
           "The reviewed September earnings release lists borrowing balances but does not establish same-date facility commitments or explicit undrawn availability. Unknown is not zero."
         ],
         "takeaway": "Restricted cash and digital assets are separate from reported cash. Unused facility amounts were not established in this review."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": null,
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Same-date rate not established",
+        "selection_scope": "Reviewed September disclosure only; no current named rate verified.",
+        "note": "No same-date financing rate was verified in the reviewed September disclosure. Older first-half or July examples are not presented as a current September rate.",
+        "source_ids": [
+          "btdr-q3-2026"
+        ]
       }
     },
     {
@@ -1389,6 +1438,18 @@
           "Post-September letter-of-credit issuance is excluded from same-date facility amounts; zero borrowings does not establish unrestricted availability."
         ],
         "takeaway": "Project cash and investments have restrictions. Zero revolver borrowings do not establish that the full credit limit can be used."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-HUT-FalconX",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named fixed loan rate",
+        "selection_scope": "Bitcoin-collateralized nonrecourse term loan; precise borrowing subsidiary unverified",
+        "note": "The selected example is the fixed-rate FalconX loan. Other reviewed instruments have different rates, including a variable PIK note. No whole-company average or maximum is established.",
+        "source_ids": [
+          "rate-hut-falconx"
+        ]
       }
     },
     {
@@ -1658,6 +1719,19 @@
         ],
         "notes": [],
         "takeaway": "Letters of credit consume part of the revolving facility. Its headline limit is not cash available to spend."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-apld-reported-termloan-average",
+        "reported_average_id": "RATE-apld-reported-termloan-average",
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Issuer-reported average, stated scope",
+        "selection_scope": "Term-loan portfolio reported by the issuer; not a verified all-company financing cost.",
+        "note": "7.3% issuer-reported weighted average; methodology not independently described. It is not verified all-company effective cost. Selected examples are not a uniform all-in financing-cost comparison.",
+        "source_ids": [
+          "rate-apld-reported-termloan-average",
+          "deep-transition-apld-q"
+        ]
       }
     },
     {
@@ -1959,6 +2033,19 @@
         ],
         "notes": [],
         "takeaway": "Revolver borrowing depends on access conditions, including a market-value test. The separate letter-of-credit facility is payment support, not cash borrowing."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-CORZ-2031-775-coupon",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named note cash coupon",
+        "selection_scope": "Named subsidiary project note; parent convertibles have separate corporate recourse.",
+        "note": "7.75% on $3.3B subsidiary project notes, not company average. Selected examples are not a uniform all-in financing-cost comparison.",
+        "source_ids": [
+          "rate-corz-2031-775-coupon",
+          "deep-transition-corz-q"
+        ]
       }
     },
     {
@@ -2260,6 +2347,19 @@
           "October 2026 amendment raises commitments to $400M and the precommencement aggregate cap to $150M, and adds a $150M uncommitted accordion; not in the September snapshot."
         ],
         "takeaway": "The reported remaining headroom is for letters of credit. A project-start cap limits use of the headline facility."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-WULF-2030-775-coupon",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named note cash coupon",
+        "selection_scope": "Named WULF Compute subsidiary project note; parent convertibles are separate instruments.",
+        "note": "7.75% on $3.2B WULF Compute project notes; 8.7% accounting effective rate is a different metric. Selected examples are not a uniform all-in financing-cost comparison.",
+        "source_ids": [
+          "rate-wulf-2030-775-coupon",
+          "deep-transition-wulf-q"
+        ]
       }
     },
     {
@@ -2600,6 +2700,19 @@
         ],
         "notes": [],
         "takeaway": "A pre-completion borrowing cap and letters of credit limit access to the revolving facility. Separate overnight capacity is subject to credit review."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-CIFR-2031-6125-coupon",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named note cash coupon",
+        "selection_scope": "Named project subsidiary debt; not a parent-wide borrowing rate.",
+        "note": "6.125% on $2B Black Pearl project notes, largest current reviewed note principal. Highest reviewed project-note coupon is 7.125% on different Cipher Compute notes. Selected examples are not a uniform all-in financing-cost comparison.",
+        "source_ids": [
+          "rate-cifr-2031-6125-coupon",
+          "deep-transition-cifr-q"
+        ]
       }
     },
     {
@@ -2820,6 +2933,19 @@
           "Subsequent BUZZ GPU financing and supplier escrow are excluded from September facility amounts."
         ],
         "takeaway": "No same-date unused facility amount was verified. Later financing for supplier escrow is excluded from this snapshot."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-HIVE-2031-JUN000-coupon",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named note cash coupon",
+        "selection_scope": "Subsidiary-issued, parent-guaranteed unsecured exchangeable note with equity exchange economics.",
+        "note": "The selected note has a zero cash coupon and equity-exchange rights. This is not free financing or a company-wide cost. Later BUZZ financing is outside the September snapshot.",
+        "source_ids": [
+          "rate-hive-2031-jun000-coupon",
+          "deep-transition-hive-q"
+        ]
       }
     },
     {
@@ -3096,6 +3222,18 @@
         ],
         "notes": [],
         "takeaway": "Reported cash includes funds at brokers and trading platforms. Restrictions on project distributions limit what can be assumed available to the parent."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-glxy-helios2-9875",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named note cash coupon",
+        "selection_scope": "Secured project notes; subsidiary obligations",
+        "note": "The selected 9.875% coupon belongs to project notes. Current per-note principal remains unknown; original issue proceeds are not an outstanding balance. No company-wide funding average or maximum is established.",
+        "source_ids": [
+          "rate-glxy-helios2-9875"
+        ]
       }
     },
     {
@@ -3451,6 +3589,18 @@
           "$200M Coinbase facility: Terminated; exclude from available credit. Not counted as current unused credit."
         ],
         "takeaway": "Reported revolver availability is cash-collateralized. Project borrowing remains conditional; it is separate from group cash."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-riot-project-draw",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named variable rate at snapshot",
+        "selection_scope": "Rockdale equipment project; nonrecourse except Credit Parties and customary carveouts",
+        "note": "The issuer reports this variable project rate at September 30. Its benchmark-plus-spread terms are separate. This is not a company average.",
+        "source_ids": [
+          "rate-riot-project-draw"
+        ]
       }
     },
     {
@@ -3697,6 +3847,18 @@
           "Post-quarter $750M repayment is separate; no inference that repayment restores revolving capacity. ATM equity capacity excluded."
         ],
         "takeaway": "Some cash is designated for Exaion operations. The later loan repayment is not treated as restored credit capacity."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-mara-two-prime-fixed",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named fixed loan rate",
+        "selection_scope": "Bitcoin-collateralized corporate loan with Two Prime Lending Limited",
+        "note": "This named bitcoin-collateralized loan was fully drawn at September 30 and repaid after quarter-end. The historical snapshot rate is not a current offer or company average.",
+        "source_ids": [
+          "rate-mara-two-prime-fixed"
+        ]
       }
     },
     {
@@ -3960,6 +4122,18 @@
         ],
         "notes": [],
         "takeaway": "Reported revolver availability is approximate and remains subject to lending conditions. It is separate from cash already held."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-eqix-5800-2036",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named note cash coupon",
+        "selection_scope": "Corporate senior unsecured USD notes",
+        "note": "A named USD note coupon; its effective accounting rate is a separate measure. Other currencies and instruments are not combined into a company average.",
+        "source_ids": [
+          "rate-eqix-5800-2036"
+        ]
       }
     },
     {
@@ -4210,6 +4384,18 @@
           "October 27 approximately $4B available disclosure is later-dated; do not substitute into September 30 snapshot."
         ],
         "takeaway": "The global revolving-facility limit does not establish same-date unused capacity. Separate yen facilities are not combined into this figure."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-dlr-reported-average",
+        "reported_average_id": "RATE-dlr-reported-average",
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Issuer-reported average, stated scope",
+        "selection_scope": "Consolidated OP borrowing categories in Note9, excluding unconsolidatedJV debt; parent and OP not added",
+        "note": "The issuer-reported weighted average covers its consolidated borrowing table and includes designated interest-rate and cross-currency swaps. Its currency and hedge treatment differs from individual USD coupons.",
+        "source_ids": [
+          "rate-dlr-reported-average"
+        ]
       }
     },
     {
@@ -4469,6 +4655,18 @@
           "Nscale remains private pending IPO; low loan balances do not negate substantial customer financing and lease obligations."
         ],
         "takeaway": "These are June accounts for a private IPO applicant. Unused facility capacity is conditional; customer financing and lease obligations remain important separate context."
+      },
+      "financing_rate_summary": {
+        "primary_rate_id": "RATE-NSCALE-GPU-formula",
+        "reported_average_id": null,
+        "computed_average": null,
+        "company_highest_rate": null,
+        "selection_label": "Named floating loan terms",
+        "selection_scope": "Named secured GPU-capex facility; no company-wide financing average, including customer financing, is established.",
+        "note": "June accounts for a private IPO applicant. The example is floating GPU-loan terms; no all-in rate is inferred. Separate effective accounting rates do not establish a whole-company funding average.",
+        "source_ids": [
+          "rate-nscale-gpu-formula"
+        ]
       }
     }
   ],
@@ -5460,6 +5658,496 @@
       "excerpt": "Cash and cash equivalents $ 1,478.4\n…\nUnused Borrowing Capacity\n…\nGPU Financing Facility\n…\n$ 1,363.1\n…\nRevolving Credit Facility\n…\n900.0",
       "source_unit": "USD millions. Selected actual June 30, 2026 columns; noncontiguous extracted table cells, not continuous prose.",
       "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
+    },
+    {
+      "id": "rate-crwv-ddtl55",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000357/crwv-20260807.htm",
+      "title": "Financing rate reference: CRWV-DDTL55",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Term SOFR (subject to a 0.00% floor) plus an applicable margin of 5.50% per annum",
+      "exact_passages": [
+        "Term SOFR (subject to a 0.00% floor) plus an applicable margin of 5.50% per annum"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-nbis-jun2029-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "title": "Financing rate reference: NBIS-Jun2029-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Notes due June 2029 June 2029 2.00% 7.06% 587.5 (74.0) (9.4) 504.1",
+      "exact_passages": [
+        "Notes due June 2029 June 2029 2.00% 7.06% 587.5 (74.0) (9.4) 504.1"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-nbis-jun2029-effective",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "title": "Financing rate reference: NBIS-Jun2029-effective",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Notes due June 2029 June 2029 2.00% 7.06% 587.5 (74.0) (9.4) 504.1",
+      "exact_passages": [
+        "Notes due June 2029 June 2029 2.00% 7.06% 587.5 (74.0) (9.4) 504.1"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-iren-gpu2-fixed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "Financing rate reference: IREN-GPU2-fixed",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "GPU Financing 2.0 August 25, 2026 9.00 % $ 2,447",
+      "exact_passages": [
+        "GPU Financing 2.0 August 25, 2026 9.00 % $ 2,447"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-iren-gpu2-effective",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "Financing rate reference: IREN-GPU2-effective",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "GPU Financing 2.0 May 31, 2029 10.70 % 947 —",
+      "exact_passages": [
+        "GPU Financing 2.0 May 31, 2029 10.70 % 947 —"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-iren-gpu3-fixed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "Financing rate reference: IREN-GPU3-fixed",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "bears a fixed annual interest rate of 9.51% implied by the scheduled payments",
+      "exact_passages": [
+        "bears a fixed annual interest rate of 9.51% implied by the scheduled payments"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-iren-gpu3-effective",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "Financing rate reference: IREN-GPU3-effective",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "GPU Financing 3.0 August 31, 2029 10.38 % 355 —",
+      "exact_passages": [
+        "GPU Financing 3.0 August 31, 2029 10.38 % 355 —"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-iren-ddtl",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "Financing rate reference: IREN-DDTL",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "bearing interest at one-month Term SOFR plus 2.25%",
+      "exact_passages": [
+        "bearing interest at one-month Term SOFR plus 2.25%"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-hut-tzrc",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Financing rate reference: HUT-TZRC",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "the interest rate on the TZRC Secured Promissory Note was 15.25 %.\nThe Company elected to apply the PIK payment option.",
+      "exact_passages": [
+        "the interest rate on the TZRC Secured Promissory Note was 15.25 %.",
+        "The Company elected to apply the PIK payment option."
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-hut-falconx",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Financing rate reference: HUT-FalconX",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "The FalconX Term Loan bears a fixed interest rate of 7.0 % per annum and matures on April 30, 2027 .",
+      "exact_passages": [
+        "The FalconX Term Loan bears a fixed interest rate of 7.0 % per annum and matures on April 30, 2027 ."
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-hut-riverbend",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Financing rate reference: HUT-RiverBend",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "River Bend Notes November 15, 2042 6.192 % 3,250,000 —",
+      "exact_passages": [
+        "River Bend Notes November 15, 2042 6.192 % 3,250,000 —"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-hut-beaconpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Financing rate reference: HUT-BeaconPoint",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Beacon Point Notes November 30, 2042 6.129 % 4,250,000 —",
+      "exact_passages": [
+        "Beacon Point Notes November 30, 2042 6.129 % 4,250,000 —"
+      ],
+      "source_unit": "Annual percentages. For debt-table excerpts, coupon/stated-rate and effective-rate columns are distinct; dates are instrument maturities or issue dates, not observation-date replacements."
+    },
+    {
+      "id": "rate-glxy-helios2-9875",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+      "title": "Financing rate reference: glxy-helios2-9875",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "9.875% Senior Secured Notes due 2031",
+      "exact_passages": [
+        "9.875% Senior Secured Notes due 2031"
+      ],
+      "source_unit": "Annual percentages. Named coupons are separate from instrument effective rates. DLR table Total 3.07 is the issuer-reported weighted-average rate and includes designated swaps."
+    },
+    {
+      "id": "rate-glxy-helios1-sofr",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+      "title": "Financing rate reference: glxy-helios1-sofr",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "SOFR plus an applicable margin of 4.75%, subject to a floor of 2.5%",
+      "exact_passages": [
+        "SOFR plus an applicable margin of 4.75%, subject to a floor of 2.5%"
+      ],
+      "source_unit": "Annual percentages. Named coupons are separate from instrument effective rates. DLR table Total 3.07 is the issuer-reported weighted-average rate and includes designated swaps."
+    },
+    {
+      "id": "rate-riot-project-draw",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "title": "Financing rate reference: riot-project-draw",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "the variable interest rate was 6.49 %.\nAdjusted Term SOFR rate plus an applicable margin of 2.75 %",
+      "exact_passages": [
+        "the variable interest rate was 6.49%.",
+        "Adjusted Term SOFR rate plus an applicable margin of 2.75%"
+      ],
+      "source_unit": "Annual percentages; source text spaces the percent sign.",
+      "excerpt_note": "Two separate exact narrative fragments; September30 observed variable rate and contractual floating formula. No benchmark fixing calculated."
+    },
+    {
+      "id": "rate-riot-project-formula",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "title": "Financing rate reference: riot-project-formula",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Adjusted Term SOFR rate plus an applicable margin of 2.75 %",
+      "exact_passages": [
+        "Adjusted Term SOFR rate plus an applicable margin of 2.75%"
+      ],
+      "source_unit": "Annual benchmark spread percentage points; not a numeric all-in percentage.",
+      "excerpt_note": "Continuous exact narrative fragment; floating formula, not an all-in rate."
+    },
+    {
+      "id": "rate-riot-cpace-fixed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "title": "Financing rate reference: riot-cpace-fixed",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "note payable with a fixed rate of 8.81 %",
+      "exact_passages": [
+        "note payable with a fixed rate of 8.81%"
+      ],
+      "source_unit": "Annual percent; source text spaces the percent sign.",
+      "excerpt_note": "Continuous exact narrative fragment; named note rate."
+    },
+    {
+      "id": "rate-mara-two-prime-fixed",
+      "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm",
+      "title": "Financing rate reference: mara-two-prime-fixed",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "The $300.0 million Two Prime facility bears interest at a fixed rate of 7.65% per annum.",
+      "exact_passages": [
+        "The $300.0 million Two Prime facility bears interest at a fixed rate of 7.65% per annum."
+      ],
+      "source_unit": "Annual percentages. Named coupons are separate from instrument effective rates. DLR table Total 3.07 is the issuer-reported weighted-average rate and includes designated swaps."
+    },
+    {
+      "id": "rate-eqix-5800-2036",
+      "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "title": "Financing rate reference: eqix-5800-2036",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-28",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "5.800 % Senior Notes due 2036",
+      "exact_passages": [
+        "5.800% Senior Notes due 2036"
+      ],
+      "source_unit": "Annual cash coupon in instrument label; September30,2026 debt table.",
+      "excerpt_note": "Exact instrument label in the current debt table; selected note cash coupon is5.800%, not the separate effective-rate column."
+    },
+    {
+      "id": "rate-eqix-2036-effective",
+      "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "title": "Financing rate reference: eqix-2036-effective",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-28",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "5.800 % Senior Notes due 2036\nEffective Rate\n5.98",
+      "exact_passages": [
+        "5.800% Senior Notes due 2036",
+        "Effective Rate",
+        "5.98"
+      ],
+      "source_unit": "Annual percentages; selected September30,2026 instrument effective-rate cell; amount columns omitted.",
+      "excerpt_note": "Noncontiguous selected table label, heading and cell. Do not join as continuous prose.5.98% belongs to this series effective-rate column, not cash coupon."
+    },
+    {
+      "id": "rate-dlr-reported-average",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "title": "Financing rate reference: dlr-reported-average",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-30",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Total\n3.07\ninclude the impact of designated interest rate swaps\ncross-currency interest rate swaps",
+      "exact_passages": [
+        "Total 3.07",
+        "include the impact of designated interest rate swaps",
+        "cross-currency interest rate swaps"
+      ],
+      "source_unit": "Annual percentages; September30,2026 Total weighted-average interest rate for outstanding borrowing table, including designated interest and cross-currency swaps.",
+      "excerpt_note": "Noncontiguous Total row label/rate cell plus separate exact methodology fragments. Table contains zero-width separators; do not represent selected cells as continuous prose."
+    },
+    {
+      "id": "rate-dlr-4450-2028",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "title": "Financing rate reference: dlr-4450-2028",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-30",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "4.450 % notes due 2028",
+      "exact_passages": [
+        "4.450% notes due 2028"
+      ],
+      "source_unit": "Annual percent; September30,2026 USD note table; not market yield.",
+      "excerpt_note": "Exact instrument label in current borrowing table; selected cash coupon."
+    },
+    {
+      "id": "rate-apld-2030-925-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315225024479/form8-k.htm",
+      "title": "Financing rate reference: APLD-2030-925-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-11-20",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "9.250% Senior Secured Notes due 2030",
+      "exact_passages": [
+        "9.250% Senior Secured Notes due 2030"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-apld-2031-675-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226009538/form8-k.htm",
+      "title": "Financing rate reference: APLD-2031-675-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-03-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "6.750% Senior Secured Notes due 2031",
+      "exact_passages": [
+        "6.750% Senior Secured Notes due 2031"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-corz-2031-775-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000119312526208905/d47435d8k.htm",
+      "title": "Financing rate reference: CORZ-2031-775-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-05-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "7.750% Senior Secured Notes due 2031",
+      "exact_passages": [
+        "7.750% Senior Secured Notes due 2031"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-wulf-2030-775-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925101866/tm2529300d1_8k.htm",
+      "title": "Financing rate reference: WULF-2030-775-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-10-23",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "7.750% Senior Secured Notes due 2030",
+      "exact_passages": [
+        "7.750% Senior Secured Notes due 2030"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-cifr-2030-7125-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "title": "Financing rate reference: CIFR-2030-7125-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cipher Compute 2030 Senior Secured Notes\n7.125 %",
+      "exact_passages": [
+        "Cipher Compute 2030 Senior Secured Notes",
+        "7.125 %"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-cifr-2031-6125-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "title": "Financing rate reference: CIFR-2031-6125-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Black Pearl 2031 Senior Secured Notes\n6.125 %",
+      "exact_passages": [
+        "Black Pearl 2031 Senior Secured Notes",
+        "6.125 %"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-hive-2031-jun000-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+      "title": "Financing rate reference: HIVE-2031-JUN000-coupon",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "iii. $ 130 million convertible note\ndo not bear interest\nJuly 1, 2031",
+      "exact_passages": [
+        "iii. $ 130 million convertible note",
+        "do not bear interest",
+        "July 1, 2031"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-apld-reported-termloan-average",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "title": "Financing rate reference: apld-reported-termloan-average",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "weighted-average interest rate for the Company's term loans:\nWeighted-average interest rate 7.3 %",
+      "exact_passages": [
+        "weighted-average interest rate for the Company's term loans:",
+        "Weighted-average interest rate 7.3 %"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-corz-2031-775-accounting",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "title": "Financing rate reference: CORZ-2031-775-accounting",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Senior Secured Notes 7.75 % 8.3 %",
+      "exact_passages": [
+        "Senior Secured Notes 7.75 % 8.3 %"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-wulf-2030-775-accounting",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "Financing rate reference: WULF-2030-775-accounting",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "effective interest rate of 8.7 %",
+      "exact_passages": [
+        "effective interest rate of 8.7 %"
+      ],
+      "source_unit": "Annual percentages. For selected noncontiguous debt-table/note cells, scope and current-date evidence come from the linked canonical quarter note; contractual coupon and effective-rate columns are distinct."
+    },
+    {
+      "id": "rate-nscale-gpu-formula",
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "title": "Financing rate reference: NSCALE-GPU-formula",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-09-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "The GPU Financing Facility bears interest at a rate of Term SOFR plus 5.00%",
+      "exact_passages": [
+        "The GPU Financing Facility bears interest at a rate of Term SOFR plus 5.00%"
+      ],
+      "source_unit": "Annual percentage rates; selected exact fragments, not a continuous paragraph."
+    },
+    {
+      "id": "rate-nscale-macquarie-formula",
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "title": "Financing rate reference: NSCALE-Macquarie-formula",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-09-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "monthly SOFR plus a margin of 7.50%, payable monthly in arrears in cash.",
+      "exact_passages": [
+        "monthly SOFR plus a margin of 7.50%, payable monthly in arrears in cash."
+      ],
+      "source_unit": "Annual percentage rates; selected exact fragments, not a continuous paragraph."
+    },
+    {
+      "id": "rate-nscale-gpu-effective",
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "title": "Financing rate reference: NSCALE-GPU-effective",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-09-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Effective Interest Rate\nGPU Financing Facility\n11.30",
+      "exact_passages": [
+        "Effective Interest Rate",
+        "GPU Financing Facility",
+        "11.30"
+      ],
+      "source_unit": "Annual percentages; noncontiguous selected heading, facility label and June30,2026 effective-rate cell. Not continuous prose."
+    },
+    {
+      "id": "rate-nscale-macquarie-effective",
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "title": "Financing rate reference: NSCALE-Macquarie-effective",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-09-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Effective Interest Rate\nMacquarie Senior Credit Facility\n22.74",
+      "exact_passages": [
+        "Effective Interest Rate",
+        "Macquarie Senior Credit Facility",
+        "22.74"
+      ],
+      "source_unit": "Annual percentages; noncontiguous selected heading, facility label and June30,2026 effective-rate cell. Not continuous prose."
     }
   ],
   "selection_policy": "Curated operators with public primary financial disclosures. Sixteen historical comparison records include listed companies and one private IPO applicant; three additional private operators are an unranked coverage watchlist. Not an exhaustive market census.",
@@ -7339,6 +8027,847 @@
     "baseline_commit": "079fd8e",
     "scope": "Independent reopening of15 baseline balance disclosures and44 numeric fields; separate NscaleS1 review. Not a statutory audit or independent verification of every note source."
   },
+  "financing_rates": [
+    {
+      "id": "RATE-CRWV-DDTL55",
+      "ticker": "CRWV",
+      "instrument": "DDTL5.5",
+      "borrower": "CoreWeave Financing DDTL V-V, LLC",
+      "scope": "Financing vehicle with an unconditional CoreWeave Inc. parent guarantee, for customer-contract GPU infrastructure.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-08-07",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "benchmark": "Term SOFR",
+      "spread_percent": "5.5",
+      "formula": "Term SOFR + 5.5 percentage points",
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "SOFR option; alternative base-rate option exists. No September benchmark fixing or all-in rate verified. Original August7 contractual spread; Q3 confirms closing, but September per-instrument outstanding balance and all-in interest fixing are not established.",
+      "source_ids": [
+        "rate-crwv-ddtl55",
+        "crwv-q3-2026"
+      ],
+      "status": "terms_only",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-NBIS-Jun2029-coupon",
+      "ticker": "NBIS",
+      "instrument": "June 2029 convertible notes",
+      "borrower": "Nebius Group N.V.",
+      "scope": "Parent senior unsecured convertible; original-principal cash coupons plus accreting maturity principal",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-06-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "2",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "Effective rate includes discount/accretion and issuance-cost amortization; cash coupon is not all-in cost. Neither is current market yield.",
+      "source_ids": [
+        "rate-nbis-jun2029-coupon"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-NBIS-Jun2029-effective",
+      "ticker": "NBIS",
+      "instrument": "June 2029 convertible notes",
+      "borrower": "Nebius Group N.V.",
+      "scope": "Parent senior unsecured convertible; original-principal cash coupons plus accreting maturity principal",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-06-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "7.06",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported instrument effective accounting rate; not a cash coupon.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "Effective rate includes discount/accretion and issuance-cost amortization; cash coupon is not all-in cost. Neither is current market yield.",
+      "source_ids": [
+        "rate-nbis-jun2029-effective"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-IREN-GPU2-fixed",
+      "ticker": "IREN",
+      "instrument": "GPU Financing 2.0",
+      "borrower": "IE Mackenzie Compute Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "9",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "Fixed stated rate and instrument effective accounting rate are separate; no company average or market yield.",
+      "source_ids": [
+        "rate-iren-gpu2-fixed"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-IREN-GPU2-effective",
+      "ticker": "IREN",
+      "instrument": "GPU Financing 2.0",
+      "borrower": "IE Mackenzie Compute Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "10.7",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported instrument effective accounting rate; not a cash coupon.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "Fixed stated rate and instrument effective accounting rate are separate; no company average or market yield.",
+      "source_ids": [
+        "rate-iren-gpu2-effective"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-IREN-GPU3-fixed",
+      "ticker": "IREN",
+      "instrument": "GPU Financing 3.0",
+      "borrower": "IE CA Leasing Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "9.51",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "Fixed stated rate and instrument effective accounting rate are separate; no company average or market yield.",
+      "source_ids": [
+        "rate-iren-gpu3-fixed"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-IREN-GPU3-effective",
+      "ticker": "IREN",
+      "instrument": "GPU Financing 3.0",
+      "borrower": "IE CA Leasing Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "10.38",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported instrument effective accounting rate; not a cash coupon.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "Fixed stated rate and instrument effective accounting rate are separate; no company average or market yield.",
+      "source_ids": [
+        "rate-iren-gpu3-effective"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-IREN-DDTL",
+      "ticker": "IREN",
+      "instrument": "GPU Financing 1.0 DDTL",
+      "borrower": "IE US Hardware 3, LLC",
+      "scope": "Nonrecourse financingSPV with limited specified parent guarantees",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "benchmark": "One-month Term SOFR",
+      "spread_percent": "2.25",
+      "formula": "One-month Term SOFR + 2.25 percentage points",
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "No market yield or company-wide cost is inferred.",
+      "source_ids": [
+        "rate-iren-ddtl"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-HUT-TZRC",
+      "ticker": "HUT",
+      "instrument": "TZRC Secured Promissory Note",
+      "borrower": "Exact borrowing entity not separately verified",
+      "scope": "Nonrecourse to ultimate Hut8 parent,secured by subsidiary membership interest in TZRC; exact legal borrower not established",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "reported_floating_rate",
+      "rate_percent": "15.25",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "Lesser of WSJprime+12%,15.25%,and lawful maximum. PIK elected. Extra2% default interest contingent/excluded. RepaidOctober2026. Reported snapshot rate is variable/capped and PIK was elected; it is not a fixed cash coupon. Subsequent October repayment does not change September snapshot.",
+      "source_ids": [
+        "rate-hut-tzrc"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-HUT-FalconX",
+      "ticker": "HUT",
+      "instrument": "FalconX Term Loan",
+      "borrower": "Exact borrowing entity not separately verified",
+      "scope": "Bitcoin-collateralized nonrecourse term loan; precise borrowing subsidiary unverified",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "7",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "No market yield or company-wide cost is inferred.",
+      "source_ids": [
+        "rate-hut-falconx"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-HUT-RiverBend",
+      "ticker": "HUT",
+      "instrument": "River Bend notes",
+      "borrower": "Hut 8 DC LLC",
+      "scope": "Project issuer,nonrecourse to parent",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.192",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "No market yield or company-wide cost is inferred.",
+      "source_ids": [
+        "rate-hut-riverbend"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-HUT-BeaconPoint",
+      "ticker": "HUT",
+      "instrument": "Beacon Point notes",
+      "borrower": "Beacon Point DC LLC",
+      "scope": "Project issuer,nonrecourse to parent",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.129",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Named contractual terms or directly reported snapshot rate, as typed.",
+      "coverage": "Selected reviewed instrument; no complete company inventory, computed average or company-wide maximum.",
+      "note": "No market yield or company-wide cost is inferred.",
+      "source_ids": [
+        "rate-hut-beaconpoint"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-glxy-helios2-9875",
+      "ticker": "GLXY",
+      "instrument": "9.875% Senior Secured Notes due2031",
+      "borrower": "Galaxy Helios Data Centers II LLC",
+      "scope": "Secured project notes; subsidiary obligations",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "9.875",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual coupon on named USD project notes; current individual principal is not quantified.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Contractual coupon on a named project note. September per-note principal is not independently quantified; original issue size is not an outstanding balance. Not a company average or market yield.",
+      "source_ids": [
+        "rate-glxy-helios2-9875"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-glxy-helios1-sofr",
+      "ticker": "GLXY",
+      "instrument": "Helios I senior secured construction term loan",
+      "borrower": "Galaxy Helios I LLC",
+      "scope": "Helios construction project, completion guarantee by GDH LP",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "benchmark": "SOFR",
+      "spread_percent": "4.75",
+      "formula": "SOFR + 4.75 percentage points",
+      "method": "Floating contractual terms. Interest-rate caps mitigate exposure; no all-in rate calculated.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Floating contractual terms. Interest-rate caps mitigate exposure; no all-in rate calculated. Source floor wording does not establish benchmark versus all-in floor; no rate model or all-in fixing is calculated.",
+      "source_ids": [
+        "rate-glxy-helios1-sofr"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-riot-project-draw",
+      "ticker": "RIOT",
+      "instrument": "$573M project delayed-draw facility",
+      "borrower": "Riot DC Logistics, LLC",
+      "scope": "Rockdale equipment project; nonrecourse except Credit Parties and customary carveouts",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "reported_floating_rate",
+      "rate_percent": "6.49",
+      "benchmark": "Adjusted Term SOFR",
+      "spread_percent": "2.75",
+      "formula": null,
+      "method": "Issuer directly reports September30 variable rate; excludes undrawn0.50% fee and other fees. Contract alternative base+1.75%.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Issuer directly reports September30 variable rate; excludes undrawn0.50% fee and other fees. Contract alternative base+1.75%.",
+      "source_ids": [
+        "rate-riot-project-draw"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-riot-project-formula",
+      "ticker": "RIOT",
+      "instrument": "$573M project delayed-draw facility",
+      "borrower": "Riot DC Logistics, LLC",
+      "scope": "Rockdale equipment project; nonrecourse except Credit Parties and customary carveouts",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "benchmark": "Adjusted Term SOFR",
+      "spread_percent": "2.75",
+      "formula": "Adjusted Term SOFR + 2.75 percentage points",
+      "method": "Contractual floating formula, separate from the source-reported6.49% snapshot rate.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Alternative base-rate option exists; unused commitment fees separate. No SOFR fixing inferred.",
+      "source_ids": [
+        "rate-riot-project-formula"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-riot-cpace-fixed",
+      "ticker": "RIOT",
+      "instrument": "CPACE note payable",
+      "borrower": null,
+      "scope": "Riot group CPACE note; exact legal borrower not separately identified in the reviewed filing.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "8.81",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Small conventional note, not representative blended rate. Matures December2035.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Small conventional note, not representative blended rate. Matures December2035.",
+      "source_ids": [
+        "rate-riot-cpace-fixed"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-mara-two-prime-fixed",
+      "ticker": "MARA",
+      "instrument": "Two Prime $300M bitcoin-collateralized term loan",
+      "borrower": "MARA Holdings, Inc.",
+      "scope": "Bitcoin-collateralized corporate loan with Two Prime Lending Limited",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "7.65",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Fully drawn at September30; collateral maintenance applies. Repaid in full after quarter-end, so historical snapshot example only.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Fully drawn at September30; collateral maintenance applies. Repaid in full after quarter-end, so historical snapshot example only.",
+      "source_ids": [
+        "rate-mara-two-prime-fixed"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-eqix-5800-2036",
+      "ticker": "EQIX",
+      "instrument": "5.800% Senior Notes due August15,2036",
+      "borrower": "Equinix, Inc.",
+      "scope": "Corporate senior unsecured USD notes",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "5.8",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Coupon on selected USD650M tranche issued August6,2026, due August15,2036. Table separately reports instrument effective rate5.98%; neither is company average.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Coupon on selected USD650M tranche issued August6,2026, due August15,2036. Table separately reports instrument effective rate5.98%; neither is company average.",
+      "source_ids": [
+        "rate-eqix-5800-2036"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-eqix-2036-effective",
+      "ticker": "EQIX",
+      "instrument": "5.800% Senior Notes due August15,2036",
+      "borrower": "Equinix, Inc.",
+      "scope": "Corporate senior unsecured USD notes",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "5.98",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported instrument effective accounting rate, separate from the5.800% cash coupon.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Named USD note only; not a company average or market yield.",
+      "source_ids": [
+        "rate-eqix-2036-effective"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-dlr-reported-average",
+      "ticker": "DLR",
+      "instrument": "Issuer-published total borrowing weighted-average interest rate",
+      "borrower": "Digital Realty Trust, L.P. and consolidated subsidiaries",
+      "scope": "Consolidated OP borrowing categories in Note9, excluding unconsolidatedJV debt; parent and OP not added",
+      "currency_scope": "Multicurrency consolidated borrowing table, including designated hedges",
+      "as_of": "2026-09-30",
+      "kind": "issuer_reported_average",
+      "rate_percent": "3.07",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer period-end weighted average on $19.618975B borrowing principal, incorporates designated interest swaps and cross-currency swaps. Not market yield, annual interest-expense ratio or raw USD coupon. Fees/discount-allocation method not further established.",
+      "coverage": "Issuer consolidated borrowing table only; do not compare directly with unhedged named coupon or spread",
+      "note": "Issuer period-end weighted average on $19.618975B borrowing principal, incorporates designated interest swaps and cross-currency swaps. Not market yield, annual interest-expense ratio or raw USD coupon. Fees/discount-allocation method not further established.",
+      "source_ids": [
+        "rate-dlr-reported-average"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-dlr-4450-2028",
+      "ticker": "DLR",
+      "instrument": "4.450% Notes due July15,2028",
+      "borrower": "Digital Realty Trust, L.P.",
+      "scope": "Corporate OP notes, parent guarantee",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "4.45",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Selected outstanding USD650M note; issued2018, dueJuly15,2028. Vintage coupon, not refinancing cost.",
+      "coverage": "Selected reviewed example; not companywide maximum, health score or market yield",
+      "note": "Selected outstanding USD650M note; issued2018, dueJuly15,2028. Vintage coupon, not refinancing cost.",
+      "source_ids": [
+        "rate-dlr-4450-2028"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-APLD-2030-925-coupon",
+      "ticker": "APLD",
+      "instrument": "APLD ComputeCo LLC 9.250% Senior Secured Notes due December 15, 2030",
+      "borrower": "APLD ComputeCo LLC",
+      "scope": "Named ComputeCo project debt, separate subsidiary issuer/security and completion support; parent convertible has different recourse.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-08-31",
+      "kind": "fixed_coupon",
+      "rate_percent": "9.25",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual fixed cash coupon on a named note; not market yield or company average.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Contractual cash coupon, not market yield, accounting effective interest or company-wide borrowing cost. Current outstanding status and principal verified against the canonical quarter debt note.",
+      "source_ids": [
+        "rate-apld-2030-925-coupon",
+        "deep-transition-apld-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-APLD-2031-675-coupon",
+      "ticker": "APLD",
+      "instrument": "APLD ComputeCo 2 LLC 6.750% Senior Secured Notes due March 15, 2031",
+      "borrower": "APLD ComputeCo 2 LLC",
+      "scope": "Named ComputeCo project debt, separate subsidiary issuer/security and completion support; parent convertible has different recourse.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-08-31",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.75",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual fixed cash coupon on a named note; not market yield or company average.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Contractual cash coupon, not market yield, accounting effective interest or company-wide borrowing cost. Current outstanding status and principal verified against the canonical quarter debt note.",
+      "source_ids": [
+        "rate-apld-2031-675-coupon",
+        "deep-transition-apld-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-CORZ-2031-775-coupon",
+      "ticker": "CORZ",
+      "instrument": "Core Scientific Finance I LLC 7.75% Senior Secured Notes due May 15, 2031",
+      "borrower": "Core Scientific Finance I LLC",
+      "scope": "Named subsidiary project note; parent convertibles have separate corporate recourse.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "7.75",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual fixed cash coupon on a named note; not market yield or company average.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Contractual cash coupon, not market yield, accounting effective interest or company-wide borrowing cost. Current outstanding status and principal verified against the canonical quarter debt note.",
+      "source_ids": [
+        "rate-corz-2031-775-coupon",
+        "deep-transition-corz-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-WULF-2030-775-coupon",
+      "ticker": "WULF",
+      "instrument": "WULF Compute LLC 7.75% Senior Secured Notes due October 15, 2030",
+      "borrower": "WULF Compute LLC",
+      "scope": "Named WULF Compute subsidiary project note; parent convertibles are separate instruments.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "7.75",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual fixed cash coupon on a named note; not market yield or company average.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Contractual cash coupon, not market yield, accounting effective interest or company-wide borrowing cost. Current outstanding status and principal verified against the canonical quarter debt note.",
+      "source_ids": [
+        "rate-wulf-2030-775-coupon",
+        "deep-transition-wulf-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-CIFR-2030-7125-coupon",
+      "ticker": "CIFR",
+      "instrument": "Cipher Compute LLC 7.125% Senior Secured Notes due November 15, 2030",
+      "borrower": "Cipher Compute LLC",
+      "scope": "Named project subsidiary debt; not a parent-wide borrowing rate.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "7.125",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual fixed cash coupon on a named note; not market yield or company average.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Contractual cash coupon, not market yield, accounting effective interest or company-wide borrowing cost. Current outstanding status and principal verified against the canonical quarter debt note.",
+      "source_ids": [
+        "rate-cifr-2030-7125-coupon",
+        "deep-transition-cifr-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-CIFR-2031-6125-coupon",
+      "ticker": "CIFR",
+      "instrument": "Black Pearl Compute LLC 6.125% Senior Secured Notes due February 15, 2031",
+      "borrower": "Black Pearl Compute LLC",
+      "scope": "Named project subsidiary debt; not a parent-wide borrowing rate.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.125",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual fixed cash coupon on a named note; not market yield or company average.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Contractual cash coupon, not market yield, accounting effective interest or company-wide borrowing cost. Current outstanding status and principal verified against the canonical quarter debt note.",
+      "source_ids": [
+        "rate-cifr-2031-6125-coupon",
+        "deep-transition-cifr-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-HIVE-2031-JUN000-coupon",
+      "ticker": "HIVE",
+      "instrument": "HIVE Bermuda 2026 Ltd. June 2026 0% Exchangeable Senior Notes due July 1, 2031",
+      "borrower": "HIVE Bermuda 2026 Ltd.",
+      "scope": "Subsidiary-issued, parent-guaranteed unsecured exchangeable note with equity exchange economics.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "fixed_coupon",
+      "rate_percent": "0.0",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Contractual fixed cash coupon on a named note; not market yield or company average.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Contractual cash coupon, not market yield, accounting effective interest or company-wide borrowing cost. Current outstanding status and principal verified against the canonical quarter debt note.",
+      "source_ids": [
+        "rate-hive-2031-jun000-coupon",
+        "deep-transition-hive-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-apld-reported-termloan-average",
+      "ticker": "APLD",
+      "instrument": "Company's term loans (issuer label)",
+      "borrower": "Applied Digital consolidated group",
+      "scope": "Term-loan portfolio reported by the issuer; not a verified all-company financing cost.",
+      "currency_scope": "Issuer-reported term-loan portfolio; financial statements presented in USD; underlying-currency coverage not separately established.",
+      "as_of": "2026-08-31",
+      "kind": "issuer_reported_average",
+      "rate_percent": "7.3",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer reports weighted-average interest rate for term loans. Weighting method, fee/discount and hedge coverage are not explained in the nearby note and are not reconstructed.",
+      "coverage": "Issuer-reported term-loan scope only, not verified all-company effective financing cost.",
+      "note": "The same note labels the principal maturity table as term loans even though it reconciles to the broad stated debt table. Do not infer a standard all-company effective cost methodology. No new weighted average calculated.",
+      "source_ids": [
+        "rate-apld-reported-termloan-average",
+        "deep-transition-apld-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-CORZ-2031-775-accounting",
+      "ticker": "CORZ",
+      "instrument": "Core Scientific Finance I LLC 7.75% Senior Secured Notes due May 15, 2031",
+      "borrower": "Core Scientific Finance I LLC",
+      "scope": "Issuer-reported accounting rate for this named instrument only.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "8.3",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported effective accounting interest rate, separate from contractual coupon.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Amortization of discounts/issuance costs and convertible accounting can materially differ from the cash coupon; not a market yield or current refinancing quote.",
+      "source_ids": [
+        "rate-corz-2031-775-accounting",
+        "deep-transition-corz-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-WULF-2030-775-accounting",
+      "ticker": "WULF",
+      "instrument": "WULF Compute LLC 7.75% Senior Secured Notes due October 15, 2030",
+      "borrower": "WULF Compute LLC",
+      "scope": "Issuer-reported accounting rate for this named instrument only.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-09-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "8.7",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported effective accounting interest rate, separate from contractual coupon.",
+      "coverage": "Selected current named instrument; no complete company rate inventory or maximum.",
+      "note": "Amortization of discounts/issuance costs and convertible accounting can materially differ from the cash coupon; not a market yield or current refinancing quote.",
+      "source_ids": [
+        "rate-wulf-2030-775-accounting",
+        "deep-transition-wulf-q"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-NSCALE-GPU-formula",
+      "ticker": "NSCALE",
+      "instrument": "GPU Financing Facility",
+      "borrower": "Nscale Services UK Limited",
+      "scope": "Named secured GPU-capex facility; no company-wide financing average, including customer financing, is established.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-06-30",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "benchmark": "Term SOFR",
+      "spread_percent": "5.00",
+      "formula": "Term SOFR + 5.00 percentage points",
+      "method": "Contractual floating cash-interest formula stated in the interim June note.",
+      "coverage": "Named June funded loan example only, not a company-wide financing cost.",
+      "note": "Potential0.25percentage-point step-up and separate unused fees; no benchmark fixing or all-in rate inferred.",
+      "source_ids": [
+        "rate-nscale-gpu-formula"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-NSCALE-Macquarie-formula",
+      "ticker": "NSCALE",
+      "instrument": "Macquarie Senior Credit Facility",
+      "borrower": "Nscale Global Holdings Limited",
+      "scope": "Named GPU-equipment loan with MOIC payment provisions.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-06-30",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "benchmark": "monthly SOFR",
+      "spread_percent": "7.50",
+      "formula": "monthly SOFR + 7.50 percentage points",
+      "method": "Contractual cash interest formula in the S1 financing description; June interim note confirms outstanding loan and distinct effective rate.",
+      "coverage": "Selected instrument; additional MOIC/warrant economics are not captured by the cash spread.",
+      "note": "No all-in benchmark fixing is inferred. Additional payments satisfy a specified multiple on invested capital.",
+      "source_ids": [
+        "rate-nscale-macquarie-formula"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-NSCALE-GPU-effective",
+      "ticker": "NSCALE",
+      "instrument": "GPU Financing Facility",
+      "borrower": "Nscale Services UK Limited",
+      "scope": "Named funded facility in actual June accounts.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-06-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "11.30",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported instrument effective accounting rate from the June debt table.",
+      "coverage": "Two funded loan examples reviewed; not a complete funding-cost inventory or company maximum.",
+      "note": "Not a fixed cash coupon or market yield. Customer financing and leases are separate funding economics.",
+      "source_ids": [
+        "rate-nscale-gpu-effective"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    },
+    {
+      "id": "RATE-NSCALE-Macquarie-effective",
+      "ticker": "NSCALE",
+      "instrument": "Macquarie Senior Credit Facility",
+      "borrower": "Nscale Global Holdings Limited",
+      "scope": "Named funded facility in actual June accounts.",
+      "currency_scope": "USD-denominated named instrument",
+      "as_of": "2026-06-30",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "22.74",
+      "benchmark": null,
+      "spread_percent": null,
+      "formula": null,
+      "method": "Issuer-reported instrument effective accounting rate from the June debt table.",
+      "coverage": "Two funded loan examples reviewed; not a complete funding-cost inventory or company maximum.",
+      "note": "Not a fixed cash coupon or market yield. Customer financing and leases are separate funding economics.",
+      "source_ids": [
+        "rate-nscale-macquarie-effective"
+      ],
+      "status": "verified_at_snapshot",
+      "market_yield": null,
+      "ranked": false
+    }
+  ],
   "schema_version": 3,
   "metric_definitions": {
     "cash": {
@@ -7360,10 +8889,10 @@
       "caveat": "Assets are not the same as cash available to repay debt. This ratio does not show which assets were financed with borrowing or predict default. Leased infrastructure, crypto holdings and construction assets make company comparisons imperfect. Assets can include the recorded right to use leased property, while the borrowing measure excludes lease obligations."
     },
     "coupon": {
-      "title": "Bond coupon examples",
-      "description": "What fixed interest rate is written into this specific note? Each row is one debt contract, not the company’s overall borrowing rate.",
-      "formula": "Contractual fixed coupon for the named instrument; no blended borrowing-rate estimate",
-      "caveat": "Coupon is not current market yield or total funding cost. Convertible, secured project and unsecured notes differ. One note does not represent all company debt. These are terms from dated disclosures; continued outstanding status has not been reverified for every example."
+      "title": "Fixed note coupon",
+      "description": "Company-reported averages are shown only where verified; other references name a specific loan or note. Rate types, dates and coverage differ. The fixed-note coupon ledger is a separate reference.",
+      "formula": "Issuer averages, contractual rates, floating spreads and accounting effective rates remain separate; no blended company rate is calculated",
+      "caveat": "A coupon is not current market yield or total company funding cost. Loan spreads require a dated benchmark before an all-in rate can be known. Accounting effective rates include different economics. Company-reported averages retain their stated scope and method; examples are not a uniform company cost ranking. Continued outstanding status has not been reverified for every historical coupon example."
     }
   },
   "disclosure": "Actual, dated source records. No synthetic financial inputs enter these rankings. This is a curated research snapshot, not a live market feed or credit rating."

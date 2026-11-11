@@ -7,10 +7,17 @@
 The credential-free preview in `preview/` now opens with **16 actual, dated
 company records**, replacing the synthetic scenario as the first view. Two
 plain-English rankings show borrowing carrying amounts excluding leases and
-borrowings per $100 of recorded assets. An unnumbered reference shows
+borrowings per $100 of recorded assets. Each borrowing row also writes out its
+asset percentage with a fixed 0–100% meter, denominator, snapshot date and sources.
+A separate Financing rates view shows typed company references and an unnumbered ledger of
 44 named USD fixed-note examples, with instrument type, issue/maturity dates,
 borrower and dated outstanding-status evidence. Compare up to three companies
 side by side; searching preserves each company’s rank in its selected peer group.
+The 36 typed references distinguish issuer-reported averages, fixed coupons,
+contractual loan rates, floating formulas and accounting effective rates. Only
+APLD and DLR have verified issuer-reported averages, with different scopes.
+No company-wide average or most expensive tranche is inferred from selected
+examples. Floating all-in rates stay unknown without a dated benchmark fixing.
 Coupons are not current market yields or company-wide borrowing costs.
 
 GPU clouds, mixed AI-infrastructure businesses, miners and data-center REITs have

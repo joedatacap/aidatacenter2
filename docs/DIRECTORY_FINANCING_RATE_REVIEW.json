@@ -1,0 +1,1031 @@
+{
+  "reviewed_at": "2026-11-11T16:11:37.636226+00:00",
+  "canonical_sha256_at_review": "0b6addc4bffad5a6deaa60d2c549d5088e7c04ef1e8d0c0fcce51ede04e38fe3",
+  "review_scope": "Independent cross-check of all36typedrate records against existing retained primary statements and source-agent fresh retrieval evidence. No deniedPDFretried; no newprimarydownloadrequired. Not an exhaustive legal-agreement review.",
+  "coverage": {
+    "records_reviewed": 36,
+    "companies_with_rate_records": 15,
+    "primary_unknown": [
+      "BTDR"
+    ],
+    "kinds": {
+      "floating_formula": 6,
+      "fixed_coupon": 13,
+      "effective_instrument_rate": 8,
+      "fixed_loan_rate": 5,
+      "reported_floating_rate": 2,
+      "issuer_reported_average": 2
+    },
+    "same_company_snapshot_date": 35,
+    "earlier_original_terms_only": [
+      "RATE-CRWV-DDTL55"
+    ],
+    "issuer_reported_averages": [
+      "RATE-apld-reported-termloan-average",
+      "RATE-dlr-reported-average"
+    ]
+  },
+  "averages_review": {
+    "APLD": {
+      "value_percent": "7.3",
+      "as_of": "2026-08-31",
+      "published_at": "2026-10-07",
+      "scope": "Issuer-labeled term loans",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "retained_text": "work/research/apld-rates-fresh.txt",
+      "method_limit": "Weighting, fee/discount and hedge treatment are not explained nearby. Do not call uniformall-company effectivefundingcost.",
+      "finding": "Value/date/sourceconfirmed; currency_scope needs portfolio qualification."
+    },
+    "DLR": {
+      "value_percent": "3.07",
+      "as_of": "2026-09-30",
+      "published_at": "2026-10-30",
+      "scope": "ConsolidatedOPborrowingtable excludingunconsolidatedJVs; multicurrency,withdesignatedswaps",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "retained_text": "work/independent-audit/notes/deep-adj-DLR.txt",
+      "method_limit": "Source explicitly end-periodoutstandingdebtweightedrateincludinginterestandcrosscurrencyswaps. Fee/discountallocationnotindependentlyestablished. Not directly comparable with unhedged namedcoupon.",
+      "finding": "Value,date,methodandscopeconfirmed; table-cell quoteformatpolishonly."
+    }
+  },
+  "findings": [
+    {
+      "id": "APLD-average-currency-scope",
+      "severity": "metadata_scope_correction",
+      "rate_id": "RATE-apld-reported-termloan-average",
+      "field": "currency_scope",
+      "observed": "USD-denominated named instrument",
+      "recommended": "Issuer-reported term-loan portfolio; financial statements presented in USD; underlying-currency coverage not separately established.",
+      "reason": "This is a portfolio average, not a named USD instrument; presentation currency alone does not establish every underlying loan currency.",
+      "numeric_change": false
+    },
+    {
+      "id": "RIOT-CPACE-borrower",
+      "severity": "borrower_precision_correction",
+      "rate_id": "RATE-riot-cpace-fixed",
+      "field": "borrower",
+      "observed": "Riot Platforms, Inc.",
+      "recommended": "Riot group; exact legal borrower not separately identified in the reviewed quarterly note.",
+      "reason": "Quarterlynote states Companyhasanotepayablewithfixed8.81%; consolidatedCompanyreferencesalone donotestablish exactlegalborrower.",
+      "numeric_change": false
+    },
+    {
+      "id": "Exact-quote-formatting",
+      "severity": "source_presentation_correction",
+      "source_ids": [
+        "rate-riot-project-draw",
+        "rate-riot-project-formula",
+        "rate-riot-cpace-fixed",
+        "rate-eqix-5800-2036",
+        "rate-eqix-2036-effective",
+        "rate-dlr-reported-average",
+        "rate-dlr-4450-2028"
+      ],
+      "recommended_mapping_file": "work/independent-audit/ratequote-corrections.json",
+      "reason": "Retainedsource spacespercent signsandcontainstablezero-widthseparators; correctedexactfragmentsandselected-cellcontextpreservenumericfacts.",
+      "numeric_change": false
+    }
+  ],
+  "source_quote_corrections": {
+    "rate-riot-project-draw": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "published_at": "2026-11-04",
+      "exact_passages": [
+        "the variable interest rate was 6.49 %.",
+        "Adjusted Term SOFR rate plus an applicable margin of 2.75 %"
+      ],
+      "excerpt": "the variable interest rate was 6.49 %.\nAdjusted Term SOFR rate plus an applicable margin of 2.75 %",
+      "excerpt_note": "Two separate exact narrative fragments; September30 observed variable rate and contractual floating formula. No benchmark fixing calculated.",
+      "source_unit": "Annual percentages; source text spaces the percent sign.",
+      "verified_text_path": "work/independent-audit/notes/deep-adj-RIOT.txt",
+      "word_count": 18,
+      "mechanical_substring_match": true,
+      "numeric_change": false
+    },
+    "rate-riot-project-formula": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "published_at": "2026-11-04",
+      "exact_passages": [
+        "Adjusted Term SOFR rate plus an applicable margin of 2.75 %"
+      ],
+      "excerpt": "Adjusted Term SOFR rate plus an applicable margin of 2.75 %",
+      "excerpt_note": "Continuous exact narrative fragment; floating formula, not an all-in rate.",
+      "source_unit": "Annual benchmark spread percentage points; not a numeric all-in percentage.",
+      "verified_text_path": "work/independent-audit/notes/deep-adj-RIOT.txt",
+      "word_count": 11,
+      "mechanical_substring_match": true,
+      "numeric_change": false
+    },
+    "rate-riot-cpace-fixed": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "published_at": "2026-11-04",
+      "exact_passages": [
+        "note payable with a fixed rate of 8.81 %"
+      ],
+      "excerpt": "note payable with a fixed rate of 8.81 %",
+      "excerpt_note": "Continuous exact narrative fragment; named note rate.",
+      "source_unit": "Annual percent; source text spaces the percent sign.",
+      "verified_text_path": "work/independent-audit/notes/deep-adj-RIOT.txt",
+      "word_count": 9,
+      "mechanical_substring_match": true,
+      "numeric_change": false
+    },
+    "rate-eqix-5800-2036": {
+      "source_url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "published_at": "2026-10-28",
+      "exact_passages": [
+        "5.800 % Senior Notes due 2036"
+      ],
+      "excerpt": "5.800 % Senior Notes due 2036",
+      "excerpt_note": "Exact instrument label in the current debt table; selected note cash coupon is5.800%, not the separate effective-rate column.",
+      "source_unit": "Annual cash coupon in instrument label; September30,2026 debt table.",
+      "verified_text_path": "work/independent-audit/notes/deep-adj-EQIX.txt",
+      "word_count": 6,
+      "mechanical_substring_match": true,
+      "numeric_change": false
+    },
+    "rate-eqix-2036-effective": {
+      "source_url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "published_at": "2026-10-28",
+      "exact_passages": [
+        "5.800 % Senior Notes due 2036",
+        "Effective Rate",
+        "5.98"
+      ],
+      "excerpt": "5.800 % Senior Notes due 2036\nEffective Rate\n5.98",
+      "excerpt_note": "Noncontiguous selected table label, heading and cell. Do not join as continuous prose.5.98% belongs to this series effective-rate column, not cash coupon.",
+      "source_unit": "Annual percentages; selected September30,2026 instrument effective-rate cell; amount columns omitted.",
+      "verified_text_path": "work/independent-audit/notes/deep-adj-EQIX.txt",
+      "word_count": 9,
+      "mechanical_substring_match": true,
+      "numeric_change": false
+    },
+    "rate-dlr-reported-average": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "published_at": "2026-10-30",
+      "exact_passages": [
+        "Total",
+        "3.07",
+        "include the impact of designated interest rate swaps",
+        "cross-currency interest rate swaps"
+      ],
+      "excerpt": "Total\n3.07\ninclude the impact of designated interest rate swaps\ncross-currency interest rate swaps",
+      "excerpt_note": "Noncontiguous Total row label/rate cell plus separate exact methodology fragments. Table contains zero-width separators; do not represent selected cells as continuous prose.",
+      "source_unit": "Annual percentages; September30,2026 Total weighted-average interest rate for outstanding borrowing table, including designated interest and cross-currency swaps.",
+      "verified_text_path": "work/independent-audit/notes/deep-adj-DLR.txt",
+      "word_count": 14,
+      "mechanical_substring_match": true,
+      "numeric_change": false
+    },
+    "rate-dlr-4450-2028": {
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "published_at": "2026-10-30",
+      "exact_passages": [
+        "4.450 % notes due 2028"
+      ],
+      "excerpt": "4.450 % notes due 2028",
+      "excerpt_note": "Exact instrument label in current borrowing table; selected cash coupon.",
+      "source_unit": "Annual percent; September30,2026 USD note table; not market yield.",
+      "verified_text_path": "work/independent-audit/notes/deep-adj-DLR.txt",
+      "word_count": 5,
+      "mechanical_substring_match": true,
+      "numeric_change": false
+    }
+  },
+  "record_reviews": [
+    {
+      "rate_id": "RATE-CRWV-DDTL55",
+      "ticker": "CRWV",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "formula": "Term SOFR + 5.5 percentage points",
+      "as_of": "2026-08-07",
+      "status": "terms_only",
+      "borrower": "CoreWeave Financing DDTL V-V, LLC",
+      "scope": "FinancingSPV,unconditional CoreWeaveInc parent guarantee;customer-contract GPUcapex",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-crwv-ddtl55",
+        "crwv-q3-2026"
+      ],
+      "source_publication_dates": {
+        "rate-crwv-ddtl55": "2026-08-10",
+        "crwv-q3-2026": "2026-11-10"
+      },
+      "same_company_snapshot_date": false,
+      "financial_assessment": "Original August7 TermSOFR+5.50% terms and Q3closing corroboration, not September all-in fixing or per-instrument balance. terms_only is appropriate.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-NBIS-Jun2029-coupon",
+      "ticker": "NBIS",
+      "kind": "fixed_coupon",
+      "rate_percent": "2",
+      "formula": null,
+      "as_of": "2026-06-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Nebius Group N.V.",
+      "scope": "Parent senior unsecured convertible; original-principal cash coupons plus accreting maturity principal",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-nbis-jun2029-coupon"
+      ],
+      "source_publication_dates": {
+        "rate-nbis-jun2029-coupon": "2026-08-12"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentJune convertible table separates2.00%cashcoupon from7.06%effectiveaccountingrate. Accretion/discount/fee economics are explicit; notcompanyaverage.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-NBIS-Jun2029-effective",
+      "ticker": "NBIS",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "7.06",
+      "formula": null,
+      "as_of": "2026-06-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Nebius Group N.V.",
+      "scope": "Parent senior unsecured convertible; original-principal cash coupons plus accreting maturity principal",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-nbis-jun2029-effective"
+      ],
+      "source_publication_dates": {
+        "rate-nbis-jun2029-effective": "2026-08-12"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentJune convertible table separates2.00%cashcoupon from7.06%effectiveaccountingrate. Accretion/discount/fee economics are explicit; notcompanyaverage.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-IREN-GPU2-fixed",
+      "ticker": "IREN",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "9",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "IE Mackenzie Compute Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-iren-gpu2-fixed"
+      ],
+      "source_publication_dates": {
+        "rate-iren-gpu2-fixed": "2026-11-05"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3debt table and financing narratives support9.00/9.51fixedloan rates,10.70/10.38effective rates andone-monthTermSOFR+2.25formula with currentborrowers. No rate averaging.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-IREN-GPU2-effective",
+      "ticker": "IREN",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "10.7",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "IE Mackenzie Compute Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-iren-gpu2-effective"
+      ],
+      "source_publication_dates": {
+        "rate-iren-gpu2-effective": "2026-11-05"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3debt table and financing narratives support9.00/9.51fixedloan rates,10.70/10.38effective rates andone-monthTermSOFR+2.25formula with currentborrowers. No rate averaging.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-IREN-GPU3-fixed",
+      "ticker": "IREN",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "9.51",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "IE CA Leasing Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-iren-gpu3-fixed"
+      ],
+      "source_publication_dates": {
+        "rate-iren-gpu3-fixed": "2026-11-05"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3debt table and financing narratives support9.00/9.51fixedloan rates,10.70/10.38effective rates andone-monthTermSOFR+2.25formula with currentborrowers. No rate averaging.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-IREN-GPU3-effective",
+      "ticker": "IREN",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "10.38",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "IE CA Leasing Ltd.",
+      "scope": "Canadian equipment borrower,asset-secured and IREN parent-guaranteed",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-iren-gpu3-effective"
+      ],
+      "source_publication_dates": {
+        "rate-iren-gpu3-effective": "2026-11-05"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3debt table and financing narratives support9.00/9.51fixedloan rates,10.70/10.38effective rates andone-monthTermSOFR+2.25formula with currentborrowers. No rate averaging.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-IREN-DDTL",
+      "ticker": "IREN",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "formula": "One-month Term SOFR + 2.25 percentage points",
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "IE US Hardware 3, LLC",
+      "scope": "Nonrecourse financingSPV with limited specified parent guarantees",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-iren-ddtl"
+      ],
+      "source_publication_dates": {
+        "rate-iren-ddtl": "2026-11-05"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3debt table and financing narratives support9.00/9.51fixedloan rates,10.70/10.38effective rates andone-monthTermSOFR+2.25formula with currentborrowers. No rate averaging.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-HUT-TZRC",
+      "ticker": "HUT",
+      "kind": "reported_floating_rate",
+      "rate_percent": "15.25",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Exact borrowing entity not separately verified",
+      "scope": "Nonrecourse to ultimate Hut8 parent,secured by subsidiary membership interest in TZRC; exact legal borrower not established",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-hut-tzrc"
+      ],
+      "source_publication_dates": {
+        "rate-hut-tzrc": "2026-11-04"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3Note11 supportsFalconXfixed7%,TZRC15.25%variable/cappedPIKsnapshotrate,andseparateprojectnote6.192/6.129coupons. Borrowerunknown isexplicitwhere exactentitynotidentified. TZRCsubsequentrepaymentdoesnotchangestatedSeptemberdate.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-HUT-FalconX",
+      "ticker": "HUT",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "7",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Exact borrowing entity not separately verified",
+      "scope": "Bitcoin-collateralized nonrecourse term loan; precise borrowing subsidiary unverified",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-hut-falconx"
+      ],
+      "source_publication_dates": {
+        "rate-hut-falconx": "2026-11-04"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3Note11 supportsFalconXfixed7%,TZRC15.25%variable/cappedPIKsnapshotrate,andseparateprojectnote6.192/6.129coupons. Borrowerunknown isexplicitwhere exactentitynotidentified. TZRCsubsequentrepaymentdoesnotchangestatedSeptemberdate.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-HUT-RiverBend",
+      "ticker": "HUT",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.192",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Hut 8 DC LLC",
+      "scope": "Project issuer,nonrecourse to parent",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-hut-riverbend"
+      ],
+      "source_publication_dates": {
+        "rate-hut-riverbend": "2026-11-04"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3Note11 supportsFalconXfixed7%,TZRC15.25%variable/cappedPIKsnapshotrate,andseparateprojectnote6.192/6.129coupons. Borrowerunknown isexplicitwhere exactentitynotidentified. TZRCsubsequentrepaymentdoesnotchangestatedSeptemberdate.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-HUT-BeaconPoint",
+      "ticker": "HUT",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.129",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Beacon Point DC LLC",
+      "scope": "Project issuer,nonrecourse to parent",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-hut-beaconpoint"
+      ],
+      "source_publication_dates": {
+        "rate-hut-beaconpoint": "2026-11-04"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Q3Note11 supportsFalconXfixed7%,TZRC15.25%variable/cappedPIKsnapshotrate,andseparateprojectnote6.192/6.129coupons. Borrowerunknown isexplicitwhere exactentitynotidentified. TZRCsubsequentrepaymentdoesnotchangestatedSeptemberdate.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-glxy-helios2-9875",
+      "ticker": "GLXY",
+      "kind": "fixed_coupon",
+      "rate_percent": "9.875",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Galaxy Helios Data Centers II LLC",
+      "scope": "Secured project notes; subsidiary obligations",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-glxy-helios2-9875"
+      ],
+      "source_publication_dates": {
+        "rate-glxy-helios2-9875": "2026-11-09"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote16 supports9.875projectcashcoupon andHeliosISOFR+4.75formula. Currentper-noteprincipal notquantified; no3.5Bbalanceadded. Ambiguousfloorbasisexplicitlynotmodeled.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-glxy-helios1-sofr",
+      "ticker": "GLXY",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "formula": "SOFR + 4.75 percentage points",
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Galaxy Helios I LLC",
+      "scope": "Helios construction project, completion guarantee by GDH LP",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-glxy-helios1-sofr"
+      ],
+      "source_publication_dates": {
+        "rate-glxy-helios1-sofr": "2026-11-09"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote16 supports9.875projectcashcoupon andHeliosISOFR+4.75formula. Currentper-noteprincipal notquantified; no3.5Bbalanceadded. Ambiguousfloorbasisexplicitlynotmodeled.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-riot-project-draw",
+      "ticker": "RIOT",
+      "kind": "reported_floating_rate",
+      "rate_percent": "6.49",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Riot DC Logistics, LLC",
+      "scope": "Rockdale equipment project; nonrecourse except Credit Parties and customary carveouts",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-riot-project-draw"
+      ],
+      "source_publication_dates": {
+        "rate-riot-project-draw": "2026-11-04"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote12supports6.49%reportedvariablesnapshotrate,adjustedTermSOFR+2.75formulaandCPACE8.81fixedrate. Formula andsnapshot rate distinct; CPACEexactlegalborrowerneedsqualification.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-riot-project-formula",
+      "ticker": "RIOT",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "formula": "Adjusted Term SOFR + 2.75 percentage points",
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Riot DC Logistics, LLC",
+      "scope": "Rockdale equipment project; nonrecourse except Credit Parties and customary carveouts",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-riot-project-formula"
+      ],
+      "source_publication_dates": {
+        "rate-riot-project-formula": "2026-11-04"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote12supports6.49%reportedvariablesnapshotrate,adjustedTermSOFR+2.75formulaandCPACE8.81fixedrate. Formula andsnapshot rate distinct; CPACEexactlegalborrowerneedsqualification.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-riot-cpace-fixed",
+      "ticker": "RIOT",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "8.81",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": null,
+      "scope": "Riot group CPACE note; exact legal borrower not separately identified in the reviewed filing.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-riot-cpace-fixed"
+      ],
+      "source_publication_dates": {
+        "rate-riot-cpace-fixed": "2026-11-04"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote12supports6.49%reportedvariablesnapshotrate,adjustedTermSOFR+2.75formulaandCPACE8.81fixedrate. Formula andsnapshot rate distinct; CPACEexactlegalborrowerneedsqualification.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-mara-two-prime-fixed",
+      "ticker": "MARA",
+      "kind": "fixed_loan_rate",
+      "rate_percent": "7.65",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "MARA Holdings, Inc.",
+      "scope": "Bitcoin-collateralized corporate loan with Two Prime Lending Limited",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-mara-two-prime-fixed"
+      ],
+      "source_publication_dates": {
+        "rate-mara-two-prime-fixed": "2026-11-09"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote13supports7.65fixedTwoPrimeloan atSeptember30. Postquarterrepaymentisdisclosedandnotsplicedintothehistoricalsnapshot.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-eqix-5800-2036",
+      "ticker": "EQIX",
+      "kind": "fixed_coupon",
+      "rate_percent": "5.8",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Equinix, Inc.",
+      "scope": "Corporate senior unsecured USD notes",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-eqix-5800-2036"
+      ],
+      "source_publication_dates": {
+        "rate-eqix-5800-2036": "2026-10-28"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentUSD5.800note issuedbyEquinixInc;5.98effectiveaccountingrateisseparate. Exact2036seriesidentityscopeverified. Percent-spacingquotefixdoesnotchangerate.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-eqix-2036-effective",
+      "ticker": "EQIX",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "5.98",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Equinix, Inc.",
+      "scope": "Corporate senior unsecured USD notes",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-eqix-2036-effective"
+      ],
+      "source_publication_dates": {
+        "rate-eqix-2036-effective": "2026-10-28"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentUSD5.800note issuedbyEquinixInc;5.98effectiveaccountingrateisseparate. Exact2036seriesidentityscopeverified. Percent-spacingquotefixdoesnotchangerate.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-dlr-reported-average",
+      "ticker": "DLR",
+      "kind": "issuer_reported_average",
+      "rate_percent": "3.07",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Digital Realty Trust, L.P. and consolidated subsidiaries",
+      "scope": "Consolidated OP borrowing categories in Note9, excluding unconsolidatedJV debt; parent and OP not added",
+      "currency_scope": "Multicurrency consolidated borrowing table, including designated hedges",
+      "source_ids": [
+        "rate-dlr-reported-average"
+      ],
+      "source_publication_dates": {
+        "rate-dlr-reported-average": "2026-10-30"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Note9Total3.07issuerweightedaverageattheperiodendexplicitlyincludesdesignatedinterest/crosscurrencyswapsandmulticurrencydebt.4.45USD2028notecashcouponisseparate. Fee/discount-allocationmethodnotestablished.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-dlr-4450-2028",
+      "ticker": "DLR",
+      "kind": "fixed_coupon",
+      "rate_percent": "4.45",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Digital Realty Trust, L.P.",
+      "scope": "Corporate OP notes, parent guarantee",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-dlr-4450-2028"
+      ],
+      "source_publication_dates": {
+        "rate-dlr-4450-2028": "2026-10-30"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Note9Total3.07issuerweightedaverageattheperiodendexplicitlyincludesdesignatedinterest/crosscurrencyswapsandmulticurrencydebt.4.45USD2028notecashcouponisseparate. Fee/discount-allocationmethodnotestablished.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-APLD-2030-925-coupon",
+      "ticker": "APLD",
+      "kind": "fixed_coupon",
+      "rate_percent": "9.25",
+      "formula": null,
+      "as_of": "2026-08-31",
+      "status": "verified_at_snapshot",
+      "borrower": "APLD ComputeCo LLC",
+      "scope": "Named ComputeCo project debt, separate subsidiary issuer/security and completion support; parent convertible has different recourse.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-apld-2030-925-coupon",
+        "deep-transition-apld-q"
+      ],
+      "source_publication_dates": {
+        "rate-apld-2030-925-coupon": "2025-11-20",
+        "deep-transition-apld-q": "2026-10-07"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote11explicit7.3weightedaverageforissuer-labeledtermloansAugust31; weightingmethodnotdescribednearby. NamedComputeCo9.25/6.75cashcouponissuersverified. Averagecurrency_scopegenericnamedinstrumentlabelrequirescorrection.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-APLD-2031-675-coupon",
+      "ticker": "APLD",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.75",
+      "formula": null,
+      "as_of": "2026-08-31",
+      "status": "verified_at_snapshot",
+      "borrower": "APLD ComputeCo 2 LLC",
+      "scope": "Named ComputeCo project debt, separate subsidiary issuer/security and completion support; parent convertible has different recourse.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-apld-2031-675-coupon",
+        "deep-transition-apld-q"
+      ],
+      "source_publication_dates": {
+        "rate-apld-2031-675-coupon": "2026-03-10",
+        "deep-transition-apld-q": "2026-10-07"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote11explicit7.3weightedaverageforissuer-labeledtermloansAugust31; weightingmethodnotdescribednearby. NamedComputeCo9.25/6.75cashcouponissuersverified. Averagecurrency_scopegenericnamedinstrumentlabelrequirescorrection.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-CORZ-2031-775-coupon",
+      "ticker": "CORZ",
+      "kind": "fixed_coupon",
+      "rate_percent": "7.75",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Core Scientific Finance I LLC",
+      "scope": "Named subsidiary project note; parent convertibles have separate corporate recourse.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-corz-2031-775-coupon",
+        "deep-transition-corz-q"
+      ],
+      "source_publication_dates": {
+        "rate-corz-2031-775-coupon": "2026-05-06",
+        "deep-transition-corz-q": "2026-11-05"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Currentquarterdebt table/Note9supports7.75cashcouponversus8.3effectiveaccountingrate forCoreScientificFinance I LLCprojectnotes;originalMay6closingcorroborateslegalissuer.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-WULF-2030-775-coupon",
+      "ticker": "WULF",
+      "kind": "fixed_coupon",
+      "rate_percent": "7.75",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "WULF Compute LLC",
+      "scope": "Named WULF Compute subsidiary project note; parent convertibles are separate instruments.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-wulf-2030-775-coupon",
+        "deep-transition-wulf-q"
+      ],
+      "source_publication_dates": {
+        "rate-wulf-2030-775-coupon": "2025-10-23",
+        "deep-transition-wulf-q": "2026-11-06"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Currentquarterdebtnote andoriginalclosing support7.75projectcashcouponversus8.7effectiveaccountingrate. CurrentWULFComputeissuerandSeptemberdatecorrect.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-CIFR-2030-7125-coupon",
+      "ticker": "CIFR",
+      "kind": "fixed_coupon",
+      "rate_percent": "7.125",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Cipher Compute LLC",
+      "scope": "Named project subsidiary debt; not a parent-wide borrowing rate.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-cifr-2030-7125-coupon",
+        "deep-transition-cifr-q"
+      ],
+      "source_publication_dates": {
+        "rate-cifr-2030-7125-coupon": "2026-11-02",
+        "deep-transition-cifr-q": "2026-11-02"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Currentquarterdebtnote supportsseparateCipherCompute7.125andBlackPearl6.125projectcashcouponsandlegalborrowers. Selected6.125isnamedcurrentexample,notcompanyaverage.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-CIFR-2031-6125-coupon",
+      "ticker": "CIFR",
+      "kind": "fixed_coupon",
+      "rate_percent": "6.125",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Black Pearl Compute LLC",
+      "scope": "Named project subsidiary debt; not a parent-wide borrowing rate.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-cifr-2031-6125-coupon",
+        "deep-transition-cifr-q"
+      ],
+      "source_publication_dates": {
+        "rate-cifr-2031-6125-coupon": "2026-11-02",
+        "deep-transition-cifr-q": "2026-11-02"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Currentquarterdebtnote supportsseparateCipherCompute7.125andBlackPearl6.125projectcashcouponsandlegalborrowers. Selected6.125isnamedcurrentexample,notcompanyaverage.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-HIVE-2031-JUN000-coupon",
+      "ticker": "HIVE",
+      "kind": "fixed_coupon",
+      "rate_percent": "0.0",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "HIVE Bermuda 2026 Ltd.",
+      "scope": "Subsidiary-issued, parent-guaranteed unsecured exchangeable note with equity exchange economics.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-hive-2031-jun000-coupon",
+        "deep-transition-hive-q"
+      ],
+      "source_publication_dates": {
+        "rate-hive-2031-jun000-coupon": "2026-11-09",
+        "deep-transition-hive-q": "2026-11-09"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentJune130mexchangeablenotepayszerocashinterestandisparentguaranteed.0%cashcouponretainsconversioneconomicscaveat; noOctBUZZoruntypedancillaryratesentered.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-apld-reported-termloan-average",
+      "ticker": "APLD",
+      "kind": "issuer_reported_average",
+      "rate_percent": "7.3",
+      "formula": null,
+      "as_of": "2026-08-31",
+      "status": "verified_at_snapshot",
+      "borrower": "Applied Digital consolidated group",
+      "scope": "Issuer-reported term-loan scope; do not relabel all-company debt yield.",
+      "currency_scope": "Issuer-reported term-loan portfolio; financial statements presented in USD; underlying-currency coverage not separately established.",
+      "source_ids": [
+        "rate-apld-reported-termloan-average",
+        "deep-transition-apld-q"
+      ],
+      "source_publication_dates": {
+        "rate-apld-reported-termloan-average": "2026-10-07",
+        "deep-transition-apld-q": "2026-10-07"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "CurrentNote11explicit7.3weightedaverageforissuer-labeledtermloansAugust31; weightingmethodnotdescribednearby. NamedComputeCo9.25/6.75cashcouponissuersverified. Averagecurrency_scopegenericnamedinstrumentlabelrequirescorrection.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-CORZ-2031-775-accounting",
+      "ticker": "CORZ",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "8.3",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Core Scientific Finance I LLC",
+      "scope": "Issuer-reported accounting rate for this named instrument only.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-corz-2031-775-accounting",
+        "deep-transition-corz-q"
+      ],
+      "source_publication_dates": {
+        "rate-corz-2031-775-accounting": "2026-11-05",
+        "deep-transition-corz-q": "2026-11-05"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Currentquarterdebt table/Note9supports7.75cashcouponversus8.3effectiveaccountingrate forCoreScientificFinance I LLCprojectnotes;originalMay6closingcorroborateslegalissuer.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-WULF-2030-775-accounting",
+      "ticker": "WULF",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "8.7",
+      "formula": null,
+      "as_of": "2026-09-30",
+      "status": "verified_at_snapshot",
+      "borrower": "WULF Compute LLC",
+      "scope": "Issuer-reported accounting rate for this named instrument only.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-wulf-2030-775-accounting",
+        "deep-transition-wulf-q"
+      ],
+      "source_publication_dates": {
+        "rate-wulf-2030-775-accounting": "2026-11-06",
+        "deep-transition-wulf-q": "2026-11-06"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "Currentquarterdebtnote andoriginalclosing support7.75projectcashcouponversus8.7effectiveaccountingrate. CurrentWULFComputeissuerandSeptemberdatecorrect.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-NSCALE-GPU-formula",
+      "ticker": "NSCALE",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "formula": "Term SOFR + 5.00 percentage points",
+      "as_of": "2026-06-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Nscale Services UK Limited",
+      "scope": "Named secured GPU-capex facility; no company-wide financing average, including customer financing, is established.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-nscale-gpu-formula"
+      ],
+      "source_publication_dates": {
+        "rate-nscale-gpu-formula": "2026-09-18"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "ActualJuneinterimtable11.30/22.74effectiveaccountingrateskeptapartfromGPU TermSOFR+5.00andMacquariemonthlySOFR+7.50contractualformulas/MOICeconomics. HistoricalrepaidSandtonratesexcluded.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-NSCALE-Macquarie-formula",
+      "ticker": "NSCALE",
+      "kind": "floating_formula",
+      "rate_percent": null,
+      "formula": "monthly SOFR + 7.50 percentage points",
+      "as_of": "2026-06-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Nscale Global Holdings Limited",
+      "scope": "Named GPU-equipment loan with MOIC payment provisions.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-nscale-macquarie-formula"
+      ],
+      "source_publication_dates": {
+        "rate-nscale-macquarie-formula": "2026-09-18"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "ActualJuneinterimtable11.30/22.74effectiveaccountingrateskeptapartfromGPU TermSOFR+5.00andMacquariemonthlySOFR+7.50contractualformulas/MOICeconomics. HistoricalrepaidSandtonratesexcluded.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-NSCALE-GPU-effective",
+      "ticker": "NSCALE",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "11.30",
+      "formula": null,
+      "as_of": "2026-06-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Nscale Services UK Limited",
+      "scope": "Named funded facility in actual June accounts.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-nscale-gpu-effective"
+      ],
+      "source_publication_dates": {
+        "rate-nscale-gpu-effective": "2026-09-18"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "ActualJuneinterimtable11.30/22.74effectiveaccountingrateskeptapartfromGPU TermSOFR+5.00andMacquariemonthlySOFR+7.50contractualformulas/MOICeconomics. HistoricalrepaidSandtonratesexcluded.",
+      "numeric_correction_required": false
+    },
+    {
+      "rate_id": "RATE-NSCALE-Macquarie-effective",
+      "ticker": "NSCALE",
+      "kind": "effective_instrument_rate",
+      "rate_percent": "22.74",
+      "formula": null,
+      "as_of": "2026-06-30",
+      "status": "verified_at_snapshot",
+      "borrower": "Nscale Global Holdings Limited",
+      "scope": "Named funded facility in actual June accounts.",
+      "currency_scope": "USD-denominated named instrument",
+      "source_ids": [
+        "rate-nscale-macquarie-effective"
+      ],
+      "source_publication_dates": {
+        "rate-nscale-macquarie-effective": "2026-09-18"
+      },
+      "same_company_snapshot_date": true,
+      "financial_assessment": "ActualJuneinterimtable11.30/22.74effectiveaccountingrateskeptapartfromGPU TermSOFR+5.00andMacquariemonthlySOFR+7.50contractualformulas/MOICeconomics. HistoricalrepaidSandtonratesexcluded.",
+      "numeric_correction_required": false
+    }
+  ],
+  "invariants": {
+    "floating_formulas_have_null_numeric_all_in_rate": true,
+    "all_market_yields_null": true,
+    "no_computed_averages_or_company_maxima": true,
+    "no_new_note_or_loan_balances_in_rate_records": true
+  },
+  "tracked_edits": false,
+  "integration_resolution": {
+    "APLD": "Portfolio scope/currency qualification corrected; not uniformly all-company cost.",
+    "RIOT": "Exact borrowing legal entity left unknown; consolidated-group scope retained.",
+    "quotes": "Seven formatting/table-cell corrections applied.",
+    "CRWV": "Unverified 7.9% transcript claim excluded after proxy PDF denial; no retry or bypass."
+  },
+  "product_boundaries": [
+    "No computed average or company-wide maximum",
+    "36 typed references across 15 companies; BTDR current primary unknown",
+    "Two differently scoped issuer-reported averages; no rate/health ranking",
+    "No numeric all-in floating rate without verified dated fixing",
+    "Existing borrowing totals and asset denominators unchanged"
+  ],
+  "canonical_sha256_after_corrections": "60c3b19a228d000d69704b68d545ace2d45796d192dc80e01a14b2ea536823c8",
+  "rendered_ui_review": {
+    "meterRows": 15,
+    "ratios": {
+      "CRWV": {
+        "visible": "1\t\nC\nCoreWeave\nCRWV / GPU cloud\nGPU cloud\n+ Compare\nCash & funding \u2192\n\t$46.87B\nBorrowings / recorded assets\n51.24%\n0%\n100% of recorded assets\nAssets, date & sources\nNamed financing example\nFloating-rate formula\nTerm SOFR + 5.5 percentage points\n\nDDTL5.5\n\nFinancing vehicle with an unconditional CoreWeave Inc. parent guarantee, for customer-contract GPU infrastructure.\n\nReference Aug 7, 2026 \u00b7 Dated terms only; outstanding status not confirmed\n\nAll-in rate: Unknown. Benchmark fixing value and date unknown.\n\nRate sources & all 1 reviewed example\n\tSep 30, 2026\nissuer earnings release \u00b7 source date 2026-11-10\n\tSource-backed\n1 linked source\n\t\u2192",
+        "meterWidth": "51.238%"
+      },
+      "NSCALE": {
+        "visible": "15\t\nN\nNscale\nPrivate \u00b7 IPO filing / GPU cloud\nPrivate \u00b7 pending IPO\nGPU cloud and AI infrastructure; privately held IPO applicant\n\nLoan measure excludes substantial customer financing and leases. Separately reported: $6.49B deferred customer revenue and $2.63B operating leases.\n\n+ Compare\nCash & funding \u2192\n\t$137.4M\nBorrowings / recorded assets\n0.8%\n0%\n100% of recorded assets\nAssets, date & sources\nNamed financing example\nFloating-rate formula\nTerm SOFR + 5.00 percentage points\n\nGPU Financing Facility\n\nNamed secured GPU-capex facility; no company-wide financing average, including customer financing, is established.\n\nReference Jun 30, 2026 \u00b7 Verified at stated snapshot\n\nAll-in rate: Unknown. Benchmark fixing value and date unknown.\n\nRate sources & all 4 reviewed examples\n\tJun 30, 2026\nS-1 \u00b7 source date 2026-09-18\n\tSource-backed\n1 linked source\n\t\u2192",
+        "meterWidth": "0.796429%"
+      },
+      "GLXY": {
+        "visible": "\u2014\t\nG\nGalaxy Digital\nGLXY / AI transition / mixed\nDigital assets and data-center development\n+ Compare\nCash & funding \u2192\n\tNot comparable / unknown\nBorrowings / recorded assets\nRatio unavailable \u2014 source-backed borrowings and assets from the same snapshot are required.\nNamed financing example\nFixed note coupon\n9.875%\n\n9.875% Senior Secured Notes due2031\n\nSecured project notes; subsidiary obligations\n\nReference Sep 30, 2026 \u00b7 Verified at stated snapshot\n\nRate sources & all 2 reviewed examples\nUnranked: loans plus notes are only a subset of financing obligations. Substantial digital-asset borrowing and collateral-related liabilities make a comparable company-wide borrowing total unresolved.\n\tSep 30, 2026\nissuer earnings release \u00b7 source date 2026-10-27\n\tNot ranked\nScope or evidence incomplete\n\t\u2192",
+        "meterWidth": null
+      }
+    },
+    "rateCards": 16,
+    "rates": {
+      "APLD": "Company-reported average\nCompany-reported average\n7.3%\n\nCompany's term loans (issuer label)\n\nTerm-loan portfolio reported by the issuer; not a verified all-company financing cost.\n\nReference Aug 31, 2026 \u00b7 Verified at stated snapshot\n\nScope-specific issuer average; methods and coverage differ between companies.\n\nRate sources & all 3 reviewed examples",
+      "DLR": "Company-reported average\nCompany-reported average\n3.07%\n\nIssuer-published total borrowing weighted-average interest rate\n\nConsolidated OP borrowing categories in Note9, excluding unconsolidatedJV debt; parent and OP not added\n\nReference Sep 30, 2026 \u00b7 Verified at stated snapshot\n\nScope-specific issuer average; methods and coverage differ between companies.\n\nRate sources & all 2 reviewed examples",
+      "NSCALE": "Named financing example\nFloating-rate formula\nTerm SOFR + 5.00 percentage points\n\nGPU Financing Facility\n\nNamed secured GPU-capex facility; no company-wide financing average, including customer financing, is established.\n\nReference Jun 30, 2026 \u00b7 Verified at stated snapshot\n\nAll-in rate: Unknown. Benchmark fixing value and date unknown.\n\nRate sources & all 4 reviewed examples",
+      "CRWV": "Named financing example\nFloating-rate formula\nTerm SOFR + 5.5 percentage points\n\nDDTL5.5\n\nFinancing vehicle with an unconditional CoreWeave Inc. parent guarantee, for customer-contract GPU infrastructure.\n\nReference Aug 7, 2026 \u00b7 Dated terms only; outstanding status not confirmed\n\nAll-in rate: Unknown. Benchmark fixing value and date unknown.\n\nRate sources & all 1 reviewed example",
+      "NBIS": "Named financing example\nInstrument accounting effective rate\n7.06%\n\nJune 2029 convertible notes\n\nParent senior unsecured convertible; original-principal cash coupons plus accreting maturity principal\n\nReference Jun 30, 2026 \u00b7 Verified at stated snapshot\n\nAccounting effective rate; not the cash coupon.\n\nRate sources & all 2 reviewed examples",
+      "BTDR": "Named financing example\nUnknown\n\nNo same-date financing rate was verified in the reviewed September disclosure. Older first-half or July examples are not presented as a current September rate."
+    },
+    "reviewed_at": "2026-11-11T16:24:07.163368+00:00",
+    "material_findings": [],
+    "checks": {
+      "ratio_meters_absolute_scale": "CRWV51.24% uses51.238% width; Nscale0.8% uses0.796429%; GLXYmissingratiohasnometer. Fixed0\u2013100axis andsame-date details explicit.",
+      "floating_terms": "CRWVandNSCALEshowbenchmarkpluspercentagepointswithall-inrateUnknown; CRWVoriginalAugustdate/terms-onlystatusshown.",
+      "average_scope": "APLD7.3explicitterm-loanportfolio; DLR3.07scope-specificissueraveragewithmethods/coveragedisclaimer.",
+      "effective_rate": "NBIS7.06explicitaccountingeffective,notcashcoupon.",
+      "unknown": "BTDRsame-daterateunknown.",
+      "metadata": "CurrentcanonicalandpreviewdataAPLDcurrency_scopeportfolio-qualified; RIOTCPACEborrowernull,UIrendersUnknown."
+    }
+  }
+}

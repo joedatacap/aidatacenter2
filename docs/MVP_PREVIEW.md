@@ -62,7 +62,7 @@ live Crusoe investigation or actual Neon persistence is claimed for this build.
 
 ## Verification
 
-- Python suite, including directory validation and exported-case parity: 116 passed; 3 dedicated TLS
+- Python suite, including directory validation and exported-case parity: 131 passed; 3 dedicated TLS
   Postgres integration tests skipped without a disposable `TEST_DATABASE_URL`.
 - Chromium desktop/mobile interaction tests cover scenarios, horizon/shock changes,
   all company labels, swaps, reset, URL restoration, provenance, downloads,
@@ -83,7 +83,7 @@ Review fixes also validate inherited object names (`__proto__`, `constructor`,
 to supported tickers. Small eyebrow labels now have at least 5.04:1 contrast on
 their actual backgrounds. Keyboard focus outlines use different colors on light
 content and dark header/footer backgrounds; tests require at least 3:1 contrast
-and a visible 3px outline. The complete suite now covers 66 desktop/mobile browser checks across both apps.
+and a visible 3px outline. The complete suite now covers 76 desktop/mobile browser checks across both apps.
 Directory checks include three-company comparisons, nested-dialog focus, note
 type/status filters, stable cohort ranks during search, principal/lease context,
 private-issuer labels and the unranked private-operator coverage watchlist.
@@ -145,3 +145,13 @@ and source-backed. Sort labels name the actual measure; cash profiles have no
 ordinal ranks or bars. Repeated meanings and full cash restrictions use native
 expandable details. Navigation and row actions work with keyboard and offline;
 closing the evidence dialog restores the initiating action's focus.
+
+
+The current directory adds explicit borrowing/asset percentages with fixed
+0–100% asset meters and expandable dated denominators. Its Financing rates view
+keeps 36 typed, unranked financing references separate from the 44-note fixed
+coupon ledger. Rate cards and exports preserve instrument, borrower, scope,
+method, observation/source dates and unknown floating benchmark fixings. Only
+two scoped issuer averages are verified; no full-company average, maximum or
+health score is synthesized. Browser regression checks cover these boundaries,
+private-company profiles, JSON/CSV nested records and invalid-date meters.

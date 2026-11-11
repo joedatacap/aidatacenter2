@@ -32,10 +32,10 @@ DEFINITIONS = {
         'caveat': 'Assets are not the same as cash available to repay debt. This ratio does not show which assets were financed with borrowing or predict default. Leased infrastructure, crypto holdings and construction assets make company comparisons imperfect. Assets can include the recorded right to use leased property, while the borrowing measure excludes lease obligations.',
     },
     'coupon': {
-        'title': 'Bond coupon examples',
-        'description': 'What fixed interest rate is written into this specific note? Each row is one debt contract, not the company’s overall borrowing rate.',
-        'formula': 'Contractual fixed coupon for the named instrument; no blended borrowing-rate estimate',
-        'caveat': 'Coupon is not current market yield or total funding cost. Convertible, secured project and unsecured notes differ. One note does not represent all company debt. These are terms from dated disclosures; continued outstanding status has not been reverified for every example.',
+        'title': 'Fixed note coupon',
+        'description': 'Company-reported averages are shown only where verified; other references name a specific loan or note. Rate types, dates and coverage differ. The fixed-note coupon ledger is a separate reference.',
+        'formula': 'Issuer averages, contractual rates, floating spreads and accounting effective rates remain separate; no blended company rate is calculated',
+        'caveat': 'A coupon is not current market yield or total company funding cost. Loan spreads require a dated benchmark before an all-in rate can be known. Accounting effective rates include different economics. Company-reported averages retain their stated scope and method; examples are not a uniform company cost ranking. Continued outstanding status has not been reverified for every historical coupon example.',
     },
 }
 
@@ -188,6 +188,71 @@ def validate_instrument(item, company, sources, cutoff):
     item['rankable'] = True  # Eligible reference, never an ordinal company rank.
 
 
+def validate_financing_rates(result, companies, sources, cutoff):
+    """Typed issuer averages and named examples never form a mixed cost ranking."""
+    kinds = {'issuer_reported_average', 'fixed_coupon', 'fixed_loan_rate',
+             'floating_formula', 'reported_floating_rate', 'effective_instrument_rate'}
+    rates = {}
+    for rate in result.get('financing_rates', []):
+        identity = rate.get('id', '')
+        if identity in rates or not re.fullmatch(r'[A-Za-z0-9:_-]+', identity):
+            raise ValueError('Financing rate identity must be unique')
+        if rate.get('ticker') not in companies or rate.get('kind') not in kinds:
+            raise ValueError('Financing rate company and type must be explicit')
+        if rate.get('provenance') in ('fixture', 'assumption', 'user_assumption'):
+            raise ValueError('Synthetic rates cannot enter the reference')
+        observed = date.fromisoformat(rate['as_of'])
+        if observed > cutoff:
+            raise ValueError('Financing rate is later than the review cutoff')
+        ids = rate.get('source_ids', [])
+        if not ids or any(i not in sources for i in ids):
+            raise ValueError('Financing rates require primary evidence links')
+        if not all(rate.get(k) for k in ('instrument', 'scope', 'currency_scope', 'coverage', 'status')):
+            raise ValueError('Rate instrument, scope, coverage and status must be stated')
+        status = rate['status']
+        snapshot = date.fromisoformat(companies[rate['ticker']]['as_of'])
+        if status not in ('verified_at_snapshot', 'terms_only', 'earlier_only', 'undrawn_at_snapshot'):
+            raise ValueError('Rate reference status must distinguish snapshot facts and dated terms')
+        if status in ('verified_at_snapshot', 'undrawn_at_snapshot') and observed != snapshot:
+            raise ValueError('Snapshot rate must match the company financial date')
+        if status == 'earlier_only' and observed >= snapshot:
+            raise ValueError('Earlier rate reference needs an earlier date')
+        if rate.get('benchmark_value_percent') is not None:
+            number(rate['benchmark_value_percent'])
+            benchmark_ids = rate.get('benchmark_source_ids', [])
+            if (not rate.get('benchmark') or not rate.get('benchmark_as_of')
+                    or date.fromisoformat(rate['benchmark_as_of']) > cutoff
+                    or not benchmark_ids or any(i not in sources for i in benchmark_ids)):
+                raise ValueError('A benchmark fixing requires its own dated source evidence')
+        value, spread = number(rate.get('rate_percent')), number(rate.get('spread_percent'))
+        if rate['kind'] == 'floating_formula':
+            if value is not None or not rate.get('benchmark') or not (spread is not None or rate.get('formula')):
+                raise ValueError('Floating terms cannot masquerade as a numeric all-in rate')
+        elif value is None:
+            raise ValueError('A numeric reported rate is required for this rate type')
+        if rate['kind'] == 'issuer_reported_average' and not rate.get('method'):
+            raise ValueError('Issuer averages require their stated method and scope limitations')
+        if rate.get('market_yield') is not None:
+            raise ValueError('Contractual and accounting rates are not market-yield quotes')
+        rate['rate_percent'] = str(value) if value is not None else None
+        rate['spread_percent'] = str(spread) if spread is not None else None
+        rate['ranked'] = False
+        rates[identity] = rate
+    for company in companies.values():
+        summary = company.get('financing_rate_summary')
+        if summary is None:
+            continue
+        if summary.get('computed_average') is not None or summary.get('company_highest_rate') is not None:
+            raise ValueError('Partial reviewed rates cannot establish a computed average or company maximum')
+        for key in ('primary_rate_id', 'reported_average_id'):
+            identity = summary.get(key)
+            if identity is not None:
+                if identity not in rates or rates[identity]['ticker'] != company['ticker']:
+                    raise ValueError('Selected financing rate must belong to the same company')
+                if key == 'reported_average_id' and rates[identity]['kind'] != 'issuer_reported_average':
+                    raise ValueError('A named instrument rate cannot become a company-reported average')
+
+
 def build_directory(raw):
     result = deepcopy(raw)
     cutoff = date.fromisoformat(result['reviewed_at'])
@@ -281,6 +346,7 @@ def build_directory(raw):
         validate_context(company, sources)
         validate_liquidity(company, sources)
     companies_by_id = {c['ticker']: c for c in result['companies']}
+    validate_financing_rates(result, companies_by_id, sources, cutoff)
     note_ids = set()
     for item in result.get('instruments', []):
         if item.get('id') in note_ids or not re.fullmatch(r'[A-Za-z0-9:_-]+', item.get('id', '')):

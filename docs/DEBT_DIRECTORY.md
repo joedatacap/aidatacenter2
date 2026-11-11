@@ -193,7 +193,7 @@ value from a commitment.
 
 [Liquidity integration review](DIRECTORY_LIQUIDITY_REVIEW.json) records source
 coverage and limitations. This pass adds 16 source records for specific liquidity
-facts; the ledger now has 95 records across the same 53 unique URLs. The earlier
+facts; that pass brought the ledger to 95 records across 53 unique URLs. The earlier
 URL coverage map remains historical evidence, not a claim that every later
 interpretation has an exhaustive independent legal review.
 
@@ -212,3 +212,40 @@ without labeling a company healthy or unhealthy. Full restrictions, source basis
 and facility conditions remain expandable. Cash rows have no ordinal rank or bar;
 JSON/CSV also mark them unranked. Facility summaries exclude other-date amounts
 and LC sublimits. The full underlying evidence remains available in exports.
+
+
+## Explicit asset shares and financing rates (November 11 afternoon update)
+
+Every eligible borrowing row now displays the actual borrowings/assets percentage
+beside the dollars. CoreWeave is $46.873B / $91.481B = 51.24%, using September 30
+figures published November 10. The meter spans 0–100% of recorded assets, not the
+largest peer balance. Its expandable denominator gives exact values, snapshot
+and source dates. Unknown or mismatched-date assets suppress the meter; values
+over 100% retain their full numeric percentage and a clipped visual indicator.
+
+Financing rates is an unranked company-card view plus the preserved 44-note
+fixed-coupon ledger. It adds 36 typed records for 15 companies, with Bitdeer's
+current rate explicitly unknown. Types distinguish fixed cash coupons, fixed
+contractual loans, floating formulas, reported snapshot floating rates, accounting
+effective rates and issuer-reported averages. Named instrument and borrower,
+scope, observation date, publication date, method and source remain accessible.
+
+Only APLD's 7.3% term-loan portfolio average and DLR's 3.07% consolidated borrowing
+table average are issuer-reported averages here. Their scopes and hedge/method
+treatment differ. No weighted average or company-wide most expensive tranche is
+computed from an incomplete inventory. The displayed reference is a documented
+example, not an inferred company-wide cost. Zero coupons may carry equity rights.
+Accounting effective rates include economics beyond the cash coupon. Floating
+formulas retain benchmark and spread in percentage points; absent a verified
+benchmark fixing value/date, their all-in rate stays unknown. These are not
+current market yields, live offers or a financial-health ranking.
+
+CoreWeave's purported 7.9% weighted-average cost remains an unverified research
+lead: the linked official transcript could not be read because the environment
+proxy denied the PDF. It is excluded from product data. The displayed DDTL5.5
+formula is dated original terms, not a verified current all-in rate.
+
+The ledger now contains 131 source records across 54 unique URLs.
+[Financing-rate review](DIRECTORY_FINANCING_RATE_REVIEW.json) records coverage,
+source checks and limitations. These remain curated snapshots; legal-document
+coverage and the underlying debt inventory are incomplete.
