@@ -4,8 +4,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def build(target=None):
-    preview = ROOT / 'preview'
+def build(target=None, source=None):
+    preview = source or ROOT / 'preview'
     html = (preview / 'index.html').read_text()
     css = (preview / 'preview.css').read_text()
     js = (preview / 'preview.js').read_text()
@@ -25,3 +25,4 @@ def build(target=None):
 
 if __name__ == '__main__':
     print(build())
+    print(build(ROOT / 'work' / 'NeoCloud-Scenario-Lab.html', ROOT / 'preview' / 'scenarios'))

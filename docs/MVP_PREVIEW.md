@@ -1,4 +1,9 @@
-# Read-only MVP preview
+# Read-only preview and preserved scenario lab
+
+The default preview now opens the **15-company source-backed borrowing
+directory**, described in [DEBT_DIRECTORY.md](DEBT_DIRECTORY.md). The synthetic
+five-company lab documented below is preserved separately at `/scenarios/` and
+in `work/NeoCloud-Scenario-Lab.html`. Its assumptions never enter actual ranks.
 
 The November 11, 2026 preview adds an immediately usable front end to the existing
 NeoCloud financing model. It preserves the original V1/V2 app and Decimal
@@ -57,11 +62,14 @@ live Crusoe investigation or actual Neon persistence is claimed for this build.
 
 ## Verification
 
-- Python suite, including exported-case parity: 75 passed; 3 dedicated TLS
+- Python suite, including directory validation and exported-case parity: 91 passed; 3 dedicated TLS
   Postgres integration tests skipped without a disposable `TEST_DATABASE_URL`.
 - Chromium desktop/mobile interaction tests cover scenarios, horizon/shock changes,
   all company labels, swaps, reset, URL restoration, provenance, downloads,
   missing data, horizontal overflow, JS errors and GET-only static traffic.
+- Directory browser checks additionally cover actual company ranks, peer groups,
+  source dialogs, borrowing reconciliation, coupon-reference separation, genuine
+  zero coupons, unknown balances, dated source lineage and standalone operation.
 - Subdirectory tests verify asset requests remain under `/neoclouddebt/` and the
   host root does not become the app.
 - Cloudflare Static Assets dry runs validate both standalone and subpath bundles;

@@ -1,108 +1,153 @@
 'use strict';
-const $ = id => document.getElementById(id);
-const el = (tag, text, cls) => { const n = document.createElement(tag); if (text !== undefined) n.textContent = text; if (cls) n.className = cls; return n; };
-const money = value => value == null ? 'Unavailable' : new Intl.NumberFormat('en-US', {style:'currency', currency:'USD', notation:'compact', maximumFractionDigits:2}).format(Number(value));
-const percent = value => value == null ? 'Unavailable' : (Number(value) * 100).toFixed(1) + '%';
-let data, horizon = 12;
-function sourceLink(url, title) {
-  const a = el('a', title);
-  try { const u = new URL(url); if(u.protocol !== 'https:') throw new Error('Invalid source'); a.href = u.href; a.target = '_blank'; a.rel = 'noopener noreferrer'; } catch { return el('span', title); }
-  return a;
+const $=id=>document.getElementById(id);
+const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
+const METRICS=Object.freeze({
+  debt:{title:'Reported borrowings',kicker:'BORROWING BALANCE / USD · LEASES EXCLUDED',headline:'Borrowing size, without the guesswork.',description:'Compare the borrowing carrying amount reported on each company’s balance sheet. This is loans and notes, with leases excluded—not a forecast or an unused credit facility.',formula:'Higher amount = more borrowing dollars',caveat:'Size is not safety. A larger company may borrow more. Debt scope, accounting basis and dates can differ; inspect each source before drawing conclusions.'},
+  debt_assets:{title:'Debt / assets',kicker:'BALANCE-SHEET RATIO / %',headline:'Put the borrowing beside the balance sheet.',description:'For every $100 of recorded assets, how many dollars of reported borrowings does the company have? Both figures come from the same dated balance sheet.',formula:'Reported debt ÷ total assets × 100',caveat:'This is a balance-sheet ratio, not a health score or proof of which assets were funded by debt. Asset accounting and business mix differ. Missing or mismatched inputs are unranked.'},
+  coupon:{title:'Bond coupon examples',kicker:'SELECTED NOTE TERMS / FIXED COUPON',headline:'One bond. One contractual interest rate.',description:'Browse the fixed coupons on selected, named notes. These are individual instruments, not a ranking of companies’ borrowing costs. Convertibles, secured project notes and unsecured bonds have different terms.',formula:'A selected note’s contractual rate',caveat:'A sortable reference, not a company ranking. Coupon is not current market yield or a rate on new borrowing. Different issue dates, maturities, security and conversion rights prevent a like-for-like cost ranking.'}
+});
+const GROUPS=Object.freeze({
+  ai_infrastructure:{label:'AI infrastructure',note:'GPU clouds and mixed AI/HPC businesses. Business models differ.'},
+  gpu_cloud:{label:'GPU cloud',note:'Companies whose core business includes AI/GPU cloud infrastructure. Financing structures, scale and disclosure dates still differ.'},
+  ai_transition:{label:'AI transition / mixed',note:'Companies developing AI/HPC operations alongside mining, power, hosting or other activities. Company-wide debt is not automatically AI-only debt.'},
+  data_center_reit:{label:'Data-center REITs',note:'Property and data-center landlords, shown separately from GPU cloud operators. Their asset base and financing model differ.'},
+  bitcoin_mining:{label:'Bitcoin miners',note:'Mining businesses provide adjacent context. They are not assumed to be pure-play AI cloud operators.'},
+  all:{label:'All companies',note:'A broad reference universe, not a uniform peer group. GPU clouds, mixed AI/mining companies and data-center landlords have different business and financing models.'}
+});
+const TYPE_NAMES={convertible:'Convertible note',exchangeable:'Exchangeable note',exchangeable_senior_notes:'Exchangeable senior notes',secured_project:'Secured project note',secured_project_notes:'Secured project notes',senior_secured_project_notes:'Senior secured project notes',project_senior_secured_nonconvertible:'Project senior secured / nonconvertible',senior_unsecured:'Senior unsecured note',senior_unsecured_notes:'Senior unsecured notes',senior_unsecured_nonconvertible:'Senior unsecured / nonconvertible',senior_unsecured_convertible:'Senior unsecured / convertible',senior_secured:'Senior secured note',secured:'Secured note',unsecured:'Unsecured note',fixed:'Fixed-rate note'};
+const noteType=type=>TYPE_NAMES[type]||(typeof type==='string'?type.replaceAll('_',' '):'Type unknown');
+let data,sourceMap=new Map(),state={metric:'debt',group:'ai_infrastructure',q:'',order:'desc'},detailTicker=null,visibleRows=[],toastTimer;
+const isValue=v=>v!==null&&v!==undefined&&v!==''&&Number.isFinite(Number(v))&&Number(v)>=0;
+const metricFor=(company,key=state.metric)=>company.metrics?.[key]||{};
+const sourceIDs=metric=>(Array.isArray(metric.source_ids)?metric.source_ids:[]).filter(id=>sourceMap.has(id));
+const eligible=(company,key=state.metric)=>{const m=metricFor(company,key);return m.rankable===true&&isValue(m.value)&&sourceIDs(m).length>0;};
+function money(value,compact=true){if(!isValue(value))return 'Unknown';return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',notation:compact?'compact':'standard',maximumFractionDigits:compact?2:0}).format(Number(value));}
+function percent(value,places=2){return isValue(value)?Number(value).toLocaleString('en-US',{maximumFractionDigits:places})+'%':'Unknown';}
+function displayValue(company,key=state.metric,compact=true){const m=metricFor(company,key);if(!isValue(m.value))return 'Unknown';return key==='debt'||key==='assets'||key==='cash'?money(m.value,compact):percent(m.value,key==='coupon'?3:2);}
+function dateLabel(value){if(!value)return 'Date unknown';const parsed=new Date(value+'T12:00:00Z');return Number.isFinite(parsed.getTime())?parsed.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}):String(value);}
+function groupName(group){return GROUPS[group]?.label||'Other / scope noted';}
+function rowDate(company){const m=metricFor(company);return state.metric==='coupon'?(m.as_of||company.as_of):company.as_of;}
+function safeLink(url,title){try{const u=new URL(url);if(u.protocol!=='https:')throw new Error('Unsupported URL');const a=el('a',title);a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';return a;}catch{return el('span',title);}}
+function showToast(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').hidden=false;toastTimer=setTimeout(()=>$('toast').hidden=true,3500);}
+function updateURL(){const params=new URLSearchParams({metric:state.metric,group:state.group,order:state.order});if(state.q)params.set('q',state.q);if(detailTicker)params.set('company',detailTicker);try{const u=new URL(location.href);u.search=params.toString();history.replaceState(null,'',u);}catch{/* Opaque-origin attachment previews can still use every local control. */}}
+function inGroup(company){return state.group==='all'||company.group===state.group||(state.group==='ai_infrastructure'&&['gpu_cloud','ai_transition'].includes(company.group));}
+function rowsForView(){
+  const query=state.q.trim().toLocaleLowerCase('en-US');
+  const rows=data.companies.filter(c=>inGroup(c)&&(!query||`${c.ticker} ${c.name} ${c.business||''}`.toLocaleLowerCase('en-US').includes(query)));
+  rows.sort((a,b)=>{const ar=eligible(a),br=eligible(b);if(ar!==br)return ar?-1:1;if(ar){const delta=Number(metricFor(a).value)-Number(metricFor(b).value);if(delta!==0)return state.order==='asc'?delta:-delta;}return a.name.localeCompare(b.name);});
+  return rows;
 }
-function detail(parent, label, value) { const row = el('div', undefined, 'detail-row'); row.append(el('span', label), el('strong', value)); parent.append(row); }
-function selection() { return {left:$('left').value, right:$('right').value, scenario:$('scenario').value, shock:Number($('shock').value), horizon}; }
-function current() { const s = selection(); return data.cases[`${s.scenario}:${s.shock}`]; }
-function funding(report) { return report.funding.find(f => f.horizon_months === horizon); }
-function card(ticker, report) {
-  const f = funding(report), exposure = report.floating.by_currency.USD;
-  const article = el('article', undefined, 'company-card');
-  const head = el('div', undefined, 'company-head'), identity = el('div', undefined, 'company-identity'), name = el('div');
-  name.append(el('h3', data.companies[ticker].name), el('p', ticker + ' · USD scenario'));
-  identity.append(el('div', ticker.slice(0,1), 'monogram'), name);
-  head.append(identity, el('span', '◇ SYNTHETIC INPUTS', 'assumption-tag'));
-  const body = el('div', undefined, 'card-body');
-  body.append(el('div', `${horizon}-MONTH UNFUNDED NEED`, 'metric-label'));
-  const number = el('div', money(f.unfunded_gap), 'gap-number'); number.append(el('small','USD'));
-  const caption = el('p', undefined, 'gap-caption'); caption.append(el('strong', percent(f.funding_gap_to_market_cap)), document.createTextNode(' of illustrative equity value'));
-  body.append(number, caption);
-  const max = Math.max(Number(f.gross_uses), Number(f.usable_sources), 1);
-  for (const [label, amount, cls] of [['Capital needed',f.gross_uses,'uses'],['Usable funding',f.usable_sources,'']]) {
-    const labels = el('div', undefined, 'chart-labels'); labels.append(el('span',label), el('strong',money(amount)));
-    const track = el('div',undefined,'track'), bar = el('div',undefined,'bar '+cls); bar.style.width = Number(amount)/max*100+'%'; track.append(bar);
-    if (label === 'Usable funding') { const gap = el('div',undefined,'bar gap'); gap.style.width = Number(f.unfunded_gap)/max*100+'%'; track.append(gap); }
-    body.append(labels,track);
-  }
-  const legend = el('div',undefined,'chart-legend');
-  for(const [label,cls] of [['Available capital',''],['Funding gap','gap-key']]) { const item=el('span'); item.append(el('i',undefined,cls),document.createTextNode(label));legend.append(item); }
-  body.append(legend);
-  const metrics=el('div',undefined,'mini-metrics');
-  for(const [label,value,note] of [
-    [`+${report.floating.delta_bps} BPS / ANNUAL INTEREST`,money(exposure.annual_shock),'Incremental cash interest on assumed unhedged floating debt'],
-    ['CASH INTEREST COVERAGE',report.coverage.coverage == null ? 'Unavailable' : Number(report.coverage.coverage).toFixed(1)+'×','Synthetic TTM EBITDA / cash interest; before rate shock']
-  ]) { const box=el('div');box.append(el('div',label,'metric-label'),el('strong',value),el('small',note));metrics.append(box); }
-  body.append(metrics);
-  const details=el('details',undefined,'card-detail');details.append(el('summary','Inspect assumptions & repayment schedule'));
-  const lineNames={capex:'Capital expenditure',principal:'Principal / refinancing use',cash:'Opening usable cash',operating_inflow:'Operating inflows',undrawn:'Undrawn funding'};
-  f.rows.forEach(row=>detail(details,`${lineNames[row.category] || row.category} · ${row.side}`,money(row.scenario_amount)));
-  detail(details,'Illustrative equity denominator',money(f.market_cap));
-  detail(details,'Assumed unhedged floating debt',money(exposure.unhedged_floating));
-  detail(details,'Assumed hedge notional',money(exposure.hedged_floating));
-  detail(details,'Known principal due within 24 months',money(report.maturities.known_due.USD?.['24']));
-  detail(details,'Market bond yield','Unavailable — no quote feed');
-  details.append(el('p',`Scenario dated ${data.as_of}. This is a partial synthetic maturity schedule. Hedge expiry in the original fixture is April 17, 2027; the rate shock is immediate and annualized, not a forecast through the funding horizon. Coverage does not mean cash available for debt service.`,'detail-note'));
-  (f.warnings||[]).forEach(w=>details.append(el('p',w,'detail-note')));
-  body.append(details);article.append(head,body);return article;
+function metricDefinition(){return {...METRICS[state.metric],...(data.metric_definitions?.[state.metric]||{})};}
+function render(){
+  const definition=metricDefinition(),isCoupon=state.metric==='coupon';
+  $('metric-kicker').textContent=definition.kicker||METRICS[state.metric].kicker;
+  $('metric-title').textContent=definition.headline||METRICS[state.metric].headline;
+  $('metric-description').textContent=definition.description;
+  $('metric-formula').textContent=definition.formula;
+  $('metric-caveat').textContent=definition.caveat+(isCoupon?' Terms observed in dated disclosure; continued outstanding status has not been reverified for every example.':'');
+  $('value-heading').textContent=definition.title;
+  $('ranking-panel').setAttribute('aria-labelledby','tab-'+state.metric);
+  $('table-caption').textContent=isCoupon?'Selected bond coupon reference. Sorted instruments are not a company borrowing-cost ranking. Open a company for note terms and evidence.':`${definition.title}, ${GROUPS[state.group].label}. Ranks apply only to eligible companies matching this view; ties share a rank. Open any company to inspect definitions and evidence.`;
+  document.querySelectorAll('[data-metric]').forEach(button=>{const selected=button.dataset.metric===state.metric;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;});
+  document.querySelectorAll('[data-group]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.group===state.group)));
+  $('group-note').textContent=GROUPS[state.group].note+(isCoupon?' Note terms can predate the company balance-sheet snapshot.':' Dates vary by company.');
+  $('direction').value=state.order;
+  $('direction').options[0].textContent=isCoupon?'Higher coupons first':'Highest first';
+  $('direction').options[1].textContent=isCoupon?'Lower coupons first':'Lowest first';
+  $('search').value=state.q;
+  visibleRows=rowsForView();
+  const ranked=visibleRows.filter(c=>eligible(c)),max=Math.max(1,...ranked.map(c=>Number(metricFor(c).value)));
+  $('result-count').textContent=`${visibleRows.length} compan${visibleRows.length===1?'y':'ies'} · ${ranked.length} ${isCoupon?'sourced note examples':'ranked'} · ${visibleRows.length-ranked.length} unranked`;
+  const dates=ranked.map(rowDate).filter(Boolean).sort();
+  $('date-range').textContent=dates.length?(dates[0]===dates.at(-1)?'Snapshot '+dateLabel(dates[0]):'Snapshots '+dateLabel(dates[0])+' – '+dateLabel(dates.at(-1))):'No comparable dated values in this view';
+  const root=$('ranking-rows');root.replaceChildren();let lastValue=null,rank=0;
+  visibleRows.forEach((company,index)=>{
+    const m=metricFor(company),known=eligible(company),tr=el('tr');tr.dataset.ticker=company.ticker;
+    let shownRank='—';if(known&&!isCoupon){if(lastValue===null||Number(m.value)!==lastValue)rank=index+1;lastValue=Number(m.value);shownRank=String(rank);}
+    const rankCell=el('td',shownRank,'rank-number');if(isCoupon)rankCell.setAttribute('aria-label','Reference example; not ranked');
+    const identity=el('td'),button=el('button',undefined,'company-button');button.type='button';button.setAttribute('aria-label',`Inspect ${company.name} (${company.ticker}) and its source evidence`);button.onclick=()=>openCompany(company.ticker);
+    const text=el('span');text.append(el('strong',company.name),el('small',`${company.ticker} / ${groupName(company.group)}`));button.append(el('span',company.ticker.slice(0,1),'monogram'),text);identity.append(button,el('span',company.business||'Business scope not supplied','business-label'));
+    const value=el('td'),valueText=el('span',known?displayValue(company):'Not comparable / unknown','metric-value'+(known?'':' unknown'));
+    if(known)valueText.title=state.metric==='debt'?money(m.value,false)+' · borrowings (leases excluded)':displayValue(company);value.append(valueText);
+    if(isCoupon){value.append(el('span',m.instrument||'No eligible note terms','metric-subtext'));if(m.type||m.maturity)value.append(el('span',[noteType(m.type),m.maturity?'Due '+m.maturity:null].filter(Boolean).join(' · '),'metric-subtext'));}
+    else if(known){const track=el('div',undefined,'bar-track'),fill=el('div',undefined,'bar-fill');fill.style.width=Number(m.value)/max*100+'%';track.setAttribute('aria-hidden','true');track.append(fill);value.append(track);}
+    if(!known)value.append(el('span',m.note||'A comparable, source-backed value is not available.','metric-subtext'));
+    value.append(el('span','As of '+dateLabel(rowDate(company)),'mobile-date'));
+    const date=el('td',undefined,'date-cell');date.append(el('span',dateLabel(rowDate(company)),'row-date'));const dateMeta=el('small',state.metric==='coupon'?(m.issue_date?'Issued '+m.issue_date:'Issue date unknown'):`${(company.form||'Disclosure').replaceAll('_',' ')}${company.filed_at?' · source date '+company.filed_at:''}`);date.firstChild.append(dateMeta);
+    const status=el('td',undefined,'status-cell');status.append(el('span',known?'Source-backed':'Not ranked','evidence-pill'+(known?'':' unknown')),el('div',known?sourceIDs(m).length+' linked source'+(sourceIDs(m).length===1?'':'s'):'Scope or evidence incomplete','evidence-detail'));
+    const inspect=el('td'),arrow=el('button','→','inspect-button');arrow.type='button';arrow.setAttribute('aria-label','Open '+company.ticker+' details');arrow.onclick=()=>openCompany(company.ticker);inspect.append(arrow);
+    tr.append(rankCell,identity,value,date,status,inspect);root.append(tr);
+  });
+  $('ranking-table').hidden=visibleRows.length===0;$('empty').hidden=visibleRows.length!==0;
+  updateURL();
 }
-function render() {
-  const s=selection(), c=current(), root=$('comparison');
-  root.replaceChildren(...[s.left,s.right].map(t=>card(t,c.tickers[t])));
-  const left=funding(c.tickers[s.left]),right=funding(c.tickers[s.right]);
-  const difference=Number(left.unfunded_gap)-Number(right.unfunded_gap);
-  $('takeaway').textContent=difference===0
-    ? `These labels have the same ${money(left.unfunded_gap)} funding gap in this ${s.scenario.toLowerCase()} fixture. The model compares financing assumptions, not company quality. Try CRWV / HUT under Tight credit to see how committed funding changes the result.`
-    : `${difference>0?s.left:s.right} needs ${money(Math.abs(difference))} more unfunded capital over ${horizon} months in this ${s.scenario.toLowerCase()} example. The difference comes from assumed funding commitments, not a judgment about the real companies. A +${s.shock} bps shock separately raises annual interest by ${money(c.tickers[s.left].floating.by_currency.USD.annual_shock)} for ${s.left} and ${money(c.tickers[s.right].floating.by_currency.USD.annual_shock)} for ${s.right}.`;
-  const a=left.assumptions;
-  $('scenario-notes').replaceChildren(el('p',`${s.scenario}: operating inflows ×${a.operating_inflow_factor}; capex ×${a.capex_factor}; funding-model rate shock ${a.rate_shock_bps} bps. ${a.refinancing}. The separately selected benchmark shock is +${s.shock} bps.`));
-  document.querySelectorAll('[data-pair]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.pair===s.left+','+s.right)));
-  document.querySelectorAll('[data-horizon]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.horizon)===horizon)));
-  const u=new URL(location.href);u.search=new URLSearchParams(s).toString();
-  try { history.replaceState(null,'',u); } catch { /* Sandboxed file previews may have an opaque origin. */ }
+function appendMetric(parent,company,key,label){
+  const m=metricFor(company,key),card=el('article',undefined,'detail-metric');card.append(el('h3',label));
+  const sourced=sourceIDs(m).length>0,hasValue=isValue(m.value);
+  card.append(el('strong',hasValue?displayValue(company,key,false):'Unknown',hasValue?'':'unknown'));
+  if(!sourced&&hasValue)card.append(el('p','Source linkage incomplete; excluded from ranking.'));
+  if(key==='debt_assets'&&hasValue)card.append(el('p',`About $${Number(m.value).toFixed(2)} of borrowings per $100 of recorded assets. This does not identify which assets were funded with debt.`));
+  if(key==='coupon'){if(m.instrument)card.append(el('p',m.instrument));const terms=[noteType(m.type),m.issue_date?'Issued '+m.issue_date:'Issue date unknown',m.maturity?'Matures '+m.maturity:'Maturity unknown'].filter(Boolean);card.append(el('p',terms.join(' · ')));if(m.issuer)card.append(el('p','Issuer / scope: '+m.issuer));card.append(el('p','Selected note only. Coupon is not current market yield or the company’s overall cost of debt. Terms observed in dated disclosure; continued outstanding status has not been reverified for every example.'));if(m.selection_rule)card.append(el('p','Selection: '+m.selection_rule));}
+  if(m.basis)card.append(el('p',m.basis));if(m.note)card.append(el('p',m.note));
+  if(['debt','assets','cash'].includes(key)&&hasValue&&Number(company.source_precision_usd)>1)card.append(el('p',`USD converted from source figures rounded to ${money(company.source_precision_usd)}. Displayed zeros do not imply dollar precision.`));
+  card.append(el('p','As of '+dateLabel(key==='coupon'?(m.as_of||company.as_of):company.as_of)));
+  parent.append(card);
 }
-function references() {
-  const r=data.reference, root=$('reference-cards');root.replaceChildren();
-  for(const i of r.instruments) {
-    const c=el('article',undefined,'reference-card');
-    c.append(el('div',i.coupon_pct?'PROJECT NOTES':'PARENT FACILITY','metric-label'),el('h3',i.name.replace(' project senior secured notes','').replace(' senior secured revolving facility',' revolver')));
-    c.append(el('div',money(i.outstanding_principal ?? i.commitment_amount),'ref-amount'));
-    c.append(el('p',i.outstanding_principal == null?'Facility commitment · drawn balance unknown':'Dated outstanding principal · not a current company total'));
-    c.append(el('p',i.coupon_pct ? `${i.coupon_pct}% fixed coupon · maturity ${i.maturity}` : `${i.reference_index} + ${i.spread_bps} bps · maturity ${i.maturity||'unknown'}`));
-    c.append(el('p',`Snapshot ${i.snapshot_date || i.issue_date || 'unknown'} · Market yield unavailable`));
-    const e=r.evidence.find(e=>i.evidence_ids.includes(e.id));if(e)c.append(sourceLink(e.source_url,'Read source disclosure ↗'));
-    root.append(c);
-  }
-  const ledger=$('evidence');ledger.replaceChildren();
-  r.evidence.forEach(e=>{const c=el('article',undefined,'evidence-card');c.append(el('h4'),el('p',`Retained source excerpt · source date ${e.publication_or_filing_date || 'unknown'} · document period ${e.document_period_end||'unspecified'} · not refreshed for this preview`),el('blockquote',e.excerpt),el('p',e.claim));c.firstChild.append(sourceLink(e.source_url,e.source_title||'SEC disclosure'));ledger.append(c);});
+function openCompany(ticker){
+  const company=data.companies.find(c=>c.ticker===ticker);if(!company)return;
+  detailTicker=ticker;$('detail-ticker').textContent=`${ticker} / ${groupName(company.group)}`;$('detail-title').textContent=company.name;
+  const content=$('detail-content');content.replaceChildren(el('p',company.business||'Business description not available.','detail-business'));
+  const status=el('div',undefined,'detail-status');status.append(el('strong',`Dated disclosure: ${dateLabel(company.as_of)}`),el('div',`${(company.form||'Company disclosure').replaceAll('_',' ')}${company.filed_at?' · source date '+dateLabel(company.filed_at):''}. These are reported figures under the stated scope, not a live market feed.`));content.append(status);
+  const metrics=el('div',undefined,'detail-metrics');[['debt','Reported debt'],['debt_assets','Debt / recorded assets'],['assets','Total reported assets'],['cash','Cash & cash equivalents'],['coupon','Selected note coupon']].forEach(([key,label])=>appendMetric(metrics,company,key,label));content.append(metrics);
+  const components=metricFor(company,'debt').components;
+  if(Array.isArray(components)&&components.length){const section=el('section',undefined,'detail-section'),table=el('table',undefined,'reconciliation'),caption=el('caption','How the reported borrowing balance is reconciled'),tbody=el('tbody');table.append(caption);for(const component of components){const row=el('tr'),label=el('th',component.label||'Borrowing component');label.scope='row';const amount=el('td',(component.operation==='subtract'?'− ':'+ ')+money(component.value,false));row.append(label,amount);tbody.append(row);}table.append(tbody);section.append(el('h3','See the borrowing calculation'),table);if(Number(company.source_precision_usd)>1)section.append(el('p',`USD values converted from disclosures rounded to ${money(company.source_precision_usd)}; they are not precise to individual dollars.`));content.append(section);}
+  const notes=(company.notes||[]).filter(Boolean);
+  if(notes.length){const section=el('section',undefined,'detail-section'),list=el('ul');section.append(el('h3','What to keep in mind'));notes.forEach(note=>list.append(el('li',note)));section.append(list);content.append(section);}
+  const ids=new Set([...(company.source_ids||[]),...Object.values(company.metrics||{}).flatMap(m=>Array.isArray(m?.source_ids)?m.source_ids:[])]),sources=[...ids].map(id=>sourceMap.get(id)).filter(Boolean),ledger=el('section',undefined,'detail-section');ledger.append(el('h3','Read the evidence'));
+  if(!sources.length)ledger.append(el('p','No linked primary source is available for this company. Missing evidence does not mean zero debt.'));
+  sources.forEach(source=>{const card=el('article',undefined,'source-card'),title=el('h4');title.append(safeLink(source.url,source.title||source.publisher||'Primary disclosure'));card.append(title,el('p',`${source.publisher||'Primary source'} · publication ${dateLabel(source.published_at||source.published_date)}${source.retrieved_at?' · retrieved '+source.retrieved_at:''}`));if(source.source_unit)card.append(el('p','Source units: '+source.source_unit));if(source.excerpt)card.append(el('blockquote',source.excerpt));ledger.append(card);});content.append(ledger);
+  updateURL();if(!$('company-dialog').open)$('company-dialog').showModal();
 }
-function setPair(left,right){$('left').value=left;$('right').value=right;render();}
-function download(){const s=selection(), c=current(), payload={disclosure:data.disclosure,selection:s,as_of:data.as_of,comparison:{[s.left]:c.tickers[s.left],[s.right]:c.tickers[s.right]}};const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));const a=el('a');a.href=url;a.download=`neocloud-${s.left}-${s.right}-illustrative.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function exportData(format){
+  const rows=visibleRows.map(company=>{
+    const m=metricFor(company),ids=sourceIDs(m),sources=ids.map(id=>sourceMap.get(id)),isCoupon=state.metric==='coupon';
+    return {ticker:company.ticker,name:company.name,group:company.group,metric:state.metric,
+      value:eligible(company)?m.value:null,unit:m.unit||(isCoupon?'percent':'USD'),
+      ranked:!isCoupon&&eligible(company),as_of:rowDate(company)||null,
+      source_date:sources[0]?.published_at||null,source_dates:sources.map(s=>s.published_at||null),
+      company_as_of:company.as_of,company_source_date:company.filed_at||null,
+      source_precision_usd:isCoupon?null:(company.source_precision_usd||null),
+      scope:isCoupon?(m.scope||m.basis||m.issuer||''):(company.scope||m.scope||''),
+      basis:m.basis||'',note:m.note||'',instrument:m.instrument||'',instrument_type:m.type||null,
+      issuer:m.issuer||null,issue_date:m.issue_date||null,maturity:m.maturity||null,
+      market_yield:null,source_ids:ids,source_urls:sources.map(s=>s.url)};
+  });
+  let text,type;
+  if(format==='json'){text=JSON.stringify({disclosure:'Reported historical financial information. No synthetic values. Coupon examples are instruments, not a company cost ranking. Continued outstanding status has not been reverified for every note example.',reviewed_at:data.reviewed_at,view:{...state},definition:metricDefinition(),coupon_selection_policy:data.coupon_selection_policy||null,rows,sources:data.sources.filter(s=>rows.some(r=>r.source_urls.includes(s.url)))},null,2);type='application/json';}
+  else{const keys=['ticker','name','group','metric','value','unit','ranked','as_of','source_date','source_dates','company_as_of','company_source_date','source_precision_usd','scope','basis','note','instrument','instrument_type','issuer','issue_date','maturity','market_yield','source_ids','source_urls'];const escape=value=>{let s=Array.isArray(value)?value.join(' | '):value==null?'':String(value);if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';};text=[keys.map(escape).join(','),...rows.map(row=>keys.map(key=>escape(row[key])).join(','))].join('\r\n');type='text/csv;charset=utf-8';}
+  const url=URL.createObjectURL(new Blob([text],{type})),a=el('a');a.href=url;a.download=`neocloud-${state.metric}-${state.group}.${format}`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function selectMetric(metric){if(!Object.hasOwn(METRICS,metric))return;state.metric=metric;state.order=metric==='coupon'?'asc':'desc';render();}
+function bind(){
+  document.querySelectorAll('[data-metric]').forEach(button=>{button.onclick=()=>selectMetric(button.dataset.metric);button.onkeydown=event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const keys=Object.keys(METRICS),current=keys.indexOf(button.dataset.metric),next=event.key==='Home'?0:event.key==='End'?keys.length-1:(current+(event.key==='ArrowRight'?1:-1)+keys.length)%keys.length;selectMetric(keys[next]);$('tab-'+keys[next]).focus();};});
+  document.querySelectorAll('[data-group]').forEach(button=>button.onclick=()=>{state.group=button.dataset.group;render();});
+  $('search').oninput=()=>{state.q=$('search').value.slice(0,100);render();};$('direction').onchange=()=>{state.order=$('direction').value==='asc'?'asc':'desc';render();};
+  $('reset').onclick=()=>{state={metric:'debt',group:'ai_infrastructure',q:'',order:'desc'};render();};$('clear-search').onclick=()=>{state.q='';render();$('search').focus();};
+  $('close-dialog').onclick=()=>$('company-dialog').close();$('company-dialog').addEventListener('close',()=>{detailTicker=null;updateURL();});
+  $('download-csv').onclick=()=>exportData('csv');$('download-json').onclick=()=>exportData('json');
+  $('share').onclick=async()=>{try{if(location.protocol==='file:')throw new Error('Local file');await navigator.clipboard.writeText(location.href);showToast('View link copied.');}catch{showToast('This preview cannot copy a link here. Share the HTML file, or copy the address from your browser.');}};
+}
 async function init(){
   try{
-    const bundled=$('preview-data');
-    if(bundled) data=JSON.parse(bundled.textContent);
-    else { const response=await fetch('./data.json');if(!response.ok)throw new Error('Scenario data could not be loaded.');data=await response.json(); }
-    for(const id of ['left','right'])for(const [ticker,company] of Object.entries(data.companies)){const o=el('option',`${ticker} / ${company.name}`);o.value=ticker;$(id).append(o);}
-    const p=new URLSearchParams(location.search);
-    $('left').value=Object.hasOwn(data.companies,p.get('left'))?p.get('left'):'CRWV';
-    $('right').value=Object.hasOwn(data.companies,p.get('right'))?p.get('right'):'HUT';
-    if(['Base','Downside','Tight credit'].includes(p.get('scenario')))$('scenario').value=p.get('scenario');
-    if(['0','100','200','300'].includes(p.get('shock')))$('shock').value=p.get('shock');
-    if(p.get('horizon')==='18')horizon=18;
-    $('controls').onsubmit=e=>e.preventDefault();['left','right','scenario','shock'].forEach(id=>$(id).onchange=render);
-    $('swap').onclick=()=>setPair($('right').value,$('left').value);
-    $('reset').onclick=()=>{$('scenario').value='Tight credit';$('shock').value='200';horizon=12;setPair('CRWV','HUT');};
-    document.querySelectorAll('[data-pair]').forEach(b=>b.onclick=()=>setPair(...b.dataset.pair.split(',')));
-    document.querySelectorAll('[data-horizon]').forEach(b=>b.onclick=()=>{horizon=Number(b.dataset.horizon);render();});
-    $('download').onclick=download;render();references();$('compare').setAttribute('aria-busy','false');
-  }catch(e){$('error').hidden=false;$('error').textContent=`The preview could not load. ${e.message} Serve the preview directory over HTTP and reload.`;$('compare').setAttribute('aria-busy','false');}
+    const bundled=$('preview-data');if(bundled)data=JSON.parse(bundled.textContent);else{const response=await fetch('./data.json');if(!response.ok)throw new Error('The source dataset could not be loaded.');data=await response.json();}
+    if(!Array.isArray(data.companies)||!Array.isArray(data.sources))throw new Error('The source dataset has an invalid format.');
+    if(data.mock===true){$('error').hidden=false;$('error').textContent='INTERFACE TEST DATA ONLY — These mock companies and figures are not actual financial disclosures.';}
+    sourceMap=new Map(data.sources.map(source=>[source.id,source]));
+    const params=new URLSearchParams(location.search),metric=params.get('metric'),group=params.get('group'),order=params.get('order');
+    if(Object.hasOwn(METRICS,metric))state.metric=metric;if(Object.hasOwn(GROUPS,group))state.group=group;state.order=order==='asc'||order==='desc'?order:(state.metric==='coupon'?'asc':'desc');state.q=(params.get('q')||'').slice(0,100);
+    $('company-count').textContent=String(data.companies.length).padStart(2,'0');$('review-date').textContent='Sources reviewed '+dateLabel(data.reviewed_at);
+    bind();render();$('rankings').setAttribute('aria-busy','false');
+    const ticker=params.get('company');if(ticker&&data.companies.some(c=>c.ticker===ticker))openCompany(ticker);
+  }catch(error){$('error').hidden=false;$('error').textContent=`The comparison could not load. ${error.message} Please reload the preview; if opening a local file, use the complete standalone HTML.`;$('rankings').setAttribute('aria-busy','false');$('result-count').textContent='Source dataset unavailable';$('ranking-rows').replaceChildren();}
 }
 init();

@@ -9,7 +9,7 @@ from neocloud.v2_engine import new_v2_run
 
 def test_committed_preview_matches_engine_and_contains_no_reported_scenario_inputs():
     data = build()
-    assert json.loads(Path('preview/data.json').read_text()) == data
+    assert json.loads(Path('preview/scenarios/data.json').read_text()) == data
     run = new_v2_run(list(data['companies']), 'simulated', AS_OF)
     for scenario in SCENARIOS:
         for shock in SHOCKS:

@@ -4,6 +4,16 @@ You are the **lead engineering agent** for this repository. Manage implementatio
 
 ## Source of truth and current priorities
 
+- **November 11 product direction:** The static preview now starts with a curated
+  15-company actual borrowing directory: two company rankings (borrowing carrying
+  values excluding all leases, and same-date borrowings/assets) plus an unranked
+  instrument-coupon reference. `neocloud/data/debt_directory.json` is the primary
+  source ledger, validated/exported by `neocloud/directory.py` and
+  `scripts/build_debt_preview.py`. Keep leases, dates, consolidated scope and
+  convertible/project-note distinctions visible. Never turn coupon examples into
+  a company health or borrowing-cost ranking. The original synthetic lab is
+  preserved at `preview/scenarios/`; synthetic values must not enter actual ranks.
+
 - Read `README.md`, `HACKATHON_TASK.md`, `V2_FINANCING_RISK.md`, and GitHub Issues #1–#2 before major work. Inspect current branches, PRs, tests and the latest `main` before creating changes. Do not overwrite work in flight.
 - V1 merged from PR #3 and **V2 financing-risk features merged from PR #4**, including HUT and role-based Crusoe routing. Preserve current behavior and CI. A successful live Neon production connection and permanent deployment remain unverified. Some company financial inputs remain provisional or unknown.
 - **Current next goal: $0 Cloudflare Free deployment**, tracked in GitHub Issue #6. User explicitly rejected paid Containers, Workers Paid, VPS, Railway and any additional hosting charge. Aim for **https://aidc.datacap.xyz/neoclouddebt** (only if the Cloudflare-managed zone and path routing are verified); preserve other content under aidc.datacap.xyz. Start with Cloudflare Workers Static Assets or Pages free; use Workers Free + Workflows Free for API/agent orchestration *only after proving feasibility within strict CPU/step limits*. The existing Python FastAPI/Uvicorn worker and psycopg TCP code are **not a drop-in on Workers Free**; preserve it on main and adapt a small edge API while reusing verified calculations and existing finance evidence. Configure runtime secrets separately. Never activate paid tiers or billable services without fresh user approval. For research jobs, prove live Crusoe → verified sources → actual Neon HTTPS persistence → audit follow-up before claiming full feature parity. Read Issue #6 for staging and security specifics.

@@ -1,0 +1,1651 @@
+{
+  "reviewed_at": "2026-11-11",
+  "companies": [
+    {
+      "ticker": "CRWV",
+      "name": "CoreWeave",
+      "group": "gpu_cloud",
+      "business": "GPU cloud",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-10",
+      "form": "issuer_earnings_release",
+      "metrics": {
+        "debt": {
+          "value": "46873000000",
+          "unit": "USD",
+          "basis": "Sum of current and noncurrent recourse and non-recourse balance-sheet debt; excludes both lease types",
+          "note": "Balance-sheet carrying values, not issuance commitments or market value",
+          "source_ids": [
+            "crwv-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Current recourse debt",
+              "value": "9183000000"
+            },
+            {
+              "label": "Current non-recourse debt",
+              "value": "1389000000"
+            },
+            {
+              "label": "Noncurrent recourse debt",
+              "value": "32417000000"
+            },
+            {
+              "label": "Noncurrent non-recourse debt",
+              "value": "3884000000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "91481000000",
+          "unit": "USD",
+          "basis": "Consolidated balance-sheet total assets",
+          "note": "",
+          "source_ids": [
+            "crwv-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "cash": {
+          "value": "4122000000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents; excludes restricted cash and marketable securities",
+          "note": "",
+          "source_ids": [
+            "crwv-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "coupon": {
+          "value": "9.625",
+          "unit": "percent",
+          "source_ids": [
+            "crwv-selected-note"
+          ],
+          "basis": "Corporate unsecured note",
+          "note": "Contractual coupon, not a current traded yield or current cost of issuing new debt.",
+          "as_of": "2026-06-18",
+          "instrument": "9.625% Senior Notes due 2032",
+          "type": "senior_unsecured_nonconvertible",
+          "maturity": "2032-07-15",
+          "maturity_precision": "day",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
+          "market_yield": null,
+          "issuer": "Corporate unsecured note",
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Latest Q3 earnings release is newer than tagged SEC companyfacts (which still ends June 30 at retrieval).",
+        "Includes debt of non-recourse subsidiaries; not a blanket claim on the parent.",
+        "Lease obligations of $649M finance leases and $18.697B operating leases are excluded from borrowing debt.",
+        "Debt/assets is a financing-mix measure, not probability of default."
+      ],
+      "source_ids": [
+        "crwv-q3-2026",
+        "crwv-selected-note"
+      ],
+      "source_precision_usd": "1000000",
+      "synthetic": false,
+      "scope": "Consolidated CoreWeave including recourse and non-recourse subsidiaries"
+    },
+    {
+      "ticker": "NBIS",
+      "name": "Nebius Group",
+      "group": "gpu_cloud",
+      "business": "GPU cloud",
+      "as_of": "2026-06-30",
+      "filed_at": "2026-08-12",
+      "form": "financial_statements",
+      "metrics": {
+        "debt": {
+          "value": "8545700000",
+          "unit": "USD",
+          "basis": "Current debt plus non-current debt; operating leases separate and no finance leases in Note 8",
+          "note": "Net carrying amount includes discounts and issuance-cost deductions; $8,499M noncurrent convertible debt corresponds to $10,041.8M principal less $1,424.8M discount and $118M issuance costs",
+          "source_ids": [
+            "nbis-q2-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-06-30",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Current debt",
+              "value": "46700000"
+            },
+            {
+              "label": "Noncurrent debt",
+              "value": "8499000000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "27961500000",
+          "unit": "USD",
+          "basis": "Consolidated balance-sheet total assets",
+          "note": "",
+          "source_ids": [
+            "nbis-q2-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-06-30"
+        },
+        "cash": {
+          "value": "8042100000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents; excludes $1,056M restricted cash",
+          "note": "",
+          "source_ids": [
+            "nbis-q2-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-06-30"
+        },
+        "coupon": {
+          "value": "0.50",
+          "unit": "percent",
+          "source_ids": [
+            "nbis-selected-note"
+          ],
+          "basis": "Corporate convertible note",
+          "note": "Equity conversion option materially affects coupon comparability. Instrument was issued after this June balance-sheet snapshot and is not added to that snapshot.",
+          "as_of": "2026-08-24",
+          "instrument": "0.50% Convertible Senior Notes due 2030",
+          "type": "senior_unsecured_convertible",
+          "maturity": "2030",
+          "maturity_precision": "year",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
+          "market_yield": null,
+          "issuer": "Corporate convertible note",
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Q3 results scheduled November 12, 2026; not yet released as of November 11.",
+        "August 2026 issuance is deliberately not spliced into the June debt/assets or debt/cash calculation.",
+        "Convertible carrying amount is below face principal because of original discount and issuance costs.",
+        "Group assets include holdings unrelated to GPU cloud; debt/assets is not directly a GPU-fleet leverage ratio."
+      ],
+      "source_ids": [
+        "nbis-q2-2026",
+        "nbis-selected-note"
+      ],
+      "source_precision_usd": "1000000",
+      "synthetic": false,
+      "scope": "Consolidated Nebius Group, including non-cloud subsidiaries and investments"
+    },
+    {
+      "ticker": "IREN",
+      "name": "IREN",
+      "group": "ai_transition",
+      "business": "AI infrastructure and Bitcoin mining",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-05",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "9897000000",
+          "unit": "USD",
+          "basis": "Total debt net of issuance costs; excludes separately reported finance and operating leases",
+          "note": "$10,041M principal less $144M unamortized issuance costs = $9,897M carrying amount",
+          "source_ids": [
+            "iren-q1fy27"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Total debt principal",
+              "value": "10041000000"
+            },
+            {
+              "label": "Less unamortized issuance costs",
+              "value": "144000000",
+              "operation": "subtract"
+            }
+          ]
+        },
+        "assets": {
+          "value": "20613000000",
+          "unit": "USD",
+          "basis": "Consolidated balance-sheet total assets",
+          "note": "",
+          "source_ids": [
+            "iren-q1fy27"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "cash": {
+          "value": "3522000000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents; excludes $2,256M restricted cash",
+          "note": "",
+          "source_ids": [
+            "iren-q1fy27"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "coupon": {
+          "value": "1.00",
+          "unit": "percent",
+          "source_ids": [
+            "iren-selected-note"
+          ],
+          "basis": "Corporate convertible note",
+          "note": "Equity conversion option and capped-call transactions affect economic financing cost; coupon is not company-wide or market yield.",
+          "as_of": "2026-05-14",
+          "instrument": "1.00% Convertible Senior Notes due December 2033",
+          "type": "senior_unsecured_convertible",
+          "maturity": "2033-12-01",
+          "maturity_precision": "day",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
+          "market_yield": null,
+          "issuer": "Corporate convertible note",
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Debt note table effective interest rates (for example 1.18%) are not the contractual 1.00% coupon on this selected note.",
+        "$311M finance lease liability is excluded under the common borrowing definition.",
+        "Mixed AI and Bitcoin-mining operations; consolidated figures do not isolate the AI business."
+      ],
+      "source_ids": [
+        "iren-q1fy27",
+        "iren-selected-note"
+      ],
+      "source_precision_usd": "1000000",
+      "synthetic": false,
+      "scope": "Consolidated IREN Group, including AI cloud and Bitcoin mining"
+    },
+    {
+      "ticker": "BTDR",
+      "name": "Bitdeer Technologies Group",
+      "group": "ai_transition",
+      "business": "AI infrastructure, Bitcoin mining and ASIC manufacturing",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-10",
+      "form": "issuer_earnings_release",
+      "metrics": {
+        "debt": {
+          "value": "1948472000",
+          "unit": "USD",
+          "basis": "Sum of six current/noncurrent third-party and related-party borrowing lines; excludes both lease types and derivatives separately presented",
+          "note": "Reported carrying values; convertible borrowings net issuance costs/discounts. Digital-asset-settled borrowings may include embedded derivative measurement differences from principal.",
+          "source_ids": [
+            "btdr-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Short-term borrowings",
+              "value": "26000000"
+            },
+            {
+              "label": "Current long-term borrowings",
+              "value": "103000"
+            },
+            {
+              "label": "Short-term related-party borrowings",
+              "value": "315229000"
+            },
+            {
+              "label": "Current long-term related-party borrowings",
+              "value": "351250000"
+            },
+            {
+              "label": "Noncurrent long-term borrowings",
+              "value": "1183807000"
+            },
+            {
+              "label": "Noncurrent long-term related-party borrowings",
+              "value": "72083000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "3859998000",
+          "unit": "USD",
+          "basis": "Consolidated balance-sheet total assets",
+          "note": "",
+          "source_ids": [
+            "btdr-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "cash": {
+          "value": "163743000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents; excludes current/noncurrent restricted cash and digital assets",
+          "note": "",
+          "source_ids": [
+            "btdr-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "coupon": {
+          "value": "4.875",
+          "unit": "percent",
+          "source_ids": [
+            "btdr-selected-note"
+          ],
+          "basis": "Corporate convertible note",
+          "note": "Example June 2025 note; neither lowest nor newest coupon. Equity conversion option affects comparability. No current market yield verified.",
+          "as_of": "2025-06-23",
+          "instrument": "4.875% Convertible Senior Notes due 2031",
+          "type": "senior_unsecured_convertible",
+          "maturity": "2031",
+          "maturity_precision": "year",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
+          "market_yield": null,
+          "issuer": "Corporate convertible note",
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Nov 10 earnings release is newer than June 30 detailed financial statements and companyfacts.",
+        "Includes substantial related-party borrowings and digital-asset loans; carrying amount differs from a purely dollar cash-repayment principal concept.",
+        "Restricted cash and digital assets are not treated as freely available cash.",
+        "Mixed Bitcoin, ASIC and AI activities; not a pure-play neocloud."
+      ],
+      "source_ids": [
+        "btdr-q3-2026",
+        "btdr-selected-note"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated Bitdeer Group, including related-party borrowings"
+    },
+    {
+      "ticker": "HUT",
+      "name": "Hut 8",
+      "group": "ai_transition",
+      "business": "AI data centers, power and Bitcoin mining",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-04",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "7628225000",
+          "unit": "USD",
+          "basis": "Recourse debt (zero) plus non-recourse borrowing debt net of discount/issuance costs; excludes separate SAFE liability and lease liabilities",
+          "note": "$7,726.410M principal less $98.185M discount/issuance costs; NOT the $7,631.500M mixed debt-and-other-liability balance",
+          "source_ids": [
+            "hut-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Recourse borrowing carrying amount",
+              "value": "0"
+            },
+            {
+              "label": "Non-recourse borrowing carrying amount",
+              "value": "7628225000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "10334102000",
+          "unit": "USD",
+          "basis": "Consolidated balance-sheet total assets",
+          "note": "",
+          "source_ids": [
+            "hut-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "cash": {
+          "value": "156865000",
+          "unit": "USD",
+          "basis": "Cash; excludes $3,555.960M restricted cash, $2,838.531M restricted investments and digital assets",
+          "note": "",
+          "source_ids": [
+            "hut-q3-2026"
+          ],
+          "scope": "consolidated",
+          "as_of": "2026-09-30"
+        },
+        "coupon": {
+          "value": "6.192",
+          "unit": "percent",
+          "source_ids": [
+            "hut-selected-note"
+          ],
+          "basis": "Hut 8 DC LLC project debt; non-recourse to Hut 8",
+          "note": "Project-specific secured financing; not comparable to an unsecured parent convertible and not a blanket Google guarantee of Hut 8.",
+          "as_of": "2026-05-01",
+          "instrument": "River Bend 6.192% Senior Secured Notes due 2042",
+          "type": "project_senior_secured_nonconvertible",
+          "maturity": "2042-11-15",
+          "maturity_precision": "day",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
+          "market_yield": null,
+          "issuer": "Hut 8 DC LLC project debt; non-recourse to Hut 8",
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Excludes $3.275M liability-classified SAFE from the mixed loans/notes/other-liabilities balance-sheet line.",
+        "Excludes $371.687M miner purchase liability under the common borrowing definition; it remains an economic obligation.",
+        "Large restricted project balances are not parent cash available to repay all consolidated debt.",
+        "Project debt is non-recourse; do not infer parent-corporate credit quality or blanket guarantee from project rating/backstop."
+      ],
+      "source_ids": [
+        "hut-q3-2026",
+        "hut-selected-note"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated Hut 8, including non-recourse project subsidiaries"
+    },
+    {
+      "ticker": "APLD",
+      "name": "Applied Digital",
+      "group": "ai_transition",
+      "business": "Consolidated HPC infrastructure and majority-owned ChronoScale cloud business; Ekso discontinued operations classified held for sale at snapshot date.",
+      "as_of": "2026-08-31",
+      "filed_at": "2026-10-07",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "6376592000",
+          "unit": "USD",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "note": "",
+          "source_ids": [
+            "apld-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Current portion of debt",
+              "value": "112645000"
+            },
+            {
+              "label": "Long-term debt, net",
+              "value": "6263947000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "11707176000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "apld-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "2949909000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "note": "",
+          "source_ids": [
+            "apld-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "9.25",
+          "unit": "percent",
+          "source_ids": [
+            "apld-coupon"
+          ],
+          "basis": "Project/subsidiary secured financing; ELN subsidiaries are guarantors",
+          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
+          "as_of": "2026-08-31",
+          "instrument": "2030 9.250% Senior Secured Notes",
+          "type": "senior_secured_project_notes",
+          "maturity": "2030-12",
+          "maturity_precision": "month",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "issuer": "Exact legal issuer not reviewed; subsidiary/project scope",
+          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Debt is net carrying amount after $345.013M deferred financing costs, not the $6.721605B aggregate face/other-debt table amount.",
+        "Consolidated denominator includes controlled ChronoScale and Ekso held-for-sale assets. Ekso held-for-sale liabilities are accounts payable, accrued liabilities, operating leases and deferred revenue; no borrowings are listed.",
+        "Selected coupon is one secured project-note series; issuer legal identity should be confirmed from indenture before presenting a precise legal obligor."
+      ],
+      "source_ids": [
+        "apld-balance",
+        "apld-coupon"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated parent and subsidiaries"
+    },
+    {
+      "ticker": "CORZ",
+      "name": "Core Scientific",
+      "group": "ai_transition",
+      "business": "Consolidated high-density colocation infrastructure and remaining Bitcoin mining activities.",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-05",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "4302175000",
+          "unit": "USD",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "note": "",
+          "source_ids": [
+            "corz-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Long-term debt",
+              "value": "4302175000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "5935714000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "corz-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "803941000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "note": "",
+          "source_ids": [
+            "corz-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "7.75",
+          "unit": "percent",
+          "source_ids": [
+            "corz-coupon"
+          ],
+          "basis": "Indirect wholly-owned subsidiary and named subsidiary guarantors",
+          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
+          "as_of": "2026-09-30",
+          "instrument": "7.75% Senior Secured Notes due 2031",
+          "type": "senior_secured_project_notes",
+          "maturity": "2031",
+          "maturity_precision": "year",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "issuer": "Core Scientific Finance",
+          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Total note principal is $4.385B; subtract $82.825M unamortized discounts and issuance costs for $4.302175B carrying debt. No separate current debt balance is listed on this balance sheet.",
+        "Do not substitute $1.7442B liquidity/DSRA headline for unrestricted cash: that broader measure includes restricted cash, digital assets and revolver availability.",
+        "Net income is affected by warrant fair-value gains and is not a direct financial-health indicator."
+      ],
+      "source_ids": [
+        "corz-balance",
+        "corz-coupon"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated parent and subsidiaries"
+    },
+    {
+      "ticker": "WULF",
+      "name": "TeraWulf",
+      "group": "ai_transition",
+      "business": "Consolidated HPC leasing and Bitcoin-mining operations; projects and corporate convertible financing coexist.",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-06",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "5232310000",
+          "unit": "USD",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "note": "",
+          "source_ids": [
+            "wulf-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Current portion of long-term debt",
+              "value": "81330000"
+            },
+            {
+              "label": "Short-term convertible notes",
+              "value": "491544000"
+            },
+            {
+              "label": "Long-term debt",
+              "value": "3032094000"
+            },
+            {
+              "label": "Convertible notes",
+              "value": "1627342000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "8150702000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "wulf-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "1602127000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "note": "",
+          "source_ids": [
+            "wulf-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "7.75",
+          "unit": "percent",
+          "source_ids": [
+            "wulf-coupon"
+          ],
+          "basis": "Wholly-owned subsidiary; project secured debt, not all TeraWulf obligations",
+          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
+          "as_of": "2026-09-30",
+          "instrument": "Wulf Compute 7.75% Senior Secured Notes due 2030",
+          "type": "senior_secured_project_notes",
+          "maturity": "2030-10-15",
+          "maturity_precision": "day",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "issuer": "Wulf Compute LLC",
+          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Borrowings sum four balance-sheet rows; long-term secured debt is net of issuance costs/discount and convertible carrying values are not their face amounts.",
+        "Restricted cash ($486.702M current plus $266.491M noncurrent) and restricted trust investments are excluded from the cash figure.",
+        "Google-backed tenant support and subsidiary guarantees do not create a blanket guarantee of all corporate debt."
+      ],
+      "source_ids": [
+        "wulf-balance",
+        "wulf-coupon"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated parent and subsidiaries"
+    },
+    {
+      "ticker": "CIFR",
+      "name": "Cipher Digital (formerly Cipher Mining)",
+      "group": "ai_transition",
+      "business": "Consolidated HPC data-center construction and leasing alongside Bitcoin-related activities.",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-02",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "5559878000",
+          "unit": "USD",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "note": "",
+          "source_ids": [
+            "cifr-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Short-term borrowings",
+              "value": "112704000"
+            },
+            {
+              "label": "Long-term borrowings, net",
+              "value": "5447174000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "7666054000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "cifr-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "656009000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "note": "",
+          "source_ids": [
+            "cifr-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "7.125",
+          "unit": "percent",
+          "source_ids": [
+            "cifr-coupon"
+          ],
+          "basis": "Project subsidiary / Barber Lake secured financing",
+          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
+          "as_of": "2026-09-30",
+          "instrument": "Cipher Compute 7.125% Senior Secured Notes due 2030",
+          "type": "senior_secured_project_notes",
+          "maturity": "2030-11-15",
+          "maturity_precision": "day",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "issuer": "Cipher Compute",
+          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Note14 reconciles $6.016312B outstanding principal minus $456.434M net issuance costs/discount/premium to $5.559878B carrying borrowings including current portion.",
+        "Fair-value table omits $812k vehicle loans; use full Note14 debt table or balance-sheet current plus long-term total.",
+        "October 2026 convertible issuance and exchanges are subsequent events; do not mix those pro-forma borrowings with September30 assets."
+      ],
+      "source_ids": [
+        "cifr-balance",
+        "cifr-coupon"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated parent and subsidiaries"
+    },
+    {
+      "ticker": "HIVE",
+      "name": "HIVE Digital Technologies",
+      "group": "ai_transition",
+      "business": "Consolidated Bitcoin mining and BUZZ HPC/GPU-cloud business; most quarterly revenue remains mining.",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-09",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "265631000",
+          "unit": "USD",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "note": "",
+          "source_ids": [
+            "hive-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Convertible loan - liability component",
+              "value": "235253000"
+            },
+            {
+              "label": "Current portion of loans payable",
+              "value": "1460000"
+            },
+            {
+              "label": "Current portion of term loan",
+              "value": "1202000"
+            },
+            {
+              "label": "Current portion of mortgage payable",
+              "value": "162000"
+            },
+            {
+              "label": "Loans payable",
+              "value": "9229000"
+            },
+            {
+              "label": "Mortgage payable",
+              "value": "18325000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "857686000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "hive-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "138990000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "note": "",
+          "source_ids": [
+            "hive-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "0",
+          "unit": "percent",
+          "source_ids": [
+            "hive-coupon"
+          ],
+          "basis": "Subsidiary issuer; unsecured and parent guaranteed",
+          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Conversion/exchange rights affect economics.",
+          "as_of": "2026-09-30",
+          "instrument": "HIVE Bermuda April2026 0% Exchangeable Senior Notes due 2031",
+          "type": "exchangeable_senior_notes",
+          "maturity": "2031-04-15",
+          "maturity_precision": "day",
+          "issue_date": null,
+          "rate_type": "fixed",
+          "issuer": "HIVE Bermuda 2026 Ltd.",
+          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Book borrowings sum six balance-sheet loan/mortgage/convertible rows; all separately reported lease liabilities ($108.428M) are excluded.",
+        "The $235.253M convertible liability component is not $245M aggregate convertible face principal.",
+        "0% exchangeable coupon does not mean free financing: dilution, capped calls, issuance costs and contractual terms are separate. Do not rank against straight secured coupons as if economically identical."
+      ],
+      "source_ids": [
+        "hive-balance",
+        "hive-coupon"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated parent and subsidiaries"
+    },
+    {
+      "ticker": "GLXY",
+      "name": "Galaxy Digital",
+      "group": "ai_transition",
+      "business": "Digital assets and data-center development",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-10-27",
+      "form": "issuer earnings release",
+      "metrics": {
+        "debt": {
+          "value": null,
+          "unit": "USD",
+          "basis": "Unranked: loans plus notes are only a subset of financing obligations. Substantial digital-asset borrowing and collateral-related liabilities make a comparable company-wide borrowing total unresolved.",
+          "note": "Unranked: loans plus notes are only a subset of financing obligations. Substantial digital-asset borrowing and collateral-related liabilities make a comparable company-wide borrowing total unresolved.",
+          "source_ids": [],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": []
+        },
+        "assets": {
+          "value": "16416746000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "glxy-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "1324759000",
+          "unit": "USD",
+          "basis": "Cash and cash equivalents as reported; excludes separately classified stablecoins and investments. This is not the broader $4.9B cash/stablecoin/Treasury liquidity headline; some qualifying short-term Treasuries may be classified as cash equivalents.",
+          "note": "",
+          "source_ids": [
+            "glxy-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "9.875",
+          "unit": "percent",
+          "source_ids": [
+            "glxy-coupon"
+          ],
+          "basis": "Consolidated data-center subsidiary/project notes; not Galaxy parent-wide cost",
+          "note": "Funds Helios Phase II construction and debt-service reserves; security, project scope and construction stage differ from corporate bonds.",
+          "as_of": "2026-09-30",
+          "instrument": "Galaxy Helios Data Centers II LLC 9.875% Senior Secured Notes due 2031",
+          "type": "secured_project_notes",
+          "maturity": "2031",
+          "maturity_precision": "year",
+          "issue_date": "2026-07-28",
+          "rate_type": "fixed",
+          "issuer": "Consolidated data-center subsidiary/project notes; not Galaxy parent-wide cost",
+          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "The group operates digital-asset financial services as well as data centers; total assets include trading and lending assets.",
+        "Do not treat the reported 4900000000 cash/stablecoins/Treasuries headline as unrestricted cash.",
+        "Borrowing carrying amount and debt/assets remain null until financial-business liabilities are reconciled on a comparable basis."
+      ],
+      "source_ids": [
+        "glxy-balance",
+        "glxy-coupon"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated company and controlled subsidiaries"
+    },
+    {
+      "ticker": "RIOT",
+      "name": "Riot Platforms",
+      "group": "bitcoin_mining",
+      "business": "Mining and data-center transition",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-04",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "656645000",
+          "unit": "USD",
+          "basis": "Borrowings carrying value after issuance costs. Includes corporate convertible notes, revolving loans, CPACE and consolidated project debt; excludes operating lease liabilities. No separate finance-lease liability appears in the balance sheet.",
+          "note": "Borrowings carrying value after issuance costs. Includes corporate convertible notes, revolving loans, CPACE and consolidated project debt; excludes operating lease liabilities. No separate finance-lease liability appears in the balance sheet.",
+          "source_ids": [
+            "riot-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Current borrowings",
+              "value": "67482000"
+            },
+            {
+              "label": "Noncurrent borrowings",
+              "value": "589163000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "3043994000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "riot-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "669052000",
+          "unit": "USD",
+          "basis": "Cash and equivalents; excludes 79170000 restricted cash, bitcoin and derivative assets.",
+          "note": "",
+          "source_ids": [
+            "riot-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "0.75",
+          "unit": "percent",
+          "source_ids": [
+            "riot-coupon",
+            "riot-note-issue"
+          ],
+          "basis": "Named corporate convertible issue, not issuer-wide cost or yield",
+          "note": "Conversion rights contribute economic value; a low cash coupon is not cheap all-in financing.",
+          "as_of": "2026-09-30",
+          "instrument": "0.75% Convertible Senior Notes due 2030",
+          "type": "senior_unsecured_convertible",
+          "maturity": "2030-01-15",
+          "maturity_precision": "day",
+          "issue_date": "2024-12-11",
+          "rate_type": "fixed",
+          "issuer": "Named corporate convertible issue, not issuer-wide cost or yield",
+          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Consolidated balance sheet spans bitcoin mining, engineering and data-center activities; not pure GPU cloud.",
+        "Reported principal outstanding of 674512000 must not replace the lower carrying amount.",
+        "Includes project borrowing that has different recourse from parent convertible notes."
+      ],
+      "source_ids": [
+        "riot-balance",
+        "riot-coupon",
+        "riot-note-issue"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated company and controlled subsidiaries"
+    },
+    {
+      "ticker": "MARA",
+      "name": "MARA Holdings",
+      "group": "bitcoin_mining",
+      "business": "Mining and data-center transition",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-11-09",
+      "form": "10-Q",
+      "metrics": {
+        "debt": {
+          "value": "3019332000",
+          "unit": "USD",
+          "basis": "Borrowings carrying value after original-issue discounts and financing costs; excludes separately presented operating and finance leases.",
+          "note": "Borrowings carrying value after original-issue discounts and financing costs; excludes separately presented operating and finance leases.",
+          "source_ids": [
+            "mara-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Current borrowings",
+              "value": "335671000"
+            },
+            {
+              "label": "Noncurrent borrowings",
+              "value": "2683661000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "5676519000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "mara-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "946545000",
+          "unit": "USD",
+          "basis": "Cash and equivalents, excluding restricted cash, bitcoin and receivables. About 11% is denominated in euros and contractually allocated to Exaion operations.",
+          "note": "",
+          "source_ids": [
+            "mara-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "2.125",
+          "unit": "percent",
+          "source_ids": [
+            "mara-coupon",
+            "mara-note-issue"
+          ],
+          "basis": "Named corporate convertible issue, not issuer-wide cost or yield",
+          "note": "Conversion rights contribute value; this coupon does not represent all MARA debt.",
+          "as_of": "2026-09-30",
+          "instrument": "September 2031 convertible senior notes",
+          "type": "senior_unsecured_convertible",
+          "maturity": "2031-09-01",
+          "maturity_precision": "day",
+          "issue_date": "2024-08-14",
+          "rate_type": "fixed",
+          "issuer": "Named corporate convertible issue, not issuer-wide cost or yield",
+          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Post-quarter repayment of all 750000000 bitcoin-collateralized loans is disclosed; this snapshot deliberately preserves September 30 balances and does not mix that later event with quarter-end assets.",
+        "Bitcoin and digital-asset receivables are not cash.",
+        "Business includes bitcoin mining and expanding energy/AI infrastructure; not pure GPU cloud."
+      ],
+      "source_ids": [
+        "mara-balance",
+        "mara-coupon",
+        "mara-note-issue"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated company and controlled subsidiaries"
+    },
+    {
+      "ticker": "EQIX",
+      "name": "Equinix",
+      "group": "data_center_reit",
+      "business": "Data-center REIT",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-10-28",
+      "form": "issuer earnings release",
+      "metrics": {
+        "debt": {
+          "value": "22647000000",
+          "unit": "USD",
+          "basis": "Consolidated borrowing carrying amount: current/noncurrent senior notes plus mortgages and loans, excluding separately presented finance and operating lease liabilities. Release is rounded to millions; amounts are not precise dollars.",
+          "note": "Consolidated borrowing carrying amount: current/noncurrent senior notes plus mortgages and loans, excluding separately presented finance and operating lease liabilities. Release is rounded to millions; amounts are not precise dollars.",
+          "source_ids": [
+            "eqix-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Current notes",
+              "value": "1665000000"
+            },
+            {
+              "label": "Noncurrent notes",
+              "value": "20963000000"
+            },
+            {
+              "label": "Current mortgages/loans",
+              "value": "6000000"
+            },
+            {
+              "label": "Noncurrent mortgages/loans",
+              "value": "13000000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "44445000000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "eqix-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "2362000000",
+          "unit": "USD",
+          "basis": "Cash and equivalents only; excludes 1235000000 short-term investments.",
+          "note": "",
+          "source_ids": [
+            "eqix-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": "5.800",
+          "unit": "percent",
+          "source_ids": [
+            "eqix-coupon"
+          ],
+          "basis": "Named USD senior note; not company average or market yield",
+          "note": "A longer-maturity senior unsecured bond is not directly interchangeable with convertible or project debt.",
+          "as_of": "2026-09-30",
+          "instrument": "5.800% Senior Notes due August 15, 2036",
+          "type": "senior_unsecured_notes",
+          "maturity": "2036-08-15",
+          "maturity_precision": "day",
+          "issue_date": "2026-08-06",
+          "rate_type": "fixed",
+          "issuer": "Named USD senior note; not company average or market yield",
+          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
+          "market_yield": null,
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Diversified global colocation REIT, not a GPU-cloud operator; use separate group filter.",
+        "All debt values are USD-translated consolidated balances including foreign-currency borrowings; no additional FX conversion is applied.",
+        "Reconciliation intentionally excludes 2378000000 finance leases from the reported borrowing measure."
+      ],
+      "source_ids": [
+        "eqix-balance",
+        "eqix-coupon"
+      ],
+      "source_precision_usd": "1000000",
+      "synthetic": false,
+      "scope": "Consolidated company and controlled subsidiaries"
+    },
+    {
+      "ticker": "DLR",
+      "name": "Digital Realty",
+      "group": "data_center_reit",
+      "business": "Data-center REIT",
+      "as_of": "2026-09-30",
+      "filed_at": "2026-10-29",
+      "form": "issuer earnings release",
+      "metrics": {
+        "debt": {
+          "value": "19494615000",
+          "unit": "USD",
+          "basis": "Four consolidated borrowing categories at carrying values net of stated discounts; excludes both operating and finance leases and unconsolidated JV debt. Issuer presentation explicitly reconciles 19494615000 borrowing carrying value plus separately added 265526000 finance leases; secured/other debt is 1620303000 before that finance-lease addition.",
+          "note": "Four consolidated borrowing categories at carrying values net of stated discounts; excludes both operating and finance leases and unconsolidated JV debt. Issuer presentation explicitly reconciles 19494615000 borrowing carrying value plus separately added 265526000 finance leases; secured/other debt is 1620303000 before that finance-lease addition.",
+          "source_ids": [
+            "dlr-balance"
+          ],
+          "scope": "consolidated",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Revolver borrowings, net",
+              "value": "1640466000"
+            },
+            {
+              "label": "Term borrowings, net",
+              "value": "424364000"
+            },
+            {
+              "label": "Senior note borrowings, net",
+              "value": "15809482000"
+            },
+            {
+              "label": "Secured/other borrowings, net",
+              "value": "1620303000"
+            }
+          ]
+        },
+        "assets": {
+          "value": "56524515000",
+          "unit": "USD",
+          "basis": "Consolidated total assets",
+          "note": "",
+          "source_ids": [
+            "dlr-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "cash": {
+          "value": "802903000",
+          "unit": "USD",
+          "basis": "Consolidated cash and equivalents only; no pro-rata JV cash added.",
+          "note": "",
+          "source_ids": [
+            "dlr-balance"
+          ],
+          "scope": "consolidated"
+        },
+        "coupon": {
+          "value": null,
+          "unit": "percent",
+          "source_ids": [],
+          "basis": "No independently reviewed USD fixed-note example",
+          "note": "No independently reviewed USD fixed-note example in this snapshot; this does not mean the company has no bonds.",
+          "instrument": null,
+          "type": null,
+          "maturity": null,
+          "issue_date": null,
+          "rate_type": "fixed",
+          "currency": "USD"
+        }
+      },
+      "notes": [
+        "Data-center landlord/REIT, not pure GPU cloud; compare in separate business group.",
+        "Issuer's reported 5.2x net-debt/Adjusted EBITDA has JV and finance-lease adjustments; do not substitute it for a harmonized debt/assets measure.",
+        "Latest release describes October euro/Swiss-franc bonds; no independently reviewed USD fixed-note selection is provided here."
+      ],
+      "source_ids": [
+        "dlr-balance"
+      ],
+      "source_precision_usd": "1000",
+      "synthetic": false,
+      "scope": "Consolidated company and controlled subsidiaries"
+    }
+  ],
+  "sources": [
+    {
+      "id": "crwv-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "title": "CoreWeave Q3 2026 earnings release, SEC 8-K Exhibit 99.1",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Recourse debt, current 9,183; Non-recourse debt, current 1,389; Recourse debt, non-current 32,417; Non-recourse debt, non-current 3,884; Cash and cash equivalents $ 4,122; 91,481",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "crwv-selected-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000291/crwv-20260618.htm",
+      "title": "CoreWeave June 18 2026 Form 8-K, 9.625% senior notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-06-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "9.625% Senior Notes due 2032",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "nbis-q2-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "title": "Nebius June 30 2026 consolidated financial statements, SEC 6-K Exhibit 99.2",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Debt, current 12 24.5 46.7; Debt, non-current 12 4,103.2 8,499.0; Cash and cash equivalents 4 3,678.1 8,042.1; TOTAL ASSETS 12,430.6 27,961.5",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "nbis-selected-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "title": "Nebius August 24 2026 offering close, SEC 6-K Exhibit 99.1",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-24",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "0.50% convertible notes due 2030",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "iren-q1fy27",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "IREN September 30 2026 Form 10-Q",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Total debt, net of unamortized issuance costs 9,897; Cash and cash equivalents 8 $ 3,522; Total assets $ 20,613",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "iren-selected-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126021285/ef20073507_8k.htm",
+      "title": "IREN May 14 2026 Form 8-K, 1% convertible senior notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-05-14",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "1.00% Convertible Senior Notes due 2033",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "btdr-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+      "title": "Bitdeer Q3 2026 earnings release, SEC 6-K Exhibit 99.1",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "26,000; 103; 315,229; 351,250; 1,183,807; 72,083; Cash and cash equivalents 163,743; TOTAL ASSETS 3,859,998",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "btdr-selected-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390025056729/ea0246533-6k_bitdeer.htm",
+      "title": "Bitdeer June 23 2025 Form 6-K, 4.875% convertible senior notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-06-23",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "4.875% Convertible Senior Notes due 2031",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "hut-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Hut 8 September 30 2026 Form 10-Q",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Total non-recourse debt, net of unamortized discount and issuance costs 7,628,225; Cash $ 156,865; Total assets $ 10,334,102",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "hut-selected-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926053247/tm2613163d1_8k.htm",
+      "title": "Hut 8 May 1 2026 Form 8-K, River Bend 6.192% project notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-05-01",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "6.192% Senior Secured Notes due 2042",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "apld-balance",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "title": "Applied Digital Corp. Form10-Q 2026-08-31",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "112,645 ... 6,263,947; Cash and cash equivalents ... 2,949,909; TOTAL ASSETS ... 11,707,176",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "apld-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "title": "Applied Digital — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "2030 9.250 % Senior Secured Notes",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "corz-balance",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "title": "Core Scientific, Inc./tx Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Long-term debt ... 4,302,175; Cash and cash equivalents ... 803,941; Total Assets ... 5,935,714",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "corz-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "title": "Core Scientific — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Senior Secured Notes 7.75 % ... 2031",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "wulf-balance",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "TERAWULF INC. Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "81,330 ... 491,544 ... 3,032,094 ... 1,627,342; Cash and cash equivalents ... 1,602,127; TOTAL ASSETS ... 8,150,702",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "wulf-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "TeraWulf — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "7.75 % Senior Secured Notes due 2030",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "cifr-balance",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "title": "Cipher Digital Inc. Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "112,704 ... 5,447,174; Cash and cash equivalents ... 656,009; Total assets ... 7,666,054",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "cifr-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "title": "Cipher Digital (formerly Cipher Mining) — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cipher Compute 2030 Senior Secured Notes ... 7.125 %",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "hive-balance",
+      "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+      "title": "HIVE Digital Technologies Ltd. Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "235,253 ... 1,460 ... 1,202 ... 162 ... 9,229 ... 18,325; Cash $ 138,990; Total assets $ 857,686",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "hive-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+      "title": "HIVE Digital Technologies — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "0 % ... 2031",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "riot-balance",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "title": "Riot Platforms — September 30, 2026 balance sheet",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Debt, net 656,645; Cash and cash equivalents 669,052; Total assets 3,043,994",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "riot-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "title": "Riot Platforms — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "0.75% Convertible Senior Notes due 2030",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "riot-note-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465924127656/tm2430044d5_8k.htm",
+      "title": "Riot Platforms — note issue date",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2024-12-11",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On December 11, 2024",
+      "source_unit": "date"
+    },
+    {
+      "id": "mara-balance",
+      "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm",
+      "title": "MARA Holdings — September 30, 2026 balance sheet",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "3,019,332; Cash and cash equivalents 946,545; TOTAL ASSETS 5,676,519",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "mara-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1507605/000150760526000028/mara-20260930.htm",
+      "title": "MARA Holdings — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "2.125% Convertible Senior Notes due 2031",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "mara-note-issue",
+      "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001628280-24-047148/mara-20240930.htm",
+      "title": "MARA Holdings — note issue date",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2024-11-12",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On August 14, 2024",
+      "source_unit": "date"
+    },
+    {
+      "id": "eqix-balance",
+      "url": "https://investor.equinix.com/news-events/press-releases/detail/1128/equinix-reports-third-quarter-results-and-raises-2026",
+      "title": "Equinix — September 30, 2026 balance sheet",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-28",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "1,665; 20,963; 6; 13; Cash and cash equivalents 2,362; Total assets 44,445",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "eqix-coupon",
+      "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "title": "Equinix — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-28",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "5.800% Senior Notes due 2036",
+      "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "dlr-balance",
+      "url": "https://investor.digitalrealty.com/news-releases/news-release-details/digital-realty-reports-third-quarter-2026-results",
+      "title": "Digital Realty — September 30, 2026 balance sheet",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-29",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "1,640,466; 424,364; 15,809,482; 1,620,303; Cash and cash equivalents 802,903; Total Assets 56,524,515",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "glxy-balance",
+      "url": "https://investor.galaxy.com/news-releases/news-release-details/galaxy-announces-third-quarter-2026-financial-results",
+      "title": "Galaxy Digital — September 30, 2026 balance sheet",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-27",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cash and cash equivalents 1,324,759; Total assets 16,416,746",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "glxy-coupon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+      "title": "Galaxy Digital — selected note terms",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "9.875% Senior Secured Notes due 2031",
+      "source_unit": "percent / contractual fixed coupon"
+    }
+  ],
+  "selection_policy": "Curated public operators and adjacent infrastructure firms with retrievable primary disclosures. This is not the whole neocloud market. Private-company financials and unreconciled figures are not invented.",
+  "coupon_selection_policy": "One verified named USD fixed-rate instrument per company where reviewed. Examples are not selected as the cheapest or newest issue and do not represent average borrowing cost. Instrument examples are sortable but receive no company rank.",
+  "method_notes": [
+    "Borrowings are consolidated carrying values net of disclosed discounts/costs, excluding both operating and finance lease liabilities. They are not total liabilities or face principal.",
+    "Borrowings/assets uses the same reporting date for numerator and denominator. Every row retains its own date; no pro forma post-quarter updates are mixed in.",
+    "Cash is balance-sheet cash and cash equivalents, not total liquidity; restricted balances, investments and crypto assets are excluded where separately disclosed.",
+    "Compare business models carefully. A default AI-infrastructure group includes both GPU clouds and mixed transition businesses. Landlords and bitcoin miners are separate filters.",
+    "No health score, buy/sell recommendation, bond market yield or real-time quote feed is supplied."
+  ]
+}

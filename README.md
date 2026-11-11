@@ -4,14 +4,22 @@
 
 ## Instant read-only MVP preview
 
-The polished, credential-free preview lives in `preview/`. It opens with a complete
-CRWV/HUT scenario rather than empty panels. Five company labels, three credit
-scenarios, four benchmark shocks, 12/18-month horizons, shareable URL state,
-comparison downloads and a separate historical HUT source ledger work entirely
-in the browser. All comparison figures are explicitly **synthetic teaching
-assumptions**, not company forecasts or current market data. Historical project
-references do not enter those synthetic calculations. The original research app
-and financial engine remain intact.
+The credential-free preview in `preview/` now opens with **15 actual, dated
+company records**, replacing the synthetic scenario as the first view. Two
+plain-English rankings show borrowing carrying amounts excluding leases and
+borrowings per $100 of recorded assets. A third, unnumbered reference shows named
+bond coupons, with instrument type, issue/maturity dates and source evidence.
+Coupons are not current market yields or company-wide borrowing costs.
+
+GPU clouds, mixed AI-infrastructure businesses, miners and data-center REITs have
+separate filters. Every material value links to a primary disclosure. Unknown or
+incomparable values stay unranked; Galaxy's total borrowing measure is deliberately
+unresolved. No composite health score or live market feed is provided. See
+[directory methodology and coverage](docs/DEBT_DIRECTORY.md).
+
+The original five-company **synthetic scenario lab** is preserved at
+`/scenarios/`. It stays separate from actual company rankings. The FastAPI
+research app and original financial engine are also preserved.
 
 ```sh
 npm run preview
@@ -22,11 +30,13 @@ No database, API keys or inference calls are needed. This static server serves
 only `preview/`; it does not expose the unauthenticated FastAPI endpoints.
 For an offline, single-file demo, run `npm run build:standalone`, then open
 `work/NeoCloud-Interactive-Preview.html` directly in Chrome, Edge or Firefox.
-The HTML embeds its styles, code and scenario data; no server is needed.
-To regenerate the checked-in scenario data with the unchanged Python engine:
+The HTML embeds its styles, code and source records; no server is needed.
+`work/NeoCloud-Scenario-Lab.html` separately preserves the synthetic demo.
+To regenerate and validate the checked-in data:
 
 ```sh
-python scripts/build_preview.py
+python scripts/build_debt_preview.py
+python scripts/build_preview.py  # Separate original scenario fixture
 python -m pytest -q
 npm ci
 npx playwright install chromium

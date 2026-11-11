@@ -32,7 +32,7 @@ def build():
 
 
 if __name__ == '__main__':
-    target = Path(__file__).resolve().parents[1] / 'preview' / 'data.json'
-    target.parent.mkdir(exist_ok=True)
+    target = Path(__file__).resolve().parents[1] / 'preview' / 'scenarios' / 'data.json'
+    target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(build(), separators=(',', ':'), sort_keys=True) + '\n')
     print(f'Wrote {target.relative_to(target.parents[1])} ({target.stat().st_size:,} bytes)')

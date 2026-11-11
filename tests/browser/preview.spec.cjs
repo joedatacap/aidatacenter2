@@ -4,7 +4,7 @@ test('scenario controls, provenance, sharing and export work without backend req
   const errors=[], requests=[];
   page.on('pageerror', error=>errors.push(error.message));
   page.on('request', request=>requests.push({url:request.url(),method:request.method()}));
-  await page.goto('/');
+  await page.goto('/scenarios/');
   await expect(page.locator('.company-card')).toHaveCount(2);
   await expect(page.locator('#takeaway')).toContainText('CRWV needs $400M more');
   await expect(page.locator('.gap-number').first()).toContainText('$654M');
@@ -47,7 +47,7 @@ test('scenario controls, provenance, sharing and export work without backend req
 });
 
 test('invalid shared parameters fall back safely; failed data fetch shows recovery message', async ({page}) => {
-  await page.goto('/?left=UNKNOWN&right=INVALID&scenario=unsupported&shock=999&horizon=99');
+  await page.goto('/scenarios/?left=UNKNOWN&right=INVALID&scenario=unsupported&shock=999&horizon=99');
   await expect(page.locator('#left')).toHaveValue('CRWV');
   await expect(page.locator('#right')).toHaveValue('HUT');
   await expect(page.locator('#scenario')).toHaveValue('Tight credit');
@@ -63,7 +63,7 @@ test('inherited object keys in shared URLs fall back independently to valid tick
   for(const key of ['__proto__','constructor','toString']) {
     for(const side of ['left','right']) {
       const params=new URLSearchParams({left:'IREN',right:'NBIS',[side]:key});
-      await page.goto('/?'+params);
+      await page.goto('/scenarios/?'+params);
       await expect(page.locator('.company-card')).toHaveCount(2);
       await expect(page.locator('#left')).toHaveValue(side==='left'?'CRWV':'IREN');
       await expect(page.locator('#right')).toHaveValue(side==='right'?'HUT':'NBIS');
@@ -74,7 +74,7 @@ test('inherited object keys in shared URLs fall back independently to valid tick
 });
 
 test('small eyebrow labels meet 4.5:1 contrast on their actual backgrounds', async ({page}) => {
-  await page.goto('/');
+  await page.goto('/scenarios/');
   await expect(page.locator('.company-card')).toHaveCount(2);
   const contrasts=await page.locator('.eyebrow').evaluateAll(labels=>{
     const channels=css=>css.match(/[\d.]+/g).map(Number);
@@ -97,7 +97,7 @@ test('small eyebrow labels meet 4.5:1 contrast on their actual backgrounds', asy
 });
 
 test('keyboard focus outlines meet 3:1 contrast on light and dark surroundings', async ({page}) => {
-  await page.goto('/');
+  await page.goto('/scenarios/');
   await expect(page.locator('.company-card')).toHaveCount(2);
   await page.keyboard.press('Tab');
   for(const selector of ['header .brand','header nav a','#reset','#left','#swap','#right','#scenario','#shock',
@@ -128,7 +128,7 @@ test('keyboard focus outlines meet 3:1 contrast on light and dark surroundings',
 test('subdirectory assets stay inside neoclouddebt and root is not an app fallback', async ({page, request}) => {
   const paths=[];
   page.on('request',r=>paths.push(new URL(r.url()).pathname));
-  await page.goto('http://127.0.0.1:8001/neoclouddebt/');
+  await page.goto('http://127.0.0.1:8001/neoclouddebt/scenarios/');
   await expect(page.locator('.company-card')).toHaveCount(2);
   expect(paths.every(p=>p.startsWith('/neoclouddebt/'))).toBe(true);
   const root=await request.get('http://127.0.0.1:8001/');
@@ -141,7 +141,7 @@ test('standalone HTML works offline when loaded directly as browser content', as
   page.on('pageerror',e=>errors.push(e.message));
   await context.setOffline(true);
   const {resolve}=require('path');
-  const html=require('fs').readFileSync(resolve('work/NeoCloud-Interactive-Preview.html'),'utf8');
+  const html=require('fs').readFileSync(resolve('work/NeoCloud-Scenario-Lab.html'),'utf8');
   await page.setContent(html);
   await expect(page.locator('.company-card')).toHaveCount(2);
   await expect(page.locator('.gap-number').first()).toContainText('$654M');
