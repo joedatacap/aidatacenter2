@@ -93,6 +93,10 @@ def test_published_coverage_and_special_scope_cases_are_explicit():
     assert dlr_finance_lease['value'] is None
     assert dlr_finance_lease['source_ids'] == []
     assert companies['DLR']['metrics']['debt']['value'] == '19494615000'
+    dlr_notes = ' '.join(companies['DLR']['notes']) + companies['DLR']['metrics']['coupon']['note']
+    assert '4.45% note due July 15, 2028' in dlr_notes
+    assert 'unreviewed-coupon' not in dlr_notes
+    assert 'no independently reviewed USD fixed-note' not in dlr_notes
     assert len(data['instruments']) == 44
     assert len(data['coverage_watchlist']) == 3
 
@@ -110,6 +114,76 @@ def test_note_status_does_not_infer_latest_balance_or_use_original_issuance():
     assert 'Conflicting' in notes['WULF-2030-775']['issue_date_note']
     assert 'independent-nbis-2032-indenture' in notes['CLOUD-NBIS-4']['source_ids']
     assert 'accretion' in notes['CLOUD-NBIS-5']['outstanding_principal']['basis']
+
+
+def liquidity_sample():
+    raw = sample()
+    raw['companies'][0]['liquidity'] = {
+        'as_of': '2026-09-30', 'cash_caveat': 'Consolidated cash; parent access is not established.',
+        'company_available_credit': {'value': None, 'unit': 'USD'},
+        'excluded_balances': [], 'facilities': [{
+            'id': 'TEST-RCF', 'name': 'Test revolver', 'as_of': '2026-09-30',
+            'scope': 'Parent facility', 'access_note': 'Conditions apply.',
+            'conditions': ['Subject to covenants.'], 'source_ids': ['filing'],
+            'amounts': [{'label': 'Loans drawn', 'kind': 'drawn', 'value': '0',
+                        'unit': 'USD', 'as_of': '2026-09-30', 'source_ids': ['filing'],
+                        'include_in_cash': False},
+                       {'label': 'Available to borrow', 'kind': 'reported_available', 'value': None,
+                        'unit': 'USD', 'as_of': '2026-09-30', 'source_ids': [],
+                        'include_in_cash': False}]}]}
+    return raw
+
+
+def test_published_liquidity_preserves_conditional_capacity_and_unknown_company_totals():
+    data = json.loads(Path('preview/data.json').read_text())
+    companies = {c['ticker']: c for c in data['companies']}
+    for company in companies.values():
+        liquidity = company['liquidity']
+        assert liquidity['as_of'] == company['as_of']
+        assert liquidity['company_available_credit']['value'] is None
+    iren = companies['IREN']['liquidity']
+    capacity = [a['value'] for f in iren['facilities'] for a in f['amounts']
+                if a['kind'] == 'unused_capacity' and a['value'] is not None]
+    assert capacity == ['1132000000', '525000000', '1500000000']
+    wulf = companies['WULF']['liquidity']
+    assert any(a['value'] == '800000' and a['kind'] == 'lc_capacity'
+               for f in wulf['facilities'] for a in f['amounts'])
+    assert not any(a['value'] == '800000' and a['kind'] == 'reported_available'
+                   for f in wulf['facilities'] for a in f['amounts'])
+    assert companies['HIVE']['liquidity']['facilities'] == []
+    assert 'Exaion' in companies['MARA']['liquidity']['cash_caveat']
+    assert companies['MARA']['metrics']['cash']['value'] == '946545000'
+
+
+def test_undrawn_credit_does_not_infer_available_cash_or_a_company_total():
+    result = build_directory(liquidity_sample())['companies'][0]
+    assert result['metrics']['cash']['value'] == '50'
+    liquidity = result['liquidity']
+    assert liquidity['company_available_credit']['value'] is None
+    drawn, available = liquidity['facilities'][0]['amounts']
+    assert drawn['value'] == '0'
+    assert available['value'] is None
+
+
+@pytest.mark.parametrize('failure', ['later_facility', 'earlier_amount', 'fx', 'no_evidence',
+                                   'cash_addition', 'company_total', 'missing_conditions', 'duplicate',
+                                   'synthetic', 'condition_type'])
+def test_liquidity_rejects_mixed_dates_unsupported_capacity_and_cash_totals(failure):
+    raw = liquidity_sample()
+    liquidity = raw['companies'][0]['liquidity']
+    facility = liquidity['facilities'][0]
+    fact = facility['amounts'][0]
+    if failure == 'later_facility': facility['as_of'] = '2026-10-01'
+    if failure == 'earlier_amount': fact['as_of'] = '2026-06-30'
+    if failure == 'fx': fact['unit'] = 'EUR'
+    if failure == 'no_evidence': fact['source_ids'] = []
+    if failure == 'cash_addition': fact['include_in_cash'] = True
+    if failure == 'company_total': liquidity['company_available_credit']['value'] = '100'
+    if failure == 'missing_conditions': facility['conditions'] = []
+    if failure == 'duplicate': liquidity['facilities'].append(deepcopy(facility))
+    if failure == 'synthetic': fact['provenance'] = 'fixture'
+    if failure == 'condition_type': facility['conditions'] = 'unknown'
+    with pytest.raises(ValueError): build_directory(raw)
 
 
 def test_synthetic_assumptions_cannot_enter_actual_rankings():

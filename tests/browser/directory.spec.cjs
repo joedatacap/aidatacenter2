@@ -66,6 +66,11 @@ test('coupon reference has zero coupons and instrument terms but no company rank
   await expect(page.locator('#detail-content')).toContainText('APLD ComputeCo LLC');
   await expect(page.locator('#detail-content')).toContainText('6.75%');
   await expect(page.locator('#detail-content')).toContainText('selected');
+  await page.keyboard.press('Escape');
+  await page.locator('[data-ticker="DLR"] .company-button').click();
+  await expect(page.locator('#detail-content')).toContainText('4.45% note due July 15, 2028');
+  await expect(page.locator('#detail-content')).not.toContainText('unreviewed-coupon slot');
+  await expect(page.locator('#detail-content')).not.toContainText('no independently reviewed USD fixed-note');
 });
 
 test('filters and company details survive reload; hostile URL keys cannot select inherited properties',async({page})=>{
@@ -116,6 +121,11 @@ test('downloads preserve unknown values, dates, units and source lineage',async(
   expect(crwvNote.company_source_date).toBe('2026-11-10');
   expect(crwvNote.scope).toContain('CoreWeave, Inc.');
   expect(crwvNote.source_precision_usd).toBeNull();
+  const dlr=coupons.rows.find(r=>r.ticker==='DLR');
+  expect(dlr.value).toBe('4.450');
+  expect(dlr.company_notes.join(' ')).toContain('4.45% note due July 15, 2028');
+  expect(dlr.company_notes.join(' ')+dlr.note).not.toContain('unreviewed-coupon');
+  expect(dlr.company_notes.join(' ')).not.toContain('no independently reviewed USD fixed-note');
   const csvPromise=page.waitForEvent('download');
   await page.locator('#download-csv').click();
   const csvDownload=await csvPromise;
@@ -366,4 +376,61 @@ test('walkthrough preserves a chosen peer group and search and does not fabricat
   await expect(page.locator('#note-status')).toHaveValue('confirmed');
   await expect(page.locator('#empty')).toBeVisible();
   await expect(page.locator('dialog[open]')).toHaveCount(0);
+});
+
+test('cash and funding distinguish an undrawn parent revolver from restricted project balances',async({page})=>{
+  await page.goto('/?company=HUT');
+  const funding=page.locator('.cash-funding');
+  await expect(funding).toContainText('Cash & funding');
+  await expect(funding.locator('.liquidity-reported-cash .liquidity-cash-value')).toHaveText('$156.87M');
+  await expect(funding.locator('.liquidity-reported-cash')).toContainText('Sep 30, 2026');
+  await expect(funding.locator('.company-credit-availability strong')).toHaveText('Unknown');
+  const facility=funding.locator('.liquidity-facility').filter({hasText:'revolving credit'});
+  await expect(facility.locator('[data-kind="commitment"] .liquidity-fact-value')).toHaveText('$1.07B');
+  await expect(facility.locator('[data-kind="drawn"] .liquidity-fact-value')).toHaveText('$0');
+  await expect(facility.locator('[data-kind="reported_available"] .liquidity-fact-value')).toHaveText('Unknown');
+  await expect(funding.locator('[data-kind="restricted_cash"] .liquidity-fact-value')).toHaveText('$3.56B');
+  await expect(funding.locator('[data-kind="restricted_investments"] .liquidity-fact-value')).toHaveText('$2.84B');
+  await expect(funding).toContainText('not added together');
+  await expect(funding).not.toContainText('calculated total available');
+});
+
+test('letter-of-credit headroom is not spendable cash and later facilities stay outside the snapshot',async({page})=>{
+  await page.goto('/?company=WULF');
+  const funding=page.locator('.cash-funding');
+  const remaining=funding.locator('[data-kind="lc_capacity"]').filter({hasText:'Remaining LC capacity'});
+  await expect(remaining.locator('.liquidity-fact-value')).toHaveText('$800K');
+  await expect(remaining).toContainText('not cash');
+  await expect(funding.locator('.company-credit-availability strong')).toHaveText('Unknown');
+  await expect(funding.locator('[data-kind="borrowing_cap"] .liquidity-fact-value')).toHaveText('$75M');
+  await expect(funding.locator('[data-kind="commitment"] .liquidity-fact-value')).toHaveText('$250M');
+  await page.keyboard.press('Escape');await page.goto('/?company=HIVE');
+  await expect(page.locator('.cash-funding .liquidity-facility')).toHaveCount(0);
+  await expect(page.locator('.liquidity-inventory-unknown')).toBeVisible();
+  await expect(page.locator('.cash-funding')).toContainText('Unknown');
+});
+
+test('cash qualifications and conditional credit survive comparison and machine-readable exports',async({page})=>{
+  await page.goto('/?group=all&compare=MARA,EQIX&comparison=1');
+  const comparison=page.locator('#comparison-dialog');
+  await expect(comparison.locator('.cash-qualification').filter({hasText:'Exaion'})).toBeVisible();
+  await expect(comparison.locator('.comparison-credit-row .credit-availability-value')).toHaveText(['Unknown','Unknown']);
+  const detailButton=comparison.getByRole('button',{name:/Equinix.*cash|cash.*Equinix/i});
+  await detailButton.click();
+  await expect(page.locator('.cash-funding')).toBeFocused();
+  const available=page.locator('.cash-funding [data-kind="reported_available"]');
+  await expect(available.locator('.liquidity-fact-value')).toHaveText('$5.5B');
+  await expect(available.locator('.liquidity-precision')).toContainText(/pproximate|ounded/);
+  await page.keyboard.press('Escape');await expect(detailButton).toBeFocused();
+  await page.keyboard.press('Escape');await page.goto('/?group=all&q=MARA');
+  const jsonPromise=page.waitForEvent('download');await page.locator('#download-json').click();
+  const output=JSON.parse(fs.readFileSync(await (await jsonPromise).path(),'utf8'));
+  const row=output.rows[0];expect(row.cash_qualification).toContain('Exaion');
+  expect(row.liquidity.company_available_credit.value).toBeNull();
+  expect(row.liquidity_source_ids.length).toBeGreaterThan(0);
+  expect(row.liquidity_source_ids.every(id=>output.sources.some(source=>source.id===id))).toBe(true);
+  const csvPromise=page.waitForEvent('download');await page.locator('#download-csv').click();
+  const csv=fs.readFileSync(await (await csvPromise).path(),'utf8');
+  expect(csv).toContain('cash_qualification');expect(csv).toContain('Exaion');
+  expect(csv).toContain('company_available_credit');expect(csv).not.toContain('[object Object]');
 });

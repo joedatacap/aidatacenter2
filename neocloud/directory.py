@@ -93,6 +93,58 @@ def maturity_end(value):
     return date.fromisoformat(value)
 
 
+def validate_liquidity(company, sources):
+    """Selected facilities describe dated capacity, never a cash-plus-credit total."""
+    liquidity = company.get('liquidity')
+    if liquidity is None:
+        return
+    if liquidity.get('as_of') != company['as_of'] or not liquidity.get('cash_caveat'):
+        raise ValueError('Liquidity requires the company snapshot date and cash qualification')
+    overall = liquidity.get('company_available_credit', {})
+    if overall.get('value') is not None or overall.get('unit') != 'USD':
+        raise ValueError('Selected facilities cannot establish a company-wide available-credit total')
+    kinds = {'commitment', 'drawn', 'unused_capacity', 'reported_available',
+             'letters_of_credit', 'borrowing_cap', 'lc_capacity',
+             'restricted_cash', 'restricted_investments'}
+
+    def validate_fact(fact):
+        if fact.get('synthetic') is True or fact.get('provenance') in ('fixture', 'assumption', 'user_assumption'):
+            raise ValueError('Synthetic funding inputs cannot enter actual liquidity context')
+        if fact.get('as_of') != company['as_of'] or fact.get('unit') != 'USD':
+            raise ValueError('Liquidity amounts require same-date reported USD evidence')
+        if fact.get('kind') not in kinds or not fact.get('label'):
+            raise ValueError('Liquidity amount must identify its category')
+        value = number(fact.get('value'))
+        ids = fact.get('source_ids', [])
+        if any(i not in sources for i in ids) or (value is not None and not ids):
+            raise ValueError('Liquidity amount requires linked evidence')
+        if fact.get('include_in_cash') is not False:
+            raise ValueError('Credit capacity and restricted balances cannot be added to cash')
+        fact['value'] = str(value) if value is not None else None
+
+    for fact in liquidity.get('excluded_balances', []):
+        if fact.get('kind') not in ('restricted_cash', 'restricted_investments'):
+            raise ValueError('Excluded balances must distinguish restricted cash and investments')
+        validate_fact(fact)
+    seen = set()
+    for facility in liquidity.get('facilities', []):
+        identity = facility.get('id', '')
+        if identity in seen or not re.fullmatch(r'[A-Za-z0-9:_-]+', identity):
+            raise ValueError('Facility identity must be unique within the company')
+        seen.add(identity)
+        if facility.get('as_of') != company['as_of']:
+            raise ValueError('Later financing cannot enter a prior liquidity snapshot')
+        if not all(facility.get(k) for k in ('name', 'scope', 'access_note', 'conditions')):
+            raise ValueError('Facility scope and access conditions must be explicit')
+        if not isinstance(facility['conditions'], list) or any(not isinstance(c, str) or not c.strip() for c in facility['conditions']):
+            raise ValueError('Facility conditions must be a list of explicit qualifications')
+        ids = facility.get('source_ids', [])
+        if not ids or any(i not in sources for i in ids):
+            raise ValueError('Facility terms require linked evidence')
+        for fact in facility.get('amounts', []):
+            validate_fact(fact)
+
+
 def validate_instrument(item, company, sources, cutoff):
     value = number(item.get('value'))
     if value is None or item.get('unit') != 'percent' or item.get('currency') != 'USD':
@@ -221,6 +273,7 @@ def build_directory(raw):
             'source_ids': sorted(set(debt.get('source_ids', []) + assets.get('source_ids', []))),
         }
         validate_context(company, sources)
+        validate_liquidity(company, sources)
     companies_by_id = {c['ticker']: c for c in result['companies']}
     note_ids = set()
     for item in result.get('instruments', []):
@@ -261,7 +314,7 @@ def build_directory(raw):
                 raise ValueError('Watchlist announcement is later than review cutoff')
             if transaction.get('outstanding_balance_usd') is not None:
                 raise ValueError('This watchlist contains announcements, not verified debt snapshots')
-    result.update(schema_version=2, metric_definitions=deepcopy(DEFINITIONS),
+    result.update(schema_version=3, metric_definitions=deepcopy(DEFINITIONS),
                   disclosure='Actual, dated source records. No synthetic financial inputs enter these rankings. '
                              'This is a curated research snapshot, not a live market feed or credit rating.')
     return result

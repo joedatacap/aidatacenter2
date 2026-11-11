@@ -148,7 +148,7 @@ the pre-correction 80 source IDs to 54 unique URLs: 47 have retained raw retriev
 receipts and six have web-text review. One presentation PDF could not be freshly
 retrieved. SEC follow-up did not substantiate its optional Digital Realty
 finance-lease amount, so that amount was changed to unknown and the unsupported
-PDF record removed. The current ledger has 79 source records across 53 unique
+PDF record removed. After that correction, the ledger had 79 source records across 53 unique
 URLs. The historical coverage map preserves the original reviewed hash and
 records the correction separately. This does not change the SEC-supported
 borrowing subtotal or imply the company has no finance leases.
@@ -158,3 +158,36 @@ linked announcements via web-text retrieval. Those receipts do not claim raw
 HTML hashes: direct HTTPS was blocked. Announced facility size and contractual
 rates remain separate from current debt balances, market yields and company
 credit ratings.
+
+
+## Cash, commitments and credit access
+
+Each company now has a separate, dated Cash & funding section, accessible from
+company evidence or a comparison. Reported cash is cash held by the company and
+its subsidiaries together; it is not a verified parent-only spending balance.
+Restricted cash and investments stay separate. No cash-to-debt health ranking or
+combined cash-plus-credit figure is introduced.
+
+The section includes 21 selected facilities with source-backed amounts and access
+conditions. A committed limit, a drawn loan, unused capacity and an amount the
+issuer explicitly calls available are different facts. Some commitments also
+support letters of credit, require collateral, depend on project completion or
+permit only specific equipment purchases. Even an explicitly available amount is
+not cash already in the bank. Company-wide available credit remains unknown
+because the selected disclosures do not establish a complete inventory.
+
+Important cases include IREN's conditional unfunded commitments, Hut 8's undrawn
+revolver with unquantified actual availability, TeraWulf's remaining LC-only
+headroom and precommencement cap, and Equinix's approximately $5.5B reported
+facility availability. Nscale's reported unused GPU/revolver capacity remains
+conditional and separate from cash. MARA's cash includes designated Exaion funds;
+Galaxy's group cash includes funds at financial counterparties. Later amendments,
+repayments and HIVE's subsequent supplier-escrow financing are excluded from the
+older snapshots. No unused amount is calculated by subtracting a debt carrying
+value from a commitment.
+
+[Liquidity integration review](DIRECTORY_LIQUIDITY_REVIEW.json) records source
+coverage and limitations. This pass adds 16 source records for specific liquidity
+facts; the ledger now has 95 records across the same 53 unique URLs. The earlier
+URL coverage map remains historical evidence, not a claim that every later
+interpretation has an exhaustive independent legal review.

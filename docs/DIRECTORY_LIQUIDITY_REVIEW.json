@@ -1,0 +1,179 @@
+{
+  "integrated_at": "2026-11-11T10:15:15.889563+00:00",
+  "canonical_path": "neocloud/data/debt_directory.json",
+  "canonical_sha256": "f48fb83017d72f6725088e776eb043cd30f44bf89ad7323f83f1a4357491e918",
+  "counts": {
+    "companies": 16,
+    "facilities": 21,
+    "excluded_balance_facts": 26,
+    "facility_amount_facts": 70,
+    "new_sources": 16
+  },
+  "validation": "build_directory invoked in memory successfully; preview/data.json and UI/tests/docs not written by this agent",
+  "new_source_ids": [
+    "liquidity-crwv-snapshot",
+    "liquidity-nbis-snapshot",
+    "liquidity-iren-snapshot",
+    "liquidity-btdr-snapshot",
+    "liquidity-hut-snapshot",
+    "liquidity-apld-snapshot",
+    "liquidity-corz-snapshot",
+    "liquidity-wulf-snapshot",
+    "liquidity-cifr-snapshot",
+    "liquidity-hive-snapshot",
+    "liquidity-glxy-snapshot",
+    "liquidity-riot-snapshot",
+    "liquidity-mara-snapshot",
+    "liquidity-eqix-snapshot",
+    "liquidity-dlr-snapshot",
+    "liquidity-nscale-snapshot"
+  ],
+  "all_company_credit_totals_unknown": true,
+  "known_limitations": [
+    "Selected facilities do not establish comprehensive company-wide available credit.",
+    "Availability remains subject to specific draw conditions, covenants, LC reservations and project use.",
+    "DLR yen and global aggregate drawn figures omitted to avoid unsupported assignment or FX summation.",
+    "EQIX reported availability is approximate and source-rounded.",
+    "Restricted balances unknown for HIVE and GLXY remain null; no zero inferred.",
+    "Cash represents company and subsidiaries, not a verified parent-only spendable wallet."
+  ],
+  "preserved_root_fix": "DLR optional finance lease value remains null and operating lease source note remains corrected.",
+  "review_scope": "Dated company cash qualifications and selected credit disclosures; not a complete credit inventory, investment recommendation or legal review.",
+  "source_methods": {
+    "cloud": "Nine fresh primary HTML retrievals with retained receipts and mechanically checked excerpts.",
+    "transition": "Five fresh primary 10-Q retrievals with accession-verified publication dates and numeric excerpts.",
+    "adjacent": "Five primary filings read via web; original-URL numeric passages and date/condition distinctions preserved.",
+    "nscale": "Retained primary S-1 and interim unused-capacity table reexamined; post-June events excluded."
+  },
+  "independent_crosscheck": {
+    "audit_time": "2026-11-11T10:17:50.008709+00:00",
+    "ledger_path": "/workspace/aidatacenter2/neocloud/data/debt_directory.json",
+    "ledger_sha256": "f48fb83017d72f6725088e776eb043cd30f44bf89ad7323f83f1a4357491e918",
+    "cutoff_date": "2026-11-11",
+    "status": "pass",
+    "material_issues": [],
+    "method": "Independently reopened primary evidence and compared final integrated ledger dates, amount kinds, conditions and rounding; financial snippets checked against fresh cached text except EQIX read directly through web. No tracked edits.",
+    "companies": [
+      {
+        "company": "WULF",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+        "publication_date": "2026-11-06",
+        "fresh_retrieval_method": "HTTP 200 primary SEC HTML, cached locally",
+        "exact_supporting_excerpts": [
+          "aggregate commitments of $ 250.0 million",
+          "borrowings and letters of credit outstanding under the Revolving Credit Facility were limited to $ 75.0 million in the aggregate.",
+          "issued letters of credit for an aggregate of $ 74.2 million",
+          "no borrowings were outstanding and the Company had $ 0.8 million of remaining available letter of credit capacity."
+        ],
+        "findings": [
+          "September $250M nominal commitment is constrained by a $75M combined borrowing/LC cap before First Commencement Date.",
+          "The explicitly disclosed $0.8M is remaining LC capacity, not cash availability. $74.2M LC issuance is accurately described in conditions.",
+          "October increase to $400M, $150M precommencement cap and $150M uncommitted accordion remain outside September metrics."
+        ],
+        "checked_fields": [
+          "commitment=250000000",
+          "lc_capacity=150000000 nominal sublimit",
+          "borrowing_cap=75000000",
+          "remaining lc_capacity=800000",
+          "drawn=0",
+          "reported_available=null",
+          "as_of=2026-09-30"
+        ],
+        "material_issues": []
+      },
+      {
+        "company": "EQIX",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+        "publication_date": "2026-10-28",
+        "fresh_retrieval_method": "web primary issuer filing; HTTP proxy blocked shell request without retry",
+        "exact_supporting_excerpts": [
+          "On July 27, 2026, we entered into a $5.5 billion senior unsecured multi-currency revolving credit facility",
+          "14 irrevocable letters of credit totaling $6 million issued and outstanding, with approximately $5.5 billion remaining available to borrow"
+        ],
+        "findings": [
+          "Primary issuer filing lines 1037 and 1052 support both nominal commitment and explicitly approximate remaining availability.",
+          "Do not subtract $6M to claim $5.494B exact availability: issuer reports approximate $5.5B and ledger preserves source rounding.",
+          "Null outstanding funded borrowings avoids inferring zero from rounded availability."
+        ],
+        "checked_fields": [
+          "commitment=5500000000",
+          "reported_available=5500000000 with approximately/source-rounded precision",
+          "letters_of_credit=6000000",
+          "drawn=null",
+          "as_of=2026-09-30"
+        ],
+        "material_issues": []
+      },
+      {
+        "company": "IREN",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "publication_date": "2026-11-05",
+        "fresh_retrieval_method": "HTTP 200 primary SEC HTML, cached locally",
+        "exact_supporting_excerpts": [
+          "Unfunded commitments of $1,132 million and $525 million, respectively, remained available subject to conditions precedent.",
+          "$ 1,500 million of commitment remained available",
+          "The financing was fully funded as of September 30, 2026,",
+          "the proceeds of $1,050 million (Tranches 2 and 3) were held in the escrow account at September 30, 2026 pending satisfaction of the release conditions."
+        ],
+        "findings": [
+          "Conditional DDTL/USPP/GPU2 remaining commitments match explicit September disclosures; none added to cash.",
+          "GPU3 correctly has no numeric unused amount and is explicitly described fully funded.",
+          "USPP funded restricted escrow remains overlapping restricted cash, not an additional undrawn commitment."
+        ],
+        "checked_fields": [
+          "DDTL unused_capacity=1132000000",
+          "USPP unused_capacity=525000000",
+          "GPU2 unused_capacity=1500000000",
+          "GPU3 unused_capacity=null; fully funded",
+          "company_available_credit=null"
+        ],
+        "material_issues": []
+      },
+      {
+        "company": "HUT",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+        "publication_date": "2026-11-04",
+        "fresh_retrieval_method": "HTTP 200 primary SEC HTML, cached locally",
+        "exact_supporting_excerpts": [
+          "providing for a $ 1.07 billion senior secured revolving credit facility",
+          "As of September 30, 2026, the Company had no outstanding borrowings.",
+          "In September 2026, the Company terminated the Two Prime Credit Agreement, under which $ 200.0 million of undrawn capacity had been available."
+        ],
+        "findings": [
+          "Zero September drawn borrowings is supported, while actual availability remains null.",
+          "LC sublimit is within nominal facility commitment and is not added to it.",
+          "Terminated Two Prime $200M is absent from active facility capacity; subsequent $3.9M LC is not spliced into September."
+        ],
+        "checked_fields": [
+          "commitment=1070000000",
+          "drawn=0",
+          "reported_available=null",
+          "lc_capacity=1070000000 overlapping",
+          "as_of=2026-09-30"
+        ],
+        "material_issues": []
+      }
+    ],
+    "access_limitations": [
+      {
+        "operation": "HTTP GET via httpx",
+        "target": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+        "result": "ProxyError 403 Forbidden",
+        "handling": "No retry or alternate shell route. Same primary issuer filing was already successfully opened through web; passages and line locations verified there."
+      }
+    ],
+    "nonblocking_observations": [
+      "Liquidity source excerpts in integrated ledger are numeric-token summaries; complete passages and context are preserved in this audit and source research candidates.",
+      "No cash-plus-credit total or company-wide available-credit claim is supported or created."
+    ]
+  },
+  "dlr_coupon_text_correction": "Removed stale claim that no reviewed USD note exists and removed drafting language. The sourced 4.45% July15,2028 note remains unchanged; UI/export regression checks added."
+}

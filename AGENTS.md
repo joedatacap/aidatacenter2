@@ -13,7 +13,11 @@ You are the **lead engineering agent** for this repository. Manage implementatio
   source ledger, validated/exported by `neocloud/directory.py` and
   `scripts/build_debt_preview.py`. Keep leases, dates, consolidated scope and
   convertible/project-note distinctions visible. Never turn coupon examples into
-  a company health or borrowing-cost ranking. The original synthetic lab is
+  a company health or borrowing-cost ranking. Cash & funding context is separate:
+  keep group cash, restricted balances, commitments, drawn loans, unused capacity
+  and explicitly reported availability distinct. No cash-plus-credit sum; selected
+  facilities do not establish a company-wide total. Preserve dates and access
+  conditions, including LC-only capacity and project restrictions. The original synthetic lab is
   preserved at `preview/scenarios/`; synthetic values must not enter actual ranks.
 
 - Read `README.md`, `HACKATHON_TASK.md`, `V2_FINANCING_RISK.md`, and GitHub Issues #1–#2 before major work. Inspect current branches, PRs, tests and the latest `main` before creating changes. Do not overwrite work in flight.

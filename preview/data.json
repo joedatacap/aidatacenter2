@@ -180,6 +180,46 @@
           "Lease exclusions correctly explain $649M finance and $18.697B operating obligations outside borrowing debt.",
           "Selected coupon and legal issuer verified, but current outstanding status requires a later per-instrument disclosure."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Restricted balances are excluded from the cash comparison; precise restrictions are not established by the reviewed abbreviated earnings release.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "1405000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-crwv-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Restricted balances are excluded from the cash comparison; precise restrictions are not established by the reviewed abbreviated earnings release."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "877000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-crwv-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Restricted balances are excluded from the cash comparison; precise restrictions are not established by the reviewed abbreviated earnings release."
+          }
+        ],
+        "facilities": [],
+        "notes": [
+          "The reviewed September earnings release does not quantify facility-level undrawn availability. Unknown does not mean zero. August facility and draw disclosures below are historical context only.",
+          "August facility/draw disclosures and forecast customer receipts do not establish September remaining capacity and are not added to the snapshot."
+        ]
       }
     },
     {
@@ -371,6 +411,46 @@
           "Notes accrete principal and have conversion options; coupon rank is not all-in financing-cost rank.",
           "Q3 results announced for November12; not yet in latest submissions."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-06-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Cash-flow reconciliation reports restricted cash separately. Other-assets tables locate $830.3m current and $225.7m noncurrent; the reviewed statements do not establish detailed restrictions for every balance.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "830300000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "liquidity-nbis-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Cash-flow reconciliation reports restricted cash separately. Other-assets tables locate $830.3m current and $225.7m noncurrent; the reviewed statements do not establish detailed restrictions for every balance."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "225700000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "liquidity-nbis-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Cash-flow reconciliation reports restricted cash separately. Other-assets tables locate $830.3m current and $225.7m noncurrent; the reviewed statements do not establish detailed restrictions for every balance."
+          }
+        ],
+        "facilities": [],
+        "notes": [
+          "No June 30 explicit unused-commitment amount verified in the reviewed primary financial statements. This is an evidence gap, not an assertion that credit facilities do not exist.",
+          "July secured financing postdates the June balance sheet and is excluded from June facility facts."
+        ]
       }
     },
     {
@@ -544,6 +624,255 @@
           "10,041M principal minus144M issuance costs equals9,897M carrying; lease liabilities separately excluded.",
           "Debt table effective interest rates3.87/4.22/0.37/0.45/1.18/7.09 are not contractual coupons.",
           "Explicit Q3 unchanged-terms statement supports linking annual terms to Q3 named outstanding balances."
+        ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. USPP escrow below overlaps these restricted balances, not additional cash.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "2208000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-iren-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. USPP escrow below overlaps these restricted balances, not additional cash."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "48000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-iren-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. USPP escrow below overlaps these restricted balances, not additional cash."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "IREN-facility-1",
+            "name": "GPU Financing 1.0 DDTL",
+            "borrower": "IE US Hardware 3, LLC",
+            "scope": "Financing SPV for Microsoft-related GPU infrastructure; classified non-recourse with limited specified parent guarantees, rather than general parent liquidity.",
+            "as_of": "2026-09-30",
+            "access_note": "Explicit unfunded commitment, conditional on conditions precedent; not immediately spendable cash.",
+            "conditions": [
+              "Draw/issuance conditions precedent apply; asset-backed project purpose. USPP proceeds are first restricted in escrow and released only after separate release conditions.",
+              "Availability is explicitly disclosed, not computed as commitment minus remaining principal. Amortization changes principal without restoring a term-loan commitment."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "1545000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Outstanding principal",
+                "kind": "drawn",
+                "value": "409000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Conditional unfunded commitment",
+                "kind": "unused_capacity",
+                "value": "1132000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              }
+            ],
+            "source_ids": [
+              "liquidity-iren-snapshot"
+            ]
+          },
+          {
+            "id": "IREN-facility-2",
+            "name": "GPU Financing 1.0 USPP senior notes",
+            "borrower": "IE US Hardware 3, LLC",
+            "scope": "Financing SPV for Microsoft-related GPU infrastructure; classified non-recourse with limited specified parent guarantees, rather than general parent liquidity.",
+            "as_of": "2026-09-30",
+            "access_note": "Explicit unfunded commitment, conditional on conditions precedent; not immediately spendable cash.",
+            "conditions": [
+              "Draw/issuance conditions precedent apply; asset-backed project purpose. USPP proceeds are first restricted in escrow and released only after separate release conditions.",
+              "Availability is explicitly disclosed, not computed as commitment minus remaining principal. Amortization changes principal without restoring a term-loan commitment.",
+              "USPP $1.05B funded proceeds in escrow already overlap restricted cash; not additional unfunded capacity or cash."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "2100000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Outstanding principal",
+                "kind": "drawn",
+                "value": "1571000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Conditional unfunded commitment",
+                "kind": "unused_capacity",
+                "value": "525000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              }
+            ],
+            "source_ids": [
+              "liquidity-iren-snapshot"
+            ]
+          },
+          {
+            "id": "IREN-facility-3",
+            "name": "GPU Financing 2.0",
+            "borrower": "IE Mackenzie Compute Ltd.",
+            "scope": "Canadian GPU equipment borrower, collateralized by financed equipment and guaranteed by IREN parent.",
+            "as_of": "2026-09-30",
+            "access_note": "Explicit remaining commitment; conditional draw funding rather than cash.",
+            "conditions": [
+              "Draws through December 31, 2026 subject to customary conditions precedent and relevant equipment acceptance; borrower/parent debt restrictions and cross-default provisions. Reported covenant compliance at snapshot."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "2447000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Outstanding principal",
+                "kind": "drawn",
+                "value": "947000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Conditional unfunded commitment",
+                "kind": "unused_capacity",
+                "value": "1500000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              }
+            ],
+            "source_ids": [
+              "liquidity-iren-snapshot"
+            ]
+          },
+          {
+            "id": "IREN-facility-4",
+            "name": "GPU Financing 3.0",
+            "borrower": "IE CA Leasing Ltd.",
+            "scope": "Canadian GPU equipment borrower, collateralized by financed equipment and guaranteed by IREN parent.",
+            "as_of": "2026-09-30",
+            "access_note": "Explicitly fully funded; no numeric available-balance assertion needed. Do not treat amortized principal as reborrowable capacity.",
+            "conditions": [
+              "36 equal monthly installments starting September 2026; equipment security and parent payment guarantee; cross-acceleration provisions."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "363000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Outstanding principal",
+                "kind": "drawn",
+                "value": "355000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-iren-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Conditional unfunded commitment",
+                "kind": "unused_capacity",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              }
+            ],
+            "source_ids": [
+              "liquidity-iren-snapshot"
+            ]
+          }
+        ],
+        "notes": [
+          "Three explicitly quantified conditional unfunded commitments verified; display separately by borrower/purpose, with no company cash-plus-credit sum."
         ]
       }
     },
@@ -736,6 +1065,45 @@
           "Digital-asset-settled related-party loan carrying amounts are affected by valuation/derivatives and differ from a simple cash principal notion.",
           "A zero cash repayment line cannot prove no conversion or noncash extinguishment; per-note current status remains unknown."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Restricted balances are excluded from the cash comparison; precise restrictions are not established by the reviewed abbreviated earnings release.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "43502000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-btdr-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Restricted balances are excluded from the cash comparison; precise restrictions are not established by the reviewed abbreviated earnings release."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "6453000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-btdr-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Restricted balances are excluded from the cash comparison; precise restrictions are not established by the reviewed abbreviated earnings release."
+          }
+        ],
+        "facilities": [],
+        "notes": [
+          "The reviewed September earnings release lists borrowing balances but does not establish same-date facility commitments or explicit undrawn availability. Unknown is not zero."
+        ]
       }
     },
     {
@@ -913,6 +1281,109 @@
           "Latest RiverBend issue-date statement differs from prior8K completiondate; not silently resolved.",
           "Per-note rounded costs cannot be forced to reconcile precisely to the98.185M aggregate cost adjustment."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Unused River Bend and Beacon Point note proceeds are held in restricted project accounts for campus development/construction and debt service. Restricted investments are separate from restricted cash.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash and cash equivalents",
+            "kind": "restricted_cash",
+            "value": "3555960000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-hut-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Unused River Bend and Beacon Point note proceeds are held in restricted project accounts for campus development/construction and debt service. Restricted investments are separate from restricted cash."
+          },
+          {
+            "label": "Restricted short-term investments",
+            "kind": "restricted_investments",
+            "value": "2838531000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-hut-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separate restricted investments; not cash and not added to restricted cash."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "HUT-facility-1",
+            "name": "Senior secured revolving credit facility",
+            "borrower": "Hut 8 Corp.",
+            "scope": "Parent revolving credit, guaranteed by certain subsidiaries; first-priority lien subject to exclusions. Not River Bend/Beacon Point SPV credit.",
+            "as_of": "2026-09-30",
+            "access_note": "Zero drawn borrowings; actual available balance not explicitly quantified in reviewed source. LC sublimit is part of, not additional to, total commitment.",
+            "conditions": [
+              "Borrow/reborrow through September 24, 2030. Covenants and events of default apply. Minimum-liquidity covenant begins quarter ending March 31, 2027: 40% of commitments before defined stabilization, then 25%."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "1070000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-hut-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Outstanding principal",
+                "kind": "drawn",
+                "value": "0",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-hut-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "Reported availability not established",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Source-reported amount; no commitment-minus-carrying calculation."
+              },
+              {
+                "label": "LC sublimit within facility commitment",
+                "kind": "lc_capacity",
+                "value": "1070000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-hut-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Sublimit overlaps the facility commitment; not cash draw availability."
+              }
+            ],
+            "source_ids": [
+              "liquidity-hut-snapshot"
+            ]
+          }
+        ],
+        "notes": [
+          "Revolver commitment and zero borrowings verified. Explicit actual September available balance not verified; do not equate commitment with availability.",
+          "Post-September letter-of-credit issuance is excluded from same-date facility amounts; zero borrowings does not establish unrestricted availability."
+        ]
       }
     },
     {
@@ -1080,6 +1551,107 @@
           "Three separate ComputeCo project issuers with named subsidiary guarantees/security plus parent completion support. Completion support is not a blanket debt-repayment guarantee. Parent2.75%convertible has different recourse.",
           "Gross debt-table balance6.721605B less separately deducted financing costs345.013M gives recorded borrowings6.376592B. The other-debt row is not independently reconciled to face principal, so no company-wide principal total is asserted."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-08-31",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Issuer calls the $2.9B cash-equivalent balance unrestricted, but it is consolidated, not a separately disclosed parent-only wallet. Separately restricted cash totals $728.034M, including $414.649M within other assets; debt service reserves and cash-secured LCs have specific uses. Debt proceeds, preferred equity and customer receipts contributed to existing cash; do not add their historical gross inflows to cash again.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "313385000",
+            "unit": "USD",
+            "as_of": "2026-08-31",
+            "source_ids": [
+              "liquidity-apld-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "414649000",
+            "unit": "USD",
+            "as_of": "2026-08-31",
+            "source_ids": [
+              "liquidity-apld-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "APLD-2026-revolver",
+            "name": "2026 Revolving Credit Facility",
+            "borrower": "APLD Intermediate HoldCo LLC",
+            "scope": "Borrower subsidiary, parent and named subsidiary guarantees; not a parent-only cash balance",
+            "as_of": "2026-08-31",
+            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "conditions": [
+              "Standby letters of credit consume facility capacity; approximately $241.0M were outstanding alongside $82.39M funded borrowings.",
+              "Additional advances remain subject to existing credit agreement terms, representations, security and applicable conditions.",
+              "No explicit same-date cash draw availability is stated here; do not label commitment minus funded loans alone as available cash."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "430000000",
+                "unit": "USD",
+                "as_of": "2026-08-31",
+                "source_ids": [
+                  "liquidity-apld-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Nominal committed limit; restrictions and reservations may reduce usable capacity."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "82390000",
+                "unit": "USD",
+                "as_of": "2026-08-31",
+                "source_ids": [
+                  "liquidity-apld-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Cash borrowing availability not established",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-08-31",
+                "source_ids": [],
+                "include_in_cash": false
+              },
+              {
+                "label": "Outstanding letters of credit",
+                "kind": "letters_of_credit",
+                "value": "241000000",
+                "unit": "USD",
+                "as_of": "2026-08-31",
+                "source_ids": [
+                  "liquidity-apld-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Consumes credit support capacity, not cash.",
+                "precision": "100000"
+              }
+            ],
+            "source_ids": [
+              "liquidity-apld-snapshot"
+            ]
+          }
+        ],
+        "notes": []
       }
     },
     {
@@ -1242,6 +1814,144 @@
         "notes": [
           "Project issuer Core Scientific Finance I LLC with guarantees by Austin,Denton,Dalton,Marble,Muskogee subsidiaries and secured collateral/ringfencing support; not all corporate debt at7.75%. Do not label unconditionally nonrecourse without reviewing parent collateral obligations."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Restricted cash is held in debt service reserve accounts and escrow for construction/development; excluded from cash and equivalents. Customer prepayments are recorded in deferred revenue and linked to colocation buildout obligations; do not count them again as incremental available capital. Published liquidity/DSRA includes restricted cash, digital assets and revolving availability and is not the unrestricted cash line.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "201745000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-corz-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "635858000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-corz-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "CORZ-2026-revolver",
+            "name": "Senior secured revolving credit facility",
+            "borrower": "Core Scientific, Inc.",
+            "scope": "Corporate borrower with material domestic subsidiary guarantees",
+            "as_of": "2026-09-30",
+            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "conditions": [
+              "Each borrowing requires market capitalization of at least $3B on the immediately preceding trading day.",
+              "Quarter-end minimum liquidity covenant is $150M, defined in the agreement using unrestricted cash and available undrawn revolving commitments.",
+              "The reported undrawn balance does not itself establish that all conditions for a new cash borrowing are met."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "100000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-corz-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Nominal committed limit; restrictions and reservations may reduce usable capacity."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "0",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-corz-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Cash borrowing availability not established",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false
+              }
+            ],
+            "source_ids": [
+              "liquidity-corz-snapshot"
+            ]
+          },
+          {
+            "id": "CORZ-2026-lc",
+            "name": "Senior secured letter of credit facility",
+            "borrower": "Core Scientific, Inc.",
+            "scope": "Corporate credit support for utility/project and other specified obligations",
+            "as_of": "2026-09-30",
+            "access_note": "Committed LC support; this facility does not provide cash borrowings.",
+            "conditions": [
+              "This is a separate LC facility, not a $500M general cash revolver.",
+              "Possible replacement of utility escrow with accepted LCs could release restricted cash later; release is conditional and not counted as cash already on hand."
+            ],
+            "amounts": [
+              {
+                "label": "LC-only committed limit",
+                "kind": "lc_capacity",
+                "value": "500000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-corz-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "LC support cannot be drawn as general cash."
+              },
+              {
+                "label": "Cash borrowing availability not established",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false
+              },
+              {
+                "label": "Outstanding letters of credit",
+                "kind": "letters_of_credit",
+                "value": "0",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-corz-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Consumes credit support capacity, not cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-corz-snapshot"
+            ]
+          }
+        ],
+        "notes": []
       }
     },
     {
@@ -1416,6 +2126,132 @@
         "notes": [
           "WULF Compute LLC7.75%project debt guaranteed by LaLupaData,AkelaDataHoldings,AkelaData; collateral and parent/ringfencing arrangements exist. Parent convertible notes have distinct recourse; tenantGooglebackstop does not blanket-guarantee corporate debt."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. $753.193M separately restricted cash is excluded; restrictions include contractual/project uses and utility support. Prepaid Core42 rent was received earlier and offsets future base-rent collections; it is not new unused cash credit. Cash and cash equivalents are consolidated; parent-only fungibility across subsidiaries/projects has not been established.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "486702000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-wulf-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "266491000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-wulf-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "WULF-2026-revolver",
+            "name": "Senior secured revolving credit facility",
+            "borrower": "TeraWulf Inc.",
+            "scope": "Corporate borrower with certain subsidiary guarantees; asset exclusions apply",
+            "as_of": "2026-09-30",
+            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "conditions": [
+              "As of September 30, both borrowings and LCs together were limited to $75M before the First Commencement Date.",
+              "The company issued $74.2M of LCs and expressly reported $0.8M remaining LC capacity; this is not a disclosure of $250M immediately drawable cash.",
+              "Minimum liquidity and other restrictive covenants apply; compliance at the snapshot does not guarantee later draws."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "250000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-wulf-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Nominal committed limit; restrictions and reservations may reduce usable capacity."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "0",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-wulf-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Cash borrowing availability not established",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false
+              },
+              {
+                "label": "LC sublimit within commitment",
+                "kind": "lc_capacity",
+                "value": "150000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-wulf-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Overlapping sublimit, not additive to committed limit."
+              },
+              {
+                "label": "Precommencement combined borrowings and LC cap",
+                "kind": "borrowing_cap",
+                "value": "75000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-wulf-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Restricts the headline commitment; not additional capacity."
+              },
+              {
+                "label": "Remaining LC capacity only",
+                "kind": "lc_capacity",
+                "value": "800000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-wulf-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "LC-only reported remaining amount; not cash draw availability."
+              }
+            ],
+            "source_ids": [
+              "liquidity-wulf-snapshot"
+            ]
+          }
+        ],
+        "notes": [
+          "October 2026 amendment raises commitments to $400M and the precommencement aggregate cap to $150M, and adds a $150M uncommitted accordion; not in the September snapshot."
+        ]
       }
     },
     {
@@ -1580,6 +2416,181 @@
         "notes": [
           "Three project issuers distinct from parent unsecured convertible issuer; customer credit backstops do not imply blanket parent debt guarantee."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. $2.196585B separately restricted cash is excluded from the $656.009M cash line. Project note proceeds and project restricted cash cannot be assumed freely available to corporate parent. Bitcoin and potential sales/financings are separate from existing cash and unused committed credit.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "1719403000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-cifr-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "477182000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-cifr-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separately classified restricted balances; excluded from cash and equivalents."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "CIFR-2026-revolver",
+            "name": "Revolving Credit Facility",
+            "borrower": "Cipher Digital Inc. (formerly Cipher Mining Inc.)",
+            "scope": "Parent borrower with subsidiary security/guarantees",
+            "as_of": "2026-09-30",
+            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "conditions": [
+              "Before first commencement of Barber Lake or Black Pearl operations, aggregate revolving borrowings are capped at $50M.",
+              "The $50M LC sublimit is part of the $200M commitment, not in addition; $40.6M LCs were outstanding.",
+              "Each borrowing also requires a specified minimum prior-day market capitalization; exact threshold was not supplied in this 10-Q passage.",
+              "Minimum liquidity covenant steps from $100M to $150M and $200M as projects commence.",
+              "The optional $50M accordion is excluded from current committed amount; no face-capacity arithmetic is represented as actual draw availability."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "200000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-cifr-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Nominal committed limit; restrictions and reservations may reduce usable capacity."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "0",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-cifr-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Cash borrowing availability not established",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false
+              },
+              {
+                "label": "Outstanding letters of credit",
+                "kind": "letters_of_credit",
+                "value": "40600000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-cifr-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Consumes credit support capacity, not cash.",
+                "precision": "100000"
+              },
+              {
+                "label": "LC sublimit within commitment",
+                "kind": "lc_capacity",
+                "value": "50000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-cifr-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Overlapping sublimit, not additive to committed limit."
+              },
+              {
+                "label": "Precompletion cash borrowing cap",
+                "kind": "borrowing_cap",
+                "value": "50000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-cifr-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Restricts the headline commitment; not additional capacity."
+              }
+            ],
+            "source_ids": [
+              "liquidity-cifr-snapshot"
+            ]
+          },
+          {
+            "id": "CIFR-coinbase-overnight",
+            "name": "Coinbase Overnight Credit Facility",
+            "borrower": "Cipher Digital Inc. (company as described in filing; separate legal agreement borrower not re-reviewed)",
+            "scope": "Bitcoin-collateralized overnight/on-demand borrowing",
+            "as_of": "2026-09-30",
+            "access_note": "Capacity has not been established; credit review and collateral requirements apply.",
+            "conditions": [
+              "Capacity is to be determined and subject to credit review; no fixed committed unused dollar amount established.",
+              "Borrowings require bitcoin collateral transferred to the lending service provider platform.",
+              "No amount was drawn at the snapshot; undrawn does not imply a quantified guaranteed credit line."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Nominal committed limit; restrictions and reservations may reduce usable capacity."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "0",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-cifr-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Cash borrowing availability not established",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false
+              }
+            ],
+            "source_ids": [
+              "liquidity-cifr-snapshot"
+            ]
+          }
+        ],
+        "notes": []
       }
     },
     {
@@ -1774,6 +2785,31 @@
         "notes": [
           "Exchangeable notes issued by HIVE Bermuda2026Ltd., unsecured and guaranteed by HIVE Digital Technologies Ltd.; equity exchange rights create different economics from straight project-secured notes."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. The financial statement reports cash of $138.990M; no separate restricted cash balance was identified in this canonical balance sheet. This is not an assertion that every dollar is free parent cash. No quantified unused committed cash credit line was established in the September snapshot. The subsequently announced BUZZ financing is earmarked supplier escrow, not September parent liquidity.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash total not separately established",
+            "kind": "restricted_cash",
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [],
+            "include_in_cash": false,
+            "basis": "No separately identified total is not evidence of zero restrictions."
+          }
+        ],
+        "facilities": [],
+        "notes": [
+          "Subsequent BUZZ GPU financing and supplier escrow are excluded from September facility amounts."
+        ]
       }
     },
     {
@@ -1928,6 +2964,127 @@
           "The source's contractual loan/collateral table is5166293000 versus5166294000 from the separately rounded carrying-category sums; retain source categories and note the1000 difference instead of forcing a reconciled headline.",
           "Separately reported financing categories: notes payable carrying6.748432B; fiat loans210.478M; digital assets borrowed2.343597B; collateral payable2.612219B. These are not added into an industrial borrowing rank."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Consolidated GAAP cash includes $366.3M short Treasury equivalents, but excludes separately classified stablecoins, crypto and investments. $520.6M at brokers; $56.2M on trading platforms. Parent freely deployable amount unknown; project distributions constrained. Trading loans callable on demand. Do not deduct or add counterparties mechanically.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash total not separately established",
+            "kind": "restricted_cash",
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [],
+            "include_in_cash": false,
+            "basis": "Not part of the reported cash comparison; unknown does not mean zero."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "GLXY-facility-1",
+            "name": "Helios I construction loan",
+            "borrower": "Galaxy Helios I LLC",
+            "scope": "Dickens County project",
+            "as_of": "2026-09-30",
+            "access_note": "Conditional project capacity; approximate $100M difference is not explicitly available",
+            "conditions": [
+              "Construction uses; covenants including loan/cost and post-stabilization coverage; GDH LP completion guarantee"
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "1400000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-glxy-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "1300000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-glxy-snapshot"
+                ],
+                "include_in_cash": false,
+                "precision": "Approximately $1.3B, source-rounded"
+              },
+              {
+                "label": "Explicit remaining availability",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-glxy-snapshot"
+            ]
+          },
+          {
+            "id": "GLXY-facility-2",
+            "name": "Trading/lending fiat borrowings",
+            "borrower": "Not separately verified",
+            "scope": "Financial-services business",
+            "as_of": "2026-09-30",
+            "access_note": "No committed unused capacity established",
+            "conditions": [
+              "Typically collateralized; callable on demand"
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "210478000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-glxy-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Explicit remaining availability",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-glxy-snapshot"
+            ]
+          }
+        ],
+        "notes": []
       }
     },
     {
@@ -2092,6 +3249,195 @@
         ],
         "notes": [
           "Consolidated parent and subsidiaries, including project borrowing. The 573M facility is non-recourse to the parent and non-credit-party affiliates subject to customary exceptions; that does not remove it from consolidated debt. Facility commitment 573M is not the 20.848M drawn principal."
+        ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Excludes restricted cash and bitcoin. $50M and $20M revolvers require cash control accounts, so capacity is not incremental unsecured cash.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash separately reported",
+            "kind": "restricted_cash",
+            "value": "79170000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-riot-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Not part of the reported cash comparison; unknown does not mean zero."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "RIOT-facility-1",
+            "name": "$50M revolver",
+            "borrower": "Riot Platforms, Inc.",
+            "scope": "General corporate",
+            "as_of": "2026-09-30",
+            "access_note": "Explicit available capacity verified",
+            "conditions": [
+              "Cash collateral; $15.171M letters of credit also consume capacity"
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "50000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "34272000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Explicit remaining availability",
+                "kind": "reported_available",
+                "value": "557000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash."
+              },
+              {
+                "label": "Outstanding letters of credit",
+                "kind": "letters_of_credit",
+                "value": "15171000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Credit-support reservations; not cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-riot-snapshot"
+            ]
+          },
+          {
+            "id": "RIOT-facility-2",
+            "name": "$20M revolver",
+            "borrower": "Riot Platforms, Inc.",
+            "scope": "General corporate",
+            "as_of": "2026-09-30",
+            "access_note": "Fully drawn; calculated unused zero, not additional liquidity",
+            "conditions": [
+              "Cash collateral"
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "20000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "20000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Explicit remaining availability",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-riot-snapshot"
+            ]
+          },
+          {
+            "id": "RIOT-facility-4",
+            "name": "$573M delayed-draw equipment loan",
+            "borrower": "Riot DC Logistics, LLC",
+            "scope": "Rockdale project",
+            "as_of": "2026-09-30",
+            "access_note": "Conditional project commitment; do not treat difference as explicit availability",
+            "conditions": [
+              "Availability period and project uses; nonrecourse except Credit Parties/customary exceptions; maturity December 31, 2026"
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "573000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "20848000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-riot-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Explicit remaining availability",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-riot-snapshot"
+            ]
+          }
+        ],
+        "notes": [
+          "$200M Coinbase facility: Terminated; exclude from available credit. Not counted as current unused credit."
         ]
       }
     },
@@ -2259,6 +3605,84 @@
         ],
         "notes": [
           "Consolidated group including acquired operating subsidiaries. Starwood sites had not met the contribution conditions and remained in MARA operations at quarter-end; anticipated future non-recourse JV financing is not an outstanding debt balance."
+        ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Excludes bitcoin and restricted cash. Approximately 11% of cash is euros at majority-owned Exaion, contractually designated for its next-year operations; not unrestricted parent cash.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash separately reported",
+            "kind": "restricted_cash",
+            "value": "12000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-mara-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Not part of the reported cash comparison; unknown does not mean zero."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "MARA-facility-1",
+            "name": "Bitcoin collateralized loans",
+            "borrower": "MARA Holdings, Inc.",
+            "scope": "Corporate collateralized borrowing",
+            "as_of": "2026-09-30",
+            "access_note": "No unused capacity from these facilities",
+            "conditions": [
+              "Collateral margin calls/default liquidation; two facilities fully drawn at snapshot",
+              "Both facilities fully drawn at snapshot; later repayment does not establish restored revolving capacity."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "750000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-mara-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": "750000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-mara-snapshot"
+                ],
+                "include_in_cash": false
+              },
+              {
+                "label": "Explicit remaining availability",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-mara-snapshot"
+            ]
+          }
+        ],
+        "notes": [
+          "Post-quarter $750M repayment is separate; no inference that repayment restores revolving capacity. ATM equity capacity excluded."
         ]
       }
     },
@@ -2434,6 +3858,94 @@
         "notes": [
           "Consolidated company and controlled subsidiaries. Equity-method xScale/other JV borrowing is not grossed into consolidated debt. The separately disclosed 56M maximum future payments under debt guarantees of unconsolidated VIEs is contingent exposure, not current principal; do not add it to the ranking numerator. Assets retain equity-method investment carrying values rather than a pro-rata gross asset reconstruction."
         ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Consolidated cash excludes $36M restricted cash and separately reported short-term investments. No parent-only freely transferable cash amount established.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash separately reported",
+            "kind": "restricted_cash",
+            "value": "36000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-eqix-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Not part of the reported cash comparison; unknown does not mean zero."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "EQIX-facility-1",
+            "name": "2026 multicurrency revolver",
+            "borrower": "Equinix, Inc.",
+            "scope": "Corporate senior unsecured",
+            "as_of": "2026-09-30",
+            "access_note": "Issuer explicitly reports approximately $5.5B remaining available",
+            "conditions": [
+              "Quarterly financial-ratio covenants; $6M letters of credit; available amount rounded"
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "5500000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-eqix-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false
+              },
+              {
+                "label": "Issuer-reported approximate remaining availability",
+                "kind": "reported_available",
+                "value": "5500000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-eqix-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash.",
+                "precision": "Approximately $5.5B, source-rounded; not dollar precision"
+              },
+              {
+                "label": "Outstanding letters of credit",
+                "kind": "letters_of_credit",
+                "value": "6000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-eqix-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Credit-support reservations; not cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-eqix-snapshot"
+            ]
+          }
+        ],
+        "notes": []
       }
     },
     {
@@ -2534,7 +4046,7 @@
               "deep-adj-DLR"
             ]
           },
-          "note": "Historical fixed cash coupon of one long-issued unsecured OP bond with parent guarantee; not today's market yield, refinancing offer or weighted company debt cost. This example can fill the current unreviewed-coupon slot, with explicit vintage and scope. Named guarantor: Digital Realty Trust, Inc..",
+          "note": "Selected USD note issued by Digital Realty Trust, L.P. and guaranteed by Digital Realty Trust, Inc. The 4.45% coupon is a contract term, not current market yield, a refinancing offer or the company’s overall borrowing cost.",
           "market_yield": null,
           "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
           "instrument_id": "ADJ-DLR-SELECTED",
@@ -2555,7 +4067,7 @@
       "notes": [
         "Data-center landlord/REIT, not pure GPU cloud; compare in separate business group.",
         "Issuer's reported 5.2x net-debt/Adjusted EBITDA has JV and finance-lease adjustments; do not substitute it for a harmonized debt/assets measure.",
-        "Latest release describes October euro/Swiss-franc bonds; no independently reviewed USD fixed-note selection is provided here."
+        "The reviewed USD example is the 4.45% note due July 15, 2028. It is one instrument, not a complete inventory of company borrowing."
       ],
       "source_ids": [
         "dlr-balance",
@@ -2606,6 +4118,82 @@
         ],
         "notes": [
           "Digital Realty Trust, Inc. and consolidated subsidiaries, including Digital Realty Trust, L.P. operating partnership; parent and OP statements must not be added together. Excludes 2131287000 pro-rata unconsolidated JV debt used by issuer's adjusted leverage metric. Some former JV properties became consolidated in June2026; current-quarter consolidated scope incorporates those acquisitions without adding back old pro-rata balances."
+        ]
+      },
+      "liquidity": {
+        "as_of": "2026-09-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Consolidated cash excludes restricted capex/deposit cash. Do not add parent and Operating Partnership balances or pro-rata JV cash.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash separately reported",
+            "kind": "restricted_cash",
+            "value": "3448000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "liquidity-dlr-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Not part of the reported cash comparison; unknown does not mean zero."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "DLR-facility-1",
+            "name": "Global Revolving Credit Facility (separate yen facility omitted)",
+            "borrower": "Digital Realty Trust, L.P. (Operating Partnership)",
+            "scope": "Corporate/OP; parent-guaranteed global facility; separate yen facility excluded",
+            "as_of": "2026-09-30",
+            "access_note": "USD $4.2B global facility commitment only; selected separate yen amounts and combined commitment sums are omitted. Remaining availability not established at September30.",
+            "conditions": [
+              "Currency fluctuations; financial coverage/unencumbered-asset covenants; $1.8B accordion requires new lender commitments",
+              "No analyst sum with FX-dependent yen facility. Consolidated borrowing balances do not provide a matching facility-specific drawn principal. Later October availability excluded."
+            ],
+            "amounts": [
+              {
+                "label": "Committed facility limit",
+                "kind": "commitment",
+                "value": "4200000000",
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [
+                  "liquidity-dlr-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Source-reported limit; not cash or proven remaining availability."
+              },
+              {
+                "label": "Outstanding funded borrowings",
+                "kind": "drawn",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false
+              },
+              {
+                "label": "Explicit remaining availability",
+                "kind": "reported_available",
+                "value": null,
+                "unit": "USD",
+                "as_of": "2026-09-30",
+                "source_ids": [],
+                "include_in_cash": false,
+                "basis": "Subject to disclosed conditions; not incremental cash."
+              }
+            ],
+            "source_ids": [
+              "liquidity-dlr-snapshot"
+            ]
+          }
+        ],
+        "notes": [
+          "October 27 approximately $4B available disclosure is later-dated; do not substitute into September 30 snapshot."
         ]
       }
     },
@@ -2751,6 +4339,119 @@
         "notes": [
           "Borrowings exclude $6.4926bn of deferred customer revenue with a significant financing component and $2.6254bn of operating lease liabilities. A low borrowing/assets ratio does not mean low overall financing obligations or good financial health.",
           "Reported contractual maturity schedule136.9M versus recorded borrowings137.4M leaves0.5M unexplained; no invented fee bridge."
+        ]
+      },
+      "liquidity": {
+        "as_of": "2026-06-30",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash excludes $614.7M restricted cash. Restricted balances primarily include long-term lease escrow. Customer prepayments fund obligations; do not treat $6.4926B deferred revenue or unused facilities as additional cash.",
+        "company_available_credit": {
+          "value": null,
+          "unit": "USD",
+          "note": "Selected facilities are incomplete and subject to conditions; a company-wide available-credit total is not established. Do not add cash and capacity."
+        },
+        "excluded_balances": [
+          {
+            "label": "Restricted cash, current",
+            "kind": "restricted_cash",
+            "value": "44400000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "liquidity-nscale-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Included within prepaid/other current assets; excluded from cash and cash equivalents."
+          },
+          {
+            "label": "Restricted cash, noncurrent",
+            "kind": "restricted_cash",
+            "value": "570300000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "liquidity-nscale-snapshot"
+            ],
+            "include_in_cash": false,
+            "basis": "Separate noncurrent restricted cash; excluded from cash and cash equivalents."
+          }
+        ],
+        "facilities": [
+          {
+            "id": "NSCALE-GPU-UNUSED",
+            "name": "GPU facility: reported unused capacity",
+            "borrower": "Nscale Services UK Limited",
+            "scope": "Current source-reported facility; Nscale Services UK Limited facility",
+            "as_of": "2026-06-30",
+            "access_note": "Source table explicitly reports unused capacity; do not calculate capacity minus carrying debt. GPU infrastructure capex and related costs only; borrowing conditions apply.",
+            "conditions": [
+              "Draw conditions, covenants and purpose restrictions apply.",
+              "Reported unused capacity is not a freely transferable cash balance."
+            ],
+            "amounts": [
+              {
+                "label": "Source-reported unused borrowing capacity",
+                "kind": "unused_capacity",
+                "value": "1363100000",
+                "unit": "USD",
+                "as_of": "2026-06-30",
+                "source_ids": [
+                  "liquidity-nscale-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Explicit unused-capacity table; no subtraction from carrying debt."
+              }
+            ],
+            "source_ids": [
+              "liquidity-nscale-snapshot"
+            ]
+          },
+          {
+            "id": "NSCALE-RCF-UNUSED",
+            "name": "Revolver: reported unused capacity",
+            "borrower": "Nscale Global Holdings Limited (June borrower; later assigned to Nscale Limited)",
+            "scope": "Current source-reported facility; Revolving credit facility, consolidated group",
+            "as_of": "2026-06-30",
+            "access_note": "Interim note expressly reports June upsize and undrawn June30 facility. Subject to covenants/security terms and $200m letter-of-credit sublimit. Not verified as immediately drawable net-of-LC cash.",
+            "conditions": [
+              "Draw conditions, covenants and purpose restrictions apply.",
+              "Reported unused capacity is not a freely transferable cash balance."
+            ],
+            "amounts": [
+              {
+                "label": "Source-reported unused borrowing capacity",
+                "kind": "unused_capacity",
+                "value": "900000000",
+                "unit": "USD",
+                "as_of": "2026-06-30",
+                "source_ids": [
+                  "liquidity-nscale-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Explicit unused-capacity table; no subtraction from carrying debt."
+              },
+              {
+                "label": "LC sublimit within revolver commitment",
+                "kind": "lc_capacity",
+                "value": "200000000",
+                "unit": "USD",
+                "as_of": "2026-06-30",
+                "source_ids": [
+                  "liquidity-nscale-snapshot"
+                ],
+                "include_in_cash": false,
+                "basis": "Not additive to the unused facility amount."
+              }
+            ],
+            "source_ids": [
+              "liquidity-nscale-snapshot"
+            ]
+          }
+        ],
+        "notes": [
+          "Source unused-capacity total $2.2631B is the overlapping total of the displayed GPU and revolving rows plus zero Macquarie unused capacity; do not add the total again.",
+          "Interim actual June table and narrative report June revolver upsize; an annual subsequent-events paragraph says July. The actual interim June snapshot is used.",
+          "Post-June draws, project facilities and pre-IPO financing are excluded from June amounts.",
+          "Nscale remains private pending IPO; low loan balances do not negate substantial customer financing and lease obligations."
         ]
       }
     }
@@ -3567,6 +5268,166 @@
       "retrieved_at": "2026-11-11",
       "source_unit": "contractual dates",
       "excerpt": "“Issue Date” means September 15, 2025.; “Maturity Date” means September 15, 2032."
+    },
+    {
+      "id": "liquidity-crwv-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "title": "CRWV liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "$ 4,122; $ 3,127; 1,405; 819; 877; 184",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "liquidity-nbis-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "title": "NBIS liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "1,679.3; 8,042.1; 74.5; 1,056.0; 6.8; 830.3; 36.7; 225.7",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "liquidity-iren-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "IREN liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "$ 3,522; $ 5,896; 2,208; 1,670; 48; 54; $1,545; $2,100; 31,; 2031; 7.22; 409; 413; 7.09; 1,571; 525; $1,132; $525; 2.0; 25,; 2026; 9.00; $ 2,447; 30,; 2026,; $ 947; $ 1,500; 3.0; 26,; 9.51; $ 363; 2029; 10.38; 355",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "liquidity-btdr-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+      "title": "BTDR liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "163,743; 149,352; 43,502; 22,366; 6,453; 6,159",
+      "source_unit": "USD thousands; facility narratives USD billions"
+    },
+    {
+      "id": "liquidity-hut-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "HUT liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "$ 156,865; $ 44,914; 3,555,960; 2,373; $ 1.07; 30,; 2026,; 2,838,531",
+      "source_unit": "USD thousands; facility narratives USD billions"
+    },
+    {
+      "id": "liquidity-apld-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "title": "APLD liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "2,949,909; 313,385; 414,649; debt service reserves; 430.0 million; 82,390; 241.0 million; subject to the existing terms and conditions; APLD Intermediate HoldCo LLC",
+      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+    },
+    {
+      "id": "liquidity-corz-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "title": "CORZ liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "803,941; 201,745; 635,858; 100.0 million; no outstanding borrowings; minimum market capitalization; 3,000.0 million; 150.0 million; 500.0 million; no outstanding letters of credit",
+      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+    },
+    {
+      "id": "liquidity-wulf-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "WULF liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "1,602,127; 486,702; 266,491; 250.0 million; 75.0 million; 74.2 million; 0.8 million; Prior to the First Commencement Date; no borrowings were outstanding",
+      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+    },
+    {
+      "id": "liquidity-cifr-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "title": "CIFR liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "656,009; 1,719,403; 477,182; 200.0 million; 50.0 million; 40.6 million; no revolving borrowings outstanding; market capitalization; capacity to be determined, subject to credit review; nothing drawn",
+      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+    },
+    {
+      "id": "liquidity-hive-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+      "title": "HIVE liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "138,990",
+      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+    },
+    {
+      "id": "liquidity-glxy-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+      "title": "GLXY liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cash and cash equivalents; 1,324,759; up to $1.4 billion; $1.3 billion; 210,478; Galaxy Helios I LLC; callable on demand",
+      "source_unit": "USD thousands or millions as stated in filing"
+    },
+    {
+      "id": "liquidity-riot-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "title": "RIOT liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cash and cash equivalents; 669,052; Restricted cash; 79,170; 50,000; 34,272; 15,171; Total available capacity; 557; 20,000; $573.0 million; $20.8 million principal; terminated",
+      "source_unit": "USD thousands or millions as stated in filing"
+    },
+    {
+      "id": "liquidity-mara-snapshot",
+      "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm",
+      "title": "MARA liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cash and cash equivalents; 946,545; 12,000; $750.0 million; fully drew on both facilities; Approximately 11%; contractually designated",
+      "source_unit": "USD thousands or millions as stated in filing"
+    },
+    {
+      "id": "liquidity-eqix-snapshot",
+      "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "title": "EQIX liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-28",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cash and cash equivalents; 2,362; 1; 35; approximately $5.5 billion remaining available to borrow; totaling $6 million",
+      "source_unit": "USD thousands or millions as stated in filing"
+    },
+    {
+      "id": "liquidity-dlr-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "title": "DLR liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-30",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cash and cash equivalents; 802,903; Restricted cash; 3,448; up to $4.2 billion equivalent; $100.8 million; subject to receipt of lender commitments",
+      "source_unit": "USD thousands or millions as stated in filing"
+    },
+    {
+      "id": "liquidity-nscale-snapshot",
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "title": "NSCALE liquidity: cash restrictions and selected facility disclosures",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-09-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Cash 1,478.4; restricted 44.4 and 570.3; unused capacity 1,363.1 and 900.0; total 2,263.1",
+      "source_unit": "USD millions"
     }
   ],
   "selection_policy": "Curated operators with public primary financial disclosures. Sixteen historical comparison records include listed companies and one private IPO applicant; three additional private operators are an unranked coverage watchlist. Not an exhaustive market census.",
@@ -5223,7 +7084,7 @@
           "deep-adj-DLR"
         ]
       },
-      "note": "Historical fixed cash coupon of one long-issued unsecured OP bond with parent guarantee; not today's market yield, refinancing offer or weighted company debt cost. This example can fill the current unreviewed-coupon slot, with explicit vintage and scope. Named guarantor: Digital Realty Trust, Inc..",
+      "note": "Selected USD note issued by Digital Realty Trust, L.P. and guaranteed by Digital Realty Trust, Inc. The 4.45% coupon is a contract term, not current market yield, a refinancing offer or the company’s overall borrowing cost.",
       "market_yield": null,
       "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
       "rankable": true
@@ -5446,7 +7307,7 @@
     "baseline_commit": "079fd8e",
     "scope": "Independent reopening of15 baseline balance disclosures and44 numeric fields; separate NscaleS1 review. Not a statutory audit or independent verification of every note source."
   },
-  "schema_version": 2,
+  "schema_version": 3,
   "metric_definitions": {
     "debt": {
       "title": "Recorded borrowings",
