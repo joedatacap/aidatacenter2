@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "neocloud-debt-preview",
+  "compatibility_date": "2026-10-17",
+  "assets": {
+    "directory": "./work/cloudflare-preview",
+    "not_found_handling": "404-page"
+  }
+}

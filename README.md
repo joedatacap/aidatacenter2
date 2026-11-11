@@ -2,6 +2,46 @@
 
 **Which AI infrastructure companies survive higher rates?**
 
+## Instant read-only MVP preview
+
+The polished, credential-free preview lives in `preview/`. It opens with a complete
+CRWV/HUT scenario rather than empty panels. Five company labels, three credit
+scenarios, four benchmark shocks, 12/18-month horizons, shareable URL state,
+comparison downloads and a separate historical HUT source ledger work entirely
+in the browser. All comparison figures are explicitly **synthetic teaching
+assumptions**, not company forecasts or current market data. Historical project
+references do not enter those synthetic calculations. The original research app
+and financial engine remain intact.
+
+```sh
+npm run preview
+# Open http://localhost:8000
+```
+
+No database, API keys or inference calls are needed. This static server serves
+only `preview/`; it does not expose the unauthenticated FastAPI endpoints.
+To regenerate the checked-in scenario data with the unchanged Python engine:
+
+```sh
+python scripts/build_preview.py
+python -m pytest -q
+npm ci
+npx playwright install chromium
+npm run test:preview
+# For an already installed Chromium:
+# PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:preview
+npm run deploy:dry-run
+```
+
+`wrangler.jsonc` prepares a standalone Cloudflare Static Assets preview. For the
+preferred `/neoclouddebt/` path, `npm run deploy:subpath:dry-run` mirrors assets in
+`work/cloudflare-preview/neoclouddebt/`; relative URLs are tested at that prefix.
+Neither config contains account IDs, custom-domain routes, secrets or paid
+bindings. **No public deployment is performed by these commands.** Verify the
+Cloudflare account/Free plan, zone and existing route ownership before deploying
+or assigning a narrow `/neoclouddebt*` route; preserve the existing AIDC site.
+See [MVP preview validation](docs/MVP_PREVIEW.md) for scope and limitations.
+
 FastAPI research application for **CRWV, NBIS, IREN, BTDR and HUT**, with a Crusoe research manager, evidence ledger, rate scenarios and visible agent history. Bitdeer combines Bitcoin mining, ASIC manufacturing and emerging AI/HPC activity; it is not treated as a pure-play GPU cloud. The V2 financing engine implements [V2_FINANCING_RISK.md](V2_FINANCING_RISK.md) while preserving the V1 ledger, APIs and Postgres interface.
 
 ## V2 financing dashboard
