@@ -1,6 +1,6 @@
 # Read-only preview and preserved scenario lab
 
-The default preview now opens the **15-company source-backed borrowing
+The default preview now opens the **16-company source-backed borrowing
 directory**, described in [DEBT_DIRECTORY.md](DEBT_DIRECTORY.md). The synthetic
 five-company lab documented below is preserved separately at `/scenarios/` and
 in `work/NeoCloud-Scenario-Lab.html`. Its assumptions never enter actual ranks.
@@ -62,7 +62,7 @@ live Crusoe investigation or actual Neon persistence is claimed for this build.
 
 ## Verification
 
-- Python suite, including directory validation and exported-case parity: 91 passed; 3 dedicated TLS
+- Python suite, including directory validation and exported-case parity: 104 passed; 3 dedicated TLS
   Postgres integration tests skipped without a disposable `TEST_DATABASE_URL`.
 - Chromium desktop/mobile interaction tests cover scenarios, horizon/shock changes,
   all company labels, swaps, reset, URL restoration, provenance, downloads,
@@ -83,4 +83,7 @@ Review fixes also validate inherited object names (`__proto__`, `constructor`,
 to supported tickers. Small eyebrow labels now have at least 5.04:1 contrast on
 their actual backgrounds. Keyboard focus outlines use different colors on light
 content and dark header/footer backgrounds; tests require at least 3:1 contrast
-and a visible 3px outline. All 14 desktop/mobile browser checks pass locally.
+and a visible 3px outline. The complete suite now covers 46 desktop/mobile browser checks across both apps.
+Directory checks include three-company comparisons, nested-dialog focus, note
+type/status filters, stable cohort ranks during search, principal/lease context,
+private-issuer labels and the unranked private-operator coverage watchlist.

@@ -7,14 +7,16 @@ from copy import deepcopy
 from datetime import date
 from decimal import Decimal, InvalidOperation
 from urllib.parse import urlparse
+import calendar
+import re
 
 BORROWING_BASIS = 'carrying_value_excluding_all_leases'
 GROUPS = {'gpu_cloud', 'ai_transition', 'bitcoin_mining', 'data_center_reit'}
 DEFINITIONS = {
     'debt': {
-        'title': 'Reported borrowings',
-        'description': 'How much the company owes on loans and notes, as recorded in its balance sheet.',
-        'formula': 'Current borrowing carrying amount + noncurrent borrowing carrying amount',
+        'title': 'Recorded borrowings',
+        'description': 'The amount recorded for loans and notes. Discounts and fees can make this lower than the principal due.',
+        'formula': 'Short-term + long-term recorded borrowings, excluding leases',
         'caveat': 'USD carrying values exclude operating and finance leases, which are real obligations. Larger companies can have more debt without being less healthy. Project debt can be nonrecourse to the parent.',
     },
     'debt_assets': {
@@ -47,6 +49,87 @@ def number(value):
     return result
 
 
+def validate_context(company, sources):
+    """Optional same-date explanatory facts never change the ranking numerator."""
+    context = company.get('debt_context')
+    if not context:
+        return
+    for bridge in context.get('bridges', []):
+        if bridge['as_of'] != company['as_of']:
+            raise ValueError('Principal bridge must match the financial snapshot date')
+        if bridge.get('unit') != 'USD':
+            raise ValueError('Principal bridges require dated reported USD values')
+        if not bridge.get('source_ids') or any(i not in sources for i in bridge['source_ids']):
+            raise ValueError('Principal bridge requires linked evidence')
+        principal, carrying = number(bridge.get('principal')), number(bridge.get('carrying'))
+        if bridge.get('complete_company_scope'):
+            if bridge.get('scope') != 'consolidated_borrowings' or principal is None or carrying is None:
+                raise ValueError('A complete principal bridge requires consolidated borrowing scope')
+            if carrying != number(company['metrics']['debt']['value']):
+                raise ValueError('Complete bridge does not match recorded company borrowings')
+        if bridge.get('scope') == 'consolidated_carrying_only':
+            if principal is not None or carrying != number(company['metrics']['debt']['value']):
+                raise ValueError('Carrying-only context must preserve unknown principal and match the recorded balance')
+        bridge['principal'] = str(principal) if principal is not None else None
+        bridge['carrying'] = str(carrying) if carrying is not None else None
+        bridge['difference'] = str(principal - carrying) if principal is not None and carrying is not None else None
+    for lease in context.get('leases', []):
+        value = number(lease.get('value'))
+        if value is not None:
+            if lease.get('unit') != 'USD' or lease.get('as_of') != company['as_of']:
+                raise ValueError('Excluded lease balances need the same date and USD units')
+            if not lease.get('source_ids') or any(i not in sources for i in lease['source_ids']):
+                raise ValueError('Excluded lease balances require evidence')
+            lease['value'] = str(value)
+
+
+def maturity_end(value):
+    """Validate stated year/month/day precision without inventing a display date."""
+    if re.fullmatch(r'\d{4}', value):
+        return date(int(value), 12, 31)
+    if re.fullmatch(r'\d{4}-\d{2}', value):
+        year, month = map(int, value.split('-'))
+        return date(year, month, calendar.monthrange(year, month)[1])
+    return date.fromisoformat(value)
+
+
+def validate_instrument(item, company, sources, cutoff):
+    value = number(item.get('value'))
+    if value is None or item.get('unit') != 'percent' or item.get('currency') != 'USD':
+        raise ValueError('Instrument reference needs an evidenced USD coupon in percent units')
+    if item.get('rate_type') != 'fixed' or not all(item.get(k) for k in ('instrument', 'type', 'maturity')):
+        raise ValueError('Fixed note terms, type and maturity are required')
+    if not item.get('source_ids') or any(i not in sources for i in item['source_ids']):
+        raise ValueError('Instrument terms require linked source evidence')
+    observed = date.fromisoformat(item['as_of'])
+    if observed > cutoff:
+        raise ValueError('Instrument observation is later than the review cutoff')
+    end = maturity_end(item['maturity'])
+    if item.get('issue_date'):
+        issued = date.fromisoformat(item['issue_date'])
+        if issued > observed or end < issued:
+            raise ValueError('Instrument issue/observation/maturity chronology is inconsistent')
+    principal = item.get('outstanding_principal', {})
+    balance = number(principal.get('value'))
+    if balance is not None:
+        if principal.get('unit') != 'USD' or date.fromisoformat(principal['as_of']) > cutoff:
+            raise ValueError('Note outstanding balance needs dated USD principal')
+        if not principal.get('source_ids') or any(i not in sources for i in principal['source_ids']):
+            raise ValueError('Note principal requires its own dated evidence')
+        principal['value'] = str(balance)
+    status = item.get('outstanding_status')
+    if status not in ('verified_at_snapshot', 'verified_at_earlier_date', 'terms_only'):
+        raise ValueError('Instrument outstanding status must be explicit')
+    if status == 'verified_at_snapshot':
+        evidence = item.get('outstanding_evidence_ids', [])
+        if not evidence or any(i not in sources for i in evidence) or item['as_of'] != company['as_of']:
+            raise ValueError('Snapshot-confirmed note must have same-date outstanding-status evidence')
+        if balance is not None and principal.get('as_of') != company['as_of']:
+            raise ValueError('Note principal from another period cannot become a snapshot balance')
+    item['value'] = str(value)
+    item['rankable'] = True  # Eligible reference, never an ordinal company rank.
+
+
 def build_directory(raw):
     result = deepcopy(raw)
     cutoff = date.fromisoformat(result['reviewed_at'])
@@ -72,8 +155,11 @@ def build_directory(raw):
         if company['group'] not in GROUPS:
             raise ValueError('Unknown business group')
         snapshot = date.fromisoformat(company['as_of'])
-        if snapshot > cutoff or date.fromisoformat(company['filed_at']) > cutoff:
+        published = date.fromisoformat(company['filed_at'])
+        if snapshot > cutoff or published > cutoff:
             raise ValueError('Company snapshot is later than review cutoff')
+        if published < snapshot:
+            raise ValueError('Source publication cannot precede the company snapshot')
         metrics = company['metrics']
         for name in ('debt', 'assets', 'cash', 'coupon'):
             item = metrics[name]
@@ -89,6 +175,9 @@ def build_directory(raw):
             if any(s not in sources for s in item.get('source_ids', [])):
                 raise ValueError('Metric refers to missing source evidence')
             item['rankable'] = value is not None
+            if name != 'coupon' and item['as_of'] != company['as_of']:
+                item['rankable'] = False
+                item['note'] = 'Excluded from comparison: observation date does not match the company snapshot.'
             if name != 'coupon' and item.get('unit') != 'USD':
                 item['rankable'] = False
                 item['note'] = 'Unavailable for USD comparison: no dated FX conversion.'
@@ -104,6 +193,8 @@ def build_directory(raw):
                     if total != value:
                         raise ValueError(f'{ticker}: borrowing components do not reconcile')
             if name == 'coupon' and value is not None:
+                if item.get('unit') != 'percent':
+                    raise ValueError('Coupon observations must use percent units')
                 if item.get('currency') != 'USD':
                     raise ValueError('Coupon examples require explicitly identified USD instruments')
                 if not all(item.get(k) for k in ('instrument', 'type', 'maturity')):
@@ -112,6 +203,9 @@ def build_directory(raw):
                     raise ValueError('Coupon reference only accepts fixed contractual coupons')
                 if item.get('issue_date') and date.fromisoformat(item['issue_date']) > date.fromisoformat(item['as_of']):
                     raise ValueError('Coupon instrument was not yet issued at observation date')
+                if item.get('issue_date') and len(item['maturity']) == 10:
+                    if date.fromisoformat(item['maturity']) < date.fromisoformat(item['issue_date']):
+                        raise ValueError('Note maturity cannot precede its issue date')
                 item['note'] = item.get('note') or 'Selected instrument only; not current market yield.'
         debt, assets = metrics['debt'], metrics['assets']
         d, a = number(debt['value']), number(assets['value'])
@@ -126,7 +220,48 @@ def build_directory(raw):
             'note': '' if comparable else 'Unranked: comparable same-date borrowings and assets required.',
             'source_ids': sorted(set(debt.get('source_ids', []) + assets.get('source_ids', []))),
         }
-    result.update(schema_version=1, metric_definitions=deepcopy(DEFINITIONS),
+        validate_context(company, sources)
+    companies_by_id = {c['ticker']: c for c in result['companies']}
+    note_ids = set()
+    for item in result.get('instruments', []):
+        if item.get('id') in note_ids or not re.fullmatch(r'[A-Za-z0-9:_-]+', item.get('id', '')):
+            raise ValueError('Duplicate or invalid instrument identity')
+        note_ids.add(item['id'])
+        if item.get('ticker') not in companies_by_id:
+            raise ValueError('Instrument refers to an unknown company')
+        validate_instrument(item, companies_by_id[item['ticker']], sources, cutoff)
+    instruments_by_id = {i['id']: i for i in result.get('instruments', [])}
+    for company in result['companies']:
+        selected = company['metrics']['coupon']
+        if selected.get('instrument_id'):
+            note = instruments_by_id.get(selected['instrument_id'])
+            if note is None or note['ticker'] != company['ticker']:
+                raise ValueError('Pinned coupon must refer to the same company in the note ledger')
+            if number(note['value']) != number(selected['value']):
+                raise ValueError('Pinned coupon rate differs from its note-ledger record')
+            for field in ('issuer', 'as_of', 'issue_date', 'maturity', 'outstanding_status'):
+                if note.get(field) != selected.get(field):
+                    raise ValueError('Pinned coupon metadata differs from its note-ledger record')
+    names = set()
+    for watcher in result.get('coverage_watchlist', []):
+        if watcher['name'] in names or watcher.get('ranking_eligible') is not False:
+            raise ValueError('Coverage-only operators must be unique and explicitly unranked')
+        names.add(watcher['name'])
+        if watcher.get('comparable_debt_usd') is not None or watcher.get('comparable_assets_usd') is not None:
+            raise ValueError('Announced facilities cannot become comparable company balances')
+        for source in watcher.get('sources', []):
+            u = urlparse(source['url'])
+            if u.scheme != 'https' or not u.hostname or u.username or u.password:
+                raise ValueError('Watchlist evidence requires credential-free HTTPS sources')
+            if date.fromisoformat(source['published_on']) > cutoff:
+                raise ValueError('Watchlist source is later than review cutoff')
+        for transaction in watcher.get('transactions', []):
+            number(transaction.get('amount'))
+            if date.fromisoformat(transaction['announced_on']) > cutoff:
+                raise ValueError('Watchlist announcement is later than review cutoff')
+            if transaction.get('outstanding_balance_usd') is not None:
+                raise ValueError('This watchlist contains announcements, not verified debt snapshots')
+    result.update(schema_version=2, metric_definitions=deepcopy(DEFINITIONS),
                   disclosure='Actual, dated source records. No synthetic financial inputs enter these rankings. '
                              'This is a curated research snapshot, not a live market feed or credit rating.')
     return result

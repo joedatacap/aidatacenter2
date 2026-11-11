@@ -5,9 +5,11 @@ You are the **lead engineering agent** for this repository. Manage implementatio
 ## Source of truth and current priorities
 
 - **November 11 product direction:** The static preview now starts with a curated
-  15-company actual borrowing directory: two company rankings (borrowing carrying
+  16-company actual borrowing directory: two company rankings (borrowing carrying
   values excluding all leases, and same-date borrowings/assets) plus an unranked
-  instrument-coupon reference. `neocloud/data/debt_directory.json` is the primary
+  44-note instrument-coupon reference. Nscale is a private IPO applicant with
+  publicly filed actual financials; preserve its customer-financing/lease caveat.
+  Crusoe, Lambda and Vultr remain a separate unranked coverage watchlist. `neocloud/data/debt_directory.json` is the primary
   source ledger, validated/exported by `neocloud/directory.py` and
   `scripts/build_debt_preview.py`. Keep leases, dates, consolidated scope and
   convertible/project-note distinctions visible. Never turn coupon examples into

@@ -1,0 +1,895 @@
+{
+  "audit_created_at": "2026-11-11T09:06:47.775934+00:00",
+  "reviewer_role": "Independent financial-method review by coding agent; not a statutory financial audit",
+  "canonical_path": "neocloud/data/debt_directory.json",
+  "canonical_sha256": "ae2a6d3f13b4606821ffe88cc170055566518dc93d7dd54a188f67b5e0f21e30",
+  "canonical_source_count": 31,
+  "review_scope": {
+    "company_balance_disclosures_reviewed": 15,
+    "retained_balance_html_documents": 15,
+    "additional_retained_hut_issue_document": true,
+    "all_canonical_sources_independently_reviewed": false,
+    "note": "All15 company balance snapshots independently reopened. This receipt does not claim independent review of every selected-note source among31canonical source records. Four previously populated issue dates were separately reopened; HUTdate conflict reopened and recorded."
+  },
+  "common_basis": "Consolidated borrowing carrying value excluding operating and finance leases, divided only by same-date consolidated total assets; actualUSDsource balances, not principal/face, marketvalue, total liabilities or creditworthiness.",
+  "companies": [
+    {
+      "ticker": "CRWV",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-10",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "CRWV",
+        "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+        "requested_at": "2026-11-11T09:01:42.856161+00:00",
+        "retrieved_at": "2026-11-11T09:01:43.141209+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+        "retained_html": "work/independent-audit/CRWV.html",
+        "sha256": "d1693a1783b2ecd5a066227db76424f80e791d1ec1856584bc481c7092f9eb4f",
+        "retained_text": "work/independent-audit/CRWV.txt",
+        "bytes": 370900
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "46873000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Sum of current and noncurrent recourse and non-recourse balance-sheet debt; excludes both lease types",
+          "locator": "Consolidated balance sheets: four current/noncurrent recourse/nonrecourse debt rows; total assets; cash and cash equivalents. USD millions."
+        },
+        "assets": {
+          "value": "91481000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated balance-sheet total assets",
+          "locator": "Consolidated balance sheets: four current/noncurrent recourse/nonrecourse debt rows; total assets; cash and cash equivalents. USD millions."
+        },
+        "cash": {
+          "value": "4122000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents; excludes restricted cash and marketable securities",
+          "locator": "Consolidated balance sheets: four current/noncurrent recourse/nonrecourse debt rows; total assets; cash and cash equivalents. USD millions."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "51.23796198117641914714530886",
+      "scope_date_caveats": [
+        "Includes parent recourse and nonrecourse subsidiary debt; cannot infer parent-only debt or credit risk.",
+        "Finance lease liabilities of649M and operating lease liabilities18.697B are excluded.",
+        "The Q3 earnings release is a dated issuer disclosure; not proof that all debt details are refreshed in prior-quarter tagged companyfacts."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "NBIS",
+      "canonical_as_of": "2026-06-30",
+      "canonical_disclosure_date": "2026-08-12",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "NBIS",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+        "requested_at": "2026-11-11T09:01:42.856927+00:00",
+        "retrieved_at": "2026-11-11T09:01:43.218075+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+        "retained_html": "work/independent-audit/NBIS.html",
+        "sha256": "36f01b7495f4771391bd7ca4a0da0716b07ded417440b58a1f2e3cb9d91e7462",
+        "retained_text": "work/independent-audit/NBIS.txt",
+        "bytes": 1602531
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "8545700000",
+          "unit": "USD",
+          "as_of": "2026-06-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Current debt plus non-current debt; operating leases separate and no finance leases in Note 8",
+          "locator": "June 30 column (right-hand current column) of consolidated balance sheet; debt Note12 convertible carrying-value reconciliation. USD millions."
+        },
+        "assets": {
+          "value": "27961500000",
+          "unit": "USD",
+          "as_of": "2026-06-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated balance-sheet total assets",
+          "locator": "June 30 column (right-hand current column) of consolidated balance sheet; debt Note12 convertible carrying-value reconciliation. USD millions."
+        },
+        "cash": {
+          "value": "8042100000",
+          "unit": "USD",
+          "as_of": "2026-06-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents; excludes $1,056M restricted cash",
+          "locator": "June 30 column (right-hand current column) of consolidated balance sheet; debt Note12 convertible carrying-value reconciliation. USD millions."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "30.56238041592904529442268834",
+      "scope_date_caveats": [
+        "June30 snapshot deliberately predates August2026 issuance. Do not add later proceeds or principal to this balance sheet.",
+        "Source current column is to the right of December2025 comparison column.",
+        "Convertible face principal10.0418B less discount1.4248B and issuance costs118M gives8.499B noncurrent carrying debt; add46.7M current debt.",
+        "Includes non-cloud assets and investments; ratio is not GPU-fleet leverage."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "IREN",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-05",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "IREN",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "requested_at": "2026-11-11T09:01:42.857464+00:00",
+        "retrieved_at": "2026-11-11T09:01:43.286278+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "retained_html": "work/independent-audit/IREN.html",
+        "sha256": "19798a963a29265facb22eb2f52ded1eb27d8ac687c0a34ba03d06f338cfa2b2",
+        "retained_text": "work/independent-audit/IREN.txt",
+        "bytes": 1530101
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "9897000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Total debt net of issuance costs; excludes separately reported finance and operating leases",
+          "locator": "Consolidated balance sheets and Note19 total debt net of issuance costs. USD millions."
+        },
+        "assets": {
+          "value": "20613000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated balance-sheet total assets",
+          "locator": "Consolidated balance sheets and Note19 total debt net of issuance costs. USD millions."
+        },
+        "cash": {
+          "value": "3522000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents; excludes $2,256M restricted cash",
+          "locator": "Consolidated balance sheets and Note19 total debt net of issuance costs. USD millions."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "48.01338960849949061272012807",
+      "scope_date_caveats": [
+        "10.041B debt principal less144M issuance costs equals9.897B carrying borrowing.",
+        "Finance leases311M and operating leases are excluded; parent includes Bitcoin-mining and AI operations."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "BTDR",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-10",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "BTDR",
+        "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+        "requested_at": "2026-11-11T09:01:43.211753+00:00",
+        "retrieved_at": "2026-11-11T09:01:43.759413+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+        "retained_html": "work/independent-audit/BTDR.html",
+        "sha256": "a5f17ca065a8b5b41594dfcda7406074d309136f3f6888e014c01f4fcaec1696",
+        "retained_text": "work/independent-audit/BTDR.txt",
+        "bytes": 353832
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "1948472000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Sum of six current/noncurrent third-party and related-party borrowing lines; excludes both lease types and derivatives separately presented",
+          "locator": "Q3 earnings release condensed consolidated balance sheet, six current/noncurrent third-party and related-party borrowing lines. USD thousands."
+        },
+        "assets": {
+          "value": "3859998000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated balance-sheet total assets",
+          "locator": "Q3 earnings release condensed consolidated balance sheet, six current/noncurrent third-party and related-party borrowing lines. USD thousands."
+        },
+        "cash": {
+          "value": "163743000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents; excludes current/noncurrent restricted cash and digital assets",
+          "locator": "Q3 earnings release condensed consolidated balance sheet, six current/noncurrent third-party and related-party borrowing lines. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "50.47857537750019559595626733",
+      "scope_date_caveats": [
+        "Six borrowing rows include related-party and digital-asset-settled borrowing exposures at reported carrying values.",
+        "Derivatives separately presented and finance lease16.334M are excluded; no simple face-principal reconstruction assumed from book values.",
+        "Accounts/assets include mining, ASIC and AI activities; not pure GPU cloud."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "HUT",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-04",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "HUT",
+        "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+        "requested_at": "2026-11-11T09:01:43.974975+00:00",
+        "retrieved_at": "2026-11-11T09:01:44.863664+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+        "retained_html": "work/independent-audit/HUT.html",
+        "sha256": "941d10992ae653874a69fb8256253623edbb6a3a40acc5fe8df280fd2a649c24",
+        "retained_text": "work/independent-audit/HUT.txt",
+        "bytes": 7080764
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "7628225000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Recourse debt (zero) plus non-recourse borrowing debt net of discount/issuance costs; excludes separate SAFE liability and lease liabilities",
+          "locator": "Consolidated balance sheet and Note11 net nonrecourse borrowing total; excludes SAFE other financial liability. USD thousands."
+        },
+        "assets": {
+          "value": "10334102000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated balance-sheet total assets",
+          "locator": "Consolidated balance sheet and Note11 net nonrecourse borrowing total; excludes SAFE other financial liability. USD thousands."
+        },
+        "cash": {
+          "value": "156865000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash; excludes $3,555.960M restricted cash, $2,838.531M restricted investments and digital assets",
+          "locator": "Consolidated balance sheet and Note11 net nonrecourse borrowing total; excludes SAFE other financial liability. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "73.81604129705706407774957127",
+      "scope_date_caveats": [
+        "Net borrowing7.628225B excludes3.275M liability-classified SAFE and371.687M miner purchase liabilities.",
+        "Principal7.726410B less98.185M discount/costs reconciles selected borrowing metric.",
+        "Consolidated debt is nonrecourse in Note11 at this date; restricted project cash is not unrestricted parent liquidity.",
+        "RiverBend issuance date is described asApr30 in latestQ3 filing; original8K says offering completedApr27 and indentureApr30. Preserve distinction/uncertainty."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "APLD",
+      "canonical_as_of": "2026-08-31",
+      "canonical_disclosure_date": "2026-10-07",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "APLD",
+        "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+        "requested_at": "2026-11-11T09:01:43.980824+00:00",
+        "retrieved_at": "2026-11-11T09:01:44.582788+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+        "retained_html": "work/independent-audit/APLD.html",
+        "sha256": "39ddc2bdc580d5669fc7406f8c4f1f83617ac49511a14168034bbf0d421f2b28",
+        "retained_text": "work/independent-audit/APLD.txt",
+        "bytes": 1712869
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "6376592000",
+          "unit": "USD",
+          "as_of": "2026-08-31",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "locator": "Consolidated balance sheet and Note9 debt reconciliation; current plus long-term debt. USD thousands."
+        },
+        "assets": {
+          "value": "11707176000",
+          "unit": "USD",
+          "as_of": "2026-08-31",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet and Note9 debt reconciliation; current plus long-term debt. USD thousands."
+        },
+        "cash": {
+          "value": "2949909000",
+          "unit": "USD",
+          "as_of": "2026-08-31",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "locator": "Consolidated balance sheet and Note9 debt reconciliation; current plus long-term debt. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "54.46737966525829969584466826",
+      "scope_date_caveats": [
+        "Consolidated assets and borrowings include controlled ChronoScale; held-for-sale Ekso liabilities list no separate borrowings.",
+        "Carrying debt excludes345.013M financing costs; finance and operating leases excluded.",
+        "Selected9.25% note is one example among several series, not representative overall financing cost."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "CORZ",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-05",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "CORZ",
+        "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+        "requested_at": "2026-11-11T09:01:44.000613+00:00",
+        "retrieved_at": "2026-11-11T09:01:44.224700+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+        "retained_html": "work/independent-audit/CORZ.html",
+        "sha256": "85bd6a590a5fa308407a48b8d8bff874c78da53f3c232dc7464bb1466979a566",
+        "retained_text": "work/independent-audit/CORZ.txt",
+        "bytes": 1711222
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "4302175000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "locator": "Consolidated balance sheet long-term debt and debt note; no separate current debt balance at this date. USD thousands."
+        },
+        "assets": {
+          "value": "5935714000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet long-term debt and debt note; no separate current debt balance at this date. USD thousands."
+        },
+        "cash": {
+          "value": "803941000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "locator": "Consolidated balance sheet long-term debt and debt note; no separate current debt balance at this date. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "72.47948603992712586893505988",
+      "scope_date_caveats": [
+        "Borrowing excludes finance/operating leases and warrant liabilities; negative consolidated equity does not change selected arithmetic.",
+        "Source debt balance4.302175B after82.825M discount/costs differs from4.385B principal.",
+        "Broad liquidity/DSRA headline includes restricted balances and availability; do not use as cash."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "WULF",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-06",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "WULF",
+        "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+        "requested_at": "2026-11-11T09:01:44.574675+00:00",
+        "retrieved_at": "2026-11-11T09:01:44.893882+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+        "retained_html": "work/independent-audit/WULF.html",
+        "sha256": "084501a28b4adff161d7b7217daadba8bf3b501493944a9dd2655093fd00d6c7",
+        "retained_text": "work/independent-audit/WULF.txt",
+        "bytes": 1865436
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "5232310000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "locator": "Consolidated balance sheet, current long-term debt plus current convertible plus noncurrent long-term debt plus noncurrent convertible notes. USD thousands."
+        },
+        "assets": {
+          "value": "8150702000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet, current long-term debt plus current convertible plus noncurrent long-term debt plus noncurrent convertible notes. USD thousands."
+        },
+        "cash": {
+          "value": "1602127000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "locator": "Consolidated balance sheet, current long-term debt plus current convertible plus noncurrent long-term debt plus noncurrent convertible notes. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "64.19459330006176155133631434",
+      "scope_date_caveats": [
+        "Four borrowing components reconcile5.232310B; secured project and corporate convertible borrowing coexist.",
+        "Separate finance and operating leases, warrants, restricted cash and trust investments are excluded from corresponding selected metrics."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "CIFR",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-02",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "CIFR",
+        "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+        "requested_at": "2026-11-11T09:01:44.858135+00:00",
+        "retrieved_at": "2026-11-11T09:01:45.591048+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+        "retained_html": "work/independent-audit/CIFR.html",
+        "sha256": "eef9b28314a3d78cd1a7d5ba92558dcb3ec07c12fd9706b62ac6b2a3f03d9ed0",
+        "retained_text": "work/independent-audit/CIFR.txt",
+        "bytes": 1886530
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "5559878000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "locator": "Consolidated balance sheet and Note14 full debt table including vehicle loans. USD thousands."
+        },
+        "assets": {
+          "value": "7666054000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet and Note14 full debt table including vehicle loans. USD thousands."
+        },
+        "cash": {
+          "value": "656009000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "locator": "Consolidated balance sheet and Note14 full debt table including vehicle loans. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "72.52594359497076331578149593",
+      "scope_date_caveats": [
+        "Full debt table includes812K vehicle loans absent from fair-value table; selected book total5.559878B is correct.",
+        "6.016312B principal minus456.434M discount/costs equals5.559878B carrying amount.",
+        "October financing events are not spliced into Septemberassets."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "HIVE",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-09",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "HIVE",
+        "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+        "requested_at": "2026-11-11T09:01:45.573159+00:00",
+        "retrieved_at": "2026-11-11T09:01:46.650580+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+        "retained_html": "work/independent-audit/HIVE.html",
+        "sha256": "96257d79dea3f9d3bffa53436e457dcc9aabfb30d33b3dd4b824edd881f3a5ab",
+        "retained_text": "work/independent-audit/HIVE.txt",
+        "bytes": 2606634
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "265631000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Interest-bearing borrowings at reported carrying amount, excluding all separately classified lease liabilities; not principal face value or all liabilities.",
+          "locator": "Condensed consolidated statement of financial position; six loan, mortgage and convertible-liability-component rows. USD thousands."
+        },
+        "assets": {
+          "value": "857686000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Condensed consolidated statement of financial position; six loan, mortgage and convertible-liability-component rows. USD thousands."
+        },
+        "cash": {
+          "value": "138990000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents, excluding separately restricted cash and crypto assets",
+          "locator": "Condensed consolidated statement of financial position; six loan, mortgage and convertible-liability-component rows. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "30.97065825954953211315096667",
+      "scope_date_caveats": [
+        "235.253M convertible liability component differs from245M face amount; convertible accounting affects book-value comparison.",
+        "All separately reported lease liabilities108.428M excluded; ratio is not total obligations/assets."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "GLXY",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-10-27",
+      "canonical_source_urls": [
+        "https://investor.galaxy.com/news-releases/news-release-details/galaxy-announces-third-quarter-2026-financial-results"
+      ],
+      "independent_retrieval": {
+        "ticker": "GLXY",
+        "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+        "requested_at": "2026-11-11T09:01:46.327086+00:00",
+        "retrieved_at": "2026-11-11T09:01:47.898840+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+        "retained_html": "work/independent-audit/GLXY.html",
+        "sha256": "aceb1779b9243d1bf4adf958560a7dcb361a1c16d0d673b2aeebeda2a3c088bb",
+        "retained_text": "work/independent-audit/GLXY.txt",
+        "bytes": 4361309
+      },
+      "numeric_review": {
+        "debt": {
+          "value": null,
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "unranked_unreconciled_companywide_scope",
+          "basis": "Unranked: loans plus notes are only a subset of financing obligations. Substantial digital-asset borrowing and collateral-related liabilities make a comparable company-wide borrowing total unresolved.",
+          "locator": "Consolidated statement of financial position and notes on cash/financing obligations. USD thousands. No reconciled industrial borrowing total asserted."
+        },
+        "assets": {
+          "value": "16416746000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated statement of financial position and notes on cash/financing obligations. USD thousands. No reconciled industrial borrowing total asserted."
+        },
+        "cash": {
+          "value": "1324759000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and cash equivalents as reported; excludes separately classified stablecoins and investments. This is not the broader $4.9B cash/stablecoin/Treasury liquidity headline; some qualifying short-term Treasuries may be classified as cash equivalents.",
+          "locator": "Consolidated statement of financial position and notes on cash/financing obligations. USD thousands. No reconciled industrial borrowing total asserted."
+        }
+      },
+      "recomputed_borrowings_assets_pct": null,
+      "scope_date_caveats": [
+        "Comparable company-wide borrowing total remains unresolved because digital-asset borrowing/collateral financial-business liabilities require careful treatment.",
+        "6.958910B USD loans+notes is only a subset and must not be published as company-wide debt.",
+        "Cash1.324759B is the reported cash/equivalents line, not4.893061B broader cash/stablecoins/Treasury liquidity; some qualifying Treasuries may be cash equivalents."
+      ],
+      "review_status": "unranked_scope_unresolved"
+    },
+    {
+      "ticker": "RIOT",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-04",
+      "canonical_source_urls": [
+        "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "RIOT",
+        "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+        "requested_at": "2026-11-11T09:01:47.059036+00:00",
+        "retrieved_at": "2026-11-11T09:01:47.882547+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+        "retained_html": "work/independent-audit/RIOT.html",
+        "sha256": "cf3a6036b585a3095d041295e31915b60c617f03d8902d31a5637ce1f59b068b",
+        "retained_text": "work/independent-audit/RIOT.txt",
+        "bytes": 3181287
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "656645000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Borrowings carrying value after issuance costs. Includes corporate convertible notes, revolving loans, CPACE and consolidated project debt; excludes operating lease liabilities. No separate finance-lease liability appears in the balance sheet.",
+          "locator": "Consolidated balance sheet current/noncurrent borrowing rows and debt-note net debt reconciliation. USD thousands."
+        },
+        "assets": {
+          "value": "3043994000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet current/noncurrent borrowing rows and debt-note net debt reconciliation. USD thousands."
+        },
+        "cash": {
+          "value": "669052000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and equivalents; excludes 79170000 restricted cash, bitcoin and derivative assets.",
+          "locator": "Consolidated balance sheet current/noncurrent borrowing rows and debt-note net debt reconciliation. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "21.57182307192458329418520536",
+      "scope_date_caveats": [
+        "656.645M carrying borrowings differs from674.512M principal by17.867M costs.",
+        "Consolidated mining, engineering and data-center transition business; no AI-only debt implied."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "MARA",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-11-09",
+      "canonical_source_urls": [
+        "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm"
+      ],
+      "independent_retrieval": {
+        "ticker": "MARA",
+        "url": "https://www.sec.gov/Archives/edgar/data/1507605/000150760526000028/mara-20260930.htm",
+        "requested_at": "2026-11-11T09:01:47.877521+00:00",
+        "retrieved_at": "2026-11-11T09:01:49.147691+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1507605/000150760526000028/mara-20260930.htm",
+        "retained_html": "work/independent-audit/MARA.html",
+        "sha256": "56e644bd74fb5d37268577ded31219907c69def419bf67d3016af73f249aea6a",
+        "retained_text": "work/independent-audit/MARA.txt",
+        "bytes": 2233409
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "3019332000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Borrowings carrying value after original-issue discounts and financing costs; excludes separately presented operating and finance leases.",
+          "locator": "Consolidated balance sheet and Note13 total debt less original-issue discounts/issuance costs. USD thousands."
+        },
+        "assets": {
+          "value": "5676519000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet and Note13 total debt less original-issue discounts/issuance costs. USD thousands."
+        },
+        "cash": {
+          "value": "946545000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and equivalents, excluding restricted cash, bitcoin and receivables. About 11% is denominated in euros and contractually allocated to Exaion operations.",
+          "locator": "Consolidated balance sheet and Note13 total debt less original-issue discounts/issuance costs. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "53.18985103370569181570606916",
+      "scope_date_caveats": [
+        "Septemberborrowings include750M collateralized loans; later repayment must not alter this dated debt/assets comparison.",
+        "Carrying3.019332B differs from3.047201B principal by27.869M discount/costs.",
+        "Note13 specifically shows300M of selected2.125% September2031note still outstanding atSeptember30; not inferred from future maturity."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "EQIX",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-10-28",
+      "canonical_source_urls": [
+        "https://investor.equinix.com/news-events/press-releases/detail/1128/equinix-reports-third-quarter-results-and-raises-2026"
+      ],
+      "independent_retrieval": {
+        "ticker": "EQIX",
+        "url": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000180/eqix-20260930.htm",
+        "requested_at": "2026-11-11T09:01:48.905579+00:00",
+        "retrieved_at": "2026-11-11T09:01:49.621971+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000180/eqix-20260930.htm",
+        "retained_html": "work/independent-audit/EQIX.html",
+        "sha256": "65bddd35e72d66967930c711247a89d79565c891a1cbcc2185025068dd471553",
+        "retained_text": "work/independent-audit/EQIX.txt",
+        "bytes": 2908796
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "22647000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated borrowing carrying amount: current/noncurrent senior notes plus mortgages and loans, excluding separately presented finance and operating lease liabilities. Release is rounded to millions; amounts are not precise dollars.",
+          "locator": "Consolidated balance sheet senior notes and mortgage/loan current/noncurrent rows; debt note carrying values. USD millions."
+        },
+        "assets": {
+          "value": "44445000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet senior notes and mortgage/loan current/noncurrent rows; debt note carrying values. USD millions."
+        },
+        "cash": {
+          "value": "2362000000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Cash and equivalents only; excludes 1235000000 short-term investments.",
+          "locator": "Consolidated balance sheet senior notes and mortgage/loan current/noncurrent rows; debt note carrying values. USD millions."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "50.95511306108673641579480256",
+      "scope_date_caveats": [
+        "Borrowings22.647B exclude2.378B finance leases and1.386B operating leases.",
+        "Consolidated reportedUSD translated balances include foreign-currency borrowings; no added analystFX conversion.",
+        "Source is rounded toUSDmillions; avoid exact-dollar precision."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    },
+    {
+      "ticker": "DLR",
+      "canonical_as_of": "2026-09-30",
+      "canonical_disclosure_date": "2026-10-29",
+      "canonical_source_urls": [
+        "https://investor.digitalrealty.com/news-releases/news-release-details/digital-realty-reports-third-quarter-2026-results"
+      ],
+      "independent_retrieval": {
+        "ticker": "DLR",
+        "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+        "requested_at": "2026-11-11T09:04:35.388375+00:00",
+        "retrieved_at": "2026-11-11T09:04:35.753489+00:00",
+        "http_status": 200,
+        "final_url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+        "retained_html": "work/independent-audit/DLR.html",
+        "sha256": "ed3680c74229c8bfc0ade37e656f47cc0af4d3bb14eb744036c50952096d126f",
+        "retained_text": "work/independent-audit/DLR.txt",
+        "bytes": 4868221
+      },
+      "numeric_review": {
+        "debt": {
+          "value": "19494615000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Four consolidated borrowing categories at carrying values net of stated discounts; excludes both operating and finance leases and unconsolidated JV debt. Issuer presentation explicitly reconciles 19494615000 borrowing carrying value plus separately added 265526000 finance leases; secured/other debt is 1620303000 before that finance-lease addition.",
+          "locator": "Consolidated balance sheet and Note9 debt table, four borrowing categories net of discounts/costs; net-debt definition in issuer release separately adds finance leases. USD thousands."
+        },
+        "assets": {
+          "value": "56524515000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated total assets",
+          "locator": "Consolidated balance sheet and Note9 debt table, four borrowing categories net of discounts/costs; net-debt definition in issuer release separately adds finance leases. USD thousands."
+        },
+        "cash": {
+          "value": "802903000",
+          "unit": "USD",
+          "as_of": "2026-09-30",
+          "status": "verified_against_independently_retrieved_primary_document",
+          "basis": "Consolidated cash and equivalents only; no pro-rata JV cash added.",
+          "locator": "Consolidated balance sheet and Note9 debt table, four borrowing categories net of discounts/costs; net-debt definition in issuer release separately adds finance leases. USD thousands."
+        }
+      },
+      "recomputed_borrowings_assets_pct": "34.48877889531648347624035341",
+      "scope_date_caveats": [
+        "Four carrying borrowing rows sum19.494615B; issuer net-debt definition separately adds finance leases and pro-rata JVdebt.",
+        "Consolidated assets include net investments in unconsolidatedJVs; do not add pro-rata JVdebt to numerator alone.",
+        "Selected metric is not issuer-reported adjusted net-debt/EBITDA5.2x."
+      ],
+      "review_status": "qualified_accounting_comparison"
+    }
+  ],
+  "supplemental_hut_date_review": {
+    "latest_quarterly_source_url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+    "latest_filing_issue_date": "2026-04-30",
+    "original_8k_retrieval": {
+      "ticker": "HUT-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926053247/tm2613163d1_8k.htm",
+      "requested_at": "2026-11-11T09:01:49.252004+00:00",
+      "retrieved_at": "2026-11-11T09:01:49.870685+00:00",
+      "http_status": 200,
+      "final_url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926053247/tm2613163d1_8k.htm",
+      "retained_html": "work/independent-audit/HUT-issue.html",
+      "sha256": "63f1d3ec0c08e2fa0e087ee33ce3e655bfc0d7cf69b53809f610ad1c57c030f3",
+      "retained_text": "work/independent-audit/HUT-issue.txt",
+      "bytes": 36984
+    },
+    "earlier_offering_completion_date": "2026-04-27",
+    "indenture_date": "2026-04-30",
+    "status": "different_event_dates_or_source_inconsistency_requires_explicit_qualification",
+    "suggestion": "If issue_date retained, labelApr30 per latestQ3 disclosure and note earlierApr27offeringcompletion in8K; do not silently conflate offering completion, agreement and issuance."
+  },
+  "review_findings": [
+    {
+      "id": "MARA-source-date",
+      "status": "fixed_in_current_ledger",
+      "detail": "Source linkedNov12,2024filing must not useAug14issuance event as publicationdate."
+    },
+    {
+      "id": "GLXY-cash-scope",
+      "status": "fixed_in_current_ledger",
+      "detail": "Treasuries may appear among cash-equivalents as well as separateinvestments; keep reportedcashline, not broadliquidity headline."
+    },
+    {
+      "id": "debt-date-eligibility",
+      "status": "reported_to_main_pending_retest",
+      "detail": "Previously debt.as_of differentfromcompany.as_of still ranked dollars; row labelusescompanydate."
+    },
+    {
+      "id": "filing-date-order",
+      "status": "reported_to_main_pending_retest",
+      "detail": "Previouslyfiled_at precedingbalanceas_of accepted; enforcechronology."
+    },
+    {
+      "id": "coupon-unit",
+      "status": "reported_to_main_pending_retest",
+      "detail": "PreviouslycouponunitUSD accepted whileUIrenderspercent; enforceunitpercent."
+    },
+    {
+      "id": "coupon-maturity-order",
+      "status": "reported_to_main_pending_retest",
+      "detail": "Previouslyexactmaturityprecedingissue accepted; validateexactdateorder."
+    }
+  ],
+  "no_tracked_edits": true,
+  "baseline_commit": "079fd8e",
+  "additional_nscale_review": {
+    "company_id": "NSCALE",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+    "as_of": "2026-06-30",
+    "filed_at": "2026-09-18",
+    "receipt": {
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "requested_at": "2026-11-11T09:08:55.424324+00:00",
+      "http_status": 200,
+      "retrieved_at": "2026-11-11T09:08:55.908094+00:00",
+      "final_url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "retained_html": "work/independent-audit/NSCALE-S1.html",
+      "sha256": "9222378e41809d2d28c6ac9bcf7cad6d03aa0a3eda1b27f6695a8cd9ab6d42df",
+      "retained_text": "work/independent-audit/NSCALE-S1.txt"
+    },
+    "listing_verification": {
+      "url": "https://data.sec.gov/submissions/CIK0002110365.json",
+      "retained_file": "work/independent-audit/NSCALE-submissions.json",
+      "sec_entity_name": "NSCALE Ltd",
+      "tickers": [],
+      "exchanges": [],
+      "latest_form": "S-1",
+      "latest_filing_date": "2026-09-18",
+      "caveat": "S-1 describes a proposed NYSE listing under NSCL; SEC submissions at review contained no assigned ticker/exchange or later IPO prospectus. Do not display proposed NSCL as a verified listed security."
+    },
+    "scope_caveats": [
+      "Borrowings exclude $6.4926bn of deferred customer revenue with a significant financing component and $2.6254bn of operating lease liabilities. A low borrowing/assets ratio does not mean low overall financing obligations or good financial health.",
+      "May 4–5, 2026 reorganization made Nscale Limited the ultimate holding company of Arkon Energy Pty Ltd and Nscale Global Holdings Limited. Use the filing consolidated actual June accounts; do not substitute a prospective Nscale plc/IPO pro forma or isolated subsidiary figure.",
+      "The reported maturity total is below the reported carrying amount. Do not invent a principal-minus-fees bridge or replace carrying debt with this total."
+    ]
+  }
+}

@@ -66,24 +66,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "CLOUD-CRWV-1",
+          "ticker": "CRWV",
           "value": "9.625",
           "unit": "percent",
-          "source_ids": [
-            "crwv-selected-note"
-          ],
-          "basis": "Corporate unsecured note",
-          "note": "Contractual coupon, not a current traded yield or current cost of issuing new debt.",
-          "as_of": "2026-06-18",
-          "instrument": "9.625% Senior Notes due 2032",
+          "currency": "USD",
+          "instrument": "9.625% Senior Notes due July 2032",
           "type": "senior_unsecured_nonconvertible",
+          "issuer": "CoreWeave, Inc.",
+          "scope": "Named obligations of CoreWeave, Inc.",
+          "basis": "Named obligations of CoreWeave, Inc.",
+          "as_of": "2026-06-30",
+          "issue_date": "2026-06-18",
+          "issue_date_note": "",
           "maturity": "2032-07-15",
           "maturity_precision": "day",
-          "issue_date": null,
           "rate_type": "fixed",
-          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
+          "source_ids": [
+            "deep-cloud-crwv-selected-issue",
+            "deep-cloud-crwv-q2-note"
+          ],
+          "outstanding_status": "verified_at_earlier_date",
+          "outstanding_evidence_ids": [
+            "deep-cloud-crwv-q2-note"
+          ],
+          "outstanding_principal": {
+            "value": "1250000000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "deep-cloud-crwv-q2-note"
+            ]
+          },
+          "note": " Outstanding at the earlier date shown; not re-confirmed at the latest company snapshot.",
           "market_yield": null,
-          "issuer": "Corporate unsecured note",
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "CLOUD-CRWV-1",
           "rankable": true
         },
         "debt_assets": {
@@ -102,15 +120,67 @@
         "Latest Q3 earnings release is newer than tagged SEC companyfacts (which still ends June 30 at retrieval).",
         "Includes debt of non-recourse subsidiaries; not a blanket claim on the parent.",
         "Lease obligations of $649M finance leases and $18.697B operating leases are excluded from borrowing debt.",
-        "Debt/assets is a financing-mix measure, not probability of default."
+        "Debt/assets is a financing-mix measure, not probability of default.",
+        "Latest SEC submissions contain the November 10 8-K release but no Q3 10-Q; latest detailed debt note remains June.",
+        "Lease exclusions correctly explain $649M finance and $18.697B operating obligations outside borrowing debt.",
+        "Selected coupon and legal issuer verified, but current outstanding status requires a later per-instrument disclosure."
       ],
       "source_ids": [
         "crwv-q3-2026",
-        "crwv-selected-note"
+        "crwv-selected-note",
+        "deep-cloud-crwv-q3-release",
+        "deep-cloud-crwv-selected-issue",
+        "deep-cloud-crwv-q2-note"
       ],
       "source_precision_usd": "1000000",
       "synthetic": false,
-      "scope": "Consolidated CoreWeave including recourse and non-recourse subsidiaries"
+      "scope": "Consolidated CoreWeave including recourse and non-recourse subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": null,
+            "carrying": "46873000000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-cloud-crwv-q3-release"
+            ],
+            "scope": "consolidated_carrying_only",
+            "complete_company_scope": false,
+            "note": "Do not splice June 30 principal or discounts into this September 30 carrying total.",
+            "difference": null
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "18697000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-crwv-q3-release"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "649000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-crwv-q3-release"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "Latest SEC submissions contain the November 10 8-K release but no Q3 10-Q; latest detailed debt note remains June.",
+          "Lease exclusions correctly explain $649M finance and $18.697B operating obligations outside borrowing debt.",
+          "Selected coupon and legal issuer verified, but current outstanding status requires a later per-instrument disclosure."
+        ]
+      }
     },
     {
       "ticker": "NBIS",
@@ -169,24 +239,44 @@
           "rankable": true
         },
         "coupon": {
-          "value": "0.50",
+          "id": "CLOUD-NBIS-5",
+          "ticker": "NBIS",
+          "value": "1.25",
           "unit": "percent",
-          "source_ids": [
-            "nbis-selected-note"
-          ],
-          "basis": "Corporate convertible note",
-          "note": "Equity conversion option materially affects coupon comparability. Instrument was issued after this June balance-sheet snapshot and is not added to that snapshot.",
-          "as_of": "2026-08-24",
-          "instrument": "0.50% Convertible Senior Notes due 2030",
-          "type": "senior_unsecured_convertible",
-          "maturity": "2030",
-          "maturity_precision": "year",
-          "issue_date": null,
-          "rate_type": "fixed",
-          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
-          "market_yield": null,
-          "issuer": "Corporate convertible note",
           "currency": "USD",
+          "instrument": "1.25% Convertible Senior Notes due March 2031",
+          "type": "senior_unsecured_convertible",
+          "issuer": "Nebius Group N.V.",
+          "scope": "Named obligations of Nebius Group N.V.",
+          "basis": "Named obligations of Nebius Group N.V.",
+          "as_of": "2026-06-30",
+          "issue_date": "2026-03-20",
+          "issue_date_note": "",
+          "maturity": "2031-03-15",
+          "maturity_precision": "day",
+          "rate_type": "fixed",
+          "source_ids": [
+            "deep-cloud-nbis-q2",
+            "deep-cloud-nbis-mar2026-pricing"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-cloud-nbis-q2"
+          ],
+          "outstanding_principal": {
+            "value": "3105000000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "deep-cloud-nbis-q2"
+            ],
+            "label": "Reported contract principal (includes accretion)",
+            "basis": "As labeled in the accreting convertible debt table: includes accretion payable at maturity, not original amount raised or cash owed today."
+          },
+          "note": "Coupon applies to original principal; excludes contractual accretion payable at maturity. Filing table principal is not original issue cash proceeds.",
+          "market_yield": null,
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "CLOUD-NBIS-5",
           "rankable": true
         },
         "debt_assets": {
@@ -205,15 +295,83 @@
         "Q3 results scheduled November 12, 2026; not yet released as of November 11.",
         "August 2026 issuance is deliberately not spliced into the June debt/assets or debt/cash calculation.",
         "Convertible carrying amount is below face principal because of original discount and issuance costs.",
-        "Group assets include holdings unrelated to GPU cloud; debt/assets is not directly a GPU-fleet leverage ratio."
+        "Group assets include holdings unrelated to GPU cloud; debt/assets is not directly a GPU-fleet leverage ratio.",
+        "Selected0.50% note postdates the June snapshot; prefer the 1.25% March2031 note for a same-snapshot selection.",
+        "Total noncurrent convertible face/carrying bridge is complete, but all-company face debt is unknown because of unbridged current debt.",
+        "Notes accrete principal and have conversion options; coupon rank is not all-in financing-cost rank.",
+        "Q3 results announced for November12; not yet in latest submissions."
       ],
       "source_ids": [
         "nbis-q2-2026",
-        "nbis-selected-note"
+        "nbis-selected-note",
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-mar2026-pricing"
       ],
       "source_precision_usd": "1000000",
       "synthetic": false,
-      "scope": "Consolidated Nebius Group, including non-cloud subsidiaries and investments"
+      "scope": "Consolidated Nebius Group, including non-cloud subsidiaries and investments",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-06-30",
+            "principal": null,
+            "carrying": "8545700000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-cloud-nbis-q2"
+            ],
+            "scope": "consolidated_carrying_only",
+            "complete_company_scope": false,
+            "note": "Six noncurrent convertible notes have a principal bridge, but current 46.7M debt is not reconciled to face principal in this note; do not add carrying dollars to face dollars.",
+            "difference": null
+          },
+          {
+            "label": "Noncurrent convertible notes only — not the company total",
+            "as_of": "2026-06-30",
+            "principal": "10041800000",
+            "carrying": "8499000000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-cloud-nbis-q2"
+            ],
+            "scope": "noncurrent_convertibles",
+            "complete_company_scope": false,
+            "note": "Six noncurrent convertible series only, not all balance-sheet current/noncurrent debt; current borrowing carrying amount46.7M has no matching face-principal bridge. Reported contract principal includes accretion payable at maturity; it is not the original issue proceeds.",
+            "principal_label": "Reported contract principal (includes accretion)",
+            "difference": "1542800000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "1625300000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "deep-cloud-nbis-q2"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "0",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "deep-cloud-nbis-q2"
+            ],
+            "note": "Note8 says all leased co-location space, offices and land are operating leases; finance-lease absence is supported by that disclosure."
+          }
+        ],
+        "notes": [
+          "Selected0.50% note postdates the June snapshot; prefer the 1.25% March2031 note for a same-snapshot selection.",
+          "Total noncurrent convertible face/carrying bridge is complete, but all-company face debt is unknown because of unbridged current debt.",
+          "Notes accrete principal and have conversion options; coupon rank is not all-in financing-cost rank.",
+          "Q3 results announced for November12; not yet in latest submissions."
+        ]
+      }
     },
     {
       "ticker": "IREN",
@@ -273,24 +431,44 @@
           "rankable": true
         },
         "coupon": {
+          "id": "CLOUD-IREN-5",
+          "ticker": "IREN",
           "value": "1.00",
           "unit": "percent",
-          "source_ids": [
-            "iren-selected-note"
-          ],
-          "basis": "Corporate convertible note",
-          "note": "Equity conversion option and capped-call transactions affect economic financing cost; coupon is not company-wide or market yield.",
-          "as_of": "2026-05-14",
-          "instrument": "1.00% Convertible Senior Notes due December 2033",
-          "type": "senior_unsecured_convertible",
-          "maturity": "2033-12-01",
-          "maturity_precision": "day",
-          "issue_date": null,
-          "rate_type": "fixed",
-          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
-          "market_yield": null,
-          "issuer": "Corporate convertible note",
           "currency": "USD",
+          "instrument": "2033 (Jun) Convertible Notes",
+          "type": "senior_unsecured_convertible",
+          "issuer": "IREN Limited",
+          "scope": "Named obligations of IREN Limited",
+          "basis": "Named obligations of IREN Limited",
+          "as_of": "2026-09-30",
+          "issue_date": "2025-12-08",
+          "issue_date_note": "",
+          "maturity": "2033-06-01",
+          "maturity_precision": "day",
+          "rate_type": "fixed",
+          "source_ids": [
+            "deep-cloud-iren-q3",
+            "deep-cloud-iren-q2-note"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-cloud-iren-q3",
+            "deep-cloud-iren-q2-note"
+          ],
+          "outstanding_principal": {
+            "value": "1150000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-iren-q3",
+              "deep-cloud-iren-q2-note"
+            ]
+          },
+          "note": "Current principal rounded to USD millions. Q3 explicitly says no changes to convertible terms and refers to annual Note23; issuance/contractual terms are linked using that statement, not assumed unchanged.",
+          "market_yield": null,
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "CLOUD-IREN-5",
           "rankable": true
         },
         "debt_assets": {
@@ -308,15 +486,66 @@
       "notes": [
         "Debt note table effective interest rates (for example 1.18%) are not the contractual 1.00% coupon on this selected note.",
         "$311M finance lease liability is excluded under the common borrowing definition.",
-        "Mixed AI and Bitcoin-mining operations; consolidated figures do not isolate the AI business."
+        "Mixed AI and Bitcoin-mining operations; consolidated figures do not isolate the AI business.",
+        "10,041M principal minus144M issuance costs equals9,897M carrying; lease liabilities separately excluded.",
+        "Debt table effective interest rates3.87/4.22/0.37/0.45/1.18/7.09 are not contractual coupons.",
+        "Explicit Q3 unchanged-terms statement supports linking annual terms to Q3 named outstanding balances."
       ],
       "source_ids": [
         "iren-q1fy27",
-        "iren-selected-note"
+        "iren-selected-note",
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
       ],
       "source_precision_usd": "1000000",
       "synthetic": false,
-      "scope": "Consolidated IREN Group, including AI cloud and Bitcoin mining"
+      "scope": "Consolidated IREN Group, including AI cloud and Bitcoin mining",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "10041000000",
+            "carrying": "9897000000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-cloud-iren-q3"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "",
+            "difference": "144000000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "7000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-iren-q3"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "311000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-iren-q3"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "10,041M principal minus144M issuance costs equals9,897M carrying; lease liabilities separately excluded.",
+          "Debt table effective interest rates3.87/4.22/0.37/0.45/1.18/7.09 are not contractual coupons.",
+          "Explicit Q3 unchanged-terms statement supports linking annual terms to Q3 named outstanding balances."
+        ]
+      }
     },
     {
       "ticker": "BTDR",
@@ -391,24 +620,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "CLOUD-BTDR-1",
+          "ticker": "BTDR",
           "value": "4.875",
           "unit": "percent",
-          "source_ids": [
-            "btdr-selected-note"
-          ],
-          "basis": "Corporate convertible note",
-          "note": "Example June 2025 note; neither lowest nor newest coupon. Equity conversion option affects comparability. No current market yield verified.",
-          "as_of": "2025-06-23",
-          "instrument": "4.875% Convertible Senior Notes due 2031",
-          "type": "senior_unsecured_convertible",
-          "maturity": "2031",
-          "maturity_precision": "year",
-          "issue_date": null,
-          "rate_type": "fixed",
-          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
-          "market_yield": null,
-          "issuer": "Corporate convertible note",
           "currency": "USD",
+          "instrument": "June2025 4.875% Convertible Senior Notes due July2031",
+          "type": "senior_unsecured_convertible",
+          "issuer": "Bitdeer Technologies Group",
+          "scope": "Named obligations of Bitdeer Technologies Group",
+          "basis": "Named obligations of Bitdeer Technologies Group",
+          "as_of": "2026-06-30",
+          "issue_date": "2025-06-23",
+          "issue_date_note": "",
+          "maturity": "2031-07-01",
+          "maturity_precision": "day",
+          "rate_type": "fixed",
+          "source_ids": [
+            "deep-cloud-btdr-selected-issue",
+            "deep-cloud-btdr-q2-detail"
+          ],
+          "outstanding_status": "verified_at_earlier_date",
+          "outstanding_evidence_ids": [
+            "deep-cloud-btdr-q2-detail"
+          ],
+          "outstanding_principal": {
+            "value": "375000000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "deep-cloud-btdr-q2-detail"
+            ]
+          },
+          "note": " Outstanding at the earlier date shown; not re-confirmed at the latest company snapshot.",
+          "market_yield": null,
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "CLOUD-BTDR-1",
           "rankable": true
         },
         "debt_assets": {
@@ -427,15 +674,69 @@
         "Nov 10 earnings release is newer than June 30 detailed financial statements and companyfacts.",
         "Includes substantial related-party borrowings and digital-asset loans; carrying amount differs from a purely dollar cash-repayment principal concept.",
         "Restricted cash and digital assets are not treated as freely available cash.",
-        "Mixed Bitcoin, ASIC and AI activities; not a pure-play neocloud."
+        "Mixed Bitcoin, ASIC and AI activities; not a pure-play neocloud.",
+        "Six September borrowing carrying rows still sum exactly1,948.472M.",
+        "Latest release gives no complete September face/cost bridge or per-note surviving principal.",
+        "Digital-asset-settled related-party loan carrying amounts are affected by valuation/derivatives and differ from a simple cash principal notion.",
+        "A zero cash repayment line cannot prove no conversion or noncash extinguishment; per-note current status remains unknown."
       ],
       "source_ids": [
         "btdr-q3-2026",
-        "btdr-selected-note"
+        "btdr-selected-note",
+        "deep-cloud-btdr-q3",
+        "deep-cloud-btdr-selected-issue",
+        "deep-cloud-btdr-q2-detail"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated Bitdeer Group, including related-party borrowings"
+      "scope": "Consolidated Bitdeer Group, including related-party borrowings",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": null,
+            "carrying": "1948472000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-cloud-btdr-q3"
+            ],
+            "scope": "consolidated_carrying_only",
+            "complete_company_scope": false,
+            "note": "Do not use June discounts, principal or digital-asset loan valuation to infer September face debt.",
+            "difference": null
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "110749000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-btdr-q3"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-btdr-q3"
+            ],
+            "note": "16.334M finance lease is presented among current liabilities; a noncurrent finance-lease amount is not separately disclosed. Do not silently label the known current balance a complete total."
+          }
+        ],
+        "notes": [
+          "Six September borrowing carrying rows still sum exactly1,948.472M.",
+          "Latest release gives no complete September face/cost bridge or per-note surviving principal.",
+          "Digital-asset-settled related-party loan carrying amounts are affected by valuation/derivatives and differ from a simple cash principal notion.",
+          "A zero cash repayment line cannot prove no conversion or noncash extinguishment; per-note current status remains unknown."
+        ]
+      }
     },
     {
       "ticker": "HUT",
@@ -494,24 +795,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "CLOUD-HUT-1",
+          "ticker": "HUT",
           "value": "6.192",
           "unit": "percent",
-          "source_ids": [
-            "hut-selected-note"
-          ],
-          "basis": "Hut 8 DC LLC project debt; non-recourse to Hut 8",
-          "note": "Project-specific secured financing; not comparable to an unsecured parent convertible and not a blanket Google guarantee of Hut 8.",
-          "as_of": "2026-05-01",
-          "instrument": "River Bend 6.192% Senior Secured Notes due 2042",
+          "currency": "USD",
+          "instrument": "River Bend6.192% Senior Secured Notes due2042",
           "type": "project_senior_secured_nonconvertible",
+          "issuer": "Hut 8 DC LLC",
+          "scope": "Named obligations of Hut 8 DC LLC",
+          "basis": "Named obligations of Hut 8 DC LLC",
+          "as_of": "2026-09-30",
+          "issue_date": "2026-04-30",
+          "issue_date_note": "Latest quarterly filing says issued April30; earlier8K says offering completed April27 and indentureApril30.",
           "maturity": "2042-11-15",
           "maturity_precision": "day",
-          "issue_date": null,
           "rate_type": "fixed",
-          "selection_rule": "One identified note example, not the cheapest note, newest note or company-wide cost of borrowing",
+          "source_ids": [
+            "deep-cloud-hut-q3",
+            "deep-cloud-hut-prior-issue"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-cloud-hut-q3"
+          ],
+          "outstanding_principal": {
+            "value": "3250000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-hut-q3"
+            ]
+          },
+          "note": "Latest10Q says issueApr30; earlier8K says offering completedApr27 but indentureApr30. Keep discrepancy visible. Per-note cost52.5M is rounded;3197.5M carrying is an arithmetic indication, not a more precise filing amount.",
           "market_yield": null,
-          "issuer": "Hut 8 DC LLC project debt; non-recourse to Hut 8",
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "CLOUD-HUT-1",
           "rankable": true
         },
         "debt_assets": {
@@ -530,15 +849,71 @@
         "Excludes $3.275M liability-classified SAFE from the mixed loans/notes/other-liabilities balance-sheet line.",
         "Excludes $371.687M miner purchase liability under the common borrowing definition; it remains an economic obligation.",
         "Large restricted project balances are not parent cash available to repay all consolidated debt.",
-        "Project debt is non-recourse; do not infer parent-corporate credit quality or blanket guarantee from project rating/backstop."
+        "Project debt is non-recourse; do not infer parent-corporate credit quality or blanket guarantee from project rating/backstop.",
+        "Principal7,726.410M less98.185M discount/costs equals7,628.225M debt carrying value.",
+        "Do not use mixed balance-sheet loans/notes/other-liabilities7,631.500M as borrowing-only debt.",
+        "RiverBend andBeaconPoint are separate legal project issuers; neither is guaranteed by parent or tenant.",
+        "Latest RiverBend issue-date statement differs from prior8K completiondate; not silently resolved.",
+        "Per-note rounded costs cannot be forced to reconcile precisely to the98.185M aggregate cost adjustment."
       ],
       "source_ids": [
         "hut-q3-2026",
-        "hut-selected-note"
+        "hut-selected-note",
+        "deep-cloud-hut-q3",
+        "deep-cloud-hut-finance-lease-fact",
+        "deep-cloud-hut-prior-issue"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated Hut 8, including non-recourse project subsidiaries"
+      "scope": "Consolidated Hut 8, including non-recourse project subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "7726410000",
+            "carrying": "7628225000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-cloud-hut-q3"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "4,250M BeaconPoint +200M FalconX +3,250M RiverBend +26.410M TZRC; other borrowing lines zero.",
+            "difference": "98185000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "29495000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-hut-q3"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "0",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-cloud-hut-finance-lease-fact"
+            ],
+            "note": "Zero finance lease liability independently tagged for this exact September30 accession in SEC companyfacts."
+          }
+        ],
+        "notes": [
+          "Principal7,726.410M less98.185M discount/costs equals7,628.225M debt carrying value.",
+          "Do not use mixed balance-sheet loans/notes/other-liabilities7,631.500M as borrowing-only debt.",
+          "RiverBend andBeaconPoint are separate legal project issuers; neither is guaranteed by parent or tenant.",
+          "Latest RiverBend issue-date statement differs from prior8K completiondate; not silently resolved.",
+          "Per-note rounded costs cannot be forced to reconcile precisely to the98.185M aggregate cost adjustment."
+        ]
+      }
     },
     {
       "ticker": "APLD",
@@ -597,24 +972,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "APLD-2030-925",
+          "ticker": "APLD",
           "value": "9.25",
           "unit": "percent",
-          "source_ids": [
-            "apld-coupon"
-          ],
-          "basis": "Project/subsidiary secured financing; ELN subsidiaries are guarantors",
-          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
-          "as_of": "2026-08-31",
-          "instrument": "2030 9.250% Senior Secured Notes",
-          "type": "senior_secured_project_notes",
-          "maturity": "2030-12",
-          "maturity_precision": "month",
-          "issue_date": null,
-          "rate_type": "fixed",
-          "issuer": "Exact legal issuer not reviewed; subsidiary/project scope",
-          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
-          "market_yield": null,
           "currency": "USD",
+          "instrument": "APLD ComputeCo LLC 9.250% Senior Secured Notes due December 15, 2030",
+          "type": "senior_secured_project_notes",
+          "issuer": "APLD ComputeCo LLC",
+          "scope": "Named obligations of APLD ComputeCo LLC",
+          "basis": "Named obligations of APLD ComputeCo LLC",
+          "as_of": "2026-08-31",
+          "issue_date": "2025-11-20",
+          "issue_date_note": "",
+          "maturity": "2030-12-15",
+          "maturity_precision": "day",
+          "rate_type": "fixed",
+          "source_ids": [
+            "deep-transition-apld-q",
+            "deep-transition-apld-925-close"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-transition-apld-q"
+          ],
+          "outstanding_principal": {
+            "value": "2350000000",
+            "unit": "USD",
+            "as_of": "2026-08-31",
+            "source_ids": [
+              "deep-transition-apld-q"
+            ]
+          },
+          "note": "November13 is pricing/purchase agreement; November20 is actual reported closing/issue.",
+          "market_yield": null,
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "APLD-2030-925",
           "rankable": true
         },
         "debt_assets": {
@@ -636,11 +1029,58 @@
       ],
       "source_ids": [
         "apld-balance",
-        "apld-coupon"
+        "apld-coupon",
+        "deep-transition-apld-q",
+        "deep-transition-apld-925-close"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated parent and subsidiaries"
+      "scope": "Consolidated parent and subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-08-31",
+            "principal": null,
+            "carrying": "6376592000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-transition-apld-q"
+            ],
+            "scope": "consolidated_carrying_only",
+            "complete_company_scope": false,
+            "note": "Gross note principal plus revolver and other stated debt balances; do not claim other-debt line is independently verified face principal. $300M bridge facility repaid/zero at snapshot. Consolidated assets include controlled ChronoScale and Ekso held-for-sale. Ekso held-for-sale liabilities have no borrowings.",
+            "difference": null
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "60869000",
+            "unit": "USD",
+            "as_of": "2026-08-31",
+            "source_ids": [
+              "deep-transition-apld-q"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "45947000",
+            "unit": "USD",
+            "as_of": "2026-08-31",
+            "source_ids": [
+              "deep-transition-apld-q"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "Three separate ComputeCo project issuers with named subsidiary guarantees/security plus parent completion support. Completion support is not a blanket debt-repayment guarantee. Parent2.75%convertible has different recourse.",
+          "Gross debt-table balance6.721605B less separately deducted financing costs345.013M gives recorded borrowings6.376592B. The other-debt row is not independently reconciled to face principal, so no company-wide principal total is asserted."
+        ]
+      }
     },
     {
       "ticker": "CORZ",
@@ -695,24 +1135,43 @@
           "rankable": true
         },
         "coupon": {
+          "id": "CORZ-2031-775",
+          "ticker": "CORZ",
           "value": "7.75",
           "unit": "percent",
-          "source_ids": [
-            "corz-coupon"
-          ],
-          "basis": "Indirect wholly-owned subsidiary and named subsidiary guarantors",
-          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
-          "as_of": "2026-09-30",
-          "instrument": "7.75% Senior Secured Notes due 2031",
-          "type": "senior_secured_project_notes",
-          "maturity": "2031",
-          "maturity_precision": "year",
-          "issue_date": null,
-          "rate_type": "fixed",
-          "issuer": "Core Scientific Finance",
-          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
-          "market_yield": null,
           "currency": "USD",
+          "instrument": "Core Scientific Finance I LLC 7.75% Senior Secured Notes due May 15, 2031",
+          "type": "senior_secured_project_notes",
+          "issuer": "Core Scientific Finance I LLC",
+          "scope": "Named obligations of Core Scientific Finance I LLC",
+          "basis": "Named obligations of Core Scientific Finance I LLC",
+          "as_of": "2026-09-30",
+          "issue_date": "2026-05-06",
+          "issue_date_note": "",
+          "maturity": "2031-05-15",
+          "maturity_precision": "day",
+          "rate_type": "fixed",
+          "source_ids": [
+            "deep-transition-corz-q",
+            "deep-transition-corz-775-close",
+            "deep-transition-corz-775-indenture"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-transition-corz-q"
+          ],
+          "outstanding_principal": {
+            "value": "3300000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-corz-q"
+            ]
+          },
+          "note": "Selected instrument only; not current market yield.",
+          "market_yield": null,
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "CORZ-2031-775",
           "rankable": true
         },
         "debt_assets": {
@@ -734,11 +1193,56 @@
       ],
       "source_ids": [
         "corz-balance",
-        "corz-coupon"
+        "corz-coupon",
+        "deep-transition-corz-q",
+        "deep-transition-corz-775-close",
+        "deep-transition-corz-775-indenture"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated parent and subsidiaries"
+      "scope": "Consolidated parent and subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "4385000000",
+            "carrying": "4302175000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-transition-corz-q"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "Full debt table; no revolver borrowings outstanding. Do not substitute broad liquidity/DSRA for unrestricted cash.",
+            "difference": "82825000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "103734000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-corz-q"
+            ],
+            "note": "Note6 presentation explicitly shows$892k finance noncurrent but no separate finance current row; do not infer undisclosed component is zero."
+          },
+          {
+            "kind": "finance",
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [],
+            "note": "Note6 presentation explicitly shows$892k finance noncurrent but no separate finance current row; do not infer undisclosed component is zero."
+          }
+        ],
+        "notes": [
+          "Project issuer Core Scientific Finance I LLC with guarantees by Austin,Denton,Dalton,Marble,Muskogee subsidiaries and secured collateral/ringfencing support; not all corporate debt at7.75%. Do not label unconditionally nonrecourse without reviewing parent collateral obligations."
+        ]
+      }
     },
     {
       "ticker": "WULF",
@@ -805,24 +1309,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "WULF-2030-775",
+          "ticker": "WULF",
           "value": "7.75",
           "unit": "percent",
-          "source_ids": [
-            "wulf-coupon"
-          ],
-          "basis": "Wholly-owned subsidiary; project secured debt, not all TeraWulf obligations",
-          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
-          "as_of": "2026-09-30",
-          "instrument": "Wulf Compute 7.75% Senior Secured Notes due 2030",
+          "currency": "USD",
+          "instrument": "WULF Compute LLC 7.75% Senior Secured Notes due October 15, 2030",
           "type": "senior_secured_project_notes",
+          "issuer": "WULF Compute LLC",
+          "scope": "Named obligations of WULF Compute LLC",
+          "basis": "Named obligations of WULF Compute LLC",
+          "as_of": "2026-09-30",
+          "issue_date": null,
+          "issue_date_note": "Conflicting source dates: October22 vsOctober23,2025; exact issue day unverified.",
           "maturity": "2030-10-15",
           "maturity_precision": "day",
-          "issue_date": null,
           "rate_type": "fixed",
-          "issuer": "Wulf Compute LLC",
-          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "source_ids": [
+            "deep-transition-wulf-q",
+            "deep-transition-wulf-775-close"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-transition-wulf-q"
+          ],
+          "outstanding_principal": {
+            "value": "3200000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-wulf-q"
+            ]
+          },
+          "note": "Primary date conflict: current10-Q saysOctober22,2025; original closing8-K/indenture sayOctober23,2025. Use month-only or disclose conflict.",
           "market_yield": null,
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "WULF-2030-775",
           "rankable": true
         },
         "debt_assets": {
@@ -844,11 +1366,57 @@
       ],
       "source_ids": [
         "wulf-balance",
-        "wulf-coupon"
+        "wulf-coupon",
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-775-close"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated parent and subsidiaries"
+      "scope": "Consolidated parent and subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "5725000000",
+            "carrying": "5232310000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-transition-wulf-q"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "Explicit principal maturities total confirms$5.725B. The large2031convert difference includes originally bifurcated conversion-feature discount, not only ordinary cash fees.",
+            "difference": "492690000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "25716000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-wulf-q"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "369000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-wulf-q"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "WULF Compute LLC7.75%project debt guaranteed by LaLupaData,AkelaDataHoldings,AkelaData; collateral and parent/ringfencing arrangements exist. Parent convertible notes have distinct recourse; tenantGooglebackstop does not blanket-guarantee corporate debt."
+        ]
+      }
     },
     {
       "ticker": "CIFR",
@@ -907,24 +1475,41 @@
           "rankable": true
         },
         "coupon": {
+          "id": "CIFR-2030-7125",
+          "ticker": "CIFR",
           "value": "7.125",
           "unit": "percent",
-          "source_ids": [
-            "cifr-coupon"
-          ],
-          "basis": "Project subsidiary / Barber Lake secured financing",
-          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Secured/project terms differ from unsecured corporate bonds.",
-          "as_of": "2026-09-30",
-          "instrument": "Cipher Compute 7.125% Senior Secured Notes due 2030",
+          "currency": "USD",
+          "instrument": "Cipher Compute LLC 7.125% Senior Secured Notes due November 15, 2030",
           "type": "senior_secured_project_notes",
+          "issuer": "Cipher Compute LLC",
+          "scope": "Named obligations of Cipher Compute LLC",
+          "basis": "Named obligations of Cipher Compute LLC",
+          "as_of": "2026-09-30",
+          "issue_date": "2025-11-13",
+          "issue_date_note": "",
           "maturity": "2030-11-15",
           "maturity_precision": "day",
-          "issue_date": null,
           "rate_type": "fixed",
-          "issuer": "Cipher Compute",
-          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "source_ids": [
+            "deep-transition-cifr-q"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-transition-cifr-q"
+          ],
+          "outstanding_principal": {
+            "value": "1733000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-cifr-q"
+            ]
+          },
+          "note": "Additional$333M issuance2025-11-24; $1.733B is aggregate same-date series principal, not initial issue size.",
           "market_yield": null,
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "CIFR-2030-7125",
           "rankable": true
         },
         "debt_assets": {
@@ -946,11 +1531,56 @@
       ],
       "source_ids": [
         "cifr-balance",
-        "cifr-coupon"
+        "cifr-coupon",
+        "deep-transition-cifr-q"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated parent and subsidiaries"
+      "scope": "Consolidated parent and subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "6016312000",
+            "carrying": "5559878000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-transition-cifr-q"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "Includes$812k vehicle loans omitted by narrower fair-value table; do not subtract current portion twice. October2026financing/exchanges excluded.",
+            "difference": "456434000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "37028000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-cifr-q"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "22319000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-cifr-q"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "Three project issuers distinct from parent unsecured convertible issuer; customer credit backstops do not imply blanket parent debt guarantee."
+        ]
+      }
     },
     {
       "ticker": "HIVE",
@@ -1025,24 +1655,41 @@
           "rankable": true
         },
         "coupon": {
+          "id": "HIVE-2031-APR000",
+          "ticker": "HIVE",
           "value": "0",
           "unit": "percent",
-          "source_ids": [
-            "hive-coupon"
-          ],
-          "basis": "Subsidiary issuer; unsecured and parent guaranteed",
-          "note": "Selected instrument only; not market yield or company-wide borrowing cost. Conversion/exchange rights affect economics.",
+          "currency": "USD",
+          "instrument": "HIVE Bermuda 2026 Ltd. April 2026 0% Exchangeable Senior Notes due April 15, 2031",
+          "type": "exchangeable_senior_unsecured_notes",
+          "issuer": "HIVE Bermuda 2026 Ltd.",
+          "scope": "Named obligations of HIVE Bermuda 2026 Ltd.",
+          "basis": "Named obligations of HIVE Bermuda 2026 Ltd.",
           "as_of": "2026-09-30",
-          "instrument": "HIVE Bermuda April2026 0% Exchangeable Senior Notes due 2031",
-          "type": "exchangeable_senior_notes",
+          "issue_date": "2026-04-21",
+          "issue_date_note": "",
           "maturity": "2031-04-15",
           "maturity_precision": "day",
-          "issue_date": null,
           "rate_type": "fixed",
-          "issuer": "HIVE Bermuda 2026 Ltd.",
-          "selection_rule": "One verified note example, not a minimum, newest or representative company borrowing cost.",
+          "source_ids": [
+            "deep-transition-hive-q"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-transition-hive-q"
+          ],
+          "outstanding_principal": {
+            "value": "115000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-hive-q"
+            ]
+          },
+          "note": "Date explicitly reported as issued, not inferred from release/publication. Unsecured; parent guaranteed.",
           "market_yield": null,
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "HIVE-2031-APR000",
           "rankable": true
         },
         "debt_assets": {
@@ -1064,11 +1711,70 @@
       ],
       "source_ids": [
         "hive-balance",
-        "hive-coupon"
+        "hive-coupon",
+        "deep-transition-hive-q"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated parent and subsidiaries"
+      "scope": "Consolidated parent and subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": null,
+            "carrying": "265631000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-transition-hive-q"
+            ],
+            "scope": "consolidated_carrying_only",
+            "complete_company_scope": false,
+            "note": "Full convertible face known; other loans include interest/FX, so no fabricated company-wide face-principal total. January2021$15Mdebenture has zero balance. Future contractual cashflows with interest are not current principal.",
+            "difference": null
+          },
+          {
+            "label": "Convertible / exchangeable notes only — not all borrowings",
+            "as_of": "2026-09-30",
+            "principal": "245000000",
+            "carrying": "235253000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-transition-hive-q"
+            ],
+            "scope": "convertible_notes_only",
+            "complete_company_scope": false,
+            "note": "Full convertible face known; other loans include interest/FX, so no fabricated company-wide face-principal total. January2021$15Mdebenture has zero balance. Future contractual cashflows with interest are not current principal.",
+            "difference": "9747000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "82935000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-hive-q"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "25493000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-transition-hive-q"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "Exchangeable notes issued by HIVE Bermuda2026Ltd., unsecured and guaranteed by HIVE Digital Technologies Ltd.; equity exchange rights create different economics from straight project-secured notes."
+        ]
+      }
     },
     {
       "ticker": "GLXY",
@@ -1116,24 +1822,40 @@
           "rankable": true
         },
         "coupon": {
+          "id": "ADJ-GLXY-SELECTED",
+          "ticker": "GLXY",
           "value": "9.875",
           "unit": "percent",
-          "source_ids": [
-            "glxy-coupon"
-          ],
-          "basis": "Consolidated data-center subsidiary/project notes; not Galaxy parent-wide cost",
-          "note": "Funds Helios Phase II construction and debt-service reserves; security, project scope and construction stage differ from corporate bonds.",
-          "as_of": "2026-09-30",
-          "instrument": "Galaxy Helios Data Centers II LLC 9.875% Senior Secured Notes due 2031",
-          "type": "secured_project_notes",
-          "maturity": "2031",
-          "maturity_precision": "year",
-          "issue_date": "2026-07-28",
-          "rate_type": "fixed",
-          "issuer": "Consolidated data-center subsidiary/project notes; not Galaxy parent-wide cost",
-          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
-          "market_yield": null,
           "currency": "USD",
+          "instrument": "9.875% Senior Secured Notes due August 1, 2031",
+          "type": "secured_project_notes",
+          "issuer": "Galaxy Helios Data Centers II LLC",
+          "scope": "Named obligations of Galaxy Helios Data Centers II LLC",
+          "basis": "Named obligations of Galaxy Helios Data Centers II LLC",
+          "as_of": "2026-09-30",
+          "issue_date": "2026-07-28",
+          "issue_date_note": "",
+          "maturity": "2031-08-01",
+          "maturity_precision": "day",
+          "rate_type": "fixed",
+          "source_ids": [
+            "deep-adj-GLXY",
+            "deep-legal-GLXY"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-adj-GLXY"
+          ],
+          "outstanding_principal": {
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": []
+          },
+          "note": "Secured project debt with project subsidiary guarantors and a HoldCo party. No blanket Galaxy Digital Inc. parent guarantee is inferred.",
+          "market_yield": null,
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "ADJ-GLXY-SELECTED",
           "rankable": true
         },
         "debt_assets": {
@@ -1155,11 +1877,58 @@
       ],
       "source_ids": [
         "glxy-balance",
-        "glxy-coupon"
+        "glxy-coupon",
+        "deep-adj-GLXY",
+        "deep-legal-GLXY"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated company and controlled subsidiaries"
+      "scope": "Consolidated company and controlled subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Notes payable only — not a company debt total",
+            "as_of": "2026-09-30",
+            "principal": "6937907000",
+            "carrying": "6748432000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-adj-GLXY"
+            ],
+            "scope": "notes_only",
+            "complete_company_scope": false,
+            "note": "Contractual-obligations footnote states note amounts are principal excluding unamortized discounts and debt issuance costs. Difference of189475000 is calculated for notes only; do not apply it to digital-asset borrowing.",
+            "difference": "189475000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "17313000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-GLXY"
+            ],
+            "note": "Only operating lease liability is separately identified in reviewed Note13. Null finance amount is not an assertion of zero. Neither category enters the unranked notes/fiat-loans decomposition."
+          },
+          {
+            "kind": "finance",
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [],
+            "note": "Only operating lease liability is separately identified in reviewed Note13. Null finance amount is not an assertion of zero. Neither category enters the unranked notes/fiat-loans decomposition."
+          }
+        ],
+        "notes": [
+          "Consolidated Galaxy financial-services and data-center operations, including Helios subsidiaries. Do not mix a project-only note coupon with the group's trading/lending assets and infer overall issuer credit quality.",
+          "Fiat loans fund digital-asset trading/lending, digital borrowing liabilities embed market-price derivatives, and collateral payables are principally linked to customer/borrower collateral return obligations. These are different financial-business exposures. Present them as categories, not interchangeable industrial borrowing principal, and do not add notional derivative amounts a second time.",
+          "The source's contractual loan/collateral table is5166293000 versus5166294000 from the separately rounded carrying-category sums; retain source categories and note the1000 difference instead of forcing a reconciled headline.",
+          "Separately reported financing categories: notes payable carrying6.748432B; fiat loans210.478M; digital assets borrowed2.343597B; collateral payable2.612219B. These are not added into an industrial borrowing rank."
+        ]
+      }
     },
     {
       "ticker": "RIOT",
@@ -1218,25 +1987,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "ADJ-RIOT-SELECTED",
+          "ticker": "RIOT",
           "value": "0.75",
           "unit": "percent",
-          "source_ids": [
-            "riot-coupon",
-            "riot-note-issue"
-          ],
-          "basis": "Named corporate convertible issue, not issuer-wide cost or yield",
-          "note": "Conversion rights contribute economic value; a low cash coupon is not cheap all-in financing.",
-          "as_of": "2026-09-30",
+          "currency": "USD",
           "instrument": "0.75% Convertible Senior Notes due 2030",
           "type": "senior_unsecured_convertible",
+          "issuer": "Riot Platforms, Inc.",
+          "scope": "Named obligations of Riot Platforms, Inc.",
+          "basis": "Named obligations of Riot Platforms, Inc.",
+          "as_of": "2026-09-30",
+          "issue_date": "2024-12-11",
+          "issue_date_note": "",
           "maturity": "2030-01-15",
           "maturity_precision": "day",
-          "issue_date": "2024-12-11",
           "rate_type": "fixed",
-          "issuer": "Named corporate convertible issue, not issuer-wide cost or yield",
-          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
+          "source_ids": [
+            "deep-adj-RIOT",
+            "deep-legal-RIOT"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-adj-RIOT"
+          ],
+          "outstanding_principal": {
+            "value": "594383000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-RIOT"
+            ]
+          },
+          "note": "Senior unsecured convertible obligations of parent issuer; conversion rights mean low coupon is not an all-in funding-cost ranking.",
           "market_yield": null,
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "ADJ-RIOT-SELECTED",
           "rankable": true
         },
         "debt_assets": {
@@ -1259,11 +2045,55 @@
       "source_ids": [
         "riot-balance",
         "riot-coupon",
-        "riot-note-issue"
+        "riot-note-issue",
+        "deep-adj-RIOT",
+        "deep-legal-RIOT"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated company and controlled subsidiaries"
+      "scope": "Consolidated company and controlled subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "674512000",
+            "carrying": "656645000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-adj-RIOT"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "674512000 - 17867000 = 656645000",
+            "difference": "17867000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "33014000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-RIOT"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [],
+            "note": "No separate finance lease obligation in the balance sheet or exhaustive borrowing-note component list. Null is retained instead of asserting that no immaterial finance leases can exist."
+          }
+        ],
+        "notes": [
+          "Consolidated parent and subsidiaries, including project borrowing. The 573M facility is non-recourse to the parent and non-credit-party affiliates subject to customary exceptions; that does not remove it from consolidated debt. Facility commitment 573M is not the 20.848M drawn principal."
+        ]
+      }
     },
     {
       "ticker": "MARA",
@@ -1322,25 +2152,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "ADJ-MARA-SELECTED",
+          "ticker": "MARA",
           "value": "2.125",
           "unit": "percent",
-          "source_ids": [
-            "mara-coupon",
-            "mara-note-issue"
-          ],
-          "basis": "Named corporate convertible issue, not issuer-wide cost or yield",
-          "note": "Conversion rights contribute value; this coupon does not represent all MARA debt.",
-          "as_of": "2026-09-30",
-          "instrument": "September 2031 convertible senior notes",
+          "currency": "USD",
+          "instrument": "2.125% Convertible Senior Notes due 2031 (September 2031 Notes)",
           "type": "senior_unsecured_convertible",
+          "issuer": "MARA Holdings, Inc.",
+          "scope": "Named obligations of MARA Holdings, Inc.",
+          "basis": "Named obligations of MARA Holdings, Inc.",
+          "as_of": "2026-09-30",
+          "issue_date": "2024-08-14",
+          "issue_date_note": "",
           "maturity": "2031-09-01",
           "maturity_precision": "day",
-          "issue_date": "2024-08-14",
           "rate_type": "fixed",
-          "issuer": "Named corporate convertible issue, not issuer-wide cost or yield",
-          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
+          "source_ids": [
+            "deep-adj-MARA",
+            "deep-legal-MARA"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-adj-MARA"
+          ],
+          "outstanding_principal": {
+            "value": "300000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-MARA"
+            ]
+          },
+          "note": "Senior unsecured convertible parent obligations; the 2.125% contractual coupon excludes embedded conversion economics.",
           "market_yield": null,
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "ADJ-MARA-SELECTED",
           "rankable": true
         },
         "debt_assets": {
@@ -1363,11 +2210,57 @@
       "source_ids": [
         "mara-balance",
         "mara-coupon",
-        "mara-note-issue"
+        "mara-note-issue",
+        "deep-adj-MARA",
+        "deep-legal-MARA"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated company and controlled subsidiaries"
+      "scope": "Consolidated company and controlled subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "3047201000",
+            "carrying": "3019332000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-adj-MARA"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "3047201000 - 27869000 = 3019332000",
+            "difference": "27869000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "56384000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-MARA"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "4106000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-MARA"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "Consolidated group including acquired operating subsidiaries. Starwood sites had not met the contribution conditions and remained in MARA operations at quarter-end; anticipated future non-recourse JV financing is not an outstanding debt balance."
+        ]
+      }
     },
     {
       "ticker": "EQIX",
@@ -1434,24 +2327,42 @@
           "rankable": true
         },
         "coupon": {
+          "id": "ADJ-EQIX-SELECTED",
+          "ticker": "EQIX",
           "value": "5.800",
           "unit": "percent",
-          "source_ids": [
-            "eqix-coupon"
-          ],
-          "basis": "Named USD senior note; not company average or market yield",
-          "note": "A longer-maturity senior unsecured bond is not directly interchangeable with convertible or project debt.",
-          "as_of": "2026-09-30",
+          "currency": "USD",
           "instrument": "5.800% Senior Notes due August 15, 2036",
           "type": "senior_unsecured_notes",
+          "issuer": "Equinix, Inc.",
+          "scope": "Named obligations of Equinix, Inc.",
+          "basis": "Named obligations of Equinix, Inc.",
+          "as_of": "2026-09-30",
+          "issue_date": "2026-08-06",
+          "issue_date_note": "",
           "maturity": "2036-08-15",
           "maturity_precision": "day",
-          "issue_date": "2026-08-06",
           "rate_type": "fixed",
-          "issuer": "Named USD senior note; not company average or market yield",
-          "selection_rule": "One verified USD note example, not a minimum, newest or representative company borrowing cost.",
+          "source_ids": [
+            "deep-adj-EQIX",
+            "deep-legal-EQIX"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-adj-EQIX"
+          ],
+          "outstanding_principal": {
+            "value": "650000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-EQIX"
+            ]
+          },
+          "note": "Senior unsecured, nonconvertible note issued by Equinix, Inc.; no separate guarantor per offering terms. Other series can have financing-subsidiary issuers and must not be conflated.",
           "market_yield": null,
-          "currency": "USD",
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "ADJ-EQIX-SELECTED",
           "rankable": true
         },
         "debt_assets": {
@@ -1473,11 +2384,57 @@
       ],
       "source_ids": [
         "eqix-balance",
-        "eqix-coupon"
+        "eqix-coupon",
+        "deep-adj-EQIX",
+        "deep-legal-EQIX"
       ],
       "source_precision_usd": "1000000",
       "synthetic": false,
-      "scope": "Consolidated company and controlled subsidiaries"
+      "scope": "Consolidated company and controlled subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "22839000000",
+            "carrying": "22647000000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-adj-EQIX"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "22839000000 - 192000000 = 22647000000 at million-dollar source precision",
+            "difference": "192000000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "1386000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-EQIX"
+            ],
+            "note": ""
+          },
+          {
+            "kind": "finance",
+            "value": "2378000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-EQIX"
+            ],
+            "note": ""
+          }
+        ],
+        "notes": [
+          "Consolidated company and controlled subsidiaries. Equity-method xScale/other JV borrowing is not grossed into consolidated debt. The separately disclosed 56M maximum future payments under debt guarantees of unconsolidated VIEs is contingent exposure, not current principal; do not add it to the ranking numerator. Assets retain equity-method investment carrying values rather than a pro-rata gross asset reconstruction."
+        ]
+      }
     },
     {
       "ticker": "DLR",
@@ -1544,19 +2501,44 @@
           "rankable": true
         },
         "coupon": {
-          "value": null,
+          "id": "ADJ-DLR-SELECTED",
+          "ticker": "DLR",
+          "value": "4.450",
           "unit": "percent",
-          "source_ids": [],
-          "basis": "No independently reviewed USD fixed-note example",
-          "note": "No independently reviewed USD fixed-note example in this snapshot; this does not mean the company has no bonds.",
-          "instrument": null,
-          "type": null,
-          "maturity": null,
-          "issue_date": null,
-          "rate_type": "fixed",
           "currency": "USD",
+          "instrument": "4.450% Notes due July 15, 2028",
+          "type": "senior_unsecured_notes",
+          "issuer": "Digital Realty Trust, L.P.",
+          "scope": "Named obligations of Digital Realty Trust, L.P.",
+          "basis": "Named obligations of Digital Realty Trust, L.P.",
           "as_of": "2026-09-30",
-          "rankable": false
+          "issue_date": "2018-06-21",
+          "issue_date_note": "",
+          "maturity": "2028-07-15",
+          "maturity_precision": "day",
+          "rate_type": "fixed",
+          "source_ids": [
+            "deep-adj-DLR",
+            "deep-legal-DLR",
+            "deep-issue-DLR"
+          ],
+          "outstanding_status": "verified_at_snapshot",
+          "outstanding_evidence_ids": [
+            "deep-adj-DLR"
+          ],
+          "outstanding_principal": {
+            "value": "650000000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-DLR"
+            ]
+          },
+          "note": "Historical fixed cash coupon of one long-issued unsecured OP bond with parent guarantee; not today's market yield, refinancing offer or weighted company debt cost. This example can fill the current unreviewed-coupon slot, with explicit vintage and scope. Named guarantor: Digital Realty Trust, Inc..",
+          "market_yield": null,
+          "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
+          "instrument_id": "ADJ-DLR-SELECTED",
+          "rankable": true
         },
         "debt_assets": {
           "value": "34.48877889531648347624035341",
@@ -1576,11 +2558,204 @@
         "Latest release describes October euro/Swiss-franc bonds; no independently reviewed USD fixed-note selection is provided here."
       ],
       "source_ids": [
-        "dlr-balance"
+        "dlr-balance",
+        "deep-adj-DLR",
+        "deep-DLR-finance-lease",
+        "deep-legal-DLR",
+        "deep-issue-DLR"
       ],
       "source_precision_usd": "1000",
       "synthetic": false,
-      "scope": "Consolidated company and controlled subsidiaries"
+      "scope": "Consolidated company and controlled subsidiaries",
+      "listing_status": "listed",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Consolidated borrowing principal and recorded value",
+            "as_of": "2026-09-30",
+            "principal": "19618975000",
+            "carrying": "19494615000",
+            "unit": "USD",
+            "source_ids": [
+              "deep-adj-DLR"
+            ],
+            "scope": "consolidated_borrowings",
+            "complete_company_scope": true,
+            "note": "19618975000 - 39593000 - 84767000 = 19494615000",
+            "difference": "124360000"
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "1192434000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-adj-DLR"
+            ],
+            "note": "Presentation separately adds finance leases to the 19494615-thousand borrowing subtotal. The lease-inclusive 19760141-thousand figure on page25 must not replace the harmonized numerator."
+          },
+          {
+            "kind": "finance",
+            "value": "265526000",
+            "unit": "USD",
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "deep-DLR-finance-lease"
+            ],
+            "note": "Presentation separately adds finance leases to the 19494615-thousand borrowing subtotal. The lease-inclusive 19760141-thousand figure on page25 must not replace the harmonized numerator."
+          }
+        ],
+        "notes": [
+          "Digital Realty Trust, Inc. and consolidated subsidiaries, including Digital Realty Trust, L.P. operating partnership; parent and OP statements must not be added together. Excludes 2131287000 pro-rata unconsolidated JV debt used by issuer's adjusted leverage metric. Some former JV properties became consolidated in June2026; current-quarter consolidated scope incorporates those acquisitions without adding back old pro-rata balances."
+        ]
+      }
+    },
+    {
+      "ticker": "NSCALE",
+      "display_code": "Private · IPO filing",
+      "ticker_note": "Internal identifier; proposed NSCL is not a verified listed ticker.",
+      "listing_status": "private_pending_ipo",
+      "name": "Nscale",
+      "legal_name": "Nscale Limited",
+      "group": "gpu_cloud",
+      "business": "GPU cloud and AI infrastructure; privately held IPO applicant",
+      "comparison_caveat": "Loan measure excludes substantial customer financing and leases. Separately reported: $6.49B deferred customer revenue and $2.63B operating leases.",
+      "as_of": "2026-06-30",
+      "filed_at": "2026-09-18",
+      "form": "S-1",
+      "metrics": {
+        "debt": {
+          "value": "137400000",
+          "unit": "USD",
+          "as_of": "2026-06-30",
+          "source_ids": [
+            "nscale-s1"
+          ],
+          "scope": "consolidated",
+          "basis": "Consolidated recorded borrowing carrying value: current plus noncurrent debt, excluding separately classified leases. The June related-party loan line is zero. This is not total financing obligations.",
+          "note": "",
+          "basis_key": "carrying_value_excluding_all_leases",
+          "components": [
+            {
+              "label": "Debt, current",
+              "value": "41400000"
+            },
+            {
+              "label": "Debt, noncurrent",
+              "value": "96000000"
+            }
+          ],
+          "rankable": true
+        },
+        "assets": {
+          "value": "17252000000",
+          "unit": "USD",
+          "as_of": "2026-06-30",
+          "source_ids": [
+            "nscale-s1"
+          ],
+          "scope": "consolidated",
+          "basis": "Same-date consolidated assets as reported; retains $2.6502bn of operating lease right-of-use assets even though lease liabilities are excluded from the borrowing numerator.",
+          "note": "",
+          "rankable": true
+        },
+        "cash": {
+          "value": "1478400000",
+          "unit": "USD",
+          "as_of": "2026-06-30",
+          "source_ids": [
+            "nscale-s1"
+          ],
+          "scope": "consolidated",
+          "basis": "As-reported cash and cash equivalents only; excludes $614.7m separately disclosed restricted cash. Source cash-flow reconciliation total $2,093.1m includes restricted cash and is not this measure.",
+          "note": "",
+          "rankable": true
+        },
+        "coupon": {
+          "value": null,
+          "unit": "percent",
+          "currency": "USD",
+          "as_of": "2026-06-30",
+          "source_ids": [],
+          "basis": "unknown_unranked",
+          "note": "No fixed-rate USD note coupon independently established in this review. Note 8 effective financing rates of 11.30% and 22.74% relate to loan facilities and must not be presented as bond coupons, market yields or company-wide financing costs.",
+          "instrument": null,
+          "issuer": null,
+          "type": null,
+          "issue_date": null,
+          "maturity": null,
+          "rate_type": "fixed",
+          "rankable": false
+        },
+        "debt_assets": {
+          "value": "0.7964293994899142128448875493",
+          "unit": "percent",
+          "rankable": true,
+          "as_of": "2026-06-30",
+          "basis": "Borrowing carrying value / same-date consolidated total assets × 100",
+          "note": "",
+          "source_ids": [
+            "nscale-s1"
+          ]
+        }
+      },
+      "notes": [
+        "Borrowings exclude $6.4926bn of deferred customer revenue with a significant financing component and $2.6254bn of operating lease liabilities. A low borrowing/assets ratio does not mean low overall financing obligations or good financial health.",
+        "May 4–5, 2026 reorganization made Nscale Limited the ultimate holding company of Arkon Energy Pty Ltd and Nscale Global Holdings Limited. Use the filing consolidated actual June accounts; do not substitute a prospective Nscale plc/IPO pro forma or isolated subsidiary figure.",
+        "No fixed-rate USD note coupon independently established in this review. Note 8 effective financing rates of 11.30% and 22.74% relate to loan facilities and must not be presented as bond coupons, market yields or company-wide financing costs.",
+        "Do not splice post-June loan draws, new facilities, pre-IPO convertibles or commitments into the June debt numerator or assets denominator. This source reports subsequent August GPU draw and revolver utilization; those do not update this historical snapshot.",
+        "The reported maturity total is below the reported carrying amount. Do not invent a principal-minus-fees bridge or replace carrying debt with this total."
+      ],
+      "source_ids": [
+        "nscale-s1"
+      ],
+      "source_precision_usd": "100000",
+      "synthetic": false,
+      "scope": "Nscale Limited and consolidated predecessor/controlled entities; actual June accounts, not IPO pro forma",
+      "debt_context": {
+        "bridges": [
+          {
+            "label": "Company-wide principal total not reconciled",
+            "as_of": "2026-06-30",
+            "principal": null,
+            "carrying": "137400000",
+            "unit": "USD",
+            "source_ids": [
+              "nscale-s1"
+            ],
+            "scope": "consolidated_carrying_only",
+            "complete_company_scope": false,
+            "note": "The reported maturity total is below the reported carrying amount. Do not invent a principal-minus-fees bridge or replace carrying debt with this total.",
+            "difference": null
+          }
+        ],
+        "leases": [
+          {
+            "kind": "operating",
+            "value": "2625400000",
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [
+              "nscale-s1"
+            ],
+            "note": "Lease obligations excluded from ranked loan/notes borrowing measure."
+          },
+          {
+            "kind": "finance",
+            "value": null,
+            "unit": "USD",
+            "as_of": "2026-06-30",
+            "source_ids": [],
+            "note": "No separate June finance lease total established; unknown is not zero."
+          }
+        ],
+        "notes": [
+          "Borrowings exclude $6.4926bn of deferred customer revenue with a significant financing component and $2.6254bn of operating lease liabilities. A low borrowing/assets ratio does not mean low overall financing obligations or good financial health.",
+          "Reported contractual maturity schedule136.9M versus recorded borrowings137.4M leaves0.5M unexplained; no invented fee bridge."
+        ]
+      }
     }
   ],
   "sources": [
@@ -1893,10 +3068,522 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "9.875% Senior Secured Notes due 2031",
       "source_unit": "percent / contractual fixed coupon"
+    },
+    {
+      "id": "deep-cloud-crwv-q3-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "title": "CoreWeave Q3 2026 earnings release, SEC 8-K Exhibit 99.1",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Recourse debt, current; Non-recourse debt, current; Recourse debt, non-current; Non-recourse debt, non-current",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "deep-cloud-crwv-q2-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/R16.htm",
+      "title": "Primary financing disclosure: crwv-q2-note",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "2032 9.625% Senior Notes; 2031 9.75% Senior Notes; Total $ 35,551",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "deep-cloud-nbis-q2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "title": "Nebius June 30 2026 consolidated financial statements, SEC 6-K Exhibit 99.2",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Debt, current 12 24.5 46.7; Total convertible debt 10,041.8 (1,424.8) (118.0) 8,499.0",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "deep-cloud-iren-q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "IREN September 30 2026 Form 10-Q",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Total principal of debt 10,041; Total debt, net of unamortized issuance costs 9,897; There were no changes to the terms",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "deep-cloud-iren-q2-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/R30.htm",
+      "title": "Primary financing disclosure: iren-q2-note",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-27",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Stated interest rate 3.25 % 3.50 % 0% 0.25% 1.00% 1.00%",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-cloud-btdr-q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+      "title": "Bitdeer Q3 2026 earnings release, SEC 6-K Exhibit 99.1",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Short-term borrowings 26,000; Long-term borrowings 1,183,807; Finance lease liability 16,334",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-cloud-btdr-q2-detail",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026104638/ea030647301ex99-1.htm",
+      "title": "Primary financing disclosure: btdr-q2-detail",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-09-29",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Balance at June 30, 2026 364,912; 4.875 % Convertible Senior Notes due 2031",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-cloud-hut-q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Hut 8 September 30 2026 Form 10-Q",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Total non-recourse debt, net of unamortized discount and issuance costs 7,628,225; Hut 8 DC LLC; Beacon Point DC LLC",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-cloud-crwv-selected-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000291/crwv-20260618.htm",
+      "title": "CoreWeave June 18 2026 Form 8-K, 9.625% senior notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-06-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On June 18, 2026, CoreWeave, Inc.; 9.625% Senior Notes due 2032",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-crwv-apr-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000164/crwv-20260409.htm",
+      "title": "Primary financing disclosure: crwv-apr-issue",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-04-14",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On April 14, 2026, CoreWeave, Inc.; 9.750% Senior Notes due 2031",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-nbis-aug-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "title": "Nebius August 24 2026 offering close, SEC 6-K Exhibit 99.1",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-24",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "0.50% convertible notes due 2030",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-nbis-jun2025-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925056817/tm2517269d1_6k.htm",
+      "title": "Primary financing disclosure: nbis-jun2025-issue",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-06-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "The Private Placement transaction closed on June 5, 2025",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-nbis-sep2025-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex99-1.htm",
+      "title": "Primary financing disclosure: nbis-sep2025-release",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-09-15",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Amsterdam, September 15, 2025; 1.00% convertible notes due 2030; 2.75% convertible notes due 2032",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-nbis-sep2025-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex4-1.htm",
+      "title": "Primary financing disclosure: nbis-sep2025-note",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-09-15",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Dated as of September 15, 2025; 1.00% Convertible Senior Notes due 2030",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-nbis-mar2026-pricing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926029863/tm268409d3_ex99-1.htm",
+      "title": "Primary financing disclosure: nbis-mar2026-pricing",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-03-17",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "1.250% convertible notes due 2031; 2.625% convertible notes due 2033",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-iren-selected-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126021285/ef20073507_8k.htm",
+      "title": "IREN May 14 2026 Form 8-K, 1% convertible senior notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-05-14",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On May 14, 2026; IREN Limited; 1.00% Convertible Senior Notes due 2033",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-btdr-selected-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390025056729/ea0246533-6k_bitdeer.htm",
+      "title": "Bitdeer June 23 2025 Form 6-K, 4.875% convertible senior notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-06-23",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Bitdeer Technologies Group; 4.875% Convertible Senior Notes due 2031; Date: June 23, 2025",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-hut-prior-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926053247/tm2613163d1_8k.htm",
+      "title": "Hut 8 May 1 2026 Form 8-K, River Bend 6.192% project notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-05-01",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On April 27, 2026; On April 30, 2026",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-cloud-hut-finance-lease-fact",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001964789.json",
+      "title": "Primary financing disclosure: hut-finance-lease-fact",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "FinanceLeaseLiability",
+      "source_unit": "USD"
+    },
+    {
+      "id": "deep-transition-apld-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "title": "Applied Digital Corp. Form10-Q 2026-08-31",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "2,350,000; 2,150,000; 1,590,000; 450,000; 82,390; 99,215; 345,013",
+      "normalized_text_sha256": "8d85420f1c01d417955b9470eda812dbb90c317c9144dfc665535196dd84ad33",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-transition-corz-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "title": "Core Scientific, Inc./tx Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "4,385,000; 82,825; 4,302,175; August 19, 2024; December 5, 2024",
+      "normalized_text_sha256": "09c67f4d786bc3796a2dee6a350ffa1046c0b34ca33f08daa57c544b3c0e8242",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-transition-wulf-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "TERAWULF INC. Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "5,725,000; 86,576; 8,456; 374,740; 22,918; October 22, 2025",
+      "normalized_text_sha256": "f596cd0cfbe683c5f5d854b9d061861c887c7794a1aa55ab6758701f5287e920",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-transition-cifr-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "title": "Cipher Digital Inc. Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "6,016,312; 456,434; November 13, 2025; November 24, 2025; February 11, 2026; June 15, 2026",
+      "normalized_text_sha256": "e43811fb9d3718640eee3c041956ba11e93b3d324e267ab5e276355457dafc6e",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-transition-hive-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+      "title": "HIVE Digital Technologies Ltd. Form10-Q 2026-09-30",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On April 21, 2026; On June 30, 2026; 235,253; 110,270; 124,983; 82,935; 25,493",
+      "normalized_text_sha256": "1959b239ab30bf0b838c0d31d3af657c1c1ec44cee63cabda62a033d58ca5011",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-transition-apld-925-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315225024479/form8-k.htm",
+      "title": "Primary financing disclosure: apld-925-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-11-20",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "November 20, 2025; APLD ComputeCo LLC; December 15, 2030",
+      "normalized_text_sha256": "586dc20bf7e3e903db9f746e12a600f2a0f5d0bf28a8a4ad620b4578b63651bb",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-apld-675-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226009538/form8-k.htm",
+      "title": "Primary financing disclosure: apld-675-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-03-10",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "March 10, 2026; APLD ComputeCo 2 LLC; March 15, 2031",
+      "normalized_text_sha256": "4c6ffe8123437be27749436a1894c057b181c4e3605f7c4662876ae32f17b327",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-apld-700-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226028899/form8-k.htm",
+      "title": "Primary financing disclosure: apld-700-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-06-16",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "June 16, 2026; APLD ComputeCo 3 LLC; June 15, 2031",
+      "normalized_text_sha256": "17bc6f9c1d8757cb2560520d8ba33573b2466966d6dd70c097631e4e9a076b23",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-apld-275-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315224043604/form8-k.htm",
+      "title": "Primary financing disclosure: apld-275-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2024-11-05",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "November 4, 2024; 2.75%; June 1, 2030",
+      "normalized_text_sha256": "03749ce9651e684f36fc18c3e5ced1c52455b533554ce6c3d2213d8dbfd5707e",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-corz-775-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000119312526208905/d47435d8k.htm",
+      "title": "Primary financing disclosure: corz-775-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-05-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "May 6, 2026; May 15, 2031; 7.750%",
+      "normalized_text_sha256": "07e6ecb46dccacb1180e72d821d181ea7a776f0cb7ddab9351769102c50d4d24",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-corz-775-indenture",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000119312526208905/d47435dex41.htm",
+      "title": "Primary financing disclosure: corz-775-indenture",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-05-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "CORE SCIENTIFIC FINANCE I LLC",
+      "normalized_text_sha256": "fc1ec97dda3634f084b329a9c358a8aee3aa79eb3ac94e3238c0bfadf3e5719e",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-wulf-775-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925101866/tm2529300d1_8k.htm",
+      "title": "Primary financing disclosure: wulf-775-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-10-23",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "October 23, 2025; WULF Compute LLC; October 15, 2030",
+      "normalized_text_sha256": "47ecdac722a3aaab8e87553633dffcc6cbfc3be7f95594ca3ada199841dcef80",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-wulf-275-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000095014224002636/eh240549125_8k.htm",
+      "title": "Primary financing disclosure: wulf-275-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2024-10-25",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "October 25, 2024; 2.75%; February 1, 2030",
+      "normalized_text_sha256": "a8c6988dbd5733791b30ba0805d0253095843e185453aec15dab10e3a5ed97ad",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-wulf-100-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925080911/tm2523651d5_8k.htm",
+      "title": "Primary financing disclosure: wulf-100-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-08-20",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "August 20, 2025; 1.00%; September 1, 2031",
+      "normalized_text_sha256": "e45d1aff8b15defca181a5c6c1e54109c7960c84495d187552a23c97ead9bdc8",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-wulf-100-tap",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925081886/tm2523651d6_8k.htm",
+      "title": "Primary financing disclosure: wulf-100-tap",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-08-22",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "August 22, 2025; issued $150 million",
+      "normalized_text_sha256": "3b37a735cbb03ae4b391f971c1ef78911baa720d1d3cacba3089e44e8f6d1904",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-transition-wulf-000-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925104928/tm2529894d1_8k.htm",
+      "title": "Primary financing disclosure: wulf-000-close",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2025-10-31",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "October 31, 2025; 0.00%; May 1, 2032",
+      "normalized_text_sha256": "55c8111d310f4f9a66ca8782a1583f4b68d46c510dfce22b2ad8db483c73d314",
+      "source_unit": "USD / stated note terms"
+    },
+    {
+      "id": "deep-adj-RIOT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "title": "Riot Platforms — quarterly debt and lease notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "674,512; (17,867); 656,645; 594,383; 10,018; 22,996; 669,052; 3,043,994",
+      "locator": "Note 10 Debt table and 2030 Notes discussion; Consolidated balance sheet; 573M project facility discussion",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-legal-RIOT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465924127656/tm2430044d5_8k.htm",
+      "title": "Riot Platforms — selected note legal issuer and maturity",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2024-12-11",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On December 11, 2024",
+      "source_unit": "USD / legal note terms"
+    },
+    {
+      "id": "deep-adj-MARA",
+      "url": "https://www.sec.gov/Archives/edgar/data/1507605/000150760526000028/mara-20260930.htm",
+      "title": "MARA Holdings — quarterly debt and lease notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "3,047,201; (27,869); 3,019,332; 300,000; 178; 3,928; 4,352; 52,032; 946,545; 5,676,519",
+      "locator": "Note 13 Debt; Note 14 Leases; Consolidated balance sheet; subsequent-events and liquidity discussion",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-legal-MARA",
+      "url": "https://www.sec.gov/Archives/edgar/data/1507605/000149315224032433/ex4-1.htm",
+      "title": "MARA Holdings — selected note legal issuer and maturity",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2024-08-14",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "MARATHON DIGITAL HOLDINGS, INC.; Dated as of August 14, 2024",
+      "source_unit": "USD / legal note terms"
+    },
+    {
+      "id": "deep-adj-EQIX",
+      "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "title": "Equinix — quarterly debt and lease notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-28",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "22,839; 22,820; (192); 22,628; 20,963; 650; 182; 2,196; 155; 1,231; 2,362; 44,445",
+      "locator": "Note 8 Debt Facilities; consolidated balance sheet; Note 4 unconsolidated VIE guarantees",
+      "source_unit": "USD millions"
+    },
+    {
+      "id": "deep-legal-EQIX",
+      "url": "https://www.sec.gov/Archives/edgar/data/1101239/000110465926092009/tm2622384d1_ex4-5.htm",
+      "title": "Equinix — selected note legal issuer and maturity",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-08-06",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "EQUINIX, INC., as Issuer",
+      "source_unit": "USD / legal note terms"
+    },
+    {
+      "id": "deep-adj-DLR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "title": "Digital Realty — quarterly debt and lease notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-30",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "19,618,975; Unamortized net discounts (39,593); Unamortized deferred financing costs (84,767); 4.450% notes due 2028; 650,000",
+      "locator": "Note 9 Debt of Operating Partnership; Current-quarter senior unsecured note table; consolidated balance sheet",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-DLR-finance-lease",
+      "url": "https://investor.digitalrealty.com/static-files/3314eea6-08dd-4a03-a8c5-bd2419b5d449",
+      "title": "Digital Realty Q3 2026 presentation, pages24–25",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-10-29",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Add: Finance lease obligations, net 265,526",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-legal-DLR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000119312518199589/d603959dex42.htm",
+      "title": "Digital Realty — selected note legal issuer and maturity",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2018-06-21",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "DIGITAL REALTY TRUST, L.P., as the Company; DIGITAL REALTY TRUST, INC., as the Guarantor",
+      "source_unit": "USD / legal note terms"
+    },
+    {
+      "id": "deep-issue-DLR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000129799618000130/dlr630201810-q.htm",
+      "title": "Digital Realty — original issuance disclosure",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": null,
+      "retrieved_at": "2026-11-11",
+      "excerpt": "On June 21, 2018",
+      "source_unit": "date"
+    },
+    {
+      "id": "deep-adj-GLXY",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+      "title": "Galaxy Digital — quarterly debt and lease notes",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "6,748,432; 210,478; 6,937,907; 2,312,004; 31,593; 2,343,597; 2,612,219; 17,313; 1,324,759; 16,416,746; 9.875% Senior Secured Notes due 2031",
+      "locator": "Statement of financial position; Note5 digital borrowing and collateral; Note13 Leases; Note16 Loans and Notes Payable; contractual obligations footnote4",
+      "source_unit": "USD thousands"
+    },
+    {
+      "id": "deep-legal-GLXY",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000079/closing8-kxex41indenture.htm",
+      "title": "Galaxy Digital — selected note legal issuer and maturity",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-07-28",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "GALAXY HELIOS DATA CENTERS II LLC; dollars on August 1, 2031",
+      "source_unit": "USD / legal note terms"
+    },
+    {
+      "id": "nscale-s1",
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "title": "Nscale Limited Form S-1, filed September 18, 2026",
+      "publisher": "SEC / issuer disclosure",
+      "published_at": "2026-09-18",
+      "retrieved_at": "2026-11-11",
+      "excerpt": "Our reporting currency is the U.S. dollar.; Debt, current $ 41.4; Debt, noncurrent $ 96.0; Total assets $ 17,252.0; 1,478.4",
+      "locator": "Cover; June 30, 2026 condensed consolidated balance sheets F-44; Interim Note 2 revenue/prepayments; Interim Note 6 leases; Interim Note 7 restricted cash; Interim Note 8 debt and maturities; Interim Note 1 organization; annual Note 2 reporting currency",
+      "source_unit": "USD millions (one decimal place)"
+    },
+    {
+      "id": "independent-nbis-2032-indenture",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex4-3.htm",
+      "title": "Nebius 2.75% 2032 original indenture — exact issue and maturity dates",
+      "publisher": "SEC / issuer indenture",
+      "published_at": "2025-09-15",
+      "retrieved_at": "2026-11-11",
+      "source_unit": "contractual dates",
+      "excerpt": "“Issue Date” means September 15, 2025.; “Maturity Date” means September 15, 2032."
     }
   ],
-  "selection_policy": "Curated public operators and adjacent infrastructure firms with retrievable primary disclosures. This is not the whole neocloud market. Private-company financials and unreconciled figures are not invented.",
-  "coupon_selection_policy": "One verified named USD fixed-rate instrument per company where reviewed. Examples are not selected as the cheapest or newest issue and do not represent average borrowing cost. Instrument examples are sortable but receive no company rank.",
+  "selection_policy": "Curated operators with public primary financial disclosures. Sixteen historical comparison records include listed companies and one private IPO applicant; three additional private operators are an unranked coverage watchlist. Not an exhaustive market census.",
+  "coupon_selection_policy": "Multiple reviewed USD fixed-note examples per company where reliable primary terms exist. Instruments are sortable, never company health/cost ranks. Some notes are confirmed at the company snapshot, others only at earlier dates; status and principal dates are explicit. This is not a complete security inventory.",
   "method_notes": [
     "Borrowings are consolidated carrying values net of disclosed discounts/costs, excluding both operating and finance lease liabilities. They are not total liabilities or face principal.",
     "Borrowings/assets uses the same reporting date for numerator and denominator. Every row retains its own date; no pro forma post-quarter updates are mixed in.",
@@ -1904,12 +3591,1880 @@
     "Compare business models carefully. A default AI-infrastructure group includes both GPU clouds and mixed transition businesses. Landlords and bitcoin miners are separate filters.",
     "No health score, buy/sell recommendation, bond market yield or real-time quote feed is supplied."
   ],
-  "schema_version": 1,
+  "instruments": [
+    {
+      "id": "CLOUD-CRWV-1",
+      "ticker": "CRWV",
+      "value": "9.625",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "9.625% Senior Notes due July 2032",
+      "type": "senior_unsecured_nonconvertible",
+      "issuer": "CoreWeave, Inc.",
+      "scope": "Named obligations of CoreWeave, Inc.",
+      "basis": "Named obligations of CoreWeave, Inc.",
+      "as_of": "2026-06-30",
+      "issue_date": "2026-06-18",
+      "issue_date_note": "",
+      "maturity": "2032-07-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-crwv-selected-issue",
+        "deep-cloud-crwv-q2-note"
+      ],
+      "outstanding_status": "verified_at_earlier_date",
+      "outstanding_evidence_ids": [
+        "deep-cloud-crwv-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "1250000000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-crwv-q2-note"
+        ]
+      },
+      "note": " Outstanding at the earlier date shown; not re-confirmed at the latest company snapshot.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-CRWV-2",
+      "ticker": "CRWV",
+      "value": "9.750",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "9.750% Senior Notes due October 2031",
+      "type": "senior_unsecured_nonconvertible",
+      "issuer": "CoreWeave, Inc.",
+      "scope": "Named obligations of CoreWeave, Inc.",
+      "basis": "Named obligations of CoreWeave, Inc.",
+      "as_of": "2026-06-30",
+      "issue_date": "2026-04-14",
+      "issue_date_note": "",
+      "maturity": "2031-10-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-crwv-apr-issue",
+        "deep-cloud-crwv-q2-note"
+      ],
+      "outstanding_status": "verified_at_earlier_date",
+      "outstanding_evidence_ids": [
+        "deep-cloud-crwv-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "2750000000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-crwv-q2-note"
+        ]
+      },
+      "note": "8-K issue-size text is inconsistent with later June debt note; use later dated outstanding principal, not the original issue-size passage. Outstanding at the earlier date shown; not re-confirmed at the latest company snapshot.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-NBIS-1",
+      "ticker": "NBIS",
+      "value": "2.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2.00% Convertible Senior Notes due June 2029",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Nebius Group N.V.",
+      "scope": "Named obligations of Nebius Group N.V.",
+      "basis": "Named obligations of Nebius Group N.V.",
+      "as_of": "2026-06-30",
+      "issue_date": "2025-06-05",
+      "issue_date_note": "",
+      "maturity": "2029-06-05",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-jun2025-issue"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-nbis-q2"
+      ],
+      "outstanding_principal": {
+        "value": "587500000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-nbis-q2"
+        ],
+        "label": "Reported contract principal (includes accretion)",
+        "basis": "As labeled in the accreting convertible debt table: includes accretion payable at maturity, not original amount raised or cash owed today."
+      },
+      "note": "Coupon applies to original principal; excludes contractual accretion payable at maturity. Filing table principal is not original issue cash proceeds.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-NBIS-2",
+      "ticker": "NBIS",
+      "value": "1.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "1.00% Convertible Senior Notes due September 2030",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Nebius Group N.V.",
+      "scope": "Named obligations of Nebius Group N.V.",
+      "basis": "Named obligations of Nebius Group N.V.",
+      "as_of": "2026-06-30",
+      "issue_date": "2025-09-15",
+      "issue_date_note": "",
+      "maturity": "2030-09-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-sep2025-release",
+        "deep-cloud-nbis-sep2025-note"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-nbis-q2"
+      ],
+      "outstanding_principal": {
+        "value": "1818400000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-nbis-q2"
+        ],
+        "label": "Reported contract principal (includes accretion)",
+        "basis": "As labeled in the accreting convertible debt table: includes accretion payable at maturity, not original amount raised or cash owed today."
+      },
+      "note": "Coupon applies to original principal; excludes contractual accretion payable at maturity. Filing table principal is not original issue cash proceeds.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-NBIS-3",
+      "ticker": "NBIS",
+      "value": "3.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "3.00% Convertible Senior Notes due June 2031",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Nebius Group N.V.",
+      "scope": "Named obligations of Nebius Group N.V.",
+      "basis": "Named obligations of Nebius Group N.V.",
+      "as_of": "2026-06-30",
+      "issue_date": "2025-06-05",
+      "issue_date_note": "",
+      "maturity": "2031-06-05",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-jun2025-issue"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-nbis-q2"
+      ],
+      "outstanding_principal": {
+        "value": "612500000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-nbis-q2"
+        ],
+        "label": "Reported contract principal (includes accretion)",
+        "basis": "As labeled in the accreting convertible debt table: includes accretion payable at maturity, not original amount raised or cash owed today."
+      },
+      "note": "Coupon applies to original principal; excludes contractual accretion payable at maturity. Filing table principal is not original issue cash proceeds.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-NBIS-4",
+      "ticker": "NBIS",
+      "value": "2.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2.75% Convertible Senior Notes due September 2032",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Nebius Group N.V.",
+      "scope": "Named obligations of Nebius Group N.V.",
+      "basis": "Named obligations of Nebius Group N.V.",
+      "as_of": "2026-06-30",
+      "issue_date": "2025-09-15",
+      "issue_date_note": "",
+      "maturity": "2032-09-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-sep2025-release",
+        "independent-nbis-2032-indenture"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-nbis-q2"
+      ],
+      "outstanding_principal": {
+        "value": "1818400000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-nbis-q2"
+        ],
+        "label": "Reported contract principal (includes accretion)",
+        "basis": "As labeled in the accreting convertible debt table: includes accretion payable at maturity, not original amount raised or cash owed today."
+      },
+      "note": "Coupon applies to original principal; excludes contractual accretion payable at maturity. Filing table principal is not original issue cash proceeds.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-NBIS-5",
+      "ticker": "NBIS",
+      "value": "1.25",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "1.25% Convertible Senior Notes due March 2031",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Nebius Group N.V.",
+      "scope": "Named obligations of Nebius Group N.V.",
+      "basis": "Named obligations of Nebius Group N.V.",
+      "as_of": "2026-06-30",
+      "issue_date": "2026-03-20",
+      "issue_date_note": "",
+      "maturity": "2031-03-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-mar2026-pricing"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-nbis-q2"
+      ],
+      "outstanding_principal": {
+        "value": "3105000000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-nbis-q2"
+        ],
+        "label": "Reported contract principal (includes accretion)",
+        "basis": "As labeled in the accreting convertible debt table: includes accretion payable at maturity, not original amount raised or cash owed today."
+      },
+      "note": "Coupon applies to original principal; excludes contractual accretion payable at maturity. Filing table principal is not original issue cash proceeds.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-NBIS-6",
+      "ticker": "NBIS",
+      "value": "2.625",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2.625% Convertible Senior Notes due March 2033",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Nebius Group N.V.",
+      "scope": "Named obligations of Nebius Group N.V.",
+      "basis": "Named obligations of Nebius Group N.V.",
+      "as_of": "2026-06-30",
+      "issue_date": "2026-03-20",
+      "issue_date_note": "",
+      "maturity": "2033-03-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-mar2026-pricing"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-nbis-q2"
+      ],
+      "outstanding_principal": {
+        "value": "2100000000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-nbis-q2"
+        ],
+        "label": "Reported contract principal (includes accretion)",
+        "basis": "As labeled in the accreting convertible debt table: includes accretion payable at maturity, not original amount raised or cash owed today."
+      },
+      "note": "Coupon applies to original principal; excludes contractual accretion payable at maturity. Filing table principal is not original issue cash proceeds. Debt table rounds stated rate to 2.63%; narrative and original terms say precisely 2.625%.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-NBIS-7",
+      "ticker": "NBIS",
+      "value": "0.50",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "0.50% Convertible Senior Notes due 2030",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Nebius Group N.V.",
+      "scope": "Named obligations of Nebius Group N.V.",
+      "basis": "Named obligations of Nebius Group N.V.",
+      "as_of": "2026-08-24",
+      "issue_date": "2026-08-24",
+      "issue_date_note": "",
+      "maturity": "2030",
+      "maturity_precision": "year",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-nbis-aug-issue"
+      ],
+      "outstanding_status": "terms_only",
+      "outstanding_evidence_ids": [],
+      "outstanding_principal": {
+        "value": null,
+        "unit": "USD",
+        "as_of": "2026-08-24",
+        "source_ids": []
+      },
+      "note": "The selected note is subsequent August financing, not an instrument outstanding June30. It may remain as a separately dated reference, not a snapshot-current note.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-IREN-1",
+      "ticker": "IREN",
+      "value": "3.25",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2030 Convertible Notes",
+      "type": "senior_unsecured_convertible",
+      "issuer": "IREN Limited",
+      "scope": "Named obligations of IREN Limited",
+      "basis": "Named obligations of IREN Limited",
+      "as_of": "2026-09-30",
+      "issue_date": "2024-12-06",
+      "issue_date_note": "",
+      "maturity": "2030-06-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "212000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-iren-q3",
+          "deep-cloud-iren-q2-note"
+        ]
+      },
+      "note": "Current principal rounded to USD millions. Q3 explicitly says no changes to convertible terms and refers to annual Note23; issuance/contractual terms are linked using that statement, not assumed unchanged.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-IREN-2",
+      "ticker": "IREN",
+      "value": "3.50",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2029 Convertible Notes",
+      "type": "senior_unsecured_convertible",
+      "issuer": "IREN Limited",
+      "scope": "Named obligations of IREN Limited",
+      "basis": "Named obligations of IREN Limited",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-06-13",
+      "issue_date_note": "",
+      "maturity": "2029-12-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "233000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-iren-q3",
+          "deep-cloud-iren-q2-note"
+        ]
+      },
+      "note": "Current principal rounded to USD millions. Q3 explicitly says no changes to convertible terms and refers to annual Note23; issuance/contractual terms are linked using that statement, not assumed unchanged.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-IREN-3",
+      "ticker": "IREN",
+      "value": "0.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2031 Convertible Notes",
+      "type": "senior_unsecured_convertible",
+      "issuer": "IREN Limited",
+      "scope": "Named obligations of IREN Limited",
+      "basis": "Named obligations of IREN Limited",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-10-14",
+      "issue_date_note": "",
+      "maturity": "2031-07-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "1000000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-iren-q3",
+          "deep-cloud-iren-q2-note"
+        ]
+      },
+      "note": "Current principal rounded to USD millions. Q3 explicitly says no changes to convertible terms and refers to annual Note23; issuance/contractual terms are linked using that statement, not assumed unchanged.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-IREN-4",
+      "ticker": "IREN",
+      "value": "0.25",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2032 Convertible Notes",
+      "type": "senior_unsecured_convertible",
+      "issuer": "IREN Limited",
+      "scope": "Named obligations of IREN Limited",
+      "basis": "Named obligations of IREN Limited",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-12-08",
+      "issue_date_note": "",
+      "maturity": "2032-06-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "1150000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-iren-q3",
+          "deep-cloud-iren-q2-note"
+        ]
+      },
+      "note": "Current principal rounded to USD millions. Q3 explicitly says no changes to convertible terms and refers to annual Note23; issuance/contractual terms are linked using that statement, not assumed unchanged.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-IREN-5",
+      "ticker": "IREN",
+      "value": "1.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2033 (Jun) Convertible Notes",
+      "type": "senior_unsecured_convertible",
+      "issuer": "IREN Limited",
+      "scope": "Named obligations of IREN Limited",
+      "basis": "Named obligations of IREN Limited",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-12-08",
+      "issue_date_note": "",
+      "maturity": "2033-06-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "1150000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-iren-q3",
+          "deep-cloud-iren-q2-note"
+        ]
+      },
+      "note": "Current principal rounded to USD millions. Q3 explicitly says no changes to convertible terms and refers to annual Note23; issuance/contractual terms are linked using that statement, not assumed unchanged.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-IREN-6",
+      "ticker": "IREN",
+      "value": "1.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2033 (Dec) Convertible Notes",
+      "type": "senior_unsecured_convertible",
+      "issuer": "IREN Limited",
+      "scope": "Named obligations of IREN Limited",
+      "basis": "Named obligations of IREN Limited",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-05-14",
+      "issue_date_note": "",
+      "maturity": "2033-12-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note",
+        "deep-cloud-iren-selected-issue"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "3000000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-iren-q3",
+          "deep-cloud-iren-q2-note"
+        ]
+      },
+      "note": "Current principal rounded to USD millions. Q3 explicitly says no changes to convertible terms and refers to annual Note23; issuance/contractual terms are linked using that statement, not assumed unchanged.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-IREN-7",
+      "ticker": "IREN",
+      "value": "5.96",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "USPP Senior Notes",
+      "type": "project_senior_secured_nonconvertible",
+      "issuer": "IE US Hardware 3, LLC",
+      "scope": "Named obligations of IE US Hardware 3, LLC",
+      "basis": "Named obligations of IE US Hardware 3, LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-06-11",
+      "issue_date_note": "",
+      "maturity": "2031-12-31",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal": {
+        "value": "1571000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-iren-q3",
+          "deep-cloud-iren-q2-note"
+        ]
+      },
+      "note": "May29 is agreement date; annual issuance table identifies June11. Current outstanding principal is1,571M;1,575M cumulative funded must not substitute for remaining principal. Non-recourse subject to specific limited parent guarantees.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-BTDR-1",
+      "ticker": "BTDR",
+      "value": "4.875",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "June2025 4.875% Convertible Senior Notes due July2031",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Bitdeer Technologies Group",
+      "scope": "Named obligations of Bitdeer Technologies Group",
+      "basis": "Named obligations of Bitdeer Technologies Group",
+      "as_of": "2026-06-30",
+      "issue_date": "2025-06-23",
+      "issue_date_note": "",
+      "maturity": "2031-07-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-btdr-selected-issue",
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_status": "verified_at_earlier_date",
+      "outstanding_evidence_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_principal": {
+        "value": "375000000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-btdr-q2-detail"
+        ]
+      },
+      "note": " Outstanding at the earlier date shown; not re-confirmed at the latest company snapshot.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-BTDR-2",
+      "ticker": "BTDR",
+      "value": "4.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "November2025 4.00% Convertible Senior Notes due November2031",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Bitdeer Technologies Group",
+      "scope": "Named obligations of Bitdeer Technologies Group",
+      "basis": "Named obligations of Bitdeer Technologies Group",
+      "as_of": "2026-06-30",
+      "issue_date": null,
+      "issue_date_note": "",
+      "maturity": "2031-11-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_status": "verified_at_earlier_date",
+      "outstanding_evidence_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_principal": {
+        "value": "400000000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-btdr-q2-detail"
+        ]
+      },
+      "note": "Exact issue day not verified in this audit; statement says November2025. Outstanding at the earlier date shown; not re-confirmed at the latest company snapshot.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-BTDR-3",
+      "ticker": "BTDR",
+      "value": "5.00",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "February2026 5.00% Convertible Senior Notes due March2032",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Bitdeer Technologies Group",
+      "scope": "Named obligations of Bitdeer Technologies Group",
+      "basis": "Named obligations of Bitdeer Technologies Group",
+      "as_of": "2026-06-30",
+      "issue_date": null,
+      "issue_date_note": "",
+      "maturity": "2032-03-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_status": "verified_at_earlier_date",
+      "outstanding_evidence_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_principal": {
+        "value": "375000000",
+        "unit": "USD",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "deep-cloud-btdr-q2-detail"
+        ]
+      },
+      "note": "Exact issue day not verified in this audit; statement says February2026. Outstanding at the earlier date shown; not re-confirmed at the latest company snapshot.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-HUT-1",
+      "ticker": "HUT",
+      "value": "6.192",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "River Bend6.192% Senior Secured Notes due2042",
+      "type": "project_senior_secured_nonconvertible",
+      "issuer": "Hut 8 DC LLC",
+      "scope": "Named obligations of Hut 8 DC LLC",
+      "basis": "Named obligations of Hut 8 DC LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-04-30",
+      "issue_date_note": "Latest quarterly filing says issued April30; earlier8K says offering completed April27 and indentureApril30.",
+      "maturity": "2042-11-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-hut-q3",
+        "deep-cloud-hut-prior-issue"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-hut-q3"
+      ],
+      "outstanding_principal": {
+        "value": "3250000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-hut-q3"
+        ]
+      },
+      "note": "Latest10Q says issueApr30; earlier8K says offering completedApr27 but indentureApr30. Keep discrepancy visible. Per-note cost52.5M is rounded;3197.5M carrying is an arithmetic indication, not a more precise filing amount.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CLOUD-HUT-2",
+      "ticker": "HUT",
+      "value": "6.129",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Beacon Point6.129% Senior Secured Notes due2042",
+      "type": "project_senior_secured_nonconvertible",
+      "issuer": "Beacon Point DC LLC",
+      "scope": "Named obligations of Beacon Point DC LLC",
+      "basis": "Named obligations of Beacon Point DC LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-06-09",
+      "issue_date_note": "",
+      "maturity": "2042-11-30",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-cloud-hut-q3"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-cloud-hut-q3"
+      ],
+      "outstanding_principal": {
+        "value": "4250000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-cloud-hut-q3"
+        ]
+      },
+      "note": "Per-note cost45.5M is rounded;4204.5M is an arithmetic indication. Filing directly reports carrying about4.20B. Not guaranteed by parent or tenant.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "APLD-2030-925",
+      "ticker": "APLD",
+      "value": "9.25",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "APLD ComputeCo LLC 9.250% Senior Secured Notes due December 15, 2030",
+      "type": "senior_secured_project_notes",
+      "issuer": "APLD ComputeCo LLC",
+      "scope": "Named obligations of APLD ComputeCo LLC",
+      "basis": "Named obligations of APLD ComputeCo LLC",
+      "as_of": "2026-08-31",
+      "issue_date": "2025-11-20",
+      "issue_date_note": "",
+      "maturity": "2030-12-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-925-close"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-apld-q"
+      ],
+      "outstanding_principal": {
+        "value": "2350000000",
+        "unit": "USD",
+        "as_of": "2026-08-31",
+        "source_ids": [
+          "deep-transition-apld-q"
+        ]
+      },
+      "note": "November13 is pricing/purchase agreement; November20 is actual reported closing/issue.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "APLD-2031-675",
+      "ticker": "APLD",
+      "value": "6.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "APLD ComputeCo 2 LLC 6.750% Senior Secured Notes due March 15, 2031",
+      "type": "senior_secured_project_notes",
+      "issuer": "APLD ComputeCo 2 LLC",
+      "scope": "Named obligations of APLD ComputeCo 2 LLC",
+      "basis": "Named obligations of APLD ComputeCo 2 LLC",
+      "as_of": "2026-08-31",
+      "issue_date": "2026-03-10",
+      "issue_date_note": "",
+      "maturity": "2031-03-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-675-close"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-apld-q"
+      ],
+      "outstanding_principal": {
+        "value": "2150000000",
+        "unit": "USD",
+        "as_of": "2026-08-31",
+        "source_ids": [
+          "deep-transition-apld-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "APLD-2031-700",
+      "ticker": "APLD",
+      "value": "7",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "APLD ComputeCo 3 LLC 7.000% Senior Secured Notes due June 15, 2031",
+      "type": "senior_secured_project_notes",
+      "issuer": "APLD ComputeCo 3 LLC",
+      "scope": "Named obligations of APLD ComputeCo 3 LLC",
+      "basis": "Named obligations of APLD ComputeCo 3 LLC",
+      "as_of": "2026-08-31",
+      "issue_date": "2026-06-16",
+      "issue_date_note": "",
+      "maturity": "2031-06-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-700-close"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-apld-q"
+      ],
+      "outstanding_principal": {
+        "value": "1590000000",
+        "unit": "USD",
+        "as_of": "2026-08-31",
+        "source_ids": [
+          "deep-transition-apld-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "APLD-2030-275",
+      "ticker": "APLD",
+      "value": "2.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Applied Digital Corporation 2.75% Convertible Senior Notes due June 1, 2030",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "Applied Digital Corporation",
+      "scope": "Named obligations of Applied Digital Corporation",
+      "basis": "Named obligations of Applied Digital Corporation",
+      "as_of": "2026-08-31",
+      "issue_date": "2024-11-04",
+      "issue_date_note": "",
+      "maturity": "2030-06-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-275-close"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-apld-q"
+      ],
+      "outstanding_principal": {
+        "value": "450000000",
+        "unit": "USD",
+        "as_of": "2026-08-31",
+        "source_ids": [
+          "deep-transition-apld-q"
+        ]
+      },
+      "note": "Current note reports net carrying$276.6M and remaining deferred financing costs$173.4M, both rounded; not exactly$450M book debt.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CORZ-2031-775",
+      "ticker": "CORZ",
+      "value": "7.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Core Scientific Finance I LLC 7.75% Senior Secured Notes due May 15, 2031",
+      "type": "senior_secured_project_notes",
+      "issuer": "Core Scientific Finance I LLC",
+      "scope": "Named obligations of Core Scientific Finance I LLC",
+      "basis": "Named obligations of Core Scientific Finance I LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-05-06",
+      "issue_date_note": "",
+      "maturity": "2031-05-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-corz-q",
+        "deep-transition-corz-775-close",
+        "deep-transition-corz-775-indenture"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-corz-q"
+      ],
+      "outstanding_principal": {
+        "value": "3300000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-corz-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CORZ-2029-300",
+      "ticker": "CORZ",
+      "value": "3",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Core Scientific, Inc. 3.00% Convertible Senior Notes due September 1, 2029",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "Core Scientific, Inc.",
+      "scope": "Named obligations of Core Scientific, Inc.",
+      "basis": "Named obligations of Core Scientific, Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2024-08-19",
+      "issue_date_note": "",
+      "maturity": "2029-09-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-corz-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-corz-q"
+      ],
+      "outstanding_principal": {
+        "value": "460000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-corz-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CORZ-2031-000",
+      "ticker": "CORZ",
+      "value": "0",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Core Scientific, Inc. 0.00% Convertible Senior Notes due June 15, 2031",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "Core Scientific, Inc.",
+      "scope": "Named obligations of Core Scientific, Inc.",
+      "basis": "Named obligations of Core Scientific, Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2024-12-05",
+      "issue_date_note": "",
+      "maturity": "2031-06-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-corz-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-corz-q"
+      ],
+      "outstanding_principal": {
+        "value": "625000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-corz-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "WULF-2030-775",
+      "ticker": "WULF",
+      "value": "7.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "WULF Compute LLC 7.75% Senior Secured Notes due October 15, 2030",
+      "type": "senior_secured_project_notes",
+      "issuer": "WULF Compute LLC",
+      "scope": "Named obligations of WULF Compute LLC",
+      "basis": "Named obligations of WULF Compute LLC",
+      "as_of": "2026-09-30",
+      "issue_date": null,
+      "issue_date_note": "Conflicting source dates: October22 vsOctober23,2025; exact issue day unverified.",
+      "maturity": "2030-10-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-775-close"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-wulf-q"
+      ],
+      "outstanding_principal": {
+        "value": "3200000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-wulf-q"
+        ]
+      },
+      "note": "Primary date conflict: current10-Q saysOctober22,2025; original closing8-K/indenture sayOctober23,2025. Use month-only or disclose conflict.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "WULF-2030-275",
+      "ticker": "WULF",
+      "value": "2.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "TeraWulf Inc. 2.75% Convertible Senior Notes due February 1, 2030",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "TeraWulf Inc.",
+      "scope": "Named obligations of TeraWulf Inc.",
+      "basis": "Named obligations of TeraWulf Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2024-10-25",
+      "issue_date_note": "",
+      "maturity": "2030-02-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-275-close"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-wulf-q"
+      ],
+      "outstanding_principal": {
+        "value": "500000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-wulf-q"
+        ]
+      },
+      "note": "Classified current because holder-conversion conditions were met; not a maturity within next12months.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "WULF-2031-100",
+      "ticker": "WULF",
+      "value": "1",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "TeraWulf Inc. 1.00% Convertible Senior Notes due September 1, 2031",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "TeraWulf Inc.",
+      "scope": "Named obligations of TeraWulf Inc.",
+      "basis": "Named obligations of TeraWulf Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-08-20",
+      "issue_date_note": "",
+      "maturity": "2031-09-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-100-close",
+        "deep-transition-wulf-100-tap"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-wulf-q"
+      ],
+      "outstanding_principal": {
+        "value": "1000000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-wulf-q"
+        ]
+      },
+      "note": "Initial$850M plus$150M option issuance on2025-08-22; current$1B not first issuance alone.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "WULF-2032-000",
+      "ticker": "WULF",
+      "value": "0",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "TeraWulf Inc. 0.00% Convertible Senior Notes due May 1, 2032",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "TeraWulf Inc.",
+      "scope": "Named obligations of TeraWulf Inc.",
+      "basis": "Named obligations of TeraWulf Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-10-31",
+      "issue_date_note": "",
+      "maturity": "2032-05-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-000-close"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-wulf-q"
+      ],
+      "outstanding_principal": {
+        "value": "1025000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-wulf-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CIFR-2030-7125",
+      "ticker": "CIFR",
+      "value": "7.125",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Cipher Compute LLC 7.125% Senior Secured Notes due November 15, 2030",
+      "type": "senior_secured_project_notes",
+      "issuer": "Cipher Compute LLC",
+      "scope": "Named obligations of Cipher Compute LLC",
+      "basis": "Named obligations of Cipher Compute LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-11-13",
+      "issue_date_note": "",
+      "maturity": "2030-11-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal": {
+        "value": "1733000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-cifr-q"
+        ]
+      },
+      "note": "Additional$333M issuance2025-11-24; $1.733B is aggregate same-date series principal, not initial issue size.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CIFR-2031-6125",
+      "ticker": "CIFR",
+      "value": "6.125",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Black Pearl Compute LLC 6.125% Senior Secured Notes due February 15, 2031",
+      "type": "senior_secured_project_notes",
+      "issuer": "Black Pearl Compute LLC",
+      "scope": "Named obligations of Black Pearl Compute LLC",
+      "basis": "Named obligations of Black Pearl Compute LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-02-11",
+      "issue_date_note": "",
+      "maturity": "2031-02-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal": {
+        "value": "2000000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-cifr-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CIFR-2031-6000",
+      "ticker": "CIFR",
+      "value": "6",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Stingray Compute LLC 6.000% Senior Secured Notes due June 15, 2031",
+      "type": "senior_secured_project_notes",
+      "issuer": "Stingray Compute LLC",
+      "scope": "Named obligations of Stingray Compute LLC",
+      "basis": "Named obligations of Stingray Compute LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-06-15",
+      "issue_date_note": "",
+      "maturity": "2031-06-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal": {
+        "value": "810000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-cifr-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CIFR-2030-175",
+      "ticker": "CIFR",
+      "value": "1.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Cipher Digital Inc. 1.75% Convertible Senior Notes due May 15, 2030",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "Cipher Digital Inc. (formerly Cipher Mining Inc.)",
+      "scope": "Named obligations of Cipher Digital Inc. (formerly Cipher Mining Inc.)",
+      "basis": "Named obligations of Cipher Digital Inc. (formerly Cipher Mining Inc.)",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-05-22",
+      "issue_date_note": "",
+      "maturity": "2030-05-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal": {
+        "value": "172500000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-cifr-q"
+        ]
+      },
+      "note": "October16 exchange leaves$6.6M only AFTER snapshot; keep originalSep30balance withSep30assets.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "CIFR-2031-000",
+      "ticker": "CIFR",
+      "value": "0",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "Cipher Digital Inc. 0.00% Convertible Senior Notes due October 1, 2031",
+      "type": "convertible_senior_unsecured_notes",
+      "issuer": "Cipher Digital Inc. (formerly Cipher Mining Inc.)",
+      "scope": "Named obligations of Cipher Digital Inc. (formerly Cipher Mining Inc.)",
+      "basis": "Named obligations of Cipher Digital Inc. (formerly Cipher Mining Inc.)",
+      "as_of": "2026-09-30",
+      "issue_date": "2025-09-30",
+      "issue_date_note": "",
+      "maturity": "2031-10-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal": {
+        "value": "1300000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-cifr-q"
+        ]
+      },
+      "note": "",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "HIVE-2031-APR000",
+      "ticker": "HIVE",
+      "value": "0",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "HIVE Bermuda 2026 Ltd. April 2026 0% Exchangeable Senior Notes due April 15, 2031",
+      "type": "exchangeable_senior_unsecured_notes",
+      "issuer": "HIVE Bermuda 2026 Ltd.",
+      "scope": "Named obligations of HIVE Bermuda 2026 Ltd.",
+      "basis": "Named obligations of HIVE Bermuda 2026 Ltd.",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-04-21",
+      "issue_date_note": "",
+      "maturity": "2031-04-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-hive-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-hive-q"
+      ],
+      "outstanding_principal": {
+        "value": "115000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-hive-q"
+        ]
+      },
+      "note": "Date explicitly reported as issued, not inferred from release/publication. Unsecured; parent guaranteed.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "HIVE-2031-JUN000",
+      "ticker": "HIVE",
+      "value": "0",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "HIVE Bermuda 2026 Ltd. June 2026 0% Exchangeable Senior Notes due July 1, 2031",
+      "type": "exchangeable_senior_unsecured_notes",
+      "issuer": "HIVE Bermuda 2026 Ltd.",
+      "scope": "Named obligations of HIVE Bermuda 2026 Ltd.",
+      "basis": "Named obligations of HIVE Bermuda 2026 Ltd.",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-06-30",
+      "issue_date_note": "",
+      "maturity": "2031-07-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-transition-hive-q"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-transition-hive-q"
+      ],
+      "outstanding_principal": {
+        "value": "130000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-transition-hive-q"
+        ]
+      },
+      "note": "Unsecured; parent guaranteed.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "ADJ-RIOT-SELECTED",
+      "ticker": "RIOT",
+      "value": "0.75",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "0.75% Convertible Senior Notes due 2030",
+      "type": "senior_unsecured_convertible",
+      "issuer": "Riot Platforms, Inc.",
+      "scope": "Named obligations of Riot Platforms, Inc.",
+      "basis": "Named obligations of Riot Platforms, Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2024-12-11",
+      "issue_date_note": "",
+      "maturity": "2030-01-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-adj-RIOT",
+        "deep-legal-RIOT"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-adj-RIOT"
+      ],
+      "outstanding_principal": {
+        "value": "594383000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-adj-RIOT"
+        ]
+      },
+      "note": "Senior unsecured convertible obligations of parent issuer; conversion rights mean low coupon is not an all-in funding-cost ranking.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "ADJ-MARA-SELECTED",
+      "ticker": "MARA",
+      "value": "2.125",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "2.125% Convertible Senior Notes due 2031 (September 2031 Notes)",
+      "type": "senior_unsecured_convertible",
+      "issuer": "MARA Holdings, Inc.",
+      "scope": "Named obligations of MARA Holdings, Inc.",
+      "basis": "Named obligations of MARA Holdings, Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2024-08-14",
+      "issue_date_note": "",
+      "maturity": "2031-09-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-adj-MARA",
+        "deep-legal-MARA"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-adj-MARA"
+      ],
+      "outstanding_principal": {
+        "value": "300000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-adj-MARA"
+        ]
+      },
+      "note": "Senior unsecured convertible parent obligations; the 2.125% contractual coupon excludes embedded conversion economics.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "ADJ-EQIX-SELECTED",
+      "ticker": "EQIX",
+      "value": "5.800",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "5.800% Senior Notes due August 15, 2036",
+      "type": "senior_unsecured_notes",
+      "issuer": "Equinix, Inc.",
+      "scope": "Named obligations of Equinix, Inc.",
+      "basis": "Named obligations of Equinix, Inc.",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-08-06",
+      "issue_date_note": "",
+      "maturity": "2036-08-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-adj-EQIX",
+        "deep-legal-EQIX"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-adj-EQIX"
+      ],
+      "outstanding_principal": {
+        "value": "650000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-adj-EQIX"
+        ]
+      },
+      "note": "Senior unsecured, nonconvertible note issued by Equinix, Inc.; no separate guarantor per offering terms. Other series can have financing-subsidiary issuers and must not be conflated.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "ADJ-DLR-SELECTED",
+      "ticker": "DLR",
+      "value": "4.450",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "4.450% Notes due July 15, 2028",
+      "type": "senior_unsecured_notes",
+      "issuer": "Digital Realty Trust, L.P.",
+      "scope": "Named obligations of Digital Realty Trust, L.P.",
+      "basis": "Named obligations of Digital Realty Trust, L.P.",
+      "as_of": "2026-09-30",
+      "issue_date": "2018-06-21",
+      "issue_date_note": "",
+      "maturity": "2028-07-15",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-adj-DLR",
+        "deep-legal-DLR",
+        "deep-issue-DLR"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-adj-DLR"
+      ],
+      "outstanding_principal": {
+        "value": "650000000",
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "deep-adj-DLR"
+        ]
+      },
+      "note": "Historical fixed cash coupon of one long-issued unsecured OP bond with parent guarantee; not today's market yield, refinancing offer or weighted company debt cost. This example can fill the current unreviewed-coupon slot, with explicit vintage and scope. Named guarantor: Digital Realty Trust, Inc..",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    },
+    {
+      "id": "ADJ-GLXY-SELECTED",
+      "ticker": "GLXY",
+      "value": "9.875",
+      "unit": "percent",
+      "currency": "USD",
+      "instrument": "9.875% Senior Secured Notes due August 1, 2031",
+      "type": "secured_project_notes",
+      "issuer": "Galaxy Helios Data Centers II LLC",
+      "scope": "Named obligations of Galaxy Helios Data Centers II LLC",
+      "basis": "Named obligations of Galaxy Helios Data Centers II LLC",
+      "as_of": "2026-09-30",
+      "issue_date": "2026-07-28",
+      "issue_date_note": "",
+      "maturity": "2031-08-01",
+      "maturity_precision": "day",
+      "rate_type": "fixed",
+      "source_ids": [
+        "deep-adj-GLXY",
+        "deep-legal-GLXY"
+      ],
+      "outstanding_status": "verified_at_snapshot",
+      "outstanding_evidence_ids": [
+        "deep-adj-GLXY"
+      ],
+      "outstanding_principal": {
+        "value": null,
+        "unit": "USD",
+        "as_of": "2026-09-30",
+        "source_ids": []
+      },
+      "note": "Secured project debt with project subsidiary guarantors and a HoldCo party. No blanket Galaxy Digital Inc. parent guarantee is inferred.",
+      "market_yield": null,
+      "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
+      "rankable": true
+    }
+  ],
+  "coverage_watchlist": [
+    {
+      "name": "Crusoe",
+      "business": "AI cloud, data centers and power infrastructure",
+      "disclosure_status": "Equipment financing announcement verified; same-date consolidated borrowing and asset balances not established by reviewed sources.",
+      "ranking_eligible": false,
+      "comparable_debt_usd": null,
+      "comparable_assets_usd": null,
+      "transactions": [
+        {
+          "announced_on": "2026-10-22",
+          "kind": "Secured power-equipment financing facility",
+          "currency": "USD",
+          "amount": 700000000,
+          "amount_basis": "Announced facility size, not confirmed drawn or outstanding balance",
+          "scope": "Power-generation equipment for Crusoe-built and owned AI factories",
+          "legal_borrower": null,
+          "recourse": "Not specified in reviewed announcement",
+          "outstanding_balance_usd": null,
+          "outstanding_status": "Outstanding balance unavailable in reviewed announcement",
+          "interest_rate": null,
+          "source_ids": [
+            "crusoe-power"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "crusoe-power",
+          "url": "https://www.crusoe.ai/resources/newsroom/neuberger-and-crusoe-announce-700-million-facility",
+          "published_on": "2026-10-22",
+          "source_kind": "Company announcement",
+          "short_exact_passages": [
+            "$700 million financing facility",
+            "secured by recently ordered power generation equipment"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lambda",
+      "business": "GPU cloud and AI infrastructure",
+      "disclosure_status": "Two asset-backed financings verified; companywide consolidated borrowing and assets not established by reviewed announcements.",
+      "ranking_eligible": false,
+      "comparable_debt_usd": null,
+      "comparable_assets_usd": null,
+      "transactions": [
+        {
+          "announced_on": "2026-10-01",
+          "kind": "Senior secured fixed-rate delayed-draw term loan",
+          "currency": "USD",
+          "amount": 1008000000,
+          "amount_basis": "Facility amount in detailed highlights; rounded to $1B in headline; not confirmed fully drawn",
+          "scope": "Three customer GPU deployments across multiple data centers, secured by funded infrastructure and contracted cash flows",
+          "legal_borrower": null,
+          "recourse": "Exact borrowing entity and parent recourse not specified",
+          "outstanding_balance_usd": null,
+          "outstanding_status": "Outstanding balance unavailable in reviewed announcement",
+          "interest_rate": {
+            "percent": 6.78,
+            "type": "Fixed contractual facility rate on semiannual coupon basis; not market yield or companywide cost"
+          },
+          "final_maturity": "2033-05-30",
+          "source_ids": [
+            "lambda-oct"
+          ]
+        },
+        {
+          "announced_on": "2026-08-27",
+          "kind": "Senior secured term loan B",
+          "currency": "USD",
+          "amount": 926000000,
+          "amount_basis": "Announced original facility size; priced August 12, 2026; not a current balance",
+          "scope": "GPU asset-backed SPV financing supporting one contracted customer deployment",
+          "legal_borrower": null,
+          "recourse": "SPV structure stated; exact legal name and parent recourse not specified",
+          "outstanding_balance_usd": null,
+          "outstanding_status": "Outstanding balance unavailable in reviewed announcement",
+          "interest_rate": {
+            "type": "Floating",
+            "reference": "SOFR",
+            "spread_percentage_points": 3.0,
+            "market_yield": null
+          },
+          "final_maturity": "2030-12-31",
+          "source_ids": [
+            "lambda-aug"
+          ]
+        }
+      ],
+      "cautions": [
+        "Investment-grade ratings in these announcements apply to the facilities, not a blanket corporate rating.",
+        "These transactions are not a complete company debt total and must not be summed into a present borrowing balance."
+      ],
+      "sources": [
+        {
+          "id": "lambda-oct",
+          "url": "https://lambda.com/blog/lambda-closes-1-billion-senior-secured-fixed-rate-financing",
+          "published_on": "2026-10-01",
+          "source_kind": "Company announcement",
+          "short_exact_passages": [
+            "$1.008 billion delayed draw term loan",
+            "6.78% fixed interest rate on a semi-annual coupon basis"
+          ]
+        },
+        {
+          "id": "lambda-aug",
+          "url": "https://lambda.com/blog/lambda-closes-926-million-senior-secured-term-loan-b-facility",
+          "published_on": "2026-08-27",
+          "source_kind": "Company announcement",
+          "short_exact_passages": [
+            "$926 million senior secured term loan B facility",
+            "asset-backed SPV financing",
+            "SOFR + 3.00%"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vultr",
+      "business": "Independent cloud and GPU infrastructure",
+      "disclosure_status": "Syndicated facility and separate lease financing verified; current companywide borrowing and asset balances not established by reviewed announcement.",
+      "ranking_eligible": false,
+      "comparable_debt_usd": null,
+      "comparable_assets_usd": null,
+      "transactions": [
+        {
+          "announced_on": "2025-06-23",
+          "kind": "Syndicated credit facility including uncommitted accordion",
+          "currency": "USD",
+          "amount": 255000000,
+          "included_uncommitted_accordion_usd": 35000000,
+          "amount_basis": "Announced facility size includes uncommitted accordion; neither full commitment nor drawn balance",
+          "scope": "Cloud and AI infrastructure expansion; exact borrowing entity and recourse not named",
+          "legal_borrower": null,
+          "outstanding_balance_usd": null,
+          "outstanding_status": "Outstanding balance unavailable in reviewed announcement",
+          "source_ids": [
+            "vultr-credit"
+          ]
+        },
+        {
+          "announced_on": "2025-06-23",
+          "kind": "Separate capital expenditure lease financing",
+          "currency": "USD",
+          "amount": 74000000,
+          "amount_basis": "Recently closed lease-financing amount, not established current lease liability",
+          "scope": "Lease financing led and syndicated by Bank of America",
+          "legal_borrower": null,
+          "outstanding_balance_usd": null,
+          "outstanding_status": "Outstanding balance unavailable in reviewed announcement",
+          "source_ids": [
+            "vultr-credit"
+          ]
+        }
+      ],
+      "cautions": [
+        "The $329M headline combines the $255M facility and $74M lease financing. Do not use it as lease-excluded borrowing debt or present-day outstanding debt.",
+        "The $35M accordion is already within $255M and must not be added again."
+      ],
+      "sources": [
+        {
+          "id": "vultr-credit",
+          "url": "https://www.businesswire.com/news/home/20250623608954/en/Vultr-Secures-%24329-Million-in-Credit-Financing-to-Expand-Global-AI-Infrastructure-and-Cloud-Computing-Platform",
+          "published_on": "2025-06-23",
+          "publication_date_evidence": "Business Wire indexed release timestamp: Jun 23, 2025 10:00 AM Eastern Daylight Time",
+          "source_kind": "Issuer press release distributed by Business Wire; Vultr contacts identify issuer",
+          "short_exact_passages": [
+            "$255 million syndicated credit facility",
+            "$35 million uncommitted accordion",
+            "$74 million of recently-closed lease financing"
+          ]
+        }
+      ]
+    }
+  ],
+  "audit_receipt": {
+    "path": "docs/DIRECTORY_SOURCE_AUDIT.json",
+    "baseline_commit": "079fd8e",
+    "scope": "Independent reopening of15 baseline balance disclosures and44 numeric fields; separate NscaleS1 review. Not a statutory audit or independent verification of every note source."
+  },
+  "schema_version": 2,
   "metric_definitions": {
     "debt": {
-      "title": "Reported borrowings",
-      "description": "How much the company owes on loans and notes, as recorded in its balance sheet.",
-      "formula": "Current borrowing carrying amount + noncurrent borrowing carrying amount",
+      "title": "Recorded borrowings",
+      "description": "The amount recorded for loans and notes. Discounts and fees can make this lower than the principal due.",
+      "formula": "Short-term + long-term recorded borrowings, excluding leases",
       "caveat": "USD carrying values exclude operating and finance leases, which are real obligations. Larger companies can have more debt without being less healthy. Project debt can be nonrecourse to the parent."
     },
     "debt_assets": {

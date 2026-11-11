@@ -16,13 +16,15 @@ other peer-group filters add context without calling every company a neocloud.
    does not identify which assets were funded by debt. Construction assets,
    crypto holdings, fair values and lease right-of-use assets make business-model
    comparisons imperfect. This is not debt/equity, debt/EBITDA or a health score.
-3. **Bond coupon examples.** A sortable, unnumbered reference to one identified USD
-   fixed-rate instrument per company where independently reviewed. The selection
+3. **Bond coupon examples.** A sortable, unnumbered reference to 44 identified USD
+   fixed-rate instruments across 15 companies where independently reviewed. The selection
    is a documented example, not a claim to the lowest, latest or average funding
    cost. Convertibles/exchangeables have equity-option economics; project notes
    and unsecured corporate notes have different security and recourse. Coupon
    differs from current market yield. Continued outstanding status is not
-   reverified for every historical example.
+   reverified for every historical example. Filters separate convertibles, secured
+   and unsecured notes, and notes confirmed at the company snapshot from older
+   observations or terms-only records.
 
 There are two company rankings and one instrument reference, rather than three
 misleading company-health rankings. No market-cap denominator or current bond
@@ -33,7 +35,7 @@ metric within the chosen filter, not creditworthiness.
 
 | Business group | Companies | Balance-sheet dates |
 |---|---|---|
-| GPU cloud | CRWV, NBIS | September 30; NBIS June 30 |
+| GPU cloud | CRWV, NBIS, Nscale (private IPO applicant) | September 30; NBIS and Nscale June 30 |
 | AI infrastructure / mixed transition | IREN, BTDR, HUT, APLD, CORZ, WULF, CIFR, HIVE, GLXY | September 30; APLD August 31 |
 | Bitcoin mining / adjacent | RIOT, MARA | September 30 |
 | Data-center REITs | EQIX, DLR | September 30 |
@@ -42,7 +44,7 @@ All dates are in 2026. These are not exhaustive sector classifications or a clai
 that AI is each company's principal business. Private operators without comparable
 public financial statements are not filled with estimates just to increase breadth.
 
-Fourteen companies have reconciled borrowing totals and same-date asset ratios.
+Fifteen companies have reconciled borrowing totals and same-date asset ratios.
 Galaxy's dollar loans and notes are an incomplete subset of its financing
 obligations; digital-asset borrowing/collateral liabilities need further work.
 Its borrowing total and asset ratio therefore stay null and unranked. Its cash,
@@ -70,6 +72,30 @@ assets and one named project-note coupon remain separately sourced.
   cash/stablecoin/Treasury liquidity headline. Qualifying short-term Treasuries
   may already be within cash equivalents; separately classified investments stay
   outside that line.
+
+## Private operators and principal context
+
+Nscale Limited has public SEC registration financials but no verified listed
+trading ticker at the review cutoff. Its June 30 actual USD figures are used,
+not IPO pro forma figures. The $137.4M borrowing numerator excludes $6.4926B
+customer deferred revenue (including a significant financing component) and
+$2.6254B operating leases. Its roughly 0.80% borrowings/assets ratio is therefore
+especially unsuitable as a health ranking. Loan effective rates are not bond
+coupons. The $136.9M contractual maturity table is not silently reconciled to
+$137.4M carrying value; whole-company principal stays unknown.
+
+Crusoe, Lambda and Vultr have a separate, unranked coverage watchlist with
+first-party financing announcements. Facility capacity, transaction proceeds and
+drawn debt are different quantities. No announced amount becomes a comparable
+company borrowing balance without a dated consolidated statement.
+
+Each company can show principal-to-carrying-value reconciliation and excluded
+leases. Nine full-scope principal bridges are supported; partial note subsets and
+unreconciled principal totals are labeled explicitly. Nebius's reported contract
+principal includes accreted redemption amounts: it is not original proceeds or
+cash owed today. Different dates, business models and project issuers remain
+visible in side-by-side comparisons. Selecting a company does not imply its
+pinned coupon example is representative of its overall financing cost.
 
 ## Evidence and calculation boundary
 
@@ -100,3 +126,18 @@ The standalone HTML embeds the whole directory and works without a server or
 network. Source links need internet access when opened. Tests verify rankings,
 unknown handling, grouping, coupon separation, exports, URL restoration,
 keyboard interaction, source details, mobile layout and offline operation.
+
+## Independent source review receipts
+
+[Company balance review](DIRECTORY_SOURCE_AUDIT.json) records independent fresh
+primary retrievals for all 15 baseline company snapshots, tied to baseline commit
+079fd8e, plus Nscale's additional filing review. It does not assert that every
+source in the expanded ledger received that initial audit.
+
+[Note and bridge review](DIRECTORY_NOTE_AUDIT.json) records screening of all 44
+note rows, 44 freshly retrieved primary HTML documents, nine full-scope bridges
+and partial-scope context. This is an engineering source check, not a statutory
+financial audit or exhaustive legal review. A precise Nebius 2032 maturity date
+needed an additional original indenture link; that provenance correction is
+recorded. Historical receipts retain their reviewed hashes rather than pretending
+to certify subsequent editorial changes.

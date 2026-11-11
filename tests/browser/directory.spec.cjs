@@ -7,16 +7,16 @@ test('actual directory has dated borrowing ranks, honest unknowns and distinct p
   page.on('pageerror',e=>errors.push(e.message));
   page.on('request',r=>requests.push({url:r.url(),method:r.method()}));
   await page.goto('/');
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(11);
-  await expect(page.locator('#company-count')).toHaveText('15');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
+  await expect(page.locator('#company-count')).toHaveText('16');
   await expect(page.locator('#ranking-rows tr').first()).toHaveAttribute('data-ticker','CRWV');
   await expect(page.locator('[data-ticker="CRWV"] .metric-value')).toHaveText('$46.87B');
   await expect(page.locator('[data-ticker="GLXY"] .rank-number')).toHaveText('—');
   await expect(page.locator('[data-ticker="GLXY"] .metric-value')).toContainText('unknown');
   await expect(page.locator('[data-ticker="NBIS"]')).toContainText('Jun 30, 2026');
   await page.locator('[data-group="all"]').click();
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(15);
-  await expect(page.locator('#result-count')).toContainText('14 ranked');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(16);
+  await expect(page.locator('#result-count')).toContainText('15 ranked');
   await page.locator('[data-group="data_center_reit"]').click();
   await expect(page.locator('#ranking-rows tr')).toHaveCount(2);
   expect(await page.locator('#ranking-rows tr').evaluateAll(rows=>rows.map(r=>r.dataset.ticker))).toEqual(['EQIX','DLR']);
@@ -31,7 +31,7 @@ test('actual directory has dated borrowing ranks, honest unknowns and distinct p
 
 test('asset ratios retain sources and HUT reconciliation excludes the SAFE liability',async({page})=>{
   await page.goto('/?metric=debt_assets&group=all');
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(15);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(16);
   await expect(page.locator('#ranking-rows tr').first()).toHaveAttribute('data-ticker','HUT');
   await expect(page.locator('[data-ticker="HUT"] .metric-value')).toHaveText('73.82%');
   await expect(page.locator('#metric-description')).toContainText('$100');
@@ -53,18 +53,18 @@ test('asset ratios retain sources and HUT reconciliation excludes the SAFE liabi
 
 test('coupon reference has zero coupons and instrument terms but no company rank',async({page})=>{
   await page.goto('/?metric=coupon&group=all');
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(15);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(44);
   expect((await page.locator('.rank-number').allTextContents()).every(r=>r==='—')).toBe(true);
-  await expect(page.locator('[data-ticker="HIVE"] .metric-value')).toHaveText('0%');
-  await expect(page.locator('[data-ticker="HUT"] .metric-value')).toHaveText('6.192%');
-  await expect(page.locator('[data-ticker="CRWV"] .metric-value')).toHaveText('9.625%');
-  await expect(page.locator('[data-ticker="CIFR"]')).toContainText('project');
-  await expect(page.locator('[data-ticker="DLR"] .metric-value')).toContainText('unknown');
+  await expect(page.locator('[data-instrument="HIVE-2031-APR000"] .metric-value')).toHaveText('0%');
+  await expect(page.locator('[data-instrument="CLOUD-HUT-1"] .metric-value')).toHaveText('6.192%');
+  await expect(page.locator('[data-instrument="CLOUD-CRWV-1"] .metric-value')).toHaveText('9.625%');
+  await expect(page.locator('[data-instrument="CIFR-2030-7125"]')).toContainText('project');
+  await expect(page.locator('[data-ticker="DLR"] .metric-value')).toHaveText('4.45%');
   await expect(page.locator('#metric-caveat')).toContainText('not current market yield');
   await expect(page.locator('#metric-caveat')).toContainText('continued outstanding status');
-  await page.locator('[data-ticker="APLD"] .company-button').click();
-  await expect(page.locator('#detail-content')).toContainText('Issue date unknown');
-  await expect(page.locator('#detail-content')).toContainText('Exact legal issuer');
+  await page.locator('[data-instrument="APLD-2030-925"] .company-button').click();
+  await expect(page.locator('#detail-content')).toContainText('APLD ComputeCo LLC');
+  await expect(page.locator('#detail-content')).toContainText('6.75%');
   await expect(page.locator('#detail-content')).toContainText('selected');
 });
 
@@ -79,23 +79,23 @@ test('filters and company details survive reload; hostile URL keys cannot select
   await expect(page.locator('#tab-debt_assets')).toHaveAttribute('aria-selected','true');
   for(const bad of ['__proto__','constructor','toString']){
     await page.goto('/?'+new URLSearchParams({metric:bad,group:bad,company:bad,order:bad}));
-    await expect(page.locator('#ranking-rows tr')).toHaveCount(11);
+    await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
     await expect(page.locator('#error')).toBeHidden();
   }
   await page.locator('#search').fill('company that does not exist');
   await expect(page.locator('#empty')).toBeVisible();
   await page.locator('#clear-search').click();
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(11);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
 });
 
 test('downloads preserve unknown values, dates, units and source lineage',async({page})=>{
   await page.goto('/?group=all');
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(15);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(16);
   const jsonPromise=page.waitForEvent('download');
   await page.locator('#download-json').click();
   const jsonDownload=await jsonPromise;
   const exported=JSON.parse(fs.readFileSync(await jsonDownload.path(),'utf8'));
-  expect(exported.rows).toHaveLength(15);
+  expect(exported.rows).toHaveLength(16);
   const unknown=exported.rows.find(r=>r.ticker==='GLXY');
   expect(unknown.value).toBeNull();
   expect(unknown.ranked).toBe(false);
@@ -114,7 +114,7 @@ test('downloads preserve unknown values, dates, units and source lineage',async(
   const crwvNote=coupons.rows.find(r=>r.ticker==='CRWV');
   expect(crwvNote.source_date).toBe('2026-06-18');
   expect(crwvNote.company_source_date).toBe('2026-11-10');
-  expect(crwvNote.scope).toBe('Corporate unsecured note');
+  expect(crwvNote.scope).toContain('CoreWeave, Inc.');
   expect(crwvNote.source_precision_usd).toBeNull();
   const csvPromise=page.waitForEvent('download');
   await page.locator('#download-csv').click();
@@ -136,12 +136,12 @@ test('directory standalone runs with no server or network',async({page,context})
   page.on('pageerror',e=>errors.push(e.message));
   await context.setOffline(true);
   await page.setContent(fs.readFileSync(resolve('work/NeoCloud-Interactive-Preview.html'),'utf8'));
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(11);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
   await page.locator('[data-group="all"]').click();
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(15);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(16);
   await page.locator('#tab-coupon').click();
-  await expect(page.locator('[data-ticker="HIVE"] .metric-value')).toHaveText('0%');
-  await page.locator('[data-ticker="HUT"] .company-button').click();
+  await expect(page.locator('[data-instrument="HIVE-2031-APR000"] .metric-value')).toHaveText('0%');
+  await page.locator('[data-instrument="CLOUD-HUT-1"] .company-button').click();
   await expect(page.locator('#detail-content')).toContainText('USD thousands');
   expect(requests).toEqual([]);expect(errors).toEqual([]);
 });
@@ -149,7 +149,7 @@ test('directory standalone runs with no server or network',async({page,context})
 test('directory assets work under the preferred subdirectory without API requests',async({page})=>{
   const paths=[];page.on('request',r=>paths.push(new URL(r.url()).pathname));
   await page.goto('http://127.0.0.1:8001/neoclouddebt/');
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(11);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
   await page.locator('#tab-debt_assets').click();
   await expect(page.locator('[data-ticker="HUT"] .metric-value')).toHaveText('73.82%');
   expect(paths.every(p=>p.startsWith('/neoclouddebt/'))).toBe(true);
@@ -157,7 +157,7 @@ test('directory assets work under the preferred subdirectory without API request
 
 test('tabs support keyboard navigation and focus indicators on light and dark surfaces',async({page})=>{
   await page.goto('/');
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(11);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
   await page.locator('#tab-debt').focus();
   await page.keyboard.press('ArrowRight');
   await expect(page.locator('#tab-debt_assets')).toBeFocused();
@@ -173,7 +173,7 @@ test('tabs support keyboard navigation and focus indicators on light and dark su
 
 test('small directory text and keyboard outlines retain contrast on actual backgrounds',async({page})=>{
   await page.goto('/');
-  await expect(page.locator('#ranking-rows tr')).toHaveCount(11);
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
   const ratios=await page.locator('.eyebrow,.metric-tabs small,.group-note,.rank-number,.row-date,.evidence-pill,footer p').evaluateAll(elements=>{
     const rgb=value=>value.match(/[\d.]+/g).map(Number);
     const luminance=values=>values.slice(0,3).map(v=>{const c=v/255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4;}).reduce((sum,c,i)=>sum+c*[.2126,.7152,.0722][i],0);
@@ -184,4 +184,123 @@ test('small directory text and keyboard outlines retain contrast on actual backg
     });
   });
   for(const r of ratios)expect(r.ratio,r.text).toBeGreaterThanOrEqual(4.5);
+});
+
+test('search preserves peer-group ranks and bar scale instead of making each lookup number one',async({page})=>{
+  await page.goto('/');
+  const row=page.locator('[data-ticker="NBIS"]');
+  await expect(row.locator('.rank-number')).toHaveText('3');
+  const width=await row.locator('.bar-fill').evaluate(e=>e.style.width);
+  await page.locator('#search').fill('NBIS');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(1);
+  await expect(row.locator('.rank-number')).toHaveText('3');
+  expect(await row.locator('.bar-fill').evaluate(e=>e.style.width)).toBe(width);
+  await expect(page.locator('#rank-context')).toContainText('Search only hides rows');
+  const downloadPromise=page.waitForEvent('download');await page.locator('#download-json').click();
+  const payload=JSON.parse(fs.readFileSync(await (await downloadPromise).path(),'utf8'));
+  expect(payload.rows[0].cohort_rank).toBe(3);
+});
+
+test('up to three companies compare side by side with dated scopes and restored source-dialog focus',async({page})=>{
+  await page.goto('/');
+  for(const ticker of ['CRWV','NBIS','NSCALE'])await page.locator(`[data-compare="${ticker}"]`).click();
+  await expect(page.locator('#selection-count')).toContainText('3');
+  await expect(page.locator('[data-compare="HUT"]')).toHaveAttribute('aria-disabled','true');
+  await expect(page.locator('#selected-companies .selection-chip')).toHaveCount(3);
+  await page.locator('#open-comparison').click();
+  await expect(page.locator('#comparison-dialog')).toBeVisible();
+  await expect(page.locator('#comparison-content')).toContainText('Reporting dates differ');
+  await expect(page.locator('#comparison-content')).toContainText('customer financing');
+  await expect(page.locator('#comparison-content')).toContainText('includes accretion');
+  await expect(page.locator('#comparison-content')).toContainText('not original amount raised');
+  await page.reload();
+  await expect(page.locator('#comparison-dialog')).toBeVisible();
+  await expect(page.locator('#comparison-content')).toContainText('Private');
+  const sourceButton=page.getByRole('button',{name:'Read Nebius Group sources and calculation'});
+  await sourceButton.click();
+  await expect(page.locator('#company-dialog')).toBeVisible();
+  await expect(page.locator('#detail-title')).toHaveText('Nebius Group');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#company-dialog')).not.toBeVisible();
+  await expect(page.locator('#comparison-dialog')).toBeVisible();
+  await expect(sourceButton).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#comparison-dialog')).not.toBeVisible();
+  await page.goto('/?compare=__proto__,CRWV,CRWV,constructor,NBIS,NSCALE,HUT&comparison=1');
+  await expect(page.locator('#selected-companies .selection-chip')).toHaveCount(3);
+  await expect(page.locator('#comparison-dialog')).toBeVisible();
+});
+
+test('note filters separate security types and snapshot confirmation without equating coupon and yield',async({page})=>{
+  await page.goto('/?metric=coupon&group=all');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(44);
+  await expect(page.locator('#result-count')).toContainText('15 companies');
+  await page.locator('#note-type').selectOption('unsecured');
+  const unsecured=await page.locator('#ranking-rows tr').evaluateAll(rows=>rows.map(r=>r.dataset.ticker));
+  expect(unsecured).toContain('CRWV');expect(unsecured).toContain('DLR');expect(unsecured).not.toContain('CIFR');
+  await page.locator('#note-status').selectOption('confirmed');
+  expect(await page.locator('#ranking-rows tr').evaluateAll(rows=>rows.some(r=>r.dataset.ticker==='CRWV'))).toBe(false);
+  await page.locator('#note-type').selectOption('all');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(38);
+  await page.locator('#note-status').selectOption('all');
+  await expect(page.locator('[data-instrument="CLOUD-NBIS-7"]')).toContainText('not confirmed');
+  await expect(page.locator('[data-instrument="CLOUD-CRWV-1"]')).toContainText('earlier date');
+  await page.locator('#note-type').selectOption('secured');
+  await expect(page.locator('[data-instrument="CIFR-2030-7125"]')).toBeVisible();
+  await expect(page.locator('[data-instrument="CLOUD-CRWV-1"]')).toHaveCount(0);
+  await page.locator('#note-type').selectOption('convertible');
+  await expect(page.locator('[data-instrument="HIVE-2031-APR000"] .metric-value')).toHaveText('0%');
+  await page.reload();await expect(page.locator('#note-type')).toHaveValue('convertible');
+});
+
+test('private IPO applicant has actual filing data but no invented ticker or fixed-note coupon',async({page})=>{
+  await page.goto('/?q=NSCALE&group=all');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(1);
+  await expect(page.locator('[data-ticker="NSCALE"] .metric-value')).toHaveText('$137.4M');
+  await expect(page.locator('[data-ticker="NSCALE"]')).toContainText('Private');
+  await expect(page.locator('[data-ticker="NSCALE"]')).toContainText('customer financing');
+  await page.locator('.company-button').click();
+  await expect(page.locator('#detail-content')).toContainText('proposed NSCL is not a verified listed ticker');
+  await expect(page.locator('#detail-content')).toContainText('6.4926');
+  await expect(page.locator('#detail-content')).toContainText('must not be presented as bond coupons');
+  await page.keyboard.press('Escape');
+  const downloadPromise=page.waitForEvent('download');await page.locator('#download-json').click();
+  const payload=JSON.parse(fs.readFileSync(await (await downloadPromise).path(),'utf8'));
+  expect(payload.rows[0].trading_ticker).toBeNull();
+  expect(payload.rows[0].listing_status).toBe('private_pending_ipo');
+  await page.locator('#tab-coupon').click();
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(0);
+  await expect(page.locator('#empty')).toBeVisible();
+});
+
+test('partial bridges, lease exclusions and conflicting issue dates remain explicit',async({page})=>{
+  await page.goto('/?company=NBIS');
+  await expect(page.locator('#company-dialog')).toBeVisible();
+  await page.locator('.debt-context summary').click();
+  await expect(page.locator('.debt-context')).toContainText('PARTIAL SCOPE');
+  await expect(page.locator('.debt-context')).toContainText('includes accretion');
+  await expect(page.locator('.debt-context')).toContainText('principal total is not reconciled');
+  await page.keyboard.press('Escape');
+  await page.goto('/?company=GLXY');
+  await page.locator('.debt-context summary').click();
+  await expect(page.locator('.debt-context')).toContainText('not a company debt total');
+  await expect(page.locator('.debt-context')).toContainText('industrial');
+  const glxyNote=page.locator('.note-detail-card[data-instrument="ADJ-GLXY-SELECTED"]');
+  await expect(glxyNote).toContainText('unknown; not inferred from original issue size');
+  await page.keyboard.press('Escape');
+  await page.goto('/?company=WULF');
+  await expect(page.locator('.note-detail-card[data-instrument="WULF-2030-775"]')).toContainText('Conflicting source dates');
+  await expect(page.locator('.note-detail-card[data-instrument="WULF-2030-775"]')).toContainText('Issue date unknown');
+});
+
+test('private operator financing announcements stay separate from ranked borrowing balances',async({page})=>{
+  await page.goto('/');
+  await expect(page.locator('#coverage')).toBeVisible();
+  await page.locator('#coverage>details>summary').click();
+  await expect(page.locator('.coverage-card')).toHaveCount(3);
+  await expect(page.locator('#coverage')).toContainText('Facility size is not an outstanding debt balance');
+  await expect(page.locator('#coverage')).toContainText('Crusoe');
+  await expect(page.locator('#coverage')).toContainText('Lambda');
+  await expect(page.locator('#coverage')).toContainText('Vultr');
+  expect(await page.locator('#ranking-rows tr').evaluateAll(rows=>rows.some(r=>/CRUSOE|LAMBDA|VULTR/.test(r.dataset.ticker)))).toBe(false);
 });

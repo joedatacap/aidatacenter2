@@ -1,0 +1,1565 @@
+{
+  "reviewed_at": "2026-11-11T09:27:32.743604+00:00",
+  "canonical_sha256_at_review": "362bcad713340f42a3ea5609cd75f2f3e4124ffa975669828ef891ed39a7fc30",
+  "coverage": {
+    "instrument_rows_screened": 44,
+    "independently_retrieved_primary_html": 44,
+    "all_retrieval_http200": true,
+    "outstanding_status_counts": {
+      "verified_at_earlier_date": 5,
+      "verified_at_snapshot": 38,
+      "terms_only": 1
+    },
+    "known_principal_rows": 42,
+    "definition": "All44rows screened for coupon/value/current-vs-earlier evidence, primarycompany debt tables and key chronology.43listedprimaryHTML freshly retrieved plusoneindependent2032indenture. Substantive source checks are enumeratedbycompany; downloading alegalexhibit isnotan exhaustive clause-by-clauselegalreview. Earlierindependentaudit isused for previouslycheckedselectednoteissues."
+  },
+  "findings": [
+    {
+      "id": "NBIS-2032-precise-date-source",
+      "severity": "provenance_correction_before_push",
+      "instrument_id": "CLOUD-NBIS-4",
+      "status": "reported_to_main",
+      "finding": "The current linked Q2 note specifies September2032 and closing release specifies2032; neither supports dayprecision September15 for this series. Date is independently correct but source linkage incomplete.",
+      "correction": "Add the2032 original indenture primarysource to instrument source_ids, or reduce dateprecision.",
+      "primary_url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex4-3.htm",
+      "independent_receipt": "work/independent-audit/notes/independent-nbis-sep2032-indenture.receipt.json",
+      "document_date": "2025-09-15",
+      "publication_date": "2025-09-15",
+      "publication_date_basis": "SEC accession filing index explicitly identifies Filing Date 2025-09-15; distinct from contractualissue/maturity definitions",
+      "brief_exact_passages": [
+        "“Issue Date” means September 15, 2025.",
+        "“Maturity Date” means September 15, 2032."
+      ],
+      "publication_date_evidence": {
+        "source_id": "independent-nbis-sep2025-filing-index",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/0001104659-25-089969-index.htm",
+        "status": 200,
+        "retrieved_at": "2026-11-11T09:27:45.725682+00:00",
+        "sha256": "5968a5eda9bfaf446ce6b0fec548551935af37749b6896e0f74ff005112d6bdb",
+        "retained_html": "work/independent-audit/notes/independent-nbis-sep2025-filing-index.html"
+      }
+    },
+    {
+      "id": "NBIS-accretion-comparability",
+      "severity": "presentation_caveat",
+      "instrument_ids": [
+        "CLOUD-NBIS-1",
+        "CLOUD-NBIS-2",
+        "CLOUD-NBIS-3",
+        "CLOUD-NBIS-4",
+        "CLOUD-NBIS-5",
+        "CLOUD-NBIS-6"
+      ],
+      "status": "qualification_present_in_data_check_UI",
+      "finding": "The six reported principal balances include contractual accreted redemption amounts, not original issue proceeds. Source itself calls these principal outstanding, and bridge follows that source. Comparing these figures as unqualified original face or cash raised is misleading.",
+      "correction": "Retain source principal label with accretion explanation wherever amounts or principal-minus-book gap are shown; never derive financing cost from coupon alone.",
+      "primary_url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm"
+    }
+  ],
+  "company_assessments": {
+    "CRWV": {
+      "status": "supported_at_earlier_date",
+      "checks": [
+        "Q2 per-series principal and stated coupon tables; original April/June issue date and maturity passages",
+        "Original April issue-size conflict does not override later Q2 outstanding2.75bn"
+      ],
+      "caveats": [
+        "Not reverified at September company snapshot"
+      ]
+    },
+    "NBIS": {
+      "status": "supported_with_one_citation_addition",
+      "checks": [
+        "Q2 six-series current table, coupons and principal/discount/cost bridge",
+        "June issue closure and maturities; March offering completedMarch20 in current Q2note;2.625 exact narrative vs rounded2.63table",
+        "September2032 precise maturity separately reopened original indenture"
+      ],
+      "caveats": [
+        "All six current table principal values include accretion mechanics",
+        "August0.5% series remains terms-only and is not June snapshot debt"
+      ]
+    },
+    "IREN": {
+      "status": "supported",
+      "checks": [
+        "Annual Note23 independently shows issue dates, stated coupons and maturitydates for sixconvertibles",
+        "Q3 table confirms seven instrument balances in USDmillions and explicitly unchanged contractual terms",
+        "1%June2033 versus1%December2033 are distinctseries; USPP5.96% is stated coupon, not table7.09%effective rate",
+        "USPP issuer IE US Hardware3, LLC identified in annual note"
+      ],
+      "caveats": [
+        "Current balances rounded to USDmillions"
+      ]
+    },
+    "BTDR": {
+      "status": "supported_at_earlier_date",
+      "checks": [
+        "June note identifies375m4.875%,400m4%,375m5% series with maturities",
+        "Original June6K supports June23issuance"
+      ],
+      "caveats": [
+        "November2025 and February2026 issue days remain null, correctly not inferred",
+        "Not reverified at September company snapshot"
+      ]
+    },
+    "HUT": {
+      "status": "supported_with_date_conflict_disclosed",
+      "checks": [
+        "Q3Note11 two projectseries,3.25bn/4.25bn principal,6.192%/6.129%,2042maturities, legal subsidiaries",
+        "Q3RiverBendissueApril30 vs originalcompletionApril27/indentureApril30 previously independentlychecked"
+      ],
+      "caveats": [
+        "Issue/completion dates distinguished rather than treated as identical"
+      ]
+    },
+    "APLD": {
+      "status": "supported",
+      "checks": [
+        "August debt table confirms all fourseries principal/coupons",
+        "Fouroriginal closing8Ks independentlyopened for exact issue/maturitydates"
+      ],
+      "caveats": [
+        "Other debt prevents independently full-scope facebridge; parentprincipal remainsnull"
+      ]
+    },
+    "CORZ": {
+      "status": "supported",
+      "checks": [
+        "Q3debt table confirms3.3bn/460m/625m",
+        "OriginalMay6closing andindenture identifyCore Scientific Finance I LLC as secured issuer; currentothernotes show exactdates andmaturities"
+      ],
+      "caveats": [
+        "Projectissuer is not blanketcorporate issuer"
+      ]
+    },
+    "WULF": {
+      "status": "supported_with_issue_day_unknown",
+      "checks": [
+        "Q3debt tables support fourseries balances and5.725bn fullprincipal",
+        "Originalclosing8Ks support convertible issue/maturitydates",
+        "Q3securedcompletionOctober22 vsoriginalOctober23conflict independentlyconfirmed"
+      ],
+      "caveats": [
+        "Securedissue_date null is appropriate",
+        "Current classification ofconvertible does not shorten contractualmaturity"
+      ]
+    },
+    "CIFR": {
+      "status": "supported",
+      "checks": [
+        "Q3five-series table matches all principal/coupons",
+        "Narrative supports exactissue/maturitydates andactualprojectborrowers",
+        "Vehicleloans812k reconcile fullscope6.016312bnprincipal"
+      ],
+      "caveats": [
+        "Octoberexchange mustnotreduce September2030convertible172.5m"
+      ]
+    },
+    "HIVE": {
+      "status": "supported",
+      "checks": [
+        "Currentnote explicitlyissuedApril21,2026 andJune30,2026;0%unsecuredparentguaranteed",
+        "MaturitiesApril15,2031 andJuly1,2031;245mface to235.253mcombined liability"
+      ],
+      "caveats": [
+        "Otherloans prevent completecompanyfacebridge"
+      ]
+    },
+    "RIOT": {
+      "status": "supported",
+      "checks": [
+        "Q3series594.383mprincipal andfull674.512m-17.867m=656.645mbridge",
+        "OriginalDec11issue and2030Jan15maturity checked in earlierindependentbalanceaudit"
+      ],
+      "caveats": []
+    },
+    "MARA": {
+      "status": "supported",
+      "checks": [
+        "Q3remaining300m September2031series coupon2.125%",
+        "Full3.047201bn-27.869m=3.019332bnborrrowingbridge"
+      ],
+      "caveats": [
+        "Do not splice postSepBTCloanrepayment into snapshot"
+      ]
+    },
+    "EQIX": {
+      "status": "supported",
+      "checks": [
+        "Q3USD650m5.8%series dueAugust15,2036; exactissueAugust6verified previously",
+        "22.839bnprincipal less192mcosts=22.647bn recordedborrowing atmillionprecision"
+      ],
+      "caveats": [
+        "Othernotes issuerstructure mustnotbe copied intoEquinixIncseries"
+      ]
+    },
+    "DLR": {
+      "status": "supported",
+      "checks": [
+        "Q3USD650m4.45%series withJuly15,2028maturity",
+        "19.618975bnface minus39.593mdiscount minus84.767mcost=19.494615bn",
+        "Leases/JV debt exclusions separatelydisclosed"
+      ],
+      "caveats": [
+        "2018couponvintage is notcurrentyield"
+      ]
+    },
+    "GLXY": {
+      "status": "supported_presence_not_individual_principal",
+      "checks": [
+        "Q3Note16currentfinancing account andrelatedSeptemberrestrictedTreasuryholding refer to2031securedseries",
+        "Indenture explicitlyAugust1,2031maturity",
+        "Contractualtable footnoteprincipal excludesdiscounts/costs supports6.937907bnnotes-only vs6.748432bncarrying"
+      ],
+      "caveats": [
+        "Selectednoteprincipal remainsnull; do notuse original3.5bnissue proceeds asSeptemberoutstanding",
+        "Companyborrowingtotal staysunknown; notes-onlybridge partialscope"
+      ]
+    },
+    "NSCALE": {
+      "status": "no_coupon_instruments_correct",
+      "checks": [
+        "IndependentS1snapshot retained underwork/research/nscale-snapshot.json",
+        "11.30% and22.74%effective loanrates excludedfromcouponledger"
+      ],
+      "caveats": [
+        "PrivatependingIPO; customerfinancing andleasecaveats essential"
+      ]
+    }
+  },
+  "instrument_assessments": [
+    {
+      "instrument_id": "CLOUD-CRWV-1",
+      "ticker": "CRWV",
+      "coupon_percent": "9.625",
+      "issue_date": "2026-06-18",
+      "maturity": "2032-07-15",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_earlier_date",
+      "source_ids": [
+        "deep-cloud-crwv-selected-issue",
+        "deep-cloud-crwv-q2-note"
+      ],
+      "outstanding_principal_usd": "1250000000",
+      "assessment": "supported_at_earlier_date",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-CRWV-2",
+      "ticker": "CRWV",
+      "coupon_percent": "9.750",
+      "issue_date": "2026-04-14",
+      "maturity": "2031-10-01",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_earlier_date",
+      "source_ids": [
+        "deep-cloud-crwv-apr-issue",
+        "deep-cloud-crwv-q2-note"
+      ],
+      "outstanding_principal_usd": "2750000000",
+      "assessment": "supported_at_earlier_date",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-NBIS-1",
+      "ticker": "NBIS",
+      "coupon_percent": "2.00",
+      "issue_date": "2025-06-05",
+      "maturity": "2029-06-05",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-jun2025-issue"
+      ],
+      "outstanding_principal_usd": "587500000",
+      "assessment": "supported_with_one_citation_addition",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-NBIS-2",
+      "ticker": "NBIS",
+      "coupon_percent": "1.00",
+      "issue_date": "2025-09-15",
+      "maturity": "2030-09-15",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-sep2025-release",
+        "deep-cloud-nbis-sep2025-note"
+      ],
+      "outstanding_principal_usd": "1818400000",
+      "assessment": "supported_with_one_citation_addition",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-NBIS-3",
+      "ticker": "NBIS",
+      "coupon_percent": "3.00",
+      "issue_date": "2025-06-05",
+      "maturity": "2031-06-05",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-jun2025-issue"
+      ],
+      "outstanding_principal_usd": "612500000",
+      "assessment": "supported_with_one_citation_addition",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-NBIS-4",
+      "ticker": "NBIS",
+      "coupon_percent": "2.75",
+      "issue_date": "2025-09-15",
+      "maturity": "2032-09-15",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-sep2025-release"
+      ],
+      "outstanding_principal_usd": "1818400000",
+      "assessment": "supported_with_one_citation_addition",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-NBIS-5",
+      "ticker": "NBIS",
+      "coupon_percent": "1.25",
+      "issue_date": "2026-03-20",
+      "maturity": "2031-03-15",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-mar2026-pricing"
+      ],
+      "outstanding_principal_usd": "3105000000",
+      "assessment": "supported_with_one_citation_addition",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-NBIS-6",
+      "ticker": "NBIS",
+      "coupon_percent": "2.625",
+      "issue_date": "2026-03-20",
+      "maturity": "2033-03-15",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-nbis-q2",
+        "deep-cloud-nbis-mar2026-pricing"
+      ],
+      "outstanding_principal_usd": "2100000000",
+      "assessment": "supported_with_one_citation_addition",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-NBIS-7",
+      "ticker": "NBIS",
+      "coupon_percent": "0.50",
+      "issue_date": "2026-08-24",
+      "maturity": "2030",
+      "as_of": "2026-08-24",
+      "outstanding_status": "terms_only",
+      "source_ids": [
+        "deep-cloud-nbis-aug-issue"
+      ],
+      "outstanding_principal_usd": null,
+      "assessment": "supported_with_one_citation_addition",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-IREN-1",
+      "ticker": "IREN",
+      "coupon_percent": "3.25",
+      "issue_date": "2024-12-06",
+      "maturity": "2030-06-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal_usd": "212000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-IREN-2",
+      "ticker": "IREN",
+      "coupon_percent": "3.50",
+      "issue_date": "2025-06-13",
+      "maturity": "2029-12-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal_usd": "233000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-IREN-3",
+      "ticker": "IREN",
+      "coupon_percent": "0.00",
+      "issue_date": "2025-10-14",
+      "maturity": "2031-07-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal_usd": "1000000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-IREN-4",
+      "ticker": "IREN",
+      "coupon_percent": "0.25",
+      "issue_date": "2025-12-08",
+      "maturity": "2032-06-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal_usd": "1150000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-IREN-5",
+      "ticker": "IREN",
+      "coupon_percent": "1.00",
+      "issue_date": "2025-12-08",
+      "maturity": "2033-06-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal_usd": "1150000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-IREN-6",
+      "ticker": "IREN",
+      "coupon_percent": "1.00",
+      "issue_date": "2026-05-14",
+      "maturity": "2033-12-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note",
+        "deep-cloud-iren-selected-issue"
+      ],
+      "outstanding_principal_usd": "3000000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-IREN-7",
+      "ticker": "IREN",
+      "coupon_percent": "5.96",
+      "issue_date": "2026-06-11",
+      "maturity": "2031-12-31",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-iren-q3",
+        "deep-cloud-iren-q2-note"
+      ],
+      "outstanding_principal_usd": "1571000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-BTDR-1",
+      "ticker": "BTDR",
+      "coupon_percent": "4.875",
+      "issue_date": "2025-06-23",
+      "maturity": "2031-07-01",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_earlier_date",
+      "source_ids": [
+        "deep-cloud-btdr-selected-issue",
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_principal_usd": "375000000",
+      "assessment": "supported_at_earlier_date",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-BTDR-2",
+      "ticker": "BTDR",
+      "coupon_percent": "4.00",
+      "issue_date": null,
+      "maturity": "2031-11-15",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_earlier_date",
+      "source_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_principal_usd": "400000000",
+      "assessment": "supported_at_earlier_date",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-BTDR-3",
+      "ticker": "BTDR",
+      "coupon_percent": "5.00",
+      "issue_date": null,
+      "maturity": "2032-03-01",
+      "as_of": "2026-06-30",
+      "outstanding_status": "verified_at_earlier_date",
+      "source_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "outstanding_principal_usd": "375000000",
+      "assessment": "supported_at_earlier_date",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-HUT-1",
+      "ticker": "HUT",
+      "coupon_percent": "6.192",
+      "issue_date": "2026-04-30",
+      "maturity": "2042-11-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-hut-q3",
+        "deep-cloud-hut-prior-issue"
+      ],
+      "outstanding_principal_usd": "3250000000",
+      "assessment": "supported_with_date_conflict_disclosed",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CLOUD-HUT-2",
+      "ticker": "HUT",
+      "coupon_percent": "6.129",
+      "issue_date": "2026-06-09",
+      "maturity": "2042-11-30",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-cloud-hut-q3"
+      ],
+      "outstanding_principal_usd": "4250000000",
+      "assessment": "supported_with_date_conflict_disclosed",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "APLD-2030-925",
+      "ticker": "APLD",
+      "coupon_percent": "9.25",
+      "issue_date": "2025-11-20",
+      "maturity": "2030-12-15",
+      "as_of": "2026-08-31",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-925-close"
+      ],
+      "outstanding_principal_usd": "2350000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "APLD-2031-675",
+      "ticker": "APLD",
+      "coupon_percent": "6.75",
+      "issue_date": "2026-03-10",
+      "maturity": "2031-03-15",
+      "as_of": "2026-08-31",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-675-close"
+      ],
+      "outstanding_principal_usd": "2150000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "APLD-2031-700",
+      "ticker": "APLD",
+      "coupon_percent": "7",
+      "issue_date": "2026-06-16",
+      "maturity": "2031-06-15",
+      "as_of": "2026-08-31",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-700-close"
+      ],
+      "outstanding_principal_usd": "1590000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "APLD-2030-275",
+      "ticker": "APLD",
+      "coupon_percent": "2.75",
+      "issue_date": "2024-11-04",
+      "maturity": "2030-06-01",
+      "as_of": "2026-08-31",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-apld-q",
+        "deep-transition-apld-275-close"
+      ],
+      "outstanding_principal_usd": "450000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CORZ-2031-775",
+      "ticker": "CORZ",
+      "coupon_percent": "7.75",
+      "issue_date": "2026-05-06",
+      "maturity": "2031-05-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-corz-q",
+        "deep-transition-corz-775-close",
+        "deep-transition-corz-775-indenture"
+      ],
+      "outstanding_principal_usd": "3300000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CORZ-2029-300",
+      "ticker": "CORZ",
+      "coupon_percent": "3",
+      "issue_date": "2024-08-19",
+      "maturity": "2029-09-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-corz-q"
+      ],
+      "outstanding_principal_usd": "460000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CORZ-2031-000",
+      "ticker": "CORZ",
+      "coupon_percent": "0",
+      "issue_date": "2024-12-05",
+      "maturity": "2031-06-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-corz-q"
+      ],
+      "outstanding_principal_usd": "625000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "WULF-2030-775",
+      "ticker": "WULF",
+      "coupon_percent": "7.75",
+      "issue_date": null,
+      "maturity": "2030-10-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-775-close"
+      ],
+      "outstanding_principal_usd": "3200000000",
+      "assessment": "supported_with_issue_day_unknown",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "WULF-2030-275",
+      "ticker": "WULF",
+      "coupon_percent": "2.75",
+      "issue_date": "2024-10-25",
+      "maturity": "2030-02-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-275-close"
+      ],
+      "outstanding_principal_usd": "500000000",
+      "assessment": "supported_with_issue_day_unknown",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "WULF-2031-100",
+      "ticker": "WULF",
+      "coupon_percent": "1",
+      "issue_date": "2025-08-20",
+      "maturity": "2031-09-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-100-close",
+        "deep-transition-wulf-100-tap"
+      ],
+      "outstanding_principal_usd": "1000000000",
+      "assessment": "supported_with_issue_day_unknown",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "WULF-2032-000",
+      "ticker": "WULF",
+      "coupon_percent": "0",
+      "issue_date": "2025-10-31",
+      "maturity": "2032-05-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-wulf-q",
+        "deep-transition-wulf-000-close"
+      ],
+      "outstanding_principal_usd": "1025000000",
+      "assessment": "supported_with_issue_day_unknown",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CIFR-2030-7125",
+      "ticker": "CIFR",
+      "coupon_percent": "7.125",
+      "issue_date": "2025-11-13",
+      "maturity": "2030-11-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal_usd": "1733000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CIFR-2031-6125",
+      "ticker": "CIFR",
+      "coupon_percent": "6.125",
+      "issue_date": "2026-02-11",
+      "maturity": "2031-02-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal_usd": "2000000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CIFR-2031-6000",
+      "ticker": "CIFR",
+      "coupon_percent": "6",
+      "issue_date": "2026-06-15",
+      "maturity": "2031-06-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal_usd": "810000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CIFR-2030-175",
+      "ticker": "CIFR",
+      "coupon_percent": "1.75",
+      "issue_date": "2025-05-22",
+      "maturity": "2030-05-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal_usd": "172500000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "CIFR-2031-000",
+      "ticker": "CIFR",
+      "coupon_percent": "0",
+      "issue_date": "2025-09-30",
+      "maturity": "2031-10-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ],
+      "outstanding_principal_usd": "1300000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "HIVE-2031-APR000",
+      "ticker": "HIVE",
+      "coupon_percent": "0",
+      "issue_date": "2026-04-21",
+      "maturity": "2031-04-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-hive-q"
+      ],
+      "outstanding_principal_usd": "115000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "HIVE-2031-JUN000",
+      "ticker": "HIVE",
+      "coupon_percent": "0",
+      "issue_date": "2026-06-30",
+      "maturity": "2031-07-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-transition-hive-q"
+      ],
+      "outstanding_principal_usd": "130000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "ADJ-RIOT-SELECTED",
+      "ticker": "RIOT",
+      "coupon_percent": "0.75",
+      "issue_date": "2024-12-11",
+      "maturity": "2030-01-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-adj-RIOT",
+        "deep-legal-RIOT"
+      ],
+      "outstanding_principal_usd": "594383000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "ADJ-MARA-SELECTED",
+      "ticker": "MARA",
+      "coupon_percent": "2.125",
+      "issue_date": "2024-08-14",
+      "maturity": "2031-09-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-adj-MARA",
+        "deep-legal-MARA"
+      ],
+      "outstanding_principal_usd": "300000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "ADJ-EQIX-SELECTED",
+      "ticker": "EQIX",
+      "coupon_percent": "5.800",
+      "issue_date": "2026-08-06",
+      "maturity": "2036-08-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-adj-EQIX",
+        "deep-legal-EQIX"
+      ],
+      "outstanding_principal_usd": "650000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "ADJ-DLR-SELECTED",
+      "ticker": "DLR",
+      "coupon_percent": "4.450",
+      "issue_date": "2018-06-21",
+      "maturity": "2028-07-15",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-adj-DLR",
+        "deep-legal-DLR",
+        "deep-issue-DLR"
+      ],
+      "outstanding_principal_usd": "650000000",
+      "assessment": "supported",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    },
+    {
+      "instrument_id": "ADJ-GLXY-SELECTED",
+      "ticker": "GLXY",
+      "coupon_percent": "9.875",
+      "issue_date": "2026-07-28",
+      "maturity": "2031-08-01",
+      "as_of": "2026-09-30",
+      "outstanding_status": "verified_at_snapshot",
+      "source_ids": [
+        "deep-adj-GLXY",
+        "deep-legal-GLXY"
+      ],
+      "outstanding_principal_usd": null,
+      "assessment": "supported_presence_not_individual_principal",
+      "date_order_valid": true,
+      "snapshot_status_date_matches": true
+    }
+  ],
+  "full_scope_bridges": [
+    {
+      "ticker": "IREN",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "10041000000",
+      "carrying": "9897000000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-cloud-iren-q3"
+      ]
+    },
+    {
+      "ticker": "HUT",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "7726410000",
+      "carrying": "7628225000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-cloud-hut-q3"
+      ]
+    },
+    {
+      "ticker": "CORZ",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "4385000000",
+      "carrying": "4302175000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-transition-corz-q"
+      ]
+    },
+    {
+      "ticker": "WULF",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "5725000000",
+      "carrying": "5232310000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-transition-wulf-q"
+      ]
+    },
+    {
+      "ticker": "CIFR",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "6016312000",
+      "carrying": "5559878000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-transition-cifr-q"
+      ]
+    },
+    {
+      "ticker": "RIOT",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "674512000",
+      "carrying": "656645000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-adj-RIOT"
+      ]
+    },
+    {
+      "ticker": "MARA",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "3047201000",
+      "carrying": "3019332000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-adj-MARA"
+      ]
+    },
+    {
+      "ticker": "EQIX",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "22839000000",
+      "carrying": "22647000000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-adj-EQIX"
+      ]
+    },
+    {
+      "ticker": "DLR",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": "19618975000",
+      "carrying": "19494615000",
+      "scope": "consolidated_borrowings",
+      "complete_company_scope": true,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-adj-DLR"
+      ]
+    }
+  ],
+  "partial_scope_bridges": [
+    {
+      "ticker": "CRWV",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": null,
+      "carrying": "46873000000",
+      "scope": "partial_scope",
+      "complete_company_scope": false,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-cloud-crwv-q3-release"
+      ]
+    },
+    {
+      "ticker": "NBIS",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": null,
+      "carrying": "8545700000",
+      "scope": "partial_scope",
+      "complete_company_scope": false,
+      "as_of": "2026-06-30",
+      "source_ids": [
+        "deep-cloud-nbis-q2"
+      ]
+    },
+    {
+      "ticker": "NBIS",
+      "label": "Noncurrent convertible notes only — not the company total",
+      "principal": "10041800000",
+      "carrying": "8499000000",
+      "scope": "noncurrent_convertibles",
+      "complete_company_scope": false,
+      "as_of": "2026-06-30",
+      "source_ids": [
+        "deep-cloud-nbis-q2"
+      ]
+    },
+    {
+      "ticker": "BTDR",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": null,
+      "carrying": "1948472000",
+      "scope": "partial_scope",
+      "complete_company_scope": false,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-cloud-btdr-q3"
+      ]
+    },
+    {
+      "ticker": "APLD",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": null,
+      "carrying": "6376592000",
+      "scope": "partial_scope",
+      "complete_company_scope": false,
+      "as_of": "2026-08-31",
+      "source_ids": [
+        "deep-transition-apld-q"
+      ]
+    },
+    {
+      "ticker": "HIVE",
+      "label": "Consolidated borrowing principal and recorded value",
+      "principal": null,
+      "carrying": "265631000",
+      "scope": "partial_scope",
+      "complete_company_scope": false,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-transition-hive-q"
+      ]
+    },
+    {
+      "ticker": "HIVE",
+      "label": "Convertible / exchangeable notes only — not all borrowings",
+      "principal": "245000000",
+      "carrying": "235253000",
+      "scope": "convertible_notes_only",
+      "complete_company_scope": false,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-transition-hive-q"
+      ]
+    },
+    {
+      "ticker": "GLXY",
+      "label": "Notes payable only — not a company debt total",
+      "principal": "6937907000",
+      "carrying": "6748432000",
+      "scope": "notes_only",
+      "complete_company_scope": false,
+      "as_of": "2026-09-30",
+      "source_ids": [
+        "deep-adj-GLXY"
+      ]
+    },
+    {
+      "ticker": "NSCALE",
+      "label": "Company-wide principal total not reconciled",
+      "principal": null,
+      "carrying": "137400000",
+      "scope": "partial_scope",
+      "complete_company_scope": false,
+      "as_of": "2026-06-30",
+      "source_ids": [
+        "nscale-s1"
+      ]
+    }
+  ],
+  "bridge_conclusion": "Nine company-wide principal bridges supported at same snapshot date; other principal totals correctlyunknown or expresslypartial. GLXYnotes-only cannotfill company borrowingtotal; NBISnoncurrent convertibles cannotbeadded tocurrentcarrying to inventface. NSCALEmaturities136.9mvs137.4mbook remainsunreconciled.",
+  "receipts": [
+    {
+      "source_id": "deep-adj-DLR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.023924+00:00",
+      "sha256": "ed3680c74229c8bfc0ade37e656f47cc0af4d3bb14eb744036c50952096d126f",
+      "retained_html": "work/independent-audit/notes/deep-adj-DLR.html"
+    },
+    {
+      "source_id": "deep-adj-EQIX",
+      "url": "https://www.sec.gov/Archives/edgar/data/1101239/000110123926000180/eqix-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.851380+00:00",
+      "sha256": "65bddd35e72d66967930c711247a89d79565c891a1cbcc2185025068dd471553",
+      "retained_html": "work/independent-audit/notes/deep-adj-EQIX.html"
+    },
+    {
+      "source_id": "deep-adj-GLXY",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.896009+00:00",
+      "sha256": "aceb1779b9243d1bf4adf958560a7dcb361a1c16d0d673b2aeebeda2a3c088bb",
+      "retained_html": "work/independent-audit/notes/deep-adj-GLXY.html"
+    },
+    {
+      "source_id": "deep-adj-MARA",
+      "url": "https://www.sec.gov/Archives/edgar/data/1507605/000150760526000028/mara-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.702620+00:00",
+      "sha256": "56e644bd74fb5d37268577ded31219907c69def419bf67d3016af73f249aea6a",
+      "retained_html": "work/independent-audit/notes/deep-adj-MARA.html"
+    },
+    {
+      "source_id": "deep-adj-RIOT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.815415+00:00",
+      "sha256": "cf3a6036b585a3095d041295e31915b60c617f03d8902d31a5637ce1f59b068b",
+      "retained_html": "work/independent-audit/notes/deep-adj-RIOT.html"
+    },
+    {
+      "source_id": "deep-cloud-btdr-q2-detail",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026104638/ea030647301ex99-1.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.591723+00:00",
+      "sha256": "fb553fc62ef188e4dca03bb763131ec1699d34ce44e5b9c56d53e5681dd334e4",
+      "retained_html": "work/independent-audit/notes/deep-cloud-btdr-q2-detail.html"
+    },
+    {
+      "source_id": "deep-cloud-btdr-selected-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390025056729/ea0246533-6k_bitdeer.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.470796+00:00",
+      "sha256": "71df81302fa4e41e08467b9bb16167ba7cf2cb6ff0f51dc1a472f589a64cb650",
+      "retained_html": "work/independent-audit/notes/deep-cloud-btdr-selected-issue.html"
+    },
+    {
+      "source_id": "deep-cloud-crwv-apr-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000164/crwv-20260409.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.498340+00:00",
+      "sha256": "57eb5a11735690ee9fb33b76589a08774b8e05183e2a73c408f4e5446499f288",
+      "retained_html": "work/independent-audit/notes/deep-cloud-crwv-apr-issue.html"
+    },
+    {
+      "source_id": "deep-cloud-crwv-q2-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/R16.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.607712+00:00",
+      "sha256": "194abde3202cf353462dfd40bc4e78e4ae70d49bf3ba097b4370a010ae555373",
+      "retained_html": "work/independent-audit/notes/deep-cloud-crwv-q2-note.html"
+    },
+    {
+      "source_id": "deep-cloud-crwv-selected-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000291/crwv-20260618.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.599158+00:00",
+      "sha256": "6c5f41dcb3835660721e1020a25d6392726ca0e251fe32b185a130ba99f6d849",
+      "retained_html": "work/independent-audit/notes/deep-cloud-crwv-selected-issue.html"
+    },
+    {
+      "source_id": "deep-cloud-hut-prior-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926053247/tm2613163d1_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.814596+00:00",
+      "sha256": "63f1d3ec0c08e2fa0e087ee33ce3e655bfc0d7cf69b53809f610ad1c57c030f3",
+      "retained_html": "work/independent-audit/notes/deep-cloud-hut-prior-issue.html"
+    },
+    {
+      "source_id": "deep-cloud-hut-q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.376147+00:00",
+      "sha256": "941d10992ae653874a69fb8256253623edbb6a3a40acc5fe8df280fd2a649c24",
+      "retained_html": "work/independent-audit/notes/deep-cloud-hut-q3.html"
+    },
+    {
+      "source_id": "deep-cloud-iren-q2-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/R30.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.818344+00:00",
+      "sha256": "f367aaf765c277beda331eb875f48db10291ce67586cfc390cd6967b1ac35a08",
+      "retained_html": "work/independent-audit/notes/deep-cloud-iren-q2-note.html"
+    },
+    {
+      "source_id": "deep-cloud-iren-q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.964673+00:00",
+      "sha256": "19798a963a29265facb22eb2f52ded1eb27d8ac687c0a34ba03d06f338cfa2b2",
+      "retained_html": "work/independent-audit/notes/deep-cloud-iren-q3.html"
+    },
+    {
+      "source_id": "deep-cloud-iren-selected-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126021285/ef20073507_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.954204+00:00",
+      "sha256": "60cd3a6884b9a80674629abd8d8fab0a59038afd0a9cf70f798f9ebff24cb013",
+      "retained_html": "work/independent-audit/notes/deep-cloud-iren-selected-issue.html"
+    },
+    {
+      "source_id": "deep-cloud-nbis-aug-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:55.972340+00:00",
+      "sha256": "ad0e2869e95f83dd8a212df2a1f306950d27b6424d90e22fccaf038a4df56274",
+      "retained_html": "work/independent-audit/notes/deep-cloud-nbis-aug-issue.html"
+    },
+    {
+      "source_id": "deep-cloud-nbis-jun2025-issue",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925056817/tm2517269d1_6k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.001705+00:00",
+      "sha256": "eadd66586857cf96e9c46f688aa289aafa44cd750ebb7e81d04dc7b50f4c3441",
+      "retained_html": "work/independent-audit/notes/deep-cloud-nbis-jun2025-issue.html"
+    },
+    {
+      "source_id": "deep-cloud-nbis-mar2026-pricing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926029863/tm268409d3_ex99-1.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.023671+00:00",
+      "sha256": "9603fc1919640c25823cd70dc62752b0f5d62833f5092c1bafc7ade6bfff7dd4",
+      "retained_html": "work/independent-audit/notes/deep-cloud-nbis-mar2026-pricing.html"
+    },
+    {
+      "source_id": "deep-cloud-nbis-q2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.118939+00:00",
+      "sha256": "36f01b7495f4771391bd7ca4a0da0716b07ded417440b58a1f2e3cb9d91e7462",
+      "retained_html": "work/independent-audit/notes/deep-cloud-nbis-q2.html"
+    },
+    {
+      "source_id": "deep-cloud-nbis-sep2025-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex4-1.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.106070+00:00",
+      "sha256": "7fe0c31c1c38cb94f72b790188e6b930145c7a7ce9399692b375fe7a30d792e6",
+      "retained_html": "work/independent-audit/notes/deep-cloud-nbis-sep2025-note.html"
+    },
+    {
+      "source_id": "deep-cloud-nbis-sep2025-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex99-1.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.055001+00:00",
+      "sha256": "220896a0232aec7347d69796f785d866a847b977219a1bec4e823c171104e09e",
+      "retained_html": "work/independent-audit/notes/deep-cloud-nbis-sep2025-release.html"
+    },
+    {
+      "source_id": "deep-issue-DLR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000129799618000130/dlr630201810-q.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.274490+00:00",
+      "sha256": "b217f046e47107a465c69ec70f2b1a468956f43f3b4dad4c404aea7f14fdac54",
+      "retained_html": "work/independent-audit/notes/deep-issue-DLR.html"
+    },
+    {
+      "source_id": "deep-legal-DLR",
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000119312518199589/d603959dex42.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.144752+00:00",
+      "sha256": "8ec8f0c952bf38f067e71b31eea1bee1a65d8c69bf856cc1da07da8972dc6b2e",
+      "retained_html": "work/independent-audit/notes/deep-legal-DLR.html"
+    },
+    {
+      "source_id": "deep-legal-EQIX",
+      "url": "https://www.sec.gov/Archives/edgar/data/1101239/000110465926092009/tm2622384d1_ex4-5.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.179386+00:00",
+      "sha256": "0d22bd9a9f6f3ee798d13267bce163f76e4883e60572e00cad9ad51d914b17c9",
+      "retained_html": "work/independent-audit/notes/deep-legal-EQIX.html"
+    },
+    {
+      "source_id": "deep-legal-GLXY",
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000079/closing8-kxex41indenture.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.616993+00:00",
+      "sha256": "35854db936c4a50cd6135cdd39e816ef923a1397281d939a5dd3bb1adc5f265b",
+      "retained_html": "work/independent-audit/notes/deep-legal-GLXY.html"
+    },
+    {
+      "source_id": "deep-legal-MARA",
+      "url": "https://www.sec.gov/Archives/edgar/data/1507605/000149315224032433/ex4-1.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.390475+00:00",
+      "sha256": "2f52f2407c5b22a063de709be1f7d3bc4928e7b86f3102ec07c51415e3d136ed",
+      "retained_html": "work/independent-audit/notes/deep-legal-MARA.html"
+    },
+    {
+      "source_id": "deep-legal-RIOT",
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465924127656/tm2430044d5_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.256793+00:00",
+      "sha256": "e80e5ee68c7bddbc7eb4c3acac3948ddb4a804120811f72caa9f01612c7827d6",
+      "retained_html": "work/independent-audit/notes/deep-legal-RIOT.html"
+    },
+    {
+      "source_id": "deep-transition-apld-275-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315224043604/form8-k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.217872+00:00",
+      "sha256": "6ea1714c884c3a0e854ab93a80c67d2a6bfaee32bee2b37e828d1df9fd0147d9",
+      "retained_html": "work/independent-audit/notes/deep-transition-apld-275-close.html"
+    },
+    {
+      "source_id": "deep-transition-apld-675-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226009538/form8-k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.284453+00:00",
+      "sha256": "90ccdee14a596208f77c3010fcaf7cd8dddfc3fa52d60209616b8f7fce772d15",
+      "retained_html": "work/independent-audit/notes/deep-transition-apld-675-close.html"
+    },
+    {
+      "source_id": "deep-transition-apld-700-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226028899/form8-k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.287064+00:00",
+      "sha256": "a6f008e27f49bf136439449fa760e6ce26f8926fe7f0f779a553c2b69f45fbd8",
+      "retained_html": "work/independent-audit/notes/deep-transition-apld-700-close.html"
+    },
+    {
+      "source_id": "deep-transition-apld-925-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315225024479/form8-k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.306469+00:00",
+      "sha256": "724751c4a02e70f294aad77e797dac16b3863250cf679da0449a24b2018a67b4",
+      "retained_html": "work/independent-audit/notes/deep-transition-apld-925-close.html"
+    },
+    {
+      "source_id": "deep-transition-apld-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.484813+00:00",
+      "sha256": "39ddc2bdc580d5669fc7406f8c4f1f83617ac49511a14168034bbf0d421f2b28",
+      "retained_html": "work/independent-audit/notes/deep-transition-apld-q.html"
+    },
+    {
+      "source_id": "deep-transition-cifr-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.538639+00:00",
+      "sha256": "eef9b28314a3d78cd1a7d5ba92558dcb3ec07c12fd9706b62ac6b2a3f03d9ed0",
+      "retained_html": "work/independent-audit/notes/deep-transition-cifr-q.html"
+    },
+    {
+      "source_id": "deep-transition-corz-775-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000119312526208905/d47435d8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.390627+00:00",
+      "sha256": "5cc89e8c666704672ea102894796284206efba9f4fcabbb3a6390d9123e382cb",
+      "retained_html": "work/independent-audit/notes/deep-transition-corz-775-close.html"
+    },
+    {
+      "source_id": "deep-transition-corz-775-indenture",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000119312526208905/d47435dex41.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.458929+00:00",
+      "sha256": "b96c1d535d66260ede2f53f837be4dad2e862ef75ee08a9e990592e6e72ecc36",
+      "retained_html": "work/independent-audit/notes/deep-transition-corz-775-indenture.html"
+    },
+    {
+      "source_id": "deep-transition-corz-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.552864+00:00",
+      "sha256": "85bd6a590a5fa308407a48b8d8bff874c78da53f3c232dc7464bb1466979a566",
+      "retained_html": "work/independent-audit/notes/deep-transition-corz-q.html"
+    },
+    {
+      "source_id": "deep-transition-hive-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.656941+00:00",
+      "sha256": "96257d79dea3f9d3bffa53436e457dcc9aabfb30d33b3dd4b824edd881f3a5ab",
+      "retained_html": "work/independent-audit/notes/deep-transition-hive-q.html"
+    },
+    {
+      "source_id": "deep-transition-wulf-000-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925104928/tm2529894d1_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.538907+00:00",
+      "sha256": "0bb5406cc83241ca65f718b7f8f1ca5cb730b2d964865c7dd881aefc960786e7",
+      "retained_html": "work/independent-audit/notes/deep-transition-wulf-000-close.html"
+    },
+    {
+      "source_id": "deep-transition-wulf-100-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925080911/tm2523651d5_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.537549+00:00",
+      "sha256": "1742195ec4f24e02da17857bab0f90e6581519c77b551eda93d91030480bf851",
+      "retained_html": "work/independent-audit/notes/deep-transition-wulf-100-close.html"
+    },
+    {
+      "source_id": "deep-transition-wulf-100-tap",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925081886/tm2523651d6_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.616416+00:00",
+      "sha256": "ebf2a36a91f3b56972903efd5e1a254f37f517e842eb611cb6f25c05365bdf85",
+      "retained_html": "work/independent-audit/notes/deep-transition-wulf-100-tap.html"
+    },
+    {
+      "source_id": "deep-transition-wulf-275-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000095014224002636/eh240549125_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.617101+00:00",
+      "sha256": "0fb8e7352f83f3d33dfd87278fb0c5e03488be4a4ce17a884b71568024aed599",
+      "retained_html": "work/independent-audit/notes/deep-transition-wulf-275-close.html"
+    },
+    {
+      "source_id": "deep-transition-wulf-775-close",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925101866/tm2529300d1_8k.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.633505+00:00",
+      "sha256": "484a6bb529892fd77bfa9721c12998cd6e487c510e86740cee6808c1f1f2c6cd",
+      "retained_html": "work/independent-audit/notes/deep-transition-wulf-775-close.html"
+    },
+    {
+      "source_id": "deep-transition-wulf-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:23:56.877073+00:00",
+      "sha256": "084501a28b4adff161d7b7217daadba8bf3b501493944a9dd2655093fd00d6c7",
+      "retained_html": "work/independent-audit/notes/deep-transition-wulf-q.html"
+    },
+    {
+      "source_id": "independent-nbis-sep2032-indenture",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex4-3.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:26:08.101707+00:00",
+      "sha256": "70b9939b50b26c03aa1ebc34ff5856955ec1a3dce04fb3e7fcd545f6ac95d471",
+      "retained_html": "work/independent-audit/notes/independent-nbis-sep2032-indenture.html"
+    },
+    {
+      "source_id": "independent-nbis-sep2025-filing-index",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/0001104659-25-089969-index.htm",
+      "status": 200,
+      "retrieved_at": "2026-11-11T09:27:45.725682+00:00",
+      "sha256": "5968a5eda9bfaf446ce6b0fec548551935af37749b6896e0f74ff005112d6bdb",
+      "retained_html": "work/independent-audit/notes/independent-nbis-sep2025-filing-index.html"
+    }
+  ],
+  "no_tracked_edits": true,
+  "resolution": {
+    "NBIS-2032-precise-date-source": {
+      "status": "source_link_added",
+      "source_id": "independent-nbis-2032-indenture"
+    },
+    "NBIS-accretion-comparability": {
+      "status": "explicit_principal_label_and_basis_added_in_all_views_and_exports"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 """Bundle the existing preview as one HTML file that works offline."""
 from pathlib import Path
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -9,7 +10,7 @@ def build(target=None, source=None):
     html = (preview / 'index.html').read_text()
     css = (preview / 'preview.css').read_text()
     js = (preview / 'preview.js').read_text()
-    data = (preview / 'data.json').read_text()
+    data = json.dumps(json.loads((preview / 'data.json').read_text()), ensure_ascii=False, separators=(',', ':'))
     html = html.replace('<link rel="stylesheet" href="./preview.css">', '<style>' + css + '</style>')
     html = html.replace('<script src="./preview.js" defer></script>', '')
     html = html.replace('href="./"', 'href="#"')

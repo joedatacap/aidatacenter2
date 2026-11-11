@@ -4,15 +4,20 @@
 
 ## Instant read-only MVP preview
 
-The credential-free preview in `preview/` now opens with **15 actual, dated
+The credential-free preview in `preview/` now opens with **16 actual, dated
 company records**, replacing the synthetic scenario as the first view. Two
 plain-English rankings show borrowing carrying amounts excluding leases and
 borrowings per $100 of recorded assets. A third, unnumbered reference shows named
-bond coupons, with instrument type, issue/maturity dates and source evidence.
+44 named USD fixed-note examples, with instrument type, issue/maturity dates,
+borrower and dated outstanding-status evidence. Compare up to three companies
+side by side; searching preserves each company’s rank in its selected peer group.
 Coupons are not current market yields or company-wide borrowing costs.
 
 GPU clouds, mixed AI-infrastructure businesses, miners and data-center REITs have
-separate filters. Every material value links to a primary disclosure. Unknown or
+separate filters. Nscale is labeled as a private IPO applicant with public filing
+financials; its small loan balance excludes substantial customer financing and
+leases. A separate watchlist explains gaps for Crusoe, Lambda and Vultr without
+substituting announced facility sizes for outstanding debt. Every material value links to a primary disclosure. Unknown or
 incomparable values stay unranked; Galaxy's total borrowing measure is deliberately
 unresolved. No composite health score or live market feed is provided. See
 [directory methodology and coverage](docs/DEBT_DIRECTORY.md).
@@ -32,7 +37,8 @@ For an offline, single-file demo, run `npm run build:standalone`, then open
 `work/NeoCloud-Interactive-Preview.html` directly in Chrome, Edge or Firefox.
 The HTML embeds its styles, code and source records; no server is needed.
 `work/NeoCloud-Scenario-Lab.html` separately preserves the synthetic demo.
-To regenerate and validate the checked-in data:
+To regenerate and validate the checked-in data, first activate the Python
+environment and install the project as shown under Start below:
 
 ```sh
 python scripts/build_debt_preview.py
