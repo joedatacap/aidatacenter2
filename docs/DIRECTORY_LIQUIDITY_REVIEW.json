@@ -336,5 +336,208 @@
     "financial_fields_compared": 2159,
     "result": "Financial amount, unit, currency, snapshot date, issue/maturity, instrument identity, outstanding-status, scope and source-link fields unchanged.",
     "current_canonical_sha256": "8c934de000975ddd98cf02dc00ed81db0a2b21c3c91f447c5893eb4f6d2032b2"
+  },
+  "cash_view_usability_review": {
+    "baseline_commit": "2f6a7bc",
+    "scope": "Top-level unranked cash profiles, direct row actions, explicit sort labels, factual takeaways and progressive disclosure. No financial amounts changed.",
+    "method_review": {
+      "reviewed_at": "2026-11-11T10:45:50.760921+00:00",
+      "purpose": "Financial-method guardrails for unranked reported-cash and funding-context view; underlying values unchanged.",
+      "summary_rules": [
+        "Cash view is unranked. A sort by reported cash must say so explicitly and show direction; sorted position is not a financial-health rank.",
+        "Show the cash observation date, source rounding and company/subsidiary scope. Different reporting dates stay visible.",
+        "Always label company-wide credit total as not established. Count selected reviewed same-date facilities, not all facilities or all available credit.",
+        "Positive reported_available can be described as issuer-reported remaining availability, subject to source conditions and precision. Conditional unused_capacity must say conditional and name the facility/use scope.",
+        "Remaining LC capacity requires an explicit remaining label or semantic flag. Never use all lc_capacity entries: many are total limits or overlapping sublimits.",
+        "Borrowing caps and LC limits restrict the commitment; they are not additional available cash. Never compute commitment minus carrying debt, add cash plus facilities, or sum selected facilities into a company total.",
+        "When no same-date facility facts are verified, say that directly. A zero selected-facility count is not evidence of no credit.",
+        "Unknown restricted balances remain unknown. Source-reported zero borrowings does not establish available capacity."
+      ],
+      "caveat_hierarchy": [
+        {
+          "priority": 1,
+          "content": "Observation date; reported cash includes company and subsidiaries; company-wide available-credit total is not established."
+        },
+        {
+          "priority": 2,
+          "content": "Company-specific constraints: Nscale customer financing/leases and private June snapshot; MARA designated Exaion cash; GLXY broker/trading-platform balances; HUT project-restricted cash/investments; IREN restricted escrow overlap."
+        },
+        {
+          "priority": 3,
+          "content": "Facility borrower, permitted use, draw/covenant conditions, LC reservations or borrowing caps, and reported precision."
+        },
+        {
+          "priority": 4,
+          "content": "Calculation/component evidence, raw quotations, selected-coverage limitations and original primary-source links."
+        }
+      ],
+      "plain_english_takeaway_templates": {
+        "generic": "Reported cash is shown separately from the selected funding facilities below. A company-wide available-credit total has not been established.",
+        "no_verified_facilities": "No same-date unused facility amount was verified in this review. This does not mean the company has no credit facilities.",
+        "conditional_capacity": "The filing reports unused funding commitments, but access depends on facility conditions and permitted uses. They are separate from cash on hand.",
+        "lc_only": "The remaining amount shown supports letters of credit. It is not a disclosure of cash borrowing availability.",
+        "zero_drawn_unknown_available": "No funded borrowings were outstanding on this selected facility. The amount currently available to borrow was not established.",
+        "nscale": "The June filing reports cash and conditional unused facilities separately. Customer prepayments and lease obligations also fund or constrain the business and are outside the borrowing-only measure.",
+        "mara": "Some reported cash is designated for subsidiary operations. This company-wide cash balance is not a verified parent spending balance.",
+        "glxy": "Reported cash includes funds at brokers and trading platforms. It differs from the broader cash, stablecoin and Treasury headline."
+      },
+      "financial_regression_cases": [
+        {
+          "id": "LC-remaining-not-limit",
+          "companies": [
+            "WULF",
+            "CORZ"
+          ],
+          "expected": [
+            "WULF summary can show $800K remaining LC capacity; not its $150M LC sublimit or $250M commitment as cash availability.",
+            "$75M precommencement combined cap remains visible.",
+            "CORZ $500M LC-only facility is support capacity, not cash borrowing availability."
+          ],
+          "failure": "A sublimit or nominal LC facility limit is labeled remaining cash credit."
+        },
+        {
+          "id": "Zero-drawn-does-not-mean-available",
+          "companies": [
+            "HUT",
+            "HIVE"
+          ],
+          "expected": [
+            "HUT $1.07B commitment and zero drawn coexist with unknown reported availability.",
+            "HUT restricted cash and restricted investments stay separate from cash and from each other.",
+            "HIVE unknown restricted cash remains unknown, not zero."
+          ],
+          "failure": "Zero drawn becomes full commitment available, or unknown restrictions become zero."
+        },
+        {
+          "id": "Conditional-and-overlapping-escrow",
+          "companies": [
+            "IREN"
+          ],
+          "expected": [
+            "$1.132B, $525M and $1.5B appear only as conditional facility-specific unused commitments.",
+            "$1.05B issued USPP escrow is already restricted cash, never additional credit.",
+            "No selected-facility company-wide total or cash-plus-credit total."
+          ],
+          "failure": "Escrow double-counting or conditional capacity shown as cash."
+        },
+        {
+          "id": "Approximate-issuer-availability",
+          "companies": [
+            "EQIX"
+          ],
+          "expected": [
+            "$5.5B issuer-reported remaining availability retains approximate/source-rounded wording and covenant conditions.",
+            "$6M LCs are separate scope context; no new precise $5.494B analyst availability is inferred."
+          ],
+          "failure": "Rounded availability looks dollar-precise or is mechanically adjusted again."
+        },
+        {
+          "id": "Private-earlier-snapshot-not-current-funding",
+          "companies": [
+            "NSCALE"
+          ],
+          "expected": [
+            "Private/IPO-filing badge and June30 date remain visible.",
+            "$1.4784B cash stays separate from $1.3631B GPU unused capacity and $900M revolver unused capacity.",
+            "$6.4926B customer-financing and $2.6254B lease caveat remains visible; later financing excluded."
+          ],
+          "failure": "Later financing updates only one side of the June snapshot or cash-plus-credit appears as available capital."
+        }
+      ],
+      "ui_review_status": "Independent live-browser review completed with system Chromium. No material financial issues found in cash view, JSON download and selected side-by-side comparison.",
+      "browser_evidence": [
+        "work/independent-audit/cash-funding-browser-review.json",
+        "work/independent-audit/cash-funding-export-comparison-review.json"
+      ],
+      "minor_optional_wording": "Filtered JSON ranking_context opens with generic rank/bar language before correctly specifying that cash rows are unranked; actual exported ranked=false and cohort_rank=null were verified."
+    },
+    "actual_browser_review": {
+      "title": "NeoCloud — Debt, explained",
+      "rows": 16,
+      "rankCells": [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "cashBars": 0,
+      "companies": {
+        "WULF": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nSenior secured revolving credit facility\n$800K\nRemaining letter-of-credit capacity only — not cash\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "The reported remaining headroom is for letters of credit. A project-start cap limits use of the headline facility.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. $753.193M separately restricted cash is excluded; restrictions include contractual/project uses and utility support. Prepaid Core42 rent was received earlier and offsets future base-rent collections; it is not new unused cash credit. Cash and cash equivalents are consolidated; parent-only fungibility across subsidiaries/projects has not been established.",
+          "visibleIdentity": "W\nTeraWulf\nWULF / AI transition / mixed"
+        },
+        "CORZ": {
+          "summary": "Total not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Revolver borrowing depends on access conditions, including a market-value test. The separate letter-of-credit facility is payment support, not cash borrowing.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Restricted cash is held in debt service reserve accounts and escrow for construction/development; excluded from cash and equivalents. Customer prepayments are recorded in deferred revenue and linked to colocation buildout obligations; do not count them again as incremental available capital. Published liquidity/DSRA includes restricted cash, digital assets and revolving availability and is not the unrestricted cash line.",
+          "visibleIdentity": "C\nCore Scientific\nCORZ / AI transition / mixed"
+        },
+        "HUT": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Project cash and investments have restrictions. Zero revolver borrowings do not establish that the full credit limit can be used.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Unused River Bend and Beacon Point note proceeds are held in restricted project accounts for campus development/construction and debt service. Restricted investments are separate from restricted cash.",
+          "visibleIdentity": "H\nHut 8\nHUT / AI transition / mixed"
+        },
+        "IREN": {
+          "summary": "Total not established\n\n4 selected facilities reviewed; not a complete company inventory.\n\nGPU Financing 1.0 DDTL\n$1.132B\nConditional unfunded commitment — not cash\nAs of Sep 30, 2026\nConditions & source basis\nGPU Financing 1.0 USPP senior notes\n$525M\nConditional unfunded commitment — not cash\nAs of Sep 30, 2026\nConditions & source basis\nGPU Financing 2.0\n$1.5B\nConditional unfunded commitment — not cash\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Unused GPU funding has draw conditions and project uses. Note proceeds already held in restricted escrow are not extra available credit.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. Already funded note proceeds held in escrow form part of these restricted balances; they are not additional cash or unused credit.",
+          "visibleIdentity": "I\nIREN\nIREN / AI transition / mixed"
+        },
+        "EQIX": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\n2026 multicurrency revolver\nApprox. $5.5B\nReported facility availability — subject to conditions\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Reported revolver availability is approximate and remains subject to lending conditions. It is separate from cash already held.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Consolidated cash excludes $36M restricted cash and separately reported short-term investments. No parent-only freely transferable cash amount established.",
+          "visibleIdentity": "E\nEquinix\nEQIX / Data-center REITs"
+        },
+        "NSCALE": {
+          "summary": "Total not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nGPU facility: reported unused capacity\n$1.363B\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\nRevolver: reported unused capacity\n$900M\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "These are June accounts for a private IPO applicant. Unused facility capacity is conditional; customer financing and lease obligations remain important separate context.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash excludes $614.7M restricted cash. Restricted balances primarily include long-term lease escrow. Customer prepayments fund obligations; do not treat $6.4926B deferred revenue or unused facilities as additional cash.",
+          "visibleIdentity": "N\nNscale\nPrivate · IPO filing / GPU cloud\nPrivate · pending IPO"
+        },
+        "MARA": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Some cash is designated for Exaion operations. The later loan repayment is not treated as restored credit capacity.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Excludes bitcoin and restricted cash. Approximately 11% of cash is euros at majority-owned Exaion, contractually designated for its next-year operations; not unrestricted parent cash.",
+          "visibleIdentity": "M\nMARA Holdings\nMARA / Bitcoin miners"
+        },
+        "GLXY": {
+          "summary": "Total not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Reported cash includes funds at brokers and trading platforms. Restrictions on project distributions limit what can be assumed available to the parent.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Consolidated GAAP cash includes $366.3M short Treasury equivalents, but excludes separately classified stablecoins, crypto and investments. $520.6M at brokers; $56.2M on trading platforms. Parent freely deployable amount unknown; project distributions constrained. Trading loans callable on demand. Do not deduct or add counterparties mechanically.",
+          "visibleIdentity": "G\nGalaxy Digital\nGLXY / AI transition / mixed"
+        },
+        "HIVE": {
+          "summary": "Total not established\n\n0 selected facilities reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "No same-date unused facility amount was verified. Later financing for supplier escrow is excluded from this snapshot.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. The financial statement reports cash of $138.990M; no separate restricted cash balance was identified in this canonical balance sheet. This is not an assertion that every dollar is free parent cash. No quantified unused committed cash credit line was established in the September snapshot. The subsequently announced BUZZ financing is earmarked supplier escrow, not September parent liquidity.",
+          "visibleIdentity": "H\nHIVE Digital Technologies\nHIVE / AI transition / mixed"
+        }
+      }
+    },
+    "export_comparison_review": {
+      "observed_at": "2026-11-11T10:48:37.653Z",
+      "all_cash_export_rows_unranked": true,
+      "private_nscale_export_preserved": true,
+      "nscale_caveat_exported": true,
+      "comparison_credit_text": "Company-wide available credit\t\nCompany-wide available credit\nTotal not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nSenior secured revolving credit facility\n$800K\nRemaining letter-of-credit capacity only — not cash\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.\n\nCash & credit details →\t\nCompany-wide available credit\nTotal not established\n\n1 selected facility reviewed; not a complete company inventory.\n\n2026 multicurrency revolver\nApprox. $5.5B\nReported facility availability — subject to conditions\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.\n\nCash & credit details →\t\nCompany-wide available credit\nTotal not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nGPU facility: reported unused capacity\n$1.363B\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\nRevolver: reported unused capacity\n$900M\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.\n\nCash & credit details →",
+      "financial_findings": [],
+      "minor_wording": "Export ranking_context starts with rank/bar language before clarifying cash rows are unranked; does not change numeric data."
+    }
   }
 }

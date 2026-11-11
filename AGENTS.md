@@ -15,7 +15,10 @@ You are the **lead engineering agent** for this repository. Manage implementatio
   convertible/project-note distinctions visible. Never turn coupon examples into
   a company health or borrowing-cost ranking. Cash & funding context is separate:
   keep group cash, restricted balances, commitments, drawn loans, unused capacity
-  and explicitly reported availability distinct. No cash-plus-credit sum; selected
+  and explicitly reported availability distinct. Cash & funding is a top-level,
+  unranked view with direct row actions; facility summaries show selected counts
+  and separately qualified amounts. Never summarize an LC sublimit as remaining
+  cash credit. No cash-plus-credit sum; selected
   facilities do not establish a company-wide total. Preserve dates and access
   conditions, including LC-only capacity and project restrictions. The original synthetic lab is
   preserved at `preview/scenarios/`; synthetic values must not enter actual ranks.

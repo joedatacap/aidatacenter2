@@ -1,13 +1,13 @@
 # NeoCloud Debt Intelligence
 
-**Which AI infrastructure companies survive higher rates?**
+**Compare the debt, cash and credit behind AI infrastructure.**
 
 ## Instant read-only MVP preview
 
 The credential-free preview in `preview/` now opens with **16 actual, dated
 company records**, replacing the synthetic scenario as the first view. Two
 plain-English rankings show borrowing carrying amounts excluding leases and
-borrowings per $100 of recorded assets. A third, unnumbered reference shows named
+borrowings per $100 of recorded assets. An unnumbered reference shows
 44 named USD fixed-note examples, with instrument type, issue/maturity dates,
 borrower and dated outstanding-status evidence. Compare up to three companies
 side by side; searching preserves each company’s rank in its selected peer group.
@@ -15,9 +15,10 @@ Coupons are not current market yields or company-wide borrowing costs.
 
 GPU clouds, mixed AI-infrastructure businesses, miners and data-center REITs have
 separate filters. An optional “Start here” walkthrough explains how to read each
-measure and opens the relevant view or company sources. Each company also has
-a Cash & funding section with dated cash qualifications and selected credit
-facilities; comparisons and downloads preserve access restrictions. No cash-plus-
+measure and opens the relevant view or company sources. Cash & funding is a top-level view with a direct action on every company row.
+It shows reported cash, factual company takeaways and separately qualified
+facility amounts alongside “Total not established” and review counts.
+Comparisons and downloads preserve access restrictions. No cash-plus-
 credit total or new health ranking is inferred. Nscale is labeled as a private IPO applicant with public filing
 financials; its small loan balance excludes substantial customer financing and
 leases. A separate watchlist explains gaps for Crusoe, Lambda and Vultr without

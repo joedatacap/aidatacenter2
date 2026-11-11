@@ -203,7 +203,8 @@
         "notes": [
           "The reviewed release for the quarter ended September 30 does not quantify facility-level unused credit. Earlier financing announcements are not treated as current availability. Unknown does not mean zero.",
           "August facility/draw disclosures and forecast customer receipts do not establish September remaining capacity and are not added to the snapshot."
-        ]
+        ],
+        "takeaway": "The reviewed quarter-end release does not establish unused credit. Expected customer receipts are future funding, not cash already available."
       }
     },
     {
@@ -417,7 +418,8 @@
         "notes": [
           "No June 30 explicit unused-commitment amount verified in the reviewed primary financial statements. This is an evidence gap, not an assertion that credit facilities do not exist.",
           "July secured financing postdates the June balance sheet and is excluded from June facility facts."
-        ]
+        ],
+        "takeaway": "This is the June snapshot. Later financing announcements are excluded from its cash and credit figures."
       }
     },
     {
@@ -824,7 +826,8 @@
         ],
         "notes": [
           "Three explicitly quantified conditional unfunded commitments verified; display separately by borrower/purpose, with no company cash-plus-credit sum."
-        ]
+        ],
+        "takeaway": "Unused GPU funding has draw conditions and project uses. Note proceeds already held in restricted escrow are not extra available credit."
       }
     },
     {
@@ -1038,7 +1041,8 @@
         "facilities": [],
         "notes": [
           "The reviewed September earnings release lists borrowing balances but does not establish same-date facility commitments or explicit undrawn availability. Unknown is not zero."
-        ]
+        ],
+        "takeaway": "Restricted cash and digital assets are separate from reported cash. Unused facility amounts were not established in this review."
       }
     },
     {
@@ -1302,7 +1306,8 @@
         "notes": [
           "Revolver commitment and zero borrowings verified. Explicit actual September available balance not verified; do not equate commitment with availability.",
           "Post-September letter-of-credit issuance is excluded from same-date facility amounts; zero borrowings does not establish unrestricted availability."
-        ]
+        ],
+        "takeaway": "Project cash and investments have restrictions. Zero revolver borrowings do not establish that the full credit limit can be used."
       }
     },
     {
@@ -1551,7 +1556,8 @@
             ]
           }
         ],
-        "notes": []
+        "notes": [],
+        "takeaway": "Letters of credit consume part of the revolving facility. Its headline limit is not cash available to spend."
       }
     },
     {
@@ -1832,7 +1838,8 @@
             ]
           }
         ],
-        "notes": []
+        "notes": [],
+        "takeaway": "Revolver borrowing depends on access conditions, including a market-value test. The separate letter-of-credit facility is payment support, not cash borrowing."
       }
     },
     {
@@ -2113,7 +2120,8 @@
         ],
         "notes": [
           "October 2026 amendment raises commitments to $400M and the precommencement aggregate cap to $150M, and adds a $150M uncommitted accordion; not in the September snapshot."
-        ]
+        ],
+        "takeaway": "The reported remaining headroom is for letters of credit. A project-start cap limits use of the headline facility."
       }
     },
     {
@@ -2433,7 +2441,8 @@
             ]
           }
         ],
-        "notes": []
+        "notes": [],
+        "takeaway": "A pre-completion borrowing cap and letters of credit limit access to the revolving facility. Separate overnight capacity is subject to credit review."
       }
     },
     {
@@ -2632,7 +2641,8 @@
         "facilities": [],
         "notes": [
           "Subsequent BUZZ GPU financing and supplier escrow are excluded from September facility amounts."
-        ]
+        ],
+        "takeaway": "No same-date unused facility amount was verified. Later financing for supplier escrow is excluded from this snapshot."
       }
     },
     {
@@ -2888,7 +2898,8 @@
             ]
           }
         ],
-        "notes": []
+        "notes": [],
+        "takeaway": "Reported cash includes funds at brokers and trading platforms. Restrictions on project distributions limit what can be assumed available to the parent."
       }
     },
     {
@@ -3223,7 +3234,8 @@
         ],
         "notes": [
           "$200M Coinbase facility: Terminated; exclude from available credit. Not counted as current unused credit."
-        ]
+        ],
+        "takeaway": "Reported revolver availability is cash-collateralized. Project borrowing remains conditional; it is separate from group cash."
       }
     },
     {
@@ -3449,7 +3461,8 @@
         ],
         "notes": [
           "Post-quarter $750M repayment is separate; no inference that repayment restores revolving capacity. ATM equity capacity excluded."
-        ]
+        ],
+        "takeaway": "Some cash is designated for Exaion operations. The later loan repayment is not treated as restored credit capacity."
       }
     },
     {
@@ -3692,7 +3705,8 @@
             ]
           }
         ],
-        "notes": []
+        "notes": [],
+        "takeaway": "Reported revolver availability is approximate and remains subject to lending conditions. It is separate from cash already held."
       }
     },
     {
@@ -3922,7 +3936,8 @@
         ],
         "notes": [
           "October 27 approximately $4B available disclosure is later-dated; do not substitute into September 30 snapshot."
-        ]
+        ],
+        "takeaway": "The global revolving-facility limit does not establish same-date unused capacity. Separate yen facilities are not combined into this figure."
       }
     },
     {
@@ -4164,7 +4179,8 @@
           "Interim actual June table and narrative report June revolver upsize; an annual subsequent-events paragraph says July. The actual interim June snapshot is used.",
           "Post-June draws, project facilities and pre-IPO financing are excluded from June amounts.",
           "Nscale remains private pending IPO; low loan balances do not negate substantial customer financing and lease obligations."
-        ]
+        ],
+        "takeaway": "These are June accounts for a private IPO applicant. Unused facility capacity is conditional; customer financing and lease obligations remain important separate context."
       }
     }
   ],

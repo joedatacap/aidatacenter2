@@ -26,8 +26,13 @@ other peer-group filters add context without calling every company a neocloud.
    and unsecured notes, and notes confirmed at the company snapshot from older
    observations or terms-only records.
 
-There are two company rankings and one instrument reference, rather than three
-misleading company-health rankings. No market-cap denominator or current bond
+4. **Cash & funding.** An unranked view of reported group cash and selected
+   facility disclosures. Cash is sorted using an explicit largest/smallest label.
+   Company-wide credit reads “Total not established,” alongside selected-facility
+   counts and separately qualified amounts. Conditional unused commitments,
+   reported availability and remaining LC-only headroom are different categories.
+
+There are two company rankings and two unranked reference views. No market-cap denominator or current bond
 quotes are invented. Numerical ordering describes only the selected accounting
 metric within the chosen filter, not creditworthiness.
 
@@ -199,3 +204,11 @@ are short reading aids alongside links to the complete documents. The latest
 IREN recheck succeeded with a fresh HTTP200 response, while the earlier reviewer's
 access limitation is retained in the liquidity receipt. This copy/source-reading
 pass changes no financial amounts, dates, scopes or instrument source links.
+
+
+Cash & funding is accessible from the main navigation, a fourth tab and every
+company row. Factual takeaways explain the most relevant funding limitation
+without labeling a company healthy or unhealthy. Full restrictions, source basis
+and facility conditions remain expandable. Cash rows have no ordinal rank or bar;
+JSON/CSV also mark them unranked. Facility summaries exclude other-date amounts
+and LC sublimits. The full underlying evidence remains available in exports.

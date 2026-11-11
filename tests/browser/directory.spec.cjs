@@ -153,6 +153,12 @@ test('directory standalone runs with no server or network',async({page,context})
   await expect(page.locator('[data-instrument="HIVE-2031-APR000"] .metric-value')).toHaveText('0%');
   await page.locator('[data-instrument="CLOUD-HUT-1"] .company-button').click();
   await expect(page.locator('#detail-content')).toContainText('USD thousands');
+  await page.keyboard.press('Escape');await page.locator('#nav-cash').click();
+  await expect(page.locator('#tab-cash')).toHaveAttribute('aria-selected','true');
+  await expect(page.locator('.bar-fill')).toHaveCount(0);
+  await expect(page.locator('[data-ticker="EQIX"] .funding-summary')).toContainText('Approx. $5.5B');
+  await page.locator('[data-ticker="EQIX"] .cash-funding-action').click();
+  await expect(page.locator('.cash-funding')).toBeFocused();
   expect(requests).toEqual([]);expect(errors).toEqual([]);
 });
 
@@ -173,7 +179,7 @@ test('tabs support keyboard navigation and focus indicators on light and dark su
   await expect(page.locator('#tab-debt_assets')).toBeFocused();
   await expect(page.locator('#tab-debt_assets')).toHaveAttribute('aria-selected','true');
   await page.keyboard.press('End');
-  await expect(page.locator('#tab-coupon')).toBeFocused();
+  await expect(page.locator('#tab-cash')).toBeFocused();
   for(const selector of ['header .brand','header nav a','#reset','#tab-coupon','[data-group="all"]','#search','#direction','#share','.company-button','#download-json']){
     const target=page.locator(selector).first();await target.focus();
     expect(await target.evaluate(e=>e.matches(':focus-visible')),selector).toBe(true);
@@ -392,7 +398,7 @@ test('cash and funding distinguish an undrawn parent revolver from restricted pr
   await expect(funding).toContainText('Cash & funding');
   await expect(funding.locator('.liquidity-reported-cash .liquidity-cash-value')).toHaveText('$156.87M');
   await expect(funding.locator('.liquidity-reported-cash')).toContainText('Sep 30, 2026');
-  await expect(funding.locator('.company-credit-availability strong')).toHaveText('Unknown');
+  await expect(funding.locator('.company-credit-availability strong')).toHaveText('Total not established');
   const facility=funding.locator('.liquidity-facility').filter({hasText:'revolving credit'});
   await expect(facility.locator('[data-kind="commitment"] .liquidity-fact-value')).toHaveText('$1.07B');
   await expect(facility.locator('[data-kind="drawn"] .liquidity-fact-value')).toHaveText('$0');
@@ -409,7 +415,7 @@ test('letter-of-credit headroom is not spendable cash and later facilities stay 
   const remaining=funding.locator('[data-kind="lc_capacity"]').filter({hasText:'Remaining LC capacity'});
   await expect(remaining.locator('.liquidity-fact-value')).toHaveText('$800K');
   await expect(remaining).toContainText('not cash');
-  await expect(funding.locator('.company-credit-availability strong')).toHaveText('Unknown');
+  await expect(funding.locator('.company-credit-availability strong')).toHaveText('Total not established');
   await expect(funding.locator('[data-kind="borrowing_cap"] .liquidity-fact-value')).toHaveText('$75M');
   await expect(funding.locator('[data-kind="commitment"] .liquidity-fact-value')).toHaveText('$250M');
   await page.keyboard.press('Escape');await page.goto('/?company=HIVE');
@@ -438,7 +444,7 @@ test('cash qualifications and conditional credit survive comparison and machine-
   await page.goto('/?group=all&compare=MARA,EQIX&comparison=1');
   const comparison=page.locator('#comparison-dialog');
   await expect(comparison.locator('.cash-qualification').filter({hasText:'Exaion'})).toBeVisible();
-  await expect(comparison.locator('.comparison-credit-row .credit-availability-value')).toHaveText(['Unknown','Unknown']);
+  await expect(comparison.locator('.comparison-credit-row .credit-availability-value')).toHaveText(['Total not established','Total not established']);
   const detailButton=comparison.getByRole('button',{name:/Equinix.*cash|cash.*Equinix/i});
   await detailButton.click();
   await expect(page.locator('.cash-funding')).toBeFocused();
@@ -457,4 +463,81 @@ test('cash qualifications and conditional credit survive comparison and machine-
   const csv=fs.readFileSync(await (await csvPromise).path(),'utf8');
   expect(csv).toContain('cash_qualification');expect(csv).toContain('Exaion');
   expect(csv).toContain('company_available_credit');expect(csv).not.toContain('[object Object]');
+});
+
+test('cash is a top-level unranked view with separately qualified facility amounts',async({page})=>{
+  await page.goto('/');
+  await expect(page.locator('#tab-cash')).toBeVisible();
+  await page.locator('#nav-cash').focus();await page.keyboard.press('Enter');
+  await expect(page.locator('#tab-cash')).toHaveAttribute('aria-selected','true');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
+  expect((await page.locator('.rank-number').allTextContents()).every(text=>text==='—')).toBe(true);
+  await expect(page.locator('.bar-fill')).toHaveCount(0);
+  await expect(page.locator('#direction option:checked')).toContainText('Largest reported cash');
+  const iren=page.locator('[data-ticker="IREN"] .funding-summary');
+  await expect(iren.locator('.funding-total-status')).toHaveText('Total not established');
+  await expect(iren.locator('.funding-facility-count')).toContainText('4 selected facilities');
+  await expect(iren.locator('.funding-amount')).toHaveCount(3);
+  await expect(iren).toContainText('$1.132B');await expect(iren).toContainText('$525M');
+  await expect(iren).toContainText('$1.5B');await expect(iren).toContainText('Conditional');
+  const wulf=page.locator('[data-ticker="WULF"] .funding-summary');
+  await expect(wulf.locator('.funding-amount')).toHaveCount(1);
+  await expect(wulf).toContainText('$800K');await expect(wulf).toContainText('not cash');
+  await expect(wulf).not.toContainText('$150M');
+  const hut=page.locator('[data-ticker="HUT"] .funding-summary');
+  await expect(hut.locator('.funding-facility-count')).toContainText('1 selected facility');
+  await expect(hut.locator('.funding-amount')).toHaveCount(0);
+  await expect(page.locator('[data-ticker="HUT"] .company-takeaway')).toContainText('Zero revolver borrowings');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.locator('#nav-debt').click();
+  await expect(page.locator('#tab-debt')).toHaveAttribute('aria-selected','true');
+  await expect(page.locator('#direction option:checked')).toContainText('Largest borrowings');
+  await expect(page.locator('#rank-context')).toContainText('not company health');
+});
+
+test('every row offers a keyboard-accessible direct funding action with expandable explanations',async({page})=>{
+  await page.goto('/?q=HUT');
+  const action=page.locator('.cash-funding-action');
+  await expect(action).toBeVisible();await action.focus();await page.keyboard.press('Enter');
+  await expect(page.locator('.cash-funding')).toBeFocused();
+  await expect(page.locator('.liquidity-cash-value')).toHaveText('$156.87M');
+  const meaning=page.locator('.liquidity-facility [data-kind="commitment"] .liquidity-fact-context');
+  await expect(meaning).not.toHaveAttribute('open');
+  await meaning.locator('summary').focus();await page.keyboard.press('Enter');
+  await expect(meaning).toHaveAttribute('open','');
+  await expect(meaning.locator('.liquidity-fact-meaning')).toBeVisible();
+  await page.keyboard.press('Escape');await expect(action).toBeFocused();
+  await page.locator('#tab-cash').click();await action.focus();await page.keyboard.press('Enter');
+  await expect(page.locator('.cash-funding')).toBeFocused();
+});
+
+test('cash exports retain takeaways and qualifications without ordinal ranks or invented totals',async({page})=>{
+  await page.goto('/?metric=cash&group=all&q=EQIX&order=asc');
+  await expect(page.locator('#tab-cash')).toHaveAttribute('aria-selected','true');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(1);
+  const amount=page.locator('.funding-summary-cell .funding-amount');
+  await expect(amount).toContainText('Approx. $5.5B');
+  await expect(amount).toContainText('subject to conditions');
+  const download=page.waitForEvent('download');await page.locator('#download-json').click();
+  const payload=JSON.parse(fs.readFileSync(await (await download).path(),'utf8'));
+  expect(payload.ranking_context).toMatch(/^Cash/);
+  expect(payload.rows[0].ranked).toBe(false);expect(payload.rows[0].cohort_rank).toBeNull();
+  expect(payload.rows[0].value).toBe('2362000000');
+  expect(payload.rows[0].company_takeaway).toContain('approximate');
+  expect(payload.rows[0].liquidity.company_available_credit.value).toBeNull();
+  await page.reload();await expect(page.locator('#direction')).toHaveValue('asc');
+  await expect(page.locator('#tab-cash')).toHaveAttribute('aria-selected','true');
+});
+
+test('funding summaries exclude capacity from a different snapshot date',async({page})=>{
+  await page.route('**/data.json',async route=>{
+    const response=await route.fetch(),payload=await response.json();
+    const company=payload.companies.find(c=>c.ticker==='EQIX');
+    for(const facility of company.liquidity.facilities)for(const fact of facility.amounts)
+      if(fact.kind==='reported_available')fact.as_of='2026-06-30';
+    await route.fulfill({json:payload});
+  });
+  await page.goto('/?metric=cash&group=all&q=EQIX');
+  await expect(page.locator('.funding-summary-cell .funding-amount')).toHaveCount(0);
+  await expect(page.locator('.funding-summary-cell')).toContainText('Total not established');
 });

@@ -83,7 +83,7 @@ Review fixes also validate inherited object names (`__proto__`, `constructor`,
 to supported tickers. Small eyebrow labels now have at least 5.04:1 contrast on
 their actual backgrounds. Keyboard focus outlines use different colors on light
 content and dark header/footer backgrounds; tests require at least 3:1 contrast
-and a visible 3px outline. The complete suite now covers 58 desktop/mobile browser checks across both apps.
+and a visible 3px outline. The complete suite now covers 66 desktop/mobile browser checks across both apps.
 Directory checks include three-company comparisons, nested-dialog focus, note
 type/status filters, stable cohort ranks during search, principal/lease context,
 private-issuer labels and the unranked private-operator coverage watchlist.
@@ -133,3 +133,15 @@ A fresh IREN filing request succeeded on November 11 at 10:27 UTC and reconfirme
 its three conditional unused commitments. The earlier independent reviewer's
 access failure remains documented; one successful request does not guarantee
 that every reviewer can access the filing.
+
+
+## Direct cash and funding view
+
+A fourth tab and a main-navigation link expose reported cash and separate facility
+amounts without opening a modal. Every row also has a Cash & funding action.
+“Total not established” is accompanied by reviewed-facility counts and sourced
+conditional/available/LC-only amounts, never a sum. Company takeaways are factual
+and source-backed. Sort labels name the actual measure; cash profiles have no
+ordinal ranks or bars. Repeated meanings and full cash restrictions use native
+expandable details. Navigation and row actions work with keyboard and offline;
+closing the evidence dialog restores the initiating action's focus.

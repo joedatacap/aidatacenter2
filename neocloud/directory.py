@@ -13,6 +13,12 @@ import re
 BORROWING_BASIS = 'carrying_value_excluding_all_leases'
 GROUPS = {'gpu_cloud', 'ai_transition', 'bitcoin_mining', 'data_center_reit'}
 DEFINITIONS = {
+    'cash': {
+        'title': 'Reported cash and equivalents',
+        'description': 'Cash held by the company and its subsidiaries, with selected credit facilities shown separately. A complete available-funding total is not established.',
+        'formula': 'Reported group cash; individual facility amounts remain separate',
+        'caveat': 'Group cash is not a verified parent-only spending balance. Restricted balances and conditional credit are separate. Sorting cash amounts does not rank financial health; no cash-plus-credit total is calculated.',
+    },
     'debt': {
         'title': 'Recorded borrowings',
         'description': 'How big is the borrowing balance? This is the amount recorded for loans and notes, with leases left out.',
