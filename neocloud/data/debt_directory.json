@@ -2195,8 +2195,8 @@
         "debt": {
           "value": "19494615000",
           "unit": "USD",
-          "basis": "Four consolidated borrowing categories at carrying values net of stated discounts; excludes both operating and finance leases and unconsolidated JV debt. Issuer presentation explicitly reconciles 19494615000 borrowing carrying value plus separately added 265526000 finance leases; secured/other debt is 1620303000 before that finance-lease addition.",
-          "note": "Four consolidated borrowing categories at carrying values net of stated discounts; excludes both operating and finance leases and unconsolidated JV debt. Issuer presentation explicitly reconciles 19494615000 borrowing carrying value plus separately added 265526000 finance leases; secured/other debt is 1620303000 before that finance-lease addition.",
+          "basis": "Four consolidated borrowing categories at carrying values net of stated discounts; excludes operating and finance leases and unconsolidated JV debt. The original SEC debt table supports this borrowing subtotal.",
+          "note": "Four consolidated borrowing categories at carrying values net of stated discounts; excludes operating and finance leases and unconsolidated JV debt. The original SEC debt table supports this borrowing subtotal.",
           "source_ids": [
             "dlr-balance"
           ],
@@ -2289,7 +2289,6 @@
       "source_ids": [
         "dlr-balance",
         "deep-adj-DLR",
-        "deep-DLR-finance-lease",
         "deep-legal-DLR",
         "deep-issue-DLR"
       ],
@@ -2322,17 +2321,15 @@
             "source_ids": [
               "deep-adj-DLR"
             ],
-            "note": "Presentation separately adds finance leases to the 19494615-thousand borrowing subtotal. The lease-inclusive 19760141-thousand figure on page25 must not replace the harmonized numerator."
+            "note": "Separately reported operating lease liabilities; excluded from ranked borrowings."
           },
           {
             "kind": "finance",
-            "value": "265526000",
+            "value": null,
             "unit": "USD",
             "as_of": "2026-09-30",
-            "source_ids": [
-              "deep-DLR-finance-lease"
-            ],
-            "note": "Presentation separately adds finance leases to the 19494615-thousand borrowing subtotal. The lease-inclusive 19760141-thousand figure on page25 must not replace the harmonized numerator."
+            "source_ids": [],
+            "note": "Finance-lease total not independently established in the reviewed Q3 filing; unknown is not zero."
           }
         ],
         "notes": [
@@ -3219,16 +3216,6 @@
       "retrieved_at": "2026-11-11",
       "excerpt": "19,618,975; Unamortized net discounts (39,593); Unamortized deferred financing costs (84,767); 4.450% notes due 2028; 650,000",
       "locator": "Note 9 Debt of Operating Partnership; Current-quarter senior unsecured note table; consolidated balance sheet",
-      "source_unit": "USD thousands"
-    },
-    {
-      "id": "deep-DLR-finance-lease",
-      "url": "https://investor.digitalrealty.com/static-files/3314eea6-08dd-4a03-a8c5-bd2419b5d449",
-      "title": "Digital Realty Q3 2026 presentation, pages24–25",
-      "publisher": "SEC / issuer disclosure",
-      "published_at": "2026-10-29",
-      "retrieved_at": "2026-11-11",
-      "excerpt": "Add: Finance lease obligations, net 265,526",
       "source_unit": "USD thousands"
     },
     {

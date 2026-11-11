@@ -88,6 +88,11 @@ def test_published_coverage_and_special_scope_cases_are_explicit():
     assert companies['NSCALE']['listing_status'] == 'private_pending_ipo'
     assert companies['NSCALE']['metrics']['coupon']['value'] is None
     assert companies['NSCALE']['comparison_caveat']
+    dlr_finance_lease = next(lease for lease in companies['DLR']['debt_context']['leases']
+                             if lease['kind'] == 'finance')
+    assert dlr_finance_lease['value'] is None
+    assert dlr_finance_lease['source_ids'] == []
+    assert companies['DLR']['metrics']['debt']['value'] == '19494615000'
     assert len(data['instruments']) == 44
     assert len(data['coverage_watchlist']) == 3
 

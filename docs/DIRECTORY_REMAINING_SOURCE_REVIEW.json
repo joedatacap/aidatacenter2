@@ -1,0 +1,1644 @@
+{
+  "reviewed_at": "2026-11-11T09:53:20.756574+00:00",
+  "canonical_sha256": "49f71ec8a556868b88042168fe7b33f2f5b284d3b51c60a04cb00a94a30beaa6",
+  "scope": "Map of 80 top-level canonical source IDs by unique URL and retained receipts. Private watchlist announcement checks are assigned to the adjacent source reviewer and excluded. All 16 balance snapshots were previously checked; remaining evidence gaps do not mean unreviewed companies.",
+  "coverage": {
+    "source_records": 80,
+    "unique_urls": 54,
+    "duplicate_id_records_beyond_unique_urls": 26,
+    "baseline_unique_exact_url_hashed_receipts": 46,
+    "fresh_priority_exact_url_hash_retrievals": 1,
+    "fresh_web_only_original_url_reviews": 6,
+    "fresh_unretrieved_original_urls": 1,
+    "unretrieved_original_url_source_ids": [
+      "deep-DLR-finance-lease"
+    ],
+    "prior_audit_receipts": [
+      "work/independent-audit/audit.json",
+      "work/independent-audit/independentnotes_audit.json",
+      "work/research/nscale-snapshot.json"
+    ]
+  },
+  "findings": [],
+  "limits": [
+    "DLR presentation PDF fresh retrieval returns 403. Prior adjacent review exists, but no raw PDF/hash was retained; do not claim this PDF freshly independently verified.",
+    "Six canonical issuer-site URLs open through web tools without retained raw bytes/hash. Equivalent SEC filings cover financial assertions where specified, but are identified as alternates.",
+    "Review covers the enumerated balance, debt-definition and note-term assertions. It is not an exhaustive legal or forward-looking business review."
+  ],
+  "unique_url_coverage": [
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "source_ids": [
+        "crwv-q3-2026",
+        "deep-cloud-crwv-q3-release"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/CRWV.html",
+          "sha256": "d1693a1783b2ecd5a066227db76424f80e791d1ec1856584bc481c7092f9eb4f",
+          "retrieved_at": "2026-11-11T09:01:43.141209+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/CRWV.html",
+          "sha256": "d1693a1783b2ecd5a066227db76424f80e791d1ec1856584bc481c7092f9eb4f",
+          "retrieved_at": "2026-11-11T09:01:43.141209+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000291/crwv-20260618.htm",
+      "source_ids": [
+        "crwv-selected-note",
+        "deep-cloud-crwv-selected-issue"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-crwv-selected-issue.html",
+          "sha256": "6c5f41dcb3835660721e1020a25d6392726ca0e251fe32b185a130ba99f6d849",
+          "retrieved_at": "2026-11-11T09:23:55.599158+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-crwv-selected-issue.html",
+          "sha256": "6c5f41dcb3835660721e1020a25d6392726ca0e251fe32b185a130ba99f6d849",
+          "retrieved_at": "2026-11-11T09:23:55.599158+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+      "source_ids": [
+        "nbis-q2-2026",
+        "deep-cloud-nbis-q2"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/NBIS.html",
+          "sha256": "36f01b7495f4771391bd7ca4a0da0716b07ded417440b58a1f2e3cb9d91e7462",
+          "retrieved_at": "2026-11-11T09:01:43.218075+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-q2.html",
+          "sha256": "36f01b7495f4771391bd7ca4a0da0716b07ded417440b58a1f2e3cb9d91e7462",
+          "retrieved_at": "2026-11-11T09:23:56.118939+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/NBIS.html",
+          "sha256": "36f01b7495f4771391bd7ca4a0da0716b07ded417440b58a1f2e3cb9d91e7462",
+          "retrieved_at": "2026-11-11T09:01:43.218075+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-q2.html",
+          "sha256": "36f01b7495f4771391bd7ca4a0da0716b07ded417440b58a1f2e3cb9d91e7462",
+          "retrieved_at": "2026-11-11T09:23:56.118939+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926100347/tm2623863d1_ex99-1.htm",
+      "source_ids": [
+        "nbis-selected-note",
+        "deep-cloud-nbis-aug-issue"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-aug-issue.html",
+          "sha256": "ad0e2869e95f83dd8a212df2a1f306950d27b6424d90e22fccaf038a4df56274",
+          "retrieved_at": "2026-11-11T09:23:55.972340+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-aug-issue.html",
+          "sha256": "ad0e2869e95f83dd8a212df2a1f306950d27b6424d90e22fccaf038a4df56274",
+          "retrieved_at": "2026-11-11T09:23:55.972340+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "source_ids": [
+        "iren-q1fy27",
+        "deep-cloud-iren-q3"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/IREN.html",
+          "sha256": "19798a963a29265facb22eb2f52ded1eb27d8ac687c0a34ba03d06f338cfa2b2",
+          "retrieved_at": "2026-11-11T09:01:43.286278+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-iren-q3.html",
+          "sha256": "19798a963a29265facb22eb2f52ded1eb27d8ac687c0a34ba03d06f338cfa2b2",
+          "retrieved_at": "2026-11-11T09:23:55.964673+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/IREN.html",
+          "sha256": "19798a963a29265facb22eb2f52ded1eb27d8ac687c0a34ba03d06f338cfa2b2",
+          "retrieved_at": "2026-11-11T09:01:43.286278+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-iren-q3.html",
+          "sha256": "19798a963a29265facb22eb2f52ded1eb27d8ac687c0a34ba03d06f338cfa2b2",
+          "retrieved_at": "2026-11-11T09:23:55.964673+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126021285/ef20073507_8k.htm",
+      "source_ids": [
+        "iren-selected-note",
+        "deep-cloud-iren-selected-issue"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-iren-selected-issue.html",
+          "sha256": "60cd3a6884b9a80674629abd8d8fab0a59038afd0a9cf70f798f9ebff24cb013",
+          "retrieved_at": "2026-11-11T09:23:55.954204+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-iren-selected-issue.html",
+          "sha256": "60cd3a6884b9a80674629abd8d8fab0a59038afd0a9cf70f798f9ebff24cb013",
+          "retrieved_at": "2026-11-11T09:23:55.954204+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+      "source_ids": [
+        "btdr-q3-2026",
+        "deep-cloud-btdr-q3"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/BTDR.html",
+          "sha256": "a5f17ca065a8b5b41594dfcda7406074d309136f3f6888e014c01f4fcaec1696",
+          "retrieved_at": "2026-11-11T09:01:43.759413+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/BTDR.html",
+          "sha256": "a5f17ca065a8b5b41594dfcda7406074d309136f3f6888e014c01f4fcaec1696",
+          "retrieved_at": "2026-11-11T09:01:43.759413+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390025056729/ea0246533-6k_bitdeer.htm",
+      "source_ids": [
+        "btdr-selected-note",
+        "deep-cloud-btdr-selected-issue"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-btdr-selected-issue.html",
+          "sha256": "71df81302fa4e41e08467b9bb16167ba7cf2cb6ff0f51dc1a472f589a64cb650",
+          "retrieved_at": "2026-11-11T09:23:55.470796+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-btdr-selected-issue.html",
+          "sha256": "71df81302fa4e41e08467b9bb16167ba7cf2cb6ff0f51dc1a472f589a64cb650",
+          "retrieved_at": "2026-11-11T09:23:55.470796+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "source_ids": [
+        "hut-q3-2026",
+        "deep-cloud-hut-q3"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/HUT.html",
+          "sha256": "941d10992ae653874a69fb8256253623edbb6a3a40acc5fe8df280fd2a649c24",
+          "retrieved_at": "2026-11-11T09:01:44.863664+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-hut-q3.html",
+          "sha256": "941d10992ae653874a69fb8256253623edbb6a3a40acc5fe8df280fd2a649c24",
+          "retrieved_at": "2026-11-11T09:23:56.376147+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/HUT.html",
+          "sha256": "941d10992ae653874a69fb8256253623edbb6a3a40acc5fe8df280fd2a649c24",
+          "retrieved_at": "2026-11-11T09:01:44.863664+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-hut-q3.html",
+          "sha256": "941d10992ae653874a69fb8256253623edbb6a3a40acc5fe8df280fd2a649c24",
+          "retrieved_at": "2026-11-11T09:23:56.376147+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926053247/tm2613163d1_8k.htm",
+      "source_ids": [
+        "hut-selected-note",
+        "deep-cloud-hut-prior-issue"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/HUT-issue.html",
+          "sha256": "63f1d3ec0c08e2fa0e087ee33ce3e655bfc0d7cf69b53809f610ad1c57c030f3",
+          "retrieved_at": "2026-11-11T09:01:49.870685+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-hut-prior-issue.html",
+          "sha256": "63f1d3ec0c08e2fa0e087ee33ce3e655bfc0d7cf69b53809f610ad1c57c030f3",
+          "retrieved_at": "2026-11-11T09:23:55.814596+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/HUT-issue.html",
+          "sha256": "63f1d3ec0c08e2fa0e087ee33ce3e655bfc0d7cf69b53809f610ad1c57c030f3",
+          "retrieved_at": "2026-11-11T09:01:49.870685+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-hut-prior-issue.html",
+          "sha256": "63f1d3ec0c08e2fa0e087ee33ce3e655bfc0d7cf69b53809f610ad1c57c030f3",
+          "retrieved_at": "2026-11-11T09:23:55.814596+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "source_ids": [
+        "apld-balance",
+        "apld-coupon",
+        "deep-transition-apld-q"
+      ],
+      "duplicate_record_count": 2,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/APLD.html",
+          "sha256": "39ddc2bdc580d5669fc7406f8c4f1f83617ac49511a14168034bbf0d421f2b28",
+          "retrieved_at": "2026-11-11T09:01:44.582788+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-q.html",
+          "sha256": "39ddc2bdc580d5669fc7406f8c4f1f83617ac49511a14168034bbf0d421f2b28",
+          "retrieved_at": "2026-11-11T09:23:56.484813+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/APLD.html",
+          "sha256": "39ddc2bdc580d5669fc7406f8c4f1f83617ac49511a14168034bbf0d421f2b28",
+          "retrieved_at": "2026-11-11T09:01:44.582788+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-q.html",
+          "sha256": "39ddc2bdc580d5669fc7406f8c4f1f83617ac49511a14168034bbf0d421f2b28",
+          "retrieved_at": "2026-11-11T09:23:56.484813+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "source_ids": [
+        "corz-balance",
+        "corz-coupon",
+        "deep-transition-corz-q"
+      ],
+      "duplicate_record_count": 2,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/CORZ.html",
+          "sha256": "85bd6a590a5fa308407a48b8d8bff874c78da53f3c232dc7464bb1466979a566",
+          "retrieved_at": "2026-11-11T09:01:44.224700+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-corz-q.html",
+          "sha256": "85bd6a590a5fa308407a48b8d8bff874c78da53f3c232dc7464bb1466979a566",
+          "retrieved_at": "2026-11-11T09:23:56.552864+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/CORZ.html",
+          "sha256": "85bd6a590a5fa308407a48b8d8bff874c78da53f3c232dc7464bb1466979a566",
+          "retrieved_at": "2026-11-11T09:01:44.224700+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-corz-q.html",
+          "sha256": "85bd6a590a5fa308407a48b8d8bff874c78da53f3c232dc7464bb1466979a566",
+          "retrieved_at": "2026-11-11T09:23:56.552864+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "source_ids": [
+        "wulf-balance",
+        "wulf-coupon",
+        "deep-transition-wulf-q"
+      ],
+      "duplicate_record_count": 2,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/WULF.html",
+          "sha256": "084501a28b4adff161d7b7217daadba8bf3b501493944a9dd2655093fd00d6c7",
+          "retrieved_at": "2026-11-11T09:01:44.893882+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-q.html",
+          "sha256": "084501a28b4adff161d7b7217daadba8bf3b501493944a9dd2655093fd00d6c7",
+          "retrieved_at": "2026-11-11T09:23:56.877073+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/WULF.html",
+          "sha256": "084501a28b4adff161d7b7217daadba8bf3b501493944a9dd2655093fd00d6c7",
+          "retrieved_at": "2026-11-11T09:01:44.893882+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-q.html",
+          "sha256": "084501a28b4adff161d7b7217daadba8bf3b501493944a9dd2655093fd00d6c7",
+          "retrieved_at": "2026-11-11T09:23:56.877073+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "source_ids": [
+        "cifr-balance",
+        "cifr-coupon",
+        "deep-transition-cifr-q"
+      ],
+      "duplicate_record_count": 2,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/CIFR.html",
+          "sha256": "eef9b28314a3d78cd1a7d5ba92558dcb3ec07c12fd9706b62ac6b2a3f03d9ed0",
+          "retrieved_at": "2026-11-11T09:01:45.591048+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-cifr-q.html",
+          "sha256": "eef9b28314a3d78cd1a7d5ba92558dcb3ec07c12fd9706b62ac6b2a3f03d9ed0",
+          "retrieved_at": "2026-11-11T09:23:56.538639+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/CIFR.html",
+          "sha256": "eef9b28314a3d78cd1a7d5ba92558dcb3ec07c12fd9706b62ac6b2a3f03d9ed0",
+          "retrieved_at": "2026-11-11T09:01:45.591048+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-cifr-q.html",
+          "sha256": "eef9b28314a3d78cd1a7d5ba92558dcb3ec07c12fd9706b62ac6b2a3f03d9ed0",
+          "retrieved_at": "2026-11-11T09:23:56.538639+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+      "source_ids": [
+        "hive-balance",
+        "hive-coupon",
+        "deep-transition-hive-q"
+      ],
+      "duplicate_record_count": 2,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/HIVE.html",
+          "sha256": "96257d79dea3f9d3bffa53436e457dcc9aabfb30d33b3dd4b824edd881f3a5ab",
+          "retrieved_at": "2026-11-11T09:01:46.650580+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-hive-q.html",
+          "sha256": "96257d79dea3f9d3bffa53436e457dcc9aabfb30d33b3dd4b824edd881f3a5ab",
+          "retrieved_at": "2026-11-11T09:23:56.656941+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/HIVE.html",
+          "sha256": "96257d79dea3f9d3bffa53436e457dcc9aabfb30d33b3dd4b824edd881f3a5ab",
+          "retrieved_at": "2026-11-11T09:01:46.650580+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-hive-q.html",
+          "sha256": "96257d79dea3f9d3bffa53436e457dcc9aabfb30d33b3dd4b824edd881f3a5ab",
+          "retrieved_at": "2026-11-11T09:23:56.656941+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+      "source_ids": [
+        "riot-balance",
+        "riot-coupon",
+        "deep-adj-RIOT"
+      ],
+      "duplicate_record_count": 2,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/RIOT.html",
+          "sha256": "cf3a6036b585a3095d041295e31915b60c617f03d8902d31a5637ce1f59b068b",
+          "retrieved_at": "2026-11-11T09:01:47.882547+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-RIOT.html",
+          "sha256": "cf3a6036b585a3095d041295e31915b60c617f03d8902d31a5637ce1f59b068b",
+          "retrieved_at": "2026-11-11T09:23:55.815415+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/RIOT.html",
+          "sha256": "cf3a6036b585a3095d041295e31915b60c617f03d8902d31a5637ce1f59b068b",
+          "retrieved_at": "2026-11-11T09:01:47.882547+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-RIOT.html",
+          "sha256": "cf3a6036b585a3095d041295e31915b60c617f03d8902d31a5637ce1f59b068b",
+          "retrieved_at": "2026-11-11T09:23:55.815415+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465924127656/tm2430044d5_8k.htm",
+      "source_ids": [
+        "riot-note-issue",
+        "deep-legal-RIOT"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-RIOT.html",
+          "sha256": "e80e5ee68c7bddbc7eb4c3acac3948ddb4a804120811f72caa9f01612c7827d6",
+          "retrieved_at": "2026-11-11T09:23:56.256793+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-RIOT.html",
+          "sha256": "e80e5ee68c7bddbc7eb4c3acac3948ddb4a804120811f72caa9f01612c7827d6",
+          "retrieved_at": "2026-11-11T09:23:56.256793+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm",
+      "source_ids": [
+        "mara-balance"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm",
+        "source_ids": [
+          "mara-balance"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.148546+00:00",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "fresh_web_review": {
+        "mechanism": "web primary page open/find",
+        "reviewed_at": "2026-11-11T09:53:20.756528+00:00",
+        "retained_raw_bytes": false,
+        "hash": null
+      },
+      "targeted_checks": [
+        {
+          "source_id": "mara-balance",
+          "checked": "Canonicalissuer10-Qmirroropensviaweb; sameaccession0001507605-26-000028 asretainedSECprimaryusedforbalanceandselectednotechecks.",
+          "status": "same_accession_primary_mirror_verified"
+        }
+      ],
+      "coverage_status": "exact_url_web_text_review_no_raw_hash"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1507605/000150760526000028/mara-20260930.htm",
+      "source_ids": [
+        "mara-coupon",
+        "deep-adj-MARA"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/MARA.html",
+          "sha256": "56e644bd74fb5d37268577ded31219907c69def419bf67d3016af73f249aea6a",
+          "retrieved_at": "2026-11-11T09:01:49.147691+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-MARA.html",
+          "sha256": "56e644bd74fb5d37268577ded31219907c69def419bf67d3016af73f249aea6a",
+          "retrieved_at": "2026-11-11T09:23:55.702620+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/MARA.html",
+          "sha256": "56e644bd74fb5d37268577ded31219907c69def419bf67d3016af73f249aea6a",
+          "retrieved_at": "2026-11-11T09:01:49.147691+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-MARA.html",
+          "sha256": "56e644bd74fb5d37268577ded31219907c69def419bf67d3016af73f249aea6a",
+          "retrieved_at": "2026-11-11T09:23:55.702620+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001628280-24-047148/mara-20240930.htm",
+      "source_ids": [
+        "mara-note-issue"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001628280-24-047148/mara-20240930.htm",
+        "source_ids": [
+          "mara-note-issue"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.154194+00:00",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "fresh_web_review": {
+        "mechanism": "web primary page open/find",
+        "reviewed_at": "2026-11-11T09:53:20.756530+00:00",
+        "retained_raw_bytes": false,
+        "hash": null
+      },
+      "targeted_checks": [
+        {
+          "source_id": "mara-note-issue",
+          "checked": "Original2024Q3note expresslydates issuanceAugust14,2024, fixed2.125%coupon andSeptember1,2031maturity; currentselectednoteassumptions consistent. PublicationNovember12,2024 is distinctfromissueAugust14.",
+          "status": "verified",
+          "publication_date": "2024-11-12",
+          "brief_exact_passages": [
+            "On August 14, 2024",
+            "2.125%",
+            "September 1, 2031"
+          ],
+          "equivalent_receipt_file": "work/independent-audit/remaining/mara-note-issue-sec-equivalent.receipt.json"
+        }
+      ],
+      "coverage_status": "exact_url_web_text_review_no_raw_hash"
+    },
+    {
+      "url": "https://investor.equinix.com/news-events/press-releases/detail/1128/equinix-reports-third-quarter-results-and-raises-2026",
+      "source_ids": [
+        "eqix-balance"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://investor.equinix.com/news-events/press-releases/detail/1128/equinix-reports-third-quarter-results-and-raises-2026",
+        "source_ids": [
+          "eqix-balance"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.146551+00:00",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "fresh_web_review": {
+        "mechanism": "web primary page open/find",
+        "reviewed_at": "2026-11-11T09:53:20.756514+00:00",
+        "retained_raw_bytes": false,
+        "hash": null
+      },
+      "targeted_checks": [
+        {
+          "source_id": "eqix-balance",
+          "checked": "Canonicalissuerrelease opensviaweb; separatelypresentsfinancelease182mcurrent/2196mnoncurrent andseniornotes1665mcurrent/20963mnoncurrent, mortgageandloans6m/13m. Theseparateleasepresentation supports existingexclusion.",
+          "status": "verified_selected_scope_assertion"
+        }
+      ],
+      "coverage_status": "exact_url_web_text_review_no_raw_hash"
+    },
+    {
+      "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+      "source_ids": [
+        "eqix-coupon",
+        "deep-adj-EQIX"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+        "source_ids": [
+          "eqix-coupon",
+          "deep-adj-EQIX"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.146920+00:00",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "fresh_web_review": {
+        "mechanism": "web primary page open/find",
+        "reviewed_at": "2026-11-11T09:53:20.756522+00:00",
+        "retained_raw_bytes": false,
+        "hash": null
+      },
+      "targeted_checks": [
+        {
+          "source_id": "eqix-coupon",
+          "checked": "OriginalissuerSECmirroropensviaweb; sameaccession0001101239-26-000180 asretainedSECequivalentalreadyusedinper-instrumentaudit. No extraindependentdocumentcount.",
+          "status": "same_accession_primary_mirror_verified"
+        },
+        {
+          "source_id": "deep-adj-EQIX",
+          "checked": "SameURL/claimdocumentaseqix-coupon; countedonce.",
+          "status": "duplicate_id_same_primary_document"
+        }
+      ],
+      "coverage_status": "exact_url_web_text_review_no_raw_hash"
+    },
+    {
+      "url": "https://investor.digitalrealty.com/news-releases/news-release-details/digital-realty-reports-third-quarter-2026-results",
+      "source_ids": [
+        "dlr-balance"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://investor.digitalrealty.com/news-releases/news-release-details/digital-realty-reports-third-quarter-2026-results",
+        "source_ids": [
+          "dlr-balance"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.145614+00:00",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "fresh_web_review": {
+        "mechanism": "web primary page open/find",
+        "reviewed_at": "2026-11-11T09:53:20.756499+00:00",
+        "retained_raw_bytes": false,
+        "hash": null
+      },
+      "targeted_checks": [
+        {
+          "source_id": "dlr-balance",
+          "checked": "Canonicalissuerrelease opensviaweband includesdatedUSDthousandsconsolidatedbalances. No newnumericalclaimadded; equivalentlatestSECstatementalreadyindependentlychecked.",
+          "status": "web_primary_opened_prior_numeric_check"
+        }
+      ],
+      "coverage_status": "exact_url_web_text_review_no_raw_hash"
+    },
+    {
+      "url": "https://investor.galaxy.com/news-releases/news-release-details/galaxy-announces-third-quarter-2026-financial-results",
+      "source_ids": [
+        "glxy-balance"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://investor.galaxy.com/news-releases/news-release-details/galaxy-announces-third-quarter-2026-financial-results",
+        "source_ids": [
+          "glxy-balance"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.147613+00:00",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "fresh_web_review": {
+        "mechanism": "web primary page open/find",
+        "reviewed_at": "2026-11-11T09:53:20.756526+00:00",
+        "retained_raw_bytes": false,
+        "hash": null
+      },
+      "targeted_checks": [
+        {
+          "source_id": "glxy-balance",
+          "checked": "CanonicalissuerreleaseseparatesCCE1,324,759kfrom$4.9bnheadlinecash/stablecoins/Treasuries. ConfirmsnoteavoidstreatingbroadliquidityasCCE.",
+          "status": "verified_selected_classification_assertion"
+        }
+      ],
+      "coverage_status": "exact_url_web_text_review_no_raw_hash"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+      "source_ids": [
+        "glxy-coupon",
+        "deep-adj-GLXY"
+      ],
+      "duplicate_record_count": 1,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/GLXY.html",
+          "sha256": "aceb1779b9243d1bf4adf958560a7dcb361a1c16d0d673b2aeebeda2a3c088bb",
+          "retrieved_at": "2026-11-11T09:01:47.898840+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-GLXY.html",
+          "sha256": "aceb1779b9243d1bf4adf958560a7dcb361a1c16d0d673b2aeebeda2a3c088bb",
+          "retrieved_at": "2026-11-11T09:23:55.896009+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/GLXY.html",
+          "sha256": "aceb1779b9243d1bf4adf958560a7dcb361a1c16d0d673b2aeebeda2a3c088bb",
+          "retrieved_at": "2026-11-11T09:01:47.898840+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-GLXY.html",
+          "sha256": "aceb1779b9243d1bf4adf958560a7dcb361a1c16d0d673b2aeebeda2a3c088bb",
+          "retrieved_at": "2026-11-11T09:23:55.896009+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/R16.htm",
+      "source_ids": [
+        "deep-cloud-crwv-q2-note"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-crwv-q2-note.html",
+          "sha256": "194abde3202cf353462dfd40bc4e78e4ae70d49bf3ba097b4370a010ae555373",
+          "retrieved_at": "2026-11-11T09:23:55.607712+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-crwv-q2-note.html",
+          "sha256": "194abde3202cf353462dfd40bc4e78e4ae70d49bf3ba097b4370a010ae555373",
+          "retrieved_at": "2026-11-11T09:23:55.607712+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/R30.htm",
+      "source_ids": [
+        "deep-cloud-iren-q2-note"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-iren-q2-note.html",
+          "sha256": "f367aaf765c277beda331eb875f48db10291ce67586cfc390cd6967b1ac35a08",
+          "retrieved_at": "2026-11-11T09:23:55.818344+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-iren-q2-note.html",
+          "sha256": "f367aaf765c277beda331eb875f48db10291ce67586cfc390cd6967b1ac35a08",
+          "retrieved_at": "2026-11-11T09:23:55.818344+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026104638/ea030647301ex99-1.htm",
+      "source_ids": [
+        "deep-cloud-btdr-q2-detail"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-btdr-q2-detail.html",
+          "sha256": "fb553fc62ef188e4dca03bb763131ec1699d34ce44e5b9c56d53e5681dd334e4",
+          "retrieved_at": "2026-11-11T09:23:55.591723+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-btdr-q2-detail.html",
+          "sha256": "fb553fc62ef188e4dca03bb763131ec1699d34ce44e5b9c56d53e5681dd334e4",
+          "retrieved_at": "2026-11-11T09:23:55.591723+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000164/crwv-20260409.htm",
+      "source_ids": [
+        "deep-cloud-crwv-apr-issue"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-crwv-apr-issue.html",
+          "sha256": "57eb5a11735690ee9fb33b76589a08774b8e05183e2a73c408f4e5446499f288",
+          "retrieved_at": "2026-11-11T09:23:55.498340+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-crwv-apr-issue.html",
+          "sha256": "57eb5a11735690ee9fb33b76589a08774b8e05183e2a73c408f4e5446499f288",
+          "retrieved_at": "2026-11-11T09:23:55.498340+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925056817/tm2517269d1_6k.htm",
+      "source_ids": [
+        "deep-cloud-nbis-jun2025-issue"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-jun2025-issue.html",
+          "sha256": "eadd66586857cf96e9c46f688aa289aafa44cd750ebb7e81d04dc7b50f4c3441",
+          "retrieved_at": "2026-11-11T09:23:56.001705+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-jun2025-issue.html",
+          "sha256": "eadd66586857cf96e9c46f688aa289aafa44cd750ebb7e81d04dc7b50f4c3441",
+          "retrieved_at": "2026-11-11T09:23:56.001705+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex99-1.htm",
+      "source_ids": [
+        "deep-cloud-nbis-sep2025-release"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-sep2025-release.html",
+          "sha256": "220896a0232aec7347d69796f785d866a847b977219a1bec4e823c171104e09e",
+          "retrieved_at": "2026-11-11T09:23:56.055001+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-sep2025-release.html",
+          "sha256": "220896a0232aec7347d69796f785d866a847b977219a1bec4e823c171104e09e",
+          "retrieved_at": "2026-11-11T09:23:56.055001+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex4-1.htm",
+      "source_ids": [
+        "deep-cloud-nbis-sep2025-note"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-sep2025-note.html",
+          "sha256": "7fe0c31c1c38cb94f72b790188e6b930145c7a7ce9399692b375fe7a30d792e6",
+          "retrieved_at": "2026-11-11T09:23:56.106070+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-sep2025-note.html",
+          "sha256": "7fe0c31c1c38cb94f72b790188e6b930145c7a7ce9399692b375fe7a30d792e6",
+          "retrieved_at": "2026-11-11T09:23:56.106070+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926029863/tm268409d3_ex99-1.htm",
+      "source_ids": [
+        "deep-cloud-nbis-mar2026-pricing"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-mar2026-pricing.html",
+          "sha256": "9603fc1919640c25823cd70dc62752b0f5d62833f5092c1bafc7ade6bfff7dd4",
+          "retrieved_at": "2026-11-11T09:23:56.023671+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-cloud-nbis-mar2026-pricing.html",
+          "sha256": "9603fc1919640c25823cd70dc62752b0f5d62833f5092c1bafc7ade6bfff7dd4",
+          "retrieved_at": "2026-11-11T09:23:56.023671+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001964789.json",
+      "source_ids": [
+        "deep-cloud-hut-finance-lease-fact"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001964789.json",
+        "source_ids": [
+          "deep-cloud-hut-finance-lease-fact"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.144901+00:00",
+        "http_status": 200,
+        "final_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001964789.json",
+        "sha256": "aed42679d3859d03fb4e3f4d4f1d35a54eedec52cdda487c000b861293b17240",
+        "retained_file": "work/independent-audit/remaining/deep-cloud-hut-finance-lease-fact.json",
+        "bytes": 964010
+      },
+      "targeted_checks": [
+        {
+          "source_id": "deep-cloud-hut-finance-lease-fact",
+          "checked": "FinanceLeaseLiability USD fact: end2026-09-30, val0, accession0001193125-26-446146, form10-Q,filed2026-11-04. Exactly matches currentleasecontext andsourcepublicationdate.",
+          "status": "verified",
+          "exact_structured_fact": {
+            "tag": "us-gaap:FinanceLeaseLiability",
+            "unit": "USD",
+            "end": "2026-09-30",
+            "val": 0,
+            "accn": "0001193125-26-446146",
+            "filed": "2026-11-04"
+          }
+        }
+      ],
+      "coverage_status": "exact_url_raw_http_hash_new_targeted_review"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315225024479/form8-k.htm",
+      "source_ids": [
+        "deep-transition-apld-925-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-925-close.html",
+          "sha256": "724751c4a02e70f294aad77e797dac16b3863250cf679da0449a24b2018a67b4",
+          "retrieved_at": "2026-11-11T09:23:56.306469+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-925-close.html",
+          "sha256": "724751c4a02e70f294aad77e797dac16b3863250cf679da0449a24b2018a67b4",
+          "retrieved_at": "2026-11-11T09:23:56.306469+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226009538/form8-k.htm",
+      "source_ids": [
+        "deep-transition-apld-675-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-675-close.html",
+          "sha256": "90ccdee14a596208f77c3010fcaf7cd8dddfc3fa52d60209616b8f7fce772d15",
+          "retrieved_at": "2026-11-11T09:23:56.284453+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-675-close.html",
+          "sha256": "90ccdee14a596208f77c3010fcaf7cd8dddfc3fa52d60209616b8f7fce772d15",
+          "retrieved_at": "2026-11-11T09:23:56.284453+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226028899/form8-k.htm",
+      "source_ids": [
+        "deep-transition-apld-700-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-700-close.html",
+          "sha256": "a6f008e27f49bf136439449fa760e6ce26f8926fe7f0f779a553c2b69f45fbd8",
+          "retrieved_at": "2026-11-11T09:23:56.287064+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-700-close.html",
+          "sha256": "a6f008e27f49bf136439449fa760e6ce26f8926fe7f0f779a553c2b69f45fbd8",
+          "retrieved_at": "2026-11-11T09:23:56.287064+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315224043604/form8-k.htm",
+      "source_ids": [
+        "deep-transition-apld-275-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-275-close.html",
+          "sha256": "6ea1714c884c3a0e854ab93a80c67d2a6bfaee32bee2b37e828d1df9fd0147d9",
+          "retrieved_at": "2026-11-11T09:23:56.217872+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-apld-275-close.html",
+          "sha256": "6ea1714c884c3a0e854ab93a80c67d2a6bfaee32bee2b37e828d1df9fd0147d9",
+          "retrieved_at": "2026-11-11T09:23:56.217872+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000119312526208905/d47435d8k.htm",
+      "source_ids": [
+        "deep-transition-corz-775-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-corz-775-close.html",
+          "sha256": "5cc89e8c666704672ea102894796284206efba9f4fcabbb3a6390d9123e382cb",
+          "retrieved_at": "2026-11-11T09:23:56.390627+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-corz-775-close.html",
+          "sha256": "5cc89e8c666704672ea102894796284206efba9f4fcabbb3a6390d9123e382cb",
+          "retrieved_at": "2026-11-11T09:23:56.390627+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000119312526208905/d47435dex41.htm",
+      "source_ids": [
+        "deep-transition-corz-775-indenture"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-corz-775-indenture.html",
+          "sha256": "b96c1d535d66260ede2f53f837be4dad2e862ef75ee08a9e990592e6e72ecc36",
+          "retrieved_at": "2026-11-11T09:23:56.458929+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-corz-775-indenture.html",
+          "sha256": "b96c1d535d66260ede2f53f837be4dad2e862ef75ee08a9e990592e6e72ecc36",
+          "retrieved_at": "2026-11-11T09:23:56.458929+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925101866/tm2529300d1_8k.htm",
+      "source_ids": [
+        "deep-transition-wulf-775-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-775-close.html",
+          "sha256": "484a6bb529892fd77bfa9721c12998cd6e487c510e86740cee6808c1f1f2c6cd",
+          "retrieved_at": "2026-11-11T09:23:56.633505+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-775-close.html",
+          "sha256": "484a6bb529892fd77bfa9721c12998cd6e487c510e86740cee6808c1f1f2c6cd",
+          "retrieved_at": "2026-11-11T09:23:56.633505+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000095014224002636/eh240549125_8k.htm",
+      "source_ids": [
+        "deep-transition-wulf-275-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-275-close.html",
+          "sha256": "0fb8e7352f83f3d33dfd87278fb0c5e03488be4a4ce17a884b71568024aed599",
+          "retrieved_at": "2026-11-11T09:23:56.617101+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-275-close.html",
+          "sha256": "0fb8e7352f83f3d33dfd87278fb0c5e03488be4a4ce17a884b71568024aed599",
+          "retrieved_at": "2026-11-11T09:23:56.617101+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925080911/tm2523651d5_8k.htm",
+      "source_ids": [
+        "deep-transition-wulf-100-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-100-close.html",
+          "sha256": "1742195ec4f24e02da17857bab0f90e6581519c77b551eda93d91030480bf851",
+          "retrieved_at": "2026-11-11T09:23:56.537549+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-100-close.html",
+          "sha256": "1742195ec4f24e02da17857bab0f90e6581519c77b551eda93d91030480bf851",
+          "retrieved_at": "2026-11-11T09:23:56.537549+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925081886/tm2523651d6_8k.htm",
+      "source_ids": [
+        "deep-transition-wulf-100-tap"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-100-tap.html",
+          "sha256": "ebf2a36a91f3b56972903efd5e1a254f37f517e842eb611cb6f25c05365bdf85",
+          "retrieved_at": "2026-11-11T09:23:56.616416+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-100-tap.html",
+          "sha256": "ebf2a36a91f3b56972903efd5e1a254f37f517e842eb611cb6f25c05365bdf85",
+          "retrieved_at": "2026-11-11T09:23:56.616416+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000110465925104928/tm2529894d1_8k.htm",
+      "source_ids": [
+        "deep-transition-wulf-000-close"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-000-close.html",
+          "sha256": "0bb5406cc83241ca65f718b7f8f1ca5cb730b2d964865c7dd881aefc960786e7",
+          "retrieved_at": "2026-11-11T09:23:56.538907+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-transition-wulf-000-close.html",
+          "sha256": "0bb5406cc83241ca65f718b7f8f1ca5cb730b2d964865c7dd881aefc960786e7",
+          "retrieved_at": "2026-11-11T09:23:56.538907+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1507605/000149315224032433/ex4-1.htm",
+      "source_ids": [
+        "deep-legal-MARA"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-MARA.html",
+          "sha256": "2f52f2407c5b22a063de709be1f7d3bc4928e7b86f3102ec07c51415e3d136ed",
+          "retrieved_at": "2026-11-11T09:23:56.390475+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-MARA.html",
+          "sha256": "2f52f2407c5b22a063de709be1f7d3bc4928e7b86f3102ec07c51415e3d136ed",
+          "retrieved_at": "2026-11-11T09:23:56.390475+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1101239/000110465926092009/tm2622384d1_ex4-5.htm",
+      "source_ids": [
+        "deep-legal-EQIX"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-EQIX.html",
+          "sha256": "0d22bd9a9f6f3ee798d13267bce163f76e4883e60572e00cad9ad51d914b17c9",
+          "retrieved_at": "2026-11-11T09:23:56.179386+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-EQIX.html",
+          "sha256": "0d22bd9a9f6f3ee798d13267bce163f76e4883e60572e00cad9ad51d914b17c9",
+          "retrieved_at": "2026-11-11T09:23:56.179386+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "source_ids": [
+        "deep-adj-DLR"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/retrievals.json",
+          "retained_file": "work/independent-audit/DLR.html",
+          "sha256": "ed3680c74229c8bfc0ade37e656f47cc0af4d3bb14eb744036c50952096d126f",
+          "retrieved_at": "2026-11-11T09:04:35.753489+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-DLR.html",
+          "sha256": "ed3680c74229c8bfc0ade37e656f47cc0af4d3bb14eb744036c50952096d126f",
+          "retrieved_at": "2026-11-11T09:23:56.023924+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/audit.json",
+          "retained_file": "work/independent-audit/DLR.html",
+          "sha256": "ed3680c74229c8bfc0ade37e656f47cc0af4d3bb14eb744036c50952096d126f",
+          "retrieved_at": "2026-11-11T09:04:35.753489+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-adj-DLR.html",
+          "sha256": "ed3680c74229c8bfc0ade37e656f47cc0af4d3bb14eb744036c50952096d126f",
+          "retrieved_at": "2026-11-11T09:23:56.023924+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://investor.digitalrealty.com/static-files/3314eea6-08dd-4a03-a8c5-bd2419b5d449",
+      "source_ids": [
+        "deep-DLR-finance-lease"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": false,
+      "prior_receipts": [],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "fresh_retrieval": {
+        "url": "https://investor.digitalrealty.com/static-files/3314eea6-08dd-4a03-a8c5-bd2419b5d449",
+        "source_ids": [
+          "deep-DLR-finance-lease"
+        ],
+        "retrieved_at": "2026-11-11T09:50:57.146099+00:00",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      "targeted_checks": [
+        {
+          "source_id": "deep-DLR-finance-lease",
+          "checked": "Freshwebandshellretrieval403. AdjacentreviewerpreviouslyreviewedpresentationPDFpp24–25andrecordedseparate265.526mfinanceleases; no retainedPDFbytes/hashavailable.",
+          "status": "fresh_independent_document_access_unresolved",
+          "remaining_assertion": "IndependentfreshverificationoftheexactPDFpageswhichpresentfinanceleasesseparatelyfrom19.494615bnbalance-sheetdebt.",
+          "related_prior_review": "work/research/adjacent-deeper-audit.json"
+        }
+      ],
+      "coverage_status": "exact_url_fresh_access_unresolved",
+      "related_reviewed_primary_ids": [
+        "deep-adj-DLR"
+      ],
+      "corroboration_limit": "The independently retained SEC 10-Q supports the consolidated debt principal/carrying bridge and balance rows. It does not independently establish the presentation-only $265.526m finance-lease disclosure reviewed by the adjacent source agent."
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000119312518199589/d603959dex42.htm",
+      "source_ids": [
+        "deep-legal-DLR"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-DLR.html",
+          "sha256": "8ec8f0c952bf38f067e71b31eea1bee1a65d8c69bf856cc1da07da8972dc6b2e",
+          "retrieved_at": "2026-11-11T09:23:56.144752+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-DLR.html",
+          "sha256": "8ec8f0c952bf38f067e71b31eea1bee1a65d8c69bf856cc1da07da8972dc6b2e",
+          "retrieved_at": "2026-11-11T09:23:56.144752+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1297996/000129799618000130/dlr630201810-q.htm",
+      "source_ids": [
+        "deep-issue-DLR"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-issue-DLR.html",
+          "sha256": "b217f046e47107a465c69ec70f2b1a468956f43f3b4dad4c404aea7f14fdac54",
+          "retrieved_at": "2026-11-11T09:23:56.274490+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-issue-DLR.html",
+          "sha256": "b217f046e47107a465c69ec70f2b1a468956f43f3b4dad4c404aea7f14fdac54",
+          "retrieved_at": "2026-11-11T09:23:56.274490+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000079/closing8-kxex41indenture.htm",
+      "source_ids": [
+        "deep-legal-GLXY"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-GLXY.html",
+          "sha256": "35854db936c4a50cd6135cdd39e816ef923a1397281d939a5dd3bb1adc5f265b",
+          "retrieved_at": "2026-11-11T09:23:56.616993+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/retrievals.json",
+          "retained_file": "work/independent-audit/notes/deep-legal-GLXY.html",
+          "sha256": "35854db936c4a50cd6135cdd39e816ef923a1397281d939a5dd3bb1adc5f265b",
+          "retrieved_at": "2026-11-11T09:23:56.616993+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+      "source_ids": [
+        "nscale-s1"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/nscale-retrieval.json",
+          "retained_file": "work/independent-audit/NSCALE-S1.html",
+          "sha256": "9222378e41809d2d28c6ac9bcf7cad6d03aa0a3eda1b27f6695a8cd9ab6d42df",
+          "retrieved_at": "2026-11-11T09:08:55.908094+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089969/tm2525580d4_ex4-3.htm",
+      "source_ids": [
+        "independent-nbis-2032-indenture"
+      ],
+      "duplicate_record_count": 0,
+      "baseline_exact_url_hashed_receipt": true,
+      "prior_receipts": [
+        {
+          "receipt_file": "work/independent-audit/independentnotes_audit.json",
+          "retained_file": "work/independent-audit/notes/independent-nbis-sep2032-indenture.html",
+          "sha256": "70b9939b50b26c03aa1ebc34ff5856955ec1a3dce04fb3e7fcd545f6ac95d471",
+          "retrieved_at": "2026-11-11T09:26:08.101707+00:00"
+        },
+        {
+          "receipt_file": "work/independent-audit/notes/independent-nbis-sep2032-indenture.receipt.json",
+          "retained_file": "work/independent-audit/notes/independent-nbis-sep2032-indenture.html",
+          "sha256": "70b9939b50b26c03aa1ebc34ff5856955ec1a3dce04fb3e7fcd545f6ac95d471",
+          "retrieved_at": "2026-11-11T09:26:08.101707+00:00"
+        }
+      ],
+      "interpretation_limit": "Retrieval receipts support only the specific financial assertions enumerated in the balance and note audits; they are not exhaustive legal-document reviews.",
+      "coverage_status": "exact_url_raw_http_hash_receipt_previously_reviewed"
+    }
+  ],
+  "new_equivalent_primary_receipt": {
+    "source_ids": [
+      "mara-note-issue"
+    ],
+    "canonical_url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001628280-24-047148/mara-20240930.htm",
+    "url": "https://www.sec.gov/Archives/edgar/data/1507605/000162828024047148/mara-20240930.htm",
+    "http_status": 200,
+    "retrieved_at": "2026-11-11T09:51:25.398611+00:00",
+    "sha256": "abd080e288f86dd35315402763beb6fb452e4902a3d9571ab728a051850e339c",
+    "retained_file": "work/independent-audit/remaining/mara-note-issue-sec-equivalent.html"
+  },
+  "tracked_edits": false,
+  "resolution": {
+    "finance_lease_value_withdrawn": "DLR optional finance lease value set to null; independently unsupported PDF-derived details removed from displayed/exported company notes and source ledger. Ranked borrowing subtotal and SEC-supported operating leases remain unchanged.",
+    "followup_receipt": "work/independent-audit/dlr-lease-followup.json",
+    "current_source_records_after_withdrawal": 79,
+    "current_unique_urls_after_withdrawal": 53,
+    "qualification": "The URL coverage map above intentionally describes the reviewed pre-correction80-record ledger; it is historical audit evidence.",
+    "corrected_canonical_sha256": "0b8e28d142de724ec28be5ae4d5a58e7d1c517ef5828f570375e467690dd2ced",
+    "sec_followup": {
+      "reviewed_at": "2026-11-11T09:54:57.044577+00:00",
+      "company": "DLR",
+      "primary_receipt": {
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001297996.json",
+        "http_status": 200,
+        "retrieved_at": "2026-11-11T09:54:19.190537+00:00",
+        "sha256": "838cdf3278a14084e7da17fa62a306c49787118f1f9b53dc5b73c10db992c531",
+        "retained_file": "work/independent-audit/remaining/dlr-companyfacts.json"
+      },
+      "filing_reviewed": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+      "retained_filing": "work/independent-audit/notes/deep-adj-DLR.html",
+      "checked": [
+        "No September30,2026 FinanceLeaseLiability/current/noncurrent or other finance/capital-lease current fact found in SEC companyfacts.",
+        "Exact retained Q3HTML contains neither265526 nor265,526 nor265.5, and no financelease or financinglease inline tag. General lease policy alone does not establish a total.",
+        "DLR selected4.45%note sources are SEC quarter/indenture/original issue filing; terms do not depend on blockedPDF."
+      ],
+      "conclusion": "Cannot independently substantiate optional $265.526m finance-lease context from reviewed SEC sources. Unknown must not become zero. No change recommended to reconciled $19.494615bn borrowing numerator.",
+      "recommended_changes": [
+        {
+          "path": "companies[DLR].debt_context.leases[kind=finance].value",
+          "value": null
+        },
+        {
+          "path": "companies[DLR].debt_context.leases[kind=finance].source_ids",
+          "value": []
+        },
+        {
+          "path": "companies[DLR].debt_context.leases[kind=finance].note",
+          "value": "Finance-lease total not independently established in the reviewed Q3 filing; unknown is not zero."
+        },
+        {
+          "path": "companies[DLR].debt_context.leases[kind=operating].note",
+          "value": "Separately reported operating lease liabilities; excluded from ranked borrowings."
+        }
+      ],
+      "limits": "No retry of blockedPDF. Failure tofindamount does notprove nofinanceleases. Recommendation removesunsupportedoptionalamount, not the existingdebtbridge.",
+      "tracked_edits": false
+    }
+  }
+}

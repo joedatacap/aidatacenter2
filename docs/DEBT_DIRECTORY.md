@@ -141,3 +141,20 @@ financial audit or exhaustive legal review. A precise Nebius 2032 maturity date
 needed an additional original indenture link; that provenance correction is
 recorded. Historical receipts retain their reviewed hashes rather than pretending
 to certify subsequent editorial changes.
+
+
+[Remaining-source coverage review](DIRECTORY_REMAINING_SOURCE_REVIEW.json) maps
+the pre-correction 80 source IDs to 54 unique URLs: 47 have retained raw retrieval
+receipts and six have web-text review. One presentation PDF could not be freshly
+retrieved. SEC follow-up did not substantiate its optional Digital Realty
+finance-lease amount, so that amount was changed to unknown and the unsupported
+PDF record removed. The current ledger has 79 source records across 53 unique
+URLs. The historical coverage map preserves the original reviewed hash and
+records the correction separately. This does not change the SEC-supported
+borrowing subtotal or imply the company has no finance leases.
+
+[Private watchlist review](DIRECTORY_WATCHLIST_REVIEW.json) freshly checks all four
+linked announcements via web-text retrieval. Those receipts do not claim raw
+HTML hashes: direct HTTPS was blocked. Announced facility size and contractual
+rates remain separate from current debt balances, market yields and company
+credit ratings.

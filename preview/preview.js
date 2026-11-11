@@ -111,6 +111,8 @@ function render(){
   $('empty-title').textContent=isCoupon?'No note examples match this view.':'No companies match this view.';
   $('empty-description').textContent=isCoupon?'Try another company, choose all note types and statuses, or broaden the peer group.':'Try another ticker, clear the search, or choose a broader peer group.';
   $('clear-search').textContent=isCoupon?'Clear search & note filters':'Clear search';
+  document.querySelectorAll('[data-guide-metric]').forEach(button=>button.disabled=false);
+  const sourceExample=visibleRows[0];$('guide-source').disabled=!sourceExample;$('guide-source').textContent=sourceExample?'Open '+sourceExample.name+'’s sources →':'Clear search to inspect a source';
   renderComparisonTray();
   updateURL();
 }
@@ -264,6 +266,8 @@ function renderCoverage(){
   });
 }
 function bind(){
+  document.querySelectorAll('[data-guide-metric]').forEach(button=>button.onclick=()=>{const metric=button.dataset.guideMetric;if(!Object.hasOwn(METRICS,metric))return;state.metric=metric;render();$('start-here').open=false;const target=$('company-figures');target.focus({preventScroll:true});target.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});});
+  $('guide-source').onclick=()=>{const company=visibleRows[0];if(company)openCompany(company.ticker);};
   document.querySelectorAll('[data-metric]').forEach(button=>{button.onclick=()=>selectMetric(button.dataset.metric);button.onkeydown=event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const keys=Object.keys(METRICS),current=keys.indexOf(button.dataset.metric),next=event.key==='Home'?0:event.key==='End'?keys.length-1:(current+(event.key==='ArrowRight'?1:-1)+keys.length)%keys.length;selectMetric(keys[next]);$('tab-'+keys[next]).focus();};});
   document.querySelectorAll('[data-group]').forEach(button=>button.onclick=()=>{state.group=button.dataset.group;render();});
   $('search').oninput=()=>{state.q=$('search').value.slice(0,100);render();};$('direction').onchange=()=>{state.order=$('direction').value==='asc'?'asc':'desc';render();};

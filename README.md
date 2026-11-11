@@ -14,7 +14,8 @@ side by side; searching preserves each company’s rank in its selected peer gro
 Coupons are not current market yields or company-wide borrowing costs.
 
 GPU clouds, mixed AI-infrastructure businesses, miners and data-center REITs have
-separate filters. Nscale is labeled as a private IPO applicant with public filing
+separate filters. An optional “Start here” walkthrough explains how to read each
+measure and opens the relevant view or company sources. Nscale is labeled as a private IPO applicant with public filing
 financials; its small loan balance excludes substantial customer financing and
 leases. A separate watchlist explains gaps for Crusoe, Lambda and Vultr without
 substituting announced facility sizes for outstanding debt. Every material value links to a primary disclosure. Unknown or

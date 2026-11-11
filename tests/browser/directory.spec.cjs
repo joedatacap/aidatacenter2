@@ -301,6 +301,12 @@ test('partial bridges, lease exclusions and conflicting issue dates remain expli
   await page.goto('/?company=WULF');
   await expect(page.locator('.note-detail-card[data-instrument="WULF-2030-775"]')).toContainText('Conflicting source dates');
   await expect(page.locator('.note-detail-card[data-instrument="WULF-2030-775"]')).toContainText('Issue date unknown');
+  await page.keyboard.press('Escape');
+  await page.goto('/?company=DLR');
+  await page.locator('.debt-context summary').click();
+  const financeLease=page.locator('.lease-card').filter({has:page.getByRole('heading',{name:'Finance leases',exact:true})});
+  await expect(financeLease.locator('strong')).toHaveText('Unknown');
+  await expect(financeLease).toContainText('not independently established');
 });
 
 test('private operator financing announcements stay separate from ranked borrowing balances',async({page})=>{
@@ -313,4 +319,51 @@ test('private operator financing announcements stay separate from ranked borrowi
   await expect(page.locator('#coverage')).toContainText('Lambda');
   await expect(page.locator('#coverage')).toContainText('Vultr');
   expect(await page.locator('#ranking-rows tr').evaluateAll(rows=>rows.some(r=>/CRUSOE|LAMBDA|VULTR/.test(r.dataset.ticker)))).toBe(false);
+});
+
+test('first-use walkthrough supports keyboard metric choices and source inspection without an automatic tour',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/');
+  await expect(page.locator('#ranking-rows tr')).toHaveCount(12);
+  const guide=page.locator('#start-here'),summary=page.locator('#start-here-summary');
+  await expect(guide).not.toHaveAttribute('open');
+  await expect(page.locator('dialog[open]')).toHaveCount(0);
+  await summary.focus();await page.keyboard.press('Enter');
+  await expect(guide).toHaveAttribute('open','');
+  await expect(guide).toContainText('Arithmetic example — not a company estimate');
+  await page.locator('#guide-debt-assets').focus();await page.keyboard.press('Enter');
+  await expect(page.locator('#tab-debt_assets')).toHaveAttribute('aria-selected','true');
+  await expect(guide).not.toHaveAttribute('open');
+  await expect(page.locator('#company-figures')).toBeFocused();
+  await expect(page.locator('#metric-description')).toContainText('$100');
+  await summary.focus();await page.keyboard.press('Space');
+  await page.locator('#guide-coupons').focus();await page.keyboard.press('Enter');
+  await expect(page.locator('#tab-coupon')).toHaveAttribute('aria-selected','true');
+  expect((await page.locator('.rank-number').allTextContents()).every(r=>r==='—')).toBe(true);
+  await summary.focus();await page.keyboard.press('Enter');
+  await page.locator('#guide-debt').focus();await page.keyboard.press('Enter');
+  await summary.focus();await page.keyboard.press('Enter');
+  const sources=page.locator('#guide-source');
+  await expect(sources).toContainText('CoreWeave');
+  await sources.focus();await page.keyboard.press('Enter');
+  await expect(page.locator('#detail-title')).toHaveText('CoreWeave');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#company-dialog')).not.toBeVisible();
+  await expect(sources).toBeFocused();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('walkthrough preserves a chosen peer group and search and does not fabricate a source for empty results',async({page})=>{
+  await page.goto('/?group=gpu_cloud&q=no-such-company&order=desc&note_type=secured&outstanding=confirmed');
+  await expect(page.locator('#empty')).toBeVisible();
+  await page.locator('#start-here-summary').click();
+  await expect(page.locator('#guide-source')).toBeDisabled();
+  await page.locator('#guide-coupons').click();
+  await expect(page.locator('#search')).toHaveValue('no-such-company');
+  await expect(page.locator('[data-group="gpu_cloud"]')).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('#direction')).toHaveValue('desc');
+  await expect(page.locator('#note-type')).toHaveValue('secured');
+  await expect(page.locator('#note-status')).toHaveValue('confirmed');
+  await expect(page.locator('#empty')).toBeVisible();
+  await expect(page.locator('dialog[open]')).toHaveCount(0);
 });

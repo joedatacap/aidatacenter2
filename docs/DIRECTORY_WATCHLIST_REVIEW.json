@@ -1,0 +1,134 @@
+{
+  "reviewed_on": "2026-11-11",
+  "canonical_file": "neocloud/data/debt_directory.json",
+  "canonical_sha256_at_review": "49f71ec8a556868b88042168fe7b33f2f5b284d3b51c60a04cb00a94a30beaa6",
+  "scope": "Independent fresh retrieval review of current coverage_watchlist; Crusoe, Lambda, Vultr only",
+  "result": "No material overclaims or corrections identified in these canonical watchlist rows. Announced facilities remain separate from drawn/outstanding balances and company rankings.",
+  "chronology": "Vultr source is from 2025; Crusoe and both Lambda sources are from 2026. This is a dated selected-announcement watchlist, not a complete latest financing inventory.",
+  "retrieval_limitations": [
+    "Direct stdlib HTTPS requests to all four URLs returned proxy tunnel 403 Forbidden; no escalation or direct retry was attempted.",
+    "Allowed web retrieval successfully opened all four exact canonical links. These are web-tool text receipts, not independently authenticated raw HTTP or captured HTML hashes.",
+    "No reviewed announcement establishes a current consolidated borrowing/assets pair. This review does not claim such financials cannot exist elsewhere."
+  ],
+  "reviews": [
+    {
+      "company": "Crusoe",
+      "verdict": "pass_with_existing_caveats",
+      "material_corrections": [],
+      "findings": [
+        "Confirmed October 22, 2026 announcement of USD700M equipment-secured financing facility. No drawn or outstanding balance stated. Legal borrower and recourse remain unknown."
+      ],
+      "canonical_unranked_verified": true,
+      "source_receipts": [
+        {
+          "source_id": "crusoe-power",
+          "url": "https://www.crusoe.ai/resources/newsroom/neuberger-and-crusoe-announce-700-million-facility",
+          "published_on": "2026-10-22",
+          "retrieval_channel": "web.run open of exact canonical URL; tool reports crawled today",
+          "retrieval_result": "Page text successfully retrieved",
+          "supporting_lines": "57,71-72",
+          "exact_passages": [
+            {
+              "passage": "$700 million financing facility",
+              "verified_in_retrieved_text": true
+            },
+            {
+              "passage": "secured by recently ordered power generation equipment",
+              "verified_in_retrieved_text": true
+            }
+          ],
+          "date_evidence": "Visible announcement date"
+        }
+      ]
+    },
+    {
+      "company": "Lambda",
+      "verdict": "pass_with_existing_caveats",
+      "material_corrections": [],
+      "findings": [
+        "Confirmed October 1, 2026 USD1.008B detailed facility amount, delayed draw, 6.78% fixed contractual rate and May 30, 2033 final maturity. No outstanding balance stated.",
+        "Confirmed August 27, 2026 USD926M SPV term loan B closing, earlier August 12 pricing, SOFR plus 3.00%, December 31, 2030 maturity. Facility ratings are not corporate ratings. The two facilities are not a complete company debt total."
+      ],
+      "canonical_unranked_verified": true,
+      "source_receipts": [
+        {
+          "source_id": "lambda-oct",
+          "url": "https://lambda.com/blog/lambda-closes-1-billion-senior-secured-fixed-rate-financing",
+          "published_on": "2026-10-01",
+          "retrieval_channel": "web.run open of exact canonical URL; tool reports crawled today",
+          "retrieval_result": "Page text successfully retrieved",
+          "supporting_lines": "118,123,126-141",
+          "exact_passages": [
+            {
+              "passage": "$1.008 billion delayed draw term loan",
+              "verified_in_retrieved_text": true
+            },
+            {
+              "passage": "6.78% fixed interest rate on a semi-annual coupon basis",
+              "verified_in_retrieved_text": true
+            }
+          ],
+          "date_evidence": "Visible announcement date"
+        },
+        {
+          "source_id": "lambda-aug",
+          "url": "https://lambda.com/blog/lambda-closes-926-million-senior-secured-term-loan-b-facility",
+          "published_on": "2026-08-27",
+          "retrieval_channel": "web.run open of exact canonical URL; tool reports crawled today",
+          "retrieval_result": "Page text successfully retrieved",
+          "supporting_lines": "118,123-126",
+          "exact_passages": [
+            {
+              "passage": "$926 million senior secured term loan B facility",
+              "verified_in_retrieved_text": true
+            },
+            {
+              "passage": "asset-backed SPV financing",
+              "verified_in_retrieved_text": true
+            },
+            {
+              "passage": "SOFR + 3.00%",
+              "verified_in_retrieved_text": true
+            }
+          ],
+          "date_evidence": "Visible announcement date"
+        }
+      ]
+    },
+    {
+      "company": "Vultr",
+      "verdict": "pass_with_existing_caveats",
+      "material_corrections": [],
+      "findings": [
+        "Confirmed June 23, 2025 source timestamp through fresh indexed release retrieval. Body confirms USD255M facility includes USD35M uncommitted accordion plus separate USD74M lease financing. USD329M combined headline is neither drawn borrowing debt nor lease-excluded debt."
+      ],
+      "canonical_unranked_verified": true,
+      "source_receipts": [
+        {
+          "source_id": "vultr-credit",
+          "url": "https://www.businesswire.com/news/home/20250623608954/en/Vultr-Secures-%24329-Million-in-Credit-Financing-to-Expand-Global-AI-Infrastructure-and-Cloud-Computing-Platform",
+          "published_on": "2025-06-23",
+          "retrieval_channel": "web.run open of exact canonical URL; tool reports crawled today",
+          "retrieval_result": "Page text successfully retrieved",
+          "supporting_lines": "29,32,40-44",
+          "exact_passages": [
+            {
+              "passage": "$255 million syndicated credit facility",
+              "verified_in_retrieved_text": true
+            },
+            {
+              "passage": "$35 million uncommitted accordion",
+              "verified_in_retrieved_text": true
+            },
+            {
+              "passage": "$74 million of recently-closed lease financing",
+              "verified_in_retrieved_text": true
+            }
+          ],
+          "date_evidence": "Additional fresh search turn101search0 gives Jun 23, 2025 10:00 AM Eastern Daylight Time; open body omits timestamp"
+        }
+      ]
+    }
+  ],
+  "tracked_edits": false
+}

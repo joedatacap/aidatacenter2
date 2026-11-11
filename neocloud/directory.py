@@ -15,19 +15,19 @@ GROUPS = {'gpu_cloud', 'ai_transition', 'bitcoin_mining', 'data_center_reit'}
 DEFINITIONS = {
     'debt': {
         'title': 'Recorded borrowings',
-        'description': 'The amount recorded for loans and notes. Discounts and fees can make this lower than the principal due.',
+        'description': 'How big is the borrowing balance? This is the amount recorded for loans and notes, with leases left out.',
         'formula': 'Short-term + long-term recorded borrowings, excluding leases',
-        'caveat': 'USD carrying values exclude operating and finance leases, which are real obligations. Larger companies can have more debt without being less healthy. Project debt can be nonrecourse to the parent.',
+        'caveat': 'The recorded balance can differ from the principal required by the debt contract because of discounts, fees and other accounting adjustments. Operating and finance leases are excluded but remain real obligations. A larger balance does not establish repayment ability; some project debt has limited claims on the parent company.',
     },
     'debt_assets': {
         'title': 'Borrowings / assets',
-        'description': 'Dollars of borrowings for every $100 of recorded company assets.',
+        'description': 'How large are borrowings relative to the company’s recorded assets? Read the percentage as dollars of borrowing for every $100 of assets.',
         'formula': 'Reported borrowings ÷ total assets × 100, from the same reporting date',
-        'caveat': 'This is not a credit rating or repayment forecast. Lease-heavy vs owned infrastructure, crypto holdings and construction assets make comparisons imperfect. Assets include lease right-of-use assets, while the borrowing numerator excludes lease liabilities.',
+        'caveat': 'Assets are not the same as cash available to repay debt. This ratio does not show which assets were financed with borrowing or predict default. Leased infrastructure, crypto holdings and construction assets make company comparisons imperfect. Assets can include the recorded right to use leased property, while the borrowing measure excludes lease obligations.',
     },
     'coupon': {
         'title': 'Bond coupon examples',
-        'description': 'The stated annual interest rate on one identified fixed-rate note. Sort the examples, rather than rank company health.',
+        'description': 'What fixed interest rate is written into this specific note? Each row is one debt contract, not the company’s overall borrowing rate.',
         'formula': 'Contractual fixed coupon for the named instrument; no blended borrowing-rate estimate',
         'caveat': 'Coupon is not current market yield or total funding cost. Convertible, secured project and unsecured notes differ. One note does not represent all company debt. These are terms from dated disclosures; continued outstanding status has not been reverified for every example.',
     },

@@ -83,7 +83,25 @@ Review fixes also validate inherited object names (`__proto__`, `constructor`,
 to supported tickers. Small eyebrow labels now have at least 5.04:1 contrast on
 their actual backgrounds. Keyboard focus outlines use different colors on light
 content and dark header/footer backgrounds; tests require at least 3:1 contrast
-and a visible 3px outline. The complete suite now covers 46 desktop/mobile browser checks across both apps.
+and a visible 3px outline. The complete suite now covers 50 desktop/mobile browser checks across both apps.
 Directory checks include three-company comparisons, nested-dialog focus, note
 type/status filters, stable cohort ranks during search, principal/lease context,
 private-issuer labels and the unranked private-operator coverage watchlist.
+
+
+## First-use reading guide
+
+The default directory has a closed-by-default “New here?” walkthrough. Three
+steps explain recorded/book borrowing balances versus contractual principal,
+assets versus spendable cash, and coupon versus market yield. A boxed arithmetic
+example is explicitly labeled as made up, not a company estimate. Actions open
+the relevant metric without clearing the visitor's peer group, text search,
+note filters or sort order. They move keyboard focus to the figures. A separate
+action names the first visible company and opens its actual source panel;
+Escape returns focus to that button. Empty results and failed datasets cannot
+open a fabricated company example. No forced tour or saved personal state is used.
+
+Source review now includes an explicit unique-URL coverage map. The optional DLR
+finance-lease amount became unknown after independent SEC follow-up could not
+support a presentation-derived figure. Its SEC-backed borrowing subtotal and
+operating-lease disclosure remain unchanged.
