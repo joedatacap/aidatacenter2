@@ -12,6 +12,8 @@ runtime research settings are changed.
 - 12/18-month funding gap, funding bars, illustrative equity denominator,
   immediate annualized interest impact, pre-shock coverage and partial maturities.
 - Shareable query parameters, pair shortcuts, swap/reset, JSON download.
+- A single-file HTML export embeds all assets and data for offline use without a
+  server; desktop/mobile browser tests run it with networking disabled.
 - Separate historical HUT source excerpts, project coupons and dated principal;
   the revolver commitment is distinguished from unknown drawn balance.
 - Desktop/mobile layouts, visible missing-data/error states and keyboard controls.

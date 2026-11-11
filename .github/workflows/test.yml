@@ -55,5 +55,6 @@ jobs:
           name: neocloud-preview
           path: |
             preview/
+            work/NeoCloud-Interactive-Preview.html
             work/preview-*.png
             work/playwright-results/

@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "preview": "python3 -m http.server 8000 --bind 0.0.0.0 --directory preview",
-    "test:preview": "playwright test",
+    "build:standalone": "python3 scripts/build_standalone.py",
+    "test:preview": "npm run build:standalone && playwright test",
     "deploy:dry-run": "wrangler deploy --dry-run",
     "stage:subpath": "python3 scripts/stage_preview.py",
     "deploy:subpath:dry-run": "npm run stage:subpath && wrangler deploy --config wrangler.subpath.jsonc --dry-run"

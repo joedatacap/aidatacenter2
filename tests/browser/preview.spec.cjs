@@ -66,3 +66,24 @@ test('subdirectory assets stay inside neoclouddebt and root is not an app fallba
   const root=await request.get('http://127.0.0.1:8001/');
   expect(await root.text()).not.toContain('SCENARIO WORKBENCH');
 });
+
+test('standalone HTML works offline when loaded directly as browser content', async ({page, context}) => {
+  const requests=[], errors=[];
+  page.on('request',r=>requests.push(r.url()));
+  page.on('pageerror',e=>errors.push(e.message));
+  await context.setOffline(true);
+  const {resolve}=require('path');
+  const html=require('fs').readFileSync(resolve('work/NeoCloud-Interactive-Preview.html'),'utf8');
+  await page.setContent(html);
+  await expect(page.locator('.company-card')).toHaveCount(2);
+  await expect(page.locator('.gap-number').first()).toContainText('$654M');
+  await page.locator('#scenario').selectOption('Base');
+  await expect(page.locator('.gap-number').first()).toContainText('$200M');
+  await page.locator('[data-horizon="18"]').click();
+  await expect(page.locator('.gap-number').first()).toContainText('$450M');
+  await page.locator('[data-pair="IREN,BTDR"]').click();
+  await expect(page.locator('.company-head h3').first()).toHaveText('IREN');
+  await expect(page.locator('#reference-cards')).toContainText('$3.25B');
+  expect(requests).toEqual([]);
+  expect(errors).toEqual([]);
+});

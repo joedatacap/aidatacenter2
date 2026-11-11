@@ -20,6 +20,9 @@ npm run preview
 
 No database, API keys or inference calls are needed. This static server serves
 only `preview/`; it does not expose the unauthenticated FastAPI endpoints.
+For an offline, single-file demo, run `npm run build:standalone`, then open
+`work/NeoCloud-Interactive-Preview.html` directly in Chrome, Edge or Firefox.
+The HTML embeds its styles, code and scenario data; no server is needed.
 To regenerate the checked-in scenario data with the unchanged Python engine:
 
 ```sh

@@ -65,7 +65,8 @@ function render() {
   $('scenario-notes').replaceChildren(el('p',`${s.scenario}: operating inflows ×${a.operating_inflow_factor}; capex ×${a.capex_factor}; funding-model rate shock ${a.rate_shock_bps} bps. ${a.refinancing}. The separately selected benchmark shock is +${s.shock} bps.`));
   document.querySelectorAll('[data-pair]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.pair===s.left+','+s.right)));
   document.querySelectorAll('[data-horizon]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.horizon)===horizon)));
-  const u=new URL(location.href);u.search=new URLSearchParams(s).toString();history.replaceState(null,'',u);
+  const u=new URL(location.href);u.search=new URLSearchParams(s).toString();
+  try { history.replaceState(null,'',u); } catch { /* Sandboxed file previews may have an opaque origin. */ }
 }
 function references() {
   const r=data.reference, root=$('reference-cards');root.replaceChildren();
@@ -86,7 +87,9 @@ function setPair(left,right){$('left').value=left;$('right').value=right;render(
 function download(){const s=selection(), c=current(), payload={disclosure:data.disclosure,selection:s,as_of:data.as_of,comparison:{[s.left]:c.tickers[s.left],[s.right]:c.tickers[s.right]}};const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));const a=el('a');a.href=url;a.download=`neocloud-${s.left}-${s.right}-illustrative.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 async function init(){
   try{
-    const response=await fetch('./data.json');if(!response.ok)throw new Error('Scenario data could not be loaded.');data=await response.json();
+    const bundled=$('preview-data');
+    if(bundled) data=JSON.parse(bundled.textContent);
+    else { const response=await fetch('./data.json');if(!response.ok)throw new Error('Scenario data could not be loaded.');data=await response.json(); }
     for(const id of ['left','right'])for(const [ticker,company] of Object.entries(data.companies)){const o=el('option',`${ticker} / ${company.name}`);o.value=ticker;$(id).append(o);}
     const p=new URLSearchParams(location.search);
     $('left').value=data.companies[p.get('left')]?p.get('left'):'CRWV';$('right').value=data.companies[p.get('right')]?p.get('right'):'HUT';
