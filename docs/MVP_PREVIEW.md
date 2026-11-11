@@ -69,3 +69,10 @@ live Crusoe investigation or actual Neon persistence is claimed for this build.
 
 Screenshots and Playwright output are retained under ignored `work/` locally and
 uploaded as CI artifacts. CI does not publish or deploy the app.
+
+Review fixes also validate inherited object names (`__proto__`, `constructor`,
+`toString`) in either shared-link ticker parameter. They fall back independently
+to supported tickers. Small eyebrow labels now have at least 5.04:1 contrast on
+their actual backgrounds. Keyboard focus outlines use different colors on light
+content and dark header/footer backgrounds; tests require at least 3:1 contrast
+and a visible 3px outline. All 14 desktop/mobile browser checks pass locally.

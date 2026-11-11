@@ -92,7 +92,8 @@ async function init(){
     else { const response=await fetch('./data.json');if(!response.ok)throw new Error('Scenario data could not be loaded.');data=await response.json(); }
     for(const id of ['left','right'])for(const [ticker,company] of Object.entries(data.companies)){const o=el('option',`${ticker} / ${company.name}`);o.value=ticker;$(id).append(o);}
     const p=new URLSearchParams(location.search);
-    $('left').value=data.companies[p.get('left')]?p.get('left'):'CRWV';$('right').value=data.companies[p.get('right')]?p.get('right'):'HUT';
+    $('left').value=Object.hasOwn(data.companies,p.get('left'))?p.get('left'):'CRWV';
+    $('right').value=Object.hasOwn(data.companies,p.get('right'))?p.get('right'):'HUT';
     if(['Base','Downside','Tight credit'].includes(p.get('scenario')))$('scenario').value=p.get('scenario');
     if(['0','100','200','300'].includes(p.get('shock')))$('shock').value=p.get('shock');
     if(p.get('horizon')==='18')horizon=18;
