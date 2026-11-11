@@ -83,7 +83,7 @@ Review fixes also validate inherited object names (`__proto__`, `constructor`,
 to supported tickers. Small eyebrow labels now have at least 5.04:1 contrast on
 their actual backgrounds. Keyboard focus outlines use different colors on light
 content and dark header/footer backgrounds; tests require at least 3:1 contrast
-and a visible 3px outline. The complete suite now covers 56 desktop/mobile browser checks across both apps.
+and a visible 3px outline. The complete suite now covers 58 desktop/mobile browser checks across both apps.
 Directory checks include three-company comparisons, nested-dialog focus, note
 type/status filters, stable cohort ranks during search, principal/lease context,
 private-issuer labels and the unranked private-operator coverage watchlist.
@@ -122,3 +122,14 @@ rejects synthetic funding inputs and prevents restricted balances or credit
 capacity from being treated as cash. Later financing and amendments do not update
 earlier cash snapshots. Digital Realty's obsolete 'unreviewed coupon' drafting
 text was also removed from the UI and exports, with regression coverage.
+
+
+Source-reading polish replaces numeric-token excerpt summaries with short,
+mechanically checked labeled passages or clearly identified table cells, including
+units and comparison-column dates. Empty note examples show Unknown with a
+specific reason; internal principal-scope codes are translated in the display.
+Historical references do not imply that omitted financing records appear on screen.
+A fresh IREN filing request succeeded on November 11 at 10:27 UTC and reconfirmed
+its three conditional unused commitments. The earlier independent reviewer's
+access failure remains documented; one successful request does not guarantee
+that every reviewer can access the filing.

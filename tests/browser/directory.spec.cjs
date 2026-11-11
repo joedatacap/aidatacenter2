@@ -273,6 +273,12 @@ test('private IPO applicant has actual filing data but no invented ticker or fix
   await expect(page.locator('#detail-content')).toContainText('proposed NSCL is not a verified listed ticker');
   await expect(page.locator('#detail-content')).toContainText('6.4926');
   await expect(page.locator('#detail-content')).toContainText('must not be presented as bond coupons');
+  const noCoupon=page.locator('.detail-metric').filter({has:page.getByRole('heading',{name:'Note coupon example',exact:true})});
+  await expect(noCoupon.locator('strong')).toHaveText('Unknown');
+  await expect(noCoupon).toContainText('No reviewed fixed-rate USD note example');
+  await expect(noCoupon).not.toContainText('Type unknown');
+  await expect(noCoupon).not.toContainText('Issue date unknown');
+  await expect(page.locator('#detail-content')).not.toContainText('unknown_unranked');
   await page.keyboard.press('Escape');
   await page.locator('#tab-debt_assets').click();
   const downloadPromise=page.waitForEvent('download');await page.locator('#download-json').click();
@@ -298,6 +304,8 @@ test('partial bridges, lease exclusions and conflicting issue dates remain expli
   await expect(page.locator('#company-dialog')).toBeVisible();
   await page.locator('.debt-context summary').click();
   await expect(page.locator('.debt-context')).toContainText('PARTIAL SCOPE');
+  await expect(page.locator('.debt-context')).toContainText('Long-term convertible notes only');
+  await expect(page.locator('.debt-context')).not.toContainText('noncurrent_convertibles');
   await expect(page.locator('.debt-context')).toContainText('includes accretion');
   await expect(page.locator('.debt-context')).toContainText('principal total is not reconciled');
   await page.keyboard.press('Escape');
@@ -408,6 +416,22 @@ test('letter-of-credit headroom is not spendable cash and later facilities stay 
   await expect(page.locator('.cash-funding .liquidity-facility')).toHaveCount(0);
   await expect(page.locator('.liquidity-inventory-unknown')).toBeVisible();
   await expect(page.locator('.cash-funding')).toContainText('Unknown');
+  await page.keyboard.press('Escape');await page.goto('/?company=CRWV');
+  await expect(page.locator('.cash-funding .liquidity-facility')).toHaveCount(0);
+  await expect(page.locator('.liquidity-notes')).toContainText('Earlier financing announcements are not treated as current availability');
+  await expect(page.locator('.liquidity-notes')).not.toContainText('disclosures below');
+});
+
+test('source boxes present readable verified passages with units and column context',async({page})=>{
+  await page.goto('/?company=IREN');
+  const source=page.locator('.source-card').filter({has:page.getByRole('link',{name:'IREN liquidity: cash restrictions and selected facility disclosures',exact:true})});
+  await expect(source).toContainText('USD millions');
+  await expect(source.locator('.source-excerpt-note')).toContainText('September 30, 2026');
+  await expect(source.locator('blockquote')).toContainText('Unfunded commitments');
+  await expect(source.locator('blockquote')).toContainText('subject to conditions precedent');
+  await expect(source.locator('blockquote')).toContainText('$ 1,500 million of commitment remained available');
+  await expect(source.locator('blockquote')).toHaveCSS('white-space','pre-line');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 
 test('cash qualifications and conditional credit survive comparison and machine-readable exports',async({page})=>{

@@ -191,3 +191,11 @@ coverage and limitations. This pass adds 16 source records for specific liquidit
 facts; the ledger now has 95 records across the same 53 unique URLs. The earlier
 URL coverage map remains historical evidence, not a claim that every later
 interpretation has an exhaustive independent legal review.
+
+
+Source boxes display selected verified passages or labeled table cells, with
+explicit context when comparison columns or intervening cells are omitted. They
+are short reading aids alongside links to the complete documents. The latest
+IREN recheck succeeded with a fresh HTTP200 response, while the earlier reviewer's
+access limitation is retained in the liquidity receipt. This copy/source-reading
+pass changes no financial amounts, dates, scopes or instrument source links.

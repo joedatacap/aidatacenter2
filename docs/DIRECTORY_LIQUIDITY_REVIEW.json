@@ -175,5 +175,165 @@
       "No cash-plus-credit total or company-wide available-credit claim is supported or created."
     ]
   },
-  "dlr_coupon_text_correction": "Removed stale claim that no reviewed USD note exists and removed drafting language. The sourced 4.45% July15,2028 note remains unchanged; UI/export regression checks added."
+  "dlr_coupon_text_correction": "Removed stale claim that no reviewed USD note exists and removed drafting language. The sourced 4.45% July15,2028 note remains unchanged; UI/export regression checks added.",
+  "latest_iren_recheck": {
+    "prior_independent_reviewer_access": "The reviewer of head106ad4d could not reopen this IREN filing. This limitation is retained; a successful request here does not establish universal availability.",
+    "fresh_executor_result": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "attempt_started_at": "2026-11-11T10:27:11.841142+00:00",
+      "method": "Single HTTP GET via httpx, no redirects or retries",
+      "attempts": 1,
+      "prior_receipts": "Retained HTTP 200 receipts are historical only, not evidence of this attempt.",
+      "http_status": 200,
+      "received_at": "2026-11-11T10:27:12.251537+00:00",
+      "bytes": 1530101,
+      "verified": [
+        {
+          "facility": "GPU Financing 1.0 DDTL",
+          "conditional_unfunded_usd": 1132000000,
+          "as_of": "2026-09-30",
+          "exact_excerpt": "Unfunded commitments of $1,132 million and $525 million, respectively, remained available subject to conditions precedent.",
+          "found": true
+        },
+        {
+          "facility": "GPU Financing 1.0 USPP",
+          "conditional_unfunded_usd": 525000000,
+          "as_of": "2026-09-30",
+          "exact_excerpt": "Unfunded commitments of $1,132 million and $525 million, respectively, remained available subject to conditions precedent.",
+          "found": true
+        },
+        {
+          "facility": "GPU Financing 2.0",
+          "conditional_unfunded_usd": 1500000000,
+          "as_of": "2026-09-30",
+          "exact_excerpt": "As of September 30, 2026, $ 947 million had been funded, $ 1,500 million of commitment remained available,",
+          "found": true
+        }
+      ],
+      "gpu2_conditional_draw_excerpt": {
+        "exact_excerpt": "Amounts may be drawn through December 31, 2026, subject to satisfaction of customary conditions precedent.",
+        "found": true
+      },
+      "result": "fresh_success_all_three_verified",
+      "crwv_copy_review": {
+        "current_liquidity_notes": [
+          "The reviewed September earnings release does not quantify facility-level undrawn availability. Unknown does not mean zero. August facility and draw disclosures below are historical context only.",
+          "August facility/draw disclosures and forecast customer receipts do not establish September remaining capacity and are not added to the snapshot."
+        ],
+        "displayed_facility_count": 0,
+        "recommendation": "The reviewed September earnings release does not quantify facility-level undrawn availability. Unknown does not mean zero. Earlier facility disclosures are not used to infer September availability.",
+        "reason": "A reference to disclosures below is misleading when the rendered facility list is empty; recommended wording adds no amounts or funding claims."
+      }
+    },
+    "copy_resolution": "Removed CoreWeave reference to undisplayed August disclosures and IREN spatial escrow references. No financial amount or availability status changed.",
+    "reviewed_baseline_commit": "106ad4d",
+    "copy_fix_status": "Resolved in current PR update; embedded prior wording is historical review evidence."
+  },
+  "readable_source_passage_review": {
+    "scope": "Replaces bare numeric-token excerpt summaries with labeled, short primary passages/cells. Financial values and availability categories unchanged.",
+    "sources": [
+      {
+        "source_id": "liquidity-crwv-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-nbis-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+        "quoted_words": 19,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-iren-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "quoted_words": 22,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-btdr-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+        "quoted_words": 16,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-hut-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-apld-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-corz-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-wulf-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+        "quoted_words": 25,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-cifr-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-hive-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-glxy-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+        "quoted_words": 21,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-riot-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+        "quoted_words": 20,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-mara-snapshot",
+        "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-eqix-snapshot",
+        "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+        "quoted_words": 22,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-dlr-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-nscale-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+        "quoted_words": 18,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      }
+    ]
+  },
+  "polish_integrity_check": {
+    "baseline_commit": "106ad4d",
+    "financial_fields_compared": 2159,
+    "result": "Financial amount, unit, currency, snapshot date, issue/maturity, instrument identity, outstanding-status, scope and source-link fields unchanged.",
+    "current_canonical_sha256": "ee4f6514653e024b52764cde457249487df6f47d98656a4fd3580e80c237a6cc"
+  }
 }

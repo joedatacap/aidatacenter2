@@ -217,7 +217,7 @@
         ],
         "facilities": [],
         "notes": [
-          "The reviewed September earnings release does not quantify facility-level undrawn availability. Unknown does not mean zero. August facility and draw disclosures below are historical context only.",
+          "The reviewed release for the quarter ended September 30 does not quantify facility-level unused credit. Earlier financing announcements are not treated as current availability. Unknown does not mean zero.",
           "August facility/draw disclosures and forecast customer receipts do not establish September remaining capacity and are not added to the snapshot."
         ]
       }
@@ -628,7 +628,7 @@
       },
       "liquidity": {
         "as_of": "2026-09-30",
-        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. USPP escrow below overlaps these restricted balances, not additional cash.",
+        "cash_caveat": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. Already funded note proceeds held in escrow form part of these restricted balances; they are not additional cash or unused credit.",
         "company_available_credit": {
           "value": null,
           "unit": "USD",
@@ -645,7 +645,7 @@
               "liquidity-iren-snapshot"
             ],
             "include_in_cash": false,
-            "basis": "Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. USPP escrow below overlaps these restricted balances, not additional cash."
+            "basis": "Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. Already funded note proceeds held in escrow form part of these restricted balances; they are not additional cash or unused credit."
           },
           {
             "label": "Restricted cash, noncurrent",
@@ -657,7 +657,7 @@
               "liquidity-iren-snapshot"
             ],
             "include_in_cash": false,
-            "basis": "Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. USPP escrow below overlaps these restricted balances, not additional cash."
+            "basis": "Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. Already funded note proceeds held in escrow form part of these restricted balances; they are not additional cash or unused credit."
           }
         ],
         "facilities": [
@@ -1195,7 +1195,7 @@
               "deep-cloud-hut-q3"
             ]
           },
-          "note": "Latest10Q says issueApr30; earlier8K says offering completedApr27 but indentureApr30. Keep discrepancy visible. Per-note cost52.5M is rounded;3197.5M carrying is an arithmetic indication, not a more precise filing amount.",
+          "note": "The latest quarterly filing gives April 30, 2026 as the issue date. An earlier announcement reports offering completion on April 27 and an indenture dated April 30. These dated disclosures are distinguished here.",
           "market_yield": null,
           "selection_rule": "Pinned reference example; inspect all reviewed notes for this company. Not an average, minimum or all-in financing cost.",
           "instrument_id": "CLOUD-HUT-1",
@@ -1593,7 +1593,7 @@
             "borrower": "APLD Intermediate HoldCo LLC",
             "scope": "Borrower subsidiary, parent and named subsidiary guarantees; not a parent-only cash balance",
             "as_of": "2026-08-31",
-            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "access_note": "Committed facility; borrowing remains subject to its access conditions. The limit is not cash on hand.",
             "conditions": [
               "Standby letters of credit consume facility capacity; approximately $241.0M were outstanding alongside $82.39M funded borrowings.",
               "Additional advances remain subject to existing credit agreement terms, representations, security and applicable conditions.",
@@ -1856,7 +1856,7 @@
             "borrower": "Core Scientific, Inc.",
             "scope": "Corporate borrower with material domestic subsidiary guarantees",
             "as_of": "2026-09-30",
-            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "access_note": "Committed facility; borrowing remains subject to its access conditions. The limit is not cash on hand.",
             "conditions": [
               "Each borrowing requires market capitalization of at least $3B on the immediately preceding trading day.",
               "Quarter-end minimum liquidity covenant is $150M, defined in the agreement using unrestricted cash and available undrawn revolving commitments.",
@@ -2168,7 +2168,7 @@
             "borrower": "TeraWulf Inc.",
             "scope": "Corporate borrower with certain subsidiary guarantees; asset exclusions apply",
             "as_of": "2026-09-30",
-            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "access_note": "Committed facility; borrowing remains subject to its access conditions. The limit is not cash on hand.",
             "conditions": [
               "As of September 30, both borrowings and LCs together were limited to $75M before the First Commencement Date.",
               "The company issued $74.2M of LCs and expressly reported $0.8M remaining LC capacity; this is not a disclosure of $250M immediately drawable cash.",
@@ -2458,7 +2458,7 @@
             "borrower": "Cipher Digital Inc. (formerly Cipher Mining Inc.)",
             "scope": "Parent borrower with subsidiary security/guarantees",
             "as_of": "2026-09-30",
-            "access_note": "Committed facility; borrowing remains subject to the conditions below. The limit is not cash on hand.",
+            "access_note": "Committed facility; borrowing remains subject to its access conditions. The limit is not cash on hand.",
             "conditions": [
               "Before first commencement of Barber Lake or Black Pearl operations, aggregate revolving borrowings are capped at $50M.",
               "The $50M LC sublimit is part of the $200M commitment, not in addition; $40.6M LCs were outstanding.",
@@ -4264,7 +4264,7 @@
           "currency": "USD",
           "as_of": "2026-06-30",
           "source_ids": [],
-          "basis": "unknown_unranked",
+          "basis": "No reviewed fixed-rate USD note example is available.",
           "note": "No fixed-rate USD note coupon independently established in this review. Note 8 effective financing rates of 11.30% and 22.74% relate to loan facilities and must not be presented as bond coupons, market yields or company-wide financing costs.",
           "instrument": null,
           "issuer": null,
@@ -4291,7 +4291,7 @@
         "May 4–5, 2026 reorganization made Nscale Limited the ultimate holding company of Arkon Energy Pty Ltd and Nscale Global Holdings Limited. Use the filing consolidated actual June accounts; do not substitute a prospective Nscale plc/IPO pro forma or isolated subsidiary figure.",
         "No fixed-rate USD note coupon independently established in this review. Note 8 effective financing rates of 11.30% and 22.74% relate to loan facilities and must not be presented as bond coupons, market yields or company-wide financing costs.",
         "Do not splice post-June loan draws, new facilities, pre-IPO convertibles or commitments into the June debt numerator or assets denominator. This source reports subsequent August GPU draw and revolver utilization; those do not update this historical snapshot.",
-        "The reported maturity total is below the reported carrying amount. Do not invent a principal-minus-fees bridge or replace carrying debt with this total."
+        "The reported maturity total is below the recorded borrowing balance. The difference was not reconciled in the reviewed disclosure, so the full principal total remains unknown."
       ],
       "source_ids": [
         "nscale-s1"
@@ -4312,7 +4312,7 @@
             ],
             "scope": "consolidated_carrying_only",
             "complete_company_scope": false,
-            "note": "The reported maturity total is below the reported carrying amount. Do not invent a principal-minus-fees bridge or replace carrying debt with this total.",
+            "note": "The reported maturity total is below the recorded borrowing balance. The difference was not reconciled in the reviewed disclosure, so the full principal total remains unknown.",
             "difference": null
           }
         ],
@@ -4338,7 +4338,7 @@
         ],
         "notes": [
           "Borrowings exclude $6.4926bn of deferred customer revenue with a significant financing component and $2.6254bn of operating lease liabilities. A low borrowing/assets ratio does not mean low overall financing obligations or good financial health.",
-          "Reported contractual maturity schedule136.9M versus recorded borrowings137.4M leaves0.5M unexplained; no invented fee bridge."
+          "The $136.9M contractual maturity schedule differs from $137.4M recorded borrowings by $0.5M. That difference is not attributed to fees without supporting evidence."
         ]
       },
       "liquidity": {
@@ -5276,8 +5276,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-10",
       "retrieved_at": "2026-11-11",
-      "excerpt": "$ 4,122; $ 3,127; 1,405; 819; 877; 184",
-      "source_unit": "USD millions"
+      "excerpt": "Cash and cash equivalents $ 4,122 $ 3,127\n…\nRestricted cash and cash equivalents, current 1,405 819\n…\nRestricted cash and cash equivalents, non-current 877 184",
+      "source_unit": "USD millions",
+      "excerpt_note": "Selected balance-sheet rows: September 30, 2026 first; December 31, 2025 second. Separate passages are marked with an ellipsis."
     },
     {
       "id": "liquidity-nbis-snapshot",
@@ -5286,8 +5287,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-08-12",
       "retrieved_at": "2026-11-11",
-      "excerpt": "1,679.3; 8,042.1; 74.5; 1,056.0; 6.8; 830.3; 36.7; 225.7",
-      "source_unit": "USD millions"
+      "excerpt": "Cash and cash equivalents, end of period 1,679.3 8,042.1\n…\nRestricted cash and cash equivalents, end of period 74.5 1,056.0",
+      "source_unit": "USD millions",
+      "excerpt_note": "Selected cash-flow rows: June 30, 2025 first; June 30, 2026 second. Separate passages are marked with an ellipsis."
     },
     {
       "id": "liquidity-iren-snapshot",
@@ -5295,9 +5297,10 @@
       "title": "IREN liquidity: cash restrictions and selected facility disclosures",
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-05",
-      "retrieved_at": "2026-11-11",
-      "excerpt": "$ 3,522; $ 5,896; 2,208; 1,670; 48; 54; $1,545; $2,100; 31,; 2031; 7.22; 409; 413; 7.09; 1,571; 525; $1,132; $525; 2.0; 25,; 2026; 9.00; $ 2,447; 30,; 2026,; $ 947; $ 1,500; 3.0; 26,; 9.51; $ 363; 2029; 10.38; 355",
-      "source_unit": "USD millions"
+      "retrieved_at": "2026-11-11T10:27:12Z",
+      "excerpt": "Unfunded commitments of $1,132 million and $525 million, respectively, remained available subject to conditions precedent.\n…\n$ 1,500 million of commitment remained available,",
+      "source_unit": "USD millions",
+      "excerpt_note": "Selected September 30, 2026 availability passages. The first two amounts refer to DDTL and USPP notes; the $1,500M amount refers to GPU Financing 2.0. These commitments remain conditional."
     },
     {
       "id": "liquidity-btdr-snapshot",
@@ -5306,8 +5309,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-10",
       "retrieved_at": "2026-11-11",
-      "excerpt": "163,743; 149,352; 43,502; 22,366; 6,453; 6,159",
-      "source_unit": "USD thousands; facility narratives USD billions"
+      "excerpt": "Cash and cash equivalents 163,743 149,352\n…\nRestricted cash, current 43,502 22,366\n…\nRestricted cash, noncurrent 6,453 6,159",
+      "source_unit": "USD thousands",
+      "excerpt_note": "Selected balance-sheet rows: September 30, 2026 first; December 31, 2025 second. Separate passages are marked with an ellipsis."
     },
     {
       "id": "liquidity-hut-snapshot",
@@ -5316,8 +5320,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-04",
       "retrieved_at": "2026-11-11",
-      "excerpt": "$ 156,865; $ 44,914; 3,555,960; 2,373; $ 1.07; 30,; 2026,; 2,838,531",
-      "source_unit": "USD thousands; facility narratives USD billions"
+      "excerpt": "Cash $ 156,865 $ 44,914\n…\nRestricted cash and cash equivalents 3,555,960 2,373\n…\nproviding for a $ 1.07 billion senior secured revolving credit facility",
+      "source_unit": "USD thousands for financial rows; revolving-facility narrative USD billions",
+      "excerpt_note": "Selected balance-sheet rows compare September 30, 2026 with December 31, 2025. The revolving-facility passage is separate; its limit is not cash or verified availability."
     },
     {
       "id": "liquidity-apld-snapshot",
@@ -5326,8 +5331,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-10-07",
       "retrieved_at": "2026-11-11",
-      "excerpt": "2,949,909; 313,385; 414,649; debt service reserves; 430.0 million; 82,390; 241.0 million; subject to the existing terms and conditions; APLD Intermediate HoldCo LLC",
-      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+      "excerpt": "Cash and cash equivalents $ 2,949,909\n…\nRestricted cash 313,385\n…\nRestricted cash included in other assets 414,649\n…\n241.0 million of standby letters of credit",
+      "source_unit": "Balance-sheet rows are USD thousands. Credit-facility phrases use USD millions. Structured amounts elsewhere are converted to USD.",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-corz-snapshot",
@@ -5336,8 +5342,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-05",
       "retrieved_at": "2026-11-11",
-      "excerpt": "803,941; 201,745; 635,858; 100.0 million; no outstanding borrowings; minimum market capitalization; 3,000.0 million; 150.0 million; 500.0 million; no outstanding letters of credit",
-      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+      "excerpt": "Cash and cash equivalents $ 803,941\n…\nRestricted cash, current portion 201,745\n…\nRestricted cash, net of current portion 635,858\n…\nno outstanding borrowings\n…\nminimum market capitalization",
+      "source_unit": "Balance-sheet rows are USD thousands. Credit-facility phrases use USD millions. Structured amounts elsewhere are converted to USD.",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-wulf-snapshot",
@@ -5346,8 +5353,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-06",
       "retrieved_at": "2026-11-11",
-      "excerpt": "1,602,127; 486,702; 266,491; 250.0 million; 75.0 million; 74.2 million; 0.8 million; Prior to the First Commencement Date; no borrowings were outstanding",
-      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+      "excerpt": "Cash and cash equivalents $ 1,602,127\n…\nRestricted cash 486,702\n…\nRestricted cash 266,491\n…\n0.8 million of remaining available letter of credit capacity\n…\nno borrowings were outstanding",
+      "source_unit": "Balance-sheet rows are USD thousands. Credit-facility phrases use USD millions. Structured amounts elsewhere are converted to USD.",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-cifr-snapshot",
@@ -5356,8 +5364,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-02",
       "retrieved_at": "2026-11-11",
-      "excerpt": "656,009; 1,719,403; 477,182; 200.0 million; 50.0 million; 40.6 million; no revolving borrowings outstanding; market capitalization; capacity to be determined, subject to credit review; nothing drawn",
-      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+      "excerpt": "Cash and cash equivalents $ 656,009\n…\nRestricted cash, current 1,719,403\n…\nRestricted cash, non-current 477,182\n…\n50.0 million (the “Pre-Completion Availability Cap”)\n…\nno revolving borrowings outstanding",
+      "source_unit": "Balance-sheet rows are USD thousands. Credit-facility phrases use USD millions. Structured amounts elsewhere are converted to USD.",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-hive-snapshot",
@@ -5366,8 +5375,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-09",
       "retrieved_at": "2026-11-11",
-      "excerpt": "138,990",
-      "source_unit": "Balance-sheet figures are reported in USD thousands; facility narrative amounts are reported in USD millions. Values in structured facts are converted to actual USD."
+      "excerpt": "Cash $ 138,990\n…\nSubsequent to the period ended September 30, 2026\n…\ncredit facility of approximately $ 128.9 million\n…\nwhen the equipment is accepted",
+      "source_unit": "Balance-sheet rows are USD thousands. Credit-facility phrases use USD millions. Structured amounts elsewhere are converted to USD.",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-glxy-snapshot",
@@ -5376,8 +5386,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-09",
       "retrieved_at": "2026-11-11",
-      "excerpt": "Cash and cash equivalents; 1,324,759; up to $1.4 billion; $1.3 billion; 210,478; Galaxy Helios I LLC; callable on demand",
-      "source_unit": "USD thousands or millions as stated in filing"
+      "excerpt": "Cash and cash equivalents\t1,324,759\n…\nup to $1.4 billion\n…\noutstanding amount drawn on this facility was $1.3 billion\n…\ncallable on demand",
+      "source_unit": "USD thousands for table rows; narrative amounts retain stated million/billion units",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-riot-snapshot",
@@ -5386,8 +5397,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-04",
       "retrieved_at": "2026-11-11",
-      "excerpt": "Cash and cash equivalents; 669,052; Restricted cash; 79,170; 50,000; 34,272; 15,171; Total available capacity; 557; 20,000; $573.0 million; $20.8 million principal; terminated",
-      "source_unit": "USD thousands or millions as stated in filing"
+      "excerpt": "Cash and cash equivalents\t669,052\n…\nRestricted cash\t79,170\n…\nTotal available capacity\t557\n…\nup to $573.0 million\n…\nnon-recourse to the Company",
+      "source_unit": "USD thousands for table rows; narrative amounts retain stated million/billion units",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-mara-snapshot",
@@ -5396,8 +5408,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-11-09",
       "retrieved_at": "2026-11-11",
-      "excerpt": "Cash and cash equivalents; 946,545; 12,000; $750.0 million; fully drew on both facilities; Approximately 11%; contractually designated",
-      "source_unit": "USD thousands or millions as stated in filing"
+      "excerpt": "Cash and cash equivalents\t946,545\n…\nRestricted cash\t12,000\n…\nfully drew on both facilities\n…\ncontractually designated for use in its operations for the next year",
+      "source_unit": "USD thousands for table rows; narrative amounts retain stated million/billion units",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-eqix-snapshot",
@@ -5406,8 +5419,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-10-28",
       "retrieved_at": "2026-11-11",
-      "excerpt": "Cash and cash equivalents; 2,362; 1; 35; approximately $5.5 billion remaining available to borrow; totaling $6 million",
-      "source_unit": "USD thousands or millions as stated in filing"
+      "excerpt": "Cash and cash equivalents\t2,362\n…\nNon-current portion of restricted cash included in other assets\t35\n…\napproximately $5.5 billion remaining available to borrow",
+      "source_unit": "USD millions",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-dlr-snapshot",
@@ -5416,8 +5430,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-10-30",
       "retrieved_at": "2026-11-11",
-      "excerpt": "Cash and cash equivalents; 802,903; Restricted cash; 3,448; up to $4.2 billion equivalent; $100.8 million; subject to receipt of lender commitments",
-      "source_unit": "USD thousands or millions as stated in filing"
+      "excerpt": "Cash and cash equivalents\t802,903\n…\nRestricted cash (included in Other assets)\t3,448\n…\nup to $4.2 billion equivalent\n…\nsubject to receipt of lender commitments",
+      "source_unit": "USD thousands for table rows; narrative amounts retain stated million/billion units",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     },
     {
       "id": "liquidity-nscale-snapshot",
@@ -5426,8 +5441,9 @@
       "publisher": "SEC / issuer disclosure",
       "published_at": "2026-09-18",
       "retrieved_at": "2026-11-11",
-      "excerpt": "Cash 1,478.4; restricted 44.4 and 570.3; unused capacity 1,363.1 and 900.0; total 2,263.1",
-      "source_unit": "USD millions"
+      "excerpt": "Cash and cash equivalents $ 1,478.4\n…\nUnused Borrowing Capacity\n…\nGPU Financing Facility\n…\n$ 1,363.1\n…\nRevolving Credit Facility\n…\n900.0",
+      "source_unit": "USD millions. Selected actual June 30, 2026 columns; noncontiguous extracted table cells, not continuous prose.",
+      "excerpt_note": "Selected current-period table labels and values, with narrative fragments. These are separate extracted passages or cells, not continuous prose; intervening columns may be omitted."
     }
   ],
   "selection_policy": "Curated operators with public primary financial disclosures. Sixteen historical comparison records include listed companies and one private IPO applicant; three additional private operators are an unranked coverage watchlist. Not an exhaustive market census.",
@@ -6217,7 +6233,7 @@
           "deep-cloud-hut-q3"
         ]
       },
-      "note": "Latest10Q says issueApr30; earlier8K says offering completedApr27 but indentureApr30. Keep discrepancy visible. Per-note cost52.5M is rounded;3197.5M carrying is an arithmetic indication, not a more precise filing amount.",
+      "note": "The latest quarterly filing gives April 30, 2026 as the issue date. An earlier announcement reports offering completion on April 27 and an indenture dated April 30. These dated disclosures are distinguished here.",
       "market_yield": null,
       "selection_rule": "Reviewed examples from primary filings, not the lowest coupon, a complete debt inventory, or a company-wide borrowing cost.",
       "rankable": true
