@@ -1,6 +1,80 @@
 # NeoCloud Debt Intelligence
 
-**Which AI infrastructure companies survive higher rates?**
+**Compare the debt, cash and credit behind AI infrastructure.**
+
+For a new GPT or Codex chat, start with the [project handoff](docs/HANDOFF.md),
+including release status, evidence boundaries and the publishing runbook.
+
+## Instant read-only MVP preview
+
+The credential-free preview in `preview/` now opens with **16 actual, dated
+company records**, replacing the synthetic scenario as the first view. Two
+plain-English rankings show borrowing carrying amounts excluding leases and
+borrowings per $100 of recorded assets. Each borrowing row also writes out its
+asset percentage with a fixed 0–100% meter, denominator, snapshot date and sources.
+A separate Financing rates view shows typed company references and an unnumbered ledger of
+44 named USD fixed-note examples, with instrument type, issue/maturity dates,
+borrower and dated outstanding-status evidence. Compare up to three companies
+side by side; searching preserves each company’s rank in its selected peer group.
+The 36 typed references distinguish issuer-reported averages, fixed coupons,
+contractual loan rates, floating formulas and accounting effective rates. Only
+APLD and DLR have verified issuer-reported averages, with different scopes.
+No company-wide average or most expensive tranche is inferred from selected
+examples. Floating all-in rates stay unknown without a dated benchmark fixing.
+Coupons are not current market yields or company-wide borrowing costs.
+
+GPU clouds, mixed AI-infrastructure businesses, miners and data-center REITs have
+separate filters. An optional “Start here” walkthrough explains how to read each
+measure and opens the relevant view or company sources. Cash & funding is a top-level view with a direct action on every company row.
+It shows reported cash, factual company takeaways and separately qualified
+facility amounts alongside “Total not established” and review counts.
+Comparisons and downloads preserve access restrictions. No cash-plus-
+credit total or new health ranking is inferred. Nscale is labeled as a private IPO applicant with public filing
+financials; its small loan balance excludes substantial customer financing and
+leases. A separate watchlist explains gaps for Crusoe, Lambda and Vultr without
+substituting announced facility sizes for outstanding debt. Every material value links to a primary disclosure. Unknown or
+incomparable values stay unranked; Galaxy's total borrowing measure is deliberately
+unresolved. No composite health score or live market feed is provided. See
+[directory methodology and coverage](docs/DEBT_DIRECTORY.md).
+
+The original five-company **synthetic scenario lab** is preserved at
+`/scenarios/`. It stays separate from actual company rankings. The FastAPI
+research app and original financial engine are also preserved.
+
+```sh
+npm run preview
+# Open http://localhost:8000
+```
+
+No database, API keys or inference calls are needed. This static server serves
+only `preview/`; it does not expose the unauthenticated FastAPI endpoints.
+For an offline, single-file demo, run `npm run build:standalone`, then open
+`work/NeoCloud-Interactive-Preview.html` directly in Chrome, Edge or Firefox.
+The HTML embeds its styles, code and source records; no server is needed.
+`work/NeoCloud-Scenario-Lab.html` separately preserves the synthetic demo.
+To regenerate and validate the checked-in data, first activate the Python
+environment and install the project as shown under Start below:
+
+```sh
+python scripts/build_debt_preview.py
+python scripts/build_preview.py  # Separate original scenario fixture
+python -m pytest -q
+npm ci
+npx playwright install chromium
+npm run test:preview
+# For an already installed Chromium:
+# PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:preview
+npm run deploy:dry-run
+```
+
+`wrangler.jsonc` prepares a standalone Cloudflare Static Assets preview. For the
+preferred `/neoclouddebt/` path, `npm run deploy:subpath:dry-run` mirrors assets in
+`work/cloudflare-preview/neoclouddebt/`; relative URLs are tested at that prefix.
+Neither config contains account IDs, custom-domain routes, secrets or paid
+bindings. **No public deployment is performed by these commands.** Verify the
+Cloudflare account/Free plan, zone and existing route ownership before deploying
+or assigning a narrow `/neoclouddebt*` route; preserve the existing AIDC site.
+See [MVP preview validation](docs/MVP_PREVIEW.md) for scope and limitations.
 
 FastAPI research application for **CRWV, NBIS, IREN, BTDR and HUT**, with a Crusoe research manager, evidence ledger, rate scenarios and visible agent history. Bitdeer combines Bitcoin mining, ASIC manufacturing and emerging AI/HPC activity; it is not treated as a pure-play GPU cloud. The V2 financing engine implements [V2_FINANCING_RISK.md](V2_FINANCING_RISK.md) while preserving the V1 ledger, APIs and Postgres interface.
 

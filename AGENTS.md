@@ -4,6 +4,39 @@ You are the **lead engineering agent** for this repository. Manage implementatio
 
 ## Source of truth and current priorities
 
+- **November 12 release authorization:** Joe authorized fixing CI, merging PR #7
+  if checks/review permit, and publishing the static read-only MVP to the exact
+  hostname `neoclouddebt.datacap.xyz` on Cloudflare Free. This supersedes the older
+  subpath target for this release. Use `wrangler.production.jsonc`; preserve all
+  unrelated hosts/routes and never expose the unauthenticated Python backend.
+  Inspect actual provider state and access before deployment. See
+  `docs/HANDOFF.md` for current release status, blockers and continuation context.
+  Paid services remain unauthorized.
+
+- **November 11 product direction:** The static preview now starts with a curated
+  16-company actual borrowing directory: two company rankings (borrowing carrying
+  values excluding all leases, and same-date borrowings/assets) plus an unranked
+  44-note instrument-coupon reference. Main borrowing rows must show the numeric
+  borrowings/assets percentage and fixed 0–100% asset meter with dated denominator.
+  The Financing rates view adds 36 typed references; only APLD and DLR have
+  sourced issuer-reported averages, with different methods/scopes. Never infer a
+  full-company average or maximum from selected instruments. Floating formulas
+  need a dated benchmark fixing before displaying an all-in numeric rate. Nscale is a private IPO applicant with
+  publicly filed actual financials; preserve its customer-financing/lease caveat.
+  Crusoe, Lambda and Vultr remain a separate unranked coverage watchlist. `neocloud/data/debt_directory.json` is the primary
+  source ledger, validated/exported by `neocloud/directory.py` and
+  `scripts/build_debt_preview.py`. Keep leases, dates, consolidated scope and
+  convertible/project-note distinctions visible. Never turn coupon examples into
+  a company health or borrowing-cost ranking. Cash & funding context is separate:
+  keep group cash, restricted balances, commitments, drawn loans, unused capacity
+  and explicitly reported availability distinct. Cash & funding is a top-level,
+  unranked view with direct row actions; facility summaries show selected counts
+  and separately qualified amounts. Never summarize an LC sublimit as remaining
+  cash credit. No cash-plus-credit sum; selected
+  facilities do not establish a company-wide total. Preserve dates and access
+  conditions, including LC-only capacity and project restrictions. The original synthetic lab is
+  preserved at `preview/scenarios/`; synthetic values must not enter actual ranks.
+
 - Read `README.md`, `HACKATHON_TASK.md`, `V2_FINANCING_RISK.md`, and GitHub Issues #1–#2 before major work. Inspect current branches, PRs, tests and the latest `main` before creating changes. Do not overwrite work in flight.
 - V1 merged from PR #3 and **V2 financing-risk features merged from PR #4**, including HUT and role-based Crusoe routing. Preserve current behavior and CI. A successful live Neon production connection and permanent deployment remain unverified. Some company financial inputs remain provisional or unknown.
 - **Current next goal: $0 Cloudflare Free deployment**, tracked in GitHub Issue #6. User explicitly rejected paid Containers, Workers Paid, VPS, Railway and any additional hosting charge. Aim for **https://aidc.datacap.xyz/neoclouddebt** (only if the Cloudflare-managed zone and path routing are verified); preserve other content under aidc.datacap.xyz. Start with Cloudflare Workers Static Assets or Pages free; use Workers Free + Workflows Free for API/agent orchestration *only after proving feasibility within strict CPU/step limits*. The existing Python FastAPI/Uvicorn worker and psycopg TCP code are **not a drop-in on Workers Free**; preserve it on main and adapt a small edge API while reusing verified calculations and existing finance evidence. Configure runtime secrets separately. Never activate paid tiers or billable services without fresh user approval. For research jobs, prove live Crusoe → verified sources → actual Neon HTTPS persistence → audit follow-up before claiming full feature parity. Read Issue #6 for staging and security specifics.

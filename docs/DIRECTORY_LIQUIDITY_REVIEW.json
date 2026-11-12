@@ -1,0 +1,543 @@
+{
+  "integrated_at": "2026-11-11T10:15:15.889563+00:00",
+  "canonical_path": "neocloud/data/debt_directory.json",
+  "canonical_sha256": "f48fb83017d72f6725088e776eb043cd30f44bf89ad7323f83f1a4357491e918",
+  "counts": {
+    "companies": 16,
+    "facilities": 21,
+    "excluded_balance_facts": 26,
+    "facility_amount_facts": 70,
+    "new_sources": 16
+  },
+  "validation": "build_directory invoked in memory successfully; preview/data.json and UI/tests/docs not written by this agent",
+  "new_source_ids": [
+    "liquidity-crwv-snapshot",
+    "liquidity-nbis-snapshot",
+    "liquidity-iren-snapshot",
+    "liquidity-btdr-snapshot",
+    "liquidity-hut-snapshot",
+    "liquidity-apld-snapshot",
+    "liquidity-corz-snapshot",
+    "liquidity-wulf-snapshot",
+    "liquidity-cifr-snapshot",
+    "liquidity-hive-snapshot",
+    "liquidity-glxy-snapshot",
+    "liquidity-riot-snapshot",
+    "liquidity-mara-snapshot",
+    "liquidity-eqix-snapshot",
+    "liquidity-dlr-snapshot",
+    "liquidity-nscale-snapshot"
+  ],
+  "all_company_credit_totals_unknown": true,
+  "known_limitations": [
+    "Selected facilities do not establish comprehensive company-wide available credit.",
+    "Availability remains subject to specific draw conditions, covenants, LC reservations and project use.",
+    "DLR yen and global aggregate drawn figures omitted to avoid unsupported assignment or FX summation.",
+    "EQIX reported availability is approximate and source-rounded.",
+    "Restricted balances unknown for HIVE and GLXY remain null; no zero inferred.",
+    "Cash represents company and subsidiaries, not a verified parent-only spendable wallet."
+  ],
+  "preserved_root_fix": "DLR optional finance lease value remains null and operating lease source note remains corrected.",
+  "review_scope": "Dated company cash qualifications and selected credit disclosures; not a complete credit inventory, investment recommendation or legal review.",
+  "source_methods": {
+    "cloud": "Nine fresh primary HTML retrievals with retained receipts and mechanically checked excerpts.",
+    "transition": "Five fresh primary 10-Q retrievals with accession-verified publication dates and numeric excerpts.",
+    "adjacent": "Five primary filings read via web; original-URL numeric passages and date/condition distinctions preserved.",
+    "nscale": "Retained primary S-1 and interim unused-capacity table reexamined; post-June events excluded."
+  },
+  "independent_crosscheck": {
+    "audit_time": "2026-11-11T10:17:50.008709+00:00",
+    "ledger_path": "/workspace/aidatacenter2/neocloud/data/debt_directory.json",
+    "ledger_sha256": "f48fb83017d72f6725088e776eb043cd30f44bf89ad7323f83f1a4357491e918",
+    "cutoff_date": "2026-11-11",
+    "status": "pass",
+    "material_issues": [],
+    "method": "Independently reopened primary evidence and compared final integrated ledger dates, amount kinds, conditions and rounding; financial snippets checked against fresh cached text except EQIX read directly through web. No tracked edits.",
+    "companies": [
+      {
+        "company": "WULF",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+        "publication_date": "2026-11-06",
+        "fresh_retrieval_method": "HTTP 200 primary SEC HTML, cached locally",
+        "exact_supporting_excerpts": [
+          "aggregate commitments of $ 250.0 million",
+          "borrowings and letters of credit outstanding under the Revolving Credit Facility were limited to $ 75.0 million in the aggregate.",
+          "issued letters of credit for an aggregate of $ 74.2 million",
+          "no borrowings were outstanding and the Company had $ 0.8 million of remaining available letter of credit capacity."
+        ],
+        "findings": [
+          "September $250M nominal commitment is constrained by a $75M combined borrowing/LC cap before First Commencement Date.",
+          "The explicitly disclosed $0.8M is remaining LC capacity, not cash availability. $74.2M LC issuance is accurately described in conditions.",
+          "October increase to $400M, $150M precommencement cap and $150M uncommitted accordion remain outside September metrics."
+        ],
+        "checked_fields": [
+          "commitment=250000000",
+          "lc_capacity=150000000 nominal sublimit",
+          "borrowing_cap=75000000",
+          "remaining lc_capacity=800000",
+          "drawn=0",
+          "reported_available=null",
+          "as_of=2026-09-30"
+        ],
+        "material_issues": []
+      },
+      {
+        "company": "EQIX",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+        "publication_date": "2026-10-28",
+        "fresh_retrieval_method": "web primary issuer filing; HTTP proxy blocked shell request without retry",
+        "exact_supporting_excerpts": [
+          "On July 27, 2026, we entered into a $5.5 billion senior unsecured multi-currency revolving credit facility",
+          "14 irrevocable letters of credit totaling $6 million issued and outstanding, with approximately $5.5 billion remaining available to borrow"
+        ],
+        "findings": [
+          "Primary issuer filing lines 1037 and 1052 support both nominal commitment and explicitly approximate remaining availability.",
+          "Do not subtract $6M to claim $5.494B exact availability: issuer reports approximate $5.5B and ledger preserves source rounding.",
+          "Null outstanding funded borrowings avoids inferring zero from rounded availability."
+        ],
+        "checked_fields": [
+          "commitment=5500000000",
+          "reported_available=5500000000 with approximately/source-rounded precision",
+          "letters_of_credit=6000000",
+          "drawn=null",
+          "as_of=2026-09-30"
+        ],
+        "material_issues": []
+      },
+      {
+        "company": "IREN",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "publication_date": "2026-11-05",
+        "fresh_retrieval_method": "HTTP 200 primary SEC HTML, cached locally",
+        "exact_supporting_excerpts": [
+          "Unfunded commitments of $1,132 million and $525 million, respectively, remained available subject to conditions precedent.",
+          "$ 1,500 million of commitment remained available",
+          "The financing was fully funded as of September 30, 2026,",
+          "the proceeds of $1,050 million (Tranches 2 and 3) were held in the escrow account at September 30, 2026 pending satisfaction of the release conditions."
+        ],
+        "findings": [
+          "Conditional DDTL/USPP/GPU2 remaining commitments match explicit September disclosures; none added to cash.",
+          "GPU3 correctly has no numeric unused amount and is explicitly described fully funded.",
+          "USPP funded restricted escrow remains overlapping restricted cash, not an additional undrawn commitment."
+        ],
+        "checked_fields": [
+          "DDTL unused_capacity=1132000000",
+          "USPP unused_capacity=525000000",
+          "GPU2 unused_capacity=1500000000",
+          "GPU3 unused_capacity=null; fully funded",
+          "company_available_credit=null"
+        ],
+        "material_issues": []
+      },
+      {
+        "company": "HUT",
+        "status": "pass",
+        "canonical_as_of": "2026-09-30",
+        "primary_url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+        "publication_date": "2026-11-04",
+        "fresh_retrieval_method": "HTTP 200 primary SEC HTML, cached locally",
+        "exact_supporting_excerpts": [
+          "providing for a $ 1.07 billion senior secured revolving credit facility",
+          "As of September 30, 2026, the Company had no outstanding borrowings.",
+          "In September 2026, the Company terminated the Two Prime Credit Agreement, under which $ 200.0 million of undrawn capacity had been available."
+        ],
+        "findings": [
+          "Zero September drawn borrowings is supported, while actual availability remains null.",
+          "LC sublimit is within nominal facility commitment and is not added to it.",
+          "Terminated Two Prime $200M is absent from active facility capacity; subsequent $3.9M LC is not spliced into September."
+        ],
+        "checked_fields": [
+          "commitment=1070000000",
+          "drawn=0",
+          "reported_available=null",
+          "lc_capacity=1070000000 overlapping",
+          "as_of=2026-09-30"
+        ],
+        "material_issues": []
+      }
+    ],
+    "access_limitations": [
+      {
+        "operation": "HTTP GET via httpx",
+        "target": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+        "result": "ProxyError 403 Forbidden",
+        "handling": "No retry or alternate shell route. Same primary issuer filing was already successfully opened through web; passages and line locations verified there."
+      }
+    ],
+    "nonblocking_observations": [
+      "Liquidity source excerpts in integrated ledger are numeric-token summaries; complete passages and context are preserved in this audit and source research candidates.",
+      "No cash-plus-credit total or company-wide available-credit claim is supported or created."
+    ]
+  },
+  "dlr_coupon_text_correction": "Removed stale claim that no reviewed USD note exists and removed drafting language. The sourced 4.45% July15,2028 note remains unchanged; UI/export regression checks added.",
+  "latest_iren_recheck": {
+    "prior_independent_reviewer_access": "The reviewer of head106ad4d could not reopen this IREN filing. This limitation is retained; a successful request here does not establish universal availability.",
+    "fresh_executor_result": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "attempt_started_at": "2026-11-11T10:27:11.841142+00:00",
+      "method": "Single HTTP GET via httpx, no redirects or retries",
+      "attempts": 1,
+      "prior_receipts": "Retained HTTP 200 receipts are historical only, not evidence of this attempt.",
+      "http_status": 200,
+      "received_at": "2026-11-11T10:27:12.251537+00:00",
+      "bytes": 1530101,
+      "verified": [
+        {
+          "facility": "GPU Financing 1.0 DDTL",
+          "conditional_unfunded_usd": 1132000000,
+          "as_of": "2026-09-30",
+          "exact_excerpt": "Unfunded commitments of $1,132 million and $525 million, respectively, remained available subject to conditions precedent.",
+          "found": true
+        },
+        {
+          "facility": "GPU Financing 1.0 USPP",
+          "conditional_unfunded_usd": 525000000,
+          "as_of": "2026-09-30",
+          "exact_excerpt": "Unfunded commitments of $1,132 million and $525 million, respectively, remained available subject to conditions precedent.",
+          "found": true
+        },
+        {
+          "facility": "GPU Financing 2.0",
+          "conditional_unfunded_usd": 1500000000,
+          "as_of": "2026-09-30",
+          "exact_excerpt": "As of September 30, 2026, $ 947 million had been funded, $ 1,500 million of commitment remained available,",
+          "found": true
+        }
+      ],
+      "gpu2_conditional_draw_excerpt": {
+        "exact_excerpt": "Amounts may be drawn through December 31, 2026, subject to satisfaction of customary conditions precedent.",
+        "found": true
+      },
+      "result": "fresh_success_all_three_verified",
+      "crwv_copy_review": {
+        "current_liquidity_notes": [
+          "The reviewed September earnings release does not quantify facility-level undrawn availability. Unknown does not mean zero. August facility and draw disclosures below are historical context only.",
+          "August facility/draw disclosures and forecast customer receipts do not establish September remaining capacity and are not added to the snapshot."
+        ],
+        "displayed_facility_count": 0,
+        "recommendation": "The reviewed September earnings release does not quantify facility-level undrawn availability. Unknown does not mean zero. Earlier facility disclosures are not used to infer September availability.",
+        "reason": "A reference to disclosures below is misleading when the rendered facility list is empty; recommended wording adds no amounts or funding claims."
+      }
+    },
+    "copy_resolution": "Removed CoreWeave reference to undisplayed August disclosures and IREN spatial escrow references. No financial amount or availability status changed.",
+    "reviewed_baseline_commit": "106ad4d",
+    "copy_fix_status": "Resolved in current PR update; embedded prior wording is historical review evidence."
+  },
+  "readable_source_passage_review": {
+    "scope": "Replaces bare numeric-token excerpt summaries with labeled, short primary passages/cells. Financial values and availability categories unchanged.",
+    "sources": [
+      {
+        "source_id": "liquidity-crwv-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-nbis-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094844/nbis-20260812xex99d2.htm",
+        "quoted_words": 19,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-iren-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+        "quoted_words": 22,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-btdr-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+        "quoted_words": 16,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-hut-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-apld-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-corz-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-wulf-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+        "quoted_words": 25,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-cifr-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-hive-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1720424/000106299326005842/form10q.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-glxy-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1859392/000185939226000112/glxy-20260930.htm",
+        "quoted_words": 21,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-riot-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1167419/000110465926122417/riot-20260930x10q.htm",
+        "quoted_words": 20,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-mara-snapshot",
+        "url": "https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000028/mara-20260930.htm",
+        "quoted_words": 24,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-eqix-snapshot",
+        "url": "https://investor.equinix.com/sec-filings/all-sec-filings/content/0001101239-26-000180/eqix-20260930.htm",
+        "quoted_words": 22,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-dlr-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/1297996/000110465926120710/dlr-20260930x10q.htm",
+        "quoted_words": 23,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      },
+      {
+        "source_id": "liquidity-nscale-snapshot",
+        "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526395475/ck0002110365-20260918.htm",
+        "quoted_words": 18,
+        "verification": "Selected passages/cells verified by source-review agent against retained primary text; extraction context stated separately."
+      }
+    ],
+    "unit_metadata_note": "Source boxes that include rate excerpts distinguish percentage rates from USD currency or monetary table scales."
+  },
+  "polish_integrity_check": {
+    "baseline_commit": "106ad4d",
+    "financial_fields_compared": 2159,
+    "result": "Financial amount, unit, currency, snapshot date, issue/maturity, instrument identity, outstanding-status, scope and source-link fields unchanged.",
+    "current_canonical_sha256": "8c934de000975ddd98cf02dc00ed81db0a2b21c3c91f447c5893eb4f6d2032b2"
+  },
+  "cash_view_usability_review": {
+    "baseline_commit": "2f6a7bc",
+    "scope": "Top-level unranked cash profiles, direct row actions, explicit sort labels, factual takeaways and progressive disclosure. No financial amounts changed.",
+    "method_review": {
+      "reviewed_at": "2026-11-11T10:45:50.760921+00:00",
+      "purpose": "Financial-method guardrails for unranked reported-cash and funding-context view; underlying values unchanged.",
+      "summary_rules": [
+        "Cash view is unranked. A sort by reported cash must say so explicitly and show direction; sorted position is not a financial-health rank.",
+        "Show the cash observation date, source rounding and company/subsidiary scope. Different reporting dates stay visible.",
+        "Always label company-wide credit total as not established. Count selected reviewed same-date facilities, not all facilities or all available credit.",
+        "Positive reported_available can be described as issuer-reported remaining availability, subject to source conditions and precision. Conditional unused_capacity must say conditional and name the facility/use scope.",
+        "Remaining LC capacity requires an explicit remaining label or semantic flag. Never use all lc_capacity entries: many are total limits or overlapping sublimits.",
+        "Borrowing caps and LC limits restrict the commitment; they are not additional available cash. Never compute commitment minus carrying debt, add cash plus facilities, or sum selected facilities into a company total.",
+        "When no same-date facility facts are verified, say that directly. A zero selected-facility count is not evidence of no credit.",
+        "Unknown restricted balances remain unknown. Source-reported zero borrowings does not establish available capacity."
+      ],
+      "caveat_hierarchy": [
+        {
+          "priority": 1,
+          "content": "Observation date; reported cash includes company and subsidiaries; company-wide available-credit total is not established."
+        },
+        {
+          "priority": 2,
+          "content": "Company-specific constraints: Nscale customer financing/leases and private June snapshot; MARA designated Exaion cash; GLXY broker/trading-platform balances; HUT project-restricted cash/investments; IREN restricted escrow overlap."
+        },
+        {
+          "priority": 3,
+          "content": "Facility borrower, permitted use, draw/covenant conditions, LC reservations or borrowing caps, and reported precision."
+        },
+        {
+          "priority": 4,
+          "content": "Calculation/component evidence, raw quotations, selected-coverage limitations and original primary-source links."
+        }
+      ],
+      "plain_english_takeaway_templates": {
+        "generic": "Reported cash is shown separately from the selected funding facilities below. A company-wide available-credit total has not been established.",
+        "no_verified_facilities": "No same-date unused facility amount was verified in this review. This does not mean the company has no credit facilities.",
+        "conditional_capacity": "The filing reports unused funding commitments, but access depends on facility conditions and permitted uses. They are separate from cash on hand.",
+        "lc_only": "The remaining amount shown supports letters of credit. It is not a disclosure of cash borrowing availability.",
+        "zero_drawn_unknown_available": "No funded borrowings were outstanding on this selected facility. The amount currently available to borrow was not established.",
+        "nscale": "The June filing reports cash and conditional unused facilities separately. Customer prepayments and lease obligations also fund or constrain the business and are outside the borrowing-only measure.",
+        "mara": "Some reported cash is designated for subsidiary operations. This company-wide cash balance is not a verified parent spending balance.",
+        "glxy": "Reported cash includes funds at brokers and trading platforms. It differs from the broader cash, stablecoin and Treasury headline."
+      },
+      "financial_regression_cases": [
+        {
+          "id": "LC-remaining-not-limit",
+          "companies": [
+            "WULF",
+            "CORZ"
+          ],
+          "expected": [
+            "WULF summary can show $800K remaining LC capacity; not its $150M LC sublimit or $250M commitment as cash availability.",
+            "$75M precommencement combined cap remains visible.",
+            "CORZ $500M LC-only facility is support capacity, not cash borrowing availability."
+          ],
+          "failure": "A sublimit or nominal LC facility limit is labeled remaining cash credit."
+        },
+        {
+          "id": "Zero-drawn-does-not-mean-available",
+          "companies": [
+            "HUT",
+            "HIVE"
+          ],
+          "expected": [
+            "HUT $1.07B commitment and zero drawn coexist with unknown reported availability.",
+            "HUT restricted cash and restricted investments stay separate from cash and from each other.",
+            "HIVE unknown restricted cash remains unknown, not zero."
+          ],
+          "failure": "Zero drawn becomes full commitment available, or unknown restrictions become zero."
+        },
+        {
+          "id": "Conditional-and-overlapping-escrow",
+          "companies": [
+            "IREN"
+          ],
+          "expected": [
+            "$1.132B, $525M and $1.5B appear only as conditional facility-specific unused commitments.",
+            "$1.05B issued USPP escrow is already restricted cash, never additional credit.",
+            "No selected-facility company-wide total or cash-plus-credit total."
+          ],
+          "failure": "Escrow double-counting or conditional capacity shown as cash."
+        },
+        {
+          "id": "Approximate-issuer-availability",
+          "companies": [
+            "EQIX"
+          ],
+          "expected": [
+            "$5.5B issuer-reported remaining availability retains approximate/source-rounded wording and covenant conditions.",
+            "$6M LCs are separate scope context; no new precise $5.494B analyst availability is inferred."
+          ],
+          "failure": "Rounded availability looks dollar-precise or is mechanically adjusted again."
+        },
+        {
+          "id": "Private-earlier-snapshot-not-current-funding",
+          "companies": [
+            "NSCALE"
+          ],
+          "expected": [
+            "Private/IPO-filing badge and June30 date remain visible.",
+            "$1.4784B cash stays separate from $1.3631B GPU unused capacity and $900M revolver unused capacity.",
+            "$6.4926B customer-financing and $2.6254B lease caveat remains visible; later financing excluded."
+          ],
+          "failure": "Later financing updates only one side of the June snapshot or cash-plus-credit appears as available capital."
+        }
+      ],
+      "ui_review_status": "Independent live-browser review completed with system Chromium. No material financial issues found in cash view, JSON download and selected side-by-side comparison.",
+      "browser_evidence": [
+        "work/independent-audit/cash-funding-browser-review.json",
+        "work/independent-audit/cash-funding-export-comparison-review.json"
+      ],
+      "minor_optional_wording": "Filtered JSON ranking_context opens with generic rank/bar language before correctly specifying that cash rows are unranked; actual exported ranked=false and cohort_rank=null were verified."
+    },
+    "actual_browser_review": {
+      "title": "NeoCloud — Debt, explained",
+      "rows": 16,
+      "rankCells": [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "cashBars": 0,
+      "companies": {
+        "WULF": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nSenior secured revolving credit facility\n$800K\nRemaining letter-of-credit capacity only — not cash\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "The reported remaining headroom is for letters of credit. A project-start cap limits use of the headline facility.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. $753.193M separately restricted cash is excluded; restrictions include contractual/project uses and utility support. Prepaid Core42 rent was received earlier and offsets future base-rent collections; it is not new unused cash credit. Cash and cash equivalents are consolidated; parent-only fungibility across subsidiaries/projects has not been established.",
+          "visibleIdentity": "W\nTeraWulf\nWULF / AI transition / mixed"
+        },
+        "CORZ": {
+          "summary": "Total not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Revolver borrowing depends on access conditions, including a market-value test. The separate letter-of-credit facility is payment support, not cash borrowing.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Restricted cash is held in debt service reserve accounts and escrow for construction/development; excluded from cash and equivalents. Customer prepayments are recorded in deferred revenue and linked to colocation buildout obligations; do not count them again as incremental available capital. Published liquidity/DSRA includes restricted cash, digital assets and revolving availability and is not the unrestricted cash line.",
+          "visibleIdentity": "C\nCore Scientific\nCORZ / AI transition / mixed"
+        },
+        "HUT": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Project cash and investments have restrictions. Zero revolver borrowings do not establish that the full credit limit can be used.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Unused River Bend and Beacon Point note proceeds are held in restricted project accounts for campus development/construction and debt service. Restricted investments are separate from restricted cash.",
+          "visibleIdentity": "H\nHut 8\nHUT / AI transition / mixed"
+        },
+        "IREN": {
+          "summary": "Total not established\n\n4 selected facilities reviewed; not a complete company inventory.\n\nGPU Financing 1.0 DDTL\n$1.132B\nConditional unfunded commitment — not cash\nAs of Sep 30, 2026\nConditions & source basis\nGPU Financing 1.0 USPP senior notes\n$525M\nConditional unfunded commitment — not cash\nAs of Sep 30, 2026\nConditions & source basis\nGPU Financing 2.0\n$1.5B\nConditional unfunded commitment — not cash\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Unused GPU funding has draw conditions and project uses. Note proceeds already held in restricted escrow are not extra available credit.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash line excludes separately reported restricted balances; does not establish unrestricted transferability from every subsidiary or a discretionary cash surplus. Debt-financing and letter-of-credit reserve accounts are contractually restricted as to use or withdrawal. Already funded note proceeds held in escrow form part of these restricted balances; they are not additional cash or unused credit.",
+          "visibleIdentity": "I\nIREN\nIREN / AI transition / mixed"
+        },
+        "EQIX": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\n2026 multicurrency revolver\nApprox. $5.5B\nReported facility availability — subject to conditions\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Reported revolver availability is approximate and remains subject to lending conditions. It is separate from cash already held.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Consolidated cash excludes $36M restricted cash and separately reported short-term investments. No parent-only freely transferable cash amount established.",
+          "visibleIdentity": "E\nEquinix\nEQIX / Data-center REITs"
+        },
+        "NSCALE": {
+          "summary": "Total not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nGPU facility: reported unused capacity\n$1.363B\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\nRevolver: reported unused capacity\n$900M\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "These are June accounts for a private IPO applicant. Unused facility capacity is conditional; customer financing and lease obligations remain important separate context.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Reported cash excludes $614.7M restricted cash. Restricted balances primarily include long-term lease escrow. Customer prepayments fund obligations; do not treat $6.4926B deferred revenue or unused facilities as additional cash.",
+          "visibleIdentity": "N\nNscale\nPrivate · IPO filing / GPU cloud\nPrivate · pending IPO"
+        },
+        "MARA": {
+          "summary": "Total not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Some cash is designated for Exaion operations. The later loan repayment is not treated as restored credit capacity.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Excludes bitcoin and restricted cash. Approximately 11% of cash is euros at majority-owned Exaion, contractually designated for its next-year operations; not unrestricted parent cash.",
+          "visibleIdentity": "M\nMARA Holdings\nMARA / Bitcoin miners"
+        },
+        "GLXY": {
+          "summary": "Total not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "Reported cash includes funds at brokers and trading platforms. Restrictions on project distributions limit what can be assumed available to the parent.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. Consolidated GAAP cash includes $366.3M short Treasury equivalents, but excludes separately classified stablecoins, crypto and investments. $520.6M at brokers; $56.2M on trading platforms. Parent freely deployable amount unknown; project distributions constrained. Trading loans callable on demand. Do not deduct or add counterparties mechanically.",
+          "visibleIdentity": "G\nGalaxy Digital\nGLXY / AI transition / mixed"
+        },
+        "HIVE": {
+          "summary": "Total not established\n\n0 selected facilities reviewed; not a complete company inventory.\n\nNo sourced remaining availability amount established here. Missing does not mean zero.\n\nSeparate facility amounts; not added together or to cash.",
+          "takeaway": "No same-date unused facility amount was verified. Later financing for supplier escrow is excluded from this snapshot.",
+          "cashScope": "Cash is reported for the company and its subsidiaries together. How much the parent can freely spend has not been established. The financial statement reports cash of $138.990M; no separate restricted cash balance was identified in this canonical balance sheet. This is not an assertion that every dollar is free parent cash. No quantified unused committed cash credit line was established in the September snapshot. The subsequently announced BUZZ financing is earmarked supplier escrow, not September parent liquidity.",
+          "visibleIdentity": "H\nHIVE Digital Technologies\nHIVE / AI transition / mixed"
+        }
+      }
+    },
+    "export_comparison_review": {
+      "observed_at": "2026-11-11T10:48:37.653Z",
+      "all_cash_export_rows_unranked": true,
+      "private_nscale_export_preserved": true,
+      "nscale_caveat_exported": true,
+      "comparison_credit_text": "Company-wide available credit\t\nCompany-wide available credit\nTotal not established\n\n1 selected facility reviewed; not a complete company inventory.\n\nSenior secured revolving credit facility\n$800K\nRemaining letter-of-credit capacity only — not cash\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.\n\nCash & credit details →\t\nCompany-wide available credit\nTotal not established\n\n1 selected facility reviewed; not a complete company inventory.\n\n2026 multicurrency revolver\nApprox. $5.5B\nReported facility availability — subject to conditions\nAs of Sep 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.\n\nCash & credit details →\t\nCompany-wide available credit\nTotal not established\n\n2 selected facilities reviewed; not a complete company inventory.\n\nGPU facility: reported unused capacity\n$1.363B\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\nRevolver: reported unused capacity\n$900M\nConditional unfunded commitment — not cash\nAs of Jun 30, 2026\nConditions & source basis\n\nSeparate facility amounts; not added together or to cash.\n\nCash & credit details →",
+      "financial_findings": [],
+      "minor_wording": "Export ranking_context starts with rank/bar language before clarifying cash rows are unranked; does not change numeric data."
+    }
+  }
+}

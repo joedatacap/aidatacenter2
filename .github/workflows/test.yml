@@ -2,7 +2,8 @@ name: Tests
 on: [push, pull_request, workflow_dispatch]
 jobs:
   test:
-    runs-on: ubuntu-latest
+    # Keep Playwright OS dependencies stable during ubuntu-latest image migrations.
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:16
@@ -39,3 +40,31 @@ jobs:
           TEST_DATABASE_URL: postgresql://postgres:neocloud_ci_only@localhost:5432/neocloud_ci?sslmode=require
       - run: python -m compileall -q neocloud
       - run: node --check neocloud/static/app.js
+      - run: node --check neocloud/static/v2.js
+      - run: node --check preview/preview.js
+      - run: node --check preview/scenarios/preview.js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium and retain setup diagnostics
+        run: |
+          mkdir -p work
+          set -o pipefail
+          npx playwright install --with-deps chromium 2>&1 | tee work/playwright-install.log
+      - run: npm run test:preview
+      - run: npm run deploy:dry-run
+      - run: npm run deploy:subpath:dry-run
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neocloud-preview
+          path: |
+            preview/
+            work/NeoCloud-Interactive-Preview.html
+            work/NeoCloud-Scenario-Lab.html
+            work/preview-*.png
+            work/debt-preview-*.png
+            work/playwright-results/
+            work/playwright-install.log

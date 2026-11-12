@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "neocloud-debt",
+  "compatibility_date": "2026-10-17",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "neoclouddebt.datacap.xyz", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./preview",
+    "not_found_handling": "404-page"
+  }
+}
