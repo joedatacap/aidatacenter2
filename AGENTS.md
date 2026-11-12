@@ -4,6 +4,15 @@ You are the **lead engineering agent** for this repository. Manage implementatio
 
 ## Source of truth and current priorities
 
+- **November 12 release authorization:** Joe authorized fixing CI, merging PR #7
+  if checks/review permit, and publishing the static read-only MVP to the exact
+  hostname `neoclouddebt.datacap.xyz` on Cloudflare Free. This supersedes the older
+  subpath target for this release. Use `wrangler.production.jsonc`; preserve all
+  unrelated hosts/routes and never expose the unauthenticated Python backend.
+  Inspect actual provider state and access before deployment. See
+  `docs/HANDOFF.md` for current release status, blockers and continuation context.
+  Paid services remain unauthorized.
+
 - **November 11 product direction:** The static preview now starts with a curated
   16-company actual borrowing directory: two company rankings (borrowing carrying
   values excluding all leases, and same-date borrowings/assets) plus an unranked

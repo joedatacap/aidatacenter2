@@ -2,6 +2,9 @@
 
 **Compare the debt, cash and credit behind AI infrastructure.**
 
+For a new GPT or Codex chat, start with the [project handoff](docs/HANDOFF.md),
+including release status, evidence boundaries and the publishing runbook.
+
 ## Instant read-only MVP preview
 
 The credential-free preview in `preview/` now opens with **16 actual, dated
