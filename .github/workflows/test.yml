@@ -54,6 +54,7 @@ jobs:
           set -o pipefail
           npx playwright install --with-deps chromium 2>&1 | tee work/playwright-install.log
       - run: npm run test:preview
+      - run: npm run test:v2
       - run: npm run deploy:dry-run
       - run: npm run deploy:subpath:dry-run
       - uses: actions/upload-artifact@v4
@@ -67,4 +68,7 @@ jobs:
             work/preview-*.png
             work/debt-preview-*.png
             work/playwright-results/
+            work/playwright-v2-results/
+            work/NeoCloud-V2-Workspace.html
+            work/v2-*.png
             work/playwright-install.log
