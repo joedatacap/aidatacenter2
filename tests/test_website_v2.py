@@ -26,6 +26,8 @@ def test_snapshot_ratio_and_no_mutation(inputs):
     assert companies['NBIS']['as_of'] == '2026-09-30'
     assert companies['NBIS']['v2']['debt_market_cap_percent'] is None
     assert 'debt_assets' not in companies['NBIS']['metrics']
+    assert 'not yet' not in ' '.join(companies['NBIS']['notes'] + companies['NBIS']['debt_context']['notes'])
+    assert companies['NBIS']['v2']['previous_snapshot']['as_of'] == '2026-06-30'
     assert companies['GLXY']['v2']['debt_market_cap_percent'] is None
     assert companies['NSCALE']['v2']['debt_market_cap_percent'] is None
     assert companies['HIVE']['v2']['size_band'] == 'small'

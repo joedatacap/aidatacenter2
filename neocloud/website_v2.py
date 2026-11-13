@@ -85,6 +85,14 @@ def build_website_v2(directory, enrichment):
             refs(snapshot)
             if not date.fromisoformat(c['as_of']) < date.fromisoformat(snapshot['as_of']) <= reviewed:
                 raise ValueError('Replacement snapshot must be newer and not in future')
+            x['previous_snapshot'] = {'as_of': c['as_of'], 'notes': c.get('notes', []), 'debt_context_notes': c.get('debt_context', {}).get('notes', [])}
+            historical_date = c['as_of']
+            c['notes'] = [snapshot['note']]
+            c['debt_context']['notes'] = [f'Historical bridge and lease evidence retains its original dates, including {historical_date}; it is not a refreshed Q3 principal inventory.']
+            c['liquidity']['historical_context_as_of'] = historical_date
+            c['liquidity']['cash_caveat'] = 'Q3 group cash updated; parent availability is not established. Selected facility and excluded-balance records retain their historical dates.'
+            c['liquidity']['takeaway'] = snapshot['note']
+            c['liquidity']['notes'] = [f'Historical context from {historical_date}: {note}' for note in c['liquidity'].get('notes', [])]
             total = sum((amount(p['value']) for p in snapshot['debt_components']), Decimal(0))
             for key, value in [('debt', total), ('cash', amount(snapshot['cash'])), ('assets', amount(snapshot['assets']))]:
                 c['metrics'][key] = dict(c['metrics'][key], value=str(value), as_of=snapshot['as_of'], source_ids=snapshot['source_ids'])
@@ -92,6 +100,7 @@ def build_website_v2(directory, enrichment):
             c['metrics']['cash']['note'] = 'No company-wide parent-available liquidity total is inferred.'
             c['metrics']['debt']['components'] = snapshot['debt_components']
             c['metrics']['debt']['note'] = snapshot['note']
+            c['metrics']['debt']['basis'] = 'Reported current debt plus non-current debt at carrying value; separately classified leases excluded'
             # Derived book leverage from the old snapshot must not leak into exports.
             c['metrics'].pop('debt_assets', None)
             c['as_of'], c['filed_at'] = snapshot['as_of'], snapshot['filed_at']

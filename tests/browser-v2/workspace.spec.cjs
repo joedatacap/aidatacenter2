@@ -103,6 +103,7 @@ test('valuation handles known mismatch, updated statement and size cohorts', asy
   await expect(page.locator('#financing')).toContainText('$14,190,800,000');
   await expect(page.locator('#valuation')).toContainText('Share-count reconciliation pending');
   await expect(page.locator('#valuation')).toContainText('Withheld');
+  await expect(page.locator('#company')).not.toContainText('not yet in latest submissions');
   await page.getByRole('link',{name:'← Company universe'}).click();
   await page.locator('#size').selectOption('small');
   await expect(page.locator('#company-rows tr')).toHaveCount(2);
