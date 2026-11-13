@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from neocloud.directory import build_directory
+from neocloud.website_v2 import build_website_v2
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -10,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def build():
     target = ROOT / "v2-preview"
     data = build_directory(json.loads((ROOT / "neocloud/data/debt_directory.json").read_text()))
+    data = build_website_v2(data, json.loads((ROOT / "neocloud/data/website_v2.json").read_text()))
     encoded = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     (target / "data.json").write_text(encoded + "\n")
     html = (target / "index.html").read_text()

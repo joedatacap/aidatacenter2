@@ -105,3 +105,16 @@ The standalone HTML contains its data and assets. Download and open it in a brow
 - Validation: 16 new desktop/mobile browser checks and all 76 existing browser checks passed. Python: 131 passed; three database tests skipped because no disposable database was configured locally. CI retains its disposable TLS Postgres checks.
 
 Next: verify dated market-cap observations and listing status, implement debt/market-cap with provenance, and enrich the company briefs with customer concentration, contract terms, operating capacity and GPU disclosures. Those fields remain explicitly unresearched in this preview. Full V2 is not complete. No deployment or live database verification is claimed.
+
+## V2 implementation expansion — November 12, 2026
+
+The website now implements the core V2 workflow: financing/valuation and customer/infrastructure comparison views, equity-size filters, detailed briefs, dated provider market caps, indicative debt/market-cap, current disclosed instrument tables, an issuer repayment chart, source links, filtered CSV/evidence JSON, printing and responsive mobile cards. All 16 records remain accessible; no three-company limit applies.
+
+Financial coverage is intentionally explicit: 15 provider-reported market caps, 13 indicative ratios (Nebius withheld for share-count reconciliation; Galaxy lacks a resolved debt numerator), ten company contract profiles, five company revenue profiles, a complete reported annual principal schedule for CoreWeave and selected current Hut 8 instruments. The detailed coverage and refresh rules are in [WEBSITE_V2_RESEARCH.md](WEBSITE_V2_RESEARCH.md). Nebius Q3 financials are updated in this website without changing the original directory.
+
+Milestones A and the core interface/exports portion of D are implemented. B and C have substantial sourced coverage but remain partial research: fully reconciled vendor share classes, every-company instrument/amortization inventories, every-company operating disclosures and an expanded small-public-neocloud cohort are not claimed complete. The current universe contains only two sub-$2B public companies at the selected snapshot. The next useful work is focused evidence completion, not more UI panels. Cloudflare, domain publishing, Neon and V3 remain outside this release.
+
+PR: https://github.com/joedatacap/aidatacenter2/pull/8
+The Drive preview link above is updated in place for this release.
+
+Local validation for the expanded release: 146 Python tests passed with three database tests skipped locally; all 28 V2 desktop/mobile browser checks passed, including every company route, filtered downloads, principal reconciliation, unknown inputs and offline HTML. The final branch CI supplies disposable TLS Postgres and the existing 76-browser-check regression suite. CI outcome is recorded in PR #8 and the Drive plan once available.

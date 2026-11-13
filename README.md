@@ -212,4 +212,4 @@ Research and scenario analysis only. No investment recommendations, fabricated d
 
 The new product direction and V3 backlog are in [the V2 plan](docs/WEBSITE_V2_PLAN.md). Run `npm run preview:v2` for the company universe and financing briefs at http://127.0.0.1:8002. `npm run build:v2` also produces `work/NeoCloud-V2-Workspace.html`, a self-contained interactive preview. Run `npm run test:v2` for desktop/mobile checks. Python package installation and `npm ci` are prerequisites.
 
-This first slice uses the existing dated evidence ledger. Market valuations, customer contracts, operating capacity and GPU generations await sourced enrichment; the interface labels those gaps explicitly.
+V2 adds dated provider market caps, indicative debt/market-cap, sourced customer and infrastructure context, instrument detail, principal repayments, filtered CSV/JSON and print views. See [research coverage and update rules](docs/WEBSITE_V2_RESEARCH.md). Market values are not live; Nebius’s ratio is withheld pending share-count reconciliation, and remaining evidence gaps stay explicit.

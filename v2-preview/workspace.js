@@ -15,7 +15,7 @@
   const date = value => value ? esc(value) : 'Date not established';
   const words = value => esc(String(value || 'Not established').replaceAll('_', ' '));
   const fact = (label, value) => `<dl><dt>${esc(label)}</dt><dd>${value}</dd></dl>`;
-  let data, sources, selected;
+  let data, sources, selected, visibleCompanies = [];
 
   function evidence(ids = []) {
     const unique = [...new Set(ids)].map(id => sources.get(id)).filter(Boolean);
@@ -29,27 +29,38 @@
 
   function renderUniverse() {
     const query = $('search').value.trim().toLowerCase();
-    const group = $('group').value, listing = $('listing').value, order = $('order').value;
+    const group = $('group').value, listing = $('listing').value, order = $('order').value, size = $('size').value;
     let companies = data.companies.filter(c =>
       (!query || `${c.name} ${c.ticker}`.toLowerCase().includes(query)) &&
-      (group === 'all' || c.group === group) &&
+      (group === 'all' || c.group === group) && (size === 'all' || c.v2.size_band === size) &&
       (listing === 'all' || (listing === 'listed' ? c.listing_status === 'listed' : c.listing_status !== 'listed')));
     companies.sort((a, b) => {
       if (order === 'name') return a.name.localeCompare(b.name);
       const field = order.startsWith('cash') ? 'cash' : 'debt';
-      const av = a.metrics[field]?.value, bv = b.metrics[field]?.value;
+      const value = c => order.startsWith('market') ? c.v2.market_cap?.value : order.startsWith('ratio') ? c.v2.debt_market_cap_percent : c.metrics[field]?.value;
+      const av = value(a), bv = value(b);
       if (av == null || bv == null) return av == null && bv == null ? a.name.localeCompare(b.name) : av == null ? 1 : -1;
       return (Number(av) - Number(bv)) * (order.endsWith('asc') ? 1 : -1) || a.name.localeCompare(b.name);
     });
     $('count').textContent = `${companies.length} of ${data.companies.length} records`;
     $('empty').hidden = companies.length > 0;
-    $('company-rows').innerHTML = companies.map(c => `<tr>
-      <td><a class="company-name" href="#company=${encodeURIComponent(c.ticker)}">${esc(c.name)}</a><span class="ticker">${esc(c.ticker)}</span><span class="business">${esc(groups[c.group])}</span>${c.listing_status !== 'listed' ? '<span class="cell-note">Private reference · listing not verified</span>' : ''}</td>
-      <td><span class="${c.metrics.debt.value == null ? 'unknown' : 'number'}">${money(c.metrics.debt.value)}</span><span class="cell-note">Carrying value · leases excluded</span></td>
-      <td><span class="number">${money(c.metrics.cash?.value)}</span><span class="cell-note">Group cash · access restrictions apply</span></td>
-      <td><span class="unknown">${c.listing_status === 'listed' ? 'Not researched' : 'Not applicable'}</span><span class="cell-note">${c.listing_status === 'listed' ? 'Dated equity value needed' : 'No verified listed equity'}</span></td>
-      <td><span class="unknown">Not calculated</span></td><td>${date(c.as_of)}</td>
-      <td><a class="open-link" href="#company=${encodeURIComponent(c.ticker)}" aria-label="Open ${esc(c.name)} financing brief">Brief ↗</a></td></tr>`).join('');
+    visibleCompanies = companies;
+    const operating = $('view').value === 'operations';
+    const headings = operating ? ['Company','Customers & contracts','Capacity status','GPU disclosures','Research scope'] : ['Company','Borrowings','Reported cash','Market cap','Debt / market cap','Statement date'];
+    $('column-headings').innerHTML = '<tr>' + headings.map(h=>`<th scope="col">${esc(h)}</th>`).join('') + '</tr>';
+    const cell = (label, html) => `<td data-label="${esc(label)}">${html}</td>`;
+    const snippets = records => records.length ? records.slice(0,2).map(f=>`<strong>${esc(f.display)}</strong><span class="cell-note">${esc(f.label)} · ${words(f.status)} · ${date(f.as_of)}</span>`).join('<br>') : '<span class="unknown">Research gap</span>';
+    $('company-rows').innerHTML = companies.map(c => {
+      const x=c.v2, m=x.market_cap, ratio=x.debt_market_cap_percent;
+      const name=`<a class="company-name" href="#company=${encodeURIComponent(c.ticker)}">${esc(c.name)}</a><span class="ticker">${esc(c.ticker)}</span><span class="business">${esc(groups[c.group])}</span><span class="cell-note">${m ? words(x.size_band)+' equity cap' : 'Private reference · IPO applicant'}</span>`;
+      return '<tr>'+cell('Company',name)+(operating ?
+        cell(headings[1],snippets(x.contracts))+cell(headings[2],snippets(x.capacity))+cell(headings[3],snippets(x.hardware))+cell(headings[4],`<a href="#company=${encodeURIComponent(c.ticker)}">Open sourced brief</a><span class="cell-note">${x.context_coverage}/4 context areas sourced; coverage is partial</span>`) :
+        cell(headings[1],`<span class="number">${money(c.metrics.debt.value)}</span><span class="cell-note">Carrying value · leases excluded</span>`)+
+        cell(headings[2],`<span class="number">${money(c.metrics.cash?.value)}</span><span class="cell-note">Group cash; access restrictions apply</span>`)+
+        cell(headings[3],`<span class="number">${m ? money(m.value) : 'Not applicable'}</span><span class="cell-note">${m ? date(m.as_of)+' · provider reported' : 'No public equity snapshot'}</span>`)+
+        cell(headings[4],`<span class="number">${ratio == null ? 'Not calculated' : ratio.toFixed(1)+'%'}</span><span class="cell-note">${x.market_cap?.ratio_blocker ? 'Share-count reconciliation pending' : ratio == null ? 'Missing eligible inputs' : 'Indicative · dates differ'}</span>`)+
+        cell(headings[5],`${date(c.as_of)}<span class="cell-note">${x.financial_age_days} days before review</span>`))+'</tr>';
+    }).join('');
   }
 
   function metric(label, value, note) {
@@ -57,11 +68,11 @@
   }
 
   function renderCompany(c) {
-    const debt = c.metrics.debt, cash = c.metrics.cash, context = c.debt_context || {}, liquidity = c.liquidity || {};
+    const debt = c.metrics.debt, cash = c.metrics.cash, context = c.debt_context || {}, liquidity = c.v2.snapshot ? {...c.liquidity, takeaway:c.v2.snapshot.note, cash_caveat:'Updated group cash snapshot; parent availability is not established. Facility references below retain their individual historical dates.'} : c.liquidity || {};
     const rates = data.financing_rates.filter(r => r.ticker === c.ticker);
     const notes = data.instruments.filter(r => r.ticker === c.ticker);
     const bridges = context.bridges || [];
-    $('company').innerHTML = `<a class="back" href="#">← Company universe</a>
+    $('company').innerHTML = `<a class="back" href="#">← Company universe</a><button class="text-button print-button" type="button" id="print-brief">Print / save PDF</button>
       <div class="page-heading"><div><p class="eyebrow">${esc(c.ticker)} / COMPANY BRIEF</p><h1 tabindex="-1" id="brief-title">${esc(c.name)}</h1><p class="intro">${esc(c.business)}</p></div><div class="review-date">FINANCIAL SNAPSHOT<strong>${date(c.as_of)}</strong><span>Published ${date(c.filed_at)}</span></div></div>
       <span class="badge">${esc(groups[c.group])}</span><span class="badge">${c.listing_status === 'listed' ? 'Public at ledger review' : 'Private reference / IPO applicant'}</span><span class="badge">${esc(c.scope || 'Scope in source records')}</span>
       <div class="brief-summary">${metric('Reported borrowings', money(debt.value), 'Carrying value · excludes leases')}${metric('Reported group cash', money(cash?.value), 'Availability to parent not established')}${metric('Market capitalization', '—', c.listing_status === 'listed' ? 'Needs a verified equity snapshot' : 'No verified public listing')}${metric('Debt / market cap', '—', 'Not calculated without a denominator')}</div>
@@ -82,9 +93,37 @@
       ${(liquidity.notes || []).map(n => `<p class="section-lead">${esc(n)}</p>`).join('')}</section>
       <section id="valuation" class="brief-section"><p class="eyebrow">04 / SHAREHOLDER CONTEXT</p><h2>Debt relative to equity value.</h2><div class="empty-panel"><h3>${c.listing_status === 'listed' ? 'Market-cap research pending' : 'Public-market valuation not applicable to this record'}</h3><p>Debt / market cap = reported borrowing carrying value ÷ dated equity market capitalization. Both dates, currency and the equity source will be shown. A stock-price move changes this ratio without changing the debt.</p><p>No verified market-cap observation is loaded. Private funding-round valuations will not substitute for public equity value.</p></div></section>
       <section id="operations" class="brief-section"><p class="eyebrow">05 / REVENUE FOUNDATIONS</p><h2>Customers, capacity & hardware.</h2><div class="coverage-grid"><article class="empty-panel"><h3>Customers & contracts</h3><p>Research pending: major customers, revenue concentration, contract term, termination conditions and guarantee scope. A contract’s face value is not cash in the bank.</p></article><article class="empty-panel"><h3>Revenue-producing capacity</h3><p>Research pending: operating, contracted, construction and announced capacity, with units and dates. Operating capacity does not establish utilization.</p></article><article class="empty-panel"><h3>GPU fleet</h3><p>Research pending: disclosed GPU generations, owned versus leased equipment and refresh obligations. A named deployment is not a full fleet inventory.</p></article></div></section>`;
+    enrichBrief(c);
+    $('print-brief').addEventListener('click',()=>window.print());
     $('company').querySelectorAll('[data-section]').forEach(a => a.addEventListener('click', event => {
       event.preventDefault(); $(a.dataset.section).scrollIntoView({behavior:'smooth'});
     }));
+  }
+
+  function factCards(records, empty='Research gap: no verified disclosure loaded for this field.') {
+    return records.length ? records.map(f=>`<article class="card"><span class="badge">${words(f.status)}</span><h3>${esc(f.label)} · ${esc(f.display)}</h3><p>${esc(f.scope)} · ${date(f.as_of)}</p><p>${esc(f.note)}</p>${evidence(f.source_ids)}</article>`).join('') : `<p class="empty-panel">${esc(empty)}</p>`;
+  }
+
+  function enrichBrief(c) {
+    const x=c.v2,m=x.market_cap,ratio=x.debt_market_cap_percent;
+    $('company').querySelector('.brief-summary').innerHTML = metric('Reported borrowings',money(c.metrics.debt.value),date(c.as_of)+' · leases excluded')+metric('Reported group cash',money(c.metrics.cash?.value),date(c.as_of)+' · access restrictions apply')+metric('Market cap',m ? money(m.value) : '—',m ? date(m.as_of)+' · provider reported' : 'No public equity snapshot')+metric('Debt / market cap',ratio==null ? '—' : ratio.toFixed(1)+'%',ratio==null ? 'Eligible denominator not established' : 'Indicative · different observation dates');
+    $('valuation').innerHTML=`<p class="eyebrow">04 / SHAREHOLDER CONTEXT</p><h2>Debt relative to equity value.</h2>${m ? `<div class="card"><div class="fact-grid">${fact('Provider market cap',money(m.value))}${fact('Equity observation',date(m.as_of)+' · time precision: day')}${fact('Debt observation',date(c.as_of))}${fact('Borrowings / market cap',ratio==null ? 'Withheld' : ratio.toFixed(1)+'%')}</div><p>${esc(m.scope)}</p><p>${esc(m.note)}</p>${m.ratio_blocker ? `<p class="status-note">${esc(m.ratio_blocker)}</p>` : ''}${evidence(m.source_ids)}${evidence(c.metrics.debt.source_ids)}</div>` : '<p class="empty-panel">Public-market valuation not applicable to this record. Private funding-round values are not substituted.</p>'}<p class="section-lead">Formula: reported borrowing carrying value ÷ provider-reported equity capitalization × 100. Leases excluded. This is not enterprise value, book leverage, repayment capacity or default risk. A stock-price move changes the ratio without changing debt. No later financing is silently added to the statement balance.</p><h3>Revenue context</h3>${factCards(x.revenue)}`;
+    $('operations').innerHTML=`<p class="eyebrow">05 / REVENUE FOUNDATIONS</p><h2>Customers, capacity & hardware.</h2><p class="section-lead">${esc(x.coverage_note)} Contracted and announced capacity must not be summed with operating capacity. Named hardware does not establish a fleet-wide mix.</p><h3>Customer concentration & contract conditions</h3>${factCards(x.contracts)}<h3>Capacity and delivery status</h3>${factCards(x.capacity)}<h3>GPU generations & equipment scope</h3>${factCards(x.hardware)}`;
+    if(x.events.length) $('valuation').insertAdjacentHTML('beforeend','<h3>Listing & later events</h3>'+factCards(x.events));
+    const inventory=x.debt_inventory;
+    const schedule=x.maturity_schedule;
+    $('financing').insertAdjacentHTML('beforeend',`<h3>Current disclosed instrument inventory</h3>${inventory.length ? `<p class="section-lead">${c.ticker==='CRWV' ? 'Note 10 principal rows, including aggregated OEM/software financing. USD equivalent for EUR notes.' : 'Selected instruments only; this is not a complete company debt stack.'} Final maturity dates do not capture amortization. Effective accounting rates are shown separately from cash coupons above.</p><div class="table-wrap"><table><thead><tr><th>Instrument / principal</th><th>Final maturity</th><th>Rate basis</th><th>Recourse / security</th><th>Evidence</th></tr></thead><tbody>${inventory.map(i=>`<tr><td><strong>${esc(i.instrument)}</strong><p>${exact(i.principal)} ${esc(i.currency)}<br>${date(i.as_of)}</p></td><td>${esc(i.maturity)}<span class="cell-note">${words(i.maturity_precision)}</span></td><td>${esc(i.rate)}<span class="cell-note">${words(i.rate_kind)}</span></td><td>${esc(i.recourse)}<p>${esc(i.security)}</p></td><td>${evidence(i.source_ids)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="empty-panel">No current instrument-level inventory established. Selected historical notes remain in Rates & notes.</p>'}<h3>Scheduled principal repayments</h3>${schedule ? `<div class="card"><p>${esc(schedule.scope)} As of ${date(schedule.as_of)}.</p><div class="maturity-chart">${schedule.buckets.map(b=>`<div class="maturity-row"><span>${esc(b.label)}</span><div class="bar-track"><div class="bar" style="width:${100*b.value/Math.max(...schedule.buckets.map(v=>v.value))}%"></div></div><strong>${money(b.value)}</strong></div>`).join('')}</div><p>Total principal: ${exact(schedule.total)}. ${esc(schedule.note)}</p>${evidence(schedule.source_ids)}</div>` : '<p class="empty-panel">Insufficient schedule coverage for 12/24/36-month totals. Unknown is not zero. Historical note maturities are not aggregated into repayments.</p>'}`);
+  }
+
+  function download(name,content,type) {
+    const url=URL.createObjectURL(new Blob([content],{type}));
+    const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  function exportCSV() {
+    const quote=v=>{let s=String(v??'');if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';};
+    const header=['ticker','company','business_model','listing_status','borrowings_usd','borrowings_as_of','reported_cash_usd','cash_as_of','cash_basis','market_cap_usd','market_cap_as_of','market_cap_status','market_cap_note','debt_market_cap_percent','ratio_blocker','ratio_basis','size_band','contracts_json','capacity_json','hardware_json','revenue_json','instrument_inventory_json','maturity_schedule_json','liquidity_json','later_events_json','source_urls'];
+    const rows=visibleCompanies.map(c=>{const x=c.v2,m=x.market_cap;const ids=[...c.metrics.debt.source_ids,...(c.metrics.cash?.source_ids||[]),...(m?.source_ids||[]),...[...x.contracts,...x.capacity,...x.hardware,...x.revenue,...x.debt_inventory].flatMap(f=>f.source_ids),...(x.maturity_schedule?.source_ids||[])];return [c.ticker,c.name,c.group,c.listing_status,c.metrics.debt.value,c.as_of,c.metrics.cash?.value,c.metrics.cash?.as_of||c.as_of,c.metrics.cash?.basis,m?.value,m?.as_of,m?.status,m?.note,x.debt_market_cap_percent,m?.ratio_blocker,'Reported borrowing carrying value excluding leases / dated provider equity cap; different dates; no pro-forma adjustment',x.size_band,JSON.stringify(x.contracts),JSON.stringify(x.capacity),JSON.stringify(x.hardware),JSON.stringify(x.revenue),JSON.stringify(x.debt_inventory),JSON.stringify(x.maturity_schedule??null),JSON.stringify(c.liquidity),JSON.stringify(x.events),[...new Set(ids)].map(id=>sources.get(id)?.url).filter(Boolean).join(' | ')];});
+    download('NeoCloud-V2-comparison.csv',[header,...rows].map(r=>r.map(quote).join(',')).join('\r\n'),'text/csv;charset=utf-8');
   }
 
   function route() {
@@ -102,9 +141,12 @@
       if (embedded) data = JSON.parse(embedded.textContent);
       else { const response = await fetch('./data.json'); if (!response.ok) throw new Error('data'); data = await response.json(); }
       sources = new Map(data.sources.map(s => [s.id, s]));
-      $('reviewed').textContent = data.reviewed_at;
-      ['search', 'group', 'listing', 'order'].forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', renderUniverse));
-      $('reset').addEventListener('click', () => { $('search').value = ''; $('group').value = 'all'; $('listing').value = 'listed'; $('order').value = 'name'; renderUniverse(); });
+      $('reviewed').textContent = data.website_reviewed_at;
+      $('coverage-summary').textContent = `${data.companies.filter(c=>c.v2.market_cap).length} dated market-cap snapshots; ${data.companies.filter(c=>c.v2.contracts.length).length} company contract profiles. One complete issuer annual repayment schedule; selected current instrument inventories elsewhere. Nebius valuation ratio is withheld pending share-count reconciliation.`;
+      ['search', 'group', 'listing', 'order', 'size', 'view'].forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', renderUniverse));
+      $('reset').addEventListener('click', () => { $('search').value = ''; $('group').value = 'all'; $('listing').value = 'listed'; $('order').value = 'name'; $('size').value = 'all'; $('view').value = 'financing'; renderUniverse(); });
+      $('export-csv').addEventListener('click',exportCSV);
+      $('export-json').addEventListener('click',()=>download('NeoCloud-V2-evidence.json',JSON.stringify({reviewed_at:data.website_reviewed_at,companies:visibleCompanies,sources:data.sources},null,2),'application/json'));
       window.addEventListener('hashchange', route); route();
     } catch {
       $('error').hidden = false;
