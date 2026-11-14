@@ -2,7 +2,9 @@ const {test, expect} = require('@playwright/test');
 const path = require('node:path');
 const fs = require('node:fs');
 async function selectFilter(page, id, value) {
-  if (!await page.locator('#'+id).isVisible()) await page.locator('#filter-toggle').click();
+  await expect(page.locator('#universe')).toBeVisible();
+  const toggle=page.locator('#filter-toggle');
+  if (await toggle.isVisible() && await toggle.getAttribute('aria-expanded') === 'false') await toggle.click();
   await page.locator('#'+id).selectOption(value);
 }
 
