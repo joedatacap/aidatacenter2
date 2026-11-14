@@ -132,7 +132,7 @@ test('repayments preserve principal versus carrying value and no false rolling t
   await expect(page.locator('#financing')).toContainText('$47,505,000,000');
   await expect(page.locator('#financing')).toContainText('Effective accounting rates');
   await page.goto('/#company=HUT');
-  await expect(page.locator('#financing')).toContainText('Insufficient schedule coverage');
+  await expect(page.locator('#financing')).toContainText('Timing remains unresolved');
   await expect(page.locator('#operations')).toContainText('not the notes');
 });
 
@@ -175,4 +175,30 @@ test('every company brief opens without script errors',async({page})=>{
     await expect(page.locator('#operations')).toBeVisible();
   }
   expect(errors).toEqual([]);
+});
+
+
+test('repayment comparison preserves fiscal calendars and missing schedules',async({page})=>{
+  await page.goto('/');
+  await page.locator('#view').selectOption('repayments');
+  await page.locator('#search').fill('IREN');
+  await expect(page.locator('#company-rows')).toContainText('Remaining FY2027');
+  await expect(page.locator('#company-rows')).toContainText('06-30');
+  await expect(page.locator('#company-rows')).toContainText('$723M');
+  await page.getByRole('link',{name:'IREN',exact:true}).click();
+  await expect(page.locator('#financing')).toContainText('October 2026 through June 2027');
+  await expect(page.locator('#financing')).toContainText('$10,041,000,000');
+  await page.goto('/#company=NBIS');
+  await expect(page.locator('#financing')).toContainText('Insufficient schedule coverage');
+});
+
+test('repayment export carries timing caveat and fiscal basis',async({page})=>{
+  await page.goto('/');
+  await page.locator('#search').fill('HUT');
+  const event=page.waitForEvent('download');await page.locator('#export-json').click();
+  const download=await event;const payload=JSON.parse(fs.readFileSync(await download.path(),'utf8'));
+  const s=payload.companies[0].v2.maturity_schedule;
+  expect(s.period_basis).toBe('calendar');expect(s.total).toBe(7726410000);
+  expect(s.timing_issue).toContain('Timing remains unresolved');
+  expect(payload.sources.find(r=>r.id===s.source_ids[0]).excerpt).toContain('26,410');
 });

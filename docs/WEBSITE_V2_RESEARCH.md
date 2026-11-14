@@ -28,12 +28,12 @@ Hut 8 has four selected September principal rows with recourse labels and contra
 | Nebius | Prepayment coverage of signed contract value; named customers; four revenue-producing sites; hardware integration; Q3 revenue | No top-customer revenue percentage or consolidated live MW in this extract; vendor share reconciliation pending |
 | IREN | Top-three revenue concentration; Microsoft term/value and delivery conditions; accepted Horizon 1 IT load and GB300; segment revenue | One deployment is not total operating capacity; contract value is not current revenue |
 | Bitdeer | AI backlog; A102 commitments; live A101 versus secured pipeline; deployed GPU count/models; segment revenue | Mixed Bitcoin/AI business; future deliveries and model-level counts incomplete |
-| Hut 8 | Fluidstack/Google project scope; restricted construction accounts; project principal inventory | GPU ownership unknown; no full repayment schedule |
+| Hut 8 | Fluidstack/Google project scope; restricted construction accounts; project principal inventory | GPU ownership unknown; reported repayment schedule has unresolved timing discrepancy |
 | HIVE | Enterprise and Bell/Cohere contracts; deposit; live versus contracted ARR; deployed B200 and planned GB300; segment revenue | ARR is not recognized revenue or MW; planned hardware not assumed operating |
 | Applied Digital | Customer concentration; contracted critical IT load and Delta Forge 2 construction | Anonymous customers; consolidated live capacity/GPU ownership not established |
 | Core Scientific | Colocation concentration; AMD contract duration and future delivery | AMD leases had not commenced at the snapshot; tenant GPUs not attributed to issuer |
 | Cipher | Fluidstack tenant; phased Black Pearl delivery versus construction projects | Site power rating does not prove accepted HPC IT capacity |
-| TeraWulf | HPC customer count; energized critical IT load; JV sale agreement | Customer count is not consolidated concentration; GPU fleet not established |
+| TeraWulf | HPC customer count; energized critical IT load; completed JV stake sale | Customer count is not consolidated concentration; GPU fleet not established |
 | Galaxy, Riot, MARA, Equinix, Digital Realty | Existing dated debt/cash evidence plus provider valuation | New contract, GPU and operating-capacity research not completed; retained as context peers |
 | Nscale | IPO application status | Private reference; later debt and operating refresh still needed |
 
@@ -46,3 +46,18 @@ Hut 8 has four selected September principal rows with recourse labels and contra
 5. Review desktop/mobile screens, filtered CSV/JSON, missing-data labels and company routes. Upload the standalone HTML to the app folder; record commit and CI status in the plan.
 
 The V3 backlog remains funding-gap scenarios, hedge-adjusted interest stress, covenants, conversion/dilution, live alerts and automated research. There is no new hosting or database dependency for this release.
+
+## November 14 continuation: repayment coverage
+
+The comparison now includes four issuer repayment schedules: CoreWeave, Hut 8, IREN and TeraWulf. These remain September 30 observations. Existing market caps retain November 12 observation dates; the research review date is November 14.
+
+| Issuer | Principal schedule total | Calendar and scope | Evidence limit |
+| --- | --- | --- | --- |
+| CoreWeave | $47.505B | Calendar year; issuer total debt principal | Annual buckets cannot establish rolling 12/24/36-month amounts |
+| Hut 8 | $7.726410B | Calendar year; long-term debt including current portion | Table puts $26.410M in remaining 2026; TZRC instrument table and narrative specify April 2027. This conflict stays visible and is exported |
+| IREN | $10.041B | Fiscal years ending June 30; total debt principal, finance leases separate | Remaining FY2027 is October 2026–June 2027, not remaining calendar 2026 |
+| TeraWulf | $5.725B | Calendar year; long-term debt and convertible notes | Stated schedule scope is preserved; not silently generalized to all financing obligations |
+
+Each schedule is linked to its filing and short table excerpt. Values were checked against the filing and normalized from USD thousands or millions. Buckets reconcile to the reported total. The builder rejects missing calendars, unsupported year-end/basis pairs, duplicate periods, empty schedules and reconciliation errors. New comparison columns show the first and next issuer periods with their actual labels; values are not pooled across companies. JSON and CSV retain the full schedules, scope, calendar, dates and timing caveats.
+
+TeraWulf's filing also confirms its Abernathy sale was effective July 5 and that no equity interest remains. The company context now says the stake was sold rather than merely describing a pending agreement.

@@ -117,6 +117,13 @@ def build_website_v2(directory, enrichment):
             refs(schedule)
             if schedule['currency'] != 'USD' or date.fromisoformat(schedule['as_of']) > reviewed:
                 raise ValueError('Invalid maturity schedule')
+            if (schedule.get('period_basis'), schedule.get('year_end')) not in {('calendar', '12-31'), ('fiscal', '06-30')}:
+                raise ValueError('Explicit supported repayment calendar required')
+            if not schedule.get('scope') or not schedule.get('note') or not schedule.get('buckets'):
+                raise ValueError('Repayment scope, caveats and buckets required')
+            labels = [b['label'] for b in schedule['buckets']]
+            if len(labels) != len(set(labels)):
+                raise ValueError('Duplicate repayment period')
             if sum((amount(b['value']) for b in schedule['buckets']), Decimal(0)) != amount(schedule['total']):
                 raise ValueError('Principal schedule does not reconcile')
         x['debt_market_cap_percent'] = debt_market_cap(c['metrics']['debt']['value'], market, listing=c['listing_status'], debt_date=c['as_of'])

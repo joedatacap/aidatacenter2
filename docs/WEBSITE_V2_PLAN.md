@@ -118,3 +118,7 @@ PR: https://github.com/joedatacap/aidatacenter2/pull/8
 The Drive preview link above is updated in place for this release.
 
 Local validation for the expanded release: 146 Python tests passed with three database tests skipped locally; all 28 V2 desktop/mobile browser checks passed, including every company route, filtered downloads, principal reconciliation, unknown inputs and offline HTML. The final branch CI supplies disposable TLS Postgres and the existing 76-browser-check regression suite. CI outcome is recorded in PR #8 and the Drive plan once available.
+
+## November 14 continuation
+
+Added a debt repayment comparison view and three more issuer schedules: IREN, Hut 8 and TeraWulf. Four companies now have sourced annual debt schedules. Fiscal/calendar periods and each schedule’s scope remain explicit; exact rolling totals are not inferred. Hut 8’s timing discrepancy is flagged beside the chart and preserved in exports. TeraWulf’s completed Abernathy divestment is reflected in its operating context. The existing PR and Drive preview are updated in place.

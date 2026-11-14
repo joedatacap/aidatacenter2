@@ -72,3 +72,25 @@ def test_invalid_research_cannot_publish(inputs,mutation):
     elif mutation=='duplicate':extra['sources'].append(extra['sources'][0])
     elif mutation=='coverage':extra['companies'].pop('HIVE')
     with pytest.raises(ValueError):build_website_v2(base,extra)
+
+
+def test_repayment_calendars_and_timing_conflict(inputs):
+    result=build_website_v2(*inputs)
+    companies={c['ticker']:c for c in result['companies']}
+    expected={'IREN':10041000000,'HUT':7726410000,'WULF':5725000000}
+    for ticker,total in expected.items():
+        schedule=companies[ticker]['v2']['maturity_schedule']
+        assert sum(b['value'] for b in schedule['buckets'])==total==schedule['total']
+    assert companies['IREN']['v2']['maturity_schedule']['year_end']=='06-30'
+    assert companies['IREN']['v2']['maturity_schedule']['buckets'][0]['label']=='Remaining FY2027'
+    assert 'Timing remains unresolved' in companies['HUT']['v2']['maturity_schedule']['timing_issue']
+    assert 'no remaining equity' in companies['WULF']['v2']['capacity'][1]['display']
+
+
+@pytest.mark.parametrize('problem',['calendar','duplicate','empty'])
+def test_repayment_metadata_cannot_silently_mix_periods(inputs,problem):
+    base,extra=inputs;s=extra['companies']['IREN']['maturity_schedule']
+    if problem=='calendar':s['year_end']='12-31'
+    elif problem=='duplicate':s['buckets'][1]['label']=s['buckets'][0]['label']
+    elif problem=='empty':s['buckets']=[]
+    with pytest.raises(ValueError):build_website_v2(base,extra)

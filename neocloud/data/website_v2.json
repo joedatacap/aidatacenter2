@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-11-12",
+  "reviewed_at": "2026-11-14",
   "sources": [
     {
       "id": "v2-market-crwv",
@@ -310,6 +310,36 @@
       "retrieved_at": "2026-11-13",
       "excerpt": "TeraWulf had energized 102 critical IT MW of HPC leasing capacity",
       "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-hut-q-repayments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Hut 8 Q3 2026 10-Q — project obligations — debt repayment table",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-14",
+      "excerpt": "2026 (excluding the nine months ended September 30, 2026) 26,410",
+      "source_unit": "USD thousands",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-iren-q-repayments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "IREN Q1 FY2027 10-Q — debt repayment table",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-14",
+      "excerpt": "Remainder of Financial Year 2027 $ 723",
+      "source_unit": "USD millions",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-wulf-q-repayments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "TeraWulf Q3 2026 10-Q — debt repayment table",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-14",
+      "excerpt": "Remainder of 2026 $ 14,158",
+      "source_unit": "USD thousands",
       "review_status": "source_read"
     }
   ],
@@ -744,7 +774,10 @@
             "value": 19645000000
           }
         ],
-        "note": "Annual buckets cannot establish exact rolling 12/24/36-month repayments. Includes scheduled amortization, not just final maturity."
+        "note": "Annual buckets cannot establish exact rolling 12/24/36-month repayments. Includes scheduled amortization, not just final maturity.",
+        "period_basis": "calendar",
+        "year_end": "12-31",
+        "timing_issue": null
       }
     },
     "NBIS": {
@@ -961,6 +994,45 @@
         "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
         "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
         "ratio_blocker": null
+      },
+      "maturity_schedule": {
+        "as_of": "2026-09-30",
+        "currency": "USD",
+        "scope": "Fiscal years end June 30.",
+        "source_ids": [
+          "v2-iren-q-repayments"
+        ],
+        "total": 10041000000,
+        "period_basis": "fiscal",
+        "year_end": "06-30",
+        "buckets": [
+          {
+            "label": "Remaining FY2027",
+            "value": 723000000
+          },
+          {
+            "label": "FY2028",
+            "value": 1059000000
+          },
+          {
+            "label": "FY2029",
+            "value": 821000000
+          },
+          {
+            "label": "FY2030",
+            "value": 733000000
+          },
+          {
+            "label": "FY2031",
+            "value": 274000000
+          },
+          {
+            "label": "Thereafter",
+            "value": 6431000000
+          }
+        ],
+        "note": "Fiscal years end June 30. Remaining FY2027 covers October 2026 through June 2027. Debt principal excludes separately disclosed finance leases. Annual buckets cannot establish rolling 12/24/36-month totals.",
+        "timing_issue": null
       }
     },
     "BTDR": {
@@ -1176,6 +1248,45 @@
         "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
         "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
         "ratio_blocker": null
+      },
+      "maturity_schedule": {
+        "as_of": "2026-09-30",
+        "currency": "USD",
+        "scope": "Issuer long-term debt schedule includes current portion.",
+        "source_ids": [
+          "v2-hut-q-repayments"
+        ],
+        "total": 7726410000,
+        "period_basis": "calendar",
+        "year_end": "12-31",
+        "buckets": [
+          {
+            "label": "Remaining 2026",
+            "value": 26410000
+          },
+          {
+            "label": "2027",
+            "value": 200000000
+          },
+          {
+            "label": "2028",
+            "value": 86389000
+          },
+          {
+            "label": "2029",
+            "value": 100634000
+          },
+          {
+            "label": "2030",
+            "value": 237971000
+          },
+          {
+            "label": "Thereafter",
+            "value": 7075006000
+          }
+        ],
+        "note": "Issuer long-term debt schedule includes current portion. Other financial liabilities and leases are outside this principal total. Annual buckets cannot establish rolling 12/24/36-month totals.",
+        "timing_issue": "The schedule places $26.410M in remaining 2026, while the instrument table gives TZRC an April 2027 maturity. Timing remains unresolved; reported buckets are preserved."
       }
     },
     "APLD": {
@@ -1339,15 +1450,15 @@
           "note": "Energized capacity does not establish utilization."
         },
         {
-          "label": "Abernathy stake sale",
-          "display": "Agreement to sell 50.1% interest",
+          "label": "Abernathy stake sold",
+          "display": "50.1% interest sold; no remaining equity interest",
           "scope": "168 MW critical IT joint venture",
           "source_ids": [
             "v2-wulf-q"
           ],
           "as_of": "2026-09-30",
-          "status": "announced",
-          "note": "Do not count the entire joint venture as wholly owned operating capacity."
+          "status": "reported",
+          "note": "Sale effective July 5, 2026. Do not include this former joint venture as owned operating capacity."
         }
       ],
       "hardware": [
@@ -1377,6 +1488,45 @@
         "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
         "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
         "ratio_blocker": null
+      },
+      "maturity_schedule": {
+        "as_of": "2026-09-30",
+        "currency": "USD",
+        "scope": "Issuer schedule covers outstanding long-term debt and convertible notes.",
+        "source_ids": [
+          "v2-wulf-q-repayments"
+        ],
+        "total": 5725000000,
+        "period_basis": "calendar",
+        "year_end": "12-31",
+        "buckets": [
+          {
+            "label": "Remaining 2026",
+            "value": 14158000
+          },
+          {
+            "label": "2027",
+            "value": 210662000
+          },
+          {
+            "label": "2028",
+            "value": 296744000
+          },
+          {
+            "label": "2029",
+            "value": 302678000
+          },
+          {
+            "label": "2030",
+            "value": 2875758000
+          },
+          {
+            "label": "Thereafter",
+            "value": 2025000000
+          }
+        ],
+        "note": "Issuer schedule covers outstanding long-term debt and convertible notes. Scope is not automatically all borrowings. Annual buckets cannot establish rolling 12/24/36-month totals.",
+        "timing_issue": null
       }
     },
     "CIFR": {
