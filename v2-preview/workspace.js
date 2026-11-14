@@ -15,7 +15,7 @@
   const date = value => value ? esc(value) : 'Date not established';
   const words = value => esc(String(value || 'Not established').replaceAll('_', ' '));
   const fact = (label, value) => `<dl><dt>${esc(label)}</dt><dd>${value}</dd></dl>`;
-  let data, sources, selected, visibleCompanies = [];
+  let data, sources, selected, visibleCompanies = [], activeView = 'financing', sectionObserver;
 
   function evidence(ids = []) {
     const unique = [...new Set(ids)].map(id => sources.get(id)).filter(Boolean);
@@ -42,10 +42,14 @@
       if (av == null || bv == null) return av == null && bv == null ? a.name.localeCompare(b.name) : av == null ? 1 : -1;
       return (Number(av) - Number(bv)) * (order.endsWith('asc') ? 1 : -1) || a.name.localeCompare(b.name);
     });
+    const filterCount = [group !== 'all', listing !== 'listed', order !== 'name', size !== 'all'].filter(Boolean).length;
+    $('filter-count').textContent = filterCount ? `· ${filterCount} changed` : '';
     $('count').textContent = `${companies.length} of ${data.companies.length} records`;
     $('empty').hidden = companies.length > 0;
     visibleCompanies = companies;
-    const operating = $('view').value === 'operations', repayments = $('view').value === 'repayments';
+    const operating = activeView === 'operations', repayments = activeView === 'repayments';
+    document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === activeView)));
+    $('view-description').textContent = repayments ? 'When does principal come due? Read annual buckets alongside their fiscal or calendar basis.' : operating ? 'What supports the business? Separate operating assets from contracted and announced capacity.' : 'Compare the balance sheet with the equity market.';
     const headings = repayments ? ['Company','Reported principal total','First reporting period','Next reporting period','Reporting calendar & scope','Evidence gaps'] : operating ? ['Company','Customers & contracts','Capacity status','GPU disclosures','Research scope'] : ['Company','Borrowings','Reported cash','Market cap','Debt / market cap','Statement date'];
     $('column-headings').innerHTML = '<tr>' + headings.map(h=>`<th scope="col">${esc(h)}</th>`).join('') + '</tr>';
     const cell = (label, html) => `<td data-label="${esc(label)}">${html}</td>`;
@@ -55,7 +59,7 @@
       const name=`<a class="company-name" href="#company=${encodeURIComponent(c.ticker)}">${esc(c.name)}</a><span class="ticker">${esc(c.ticker)}</span><span class="business">${esc(groups[c.group])}</span><span class="cell-note">${m ? words(x.size_band)+' equity cap' : 'Private reference · IPO applicant'}</span>`;
       const schedule=x.maturity_schedule;
       const period=b=>b ? `<strong>${money(b.value)}</strong><span class="cell-note">${esc(b.label)}</span>` : '<span class="unknown">Not established</span>';
-      return '<tr>'+cell('Company',name)+(repayments ?
+      return '<tr class="'+(operating ? 'operating-row' : repayments ? 'repayment-row' : 'financing-row')+'">'+cell('Company',name)+(repayments ?
         cell(headings[1],schedule ? `<strong>${money(schedule.total)}</strong><span class="cell-note">As of ${date(schedule.as_of)} · leases excluded</span>` : 'Not established')+
         cell(headings[2],period(schedule?.buckets[0]))+cell(headings[3],period(schedule?.buckets[1]))+
         cell(headings[4],schedule ? `${words(schedule.period_basis)} year · ends ${esc(schedule.year_end)}<span class="cell-note">${esc(schedule.scope)}</span>` : '<span class="unknown">Research gap</span>')+
@@ -100,9 +104,21 @@
       <section id="valuation" class="brief-section"><p class="eyebrow">04 / SHAREHOLDER CONTEXT</p><h2>Debt relative to equity value.</h2><div class="empty-panel"><h3>${c.listing_status === 'listed' ? 'Market-cap research pending' : 'Public-market valuation not applicable to this record'}</h3><p>Debt / market cap = reported borrowing carrying value ÷ dated equity market capitalization. Both dates, currency and the equity source will be shown. A stock-price move changes this ratio without changing the debt.</p><p>No verified market-cap observation is loaded. Private funding-round valuations will not substitute for public equity value.</p></div></section>
       <section id="operations" class="brief-section"><p class="eyebrow">05 / REVENUE FOUNDATIONS</p><h2>Customers, capacity & hardware.</h2><div class="coverage-grid"><article class="empty-panel"><h3>Customers & contracts</h3><p>Research pending: major customers, revenue concentration, contract term, termination conditions and guarantee scope. A contract’s face value is not cash in the bank.</p></article><article class="empty-panel"><h3>Revenue-producing capacity</h3><p>Research pending: operating, contracted, construction and announced capacity, with units and dates. Operating capacity does not establish utilization.</p></article><article class="empty-panel"><h3>GPU fleet</h3><p>Research pending: disclosed GPU generations, owned versus leased equipment and refresh obligations. A named deployment is not a full fleet inventory.</p></article></div></section>`;
     enrichBrief(c);
+    $('company').querySelectorAll('.brief-section h2').forEach(heading => heading.tabIndex = -1);
     $('print-brief').addEventListener('click',()=>window.print());
-    $('company').querySelectorAll('[data-section]').forEach(a => a.addEventListener('click', event => {
-      event.preventDefault(); $(a.dataset.section).scrollIntoView({behavior:'smooth'});
+    const sectionLinks = [...$('company').querySelectorAll('[data-section]')];
+    sectionObserver = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a,b) => a.boundingClientRect.top-b.boundingClientRect.top);
+      if (!visible.length) return;
+      sectionLinks.forEach(link => {
+        if (link.dataset.section === visible[0].target.id) link.setAttribute('aria-current','location');
+        else link.removeAttribute('aria-current');
+      });
+    }, {rootMargin:'-80px 0px -55% 0px', threshold:0});
+    $('company').querySelectorAll('.brief-section').forEach(section => sectionObserver.observe(section));
+    sectionLinks.forEach(a => a.addEventListener('click', event => {
+      event.preventDefault(); $(a.dataset.section).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+      $(a.dataset.section).querySelector('h2').focus({preventScroll:true});
     }));
   }
 
@@ -118,7 +134,7 @@
     if(x.events.length) $('valuation').insertAdjacentHTML('beforeend','<h3>Listing & later events</h3>'+factCards(x.events));
     const inventory=x.debt_inventory;
     const schedule=x.maturity_schedule;
-    $('financing').insertAdjacentHTML('beforeend',`<h3>Current disclosed instrument inventory</h3>${inventory.length ? `<p class="section-lead">${c.ticker==='CRWV' ? 'Note 10 principal rows, including aggregated OEM/software financing. USD equivalent for EUR notes.' : 'Selected instruments only; this is not a complete company debt stack.'} Final maturity dates do not capture amortization. Effective accounting rates are shown separately from cash coupons above.</p><div class="table-wrap"><table><thead><tr><th>Instrument / principal</th><th>Final maturity</th><th>Rate basis</th><th>Recourse / security</th><th>Evidence</th></tr></thead><tbody>${inventory.map(i=>`<tr><td><strong>${esc(i.instrument)}</strong><p>${exact(i.principal)} ${esc(i.currency)}<br>${date(i.as_of)}</p></td><td>${esc(i.maturity)}<span class="cell-note">${words(i.maturity_precision)}</span></td><td>${esc(i.rate)}<span class="cell-note">${words(i.rate_kind)}</span></td><td>${esc(i.recourse)}<p>${esc(i.security)}</p></td><td>${evidence(i.source_ids)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="empty-panel">No current instrument-level inventory established. Selected historical notes remain in Rates & notes.</p>'}<h3>Scheduled principal repayments</h3>${schedule ? `<div class="card"><p><strong>${words(schedule.period_basis)} year · ends ${esc(schedule.year_end)}</strong></p>${schedule.timing_issue ? `<p class="status-note">${esc(schedule.timing_issue)}</p>` : ''}<p>${esc(schedule.scope)} As of ${date(schedule.as_of)}.</p><div class="maturity-chart">${schedule.buckets.map(b=>`<div class="maturity-row"><span>${esc(b.label)}</span><div class="bar-track"><div class="bar" style="width:${100*b.value/Math.max(...schedule.buckets.map(v=>v.value))}%"></div></div><strong>${money(b.value)}</strong></div>`).join('')}</div><p>Total principal: ${exact(schedule.total)}. ${esc(schedule.note)}</p>${evidence(schedule.source_ids)}</div>` : '<p class="empty-panel">Insufficient schedule coverage for 12/24/36-month totals. Unknown is not zero. Historical note maturities are not aggregated into repayments.</p>'}`);
+    $('financing').querySelector('.card').insertAdjacentHTML('afterend',`<h3>Scheduled principal repayments</h3>${schedule ? `<div class="card"><p><strong>${words(schedule.period_basis)} year · ends ${esc(schedule.year_end)}</strong></p>${schedule.timing_issue ? `<p class="status-note">${esc(schedule.timing_issue)}</p>` : ''}<p>${esc(schedule.scope)} As of ${date(schedule.as_of)}.</p><div class="maturity-chart">${schedule.buckets.map(b=>`<div class="maturity-row"><span>${esc(b.label)}</span><div class="bar-track"><div class="bar" style="width:${100*b.value/Math.max(...schedule.buckets.map(v=>v.value))}%"></div></div><strong>${money(b.value)}</strong></div>`).join('')}</div><p>Total principal: ${exact(schedule.total)}. ${esc(schedule.note)}</p>${evidence(schedule.source_ids)}</div>` : '<p class="empty-panel">Insufficient schedule coverage for 12/24/36-month totals. Unknown is not zero. Historical note maturities are not aggregated into repayments.</p>'}<h3>Current disclosed instrument inventory</h3>${inventory.length ? `<p class="section-lead">${c.ticker==='CRWV' ? 'Note 10 principal rows, including aggregated OEM/software financing. USD equivalent for EUR notes.' : 'Selected instruments only; this is not a complete company debt stack.'} Final maturity dates do not capture amortization. Effective accounting rates are shown separately from cash coupons above.</p><div class="table-wrap"><table><thead><tr><th>Instrument / principal</th><th>Final maturity</th><th>Rate basis</th><th>Recourse / security</th><th>Evidence</th></tr></thead><tbody>${inventory.map(i=>`<tr><td><strong>${esc(i.instrument)}</strong><p>${exact(i.principal)} ${esc(i.currency)}<br>${date(i.as_of)}</p></td><td>${esc(i.maturity)}<span class="cell-note">${words(i.maturity_precision)}</span></td><td>${esc(i.rate)}<span class="cell-note">${words(i.rate_kind)}</span></td><td>${esc(i.recourse)}<p>${esc(i.security)}</p></td><td>${evidence(i.source_ids)}</td></tr>`).join('')}</tbody></table></div>` : '<p class="empty-panel">No current instrument-level inventory established. Selected historical notes remain in Rates & notes.</p>'}`);
   }
 
   function download(name,content,type) {
@@ -133,6 +149,7 @@
   }
 
   function route() {
+    sectionObserver?.disconnect();
     const ticker = new URLSearchParams(location.hash.slice(1)).get('company');
     const c = data.companies.find(item => item.ticker === ticker);
     $('universe').hidden = Boolean(c); $('company').hidden = !c;
@@ -149,8 +166,15 @@
       sources = new Map(data.sources.map(s => [s.id, s]));
       $('reviewed').textContent = data.website_reviewed_at;
       $('coverage-summary').textContent = `${data.companies.filter(c=>c.v2.market_cap).length} dated market-cap snapshots; ${data.companies.filter(c=>c.v2.contracts.length).length} company contract profiles. ${data.companies.filter(c=>c.v2.maturity_schedule).length} issuer repayment schedules with explicit calendar/fiscal periods; selected current instrument inventories elsewhere. Nebius valuation ratio is withheld pending share-count reconciliation.`;
-      ['search', 'group', 'listing', 'order', 'size', 'view'].forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', renderUniverse));
-      $('reset').addEventListener('click', () => { $('search').value = ''; $('group').value = 'all'; $('listing').value = 'listed'; $('order').value = 'name'; $('size').value = 'all'; $('view').value = 'financing'; renderUniverse(); });
+      ['search', 'group', 'listing', 'order', 'size'].forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', renderUniverse));
+      $('filter-toggle').addEventListener('click', () => {
+        const expanded = $('filter-toggle').getAttribute('aria-expanded') !== 'true';
+        $('filter-toggle').setAttribute('aria-expanded', String(expanded));
+        $('filter-toggle').closest('form').classList.toggle('filters-expanded', expanded);
+      });
+      document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => { activeView = button.dataset.view; renderUniverse(); }));
+      $('empty-reset').addEventListener('click', () => { $('reset').click(); $('search').focus(); });
+      $('reset').addEventListener('click', () => { $('search').value = ''; $('group').value = 'all'; $('listing').value = 'listed'; $('order').value = 'name'; $('size').value = 'all'; activeView = 'financing'; renderUniverse(); });
       $('export-csv').addEventListener('click',exportCSV);
       $('export-json').addEventListener('click',()=>download('NeoCloud-V2-evidence.json',JSON.stringify({reviewed_at:data.website_reviewed_at,companies:visibleCompanies,sources:data.sources},null,2),'application/json'));
       window.addEventListener('hashchange', route); route();

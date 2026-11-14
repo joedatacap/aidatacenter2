@@ -122,3 +122,13 @@ Local validation for the expanded release: 146 Python tests passed with three da
 ## November 14 continuation
 
 Added a debt repayment comparison view and three more issuer schedules: IREN, Hut 8 and TeraWulf. Four companies now have sourced annual debt schedules. Fiscal/calendar periods and each schedule’s scope remain explicit; exact rolling totals are not inferred. Hut 8’s timing discrepancy is flagged beside the chart and preserved in exports. TeraWulf’s completed Abernathy divestment is reflected in its operating context. The existing PR and Drive preview are updated in place.
+
+## Interface refinement — November 14, 2026
+
+The workspace now exposes its three analysis views as persistent, labelled buttons. Each has a short description on desktop and a selected state available to assistive technology. Changing views preserves search and peer filters; returning from a company preserves the comparison context. Search remains visible on phones, with secondary filters and ordering behind a labelled disclosure that reports changed choices. The empty state offers a direct reset with keyboard focus restored to search.
+
+Visual direction: warm paper, dark evergreen, restrained sage accents, a compact monogram, serif headings, and tabular financial numbers. Monetary columns align on the right on desktop; mobile retains labelled company cards. Exports sit beside the comparison, and view-specific introductions explain what the current table answers. Avoid risk colors, decorative gauges or implied safety rankings.
+
+Company briefs promote scheduled principal repayments immediately after the reported borrowing balance, ahead of the instrument inventory, reconciliation detail and leases. Persistent section navigation follows the reading position, supports keyboard jumps, and respects reduced-motion preferences. Evidence remains expandable near the assertion. The finance dataset and calculations are unchanged.
+
+Design priorities for a subsequent pass: review real user feedback before adding more panels; consider column selection and saved peer groups only if comparison workflows need them. Preserve a compact working surface instead of adding a marketing hero or a dashboard of aggregate financial totals across dissimilar businesses.

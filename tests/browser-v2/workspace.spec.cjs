@@ -1,17 +1,21 @@
 const {test, expect} = require('@playwright/test');
 const path = require('node:path');
 const fs = require('node:fs');
+async function selectFilter(page, id, value) {
+  if (!await page.locator('#'+id).isVisible()) await page.locator('#filter-toggle').click();
+  await page.locator('#'+id).selectOption(value);
+}
 
 test('universe separates public and private coverage and resets filters', async ({page}) => {
   await page.goto('/');
   await expect(page.locator('#company-rows tr')).toHaveCount(15);
-  await page.locator('#listing').selectOption('all');
+  await selectFilter(page, 'listing', 'all');
   await expect(page.locator('#company-rows tr')).toHaveCount(16);
   await page.locator('#search').fill('nscale');
   await expect(page.locator('#company-rows tr')).toHaveCount(1);
   await expect(page.locator('#company-rows')).toContainText('Private reference');
   await page.getByRole('button', {name:'Reset filters'}).click();
-  await page.locator('#group').selectOption('gpu_cloud');
+  await selectFilter(page, 'group', 'gpu_cloud');
   await expect(page.locator('#company-rows tr')).toHaveCount(2);
   await page.locator('#search').fill('not-a-company');
   await expect(page.locator('#empty')).toBeVisible();
@@ -20,7 +24,7 @@ test('universe separates public and private coverage and resets filters', async 
 test('unknown borrowing values sort after known values in both directions', async ({page}) => {
   await page.goto('/');
   for (const value of ['debt_asc','debt_desc']) {
-    await page.locator('#order').selectOption(value);
+    await selectFilter(page, 'order', value);
     await expect(page.locator('#company-rows tr').last()).toContainText('Galaxy');
     await expect(page.locator('#company-rows tr').last()).toContainText('Not established');
   }
@@ -105,16 +109,16 @@ test('valuation handles known mismatch, updated statement and size cohorts', asy
   await expect(page.locator('#valuation')).toContainText('Withheld');
   await expect(page.locator('#company')).not.toContainText('not yet in latest submissions');
   await page.getByRole('link',{name:'← Company universe'}).click();
-  await page.locator('#size').selectOption('small');
+  await selectFilter(page, 'size', 'small');
   await expect(page.locator('#company-rows tr')).toHaveCount(2);
   await expect(page.locator('#company-rows')).toContainText('HIVE');
-  await page.locator('#order').selectOption('ratio_desc');
+  await selectFilter(page, 'order', 'ratio_desc');
   await expect(page.locator('#company-rows tr').first()).toContainText('Bitdeer');
 });
 
 test('operating comparison preserves pipeline, contract and hardware scope', async({page})=>{
   await page.goto('/');
-  await page.locator('#view').selectOption('operations');
+  await page.locator('[data-view=operations]').click();
   await page.locator('#search').fill('iren');
   await expect(page.locator('#company-rows')).toContainText('50 MW IT load');
   await page.getByRole('link',{name:'IREN',exact:true}).click();
@@ -159,14 +163,14 @@ test('keyboard opens a company and mobile views fit the actual layout viewport',
   await expect(page.locator('#brief-title')).toBeFocused();
   await page.getByRole('link',{name:'← Company universe'}).click();
   await expect(page.getByRole('link',{name:'CoreWeave',exact:true})).toBeFocused();
-  await page.locator('#view').selectOption('operations');
+  await page.locator('[data-view=operations]').click();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);
 });
 
 test('every company brief opens without script errors',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/');
-  await page.locator('#listing').selectOption('all');
+  await selectFilter(page, 'listing', 'all');
   const links=await page.locator('.company-name').evaluateAll(nodes=>nodes.map(n=>({name:n.textContent,hash:n.getAttribute('href')})));
   expect(links).toHaveLength(16);
   for(const link of links){
@@ -180,7 +184,7 @@ test('every company brief opens without script errors',async({page})=>{
 
 test('repayment comparison preserves fiscal calendars and missing schedules',async({page})=>{
   await page.goto('/');
-  await page.locator('#view').selectOption('repayments');
+  await page.locator('[data-view=repayments]').click();
   await page.locator('#search').fill('IREN');
   await expect(page.locator('#company-rows')).toContainText('Remaining FY2027');
   await expect(page.locator('#company-rows')).toContainText('06-30');
@@ -201,4 +205,60 @@ test('repayment export carries timing caveat and fiscal basis',async({page})=>{
   expect(s.period_basis).toBe('calendar');expect(s.total).toBe(7726410000);
   expect(s.timing_issue).toContain('Timing remains unresolved');
   expect(payload.sources.find(r=>r.id===s.source_ids[0]).excerpt).toContain('26,410');
+});
+
+test('visible analysis controls preserve peers and expose selected state',async({page})=>{
+  await page.goto('/');
+  await page.locator('#search').fill('IREN');
+  const repayments=page.getByRole('button',{name:/Debt repayment schedules/});
+  await repayments.focus();await page.keyboard.press('Enter');
+  await expect(repayments).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('[data-view=financing]')).toHaveAttribute('aria-pressed','false');
+  await expect(page.locator('#company-rows tr')).toHaveCount(1);
+  await expect(page.locator('#view-description')).toContainText('fiscal or calendar');
+  await page.getByRole('link',{name:'IREN',exact:true}).click();
+  await page.getByRole('link',{name:'← Company universe'}).click();
+  await expect(repayments).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('#search')).toHaveValue('IREN');
+  await page.locator('#search').fill('no-such-company');
+  await page.getByRole('button',{name:/Clear filters/}).click();
+  await expect(page.locator('#search')).toBeFocused();
+  await expect(page.locator('#company-rows tr')).toHaveCount(15);
+  await expect(page.locator('[data-view=financing]')).toHaveAttribute('aria-pressed','true');
+});
+
+test('brief navigation follows reading position and supports reduced motion and keyboard',async({page})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/#company=IREN');
+  const nav=page.getByRole('navigation',{name:'Brief sections'});
+  const operations=nav.getByRole('link',{name:'Customers & infrastructure'});
+  await operations.focus();await page.keyboard.press('Enter');
+  await expect(page.locator('#operations h2')).toBeFocused();
+  await expect(operations).toHaveAttribute('aria-current','location');
+  const position=await nav.boundingBox();
+  expect(position.y).toBeGreaterThanOrEqual(0);expect(position.y).toBeLessThan(20);
+  await page.locator('#cash').scrollIntoViewIfNeeded();
+  await expect(nav.getByRole('link',{name:'Cash & facilities'})).toHaveAttribute('aria-current','location');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);
+});
+
+test('compact filters stay discoverable on phones and retain active choices',async({page},testInfo)=>{
+  await page.goto('/');
+  if(testInfo.project.name==='desktop'){
+    await expect(page.locator('#filter-toggle')).not.toBeVisible();
+    await expect(page.locator('#group')).toBeVisible();
+    return;
+  }
+  const toggle=page.getByRole('button',{name:/Filters & sort/});
+  await expect(toggle).toHaveAttribute('aria-expanded','false');
+  await expect(page.locator('#group')).not.toBeVisible();
+  await toggle.click();
+  await page.locator('#group').selectOption('gpu_cloud');
+  await expect(toggle).toContainText('1 changed');
+  await toggle.click();
+  await expect(page.locator('#company-rows tr')).toHaveCount(2);
+  await expect(page.locator('#group')).not.toBeVisible();
+  await page.getByRole('button',{name:'Reset filters'}).click();
+  await expect(toggle).not.toContainText('changed');
+  await expect(page.locator('#company-rows tr')).toHaveCount(15);
 });
