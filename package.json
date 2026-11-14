@@ -7,7 +7,10 @@
     "test:preview": "npm run build:standalone && playwright test",
     "deploy:dry-run": "wrangler deploy --dry-run",
     "stage:subpath": "python3 scripts/stage_preview.py",
-    "deploy:subpath:dry-run": "npm run stage:subpath && wrangler deploy --config wrangler.subpath.jsonc --dry-run"
+    "deploy:subpath:dry-run": "npm run stage:subpath && wrangler deploy --config wrangler.subpath.jsonc --dry-run",
+    "build:v2": "python3 scripts/build_v2_workspace.py",
+    "preview:v2": "npm run build:v2 && python3 -m http.server 8002 --bind 127.0.0.1 --directory v2-preview",
+    "test:v2": "npm run build:v2 && playwright test --config playwright.v2.config.cjs"
   },
   "devDependencies": {
     "@playwright/test": "1.65.0",

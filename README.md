@@ -207,3 +207,9 @@ Actual Neon remains blocked separately: the single direct PostgreSQL probe faile
 
 A bounded live diagnostic run can be reproduced with `python scripts/run_live_investigation.py CRWV NBIS --output work/live-investigation.json`. This uses the same research engine with explicitly labeled development memory; it does not test Neon persistence.
 Research and scenario analysis only. No investment recommendations, fabricated default probabilities, public authentication layer or durable hosting deployment is claimed. Intended for a trusted hackathon environment.
+
+## Website V2 workspace
+
+The new product direction and V3 backlog are in [the V2 plan](docs/WEBSITE_V2_PLAN.md). Run `npm run preview:v2` for the company universe and financing briefs at http://127.0.0.1:8002. `npm run build:v2` also produces `work/NeoCloud-V2-Workspace.html`, a self-contained interactive preview. Run `npm run test:v2` for desktop/mobile checks. Python package installation and `npm ci` are prerequisites.
+
+V2 adds dated provider market caps, indicative debt/market-cap, sourced customer and infrastructure context, instrument detail, principal repayments, filtered CSV/JSON and print views. See [research coverage and update rules](docs/WEBSITE_V2_RESEARCH.md). Market values are not live; Nebius’s ratio is withheld pending share-count reconciliation, and remaining evidence gaps stay explicit.
