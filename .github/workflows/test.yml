@@ -55,8 +55,10 @@ jobs:
           npx playwright install --with-deps chromium 2>&1 | tee work/playwright-install.log
       - run: npm run test:preview
       - run: npm run test:v2
+      - run: npm run test:watch
       - run: npm run deploy:dry-run
       - run: npm run deploy:subpath:dry-run
+      - run: npm run deploy:watch:dry-run
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -72,3 +74,7 @@ jobs:
             work/NeoCloud-V2-Workspace.html
             work/v2-*.png
             work/playwright-install.log
+            work/neocloud-watch-site/
+            work/Neocloud-Watch-V2.html
+            work/playwright-watch-results/
+            work/watch-*.png
