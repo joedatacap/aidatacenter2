@@ -51,7 +51,7 @@ Public Earnings Watch JSON was attempted through HTTPS (proxy CONNECT403) and th
 - `python -m compileall -q neocloud`, `node --check watch-preview/watch.js`, `git diff --check`: passed.
 - Offline Chromium screenshots and20 page/viewport combinations checked at320/390/768/1100/1440px; no page overflow or script errors. Intentional detail-table scrolling remains available.
 - Manual candidate import:14 staged differences, repeat import0 differences. Live public SEC filing fingerprint:1 pending review candidate; no extraction or publication.
-- Final CI result and PR/preview links will be recorded in the delivery receipt below. Earlier PR #8 results are not reused as proof of this release.
+- Final CI result and PR/preview links are recorded in the delivery receipt below. Earlier PR #8 results are not reused as proof of this release.
 
 ## Build and preview
 
@@ -84,3 +84,16 @@ Review a candidate against public primary evidence; retain excerpt, units, accou
 Start by inspecting git status, this receipt, the coverage matrix and both PRs. This implementation is complete as a reviewed static release; further financial enrichment should be a new focused research change. First research follow-up: retrieve SHAZ/AGPU Q3 after their confirmed events, reconcile share structures, and complete missing quarterly cash-flow/capex and market-reaction inputs. Preserve earlier observations.
 
 For eventual public release: review dependency PR #8 and this stacked PR; choose the integration/retarget method; confirm deployment authorization, Cloudflare access and hostname; deploy a preview; verify actual hosted behavior and freshness; only then consider production. Nothing in this task authorizes those merges or deployments. No coding or monitoring continues after the task ends.
+
+## Delivery links and verified implementation
+
+- Reviewable [PR #9](https://github.com/joedatacap/aidatacenter2/pull/9), base `feat/neocloud-v2-workbench`, dependent on [PR #8](https://github.com/joedatacap/aidatacenter2/pull/8).
+- Implementation commit: `d2b8eaf804b8d38619d96786942207d31a7f0273`. Final delivery bookkeeping follows as a separate documentation-only commit; `git rev-parse HEAD` identifies that branch head.
+- Implementation [CI run43811849478](https://github.com/joedatacap/aidatacenter2/actions/runs/43811849478) **passed**:175 Python tests,76 preview browser checks,38 earlier V2 browser checks,34 Watch checks and all three packaging dry runs. The current PR also exposes checks for the final documentation-only head.
+- [Working interactive preview](https://drive.google.com/file/d/1qPnbuu9L6b9NDFaprh1nQZEe45oUImmc/view): download and open in a browser. No network is required after download.
+- [Review folder: six screenshots and static-site ZIP](https://drive.google.com/drive/folders/1XjY3VYjBl4ogf0QGvtyW-IE4-PKjlyuh).
+- [Deployable static-site ZIP](https://drive.google.com/file/d/1dEYTtKudtjSMhWdA5JrQ79vCFwJgMQFl/view). Contains only28 generated website files:24 route indexes, JavaScript, CSS, reviewed JSON and security headers. No backend, credentials or private reference payload.
+- Preview screenshots: Overview, Earnings, Financing and Buildout at1440px; Overview and Axe financing at390px. Additional320/768/1100px layout checks passed.
+- Google execution brief updated with implementation receipt, limitations and PR link. The old V2 preview and Drive files were preserved.
+
+Disposable local TLS Postgres was stopped after the tests and its temporary credential removed. No application/Neon database was touched. There is no unattended research or publication job running.
