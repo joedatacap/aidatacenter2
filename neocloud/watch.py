@@ -342,6 +342,29 @@ def build_watch(directory,research_files, *, reviewed_at=None,import_audit=None,
             if q['period_type']=='quarter' and q['months']!=3:raise ValueError('YTD cannot masquerade as a quarter')
             q.setdefault('scope','consolidated');q.setdefault('metrics',{})
             refs(q,False)
+            analyst=q.get('analyst_read')
+            if analyst is not None:
+                if analyst.get('basis') not in ('release_filing','call_transcript'):
+                    raise ValueError('Analyst read must distinguish call from release evidence')
+                iso(analyst['reviewed_at'])
+                bullets=analyst.get('bullets',[])
+                if not 1 <= len(bullets) <= 3:
+                    raise ValueError('Analyst read requires one to three bullets')
+                if analyst['basis']=='call_transcript':
+                    call_date=iso(analyst['call_date'])
+                    if call_date < end or call_date > iso(analyst['reviewed_at']):raise ValueError('Call must fall between its financial period and review')
+                for bullet in bullets:
+                    if not isinstance(bullet.get('text'),str) or not bullet['text'].strip() or len(bullet['text'])>650:
+                        raise ValueError('Analyst bullet needs concise text')
+                    if not bullet.get('label'):raise ValueError('Analyst bullet needs a label')
+                    refs(bullet)
+                    if analyst['basis']=='call_transcript' and not any(
+                        sources[id].get('source_kind')=='earnings_call_transcript'
+                        and sources[id].get('quarter_id')==q['id']
+                        and sources[id].get('company_id')==company['id']
+                        and sources[id].get('call_date')==analyst['call_date']
+                        for id in bullet['source_ids']):
+                        raise ValueError('Call insight requires a reviewed transcript for the same company and quarter')
             for key,f in q['metrics'].items():
                 f.setdefault('id',q['id']+'-'+key);f.setdefault('period_end',q['period_end']);f.setdefault('months',q['months'])
                 f.setdefault('scope',q['scope']);f.setdefault('accounting_basis','issuer_adjusted' if key=='adjusted_ebitda' else 'GAAP')

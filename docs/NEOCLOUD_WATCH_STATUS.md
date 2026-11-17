@@ -97,3 +97,11 @@ For eventual public release: review dependency PR #8 and this stacked PR; choose
 - Google execution brief updated with implementation receipt, limitations and PR link. The old V2 preview and Drive files were preserved.
 
 Disposable local TLS Postgres was stopped after the tests and its temporary credential removed. No application/Neon database was touched. There is no unattended research or publication job running.
+
+## November 17 follow-up — concise earnings-call reads
+
+Added **Analyst read** above each quarter's metrics on Earnings and company profiles. All nine latest quarters already covered by the snapshot now have actual transcript-based reads (16 bullets);23 historical quarters have labelled release/filing interpretations. Each section has1–3 sourced bullets. The actual call date, evidence basis and analysis review date remain visible. Transcript review does not refresh the financial snapshot or imply new SHAZ/AGPU Q3 coverage.
+
+See [call coverage and maintenance](EARNINGS_ANALYST_READ.md). Nine transcript sources were added without changing financial values. Existing exports retain the analysis within quarter records. The new validation prevents filing-only sources from being labelled as reviewed calls. Tests cover bullet limits, source identity, date separation, all-nine coverage, evidence drawers and historical fallback. This continuation remains on PR #9 and does not authorize a merge or deployment.
+
+Follow-up verification:24 targeted Python tests and36 Watch desktop/mobile browser checks passed. A structural comparison against the prior commit confirmed that all existing financial values and source records remain identical after excluding the newly added analysis and transcript evidence. Full CI runs on the updated PR head; the prior implementation test receipt remains historical evidence.

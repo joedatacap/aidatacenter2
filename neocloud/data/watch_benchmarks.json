@@ -138,6 +138,27 @@
               "watch-crwv-2026q3"
             ],
             "note": "Actual quarterly revenue exceeds prior management guidance high end by $61M. This is a management-guide comparison, not a consensus beat."
+          },
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-10",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The financing plan is doing as much work as the growth story: management prefers contract-matched lending and customer prepayments to unsecured borrowing at current yields. Backlog alone does not establish available cash.",
+                "source_ids": [
+                  "call-crwv-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Track actual prepayment collections and the financing of deployments. The expected near-term collections discussed on the call are prospective, rather than cash already on the reported balance sheet.",
+                "source_ids": [
+                  "call-crwv-q3-2026-20261117"
+                ]
+              }
+            ]
           }
         },
         {
@@ -228,7 +249,20 @@
             }
           },
           "note": "Cash capex is the cash-flow statement line, not total asset additions.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Cash equipment purchases exceeded operating cash generation this quarter. Financing access and the timing of customer cash receipts matter alongside the revenue growth story.",
+                "source_ids": [
+                  "watch-crwv-2026q2"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "crwv-2026-03-31",
@@ -318,7 +352,20 @@
             }
           },
           "note": "Cash capex is the cash-flow statement line, not total asset additions.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Cash equipment purchases exceeded operating cash generation this quarter. Financing access and the timing of customer cash receipts matter alongside the revenue growth story.",
+                "source_ids": [
+                  "watch-crwv-2026q1"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "crwv-2025-12-31",
@@ -408,7 +455,20 @@
             }
           },
           "note": "Cash capex is the cash-flow statement line, not total asset additions.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Cash equipment purchases exceeded operating cash generation this quarter. Financing access and the timing of customer cash receipts matter alongside the revenue growth story.",
+                "source_ids": [
+                  "watch-crwv-2025q4"
+                ]
+              }
+            ]
+          }
         }
       ],
       "guidance": [
@@ -749,7 +809,28 @@
             }
           },
           "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-12",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Management describes stronger customer funding for newly contracted capacity. Keep that contract-specific coverage separate from funding the entire company buildout.",
+                "source_ids": [
+                  "call-nbis-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "The operational test is converting delayed colocated capacity into revenue. Management said some New Jersey capacity moved into 2027 without cancellation; demand and delivery timing are separate questions.",
+                "source_ids": [
+                  "call-nbis-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "nbis-2026-06-30",
@@ -839,7 +920,20 @@
             }
           },
           "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Reported cash capex exceeded operating cash flow this quarter. Read deployment growth together with the funding burden; adjusted EBITDA alone does not establish self-funded expansion.",
+                "source_ids": [
+                  "watch-nbis-2026q2"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "nbis-2026-03-31",
@@ -929,7 +1023,20 @@
             }
           },
           "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Reported cash capex exceeded operating cash flow this quarter. Read deployment growth together with the funding burden; adjusted EBITDA alone does not establish self-funded expansion.",
+                "source_ids": [
+                  "watch-nbis-2026q1"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "nbis-2025-12-31",
@@ -1019,7 +1126,20 @@
             }
           },
           "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Reported cash capex exceeded operating cash flow this quarter. Read deployment growth together with the funding burden; adjusted EBITDA alone does not establish self-funded expansion.",
+                "source_ids": [
+                  "watch-nbis-2025q4"
+                ]
+              }
+            ]
+          }
         }
       ],
       "guidance": [
@@ -1353,7 +1473,28 @@
             }
           },
           "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-05",
+            "bullets": [
+              {
+                "label": "What changed",
+                "text": "The call makes the revised ramp conditional on customer changes and equipment delivery. The ARR target is not the same as revenue already recognized.",
+                "source_ids": [
+                  "call-iren-q1-2027-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Commissioning and customer acceptance matter more than the size of the contracted target. January is management's target, with February still possible if supplier timing slips.",
+                "source_ids": [
+                  "call-iren-q1-2027-20261117"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "iren-2026-06-30",
@@ -1440,7 +1581,20 @@
             }
           },
           "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Keep fiscal periods and mining versus AI revenue separate. The issuer-specific adjusted EBITDA measure does not establish the cash generated by the AI cloud segment.",
+                "source_ids": [
+                  "watch-iren-2026q4"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "iren-2026-03-31",
@@ -1533,7 +1687,20 @@
           "publication_date_note": "August27 is the source publication date for this comparative March quarter, not a claimed original earnings-release date.",
           "release_date_kind": "source_publication",
           "publication_date": "2026-08-27",
-          "original_release_status": "not_established"
+          "original_release_status": "not_established",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Keep fiscal periods and mining versus AI revenue separate. The issuer-specific adjusted EBITDA measure does not establish the cash generated by the AI cloud segment.",
+                "source_ids": [
+                  "watch-iren-2026q4"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "iren-2025-12-31",
@@ -1620,7 +1787,20 @@
             }
           },
           "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Keep fiscal periods and mining versus AI revenue separate. The issuer-specific adjusted EBITDA measure does not establish the cash generated by the AI cloud segment.",
+                "source_ids": [
+                  "watch-iren-2026q2"
+                ]
+              }
+            ]
+          }
         }
       ],
       "guidance": [],
@@ -1920,7 +2100,28 @@
             }
           },
           "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-10-07",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Separate base rent from tenant fit-out and recoveries before interpreting the growth headline as repeatable leasing revenue. The call's revenue mix is more informative than the headline percentage alone.",
+                "source_ids": [
+                  "call-apld-q1-2027-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Funding is campus-specific: management calls Polaris Forge 1 and 2 fully funded, while the next three campuses still require financing. Do not apply the funded label to the whole pipeline.",
+                "source_ids": [
+                  "call-apld-q1-2027-20261117"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "apld-2026-05-31",
@@ -2004,7 +2205,20 @@
             }
           },
           "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue and adjusted EBITDA headlines have different scopes: the adjusted measure excludes Cloud Services/ChronoScale. Reconcile that perimeter before using the figures as a single margin story.",
+                "source_ids": [
+                  "watch-apld-2026q4"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "apld-2026-02-28",
@@ -2088,7 +2302,20 @@
             }
           },
           "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue and adjusted EBITDA headlines have different scopes: the adjusted measure excludes Cloud Services/ChronoScale. Reconcile that perimeter before using the figures as a single margin story.",
+                "source_ids": [
+                  "watch-apld-2026q3"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "apld-2025-11-30",
@@ -2172,7 +2399,20 @@
             }
           },
           "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue and adjusted EBITDA headlines have different scopes: the adjusted measure excludes Cloud Services/ChronoScale. Reconcile that perimeter before using the figures as a single margin story.",
+                "source_ids": [
+                  "watch-apld-2026q2"
+                ]
+              }
+            ]
+          }
         }
       ],
       "guidance": [],
@@ -2524,7 +2764,28 @@
             }
           },
           "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-04",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The large project cash balances are not a parent-company cash cushion. Management explicitly separates restricted construction funding from corporate liquidity.",
+                "source_ids": [
+                  "call-hut-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Judge River Bend and Beacon Point against their own construction, lease and debt-service obligations. Project non-recourse financing limits parent recourse; it does not remove delivery or project cash-flow risk.",
+                "source_ids": [
+                  "call-hut-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "hut-2026-06-30",
@@ -2608,7 +2869,20 @@
             }
           },
           "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The adjusted EBITDA definition now excludes digital-asset mark-to-market effects. Changes against earlier quarters are not a like-for-like measure of operating improvement.",
+                "source_ids": [
+                  "watch-hut-2026q2"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "hut-2026-03-31",
@@ -2689,7 +2963,20 @@
             }
           },
           "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This historical adjusted EBITDA definition includes digital-asset valuation effects. Its loss is not a clean measure of AI infrastructure operating profitability.",
+                "source_ids": [
+                  "watch-hut-2026q1"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "hut-2025-12-31",
@@ -2773,7 +3060,20 @@
             }
           },
           "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This historical adjusted EBITDA definition includes digital-asset valuation effects. Its loss is not a clean measure of AI infrastructure operating profitability.",
+                "source_ids": [
+                  "watch-hut-2025q4"
+                ]
+              }
+            ]
+          }
         }
       ],
       "guidance": [],
@@ -3046,7 +3346,28 @@
             }
           },
           "note": "Consolidated digital-asset and HPC leasing revenue. Non-GAAP Adjusted EBITDA definition is issuer-specific.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-06",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Justified's customer, credit support and construction partner address different risks. The call still describes remaining project debt as expected financing, rather than a completed draw.",
+                "source_ids": [
+                  "call-wulf-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Treat TeraWulf as an infrastructure lessor: management says it does not own the GPUs. Follow accepted, revenue-producing facilities and construction economics rather than attributing a tenant's GPU fleet to the company.",
+                "source_ids": [
+                  "call-wulf-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "wulf-2026-06-30",
@@ -3130,7 +3451,20 @@
             }
           },
           "note": "Consolidated digital-asset and HPC leasing revenue. Non-GAAP Adjusted EBITDA definition is issuer-specific.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Recognized revenue and GAAP operating losses describe different parts of the ramp. Revenue growth alone does not establish that the buildout is generating operating profit.",
+                "source_ids": [
+                  "watch-wulf-2026q2"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "wulf-2026-03-31",
@@ -3214,7 +3548,20 @@
             }
           },
           "note": "Consolidated digital-asset and HPC leasing revenue. Non-GAAP Adjusted EBITDA definition is issuer-specific.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Recognized revenue and GAAP operating losses describe different parts of the ramp. Revenue growth alone does not establish that the buildout is generating operating profit.",
+                "source_ids": [
+                  "watch-wulf-2026q1"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "wulf-2025-12-31",
@@ -3328,7 +3675,20 @@
             }
           },
           "note": "Revenue is a transparent annual-minus-nine-month derivation; no quarterly EBITDA inferred from annual headline.",
-          "review_status": "primary_reviewed"
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This quarter’s revenue is reconstructed from annual and nine-month filings. Treat it as a sourced historical derivation, rather than an original standalone-quarter release.",
+                "source_ids": [
+                  "watch-wulf-2025q4"
+                ]
+              }
+            ]
+          }
         }
       ],
       "guidance": [],
@@ -3803,6 +4163,90 @@
       "source_unit": "USD; issuer guidance",
       "review_status": "primary_reviewed",
       "excerpt": "FY2026 revenue $12.4–13.2 billion; capital expenditures $35–39 billion. Q3 revenue guidance $3.45–3.60 billion."
+    },
+    {
+      "id": "call-crwv-q3-2026-20261117",
+      "title": "CoreWeave — Q3 2026 earnings call transcript",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+      "published_at": "2026-11-11",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "crwv",
+      "quarter_id": "crwv-2026-09-30",
+      "call_date": "2026-11-10",
+      "publisher": "CoreWeave investor relations — proofread transcript",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "We will not use the unsecured debt market to fund our business at current yields. ... We expect to finance the majority of the remaining CapEx needed to deliver our backlog through delayed draw term loans matched to specific customer contracts. ... In the next three months alone, we will collect approximately $9 billion in prepayments and deposits from signed customer contracts."
+    },
+    {
+      "id": "call-nbis-q3-2026-20261117",
+      "title": "Nebius Group — Q3 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/nbis/transcripts/731219-q3-2026/",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "nbis",
+      "quarter_id": "nbis-2026-09-30",
+      "call_date": "2026-11-12",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "The prepayments on new contracts now cover more than 100% of the capital needed to bring this contracted capacity online. ... Some of our colocation sites, including New Jersey, are behind schedule. Customers have been kept informed, and none of that capacity is canceled. Some of it has shifted to 2027."
+    },
+    {
+      "id": "call-iren-q1-2027-20261117",
+      "title": "IREN — Q1 FY2027 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/iren/transcripts/740046-q1-2027/",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "iren",
+      "quarter_id": "iren-2026-09-30",
+      "call_date": "2026-11-05",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "In July, we said more than $4 billion of operating ARR was targeted to be online by year-end. It's now January. ... A customer asked for a design change ... And two, supplier timing. ... If suppliers deliver, we're targeting January. If they're late ... it may run to the end of February."
+    },
+    {
+      "id": "call-apld-q1-2027-20261117",
+      "title": "Applied Digital — Q1 FY2027 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/apld/transcripts/716233-q1-2027/",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "apld",
+      "quarter_id": "apld-2026-08-31",
+      "call_date": "2026-10-07",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "The full 400 MW of the CoreWeave campus at Polaris Forge 1 and the 200 MW of contracted capacity at Polaris Forge 2 are now fully funded. ... The next campuses we need to finance are Polaris Forge 3, Delta Forge 1, and Delta Forge 2. ... Our HPC Hosting Business generated $262.6 million of revenue, consisting of $65.8 million of base rent, $183.5 million of tenant fit-out services, and $13.3 million of tenant recoveries."
+    },
+    {
+      "id": "call-hut-q3-2026-20261117",
+      "title": "Hut 8 — Q3 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/hut/transcripts/723632-q3-2026/",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "hut",
+      "quarter_id": "hut-2026-09-30",
+      "call_date": "2026-11-04",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "The balance sheet requires an important distinction between corporate liquidity and project-restricted capital. ... The restricted balances are principally proceeds from the River Bend and Beacon Point financings, held in project accounts for construction, debt service reserves, and other specified project purposes. They are not excess corporate cash. ... Those obligations sit at project subsidiaries ... and are non-recourse to Hut 8's parent company."
+    },
+    {
+      "id": "call-wulf-q3-2026-20261117",
+      "title": "TeraWulf — Q3 2026 earnings call transcript",
+      "url": "https://www.benzinga.com/news/26/11/62977104/terawulf-q3-2026-earnings-call-transcript",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "wulf",
+      "quarter_id": "wulf-2026-09-30",
+      "call_date": "2026-11-06",
+      "publisher": "Benzinga — full transcript",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "We already have the equity required to fund the project. Google's credit support materially strengthens the financing profile and we fully expect to fund the remaining capital requirement with project-level debt ... The definitive EPC agreement covers all three data center buildings ... We do not own the GPUs."
     }
   ]
 }

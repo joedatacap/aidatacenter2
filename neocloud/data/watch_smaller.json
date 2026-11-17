@@ -120,7 +120,28 @@
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
           },
-          "comparability_note": "Q3 includes customer termination fees and ASC 842 lease income; total revenue growth does not isolate recurring cloud demand."
+          "comparability_note": "Q3 includes customer termination fees and ASC 842 lease income; total revenue growth does not isolate recurring cloud demand.",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-10",
+            "bullets": [
+              {
+                "label": "What changed",
+                "text": "The call pins full NC-1 billing to November, after the September quarter. That improves the delivery picture without making the full run rate part of Q3 recognized revenue.",
+                "source_ids": [
+                  "call-wyfi-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "The secured facility is signed, but management still identifies funding conditions and an expected later draw. Track funded cash and debt separately from the announced commitment.",
+                "source_ids": [
+                  "call-wyfi-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "wyfi-2026-06-30",
@@ -225,6 +246,19 @@
           "market_reaction": {
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Positive adjusted EBITDA sits alongside a GAAP operating loss. Keep the issuer’s adjustments visible before treating the headline as operating profitability.",
+                "source_ids": [
+                  "watch-wyfi-q2-2026"
+                ]
+              }
+            ]
           }
         },
         {
@@ -330,6 +364,19 @@
           "market_reaction": {
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Positive adjusted EBITDA sits alongside a GAAP operating loss. Keep the issuer’s adjustments visible before treating the headline as operating profitability.",
+                "source_ids": [
+                  "watch-wyfi-q1-2026"
+                ]
+              }
+            ]
           }
         },
         {
@@ -435,6 +482,19 @@
           "market_reaction": {
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Positive adjusted EBITDA sits alongside a GAAP operating loss. Keep the issuer’s adjustments visible before treating the headline as operating profitability.",
+                "source_ids": [
+                  "watch-wyfi-q4-2025"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -812,6 +872,20 @@
           "market_reaction": {
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-08-06",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The call describes secured capacity, contracted capacity and a future GPU deployment target. These are different stages, so the useful follow-up is how much is accepted, operating and recognizing revenue—not the sum of the announced figures.",
+                "source_ids": [
+                  "call-shaz-q2-2026-20261117"
+                ]
+              }
+            ]
           }
         },
         {
@@ -917,6 +991,19 @@
           "market_reaction": {
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This is an early revenue base. Separate recognized revenue from the cash available to fund deployment; a cash balance does not establish customer acceptance or utilization.",
+                "source_ids": [
+                  "watch-shaz-q1-presentation"
+                ]
+              }
+            ]
           }
         }
       ],
@@ -1005,7 +1092,7 @@
         {
           "id": "shaz-next-report",
           "label": "Q3 report and call",
-          "display": "November 16, 2026 \u00b7 after US market close",
+          "display": "November 16, 2026 · after US market close",
           "status": "confirmed",
           "as_of": "2026-11-02",
           "scope": "Quarter ending September 30, 2026",
@@ -1267,7 +1354,21 @@
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
           },
-          "comparability_note": "Consolidated issuer revenue changed from legacy drug-discovery services to compute. This percentage is not pure GPU-cloud same-business growth; 2025 comparison revenue is extremely small."
+          "comparability_note": "Consolidated issuer revenue changed from legacy drug-discovery services to compute. This percentage is not pure GPU-cloud same-business growth; 2025 comparison revenue is extremely small.",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-08-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The call separates signed contract value and modeled steady-state economics from recognized revenue. The investment question is conversion through deployment and customer acceptance; the model is not a delivered earnings result or formal guidance.",
+                "source_ids": [
+                  "call-agpu-q2-2026-20261117"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "agpu-2026-03-31",
@@ -1364,7 +1465,20 @@
             "status": "not_researched",
             "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
           },
-          "comparability_note": "Consolidated issuer revenue changed from legacy drug-discovery services to compute. This percentage is not pure GPU-cloud same-business growth; 2025 comparison revenue is extremely small."
+          "comparability_note": "Consolidated issuer revenue changed from legacy drug-discovery services to compute. This percentage is not pure GPU-cloud same-business growth; 2025 comparison revenue is extremely small.",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue base still largely reflects the legacy business, with compute beginning late in the quarter. It is not a clean comparison of mature GPU-cloud operations.",
+                "source_ids": [
+                  "watch-agpu-q1-release"
+                ]
+              }
+            ]
+          }
         }
       ],
       "guidance": [
@@ -1460,7 +1574,7 @@
         {
           "id": "agpu-next-report",
           "label": "Corrected Q3 earnings call",
-          "display": "November 17, 2026 \u00b7 8:30 a.m. Eastern",
+          "display": "November 17, 2026 · 8:30 a.m. Eastern",
           "status": "confirmed",
           "as_of": "2026-11-13",
           "scope": "Quarter ending September 30, 2026",
@@ -1779,6 +1893,48 @@
       "excerpt": "completed its acquisition from Duos Technologies Group, Inc. of 100% of the special purpose vehicle on September 30, 2026.",
       "source_unit": "USD",
       "review_status": "reviewed_primary"
+    },
+    {
+      "id": "call-wyfi-q3-2026-20261117",
+      "title": "WhiteFiber — Q3 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/wyfi/transcripts/731436-q3-2026/",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "wyfi",
+      "quarter_id": "wyfi-2026-09-30",
+      "call_date": "2026-11-10",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "Full billing for the second 20 MW hall has begun on November 9th. All 40 MW are now billing under the contract. ... Initial funding is expected later in November or in December ... subject to ... satisfaction of the remaining funding conditions."
+    },
+    {
+      "id": "call-shaz-q2-2026-20261117",
+      "title": "SharonAI Holdings — Q2 2026 earnings call transcript",
+      "url": "https://www.roic.ai/quote/SHAZ/transcripts/2026-year/2-quarter",
+      "published_at": "2026-08-06",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "shaz",
+      "quarter_id": "shaz-2026-06-30",
+      "call_date": "2026-08-06",
+      "publisher": "Roic AI — earnings call transcript",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "As of today, we have 212 MW of total secured AI factory capacity across Australia and New Zealand ... 120 MW are contracted through multi-year take-or-pay agreements ... We expect to have more than 64,000 NVIDIA GPUs deployed by mid-2027."
+    },
+    {
+      "id": "call-agpu-q2-2026-20261117",
+      "title": "Axe Compute — Q2 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/agpu/transcripts/673678-q2-2026/",
+      "published_at": "2026-08-17",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "agpu",
+      "quarter_id": "agpu-2026-06-30",
+      "call_date": "2026-08-17",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "Quarterly financial figures presented are as reported in the Form 10-Q filed on August 14, 2026. ... ARR and TCV are operating metrics that may not represent revenue recognized in a particular period ... Signed contracts are subject to deployment, customer acceptance, and other risks ... Illustrated steady-state economics are models ... and do not constitute guidance."
     }
   ]
 }

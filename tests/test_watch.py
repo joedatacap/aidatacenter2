@@ -247,3 +247,35 @@ def test_period_difference_rejects_reversed_inputs_even_when_amount_reconciles()
     fact['value']=-fact['value']
     with pytest.raises(ValueError,match='compatible inputs'):
         build_watch(base(),changed)
+
+
+def test_analyst_reads_are_short_sourced_and_do_not_mislabel_release_as_call():
+    r=research()
+    q=dict(id='crwv-q3',period_end='2026-09-30',release_date='2026-11-10',fiscal_label='Q3 2026',months=3,metrics={},
+           analyst_read={'basis':'release_filing','reviewed_at':'2026-11-17','bullets':[{'label':'What matters','text':'An interpretation of the issuer filing.','source_ids':['s']}]})
+    r['companies'][0]['quarters']=[q]
+    build_watch(base(),[r])
+    for bullets in [[],q['analyst_read']['bullets']*4]:
+        changed=deepcopy(r);changed['companies'][0]['quarters'][0]['analyst_read']['bullets']=bullets
+        with pytest.raises(ValueError,match='one to three'):build_watch(base(),[changed])
+    changed=deepcopy(r);changed['companies'][0]['quarters'][0]['analyst_read'].update(basis='call_transcript',call_date='2026-11-10')
+    with pytest.raises(ValueError,match='same company and quarter'):build_watch(base(),[changed])
+    changed['sources'][0].update(source_kind='earnings_call_transcript',company_id='crwv',quarter_id='crwv-q3',call_date='2026-11-10')
+    build_watch(base(),[changed])
+    changed['sources'][0]['quarter_id']='crwv-q2'
+    with pytest.raises(ValueError,match='same company and quarter'):build_watch(base(),[changed])
+
+
+def test_actual_call_coverage_keeps_review_and_financial_dates_separate():
+    from scripts.build_neocloud_watch import load_snapshot
+    data=load_snapshot();focus=[c for c in data['companies'] if c['ticker'] in FOCUS]
+    assert len(focus)==9
+    for c in focus:
+        read=c['quarters'][0]['analyst_read']
+        assert read['basis']=='call_transcript' and 1<=len(read['bullets'])<=3
+        assert read['reviewed_at']=='2026-11-17'
+        for q in c['quarters'][1:]:assert q['analyst_read']['basis']=='release_filing'
+    agpu=next(c for c in focus if c['ticker']=='AGPU')['quarters'][0]
+    assert agpu['release_date']=='2026-08-14' and agpu['analyst_read']['call_date']=='2026-08-17'
+    assert next(c for c in focus if c['ticker']=='SHAZ')['quarters'][0]['period_end']=='2026-06-30'
+    assert data['reviewed_at']=='2026-11-16' # transcript review is not a fresh financial report

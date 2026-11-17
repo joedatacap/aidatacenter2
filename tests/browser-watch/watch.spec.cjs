@@ -201,3 +201,18 @@ test('profile return link restores the originating secondary view and fiscal per
  expect(new URL(page.url()).searchParams.get('period')).toBe('2026-06-30');
  await expect(rows(page)).toHaveCount(1);
 });
+
+test('each latest earnings card has a concise sourced analyst read with an explicit evidence basis',async({page})=>{
+ await page.goto('/earnings/');
+ const cards=page.locator('.analyst-read');await expect(cards).toHaveCount(9);
+ for(const card of await cards.all()){
+  const count=await card.locator('li').count();expect(count).toBeGreaterThanOrEqual(1);expect(count).toBeLessThanOrEqual(3);
+  await expect(card.getByRole('button',{name:/Sources \(/}).first()).toBeVisible();
+  await expect(card).toContainText(/Call transcript reviewed|Release \/ filing read/);
+ }
+ await cards.first().getByRole('button',{name:/Sources \(/}).first().click();
+ await expect(page.locator('#evidence-dialog')).toBeVisible();await page.locator('#close-evidence').click();
+ await page.goto('/companies/crwv/?section=earnings&period=2026-03-31');
+ await expect(page.locator('.analyst-read')).toContainText('Call transcript not reviewed');
+ await expect(page.locator('.analyst-read li')).toHaveCount(1);
+});
