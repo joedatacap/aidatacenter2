@@ -1,20 +1,20 @@
 # Neocloud Watch V2 — coverage matrix
 
-Execution cutoff: 2026-11-16T05:36:00Z. Financial observations retain their individual dates. Software completion is separate from research completeness.
+Execution cutoff: 2026-11-17T18:35:45.406835Z. Financial observations retain their individual dates. Software completion is separate from research completeness.
 
 ## Nine-company release
 
 | Company / research group | Verified periods | Latest report review | Balance sheet | Operating evidence | Next catalyst |
 | --- | --- | --- | --- | --- | --- |
-| CRWV / benchmark | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future report date |
-| NBIS / benchmark | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future report date |
-| IREN / benchmark | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future report date |
-| HUT / medium | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future report date |
-| APLD / medium | 2026-08-31, 2026-05-31, 2026-02-28, 2025-11-30 | verified | 2026-08-31 | Reviewed selected facts; partial | No confirmed future report date |
-| WULF / medium | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future report date |
-| WYFI / smaller | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | partial | not_disclosed |
-| SHAZ / smaller | 2026-06-30, 2026-03-31 | verified | 2026-06-30 | partial | 2026-11-16 · Q3 report and call |
-| AGPU / smaller | 2026-06-30, 2026-03-31 | verified | 2026-06-30 | partial | 2026-11-17 · Corrected Q3 earnings call |
+| CRWV / benchmark | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future date |
+| NBIS / benchmark | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future date |
+| IREN / benchmark | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future date |
+| HUT / medium | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future date |
+| APLD / medium | 2026-08-31, 2026-05-31, 2026-02-28, 2025-11-30 | verified | 2026-08-31 | Reviewed selected facts; partial | No confirmed future date |
+| WULF / medium | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | Reviewed selected facts; partial | No confirmed future date |
+| WYFI / smaller | 2026-09-30, 2026-06-30, 2026-03-31, 2025-12-31 | verified | 2026-09-30 | partial | No confirmed future date |
+| SHAZ / smaller | 2026-09-30, 2026-06-30, 2026-03-31 | verified | 2026-09-30 | partial | No confirmed future date |
+| AGPU / smaller | 2026-09-30, 2026-06-30, 2026-03-31 | verified | 2026-09-30 | partial | No confirmed future date |
 
 ## Field and evidence limits
 
@@ -139,31 +139,35 @@ September 30 Q3 Form 10-Q and November 10 issuer release reviewed. IR hub still 
 
 ### SharonAI Holdings (SHAZ)
 
-June 30 Q2 filing reviewed. Issuer schedules Q3 results after market close November 16; no Q3 result was retrieved during this research snapshot. Recheck after the event rather than assume published.
+Q3 ended September 30, 2026, published November 16. Refreshed from the issuer release and SEC 10-Q; Q2 is retained as history.
 
+- Q3 2026 ended 2026-09-30 (3 months), released 2026-11-16: reviewed revenue, revenue_prior_year, operating_income, operating_cash_flow, adjusted_ebitda, cash_capex, operating_margin, revenue_yoy, revenue_qoq; missing/qualified none.
 - Q2 2026 ended 2026-06-30 (3 months), released 2026-08-06: reviewed revenue, revenue_prior_year, operating_income, adjusted_ebitda, operating_margin, revenue_yoy, revenue_qoq; missing/qualified operating_cash_flow, cash_capex.
 - Q1 2026 ended 2026-03-31 (3 months), released 2026-05-15: reviewed revenue, revenue_prior_year, operating_income, adjusted_ebitda, operating_margin, revenue_yoy; missing/qualified operating_cash_flow, cash_capex, revenue_qoq.
-- Gap: Only two reviewed 2026 quarters loaded; older consecutive quarters not reconstructed from annual data.
-- Gap: Q3 2026 release scheduled on execution date; refresh after release.
 - Gap: No consolidated accepted operating MW, complete GPU inventory or utilization denominator.
 - Gap: No original same-basis consensus or reviewed T+1/T+5 reaction; quarterly cash-flow bridges remain unresearched.
-- Gap: Convertible fair-value carrying amount is not contractual principal; later facility drawdown not established.
+- Gap: Three reviewed 2026 quarters; older history remains incomplete. Convertible carrying amount differs from principal; new facility commitment is not a drawn balance.
 - [Sharon AI first quarter 2026 earnings presentation](https://sharonai.com/wp-content/uploads/2026/05/Sharon-AI-1Q26-Earnings-Call-Presentation-15-MAY-FINAL.pdf) — published 2026-05-15, retrieved 2026-11-16.
 - [SharonAI June 2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/2068385/000149315226036377/form10-q.htm) — published 2026-08-06, retrieved 2026-11-16.
+- [SharonAI September 2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/2068385/000149315226052382/form10-q.htm) — published 2026-11-16, retrieved 2026-11-17.
+- [Sharon AI Q3 2026 results and operating update](https://sharonai.com/press-releases/sharon-ai-reports-third-quarter-2026-results/) — published 2026-11-16, retrieved 2026-11-17.
 
 ### Axe Compute (AGPU)
 
-June 30 Q2 report reviewed. Latest issuer event correction moves Q3 call from November 16 to November 17, 2026, 8:30 a.m. Eastern; Q3 results not retrieved.
+Q3 ended September 30, released November 17, 2026; SEC 10-Q and issuer release reviewed.
 
+- Q3 2026 ended 2026-09-30 (3 months), released 2026-11-17: reviewed revenue, operating_income, adjusted_ebitda, net_income, operating_margin; missing/qualified operating_cash_flow, cash_capex, revenue_yoy, revenue_qoq.
 - Q2 2026 ended 2026-06-30 (3 months), released 2026-08-14: reviewed revenue, revenue_prior_year, operating_income, adjusted_ebitda, operating_margin, revenue_yoy, revenue_qoq; missing/qualified operating_cash_flow, cash_capex.
 - Q1 2026 ended 2026-03-31 (3 months), released 2026-05-15: reviewed revenue, revenue_prior_year, revenue_yoy; missing/qualified operating_income, adjusted_ebitda, operating_cash_flow, cash_capex, operating_margin, revenue_qoq.
-- Gap: Only Q1/Q2 2026 reviewed history; prior legacy periods are not treated as equivalent AI-cloud economics.
-- Gap: Q3 2026 result pending corrected November 17 report/call.
-- Gap: Basic capitalization and fully diluted share scenario unresolved; prefunded warrants and reverse split require reconciliation.
-- Gap: Customer acceptance, exact operating MW and Build recognized revenue pending verification.
-- Gap: No pre-release consensus, GAAP/adjusted EPS surprise or reviewed T+1/T+5 prices; no automatic T+3 substitution.
+- Gap: Historical Q1/Q2 remain original consolidated disclosures; continuing-operations comparatives are not fully recast.
+- Gap: Quarter-only cash-flow/capex bridge not established; nine-month totals not substituted.
+- Gap: Basic capitalization and fully diluted share scenario unresolved; prefunded warrants require reconciliation.
+- Gap: Georgia energized and provisioned; customer acceptance still underway. Build revenue not yet recognized.
+- Gap: No pre-release consensus or reviewed T+1/T+5 prices.
 - [Axe Compute first quarter 2026 issuer release](https://investors.axecompute.com/news-releases/news-release-details/axe-compute-inc-reports-first-quarter-2026-financial-results-and) — published 2026-05-15, retrieved 2026-11-16.
 - [Axe Compute June 2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1446159/000117184326005556/agpu20260630_10q.htm) — published 2026-08-14, retrieved 2026-11-16.
+- [Axe Q3 2026 results, November 17](https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm) — published 2026-11-17, retrieved 2026-11-17.
+- [Axe September 2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm) — published 2026-11-17, retrieved 2026-11-17.
 
 ## Common research gaps and market policy
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-11-16",
+  "reviewed_at": "2026-11-17",
   "companies": [
     {
       "id": "wyfi",
@@ -770,6 +770,147 @@
       "listing_status": "listed",
       "quarters": [
         {
+          "id": "shaz-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "period_start": "2026-07-01",
+          "release_date": "2026-11-16",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "source_ids": [
+            "watch-shaz-q3-2026",
+            "watch-shaz-q3-release"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "shaz-2026-09-30-revenue",
+              "value": 9930669,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Recognized revenue under US GAAP",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "revenue_prior_year": {
+              "id": "shaz-2026-09-30-revenue_prior_year",
+              "value": 506747,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2025-09-30",
+              "definition": "Comparable prior-year quarter revenue",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "shaz-2026-09-30-operating_income",
+              "value": -37461270,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "US GAAP operating loss",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "shaz-2026-09-30-operating_cash_flow",
+              "value": -66090364,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Quarter-only net operating cash flow",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "shaz-2026-09-30-adjusted_ebitda",
+              "value": -25769000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Issuer-defined adjusted EBITDA, reported in USD thousands",
+              "accounting_basis": "issuer_adjusted",
+              "source_ids": [
+                "watch-shaz-q3-release"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "shaz-2026-09-30-cash_capex",
+              "value": 8507319,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Cash property/equipment purchases only; excludes $293,055,438 equipment advances and lease payments",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Q3 primary filing reviewed. Quarter cash capex below is property/equipment purchases only; $293.1M of equipment advances is separate and excluded. Adjusted EBITDA is issuer-defined.",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-20",
+            "review_note": "Reconciled the November 17 audited issuer disclosures; no Q3 call transcript is claimed.",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Revenue of $9.93M came with a $37.46M operating loss and a $25.77M issuer-adjusted EBITDA loss. Deployment growth has not yet translated into operating profitability.",
+                "source_ids": [
+                  "watch-shaz-q3-2026",
+                  "watch-shaz-q3-release"
+                ]
+              },
+              {
+                "label": "Funding",
+                "text": "The $1.341B reported cash balance excludes $158.69M restricted cash and $162.75M noncurrent certificates. Those balances must not be combined into a parent-available liquidity total.",
+                "source_ids": [
+                  "watch-shaz-q3-2026"
+                ]
+              },
+              {
+                "label": "What to watch",
+                "text": "The $400–450M January 2027 ARR outlook is a forward-looking run rate, not recognized revenue. Track customer-accepted deployments alongside the costs and cash required to scale them.",
+                "source_ids": [
+                  "watch-shaz-q3-release"
+                ]
+              }
+            ]
+          }
+        },
+        {
           "id": "shaz-2026-06-30",
           "fiscal_label": "Q2 2026",
           "period_end": "2026-06-30",
@@ -1009,28 +1150,56 @@
       ],
       "guidance": [
         {
-          "id": "shaz-guidance-gap",
-          "metric": "revenue",
-          "status": "not_researched",
-          "reason": "No reviewed comparable prior/current guidance ranges for the same future period and scope",
-          "source_ids": []
+          "id": "shaz-jan-arr",
+          "label": "January 2027 ARR outlook",
+          "display": "$400–450M ARR expected in January 2027",
+          "status": "not_comparable",
+          "as_of": "2026-11-16",
+          "note": "Forward-looking annualized run rate, not quarterly revenue. Prior same-target guidance not reconciled, so no raised/cut judgment.",
+          "source_ids": [
+            "watch-shaz-q3-release"
+          ]
         }
       ],
       "capacity": [
         {
-          "id": "shaz-accepted-phase",
-          "label": "Accepted deployment",
-          "display": "Initial global-technology-customer phase accepted",
+          "id": "shaz-q3-accepted",
+          "label": "Customer-accepted deployment",
+          "display": "Approximately 1,000 B300 GPUs accepted",
           "status": "operating",
-          "as_of": "2026-08-20",
-          "scope": "Initial phase only; Australia multi-site contract",
-          "note": "Customer acceptance triggers escrow security release. No accepted MW or GPU count disclosed for this phase; 212 MW secured and 120 MW contracted are not operating totals.",
+          "as_of": "2026-11-16",
+          "scope": "Initial global-technology-customer cluster only",
+          "note": "Acceptance does not establish all planned capacity as operating.",
           "source_ids": [
-            "watch-shaz-acceptance"
+            "watch-shaz-q3-release"
+          ]
+        },
+        {
+          "id": "shaz-q3-plan",
+          "label": "2027 capacity plan",
+          "display": "212 MW expected in 2027",
+          "status": "announced",
+          "as_of": "2026-11-16",
+          "scope": "Australia and New Zealand portfolio",
+          "note": "Future capacity; not current operating MW.",
+          "source_ids": [
+            "watch-shaz-q3-release"
           ]
         }
       ],
       "contracts": [
+        {
+          "id": "shaz-q3-tcv",
+          "label": "Portfolio total contract value",
+          "display": "Approximately $9.6B over 5.5 years",
+          "status": "contracted",
+          "as_of": "2026-11-16",
+          "scope": "Issuer-reported portfolio; overlaps individual contracts",
+          "note": "Not recognized revenue or ARR. Do not sum with individual contract references.",
+          "source_ids": [
+            "watch-shaz-q3-release"
+          ]
+        },
         {
           "id": "shaz-global-tech",
           "label": "Customer contract",
@@ -1074,16 +1243,17 @@
           },
           "revisions": [],
           "outcome": {
-            "as_of": "2026-08-20",
+            "as_of": "2026-11-16",
             "status": "customer_accepted",
-            "description": "Initial phase delivered and customer accepted; exact original deadline not established.",
+            "description": "Issuer reports approximately 1,000 B300 GPUs delivered and accepted. Original comparable deadline remains unestablished.",
             "source_ids": [
-              "watch-shaz-acceptance"
+              "watch-shaz-q3-release"
             ]
           },
           "source_ids": [
             "watch-shaz-q2-release",
-            "watch-shaz-acceptance"
+            "watch-shaz-acceptance",
+            "watch-shaz-q3-release"
           ],
           "note": "Acceptance is reported. On-time versus original deadline remains insufficient evidence; met describes delivery milestone only, not schedule adherence."
         }
@@ -1093,12 +1263,13 @@
           "id": "shaz-next-report",
           "label": "Q3 report and call",
           "display": "November 16, 2026 · after US market close",
-          "status": "confirmed",
+          "status": "reported",
           "as_of": "2026-11-02",
           "scope": "Quarter ending September 30, 2026",
-          "note": "Issuer-confirmed event; recheck whether results have now been released.",
+          "note": "Q3 results released November 16 and incorporated in this snapshot.",
           "source_ids": [
-            "watch-shaz-q3-calendar"
+            "watch-shaz-q3-calendar",
+            "watch-shaz-q3-release"
           ],
           "date": "2026-11-16",
           "time": "after market close",
@@ -1108,80 +1279,84 @@
         }
       ],
       "gaps": [
-        "Only two reviewed 2026 quarters loaded; older consecutive quarters not reconstructed from annual data.",
-        "Q3 2026 release scheduled on execution date; refresh after release.",
         "No consolidated accepted operating MW, complete GPU inventory or utilization denominator.",
         "No original same-basis consensus or reviewed T+1/T+5 reaction; quarterly cash-flow bridges remain unresearched.",
-        "Convertible fair-value carrying amount is not contractual principal; later facility drawdown not established."
+        "Three reviewed 2026 quarters; older history remains incomplete. Convertible carrying amount differs from principal; new facility commitment is not a drawn balance."
       ],
       "reviewed_at": "2026-11-16",
       "operating_evidence_status": "partial",
       "financing_coverage_status": "reported_balance_partial_terms",
       "next_catalyst_status": "confirmed",
       "latest_report_status": "verified",
-      "latest_report_note": "June 30 Q2 filing reviewed. Issuer schedules Q3 results after market close November 16; no Q3 result was retrieved during this research snapshot. Recheck after the event rather than assume published.",
+      "latest_report_note": "Q3 ended September 30, 2026, published November 16. Refreshed from the issuer release and SEC 10-Q; Q2 is retained as history.",
       "financing_snapshot": {
-        "as_of": "2026-06-30",
+        "as_of": "2026-09-30",
         "source_ids": [
-          "watch-shaz-q2-2026",
-          "watch-shaz-facility"
+          "watch-shaz-q3-2026"
         ],
         "debt": {
           "id": "shaz-debt",
-          "value": 1006541084,
+          "value": 1007776066,
           "status": "reported",
           "unit": "USD",
           "currency": "USD",
           "definition": "Borrowing carrying value; convertible notes include fair-value measurement",
           "scope": "Consolidated SharonAI",
-          "period_end": "2026-06-30",
-          "as_of": "2026-06-30",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
           "source_ids": [
-            "watch-shaz-q2-2026"
+            "watch-shaz-q3-2026"
           ],
           "review_status": "reviewed_primary",
           "basis": "Borrowing carrying value; convertible notes include fair-value measurement",
-          "note": "Debt = $1,006,515,000 noncurrent convertible notes + $20,059 current convertible notes + $6,025 note payable. Fair-value carrying amounts differ from principal; $4,816,430 finance leases excluded. $12,748,105 certificates of deposit secure bank guarantees and are not unrestricted cash. September $356M subsidiary term-loan commitment is a later event, not June drawn debt."
+          "note": "September 30 balance sheet. Borrowings exclude leases and contract liabilities; restricted cash and certificates are separate. Later facility commitments do not establish drawn debt."
         },
         "cash": {
           "id": "shaz-cash",
-          "value": 1861347822,
+          "value": 1341257049,
           "status": "reported",
           "unit": "USD",
           "currency": "USD",
           "definition": "Cash and cash equivalents; excludes separately classified restricted certificates",
           "scope": "Consolidated SharonAI",
-          "period_end": "2026-06-30",
-          "as_of": "2026-06-30",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
           "source_ids": [
-            "watch-shaz-q2-2026"
+            "watch-shaz-q3-2026"
           ],
           "review_status": "reviewed_primary",
           "basis": "Cash and cash equivalents; excludes separately classified restricted certificates",
-          "note": "Debt = $1,006,515,000 noncurrent convertible notes + $20,059 current convertible notes + $6,025 note payable. Fair-value carrying amounts differ from principal; $4,816,430 finance leases excluded. $12,748,105 certificates of deposit secure bank guarantees and are not unrestricted cash. September $356M subsidiary term-loan commitment is a later event, not June drawn debt."
+          "note": "September 30 balance sheet. Borrowings exclude leases and contract liabilities; restricted cash and certificates are separate. Later facility commitments do not establish drawn debt."
         },
-        "note": "Debt = $1,006,515,000 noncurrent convertible notes + $20,059 current convertible notes + $6,025 note payable. Fair-value carrying amounts differ from principal; $4,816,430 finance leases excluded. $12,748,105 certificates of deposit secure bank guarantees and are not unrestricted cash. September $356M subsidiary term-loan commitment is a later event, not June drawn debt.",
-        "published_at": "2026-08-06",
+        "note": "September 30 balance sheet. Borrowings exclude leases and contract liabilities; restricted cash and certificates are separate. Later facility commitments do not establish drawn debt.",
+        "published_at": "2026-11-16",
         "scope": "Consolidated SharonAI Holdings",
         "leases": [
           {
-            "kind": "finance",
-            "value": 4816430,
-            "as_of": "2026-06-30",
-            "note": "Current $1,176,406 plus noncurrent $3,640,024 finance lease liabilities. Excluded from borrowings.",
+            "kind": "combined_finance_and_operating",
+            "value": 116910555,
+            "as_of": "2026-09-30",
             "source_ids": [
-              "watch-shaz-q2-2026"
-            ]
+              "watch-shaz-q3-2026"
+            ],
+            "note": "Total current and noncurrent lease liabilities; excluded from borrowings."
           }
         ],
         "excluded_balances": [
           {
-            "label": "Restricted certificates of deposit",
-            "value": 12748105,
-            "as_of": "2026-06-30",
-            "basis": "Collateral for bank guarantees for equipment managed-service contracts; not unrestricted group cash",
+            "label": "Restricted cash and equivalents",
+            "value": 158687424,
+            "as_of": "2026-09-30",
             "source_ids": [
-              "watch-shaz-q2-2026"
+              "watch-shaz-q3-2026"
+            ]
+          },
+          {
+            "label": "Noncurrent certificates of deposit",
+            "value": 162752568,
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "watch-shaz-q3-2026"
             ]
           }
         ]
@@ -1246,10 +1421,149 @@
         "Predictive Oncology",
         "POAI"
       ],
-      "business_model": "GPU cloud/operator with legacy drug-discovery business",
+      "business_model": "GPU infrastructure: Access and Build; legacy Helomics disposed September 2026",
       "focus_group": "smaller",
       "listing_status": "listed",
       "quarters": [
+        {
+          "id": "agpu-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "period_start": "2026-07-01",
+          "release_date": "2026-11-17",
+          "months": 3,
+          "scope": "Continuing operations",
+          "metrics": {
+            "revenue": {
+              "id": "agpu-2026-09-30-revenue",
+              "value": 7243043,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP compute revenue; all Access; Build not yet revenue-producing",
+              "scope": "Continuing operations",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "agpu-2026-09-30-operating_income",
+              "value": 6825897,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "GAAP operating income, including $10,477,971 digital asset gains",
+              "scope": "Continuing operations",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "agpu-2026-09-30-adjusted_ebitda",
+              "value": -2275000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer non-GAAP adjusted EBITDA, reported in thousands; excludes unrealized asset gains",
+              "scope": "Continuing operations",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "net_income": {
+              "id": "agpu-2026-09-30-net_income",
+              "value": 11503607,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Consolidated net income including discontinued operations",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_cash_flow": {
+              "id": "agpu-2026-09-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Continuing operations",
+              "source_ids": [],
+              "reason": "Release cash-flow amounts are nine-month continuing-operations totals. Compatible six-month recast bridge not established; not presented as quarter-only amounts."
+            },
+            "cash_capex": {
+              "id": "agpu-2026-09-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Continuing operations",
+              "source_ids": [],
+              "reason": "Release cash-flow amounts are nine-month continuing-operations totals. Compatible six-month recast bridge not established; not presented as quarter-only amounts."
+            }
+          },
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ],
+          "note": "Revenue $7.24M, up 125% QoQ per issuer (rounded), all Access. Net income $11.50M and diluted EPS $0.52 include $10.48M digital-asset gains and $4.56M unrealized securities/note gains; adjusted EBITDA remains -$2.275M. $465.23M operating cash inflow is NINE MONTHS, driven by customer prepayments, not quarterly recurring cash earnings.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "comparability_note": "Helomics sold September 11 and classified as discontinued operations. Q3 revenue and operating income use continuing operations; older loaded Q1/Q2 are original consolidated figures. Automated cross-scope growth is withheld. Prior-year continuing revenue is zero; percentage YoY growth is not meaningful.",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-20",
+            "review_note": "Reconciled the November 17 audited issuer disclosures; no Q3 call transcript is claimed.",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Q3 recognized revenue reached $7.24M, but net income includes material digital-asset and securities gains while adjusted EBITDA remains negative. Reported profit does not establish compute cash-generation capacity.",
+                "source_ids": [
+                  "watch-agpu-q3-release"
+                ]
+              },
+              {
+                "label": "Funding",
+                "text": "Customer prepayments of $569.34M represent delivery obligations, separate from $36.89M financing obligations and $29.91M leases. They are not earned revenue or a substitute for unrestricted parent liquidity.",
+                "source_ids": [
+                  "watch-agpu-q3-2026"
+                ]
+              },
+              {
+                "label": "What to watch",
+                "text": "Georgia customer acceptance remains underway and Build revenue has not begun in the reviewed disclosure. Watch acceptance and revenue recognition; an ownership transaction alone does not prove delivery.",
+                "source_ids": [
+                  "watch-agpu-q3-release"
+                ]
+              }
+            ]
+          }
+        },
         {
           "id": "agpu-2026-06-30",
           "fiscal_label": "Q2 2026",
@@ -1486,21 +1800,25 @@
           "id": "agpu-guidance-gap",
           "metric": "revenue",
           "status": "not_researched",
-          "reason": "No reviewed comparable prior/current guidance ranges for the same future period and scope",
-          "source_ids": []
+          "reason": "Issuer explicitly does not provide formal financial guidance. Full-deployment ARR is an operational estimate, not a revenue guidance range.",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ]
         }
       ],
       "capacity": [
         {
           "id": "agpu-georgia",
           "label": "Georgia cluster ownership",
-          "display": "100% cluster SPV acquired September 30",
+          "display": "2,304 B300 GPUs energized and provisioned; customer acceptance underway",
           "status": "reported",
-          "as_of": "2026-09-30",
+          "as_of": "2026-11-17",
           "scope": "Columbus Georgia GPU hardware SPV; Duos retains facility",
-          "note": "Source establishes hardware ownership and revised contract economics, not an exact customer-acceptance date or consolidated operating MW.",
+          "note": "Not yet placed in service at September 30. No Build revenue recognized in Q3; acceptance and service entry targeted across Q4 2026 / Q1 2027.",
           "source_ids": [
-            "watch-agpu-georgia-ownership"
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
           ]
         }
       ],
@@ -1516,6 +1834,19 @@
           "source_ids": [
             "watch-agpu-georgia-ownership"
           ]
+        },
+        {
+          "id": "agpu-july-build",
+          "label": "Signed Build portfolio",
+          "display": "More than $2.8B July contracts; >$700M expected ARR upon full deployment",
+          "status": "contracted",
+          "as_of": "2026-11-17",
+          "scope": "Signed Build portfolio, United States and Europe",
+          "note": "Forward-looking TCV/annualized run rate, not recognized revenue or current ARR. Portfolio and individual Georgia contract may overlap; do not sum.",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ]
         }
       ],
       "hardware": [
@@ -1524,11 +1855,13 @@
           "label": "Georgia hardware",
           "display": "288 servers containing 2,304 NVIDIA B300 GPUs",
           "status": "reported",
-          "as_of": "2026-10-05",
+          "as_of": "2026-11-17",
           "scope": "Owned Georgia cluster only",
           "note": "Named deployment is not a complete company fleet inventory.",
           "source_ids": [
-            "watch-agpu-georgia-ownership"
+            "watch-agpu-georgia-ownership",
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
           ]
         }
       ],
@@ -1537,7 +1870,7 @@
           "id": "agpu-georgia-delivery",
           "label": "Georgia B300 cluster",
           "project": "Columbus Georgia",
-          "status": "insufficient_evidence",
+          "status": "delayed",
           "original_target": {
             "as_of": "2026-05-15",
             "expected_by": "2026-09-30",
@@ -1553,34 +1886,47 @@
               "source_ids": [
                 "watch-agpu-georgia-ownership"
               ]
+            },
+            {
+              "as_of": "2026-11-17",
+              "status": "delayed",
+              "description": "Georgia energized/provisioned but customer acceptance underway; no Q3 Build revenue. Service entry now in Q4 2026 / Q1 2027 roadmap versus original Q3 target.",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ]
             }
           ],
           "outcome": {
-            "as_of": "2026-11-16",
-            "status": "insufficient_evidence",
-            "description": "Ownership transaction verified; explicit customer-acceptance/go-live date and Q3 revenue not established in reviewed evidence.",
+            "as_of": "2026-11-17",
+            "status": "delayed",
+            "description": "Georgia energized/provisioned but customer acceptance underway; no Q3 Build revenue. Service entry now in Q4 2026 / Q1 2027 roadmap versus original Q3 target.",
             "source_ids": [
-              "watch-agpu-georgia-ownership"
+              "watch-agpu-q3-release",
+              "watch-agpu-q3-2026"
             ]
           },
           "source_ids": [
             "watch-agpu-q1-release",
-            "watch-agpu-georgia-ownership"
+            "watch-agpu-georgia-ownership",
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
           ],
-          "note": "An expired target without a verified delivery outcome is not automatically a missed deadline."
+          "note": "Timing revision supported by issuer deployment update; ownership is not customer acceptance."
         }
       ],
       "events": [
         {
           "id": "agpu-next-report",
-          "label": "Corrected Q3 earnings call",
-          "display": "November 17, 2026 · 8:30 a.m. Eastern",
-          "status": "confirmed",
-          "as_of": "2026-11-13",
+          "label": "Q3 earnings released",
+          "display": "Reported November 17, 2026",
+          "status": "reported",
+          "as_of": "2026-11-17",
           "scope": "Quarter ending September 30, 2026",
-          "note": "Supersedes original November 16 announcement; follow issuer correction.",
+          "note": "Results and SEC 10-Q reviewed; no longer an upcoming release.",
           "source_ids": [
-            "watch-agpu-q3-corrected"
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
           ],
           "date": "2026-11-17",
           "time": "08:30",
@@ -1590,91 +1936,97 @@
         },
         {
           "id": "agpu-later-consideration",
-          "label": "Later financing obligation",
-          "display": "$42.9M deferred Georgia purchase consideration",
+          "label": "Georgia deferred purchase obligation",
+          "display": "$36.60M carrying value, net of discount",
           "status": "reported",
-          "as_of": "2026-10-05",
-          "scope": "Post-June acquisition",
-          "note": "Monthly $715,000 installments; unpaid balance due by earlier of 12 months from signing or secured financing. Approximately $87.8M SPV asset-backed loan retired; no new equity issued for this transaction. This is not a June debt adjustment.",
+          "as_of": "2026-09-30",
+          "scope": "September balance sheet",
+          "note": "Included in financing obligations. Carrying value differs from original undiscounted consideration; secured by cluster, due earlier of September 30, 2027 or refinancing.",
           "source_ids": [
-            "watch-agpu-georgia-ownership"
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
           ]
         }
       ],
       "gaps": [
-        "Only Q1/Q2 2026 reviewed history; prior legacy periods are not treated as equivalent AI-cloud economics.",
-        "Q3 2026 result pending corrected November 17 report/call.",
-        "Basic capitalization and fully diluted share scenario unresolved; prefunded warrants and reverse split require reconciliation.",
-        "Customer acceptance, exact operating MW and Build recognized revenue pending verification.",
-        "No pre-release consensus, GAAP/adjusted EPS surprise or reviewed T+1/T+5 prices; no automatic T+3 substitution."
+        "Historical Q1/Q2 remain original consolidated disclosures; continuing-operations comparatives are not fully recast.",
+        "Quarter-only cash-flow/capex bridge not established; nine-month totals not substituted.",
+        "Basic capitalization and fully diluted share scenario unresolved; prefunded warrants require reconciliation.",
+        "Georgia energized and provisioned; customer acceptance still underway. Build revenue not yet recognized.",
+        "No pre-release consensus or reviewed T+1/T+5 prices."
       ],
-      "reviewed_at": "2026-11-16",
+      "reviewed_at": "2026-11-17",
       "operating_evidence_status": "partial",
       "financing_coverage_status": "reported_balance_partial_terms",
-      "next_catalyst_status": "confirmed",
+      "next_catalyst_status": "not_researched",
       "latest_report_status": "verified",
-      "latest_report_note": "June 30 Q2 report reviewed. Latest issuer event correction moves Q3 call from November 16 to November 17, 2026, 8:30 a.m. Eastern; Q3 results not retrieved.",
+      "latest_report_note": "Q3 ended September 30, released November 17, 2026; SEC 10-Q and issuer release reviewed.",
       "financing_snapshot": {
-        "as_of": "2026-06-30",
+        "as_of": "2026-09-30",
         "source_ids": [
-          "watch-agpu-q2-2026"
+          "watch-agpu-q3-release",
+          "watch-agpu-q3-2026"
         ],
         "debt": {
-          "id": "agpu-debt",
-          "value": 413611,
+          "id": "agpu-2026-09-30-debt",
+          "value": 36889299,
           "status": "reported",
           "unit": "USD",
           "currency": "USD",
-          "definition": "Reported note-payable balance excluding leases and contract liabilities",
+          "definition": "Note payable plus secured deferred purchase financing, carrying amounts; excludes leases and customer prepayments",
           "scope": "Consolidated Axe Compute",
-          "period_end": "2026-06-30",
-          "as_of": "2026-06-30",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
           "source_ids": [
-            "watch-agpu-q2-2026"
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
           ],
           "review_status": "reviewed_primary",
-          "basis": "Reported note-payable balance excluding leases and contract liabilities",
-          "note": "Note payable is insurance-premium financing. $60,754,672 contract liabilities are customer prepayments, not conventional borrowing or recognized revenue; $1,243,327 leases excluded. Vendor/service prepayments are separate assets. September SPV acquisition and $42.9M deferred consideration are later dated events; June snapshot is not pro-forma current debt."
+          "basis": "Note payable plus secured deferred purchase financing, carrying amounts; excludes leases and customer prepayments",
+          "note": "Borrowings/financing obligations: $291,722 insurance note + $36,597,577 deferred Georgia purchase price (net of discount). Excludes $29,906,360 lease liabilities and $569,338,973 customer prepayments/contract liabilities. Cash is not free cash after all deployment obligations; digital assets excluded."
         },
         "cash": {
-          "id": "agpu-cash",
-          "value": 21905767,
+          "id": "agpu-2026-09-30-cash",
+          "value": 147710376,
           "status": "reported",
           "unit": "USD",
           "currency": "USD",
           "definition": "Cash and cash equivalents; digital assets and receivables excluded",
           "scope": "Consolidated Axe Compute",
-          "period_end": "2026-06-30",
-          "as_of": "2026-06-30",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
           "source_ids": [
-            "watch-agpu-q2-2026"
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
           ],
           "review_status": "reviewed_primary",
           "basis": "Cash and cash equivalents; digital assets and receivables excluded",
-          "note": "Note payable is insurance-premium financing. $60,754,672 contract liabilities are customer prepayments, not conventional borrowing or recognized revenue; $1,243,327 leases excluded. Vendor/service prepayments are separate assets. September SPV acquisition and $42.9M deferred consideration are later dated events; June snapshot is not pro-forma current debt."
+          "note": "Borrowings/financing obligations: $291,722 insurance note + $36,597,577 deferred Georgia purchase price (net of discount). Excludes $29,906,360 lease liabilities and $569,338,973 customer prepayments/contract liabilities. Cash is not free cash after all deployment obligations; digital assets excluded."
         },
-        "note": "Note payable is insurance-premium financing. $60,754,672 contract liabilities are customer prepayments, not conventional borrowing or recognized revenue; $1,243,327 leases excluded. Vendor/service prepayments are separate assets. September SPV acquisition and $42.9M deferred consideration are later dated events; June snapshot is not pro-forma current debt.",
-        "published_at": "2026-08-14",
+        "note": "Borrowings/financing obligations: $291,722 insurance note + $36,597,577 deferred Georgia purchase price (net of discount). Excludes $29,906,360 lease liabilities and $569,338,973 customer prepayments/contract liabilities. Cash is not free cash after all deployment obligations; digital assets excluded.",
+        "published_at": "2026-11-17",
         "scope": "Consolidated Axe Compute",
         "leases": [
           {
-            "kind": "reported lease liabilities",
-            "value": 1243327,
-            "as_of": "2026-06-30",
-            "note": "Current $708,159 plus noncurrent $535,168 lease liabilities. Excluded from note-payable borrowing total.",
+            "kind": "Reported lease liabilities",
+            "value": 29906360,
+            "as_of": "2026-09-30",
+            "note": "Current $15,470,820 + noncurrent $14,435,540; excluded from financing obligation total.",
             "source_ids": [
-              "watch-agpu-q2-2026"
+              "watch-agpu-q3-release",
+              "watch-agpu-q3-2026"
             ]
           }
         ],
         "excluded_balances": [
           {
             "label": "Customer prepayments / contract liabilities",
-            "value": 60754672,
-            "as_of": "2026-06-30",
-            "basis": "Current $33,645,987 plus noncurrent $27,108,685 contract liabilities; obligations to deliver services, not additional cash credit or conventional borrowing",
+            "value": 569338973,
+            "as_of": "2026-09-30",
+            "basis": "Current $100,881,687 + noncurrent $468,457,286; service delivery obligations, not borrowing or earned revenue",
             "source_ids": [
-              "watch-agpu-q2-2026"
+              "watch-agpu-q3-release",
+              "watch-agpu-q3-2026"
             ]
           }
         ]
@@ -1691,7 +2043,9 @@
       },
       "source_ids": [
         "watch-agpu-q1-release",
-        "watch-agpu-q2-2026"
+        "watch-agpu-q2-2026",
+        "watch-agpu-q3-release",
+        "watch-agpu-q3-2026"
       ],
       "financing_rates": [
         {
@@ -1895,6 +2249,42 @@
       "review_status": "reviewed_primary"
     },
     {
+      "id": "watch-shaz-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226052382/form10-q.htm",
+      "title": "SharonAI September 2026 Form 10-Q",
+      "published_at": "2026-11-16",
+      "retrieved_at": "2026-11-17",
+      "excerpt": "Three months ended September 30, 2026: revenue 9,930,669; loss from operations (37,461,270); operating cash flow (66,090,364). September cash 1,341,257,049. Convertible notes 1,007,749,910 noncurrent and 20,059 current; note payable 6,097.",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-shaz-q3-release",
+      "url": "https://sharonai.com/press-releases/sharon-ai-reports-third-quarter-2026-results/",
+      "title": "Sharon AI Q3 2026 results and operating update",
+      "published_at": "2026-11-16",
+      "retrieved_at": "2026-11-17",
+      "excerpt": "Q3 adjusted EBITDA (25,769) thousand. Approximately 1,000 B300 GPUs delivered and accepted; 212 MW expected in 2027. January 2027 ARR expected at $400–450M; this is forward-looking, not recognized revenue.",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-agpu-q3-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm",
+      "title": "Axe Q3 2026 results, November 17",
+      "excerpt": "Q3 revenue $7,243,043; net income $11,503,607; adjusted EBITDA $(2,275) thousand. Digital asset gains and unrealized securities gains materially affect profit. Georgia acceptance underway; Build revenues not yet recognized.",
+      "published_at": "2026-11-17",
+      "retrieved_at": "2026-11-17",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-agpu-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
+      "title": "Axe September 2026 Form 10-Q",
+      "excerpt": "September cash $147,710,376; note payable $291,722; deferred purchase price net of discount $36,597,577; contract liabilities $569,338,973; leases $29,906,360. Continuing operations nine-month operating cash flow $465,234,067, not quarterly.",
+      "published_at": "2026-11-17",
+      "retrieved_at": "2026-11-17",
+      "review_status": "primary_reviewed"
+    },
+    {
       "id": "call-wyfi-q3-2026-20261117",
       "title": "WhiteFiber — Q3 2026 earnings call transcript",
       "url": "https://stockanalysis.com/stocks/wyfi/transcripts/731436-q3-2026/",
@@ -1936,5 +2326,6 @@
       "source_unit": "Management remarks; forward-looking statements remain expectations",
       "excerpt": "Quarterly financial figures presented are as reported in the Form 10-Q filed on August 14, 2026. ... ARR and TCV are operating metrics that may not represent revenue recognized in a particular period ... Signed contracts are subject to deployment, customer acceptance, and other risks ... Illustrated steady-state economics are models ... and do not constitute guidance."
     }
-  ]
+  ],
+  "cutoff_at": "2026-11-17T18:35:45.406835Z"
 }

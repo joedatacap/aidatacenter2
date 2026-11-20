@@ -1,5 +1,7 @@
 # Earnings analyst reads — November 17, 2026
 
+**November 20 update.** The public audit adds Q3 for SharonAI and Axe. Their Q3 reads cite the release and filing. Their Q2 calls remain the most recent transcript-reviewed calls in this dataset. The original November 17 coverage receipt follows.
+
 Earnings report cards now open with **Analyst read**, containing one to three source-linked bullets. Each bullet identifies what matters, what changed or what to watch, with interpretation kept distinct from management's statements.
 
 The latest **covered** quarter of all nine focus companies has a reviewed call transcript:16 bullets across nine calls. Each of the23 older quarters has a release/filing-based interpretation and explicitly states that its call transcript has not been reviewed. Missing call review is not silently filled with release commentary labelled as a call insight.

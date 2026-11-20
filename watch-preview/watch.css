@@ -8,3 +8,134 @@
 @media print{.masthead,.controls,.profile-top,.profile-nav,.secondary-nav,footer,.skip,.evidence-button{display:none!important}body,main{padding:0;background:#fff;color:#000}.fact-card,.report-card,.metric,.summary-grid article{break-inside:avoid}.table-wrap{overflow:visible;max-height:none}h1{font-size:28px}.profile-body{display:block}.metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.source{break-inside:avoid}}
 
 .analyst-read{margin:18px 0}.analyst-read-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.analyst-read h4{margin:0}.analyst-read ul{margin:12px 0 0;padding-left:19px}.analyst-read li{font-size:13px;line-height:1.8;margin:10px 0;color:var(--ink)}.analyst-read .evidence-button{display:inline-block;margin-left:6px}@media(max-width:650px){.analyst-read-heading{align-items:flex-start;flex-direction:column;gap:8px}.analyst-read li{font-size:12px}}
+
+/* Homepage: the visual comparison leads; shared filtering lives beside the table. */
+.overview-heading{display:flex;justify-content:space-between;align-items:center;gap:24px;margin:0 0 25px;padding:2px 0 22px;border-bottom:1px solid var(--line)}
+.overview-heading .eyebrow{font-size:9px;margin-bottom:8px}
+.overview-heading h1{font-size:35px;margin:0;letter-spacing:-.8px}
+.overview-heading>p{font-size:10px;color:var(--muted);text-align:right;margin:0;line-height:1.8}
+.overview-heading>p strong{color:var(--ink);font-weight:normal;margin-left:6px;font-variant-numeric:tabular-nums}
+.overview-heading>p small{display:block;font-size:9px}
+.status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#66886b;margin-right:7px;vertical-align:middle}
+.overview-section{margin:0 0 28px}
+.overview-section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:14px}
+.overview-section-heading h2{font-size:25px;margin:0}
+.overview-section-heading .eyebrow{font-size:8px;margin:0 0 7px}
+.overview-section-heading>span,.overview-section-heading>a{font-size:10px;color:var(--muted);line-height:1.6}
+.overview-section-heading>a{color:var(--accent);text-decoration:none}
+#what-changed .changes-grid{gap:15px;margin:0}
+#what-changed .change-card{display:block;border:1px solid #d4dfd0;border-top:3px solid #9caf8d;border-radius:6px;background:#fff;padding:17px 19px}
+.change-top{display:flex;align-items:start;justify-content:space-between;gap:10px}
+#what-changed .change-company{font-size:12px;color:var(--ink);letter-spacing:0;line-height:1.5}
+.change-company>span{display:block;font-size:9px;letter-spacing:.5px;color:var(--accent);margin-top:3px}
+.change-type{font-size:8px;border:1px solid #d7e1d2;border-radius:4px;color:var(--muted);padding:3px 5px;white-space:nowrap}
+.change-number{font:29px Georgia,serif;color:var(--ink);font-variant-numeric:tabular-nums;margin:15px 0 8px}
+.change-number>span{font:10px Arial,sans-serif;color:var(--muted);margin-left:4px}
+#what-changed .change-card>p{font-size:11px;line-height:1.65;color:var(--muted);display:block;margin:0 0 13px;min-height:36px;overflow:visible}
+.change-meta{display:flex;flex-direction:column;gap:5px;font-size:9px;line-height:1.5;color:var(--muted);padding-top:11px;border-top:1px solid #e7ebe2}
+.change-meta time{color:var(--ink);font-variant-numeric:tabular-nums}
+.change-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+.change-actions>a{font-size:10px;text-decoration:none}
+.change-actions .evidence-button{font-size:9px;text-align:right}
+#overview-selection{display:flex;align-items:center;gap:20px;flex-wrap:wrap;background:#edf1e7;border:1px solid #d6e0d0;border-radius:6px;padding:13px 16px;margin:0 0 24px}
+#overview-selection>div:first-child{display:flex;align-items:center;gap:12px}
+.selection-label{font-size:8px;letter-spacing:1px;color:var(--accent);font-weight:bold}
+#overview-selection strong{font-size:12px;font-weight:bold}
+.selection-explainer{font-size:9px;color:var(--muted)}
+.quick-groups{display:flex;align-items:center;gap:3px;margin-left:auto}
+.quick-groups button{font-size:10px;min-height:34px;background:none;border:0;padding:8px 10px}
+.quick-groups button:hover{background:#dde6d6}
+.quick-groups button[aria-pressed=true]{background:var(--evergreen);color:#fff}
+#overview-peer-slot .peer-picker>summary{font-size:10px;min-height:35px;padding:8px 11px}
+#overview-peer-slot .peer-panel{left:auto;right:0}
+#overview-peer-slot #peer-count{font-size:9px}
+#overview-peer-slot:empty{display:none}
+.tracker-explainer{font-size:10px;line-height:1.7;color:var(--muted);margin:-5px 0 14px}
+.milestone-tracker{background:#fff;border:1px solid #d0dccb;border-radius:6px;overflow:hidden}
+.milestone-item{display:grid;grid-template-columns:1.05fr 1.6fr 1.1fr .7fr;gap:22px;padding:17px 19px;border-bottom:1px solid #e2e8dd;align-items:start}
+.milestone-item:last-child{border-bottom:0}
+.milestone-company>a{display:block;font-size:10px;font-weight:bold;text-decoration:none;margin-bottom:5px;letter-spacing:.4px}
+.milestone-company>strong{font-size:11px;font-weight:normal;line-height:1.6;display:block}
+.stage-label{display:inline-block;font-size:9px;background:#edf2e8;border:1px solid #d6e1ce;border-radius:3px;padding:4px 6px;color:#395b44;line-height:1.4}
+.milestone-stage p{font-size:10px;line-height:1.7;color:var(--muted);margin:7px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.milestone-timing>.small,.milestone-evidence>.small{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.milestone-timing>strong,.milestone-evidence>time{display:block;font-size:10px;font-weight:normal;line-height:1.6;font-variant-numeric:tabular-nums}
+.timing-revision{display:block;font-size:9px;color:var(--accent);margin-top:4px;line-height:1.7}
+.milestone-timing details{font-size:10px;line-height:1.7;margin-top:7px}
+.milestone-timing summary{font-size:9px;color:var(--accent);cursor:pointer;min-height:26px;padding-top:4px}
+.milestone-timing details p{font-size:10px;line-height:1.8;color:var(--muted);margin:8px 0;overflow-wrap:anywhere}
+.milestone-evidence .evidence-button{font-size:9px;min-height:27px}
+#overview-comparison{border-top:1px solid var(--line);padding-top:25px}
+#overview-control-slot .controls{padding:0 0 13px;margin-bottom:13px;border-bottom:1px solid var(--line)}
+#overview-control-slot .filter-row{grid-template-columns:1.3fr 1.1fr 1.1fr 1fr 1fr}
+#overview-control-slot .selection-row{margin-top:8px}
+#overview-control-slot .selection-row>.text-button{font-size:10px;min-height:33px;padding:7px 9px}
+#overview-control-slot .export-actions button{font-size:10px;min-height:33px;padding:7px 11px}
+#overview-control-slot .local-note{font-size:8px}
+.overview-table-tools{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:0 0 11px}
+.overview-table-tools>p{font-size:10px;color:var(--muted);line-height:1.7;margin:0}
+.overview-table-tools a{color:var(--accent)}
+#overview-comparison td{padding:11px 13px;font-size:11px;line-height:1.5}
+#overview-comparison th{padding:13px;font-size:9px}
+#overview-comparison td:first-child{width:22%;min-width:190px}
+#overview-comparison .company-name{font-size:12px;margin-bottom:4px}
+#overview-comparison .company-model{font-size:8px}
+#overview-comparison .ticker{font-size:8px;padding:1px 4px}
+#overview-comparison .cell-note{font-size:9px;line-height:1.5;margin-top:3px;max-width:190px}
+#overview-comparison .table-number{font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:normal}
+.comparison-warning{display:block;font-size:8px;font-weight:normal;color:#7c643d;margin-top:5px;line-height:1.5}
+.row-explainer{margin-top:4px;font-size:10px}
+.row-explainer>summary{cursor:pointer;color:var(--accent);font-size:9px;line-height:1.6;padding:2px 0;min-height:24px}
+.row-explainer p{font-size:10px;line-height:1.8;color:var(--muted);max-width:360px;margin:8px 0}
+.row-explainer[open]{min-width:160px}
+.cash-debt-line{display:flex;justify-content:space-between;gap:9px;font-size:10px;line-height:1.6;white-space:nowrap}
+.cash-debt-line>span{color:var(--muted)}
+.cash-debt-line>strong{font-weight:normal;font-variant-numeric:tabular-nums}
+.delivery-short{display:block;font-size:10px;line-height:1.6;max-width:210px}
+.compact-status{font-size:10px;line-height:1.6;color:var(--muted)}
+.compact-status summary{font-size:10px;cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px;min-height:23px}
+.compact-status p{font-size:10px;line-height:1.8;max-width:250px;margin:7px 0}
+.is-overview main{padding-top:25px}
+@media(max-width:1150px){#overview-selection{gap:12px}.selection-explainer{display:none}.quick-groups{margin-left:auto}.milestone-item{grid-template-columns:.95fr 1.4fr 1fr .8fr;gap:16px}#overview-control-slot .filter-row{grid-template-columns:repeat(4,minmax(0,1fr))}#overview-control-slot .filter-row .search{grid-column:1/-1}}
+@media(max-width:900px){.overview-heading h1{font-size:31px}.overview-heading>p{font-size:9px}.overview-heading>p small{font-size:8px}.overview-section-heading h2{font-size:23px}#what-changed .change-card{padding:15px 13px}.change-top{display:block}.change-type{display:inline-block;margin-top:7px}.change-number{font-size:27px}#what-changed .change-card>p{font-size:10px;min-height:50px}.change-actions>a,.change-actions .evidence-button{font-size:9px}.quick-groups{margin-left:0}#overview-peer-slot{margin-left:auto}.milestone-item{grid-template-columns:1fr 1.4fr;gap:14px 22px}.milestone-company{grid-column:1}.milestone-stage{grid-column:2}.milestone-timing{grid-column:1}.milestone-evidence{grid-column:2}.milestone-stage p{-webkit-line-clamp:3}.milestone-evidence>.small{display:inline-block;margin-right:8px}.milestone-evidence>time{display:inline-block}.milestone-evidence .evidence-button{display:block}}
+@media(max-width:650px){.is-overview main{padding-top:22px}.overview-heading{display:block;padding-bottom:18px;margin-bottom:21px}.overview-heading h1{font-size:30px}.overview-heading>p{text-align:left;margin-top:12px;font-size:9px}.overview-heading>p small{display:inline;margin-left:10px;font-size:8px}.overview-section{margin-bottom:23px}.overview-section-heading{gap:12px;align-items:start;margin-bottom:12px}.overview-section-heading h2{font-size:23px}.overview-section-heading>span{font-size:8px;max-width:140px;text-align:right}.overview-section-heading>a{font-size:9px;max-width:130px;text-align:right}#what-changed .changes-grid{gap:10px}#what-changed .change-card{padding:15px 17px;border-top-width:2px}.change-top{display:flex}.change-company>span{display:inline;margin-left:6px}.change-type{margin-top:0;font-size:8px}.change-number{font-size:28px;margin:12px 0 6px}#what-changed .change-card>p{font-size:11px;min-height:0;margin-bottom:11px}.change-meta{flex-direction:row;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:8px;padding-top:9px}.change-actions{margin-top:5px}.change-actions>a,.change-actions .evidence-button{font-size:10px}#overview-selection{gap:11px;padding:13px 14px;margin-bottom:20px}#overview-selection>div:first-child{width:100%;gap:12px}#overview-selection strong{font-size:11px}.selection-explainer{display:block;font-size:8px;margin-left:auto}.quick-groups{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px}.quick-groups button{padding:8px 4px;font-size:9px;min-height:36px}#overview-peer-slot{margin:0;width:100%}#overview-peer-slot .peer-picker>summary{font-size:10px;min-height:39px;padding:10px 12px}#overview-peer-slot .peer-panel{left:0;right:auto;max-width:82vw}.milestone-item{gap:12px 16px;padding:15px}.milestone-company>strong{font-size:11px}.milestone-stage p{font-size:10px;-webkit-line-clamp:3}.milestone-timing>strong,.milestone-evidence>time{font-size:10px}.tracker-explainer{font-size:9px;line-height:1.8}.milestone-timing summary{min-height:30px;font-size:9px}#overview-control-slot .filter-row{grid-template-columns:repeat(2,minmax(0,1fr))}#overview-control-slot .filter-row .search{grid-column:1/-1}#overview-control-slot .selection-row{display:flex;flex-wrap:wrap;gap:4px}#overview-control-slot .export-actions{margin:6px 0 0;width:100%;justify-content:flex-start}#overview-control-slot .export-actions button{flex:1;min-height:36px;font-size:10px}#overview-control-slot #reset{margin-left:auto}#overview-control-slot #load-peers{order:0}.overview-table-tools{align-items:start;gap:12px}.overview-table-tools>p{font-size:9px;line-height:1.7;max-width:65%}.overview-table-tools .optional{font-size:8px;max-width:35%}#overview-comparison .table-wrap:not(.detail-table) td{padding:6px 5px;grid-template-columns:93px minmax(0,1fr)}#overview-comparison .table-wrap:not(.detail-table) td:first-child{padding-bottom:11px;margin-bottom:5px;min-width:0;width:auto}#overview-comparison .company-name{font-size:16px;margin-bottom:5px}#overview-comparison .company-model{font-size:9px}#overview-comparison .cell-note{font-size:9px;max-width:none}.row-explainer>summary{font-size:10px;min-height:28px;padding-top:4px}.cash-debt-line{font-size:11px}.delivery-short{font-size:11px;max-width:none}.compact-status summary{font-size:11px;min-height:27px}.comparison-warning{font-size:9px;margin-top:3px}}
+@media(max-width:360px){.overview-heading h1{font-size:27px}.overview-heading>p small{display:block;margin-left:13px}.selection-explainer{font-size:7px}.quick-groups button{font-size:8px}.change-company>span{display:block;margin-left:0}.milestone-item{grid-template-columns:1fr;gap:10px}.milestone-company,.milestone-stage,.milestone-timing,.milestone-evidence{grid-column:1}.milestone-stage p{-webkit-line-clamp:2}.milestone-timing details p{max-width:260px}}
+.change-actions{flex-wrap:wrap;gap:5px 10px}.change-actions .direct-source{font-size:9px;margin-left:auto}.change-actions .evidence-button{min-width:auto}
+/* Readability pass: essential data, dates and actions remain readable at native zoom. */
+.is-overview .overview-heading .eyebrow,.is-overview .overview-section-heading .eyebrow,.is-overview #overview-charts .eyebrow{display:none}
+.is-overview .overview-heading>p{font-size:13px}.is-overview .overview-heading>p small{font-size:12px}
+.is-overview .overview-section-heading>span,.is-overview .overview-section-heading>a{font-size:13px}
+.is-overview .overview-heading{margin-bottom:13px}
+.overview-jumps{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 25px}
+.overview-jumps a{padding:9px 13px;border:1px solid #d4dfce;background:#fff;border-radius:5px;font-size:13px;text-decoration:none;min-height:39px;line-height:1.5}
+.overview-jumps a:hover{background:var(--sage)}
+#revenue-charts-title,#balance-charts-title,#buildout-tracker,#overview-comparison{scroll-margin-top:18px}
+.is-overview #what-changed .change-company{font-size:15px}.is-overview .change-company>span{font-size:12px}
+.is-overview .change-type{font-size:12px;padding:4px 6px;white-space:normal;max-width:95px}
+.is-overview .change-number{font-size:34px}.is-overview .change-number>span{font-size:13px}
+.is-overview #what-changed .change-card>p{font-size:15px;line-height:1.7;min-height:76px}
+.is-overview .change-meta{font-size:12px;gap:6px}
+.is-overview .change-actions>a,.is-overview .change-actions .direct-source,.is-overview .change-actions .evidence-button{font-size:13px;min-height:35px;line-height:1.6}
+.is-overview .change-actions{gap:4px 12px}.is-overview .change-actions .evidence-button{margin-left:auto}
+.is-overview .selection-label{font-size:12px}.is-overview #overview-selection strong{font-size:15px}
+.is-overview .selection-explainer{font-size:12px}.is-overview .quick-groups button{font-size:13px;min-height:40px}
+.is-overview #overview-peer-slot .peer-picker>summary{font-size:13px;min-height:41px}.is-overview #overview-peer-slot #peer-count{font-size:12px}
+.is-overview .tracker-explainer{font-size:13px}.is-overview .milestone-company>a{font-size:13px}.is-overview .milestone-company>strong{font-size:14px}
+.is-overview .stage-label{font-size:12px}.is-overview .milestone-stage p{font-size:14px;line-height:1.65}
+.is-overview .milestone-timing>.small,.is-overview .milestone-evidence>.small{font-size:12px;text-transform:none;letter-spacing:0}
+.is-overview .milestone-timing>strong,.is-overview .milestone-evidence>time{font-size:13px}
+.is-overview .timing-revision{font-size:12px}.is-overview .milestone-timing summary{font-size:13px;min-height:36px}
+.is-overview .milestone-timing details p{font-size:14px}.is-overview .milestone-evidence .evidence-button{font-size:13px;min-height:35px}
+.is-overview #overview-control-slot .filter-row label{font-size:12px}.is-overview #overview-control-slot input,.is-overview #overview-control-slot select{font-size:14px}
+.is-overview #overview-control-slot .selection-row>.text-button,.is-overview #overview-control-slot .export-actions button{font-size:13px;min-height:40px}
+.is-overview #overview-control-slot .local-note{font-size:12px}.is-overview .overview-table-tools>p,.is-overview .overview-table-tools .optional{font-size:12px}
+.is-overview #overview-comparison th{font-size:12px;letter-spacing:.2px}.is-overview #overview-comparison td{font-size:13px;line-height:1.55}
+.is-overview #overview-comparison .company-name{font-size:14px}.is-overview #overview-comparison .company-model{font-size:12px}
+.is-overview #overview-comparison .ticker{font-size:11px}.is-overview #overview-comparison .cell-note{font-size:12px}
+.is-overview #overview-comparison .table-number{font-size:15px}.is-overview .comparison-warning{font-size:12px}
+.is-overview .row-explainer>summary{font-size:12px;min-height:32px}.is-overview .row-explainer p{font-size:14px}
+.is-overview .cash-debt-line{font-size:13px}.is-overview .delivery-short{font-size:13px}
+.is-overview .compact-status summary{font-size:13px;min-height:31px}.is-overview .compact-status p{font-size:14px}
+.is-overview .record-count{font-size:12px}
+@media(max-width:1150px){.is-overview .selection-explainer{display:none}.is-overview .change-top{display:block}.is-overview .change-type{display:inline-block;max-width:none;margin-top:7px}.is-overview #overview-selection>div:first-child{flex:1}}
+@media(max-width:650px){.overview-jumps{display:grid;grid-template-columns:1fr 1fr;gap:7px}.overview-jumps a{font-size:13px;padding:10px;text-align:center}.is-overview .overview-heading>p{font-size:12px;line-height:1.8}.is-overview .overview-heading>p small{display:block;margin:2px 0 0 13px;font-size:12px}.is-overview .overview-section-heading>span{font-size:12px;max-width:160px}.is-overview .overview-section-heading>a{font-size:13px;max-width:140px}.is-overview .change-top{display:flex}.is-overview .change-type{font-size:12px;margin:0;max-width:90px}.is-overview #what-changed .change-card>p{min-height:0;font-size:15px}.is-overview .change-meta{flex-direction:column;font-size:12px}.is-overview .change-number{font-size:33px}.is-overview #overview-selection>div:first-child{flex:auto}.is-overview .quick-groups{grid-template-columns:1fr 1fr}.is-overview .quick-groups button{font-size:13px;min-height:42px}.is-overview #overview-peer-slot .peer-panel{max-width:82vw}.is-overview .milestone-item{grid-template-columns:1fr;gap:13px}.is-overview .milestone-company,.is-overview .milestone-stage,.is-overview .milestone-timing,.is-overview .milestone-evidence{grid-column:1}.is-overview .milestone-stage p{-webkit-line-clamp:3;font-size:14px}.is-overview .milestone-evidence .evidence-button{display:inline-block;margin-left:9px}.is-overview .milestone-company>strong{font-size:15px}.is-overview #overview-control-slot .filter-row{gap:13px}.is-overview #overview-control-slot .filter-row label{font-size:12px}.is-overview .overview-table-tools>p,.is-overview .overview-table-tools .optional{font-size:12px}.is-overview .overview-table-tools{display:block}.is-overview .overview-table-tools>p,.is-overview .overview-table-tools .optional{max-width:none}.is-overview .overview-table-tools .optional{margin-top:10px}.is-overview #overview-comparison .table-wrap:not(.detail-table) td{grid-template-columns:95px minmax(0,1fr);padding:8px 5px}.is-overview #overview-comparison .table-wrap:not(.detail-table) td::before{font-size:12px}.is-overview #overview-comparison .company-name{font-size:17px}.is-overview #overview-comparison .table-number{font-size:16px}.is-overview #overview-comparison .cell-note{font-size:12px}.is-overview .row-explainer>summary{font-size:12px}.is-overview .cash-debt-line{font-size:13px}.is-overview .comparison-warning{font-size:12px}}

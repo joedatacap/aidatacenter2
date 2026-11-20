@@ -1,5 +1,15 @@
 # Neocloud Watch V2 — execution receipt and resume guide
 
+## Current homepage and public source — November 20, 2026
+
+The public Neocloud Watch project is `appgprj_6afb8d8562c0819183402d9c41093312`. Its homepage is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). The application source is on `joedatacap/aidatacenter2`, branch `feat/neocloud-watch-v2`. The Sites repository tracks the corresponding generated static files on `main`. Its `maintenance/GITHUB_SOURCE.md` identifies the exact application commit used for publication.
+
+Overview shows the latest reported releases, up to four quarters of revenue, statement-date cash and financing obligations, selected project milestones and the shared filterable table. The same peer selection drives the charts, rows, exports and links to the other three pages. The financial cutoff is November 17. Nine companies have 34 reviewed quarterly observations between them. Ten contextual companies have limited coverage.
+
+Read the [source reconciliation](NEOCLOUD_WATCH_SOURCE_RECONCILIATION.md), [original audit](NEOCLOUD_WATCH_AUDIT.md) and [current coverage](NEOCLOUD_WATCH_COVERAGE.md) before refreshing a record. Rebuild with `npm run build:watch`, run `npm run test:watch`, and compare the complete generated site with the current Sites source tree before publishing. The dated receipts below describe earlier versions.
+
+## November 16 delivery
+
 Updated November 16, 2026. Reviewed cutoff: **2026-11-16T05:36:00Z** (00:36 America/New_York). Individual statements, releases, operations and equity observations retain their own dates.
 
 Origin: [execution brief, including Section 13](https://docs.google.com/document/d/1T8O_BndzDK0ouvwCDXCg3vBBT3EjC4Isgy8GE4FWXE8/edit), copied in full to [NEOCLOUD_WATCH_V2_EXECUTION.md](NEOCLOUD_WATCH_V2_EXECUTION.md). Older financing plans are background context.

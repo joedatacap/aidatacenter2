@@ -1,0 +1,55 @@
+/* Lightweight overview charts, scoped to avoid altering financing/detail pages. */
+.overview-charts{margin:30px 0;min-width:0}
+.overview-charts>section+section{margin-top:32px}
+.overview-charts h2{margin:5px 0 0}
+.chart-section-note{font-size:15px;line-height:1.6;color:var(--muted,#586b6d);max-width:1050px;margin:10px 0 18px}
+.overview-chart-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.overview-revenue-card,.balance-pair{min-width:0;background:#fff;border:1px solid var(--line,#dce2dc);border-radius:7px;padding:18px;border-top:3px solid var(--company-color,#237363)}
+.chart-company-heading{display:flex;justify-content:space-between;gap:8px;align-items:start;min-width:0}
+.chart-company-heading>a{font-size:14px;font-weight:600;text-decoration:none;line-height:1.6;overflow-wrap:anywhere}
+.chart-company-heading>a:hover{text-decoration:underline}
+.chart-quarter-count{font-size:12px;color:var(--muted,#586b6d);white-space:nowrap;line-height:1.8}
+.chart-latest{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin:14px 0 7px;font-variant-numeric:tabular-nums}
+.chart-latest>strong{font:normal 28px/1.2 Georgia,serif;color:var(--ink,#1b3338)}
+.chart-latest>span{font-size:13px;color:var(--muted,#586b6d);text-align:right;line-height:1.5}
+.chart-scope{font-size:12px;line-height:1.5;color:var(--muted,#586b6d);margin:0 0 12px;min-height:36px;overflow-wrap:anywhere}
+.chart-axis-caption{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted,#586b6d);font-variant-numeric:tabular-nums}
+.overview-revenue-svg{display:block;width:100%;height:100px;overflow:visible}
+.overview-revenue-svg polyline{stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.revenue-axis{stroke:#dce2dc;stroke-width:1}
+.overview-revenue-svg circle{stroke:white;stroke-width:1.5}
+.revenue-observations{display:grid;grid-template-columns:repeat(var(--revenue-points,4),minmax(0,1fr));gap:0;align-items:start;min-width:0}
+.revenue-observation{min-width:0;position:relative;font-variant-numeric:tabular-nums}
+.revenue-observation>summary{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:66px;gap:5px;margin:0 2px;padding:6px 2px;cursor:pointer;font-size:14px;background:#f3f5ef;border:1px solid transparent;border-radius:4px;list-style:none;line-height:1.25}
+.revenue-observation>summary::-webkit-details-marker{display:none}
+.revenue-observation>summary:after{content:'+';font-size:12px;color:var(--muted,#586b6d)}
+.revenue-observation[open]>summary:after{content:'−'}
+.revenue-observation>summary:hover,.revenue-observation[open]>summary{border-color:var(--company-color,#237363);background:#eaf0e7}
+.revenue-observation time{font-size:12px;color:var(--muted,#586b6d);white-space:normal;max-width:100%;text-align:center}
+.revenue-observation-detail{position:relative;margin-top:8px;border-top:2px solid var(--company-color,#237363);padding-top:8px;font-size:15px;line-height:1.6;overflow-wrap:anywhere}
+.revenue-observation-detail>p{font-size:15px;margin:6px 0}
+.revenue-observations:has(.revenue-observation[open]){grid-template-columns:repeat(var(--revenue-points,4),minmax(0,1fr))}
+.revenue-observation[open]{grid-column:1/-1}
+.revenue-observation[open]>summary{align-items:start;padding:8px;flex-direction:row;justify-content:space-between;gap:8px}
+.chart-qualification{font-size:13px;line-height:1.6;border-left:2px solid #9c7443;padding-left:8px;margin:11px 0;color:#6c5338}
+.chart-detail-link{display:inline-block;font-size:14px;line-height:1.5;margin-top:12px;padding:5px 0}
+.chart-empty{font-size:15px;line-height:1.6;background:#f1f2ec;padding:16px;color:var(--muted,#586b6d);border-radius:4px}
+.balance-scale{font-size:12px;line-height:1.5;color:var(--muted,#586b6d);margin:10px 0 13px}
+.balance-bar-row{margin:14px 0;font-variant-numeric:tabular-nums}
+.balance-bar-label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px;line-height:1.5;margin-bottom:6px}
+.balance-bar-label>strong{font-size:15px;white-space:nowrap;font-weight:500}
+.balance-bar-track{width:100%;height:10px;background:#eff2ea;border-radius:2px;overflow:hidden}
+.balance-bar{display:block;height:100%;border-radius:2px}
+.balance-bar-cash{background:var(--company-color,#237363)}
+.balance-bar-debt{background:#758488}
+.balance-date{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:12px;color:var(--muted,#586b6d);line-height:1.4;margin:5px 0 0}
+.balance-date .evidence-button{font-size:12px;padding:3px 5px;min-height:32px;white-space:nowrap}
+.balance-definition{font-size:13px;line-height:1.6;color:var(--muted,#586b6d);margin:10px 0;overflow-wrap:anywhere}
+.balance-separate{font-size:13px;line-height:1.7;color:var(--muted,#586b6d);border-left:2px solid #9c7443;padding-left:8px;margin:12px 0}
+.balance-separate>strong{font-weight:500;color:var(--ink,#1b3338)}
+.balance-scope-detail{font-size:14px;border-top:1px solid var(--line,#dce2dc);padding-top:8px;margin-top:12px}
+.balance-scope-detail>summary{cursor:pointer;min-height:32px;line-height:1.5;color:var(--accent,#236c5c)}
+.balance-scope-detail p{font-size:15px;line-height:1.65;overflow-wrap:anywhere}
+@media(max-width:1100px){.overview-chart-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.overview-chart-grid{grid-template-columns:minmax(0,1fr)}.overview-revenue-card,.balance-pair{padding:16px}.overview-charts .section-heading{align-items:start;gap:12px}.overview-charts .section-heading>a{font-size:13px}.chart-latest>strong{font-size:30px}.revenue-observation>summary{min-height:66px}.revenue-observation time{font-size:12px}}
+@media print{.revenue-observation-detail,.balance-scope-detail{break-inside:avoid}.overview-chart-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.overview-revenue-card,.balance-pair{break-inside:avoid}}

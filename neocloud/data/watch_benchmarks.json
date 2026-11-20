@@ -1474,6 +1474,7 @@
           },
           "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
           "review_status": "primary_reviewed",
+          "comparability_note": "Fiscal Q1 FY2027, not January–March 2026. Compare by the actual quarter-end date.",
           "analyst_read": {
             "basis": "call_transcript",
             "reviewed_at": "2026-11-17",
@@ -2101,6 +2102,7 @@
           },
           "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
           "review_status": "primary_reviewed",
+          "comparability_note": "Fiscal Q1 FY2027, not January–March 2026. Compare by the actual quarter-end date.",
           "analyst_read": {
             "basis": "call_transcript",
             "reviewed_at": "2026-11-17",

@@ -77,13 +77,13 @@ test('financing retains principal, coupons, cash restrictions and fiscal repayme
  await expect(page.locator('#page-content')).toContainText(/Timing remains unresolved|timing discrepancy/);
 });
 
-test('smaller company evidence and corrected future events remain explicit',async({page})=>{
+test('smaller company evidence and completed reporting events remain explicit',async({page})=>{
  await page.goto('/earnings/?peers=agpu,shaz,wyfi');
  await expect(page.locator('#page-content')).toContainText('WhiteFiber');
  await expect(page.locator('#page-content')).toContainText(/2026-09-30/);
  await page.locator('#secondary-nav [data-tab=upcoming]').click();
- await expect(page.locator('#page-content')).toContainText('2026-11-17');
- await expect(page.locator('#page-content')).toContainText('2026-11-16');
+ await expect(page.locator('#page-content')).toContainText(/No future report date|No upcoming|No confirmed upcoming/i);
+ await expect(page.locator('#page-content .cards .fact-card')).toHaveCount(0);
 });
 
 test('evidence panel exposes sources, dates and excerpts without external navigation',async({page})=>{
@@ -135,9 +135,13 @@ test('all page layouts fit mobile and desktop viewports',async({page},info)=>{
 test('percentage metrics never render as dollar amounts and historical periods retain their own growth',async({page})=>{
  await page.goto('/earnings/?peers=agpu');
  const row=page.locator('[data-company=agpu]').first();
- await expect(row).toContainText('119,772.9%');
- await expect(row).not.toContainText('$119.77K');
- await expect(row).toContainText(/not pure GPU|legacy drug/);
+ await expect(row).toContainText('$7.24M');
+ await expect(row).not.toContainText('119,772.9%');
+ await expect(row).toContainText(/scope|not researched|not comparable|unavailable/i);
+ await page.goto('/companies/agpu/?section=earnings&period=2026-06-30');
+ await expect(page.locator('#company-earnings')).toContainText('119,772.9%');
+ await expect(page.locator('#company-earnings')).not.toContainText('$119.77K');
+ await expect(page.locator('#company-earnings')).toContainText(/not pure GPU|legacy drug/);
  await page.goto('/companies/iren/?section=earnings&period=2026-06-30');
  await expect(page.locator('#company-earnings')).toContainText('2026-06-30');
  await expect(page.locator('#company-earnings')).toContainText('$137.2M');

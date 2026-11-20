@@ -47,16 +47,28 @@ def build(*,base='/',output=None):
     routes=['','overview','financing','earnings','buildout']+['companies/'+c['id'] for c in data['companies']]
     for route in routes:
         destination=target/route/'index.html';destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(hosted)
-    for asset in ('watch.css','watch.js'):
-        shutil.copyfile(source/asset,target/asset)
+    # The hosted and standalone editions share the same CSS and JS.
+    # Keep chart functions inside the app closure to reuse evidence and URL helpers.
+    marker = '/* @include overview-charts.js */'
+    app_js = (source/'watch.js').read_text()
+    if app_js.count(marker) != 1:
+        raise ValueError('Expected one overview chart include in watch.js')
+    js = app_js.replace(marker, (source/'overview-charts.js').read_text())
+    css = (source/'watch.css').read_text() + '\n' + (source/'overview-charts.css').read_text()
+    (target/'watch.js').write_text(js)
+    (target/'watch.css').write_text(css)
+    shutil.copyfile(source/'audit.html',target/'audit.html')
     (target/'data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     (target/'_headers').write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'\n")
     # Every route is a real static directory; no host-specific SPA rewrite is needed.
     offline=html.replace('__WATCH_BASE__','./').replace('name="watch-offline" content="false"','name="watch-offline" content="true"')
-    offline=offline.replace('<link rel="stylesheet" href="./watch.css">','<style>'+(source/'watch.css').read_text()+'</style>')
-    js=(source/'watch.js').read_text().replace('</script','<\\/script')
+    offline=offline.replace('<link rel="stylesheet" href="./watch.css">','<style>'+css+'</style>')
+    js=js.replace('</script','<\\/script')
     offline=re.sub(r'<script src="\./watch\.js"[^>]*></script>','',offline)
-    offline=offline.replace('</body>','<script>'+js+'</script></body>')
+    audit_html = (source/'audit.html').read_text()
+    audit_body = audit_html.split('<main>', 1)[1].split('</main>', 1)[0]
+    audit_template = '<template id="offline-audit">'+audit_body+'</template>'
+    offline=offline.replace('</body>',audit_template+'<script>'+js+'</script></body>')
     artifact=ROOT/'work/Neocloud-Watch-V2.html';artifact.write_text(offline)
     return {'site':str(target),'offline':str(artifact),'companies':len(data['companies']),'routes':len(routes),'base_path':base}
 

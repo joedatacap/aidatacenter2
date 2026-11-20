@@ -195,7 +195,9 @@ def test_reviewed_release_covers_nine_and_preserves_original_finance():
         assert latest['metrics']['operating_cash_flow']['value'] is None or latest['metrics']['operating_cash_flow']['months']==3
     assert by_ticker['WYFI']['quarters'][0]['period_end']=='2026-09-30'
     assert by_ticker['HUT']['quarters'][0]['metrics']['revenue']['value']==71071000
-    assert by_ticker['AGPU']['next_event']['date']=='2026-11-17'
+    assert by_ticker['AGPU']['next_event'] is None
+    assert by_ticker['AGPU']['quarters'][0]['period_end']=='2026-09-30'
+    assert by_ticker['AGPU']['quarters'][0]['metrics']['operating_cash_flow']['value'] is None
     for original in base()['companies']:
         assert by_ticker[original['ticker']]['financing']==original
     assert len(snapshot['financing_rates'])>len(base()['financing_rates'])
@@ -215,7 +217,9 @@ def test_derivations_do_not_erase_cash_scope_or_fiscal_calendars():
                     assert f.get('input_ids') and f.get('formula')
                     assert f.get('source_ids') or f.get('value') is None
     agpu=companies['AGPU']['financing']
-    assert agpu['metrics']['debt']['value']==413611
+    assert agpu['metrics']['debt']['value']==291722+36597577
+    assert agpu['metrics']['cash']['value']==147710376
+    assert agpu['liquidity']['excluded_balances'][0]['value']==569338973
     assert agpu['v2']['market_cap']['ratio_blocker']
     assert agpu['v2']['debt_market_cap_percent'] is None
     assert companies['WYFI']['financing']['v2']['debt_market_cap_percent'] is not None
@@ -272,10 +276,24 @@ def test_actual_call_coverage_keeps_review_and_financial_dates_separate():
     assert len(focus)==9
     for c in focus:
         read=c['quarters'][0]['analyst_read']
-        assert read['basis']=='call_transcript' and 1<=len(read['bullets'])<=3
-        assert read['reviewed_at']=='2026-11-17'
-        for q in c['quarters'][1:]:assert q['analyst_read']['basis']=='release_filing'
+        assert 1<=len(read['bullets'])<=3
+        if c['ticker'] in ('SHAZ','AGPU'):
+            assert read['basis']=='release_filing' and read['reviewed_at']=='2026-11-20'
+            assert 'call_date' not in read
+            assert c['quarters'][1]['analyst_read']['basis']=='call_transcript'
+            assert c['quarters'][1]['period_end']=='2026-06-30'
+        else:
+            assert read['basis']=='call_transcript' and read['reviewed_at']=='2026-11-17'
+            for q in c['quarters'][1:]:assert q['analyst_read']['basis']=='release_filing'
     agpu=next(c for c in focus if c['ticker']=='AGPU')['quarters'][0]
-    assert agpu['release_date']=='2026-08-14' and agpu['analyst_read']['call_date']=='2026-08-17'
-    assert next(c for c in focus if c['ticker']=='SHAZ')['quarters'][0]['period_end']=='2026-06-30'
-    assert data['reviewed_at']=='2026-11-16' # transcript review is not a fresh financial report
+    assert agpu['release_date']=='2026-11-17'
+    assert next(c for c in focus if c['ticker']=='SHAZ')['quarters'][0]['period_end']=='2026-09-30'
+    assert data['reviewed_at']=='2026-11-17' # Analyst interpretation is not a fresh financial report.
+
+
+def test_completed_report_event_never_remains_next_catalyst():
+    r=research()
+    r['companies'][0]['events']=[{'id':'reported-release','date':'2026-11-16','status':'reported','source_ids':['s']},
+                               {'id':'completed-release','date':'2026-11-17','status':'completed','source_ids':['s']}]
+    company=build_watch(base(),[r])['companies'][0]
+    assert company['next_event'] is None

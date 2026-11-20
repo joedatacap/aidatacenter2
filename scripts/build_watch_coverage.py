@@ -9,7 +9,8 @@ def generate():
   if c['ticker'] not in d['focus_tickers']:continue
   quarters=[q for q in c['quarters'] if q['months']==3]
   periods=', '.join(q['period_end'] for q in quarters) or 'No comparable quarters'
-  event=c.get('next_event');next_event=(event.get('date','')+' · '+event.get('label',event.get('title','confirmed date'))) if event else c.get('next_catalyst_status','No confirmed future report date')
+  event=c.get('next_event')
+  next_event=(event['date']+' · '+(event.get('label') or event.get('title') or 'Upcoming event')) if event else 'No confirmed future date'
   f=c.get('financing') or {};ops=c.get('operating_evidence_status') or ('Reviewed selected facts; partial' if c['capacity'] or c['contracts'] else 'Explicit coverage gap')
   lines.append('| '+' | '.join(str(x).replace('|','/').replace('\n',' ') for x in [f"{c['ticker']} / {c['focus_group']}",periods,c['latest_report_status'],f.get('as_of','Not established'),ops,next_event])+' |')
  lines+=['','## Field and evidence limits','']

@@ -452,7 +452,7 @@ def build_watch(directory,research_files, *, reviewed_at=None,import_audit=None,
                               'operations':max((f.get('as_of','') for key in ('capacity','contracts','hardware') for f in company[key]),default=None),
                               'market_data':market.get('as_of') if market else None}
         company['capacity_aggregation']={'status':'not_applicable','reason':'Statuses, IT versus power units, project phases and ownership may overlap; rows are not summed.'}
-        company['next_event']=next((e for e in sorted(company['events'],key=lambda e:e.get('date','9999')) if e.get('date') and iso(e['date'])>=iso(cutoff)),None)
+        company['next_event']=next((e for e in sorted(company['events'],key=lambda e:e.get('date','9999')) if e.get('date') and e.get('status') not in ('reported','completed') and iso(e['date'])>=iso(cutoff)),None)
         company['reconciliation_queue']=[dict(e,status='needs_reconciliation') for e in company['events'] if e.get('date') and iso(e['date'])<iso(cutoff) and e.get('status') in ('upcoming','confirmed','estimated')]
         companies.append(company)
     if len({c['id'] for c in companies})!=len(companies):raise ValueError('Duplicate stable company identity')
