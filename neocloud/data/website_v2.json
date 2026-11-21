@@ -1,0 +1,1845 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-14",
+  "sources": [
+    {
+      "id": "v2-market-crwv",
+      "url": "https://stockanalysis.com/stocks/crwv/market-cap/",
+      "title": "CoreWeave — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 31.48B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-nbis",
+      "url": "https://stockanalysis.com/stocks/nbis/market-cap/",
+      "title": "Nebius Group — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "128.64 … At close: Nov 12, 2026, 4:00 PM EST … Market Cap 35.26B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-iren",
+      "url": "https://stockanalysis.com/stocks/iren/market-cap/",
+      "title": "IREN — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 8.27B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-btdr",
+      "url": "https://stockanalysis.com/stocks/btdr/market-cap/",
+      "title": "Bitdeer Technologies Group — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 1.69B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-hut",
+      "url": "https://stockanalysis.com/stocks/hut/market-cap/",
+      "title": "Hut 8 — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 7.44B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-apld",
+      "url": "https://stockanalysis.com/stocks/apld/market-cap/",
+      "title": "Applied Digital — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 5.13B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-corz",
+      "url": "https://stockanalysis.com/stocks/corz/market-cap/",
+      "title": "Core Scientific — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 4.63B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-wulf",
+      "url": "https://stockanalysis.com/stocks/wulf/market-cap/",
+      "title": "TeraWulf — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 6.54B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-cifr",
+      "url": "https://stockanalysis.com/stocks/cifr/market-cap/",
+      "title": "Cipher Digital (formerly Cipher Mining) — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 3.26B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-hive",
+      "url": "https://stockanalysis.com/stocks/hive/market-cap/",
+      "title": "HIVE Digital Technologies — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 452.08M",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-glxy",
+      "url": "https://stockanalysis.com/stocks/glxy/market-cap/",
+      "title": "Galaxy Digital — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 5.86B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-riot",
+      "url": "https://stockanalysis.com/stocks/riot/market-cap/",
+      "title": "Riot Platforms — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 6.69B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-mara",
+      "url": "https://stockanalysis.com/stocks/mara/market-cap/",
+      "title": "MARA Holdings — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 2.79B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-eqix",
+      "url": "https://stockanalysis.com/stocks/eqix/market-cap/",
+      "title": "Equinix — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 106.19B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-market-dlr",
+      "url": "https://stockanalysis.com/stocks/dlr/market-cap/",
+      "title": "Digital Realty — provider-reported market capitalization",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Market Cap 70.63B",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-crwv-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 10-Q — notes 3 and 10",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Customer A 24 % 67 % 33 % 70 % Customer B 30 %",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-crwv-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "title": "CoreWeave Q3 2026 results",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Added more than 200 MWs of active power to reach over 1.7 GW",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-nbis-q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-1.htm",
+      "title": "Nebius Q3 2026 results and balance sheet",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Debt, current 24.5 187.5",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-nbis-letter",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-2.htm",
+      "title": "Nebius Q3 2026 shareholder letter",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Four new sites began generating revenue across the US and Europe",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-iren-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "IREN Q1 FY2027 10-Q",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "our three largest customers accounted for approximately 28%, 24% and 18% of our total revenue",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-iren-horizon",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000114036126032638/ef20080141_ex99-1.htm",
+      "title": "IREN Horizon 1 delivery announcement",
+      "published_at": "2026-08-13",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Horizon 1 is the first of four 50MW (IT load)",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-hut-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Hut 8 Q3 2026 10-Q — project obligations",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "The River Bend Notes are obligations solely of Hut 8 DC",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-btdr-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026117797/ea031140301ex99-1.htm",
+      "title": "Bitdeer Q3 2026 results",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "approximately 332 IT MW of AI Cloud capacity secured",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-btdr-ops",
+      "url": "https://www.sec.gov/Archives/edgar/data/1899123/000121390026110703/ea030767901ex99-1.htm",
+      "title": "Bitdeer September 2026 operating update",
+      "published_at": "2026-10-19",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "GPU Amount Deployed 4,328",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-hive-results",
+      "url": "https://www.hivedigitaltechnologies.com/news/hive-reports-q2-revenue-of-849-million-with-ai-gpu-revenue-expanding-70-as-dual-engine-model-drives-resilience-with-139-million-in-cash-on-the-balance-sheet/",
+      "title": "HIVE Q2 FY2027 results",
+      "published_at": "2026-11-09",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "HPC revenue: $8.8 million for the quarter",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-hive-contract",
+      "url": "https://www.hivedigitaltechnologies.com/news/hives-buzz-hpc-signs-350-million-ai-cloud-services-agreement-with-investment-grade-enterprise-customer/",
+      "title": "HIVE / BUZZ five-year GPU agreement",
+      "published_at": "2026-08-17",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "The Company will receive an upfront deposit of approximately 10%",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-nscale-listing",
+      "url": "https://www.sec.gov/Archives/edgar/data/2110365/000119312526458722/ck0002110365-20261112.htm",
+      "title": "Nscale amended registration statement",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "We have applied to list our ordinary shares on the New York Stock Exchange",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-apld-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "title": "Applied Digital Q1 FY2027 10-Q",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "Customer A 56 % 32 % Customer B 21 %",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-corz-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1839341/000183934126000030/core-20260930.htm",
+      "title": "Core Scientific Q3 2026 10-Q",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "93 % and 18 %, respectively",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-cifr-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819989/000181998926000050/cifr-20260930.htm",
+      "title": "Cipher Digital Q3 2026 10-Q",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "in August 2026 commenced phased delivery to an HPC tenant",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-wulf-q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "TeraWulf Q3 2026 10-Q",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-13",
+      "excerpt": "TeraWulf had energized 102 critical IT MW of HPC leasing capacity",
+      "source_unit": "USD unless specified",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-hut-q-repayments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Hut 8 Q3 2026 10-Q — project obligations — debt repayment table",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-14",
+      "excerpt": "2026 (excluding the nine months ended September 30, 2026) 26,410",
+      "source_unit": "USD thousands",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-iren-q-repayments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "IREN Q1 FY2027 10-Q — debt repayment table",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-14",
+      "excerpt": "Remainder of Financial Year 2027 $ 723",
+      "source_unit": "USD millions",
+      "review_status": "source_read"
+    },
+    {
+      "id": "v2-wulf-q-repayments",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "TeraWulf Q3 2026 10-Q — debt repayment table",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-14",
+      "excerpt": "Remainder of 2026 $ 14,158",
+      "source_unit": "USD thousands",
+      "review_status": "source_read"
+    }
+  ],
+  "companies": {
+    "CRWV": {
+      "contracts": [
+        {
+          "label": "Customer concentration",
+          "display": "A: 24%; B: 30%",
+          "scope": "Q3 2026 consolidated revenue",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Anonymous customer labels; do not map them to named customers. Nine-month shares: 33% and 26%."
+        },
+        {
+          "label": "Revenue backlog",
+          "display": "$132.5B",
+          "scope": "Committed customer contracts",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Subject to delivery and service availability; not recognized revenue or cash."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Active power",
+          "display": ">1.7 GW",
+          "scope": "Company active footprint",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "Power capacity does not establish GPU utilization."
+        },
+        {
+          "label": "Contracted power",
+          "display": ">4.6 GW",
+          "scope": "Company contracted footprint",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "contracted",
+          "note": "Includes future capacity; do not add to active power."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Named production deployment",
+          "display": "NVIDIA Vera Rubin NVL72",
+          "scope": "Cognition workloads on multi-rack deployment",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "Named deployment, not a complete fleet mix."
+        }
+      ],
+      "revenue": [
+        {
+          "label": "Quarterly revenue",
+          "display": "$3.661B",
+          "scope": "Q3 2026 consolidated; prior-year quarter $1.365B",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": ""
+        }
+      ],
+      "debt_inventory": [
+        {
+          "instrument": "DDTL 1.0",
+          "principal": 1139000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2028-03",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "15% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "DDTL 2.0",
+          "principal": 2796000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2030-08",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "11% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "DDTL 2.1",
+          "principal": 2494000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2031-03",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "9% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "DDTL 3.0",
+          "principal": 2323000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2030-08",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "9% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "DDTL 5.0",
+          "principal": 2749000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2031-11",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "9% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "DDTL 5.5",
+          "principal": 1555000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2031-09",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "11% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2030 senior notes",
+          "principal": 2000000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2030-06",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "10% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2031 9% senior notes",
+          "principal": 1750000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2031-02",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "10% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2031 9.75% senior notes",
+          "principal": 2750000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2031-10",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "10% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2032 9.625% senior notes",
+          "principal": 1250000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2032-07",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "10% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2032 EUR senior notes",
+          "principal": 2272000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2032-07",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "9% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2031 convertible notes",
+          "principal": 2588000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2031-12",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "2% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2032 convertible notes",
+          "principal": 4000000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2032-10",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "2% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "2033 convertible notes",
+          "principal": 4200000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2033-04",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "3% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "Revolving credit",
+          "principal": 1200000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2029-11",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "7% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "OEM / software arrangements",
+          "principal": 6891000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2026-12 to 2030-07",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "10% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "Magnetar loan",
+          "principal": 195000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2029-01",
+          "maturity_precision": "month_or_range",
+          "recourse": "Recourse",
+          "rate": "12% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "DDTL 4.0",
+          "principal": 4583000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2032-03",
+          "maturity_precision": "month_or_range",
+          "recourse": "Non-recourse",
+          "rate": "7% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        },
+        {
+          "instrument": "OEM / software arrangements",
+          "principal": 770000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2026-10 to 2028-08",
+          "maturity_precision": "month_or_range",
+          "recourse": "Non-recourse",
+          "rate": "9% effective accounting rate",
+          "rate_kind": "effective_accounting",
+          "security": "See note 10; instrument-specific collateral",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "note": "USD reporting equivalent for EUR notes. Accounting effective rates are not contractual cash coupons."
+        }
+      ],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 31480000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-crwv"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      },
+      "maturity_schedule": {
+        "as_of": "2026-09-30",
+        "currency": "USD",
+        "scope": "Issuer-reported future principal payments; all debt in note 10, leases excluded.",
+        "source_ids": [
+          "v2-crwv-q"
+        ],
+        "total": 47505000000,
+        "buckets": [
+          {
+            "label": "Remaining 2026",
+            "value": 2433000000
+          },
+          {
+            "label": "2027",
+            "value": 10974000000
+          },
+          {
+            "label": "2028",
+            "value": 5479000000
+          },
+          {
+            "label": "2029",
+            "value": 4727000000
+          },
+          {
+            "label": "2030",
+            "value": 4247000000
+          },
+          {
+            "label": "Thereafter",
+            "value": 19645000000
+          }
+        ],
+        "note": "Annual buckets cannot establish exact rolling 12/24/36-month repayments. Includes scheduled amortization, not just final maturity.",
+        "period_basis": "calendar",
+        "year_end": "12-31",
+        "timing_issue": null
+      }
+    },
+    "NBIS": {
+      "contracts": [
+        {
+          "label": "Prepayments on new deals",
+          "display": ">90% of Q3 signed contract value carried a prepayment",
+          "scope": "New Q3 agreements, not recognized revenue concentration",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Top-customer revenue percentage and cancellation terms are not established here."
+        },
+        {
+          "label": "Selected new customers",
+          "display": "Databricks, Datadog and Snowflake",
+          "scope": "Company-reported cloud agreements",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": ""
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Revenue-producing sites",
+          "display": "Four new sites",
+          "scope": "US and Europe additions in Q3",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "No consolidated live MW total established in this extract."
+        },
+        {
+          "label": "Third-party delivery delays",
+          "display": "Some capacity moved to early 2027",
+          "scope": "2026 revenue timing",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "announced",
+          "note": "Build timing is distinct from demand or signed contract value."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Next-generation integration",
+          "display": "First Vera Rubin systems live; customer deployment pending",
+          "scope": "Nebius AI Cloud",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "commissioning",
+          "note": "Not a fleet-wide count or revenue-producing deployment claim."
+        }
+      ],
+      "revenue": [
+        {
+          "label": "Quarterly revenue",
+          "display": "$980.8M",
+          "scope": "Q3 2026 consolidated; prior-year quarter $146.1M",
+          "source_ids": [
+            "v2-nbis-q3"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": ""
+        }
+      ],
+      "debt_inventory": [],
+      "events": [
+        {
+          "label": "Later financing",
+          "display": "$3.5B senior secured facility in October",
+          "scope": "Post-balance-sheet financing; not added to September debt",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-11-12",
+          "status": "reported",
+          "note": "Facility size is not a verified drawn balance."
+        }
+      ],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 35260000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-nbis"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": "Share-count reconciliation pending: Q3 filing reports 292,902,405 outstanding A+B shares; provider market cap does not reconcile to that count at its $128.64 closing quote. No ratio is published."
+      },
+      "snapshot": {
+        "as_of": "2026-09-30",
+        "filed_at": "2026-11-12",
+        "debt_components": [
+          {
+            "label": "Current debt",
+            "value": 187500000
+          },
+          {
+            "label": "Non-current debt",
+            "value": 14003300000
+          }
+        ],
+        "cash": 7425600000,
+        "assets": 38744100000,
+        "source_ids": [
+          "v2-nbis-q3"
+        ],
+        "note": "Q3 supersedes the older Q2 balance snapshot. Older selected note and facility examples retain their own dates."
+      }
+    },
+    "IREN": {
+      "contracts": [
+        {
+          "label": "Top-three customer concentration",
+          "display": "28% / 24% / 18%",
+          "scope": "Q1 FY2027 total revenue",
+          "source_ids": [
+            "v2-iren-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Revenue starts after commissioning and applicable acceptance; customer identities are not mapped to percentages."
+        },
+        {
+          "label": "Microsoft contract",
+          "display": "$9.7B over five years",
+          "scope": "Four Horizon deployments at Childress",
+          "source_ids": [
+            "v2-iren-horizon"
+          ],
+          "as_of": "2026-08-13",
+          "status": "reported",
+          "note": "Contract value is not current revenue; later network-design changes affect timing."
+        },
+        {
+          "label": "Delivery conditions",
+          "display": "Microsoft-requested network change",
+          "scope": "Horizon deployments",
+          "source_ids": [
+            "v2-iren-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Filing describes extensions without delay credits for customer-requested changes; fee and timing discussions continue."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Horizon 1",
+          "display": "50 MW IT load",
+          "scope": "Childress; accepted by Microsoft",
+          "source_ids": [
+            "v2-iren-horizon"
+          ],
+          "as_of": "2026-08-13",
+          "status": "operating",
+          "note": "One deployment; not total company operating capacity."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Horizon 1 platform",
+          "display": "NVIDIA GB300 NVL72",
+          "scope": "Accepted Childress cluster",
+          "source_ids": [
+            "v2-iren-horizon"
+          ],
+          "as_of": "2026-08-13",
+          "status": "operating",
+          "note": ""
+        }
+      ],
+      "revenue": [
+        {
+          "label": "Quarterly revenue",
+          "display": "$228M total; $200M AI Cloud",
+          "scope": "Q1 FY2027; AI includes $135M services and $65M lease revenue",
+          "source_ids": [
+            "v2-iren-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": ""
+        }
+      ],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 8270000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-iren"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      },
+      "maturity_schedule": {
+        "as_of": "2026-09-30",
+        "currency": "USD",
+        "scope": "Fiscal years end June 30.",
+        "source_ids": [
+          "v2-iren-q-repayments"
+        ],
+        "total": 10041000000,
+        "period_basis": "fiscal",
+        "year_end": "06-30",
+        "buckets": [
+          {
+            "label": "Remaining FY2027",
+            "value": 723000000
+          },
+          {
+            "label": "FY2028",
+            "value": 1059000000
+          },
+          {
+            "label": "FY2029",
+            "value": 821000000
+          },
+          {
+            "label": "FY2030",
+            "value": 733000000
+          },
+          {
+            "label": "FY2031",
+            "value": 274000000
+          },
+          {
+            "label": "Thereafter",
+            "value": 6431000000
+          }
+        ],
+        "note": "Fiscal years end June 30. Remaining FY2027 covers October 2026 through June 2027. Debt principal excludes separately disclosed finance leases. Annual buckets cannot establish rolling 12/24/36-month totals.",
+        "timing_issue": null
+      }
+    },
+    "BTDR": {
+      "contracts": [
+        {
+          "label": "AI Cloud backlog",
+          "display": "Approximately $2.9B",
+          "scope": "Signed AI cloud commitments",
+          "source_ids": [
+            "v2-btdr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Expected future revenue, not cash or guarantees."
+        },
+        {
+          "label": "A102 commitments",
+          "display": "100% contracted; five-year commitments",
+          "scope": "9.5 MW IT load future deployment",
+          "source_ids": [
+            "v2-btdr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "contracted",
+          "note": "Construction in progress; planned Q1 2027 delivery."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "A101 live capacity",
+          "display": "2.5 MW IT load",
+          "scope": "Malaysia AI Cloud facility",
+          "source_ids": [
+            "v2-btdr-ops"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": ""
+        },
+        {
+          "label": "AI Cloud capacity secured",
+          "display": "Approximately 332 MW IT",
+          "scope": "Company pipeline",
+          "source_ids": [
+            "v2-btdr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "contracted",
+          "note": "Secured future capacity is not energized AI capacity."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Deployed GPUs",
+          "display": "4,328",
+          "scope": "AI Cloud; September 30 snapshot",
+          "source_ids": [
+            "v2-btdr-ops"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "H100, H200, B200, B300, GB200 and GB300; model-level counts not disclosed here."
+        }
+      ],
+      "revenue": [
+        {
+          "label": "Quarterly revenue",
+          "display": "$320.7M total; $20.4M AI Cloud",
+          "scope": "Q3 2026 consolidated / AI Cloud segment",
+          "source_ids": [
+            "v2-btdr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": ""
+        }
+      ],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 1690000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-btdr"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "HUT": {
+      "contracts": [
+        {
+          "label": "River Bend tenant",
+          "display": "Fluidstack USA IV Inc.",
+          "scope": "Entire River Bend data center lease",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Google backstops rent and specified lease obligations, not the notes. No parent guarantee of River Bend notes."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Project construction funds",
+          "display": "Restricted project accounts",
+          "scope": "River Bend / Beacon Point",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "construction",
+          "note": "Construction funding does not prove capacity is operating."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "GPU ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor / project borrower",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "unknown",
+          "note": "Do not attribute tenant GPUs to Hut 8 without equipment ownership evidence."
+        }
+      ],
+      "revenue": [],
+      "debt_inventory": [
+        {
+          "instrument": "River Bend",
+          "principal": 3250000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2042-11-15",
+          "maturity_precision": "day",
+          "recourse": "Non-recourse to ultimate parent per filing",
+          "rate": "6.192% stated rate",
+          "rate_kind": "contractual",
+          "security": "First-priority project assets and subsidiary equity pledge",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "note": "Selected instruments; final maturity does not describe interim amortization."
+        },
+        {
+          "instrument": "Beacon Point",
+          "principal": 4250000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2042-11-30",
+          "maturity_precision": "day",
+          "recourse": "Non-recourse to ultimate parent per filing",
+          "rate": "6.129% stated rate",
+          "rate_kind": "contractual",
+          "security": "See project indenture; project accounts restricted",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "note": "Selected instruments; final maturity does not describe interim amortization."
+        },
+        {
+          "instrument": "FalconX",
+          "principal": 200000000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2027-04-30",
+          "maturity_precision": "day",
+          "recourse": "Non-recourse to ultimate parent per filing",
+          "rate": "7% stated rate",
+          "rate_kind": "contractual",
+          "security": "See subsidiary loan collateral terms",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "note": "Selected instruments; final maturity does not describe interim amortization."
+        },
+        {
+          "instrument": "TZRC",
+          "principal": 26410000,
+          "currency": "USD",
+          "as_of": "2026-09-30",
+          "maturity": "2027-04-08",
+          "maturity_precision": "day",
+          "recourse": "Non-recourse to ultimate parent per filing",
+          "rate": "15.25% stated rate",
+          "rate_kind": "contractual",
+          "security": "Secured promissory note",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "note": "Selected instruments; final maturity does not describe interim amortization."
+        }
+      ],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 7440000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-hut"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      },
+      "maturity_schedule": {
+        "as_of": "2026-09-30",
+        "currency": "USD",
+        "scope": "Issuer long-term debt schedule includes current portion.",
+        "source_ids": [
+          "v2-hut-q-repayments"
+        ],
+        "total": 7726410000,
+        "period_basis": "calendar",
+        "year_end": "12-31",
+        "buckets": [
+          {
+            "label": "Remaining 2026",
+            "value": 26410000
+          },
+          {
+            "label": "2027",
+            "value": 200000000
+          },
+          {
+            "label": "2028",
+            "value": 86389000
+          },
+          {
+            "label": "2029",
+            "value": 100634000
+          },
+          {
+            "label": "2030",
+            "value": 237971000
+          },
+          {
+            "label": "Thereafter",
+            "value": 7075006000
+          }
+        ],
+        "note": "Issuer long-term debt schedule includes current portion. Other financial liabilities and leases are outside this principal total. Annual buckets cannot establish rolling 12/24/36-month totals.",
+        "timing_issue": "The schedule places $26.410M in remaining 2026, while the instrument table gives TZRC an April 2027 maturity. Timing remains unresolved; reported buckets are preserved."
+      }
+    },
+    "APLD": {
+      "contracts": [
+        {
+          "label": "Customer concentration",
+          "display": "56% / 21% / 11%",
+          "scope": "Q1 FY2027 consolidated revenue, anonymous A/B/C",
+          "source_ids": [
+            "v2-apld-q"
+          ],
+          "as_of": "2026-08-31",
+          "status": "reported",
+          "note": "Do not infer customer identities from anonymous labels."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Contracted critical IT load",
+          "display": "1,410 MW",
+          "scope": "Aggregate leased critical IT capacity",
+          "source_ids": [
+            "v2-apld-q"
+          ],
+          "as_of": "2026-08-31",
+          "status": "contracted",
+          "note": "Includes future delivery; not energized capacity."
+        },
+        {
+          "label": "Delta Forge 2",
+          "display": "210 MW critical IT load",
+          "scope": "Single building; high investment-grade hyperscaler per issuer",
+          "source_ids": [
+            "v2-apld-q"
+          ],
+          "as_of": "2026-08-31",
+          "status": "construction",
+          "note": "Expected first-half 2028 delivery; approximately $5.2B base-term contracted revenue."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Equipment ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor; tenant GPU model/count not established by this research",
+          "source_ids": [],
+          "as_of": "2026-11-12",
+          "status": "unknown",
+          "note": "No tenant GPU inventory is attributed to the issuer."
+        }
+      ],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 5130000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-apld"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "CORZ": {
+      "contracts": [
+        {
+          "label": "Single colocation customer",
+          "display": "93% of total revenue",
+          "scope": "Q3 2026 consolidated revenue",
+          "source_ids": [
+            "v2-corz-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Nine-month share 84%. Do not compare with segment-only concentration."
+        },
+        {
+          "label": "AMD leases",
+          "display": "15-year terms plus renewal options",
+          "scope": "Contracted future colocation capacity",
+          "source_ids": [
+            "v2-corz-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "contracted",
+          "note": "No AMD lease commencement or related revenue at September 30; phases expected from 2027."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "AMD delivery status",
+          "display": "Not commenced at snapshot",
+          "scope": "AMD contracted facilities",
+          "source_ids": [
+            "v2-corz-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "construction",
+          "note": "Not counted as revenue-producing capacity."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Equipment ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor; tenant GPU model/count not established by this research",
+          "source_ids": [],
+          "as_of": "2026-11-12",
+          "status": "unknown",
+          "note": "No tenant GPU inventory is attributed to the issuer."
+        }
+      ],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 4630000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-corz"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "WULF": {
+      "contracts": [
+        {
+          "label": "HPC customer count",
+          "display": "Two customers",
+          "scope": "Q3 and nine-month HPC lease revenue",
+          "source_ids": [
+            "v2-wulf-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Not a percentage of consolidated revenue; concentration shares not established."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Energized HPC leasing",
+          "display": "102 MW critical IT load",
+          "scope": "Lake Mariner",
+          "source_ids": [
+            "v2-wulf-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "Energized capacity does not establish utilization."
+        },
+        {
+          "label": "Abernathy stake sold",
+          "display": "50.1% interest sold; no remaining equity interest",
+          "scope": "168 MW critical IT joint venture",
+          "source_ids": [
+            "v2-wulf-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Sale effective July 5, 2026. Do not include this former joint venture as owned operating capacity."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Equipment ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor; tenant GPU model/count not established by this research",
+          "source_ids": [],
+          "as_of": "2026-11-12",
+          "status": "unknown",
+          "note": "No tenant GPU inventory is attributed to the issuer."
+        }
+      ],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 6540000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-wulf"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      },
+      "maturity_schedule": {
+        "as_of": "2026-09-30",
+        "currency": "USD",
+        "scope": "Issuer schedule covers outstanding long-term debt and convertible notes.",
+        "source_ids": [
+          "v2-wulf-q-repayments"
+        ],
+        "total": 5725000000,
+        "period_basis": "calendar",
+        "year_end": "12-31",
+        "buckets": [
+          {
+            "label": "Remaining 2026",
+            "value": 14158000
+          },
+          {
+            "label": "2027",
+            "value": 210662000
+          },
+          {
+            "label": "2028",
+            "value": 296744000
+          },
+          {
+            "label": "2029",
+            "value": 302678000
+          },
+          {
+            "label": "2030",
+            "value": 2875758000
+          },
+          {
+            "label": "Thereafter",
+            "value": 2025000000
+          }
+        ],
+        "note": "Issuer schedule covers outstanding long-term debt and convertible notes. Scope is not automatically all borrowings. Annual buckets cannot establish rolling 12/24/36-month totals.",
+        "timing_issue": null
+      }
+    },
+    "CIFR": {
+      "contracts": [
+        {
+          "label": "Barber Lake tenant",
+          "display": "Fluidstack USA II Inc.",
+          "scope": "Barber Lake HPC project",
+          "source_ids": [
+            "v2-cifr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "contracted",
+          "note": "Project-specific customer exposure; consolidated revenue concentration not established here."
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Black Pearl",
+          "display": "300 MW site; phased HPC delivery began August",
+          "scope": "Wink, Texas",
+          "source_ids": [
+            "v2-cifr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "Site rating is not the amount of HPC capacity accepted by the tenant."
+        },
+        {
+          "label": "Barber Lake",
+          "display": "300 MW site",
+          "scope": "Fluidstack facility",
+          "source_ids": [
+            "v2-cifr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "construction",
+          "note": "Phased commencement expected Q4 2026; not verified live at snapshot."
+        },
+        {
+          "label": "Stingray",
+          "display": "100 MW site",
+          "scope": "Future HPC project",
+          "source_ids": [
+            "v2-cifr-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "construction",
+          "note": "Expected 2027 commencement."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Equipment ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor; tenant GPU model/count not established by this research",
+          "source_ids": [],
+          "as_of": "2026-11-12",
+          "status": "unknown",
+          "note": "No tenant GPU inventory is attributed to the issuer."
+        }
+      ],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 3260000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-cifr"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "HIVE": {
+      "contracts": [
+        {
+          "label": "BUZZ enterprise agreement",
+          "display": "$350M over five years; approximately 10% deposit",
+          "scope": "Unnamed enterprise customer; issuer describes investment-grade credit",
+          "source_ids": [
+            "v2-hive-contract"
+          ],
+          "as_of": "2026-08-17",
+          "status": "contracted",
+          "note": "Termination provisions and independent customer rating not established."
+        },
+        {
+          "label": "Bell AI Fabric / Cohere",
+          "display": "$225M over three years",
+          "scope": "Sovereign AI agreement",
+          "source_ids": [
+            "v2-hive-results"
+          ],
+          "as_of": "2026-09-30",
+          "status": "contracted",
+          "note": ""
+        }
+      ],
+      "capacity": [
+        {
+          "label": "GPU Cloud run rate",
+          "display": "Approximately $40M live ARR",
+          "scope": "Company annualized run rate",
+          "source_ids": [
+            "v2-hive-results"
+          ],
+          "as_of": "2026-11-09",
+          "status": "operating",
+          "note": "ARR is not quarterly revenue or a MW capacity measure."
+        },
+        {
+          "label": "Contracted GPU ARR",
+          "display": "Approximately $185M including live ARR",
+          "scope": "Includes capacity not yet in service",
+          "source_ids": [
+            "v2-hive-results"
+          ],
+          "as_of": "2026-11-09",
+          "status": "contracted",
+          "note": "Do not add to live ARR."
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Manitoba B200 cluster",
+          "display": "Deployed",
+          "scope": "BUZZ HPC",
+          "source_ids": [
+            "v2-hive-results"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": ""
+        },
+        {
+          "label": "Merritt GB300 cluster",
+          "display": "2,016 Blackwell Ultra GPUs",
+          "scope": "Dedicated enterprise cluster; HIVE retains equipment ownership",
+          "source_ids": [
+            "v2-hive-contract"
+          ],
+          "as_of": "2026-08-17",
+          "status": "contracted",
+          "note": "Targeted Q4 deployment; not verified operating in this record."
+        }
+      ],
+      "revenue": [
+        {
+          "label": "Quarterly revenue",
+          "display": "$84.9M total; $8.8M HPC",
+          "scope": "Q2 FY2027; most revenue remains mining",
+          "source_ids": [
+            "v2-hive-results"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": ""
+        }
+      ],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 452080000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-hive"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "GLXY": {
+      "contracts": [],
+      "capacity": [],
+      "hardware": [],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 5860000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-glxy"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "RIOT": {
+      "contracts": [],
+      "capacity": [],
+      "hardware": [],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 6690000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-riot"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "MARA": {
+      "contracts": [],
+      "capacity": [],
+      "hardware": [],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 2790000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-mara"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "EQIX": {
+      "contracts": [],
+      "capacity": [],
+      "hardware": [],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 106190000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-eqix"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "DLR": {
+      "contracts": [],
+      "capacity": [],
+      "hardware": [],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence.",
+      "market_cap": {
+        "value": 70630000000,
+        "currency": "USD",
+        "as_of": "2026-11-12",
+        "time_precision": "date",
+        "source_ids": [
+          "v2-market-dlr"
+        ],
+        "status": "provider_reported",
+        "scope": "Provider-reported company equity capitalization; rounded snapshot, not enterprise value.",
+        "note": "Stock Analysis reports this dated value. Intraday fixing time and share-class reconciliation are not independently established. No live feed or pro-forma debt adjustment.",
+        "ratio_blocker": null
+      }
+    },
+    "NSCALE": {
+      "contracts": [],
+      "capacity": [],
+      "hardware": [],
+      "revenue": [],
+      "debt_inventory": [],
+      "events": [
+        {
+          "label": "Listing status",
+          "display": "IPO applicant; proposed symbol NSCL",
+          "scope": "NYSE application, not an established public listing",
+          "source_ids": [
+            "v2-nscale-listing"
+          ],
+          "as_of": "2026-11-12",
+          "status": "not_applicable",
+          "note": "NSCALE is the internal record key. No public market-cap ratio."
+        }
+      ],
+      "coverage_note": "Selected disclosures only; missing fields are not evidence of absence."
+    }
+  }
+}

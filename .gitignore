@@ -9,3 +9,5 @@ __pycache__/
 work/
 node_modules/
 .wrangler/
+
+/v2-preview/data.json
