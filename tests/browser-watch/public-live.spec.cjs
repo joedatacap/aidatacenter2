@@ -5,11 +5,14 @@ const {test,expect}=require('@playwright/test');
 const fs=require('node:fs');
 const crypto=require('node:crypto');
 const PUBLIC='https://neocloud-watch.gpuchips.chatgpt.site/';
+// Explicit local control is separate from the live verification; no arbitrary URL override.
+const LOCAL_CONTROL=process.env.WATCH_SMOKE_LOCAL_CONTROL==='1';
+const TARGET=LOCAL_CONTROL?'http://127.0.0.1:8003/':PUBLIC;
 const canonicalFile='work/neocloud-watch-site/data.json';
 function sorted(value){if(Array.isArray(value))return value.map(sorted);if(value&&typeof value==='object')return Object.fromEntries(Object.keys(value).sort().map(k=>[k,sorted(value[k])]));return value;}
 const digest=value=>crypto.createHash('sha256').update(JSON.stringify(sorted(value))).digest('hex');
 async function openPublic(page,route='overview/'){
- const url=PUBLIC+route;
+ const url=TARGET+route;
  let response;try{response=await page.goto(url,{waitUntil:'domcontentloaded',timeout:30000});}
  catch(error){throw new Error(`Public browser navigation failed for fixed URL ${url}: ${error.message}`);}
  expect(response?.status(),`Public HTTP status at ${url}; final URL ${page.url()}`).toBe(200);
@@ -21,12 +24,17 @@ const card=(page,id)=>page.locator(`.overview-revenue-card[data-chart-company="$
 test.describe('authorized public Neocloud Watch smoke',()=>{
  test.setTimeout(60000);
  test('live snapshot exactly matches canonical reviewed data and the homepage renders its charts',async({page,request},info)=>{
-  const response=await request.get(PUBLIC+'data.json',{timeout:30000});
+  const response=await request.get(TARGET+'data.json',{timeout:30000});
   expect(response.status(),'Public data.json request status; access rejection is a blocker, not a pass').toBe(200);
   let live;try{live=await response.json();}catch{throw new Error('Public data.json did not return JSON. Content-Type: '+response.headers()['content-type']);}
   const canonical=JSON.parse(fs.readFileSync(canonicalFile,'utf8'));
-  console.log('PUBLIC_SMOKE_DIGEST '+JSON.stringify({project:info.project.name,url:PUBLIC,live:digest(live),canonical:digest(canonical),reviewed_at:live.reviewed_at,companies:live.companies?.length}));
+  console.log('PUBLIC_SMOKE_DIGEST '+JSON.stringify({project:info.project.name,url:TARGET,mode:LOCAL_CONTROL?'local_control':'public_live',live:digest(live),canonical:digest(canonical),reviewed_at:live.reviewed_at,companies:live.companies?.length}));
   expect(digest(live),'Public/canonical reviewed-data digests differ; do not claim synchronization').toBe(digest(canonical));
+  const asset=await request.get(TARGET+'watch.js',{timeout:30000});
+  expect(asset.status(),'Public renderer asset status').toBe(200);
+  const actualJS=await asset.body(),canonicalJS=fs.readFileSync('work/neocloud-watch-site/watch.js');
+  console.log('PUBLIC_SMOKE_RENDERER '+JSON.stringify({project:info.project.name,url:TARGET+'watch.js',mode:LOCAL_CONTROL?'local_control':'public_live',actual:crypto.createHash('sha256').update(actualJS).digest('hex'),canonical:crypto.createHash('sha256').update(canonicalJS).digest('hex')}));
+  expect(actualJS.equals(canonicalJS),'Public watch.js bytes differ from canonical generated renderer').toBe(true);
   await openPublic(page);
   await expect(page.locator('#what-changed .change-card')).toHaveCount(3);
   await expect(page.locator('.overview-revenue-card')).toHaveCount(9);
@@ -49,7 +57,7 @@ test.describe('authorized public Neocloud Watch smoke',()=>{
   await page.reload();await expect(card(page,'agpu')).toBeVisible();
   for(const name of ['Earnings','Financing & Debt','Buildout','Overview']){
    await page.locator('#primary-nav').getByRole('link',{name,exact:true}).click();
-   expect(new URL(page.url()).origin).toBe(new URL(PUBLIC).origin);
+   expect(new URL(page.url()).origin).toBe(new URL(TARGET).origin);
    expect(new URL(page.url()).searchParams.get('peers')).toBe('agpu,shaz');
    await expect(page.locator('#q')).toHaveValue('AGPU');
    await expect(page.locator('[data-company]')).toHaveCount(1);
@@ -62,7 +70,7 @@ test.describe('authorized public Neocloud Watch smoke',()=>{
   expect(links.length).toBeGreaterThan(0);for(const link of links)expect(link).toMatch(/^https:\/\//);
   expect(links.some(link=>/sec\.gov|axecompute/.test(link))).toBe(true);
   await page.locator('#close-evidence').click();
-  await card(page,'agpu').getByRole('link',{name:'Earnings & evidence →',exact:true}).click();
+  await card(page,'agpu').getByRole('link',{name:/^Earnings & evidence(?: →)?$/}).click();
   await expect(page.locator('#company-earnings')).toContainText('2026-09-30');
   await page.reload();await expect(page.locator('#company-earnings')).toBeVisible();
   expect(errors).toEqual([]);
@@ -82,6 +90,13 @@ test.describe('authorized public Neocloud Watch smoke',()=>{
   const csvEvent=page.waitForEvent('download');await page.locator('#export-csv').click();
   const csv=fs.readFileSync(await(await csvEvent).path(),'utf8');
   for(const value of ['7243043','147710376','36889299','569338973'])expect(csv).toContain(value);
+ });
+
+ test('live original and revised IREN target windows remain visible on the company buildout record',async({page})=>{
+  await openPublic(page,'companies/iren/?section=buildout');
+  await expect(page.locator('#company-buildout')).toContainText('By December 31, 2026');
+  await expect(page.locator('#company-buildout')).toContainText('January 2027, may extend through February 2027');
+  await expect(page.locator('#company-buildout')).not.toContainText('[object Object]');
  });
 
  test('live chart details work by keyboard or tap and the page has no horizontal overflow',async({page},info)=>{
