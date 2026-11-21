@@ -69,7 +69,9 @@ def build(*,base='/',output=None):
     audit_body = audit_html.split('<main>', 1)[1].split('</main>', 1)[0]
     audit_template = '<template id="offline-audit">'+audit_body+'</template>'
     offline=offline.replace('</body>',audit_template+'<script>'+js+'</script></body>')
-    artifact=ROOT/'work/Neocloud-Watch-V2.html';artifact.write_text(offline)
+    artifact = ROOT/'work/Neocloud-Watch-V2.html'
+    artifact.parent.mkdir(parents=True, exist_ok=True)
+    artifact.write_text(offline)
     return {'site':str(target),'offline':str(artifact),'companies':len(data['companies']),'routes':len(routes),'base_path':base}
 
 

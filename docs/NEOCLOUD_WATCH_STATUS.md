@@ -1,6 +1,8 @@
 # Neocloud Watch V2 — execution receipt and resume guide
 
-## Current homepage and public source — November 20, 2026
+See the [current release receipt and publish procedure](NEOCLOUD_WATCH_RELEASE.md) for the public version and canonical main revision.
+
+## Homepage and public source as of November 20, 2026
 
 The public Neocloud Watch project is `appgprj_6afb8d8562c0819183402d9c41093312`. Its homepage is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). The application source is on `joedatacap/aidatacenter2`, branch `feat/neocloud-watch-v2`. The Sites repository tracks the corresponding generated static files on `main`. Its `maintenance/GITHUB_SOURCE.md` identifies the exact application commit used for publication.
 

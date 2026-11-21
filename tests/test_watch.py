@@ -297,3 +297,18 @@ def test_completed_report_event_never_remains_next_catalyst():
                                {'id':'completed-release','date':'2026-11-17','status':'completed','source_ids':['s']}]
     company=build_watch(base(),[r])['companies'][0]
     assert company['next_event'] is None
+
+
+def test_custom_output_also_builds_offline_file_on_first_run(tmp_path, monkeypatch):
+    from scripts import build_neocloud_watch as builder
+
+    checkout = tmp_path / 'checkout'
+    checkout.mkdir()
+    for folder in ('watch-preview', 'neocloud'):
+        (checkout / folder).symlink_to(builder.ROOT / folder, target_is_directory=True)
+    monkeypatch.setattr(builder, 'ROOT', checkout)
+
+    output = tmp_path / 'public'
+    receipt = builder.build(base='/research/', output=output)
+    assert (output / 'overview/index.html').is_file()
+    assert Path(receipt['offline']).is_file()

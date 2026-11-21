@@ -7,7 +7,7 @@ including release status, evidence boundaries and the publishing runbook.
 
 ## Neocloud Watch V2 — connected research website
 
-The new nine-company release is built separately from the earlier previews.
+For the public URL, canonical commits and publication steps, see the [Watch release runbook](docs/NEOCLOUD_WATCH_RELEASE.md).
 Read [execution status](docs/NEOCLOUD_WATCH_STATUS.md),
 [coverage and gaps](docs/NEOCLOUD_WATCH_COVERAGE.md), and the
 [complete execution brief](docs/NEOCLOUD_WATCH_V2_EXECUTION.md).
