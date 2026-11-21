@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="watch-base" content="__WATCH_BASE__"><meta name="watch-offline" content="false">
+<meta name="description" content="Neocloud Watch connects reported earnings, financing obligations and AI infrastructure delivery through dated evidence.">
+<title>Neocloud Watch — Overview</title>
+<link rel="stylesheet" href="./watch.css"><script src="./watch.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#page-content">Skip to research</a>
+<header class="masthead"><a class="brand" data-home href="./"><span class="brand-mark">N</span><span>NEOCLOUD WATCH<small>EARNINGS · CAPITAL · DELIVERY</small></span></a><nav id="primary-nav" aria-label="Main pages"></nav><span class="edition">REVIEWED SNAPSHOT<span id="snapshot-date">Loading…</span></span></header>
+<main>
+<section id="shared-controls" class="controls" aria-label="Shared research controls">
+ <div class="filter-row"><label class="search">Find a company<input id="q" type="search" placeholder="Company, ticker or alias" autocomplete="off"></label><label>Research group<select id="focus"><option value="focus">Nine focus companies</option><option value="benchmark">Benchmark peers</option><option value="medium">Medium selection</option><option value="smaller">Smaller selection</option><option value="all">All companies</option></select></label><label>Business model<select id="business-model"><option value="all">All business models</option></select></label><label>Market-cap band<select id="size"><option value="all">All bands</option><option value="large">Large · $10B+</option><option value="mid">Mid · $2B–$10B</option><option value="small">Small · $300M–$2B</option><option value="micro">Micro · below $300M</option><option value="unknown">Unresolved</option></select></label><label>Order by<select id="order"><option value="name">Company name</option><option value="revenue">Latest revenue ↓</option><option value="debt">Reported borrowings ↓</option><option value="market">Market cap ↓</option></select></label></div>
+ <div class="selection-row"><details id="peer-picker" class="peer-picker"><summary>Selected peers <span id="peer-count">All matching</span></summary><div class="peer-panel"><p>Select up to nine peers. Empty selection shows the matching research group.</p><div id="peer-choices"></div><button id="clear-peers" class="text-button" type="button">Clear peer selection</button></div></details><button id="save-peers" class="text-button" type="button">Save peers locally</button><button id="load-peers" class="text-button" type="button">Load saved peers</button><span class="local-note">This browser only</span><button id="reset" class="text-button" type="button">Reset filters</button><div class="export-actions"><button id="export-csv" type="button">Download CSV ↓</button><button id="export-json" type="button">Evidence JSON ↓</button></div></div>
+ <p id="notice" role="status" aria-live="polite"></p>
+</section>
+<div id="page-content" tabindex="-1"><p class="loading">Loading the reviewed evidence ledger…</p></div>
+<p id="error" role="alert" hidden></p>
+</main>
+<footer><span>NEOCLOUD WATCH / V2</span><button id="methodology" class="text-button" type="button">Sources & methodology</button><span>Dates stay attached. Missing stays missing.</span></footer>
+<dialog id="evidence-dialog" aria-labelledby="evidence-title"><div class="drawer-heading"><h2 id="evidence-title">Evidence & definitions</h2><button id="close-evidence" type="button" aria-label="Close evidence">Close ×</button></div><div id="evidence-body"></div></dialog>
+</body>
+</html>

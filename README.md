@@ -5,6 +5,36 @@
 For a new GPT or Codex chat, start with the [project handoff](docs/HANDOFF.md),
 including release status, evidence boundaries and the publishing runbook.
 
+## Neocloud Watch V2 — connected research website
+
+For the public URL, canonical commits and publication steps, see the [Watch release runbook](docs/NEOCLOUD_WATCH_RELEASE.md).
+Read [execution status](docs/NEOCLOUD_WATCH_STATUS.md),
+[coverage and gaps](docs/NEOCLOUD_WATCH_COVERAGE.md), and the
+[complete execution brief](docs/NEOCLOUD_WATCH_V2_EXECUTION.md).
+
+```sh
+python3 -m pip install -e '.[test]'
+npm ci
+npm run preview:watch
+# http://127.0.0.1:8003/overview/
+```
+
+Pages: Overview, Financing & Debt, Earnings, Buildout, and shared company
+profiles. Nine selected peers are the default; All companies retains all 19
+records. Search, filters, peer selections, sections and periods travel in URLs.
+The existing financing evidence and all older previews remain available.
+
+`npm run build:watch` creates `work/neocloud-watch-site/` (24 actual static
+routes) and `work/Neocloud-Watch-V2.html` (download and open for offline use).
+Use `python3 scripts/build_neocloud_watch.py --base-path /research/ --output
+work/custom-site` for a subpath build. Serve the output mounted at that base
+path. No database, API credentials, quote feed or inference service is needed.
+`npm run test:watch` checks hosted and offline navigation on desktop/mobile.
+`npm run deploy:watch:dry-run` checks packaging; it does not deploy anything.
+
+New financial facts are reviewed snapshots, not automatic imports. Refresh
+instructions and research limits are in the execution status document.
+
 ## Instant read-only MVP preview
 
 The credential-free preview in `preview/` now opens with **16 actual, dated

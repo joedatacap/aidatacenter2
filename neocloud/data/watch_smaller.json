@@ -1,0 +1,2331 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-17",
+  "companies": [
+    {
+      "id": "wyfi",
+      "ticker": "WYFI",
+      "name": "WhiteFiber",
+      "exchange": "NASDAQ",
+      "cik": "2042022",
+      "aliases": [
+        "WYFI",
+        "WhiteFiber"
+      ],
+      "business_model": "GPU cloud and infrastructure lessor",
+      "focus_group": "smaller",
+      "listing_status": "listed",
+      "quarters": [
+        {
+          "id": "wyfi-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "period_start": "2026-07-01",
+          "release_date": "2026-11-10",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "wyfi-2026-09-30-revenue",
+              "value": 24017000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-wyfi-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "wyfi-2026-09-30-revenue-prior",
+              "value": 20180000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-09-30",
+              "as_of": "2025-09-30",
+              "source_ids": [
+                "watch-wyfi-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "wyfi-2026-09-30-operating-income",
+              "value": -12403000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-wyfi-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "wyfi-2026-09-30-adjusted-ebitda",
+              "value": -24000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA; read reconciliation",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-wyfi-q3-2026"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "operating_cash_flow": {
+              "id": "wyfi-2026-09-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "wyfi-2026-09-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-wyfi-q3-2026"
+          ],
+          "note": "Q3 reported revenue includes termination fees; GAAP operating loss is separate from adjusted EBITDA. Some colocation arrangements were reassessed under ASC 842; do not assume identical revenue mix.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "comparability_note": "Q3 includes customer termination fees and ASC 842 lease income; total revenue growth does not isolate recurring cloud demand.",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-10",
+            "bullets": [
+              {
+                "label": "What changed",
+                "text": "The call pins full NC-1 billing to November, after the September quarter. That improves the delivery picture without making the full run rate part of Q3 recognized revenue.",
+                "source_ids": [
+                  "call-wyfi-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "The secured facility is signed, but management still identifies funding conditions and an expected later draw. Track funded cash and debt separately from the announced commitment.",
+                "source_ids": [
+                  "call-wyfi-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "wyfi-2026-06-30",
+          "fiscal_label": "Q2 2026",
+          "period_end": "2026-06-30",
+          "period_start": "2026-04-01",
+          "release_date": "2026-08-12",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "wyfi-2026-06-30-revenue",
+              "value": 28839000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-wyfi-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "wyfi-2026-06-30-revenue-prior",
+              "value": 18662000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-06-30",
+              "as_of": "2025-06-30",
+              "source_ids": [
+                "watch-wyfi-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "wyfi-2026-06-30-operating-income",
+              "value": -9255000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-wyfi-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "wyfi-2026-06-30-adjusted-ebitda",
+              "value": 5535000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA; read reconciliation",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-wyfi-q2-2026"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "operating_cash_flow": {
+              "id": "wyfi-2026-06-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "wyfi-2026-06-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-wyfi-q2-2026"
+          ],
+          "note": "Quarter amounts retain reported precision; YTD cash flows are not substituted.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Positive adjusted EBITDA sits alongside a GAAP operating loss. Keep the issuer’s adjustments visible before treating the headline as operating profitability.",
+                "source_ids": [
+                  "watch-wyfi-q2-2026"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "wyfi-2026-03-31",
+          "fiscal_label": "Q1 2026",
+          "period_end": "2026-03-31",
+          "period_start": "2026-01-01",
+          "release_date": "2026-05-14",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "wyfi-2026-03-31-revenue",
+              "value": 21923451,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-03-31",
+              "as_of": "2026-03-31",
+              "source_ids": [
+                "watch-wyfi-q1-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "wyfi-2026-03-31-revenue-prior",
+              "value": 16767516,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-03-31",
+              "as_of": "2025-03-31",
+              "source_ids": [
+                "watch-wyfi-q1-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "wyfi-2026-03-31-operating-income",
+              "value": -11019824,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-03-31",
+              "as_of": "2026-03-31",
+              "source_ids": [
+                "watch-wyfi-q1-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "wyfi-2026-03-31-adjusted-ebitda",
+              "value": 3001474,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA; read reconciliation",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-03-31",
+              "as_of": "2026-03-31",
+              "source_ids": [
+                "watch-wyfi-q1-2026"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "operating_cash_flow": {
+              "id": "wyfi-2026-03-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "wyfi-2026-03-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-wyfi-q1-2026"
+          ],
+          "note": "Quarter amounts retain reported precision; YTD cash flows are not substituted.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Positive adjusted EBITDA sits alongside a GAAP operating loss. Keep the issuer’s adjustments visible before treating the headline as operating profitability.",
+                "source_ids": [
+                  "watch-wyfi-q1-2026"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "wyfi-2025-12-31",
+          "fiscal_label": "Q4 2025",
+          "period_end": "2025-12-31",
+          "period_start": "2025-10-01",
+          "release_date": "2026-03-26",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "wyfi-2025-12-31-revenue",
+              "value": 23560975,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-12-31",
+              "as_of": "2025-12-31",
+              "source_ids": [
+                "watch-wyfi-q4-2025"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "wyfi-2025-12-31-revenue-prior",
+              "value": 14598757,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2024-12-31",
+              "as_of": "2024-12-31",
+              "source_ids": [
+                "watch-wyfi-q4-2025"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "wyfi-2025-12-31-operating-income",
+              "value": -5197370,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-12-31",
+              "as_of": "2025-12-31",
+              "source_ids": [
+                "watch-wyfi-q4-2025"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "wyfi-2025-12-31-adjusted-ebitda",
+              "value": 5791063,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA; read reconciliation",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-12-31",
+              "as_of": "2025-12-31",
+              "source_ids": [
+                "watch-wyfi-q4-2025"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "operating_cash_flow": {
+              "id": "wyfi-2025-12-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "wyfi-2025-12-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-wyfi-q4-2025"
+          ],
+          "note": "Quarter amounts retain reported precision; YTD cash flows are not substituted.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Positive adjusted EBITDA sits alongside a GAAP operating loss. Keep the issuer’s adjustments visible before treating the headline as operating profitability.",
+                "source_ids": [
+                  "watch-wyfi-q4-2025"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [
+        {
+          "id": "wyfi-guidance-gap",
+          "metric": "revenue",
+          "status": "not_researched",
+          "reason": "No reviewed comparable prior/current guidance ranges for the same future period and scope",
+          "source_ids": []
+        }
+      ],
+      "capacity": [
+        {
+          "id": "wyfi-nc1",
+          "label": "NC-1 operating IT capacity",
+          "display": "40 MW contracted IT capacity operating by November 10",
+          "status": "operating",
+          "as_of": "2026-11-10",
+          "scope": "NC-1 only; WhiteFiber colocation",
+          "note": "Full billing commenced after switchgear commissioning delays. This is IT load, not gross utility power or consolidated utilization.",
+          "source_ids": [
+            "watch-wyfi-q3-release"
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "id": "wyfi-nscale",
+          "label": "NC-1 customer",
+          "display": "Nscale long-term colocation",
+          "status": "reported",
+          "as_of": "2026-11-10",
+          "scope": "NC-1",
+          "note": "Customer hardware and issuer cloud GPUs are separate. No company-wide guarantee inferred.",
+          "source_ids": [
+            "watch-wyfi-q1-2026",
+            "watch-wyfi-q3-2026"
+          ]
+        }
+      ],
+      "hardware": [
+        {
+          "id": "wyfi-hardware",
+          "label": "GPU ownership",
+          "display": "Owned H200 fleet used for Hyperbolic/Modal deployment",
+          "status": "reported",
+          "as_of": "2026-05-14",
+          "scope": "Named cloud contract",
+          "note": "No incremental GPU capex stated for this contract; this is not a whole-fleet inventory.",
+          "source_ids": [
+            "watch-wyfi-q1-2026"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "wyfi-nc1-full-billing",
+          "label": "NC-1 full 40 MW IT billing",
+          "project": "NC-1",
+          "status": "missed",
+          "original_target": {
+            "as_of": "2026-08-12",
+            "expected_by": "2026-08-31",
+            "description": "Full contracted run-rate billing by end-August",
+            "source_ids": [
+              "watch-wyfi-q2-2026"
+            ]
+          },
+          "revisions": [],
+          "outcome": {
+            "as_of": "2026-11-10",
+            "status": "reported_operating",
+            "description": "All 40 MW operating and full billing begun; source acknowledges August delay. Exact final acceptance date not established.",
+            "source_ids": [
+              "watch-wyfi-q3-release"
+            ]
+          },
+          "source_ids": [
+            "watch-wyfi-q2-2026",
+            "watch-wyfi-q3-release"
+          ],
+          "note": "A documented delay followed by delivery; not an assertion that all capacity was operating at September 30."
+        }
+      ],
+      "events": [
+        {
+          "id": "wyfi-next",
+          "label": "Next report date",
+          "display": "Not announced in reviewed sources",
+          "status": "not_disclosed",
+          "as_of": "2026-11-16",
+          "scope": "Issuer reporting calendar",
+          "note": "Next dated earnings catalyst not verified. Watch NC-1 financing funding conditions and NC-2/NC-3 planning; no fabricated event date.",
+          "source_ids": [
+            "watch-wyfi-q3-release"
+          ]
+        }
+      ],
+      "gaps": [
+        "Quarter-only cash capex and operating cash-flow bridges not reviewed.",
+        "No original timestamped pre-release consensus or split-adjusted T+1/T+5 prices.",
+        "Next report date not announced in reviewed sources; NC-1 subsequent facility funding remains conditional.",
+        "Full fleet inventory, exact utilization and complete instrument-level repayment schedule remain gaps."
+      ],
+      "reviewed_at": "2026-11-16",
+      "operating_evidence_status": "partial",
+      "financing_coverage_status": "reported_balance_partial_terms",
+      "next_catalyst_status": "not_disclosed",
+      "latest_report_status": "verified",
+      "latest_report_note": "September 30 Q3 Form 10-Q and November 10 issuer release reviewed. IR hub still displayed older Q2 at retrieval; SEC filing governs.",
+      "financing_snapshot": {
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "watch-wyfi-q3-2026"
+        ],
+        "debt": {
+          "id": "wyfi-debt",
+          "value": 402633000,
+          "status": "reported",
+          "unit": "USD",
+          "currency": "USD",
+          "definition": "Borrowing carrying value excluding all leases",
+          "scope": "Consolidated WhiteFiber",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
+          "source_ids": [
+            "watch-wyfi-q3-2026"
+          ],
+          "review_status": "reviewed_primary",
+          "basis": "Borrowing carrying value excluding all leases",
+          "note": "Borrowings = $11.873M current third-party debt + $29.989M related-party debt + $330.088M convertible carrying value + $30.683M noncurrent third-party debt. Includes accreted related-party MOIC; principal differs. $9.012M restricted cash excluded; cash is not proven parent-available. Subsequent $300M NC-1 commitment is not September drawn debt."
+        },
+        "cash": {
+          "id": "wyfi-cash",
+          "value": 138544000,
+          "status": "reported",
+          "unit": "USD",
+          "currency": "USD",
+          "definition": "Cash and cash equivalents excluding separately classified restricted cash",
+          "scope": "Consolidated WhiteFiber",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
+          "source_ids": [
+            "watch-wyfi-q3-2026"
+          ],
+          "review_status": "reviewed_primary",
+          "basis": "Cash and cash equivalents excluding separately classified restricted cash",
+          "note": "Borrowings = $11.873M current third-party debt + $29.989M related-party debt + $330.088M convertible carrying value + $30.683M noncurrent third-party debt. Includes accreted related-party MOIC; principal differs. $9.012M restricted cash excluded; cash is not proven parent-available. Subsequent $300M NC-1 commitment is not September drawn debt."
+        },
+        "note": "Borrowings = $11.873M current third-party debt + $29.989M related-party debt + $330.088M convertible carrying value + $30.683M noncurrent third-party debt. Includes accreted related-party MOIC; principal differs. $9.012M restricted cash excluded; cash is not proven parent-available. Subsequent $300M NC-1 commitment is not September drawn debt.",
+        "published_at": "2026-11-10",
+        "scope": "Consolidated WhiteFiber",
+        "leases": [
+          {
+            "kind": "operating",
+            "value": 69252000,
+            "as_of": "2026-09-30",
+            "note": "Current $12.955M plus noncurrent $56.297M operating lease liabilities. Excluded from borrowings.",
+            "source_ids": [
+              "watch-wyfi-q3-2026"
+            ]
+          }
+        ],
+        "excluded_balances": [
+          {
+            "label": "Restricted cash",
+            "value": 9012000,
+            "as_of": "2026-09-30",
+            "basis": "Separately classified cash supporting letters of credit, escrow and collateral; excluded from cash and equivalents",
+            "source_ids": [
+              "watch-wyfi-q3-2026"
+            ]
+          }
+        ]
+      },
+      "relationships": [
+        {
+          "company_id": "btbt",
+          "name": "Bit Digital",
+          "relationship": "majority_parent",
+          "as_of": "2026-09-30",
+          "ownership_percent": 59.7,
+          "source_ids": [
+            "watch-wyfi-q3-2026"
+          ],
+          "note": "WhiteFiber is consolidated by Bit Digital; do not add both sets of financials as independent sector exposure."
+        }
+      ],
+      "source_ids": [
+        "watch-wyfi-q1-2026",
+        "watch-wyfi-q2-2026",
+        "watch-wyfi-q3-2026",
+        "watch-wyfi-q4-2025"
+      ],
+      "financing_rates": [
+        {
+          "id": "WATCH-WYFI-2031",
+          "ticker": "WYFI",
+          "instrument": "2031 convertible senior notes",
+          "borrower": "WhiteFiber, Inc.",
+          "scope": "Selected named financing; not whole-company cost of debt",
+          "currency_scope": "USD-denominated instrument",
+          "as_of": "2026-09-30",
+          "kind": "fixed_coupon",
+          "rate_percent": 4.5,
+          "formula": null,
+          "method": "Issuer contractual disclosure",
+          "coverage": "Selected terms only; no inferred company-wide average",
+          "note": "Historical issuance principal $230M; $31.85M principal remains after induced conversion at September 30. Coupon is not market yield.",
+          "source_ids": [
+            "watch-wyfi-q3-2026"
+          ],
+          "status": "terms_only",
+          "market_yield": null
+        },
+        {
+          "id": "WATCH-WYFI-2032",
+          "ticker": "WYFI",
+          "instrument": "2032 convertible senior notes",
+          "borrower": "WhiteFiber, Inc.",
+          "scope": "Selected named financing; not whole-company cost of debt",
+          "currency_scope": "USD-denominated instrument",
+          "as_of": "2026-09-30",
+          "kind": "fixed_coupon",
+          "rate_percent": 5,
+          "formula": null,
+          "method": "Issuer contractual disclosure",
+          "coverage": "Selected terms only; no inferred company-wide average",
+          "note": "$310M principal; $299.217M carrying value at September 30. No current market yield verified.",
+          "source_ids": [
+            "watch-wyfi-q3-2026"
+          ],
+          "status": "terms_only",
+          "market_yield": null
+        },
+        {
+          "id": "WATCH-WYFI-ICELAND",
+          "ticker": "WYFI",
+          "instrument": "Iceland facility",
+          "borrower": "WhiteFiber Iceland ehf.",
+          "scope": "Selected named financing; not whole-company cost of debt",
+          "currency_scope": "USD-denominated instrument",
+          "as_of": "2026-09-30",
+          "kind": "floating_formula",
+          "rate_percent": null,
+          "formula": "Three-month CME Term SOFR + 4.25 percentage points",
+          "method": "Issuer contractual disclosure",
+          "coverage": "Selected terms only; no inferred company-wide average",
+          "note": "No dated benchmark fixing; no all-in cash interest rate inferred.",
+          "source_ids": [
+            "watch-wyfi-q3-2026"
+          ],
+          "status": "terms_only",
+          "market_yield": null
+        }
+      ]
+    },
+    {
+      "id": "shaz",
+      "ticker": "SHAZ",
+      "name": "SharonAI Holdings",
+      "exchange": "NASDAQ",
+      "cik": "2068385",
+      "aliases": [
+        "SHAZ",
+        "SharonAI Holdings",
+        "Sharon AI",
+        "SharonAI"
+      ],
+      "business_model": "GPU cloud/operator",
+      "focus_group": "smaller",
+      "listing_status": "listed",
+      "quarters": [
+        {
+          "id": "shaz-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "period_start": "2026-07-01",
+          "release_date": "2026-11-16",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "source_ids": [
+            "watch-shaz-q3-2026",
+            "watch-shaz-q3-release"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "shaz-2026-09-30-revenue",
+              "value": 9930669,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Recognized revenue under US GAAP",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "revenue_prior_year": {
+              "id": "shaz-2026-09-30-revenue_prior_year",
+              "value": 506747,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2025-09-30",
+              "definition": "Comparable prior-year quarter revenue",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "shaz-2026-09-30-operating_income",
+              "value": -37461270,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "US GAAP operating loss",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "shaz-2026-09-30-operating_cash_flow",
+              "value": -66090364,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Quarter-only net operating cash flow",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "shaz-2026-09-30-adjusted_ebitda",
+              "value": -25769000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Issuer-defined adjusted EBITDA, reported in USD thousands",
+              "accounting_basis": "issuer_adjusted",
+              "source_ids": [
+                "watch-shaz-q3-release"
+              ],
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "shaz-2026-09-30-cash_capex",
+              "value": 8507319,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "scope": "Consolidated issuer",
+              "months": 3,
+              "period_end": "2026-09-30",
+              "definition": "Cash property/equipment purchases only; excludes $293,055,438 equipment advances and lease payments",
+              "accounting_basis": "GAAP",
+              "source_ids": [
+                "watch-shaz-q3-2026"
+              ],
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Q3 primary filing reviewed. Quarter cash capex below is property/equipment purchases only; $293.1M of equipment advances is separate and excluded. Adjusted EBITDA is issuer-defined.",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-20",
+            "review_note": "Reconciled the November 17 audited issuer disclosures; no Q3 call transcript is claimed.",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Revenue of $9.93M came with a $37.46M operating loss and a $25.77M issuer-adjusted EBITDA loss. Deployment growth has not yet translated into operating profitability.",
+                "source_ids": [
+                  "watch-shaz-q3-2026",
+                  "watch-shaz-q3-release"
+                ]
+              },
+              {
+                "label": "Funding",
+                "text": "The $1.341B reported cash balance excludes $158.69M restricted cash and $162.75M noncurrent certificates. Those balances must not be combined into a parent-available liquidity total.",
+                "source_ids": [
+                  "watch-shaz-q3-2026"
+                ]
+              },
+              {
+                "label": "What to watch",
+                "text": "The $400–450M January 2027 ARR outlook is a forward-looking run rate, not recognized revenue. Track customer-accepted deployments alongside the costs and cash required to scale them.",
+                "source_ids": [
+                  "watch-shaz-q3-release"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "shaz-2026-06-30",
+          "fiscal_label": "Q2 2026",
+          "period_end": "2026-06-30",
+          "period_start": "2026-04-01",
+          "release_date": "2026-08-06",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "shaz-2026-06-30-revenue",
+              "value": 1931381,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-shaz-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "shaz-2026-06-30-revenue-prior",
+              "value": 376984,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-06-30",
+              "as_of": "2025-06-30",
+              "source_ids": [
+                "watch-shaz-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "shaz-2026-06-30-operating-income",
+              "value": -24784178,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-shaz-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "shaz-2026-06-30-adjusted-ebitda",
+              "value": 600000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA; read reconciliation",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-shaz-q2-release"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "operating_cash_flow": {
+              "id": "shaz-2026-06-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "shaz-2026-06-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-shaz-q2-2026"
+          ],
+          "note": "Quarter amounts retain reported precision; YTD cash flows are not substituted.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-08-06",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The call describes secured capacity, contracted capacity and a future GPU deployment target. These are different stages, so the useful follow-up is how much is accepted, operating and recognizing revenue—not the sum of the announced figures.",
+                "source_ids": [
+                  "call-shaz-q2-2026-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "shaz-2026-03-31",
+          "fiscal_label": "Q1 2026",
+          "period_end": "2026-03-31",
+          "period_start": "2026-01-01",
+          "release_date": "2026-05-15",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "shaz-2026-03-31-revenue",
+              "value": 294000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-03-31",
+              "as_of": "2026-03-31",
+              "source_ids": [
+                "watch-shaz-q1-presentation"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "shaz-2026-03-31-revenue-prior",
+              "value": 325000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-03-31",
+              "as_of": "2025-03-31",
+              "source_ids": [
+                "watch-shaz-q1-presentation"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "shaz-2026-03-31-operating-income",
+              "value": -2819000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-03-31",
+              "as_of": "2026-03-31",
+              "source_ids": [
+                "watch-shaz-q1-presentation"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "shaz-2026-03-31-adjusted-ebitda",
+              "value": -2209000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA; read reconciliation",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-03-31",
+              "as_of": "2026-03-31",
+              "source_ids": [
+                "watch-shaz-q1-presentation"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "operating_cash_flow": {
+              "id": "shaz-2026-03-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "shaz-2026-03-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-shaz-q1-presentation"
+          ],
+          "note": "Issuer presentation is USD thousands, rounded. Keep as-reported precision; later Q2 YTD subtraction is not silently substituted.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This is an early revenue base. Separate recognized revenue from the cash available to fund deployment; a cash balance does not establish customer acceptance or utilization.",
+                "source_ids": [
+                  "watch-shaz-q1-presentation"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [
+        {
+          "id": "shaz-jan-arr",
+          "label": "January 2027 ARR outlook",
+          "display": "$400–450M ARR expected in January 2027",
+          "status": "not_comparable",
+          "as_of": "2026-11-16",
+          "note": "Forward-looking annualized run rate, not quarterly revenue. Prior same-target guidance not reconciled, so no raised/cut judgment.",
+          "source_ids": [
+            "watch-shaz-q3-release"
+          ]
+        }
+      ],
+      "capacity": [
+        {
+          "id": "shaz-q3-accepted",
+          "label": "Customer-accepted deployment",
+          "display": "Approximately 1,000 B300 GPUs accepted",
+          "status": "operating",
+          "as_of": "2026-11-16",
+          "scope": "Initial global-technology-customer cluster only",
+          "note": "Acceptance does not establish all planned capacity as operating.",
+          "source_ids": [
+            "watch-shaz-q3-release"
+          ]
+        },
+        {
+          "id": "shaz-q3-plan",
+          "label": "2027 capacity plan",
+          "display": "212 MW expected in 2027",
+          "status": "announced",
+          "as_of": "2026-11-16",
+          "scope": "Australia and New Zealand portfolio",
+          "note": "Future capacity; not current operating MW.",
+          "source_ids": [
+            "watch-shaz-q3-release"
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "id": "shaz-q3-tcv",
+          "label": "Portfolio total contract value",
+          "display": "Approximately $9.6B over 5.5 years",
+          "status": "contracted",
+          "as_of": "2026-11-16",
+          "scope": "Issuer-reported portfolio; overlaps individual contracts",
+          "note": "Not recognized revenue or ARR. Do not sum with individual contract references.",
+          "source_ids": [
+            "watch-shaz-q3-release"
+          ]
+        },
+        {
+          "id": "shaz-global-tech",
+          "label": "Customer contract",
+          "display": "Five-year approximately $950M initial contract value",
+          "status": "contracted",
+          "as_of": "2026-08-20",
+          "scope": "Global technology customer; first phase",
+          "note": "Contract value differs from revenue. Revenue expected in stages in Q3/Q4; accepted phase does not prove all contracted capacity live.",
+          "source_ids": [
+            "watch-shaz-acceptance"
+          ]
+        }
+      ],
+      "hardware": [
+        {
+          "id": "shaz-gpu-plan",
+          "label": "Planned hardware",
+          "display": "Up to 40,000 GB300 GPUs under NVIDIA collaboration",
+          "status": "announced",
+          "as_of": "2026-08-06",
+          "scope": "Named six-year strategic compute collaboration",
+          "note": "Deployment plan is not a verified operating fleet total.",
+          "source_ids": [
+            "watch-shaz-q2-release"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "shaz-tech-phase",
+          "label": "Initial global-technology-customer deployment",
+          "project": "Australia AI Cloud",
+          "status": "insufficient_evidence",
+          "original_target": {
+            "as_of": "2026-08-06",
+            "expected_by": null,
+            "description": "Bring contracted capacity online to the deployment schedule; precise phase deadline not disclosed",
+            "source_ids": [
+              "watch-shaz-q2-release"
+            ]
+          },
+          "revisions": [],
+          "outcome": {
+            "as_of": "2026-11-16",
+            "status": "customer_accepted",
+            "description": "Issuer reports approximately 1,000 B300 GPUs delivered and accepted. Original comparable deadline remains unestablished.",
+            "source_ids": [
+              "watch-shaz-q3-release"
+            ]
+          },
+          "source_ids": [
+            "watch-shaz-q2-release",
+            "watch-shaz-acceptance",
+            "watch-shaz-q3-release"
+          ],
+          "note": "Acceptance is reported. On-time versus original deadline remains insufficient evidence; met describes delivery milestone only, not schedule adherence."
+        }
+      ],
+      "events": [
+        {
+          "id": "shaz-next-report",
+          "label": "Q3 report and call",
+          "display": "November 16, 2026 · after US market close",
+          "status": "reported",
+          "as_of": "2026-11-02",
+          "scope": "Quarter ending September 30, 2026",
+          "note": "Q3 results released November 16 and incorporated in this snapshot.",
+          "source_ids": [
+            "watch-shaz-q3-calendar",
+            "watch-shaz-q3-release"
+          ],
+          "date": "2026-11-16",
+          "time": "after market close",
+          "timezone": "America/New_York",
+          "event_type": "earnings",
+          "confirmed": true
+        }
+      ],
+      "gaps": [
+        "No consolidated accepted operating MW, complete GPU inventory or utilization denominator.",
+        "No original same-basis consensus or reviewed T+1/T+5 reaction; quarterly cash-flow bridges remain unresearched.",
+        "Three reviewed 2026 quarters; older history remains incomplete. Convertible carrying amount differs from principal; new facility commitment is not a drawn balance."
+      ],
+      "reviewed_at": "2026-11-16",
+      "operating_evidence_status": "partial",
+      "financing_coverage_status": "reported_balance_partial_terms",
+      "next_catalyst_status": "confirmed",
+      "latest_report_status": "verified",
+      "latest_report_note": "Q3 ended September 30, 2026, published November 16. Refreshed from the issuer release and SEC 10-Q; Q2 is retained as history.",
+      "financing_snapshot": {
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "watch-shaz-q3-2026"
+        ],
+        "debt": {
+          "id": "shaz-debt",
+          "value": 1007776066,
+          "status": "reported",
+          "unit": "USD",
+          "currency": "USD",
+          "definition": "Borrowing carrying value; convertible notes include fair-value measurement",
+          "scope": "Consolidated SharonAI",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
+          "source_ids": [
+            "watch-shaz-q3-2026"
+          ],
+          "review_status": "reviewed_primary",
+          "basis": "Borrowing carrying value; convertible notes include fair-value measurement",
+          "note": "September 30 balance sheet. Borrowings exclude leases and contract liabilities; restricted cash and certificates are separate. Later facility commitments do not establish drawn debt."
+        },
+        "cash": {
+          "id": "shaz-cash",
+          "value": 1341257049,
+          "status": "reported",
+          "unit": "USD",
+          "currency": "USD",
+          "definition": "Cash and cash equivalents; excludes separately classified restricted certificates",
+          "scope": "Consolidated SharonAI",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
+          "source_ids": [
+            "watch-shaz-q3-2026"
+          ],
+          "review_status": "reviewed_primary",
+          "basis": "Cash and cash equivalents; excludes separately classified restricted certificates",
+          "note": "September 30 balance sheet. Borrowings exclude leases and contract liabilities; restricted cash and certificates are separate. Later facility commitments do not establish drawn debt."
+        },
+        "note": "September 30 balance sheet. Borrowings exclude leases and contract liabilities; restricted cash and certificates are separate. Later facility commitments do not establish drawn debt.",
+        "published_at": "2026-11-16",
+        "scope": "Consolidated SharonAI Holdings",
+        "leases": [
+          {
+            "kind": "combined_finance_and_operating",
+            "value": 116910555,
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "watch-shaz-q3-2026"
+            ],
+            "note": "Total current and noncurrent lease liabilities; excluded from borrowings."
+          }
+        ],
+        "excluded_balances": [
+          {
+            "label": "Restricted cash and equivalents",
+            "value": 158687424,
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "watch-shaz-q3-2026"
+            ]
+          },
+          {
+            "label": "Noncurrent certificates of deposit",
+            "value": 162752568,
+            "as_of": "2026-09-30",
+            "source_ids": [
+              "watch-shaz-q3-2026"
+            ]
+          }
+        ]
+      },
+      "source_ids": [
+        "watch-shaz-q1-presentation",
+        "watch-shaz-q2-2026"
+      ],
+      "financing_rates": [
+        {
+          "id": "WATCH-SHAZ-FACILITY-A",
+          "ticker": "SHAZ",
+          "instrument": "Subsidiary Facility A",
+          "borrower": "SAI AU No.1 / No.3 Pty Ltd",
+          "scope": "Selected named financing; not whole-company cost of debt",
+          "currency_scope": "USD-denominated instrument",
+          "as_of": "2026-09-28",
+          "kind": "contractual_loan_rate",
+          "rate_percent": 7.25,
+          "formula": null,
+          "method": "Issuer contractual disclosure",
+          "coverage": "Selected terms only; no inferred company-wide average",
+          "note": "Initial fixed cash-pay rate steps up to 9.95% on specified dates. Facility A commitment up to $150M; drawn amount not established. Parent guarantee is limited and releasable, not assumed already released.",
+          "source_ids": [
+            "watch-shaz-facility"
+          ],
+          "status": "terms_only",
+          "market_yield": null
+        },
+        {
+          "id": "WATCH-SHAZ-FACILITY-B",
+          "ticker": "SHAZ",
+          "instrument": "Subsidiary Facility B",
+          "borrower": "SAI AU No.1 / No.3 Pty Ltd",
+          "scope": "Selected named financing; not whole-company cost of debt",
+          "currency_scope": "USD-denominated instrument",
+          "as_of": "2026-09-28",
+          "kind": "contractual_loan_rate",
+          "rate_percent": 9.95,
+          "formula": null,
+          "method": "Issuer contractual disclosure",
+          "coverage": "Selected terms only; no inferred company-wide average",
+          "note": "Fixed cash-pay rate; commitment up to $206M, drawn amount not established. Security and conditional guarantee are project-specific.",
+          "source_ids": [
+            "watch-shaz-facility"
+          ],
+          "status": "terms_only",
+          "market_yield": null
+        }
+      ]
+    },
+    {
+      "id": "agpu",
+      "ticker": "AGPU",
+      "name": "Axe Compute",
+      "exchange": "NASDAQ",
+      "cik": "1446159",
+      "aliases": [
+        "AGPU",
+        "Axe Compute",
+        "Axe Compute Inc.",
+        "Predictive Oncology",
+        "POAI"
+      ],
+      "business_model": "GPU infrastructure: Access and Build; legacy Helomics disposed September 2026",
+      "focus_group": "smaller",
+      "listing_status": "listed",
+      "quarters": [
+        {
+          "id": "agpu-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "period_start": "2026-07-01",
+          "release_date": "2026-11-17",
+          "months": 3,
+          "scope": "Continuing operations",
+          "metrics": {
+            "revenue": {
+              "id": "agpu-2026-09-30-revenue",
+              "value": 7243043,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP compute revenue; all Access; Build not yet revenue-producing",
+              "scope": "Continuing operations",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "agpu-2026-09-30-operating_income",
+              "value": 6825897,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "GAAP operating income, including $10,477,971 digital asset gains",
+              "scope": "Continuing operations",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "agpu-2026-09-30-adjusted_ebitda",
+              "value": -2275000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer non-GAAP adjusted EBITDA, reported in thousands; excludes unrealized asset gains",
+              "scope": "Continuing operations",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "net_income": {
+              "id": "agpu-2026-09-30-net_income",
+              "value": 11503607,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Consolidated net income including discontinued operations",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-09-30",
+              "as_of": "2026-09-30",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_cash_flow": {
+              "id": "agpu-2026-09-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Continuing operations",
+              "source_ids": [],
+              "reason": "Release cash-flow amounts are nine-month continuing-operations totals. Compatible six-month recast bridge not established; not presented as quarter-only amounts."
+            },
+            "cash_capex": {
+              "id": "agpu-2026-09-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Continuing operations",
+              "source_ids": [],
+              "reason": "Release cash-flow amounts are nine-month continuing-operations totals. Compatible six-month recast bridge not established; not presented as quarter-only amounts."
+            }
+          },
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ],
+          "note": "Revenue $7.24M, up 125% QoQ per issuer (rounded), all Access. Net income $11.50M and diluted EPS $0.52 include $10.48M digital-asset gains and $4.56M unrealized securities/note gains; adjusted EBITDA remains -$2.275M. $465.23M operating cash inflow is NINE MONTHS, driven by customer prepayments, not quarterly recurring cash earnings.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "comparability_note": "Helomics sold September 11 and classified as discontinued operations. Q3 revenue and operating income use continuing operations; older loaded Q1/Q2 are original consolidated figures. Automated cross-scope growth is withheld. Prior-year continuing revenue is zero; percentage YoY growth is not meaningful.",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-20",
+            "review_note": "Reconciled the November 17 audited issuer disclosures; no Q3 call transcript is claimed.",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Q3 recognized revenue reached $7.24M, but net income includes material digital-asset and securities gains while adjusted EBITDA remains negative. Reported profit does not establish compute cash-generation capacity.",
+                "source_ids": [
+                  "watch-agpu-q3-release"
+                ]
+              },
+              {
+                "label": "Funding",
+                "text": "Customer prepayments of $569.34M represent delivery obligations, separate from $36.89M financing obligations and $29.91M leases. They are not earned revenue or a substitute for unrestricted parent liquidity.",
+                "source_ids": [
+                  "watch-agpu-q3-2026"
+                ]
+              },
+              {
+                "label": "What to watch",
+                "text": "Georgia customer acceptance remains underway and Build revenue has not begun in the reviewed disclosure. Watch acceptance and revenue recognition; an ownership transaction alone does not prove delivery.",
+                "source_ids": [
+                  "watch-agpu-q3-release"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "agpu-2026-06-30",
+          "fiscal_label": "Q2 2026",
+          "period_end": "2026-06-30",
+          "period_start": "2026-04-01",
+          "release_date": "2026-08-14",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "agpu-2026-06-30-revenue",
+              "value": 3214992,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-agpu-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "agpu-2026-06-30-revenue-prior",
+              "value": 2682,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-06-30",
+              "as_of": "2025-06-30",
+              "source_ids": [
+                "watch-agpu-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "agpu-2026-06-30-operating-income",
+              "value": -17328010,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-agpu-q2-2026"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "adjusted_ebitda": {
+              "id": "agpu-2026-06-30-adjusted-ebitda",
+              "value": -4900000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA; read reconciliation",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-06-30",
+              "as_of": "2026-06-30",
+              "source_ids": [
+                "watch-agpu-q2-release"
+              ],
+              "review_status": "reviewed_primary",
+              "basis": "non_gaap"
+            },
+            "operating_cash_flow": {
+              "id": "agpu-2026-06-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "agpu-2026-06-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-agpu-q2-2026"
+          ],
+          "note": "GAAP operating loss includes digital-asset fair-value effects. Adjusted EBITDA approximately -$4.9M uses issuer exclusions; not cash flow. Revenue mix changed sharply from legacy drug discovery.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "comparability_note": "Consolidated issuer revenue changed from legacy drug-discovery services to compute. This percentage is not pure GPU-cloud same-business growth; 2025 comparison revenue is extremely small.",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-08-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The call separates signed contract value and modeled steady-state economics from recognized revenue. The investment question is conversion through deployment and customer acceptance; the model is not a delivered earnings result or formal guidance.",
+                "source_ids": [
+                  "call-agpu-q2-2026-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "agpu-2026-03-31",
+          "fiscal_label": "Q1 2026",
+          "period_end": "2026-03-31",
+          "period_start": "2026-01-01",
+          "release_date": "2026-05-15",
+          "months": 3,
+          "scope": "Consolidated issuer",
+          "metrics": {
+            "revenue": {
+              "id": "agpu-2026-03-31-revenue",
+              "value": 35000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2026-03-31",
+              "as_of": "2026-03-31",
+              "source_ids": [
+                "watch-agpu-q1-release"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "revenue_prior_year": {
+              "id": "agpu-2026-03-31-revenue-prior",
+              "value": 110000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue under US GAAP",
+              "scope": "Consolidated issuer",
+              "period_end": "2025-03-31",
+              "as_of": "2025-03-31",
+              "source_ids": [
+                "watch-agpu-q1-release"
+              ],
+              "review_status": "reviewed_primary"
+            },
+            "operating_income": {
+              "id": "agpu-2026-03-31-operating-income",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "US GAAP operating income (loss)",
+              "scope": "Consolidated issuer",
+              "reason": "Not extracted and reconciled for this release",
+              "source_ids": []
+            },
+            "adjusted_ebitda": {
+              "id": "agpu-2026-03-31-adjusted-ebitda",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined non-GAAP adjusted EBITDA",
+              "scope": "Consolidated issuer",
+              "reason": "Quarterly reconciliation not reviewed",
+              "source_ids": []
+            },
+            "operating_cash_flow": {
+              "id": "agpu-2026-03-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "operating cash flow",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            },
+            "cash_capex": {
+              "id": "agpu-2026-03-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "cash capex",
+              "scope": "Consolidated issuer",
+              "reason": "Quarter-only cash-flow bridge not established; do not substitute YTD amounts",
+              "source_ids": []
+            }
+          },
+          "source_ids": [
+            "watch-agpu-q1-release"
+          ],
+          "note": "Issuer-release revenue rounded to thousands. Compute began late March; legacy drug-discovery revenue dominates Q1. Do not call company YoY growth pure GPU-cloud growth.",
+          "consensus_status": "not_researched",
+          "consensus_note": "Original pre-release same-basis consensus observation not verified",
+          "guidance_status": "not_researched",
+          "market_reaction": {
+            "status": "not_researched",
+            "reason": "No reviewed split-adjusted event-window prices; imported T+3 not relabelled T+1/T+5"
+          },
+          "comparability_note": "Consolidated issuer revenue changed from legacy drug-discovery services to compute. This percentage is not pure GPU-cloud same-business growth; 2025 comparison revenue is extremely small.",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue base still largely reflects the legacy business, with compute beginning late in the quarter. It is not a clean comparison of mature GPU-cloud operations.",
+                "source_ids": [
+                  "watch-agpu-q1-release"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [
+        {
+          "id": "agpu-guidance-gap",
+          "metric": "revenue",
+          "status": "not_researched",
+          "reason": "Issuer explicitly does not provide formal financial guidance. Full-deployment ARR is an operational estimate, not a revenue guidance range.",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ]
+        }
+      ],
+      "capacity": [
+        {
+          "id": "agpu-georgia",
+          "label": "Georgia cluster ownership",
+          "display": "2,304 B300 GPUs energized and provisioned; customer acceptance underway",
+          "status": "reported",
+          "as_of": "2026-11-17",
+          "scope": "Columbus Georgia GPU hardware SPV; Duos retains facility",
+          "note": "Not yet placed in service at September 30. No Build revenue recognized in Q3; acceptance and service entry targeted across Q4 2026 / Q1 2027.",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "id": "agpu-georgia-term",
+          "label": "Georgia customer agreement",
+          "display": "Extended from three years to five years through 2031",
+          "status": "contracted",
+          "as_of": "2026-10-05",
+          "scope": "Georgia customer only",
+          "note": "Expected lifetime revenue is not recognized revenue. Duos continues to own and operate the facility and covers power/colocation under separate agreement.",
+          "source_ids": [
+            "watch-agpu-georgia-ownership"
+          ]
+        },
+        {
+          "id": "agpu-july-build",
+          "label": "Signed Build portfolio",
+          "display": "More than $2.8B July contracts; >$700M expected ARR upon full deployment",
+          "status": "contracted",
+          "as_of": "2026-11-17",
+          "scope": "Signed Build portfolio, United States and Europe",
+          "note": "Forward-looking TCV/annualized run rate, not recognized revenue or current ARR. Portfolio and individual Georgia contract may overlap; do not sum.",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ]
+        }
+      ],
+      "hardware": [
+        {
+          "id": "agpu-georgia-gpu",
+          "label": "Georgia hardware",
+          "display": "288 servers containing 2,304 NVIDIA B300 GPUs",
+          "status": "reported",
+          "as_of": "2026-11-17",
+          "scope": "Owned Georgia cluster only",
+          "note": "Named deployment is not a complete company fleet inventory.",
+          "source_ids": [
+            "watch-agpu-georgia-ownership",
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "agpu-georgia-delivery",
+          "label": "Georgia B300 cluster",
+          "project": "Columbus Georgia",
+          "status": "delayed",
+          "original_target": {
+            "as_of": "2026-05-15",
+            "expected_by": "2026-09-30",
+            "description": "Q3 2026 go-live target for 2,304 B300 cluster",
+            "source_ids": [
+              "watch-agpu-q1-release"
+            ]
+          },
+          "revisions": [
+            {
+              "as_of": "2026-10-05",
+              "description": "100% GPU SPV ownership, five-year customer term, facility remains with Duos",
+              "source_ids": [
+                "watch-agpu-georgia-ownership"
+              ]
+            },
+            {
+              "as_of": "2026-11-17",
+              "status": "delayed",
+              "description": "Georgia energized/provisioned but customer acceptance underway; no Q3 Build revenue. Service entry now in Q4 2026 / Q1 2027 roadmap versus original Q3 target.",
+              "source_ids": [
+                "watch-agpu-q3-release",
+                "watch-agpu-q3-2026"
+              ]
+            }
+          ],
+          "outcome": {
+            "as_of": "2026-11-17",
+            "status": "delayed",
+            "description": "Georgia energized/provisioned but customer acceptance underway; no Q3 Build revenue. Service entry now in Q4 2026 / Q1 2027 roadmap versus original Q3 target.",
+            "source_ids": [
+              "watch-agpu-q3-release",
+              "watch-agpu-q3-2026"
+            ]
+          },
+          "source_ids": [
+            "watch-agpu-q1-release",
+            "watch-agpu-georgia-ownership",
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ],
+          "note": "Timing revision supported by issuer deployment update; ownership is not customer acceptance."
+        }
+      ],
+      "events": [
+        {
+          "id": "agpu-next-report",
+          "label": "Q3 earnings released",
+          "display": "Reported November 17, 2026",
+          "status": "reported",
+          "as_of": "2026-11-17",
+          "scope": "Quarter ending September 30, 2026",
+          "note": "Results and SEC 10-Q reviewed; no longer an upcoming release.",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ],
+          "date": "2026-11-17",
+          "time": "08:30",
+          "timezone": "America/New_York",
+          "event_type": "earnings",
+          "confirmed": true
+        },
+        {
+          "id": "agpu-later-consideration",
+          "label": "Georgia deferred purchase obligation",
+          "display": "$36.60M carrying value, net of discount",
+          "status": "reported",
+          "as_of": "2026-09-30",
+          "scope": "September balance sheet",
+          "note": "Included in financing obligations. Carrying value differs from original undiscounted consideration; secured by cluster, due earlier of September 30, 2027 or refinancing.",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ]
+        }
+      ],
+      "gaps": [
+        "Historical Q1/Q2 remain original consolidated disclosures; continuing-operations comparatives are not fully recast.",
+        "Quarter-only cash-flow/capex bridge not established; nine-month totals not substituted.",
+        "Basic capitalization and fully diluted share scenario unresolved; prefunded warrants require reconciliation.",
+        "Georgia energized and provisioned; customer acceptance still underway. Build revenue not yet recognized.",
+        "No pre-release consensus or reviewed T+1/T+5 prices."
+      ],
+      "reviewed_at": "2026-11-17",
+      "operating_evidence_status": "partial",
+      "financing_coverage_status": "reported_balance_partial_terms",
+      "next_catalyst_status": "not_researched",
+      "latest_report_status": "verified",
+      "latest_report_note": "Q3 ended September 30, released November 17, 2026; SEC 10-Q and issuer release reviewed.",
+      "financing_snapshot": {
+        "as_of": "2026-09-30",
+        "source_ids": [
+          "watch-agpu-q3-release",
+          "watch-agpu-q3-2026"
+        ],
+        "debt": {
+          "id": "agpu-2026-09-30-debt",
+          "value": 36889299,
+          "status": "reported",
+          "unit": "USD",
+          "currency": "USD",
+          "definition": "Note payable plus secured deferred purchase financing, carrying amounts; excludes leases and customer prepayments",
+          "scope": "Consolidated Axe Compute",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ],
+          "review_status": "reviewed_primary",
+          "basis": "Note payable plus secured deferred purchase financing, carrying amounts; excludes leases and customer prepayments",
+          "note": "Borrowings/financing obligations: $291,722 insurance note + $36,597,577 deferred Georgia purchase price (net of discount). Excludes $29,906,360 lease liabilities and $569,338,973 customer prepayments/contract liabilities. Cash is not free cash after all deployment obligations; digital assets excluded."
+        },
+        "cash": {
+          "id": "agpu-2026-09-30-cash",
+          "value": 147710376,
+          "status": "reported",
+          "unit": "USD",
+          "currency": "USD",
+          "definition": "Cash and cash equivalents; digital assets and receivables excluded",
+          "scope": "Consolidated Axe Compute",
+          "period_end": "2026-09-30",
+          "as_of": "2026-09-30",
+          "source_ids": [
+            "watch-agpu-q3-release",
+            "watch-agpu-q3-2026"
+          ],
+          "review_status": "reviewed_primary",
+          "basis": "Cash and cash equivalents; digital assets and receivables excluded",
+          "note": "Borrowings/financing obligations: $291,722 insurance note + $36,597,577 deferred Georgia purchase price (net of discount). Excludes $29,906,360 lease liabilities and $569,338,973 customer prepayments/contract liabilities. Cash is not free cash after all deployment obligations; digital assets excluded."
+        },
+        "note": "Borrowings/financing obligations: $291,722 insurance note + $36,597,577 deferred Georgia purchase price (net of discount). Excludes $29,906,360 lease liabilities and $569,338,973 customer prepayments/contract liabilities. Cash is not free cash after all deployment obligations; digital assets excluded.",
+        "published_at": "2026-11-17",
+        "scope": "Consolidated Axe Compute",
+        "leases": [
+          {
+            "kind": "Reported lease liabilities",
+            "value": 29906360,
+            "as_of": "2026-09-30",
+            "note": "Current $15,470,820 + noncurrent $14,435,540; excluded from financing obligation total.",
+            "source_ids": [
+              "watch-agpu-q3-release",
+              "watch-agpu-q3-2026"
+            ]
+          }
+        ],
+        "excluded_balances": [
+          {
+            "label": "Customer prepayments / contract liabilities",
+            "value": 569338973,
+            "as_of": "2026-09-30",
+            "basis": "Current $100,881,687 + noncurrent $468,457,286; service delivery obligations, not borrowing or earned revenue",
+            "source_ids": [
+              "watch-agpu-q3-release",
+              "watch-agpu-q3-2026"
+            ]
+          }
+        ]
+      },
+      "capital_structure": {
+        "status": "not_researched",
+        "as_of": "2026-06-30",
+        "source_ids": [
+          "watch-agpu-q2-2026"
+        ],
+        "note": "June balance-sheet common shares 11,384,940 exclude 9,972,424 prefunded warrants included in EPS basic computation. September 2025 1-for-15 reverse split was retroactively applied. Series B preferred, options, warrants and subsequent issuance require reconciliation. Do not multiply an unreconciled share count by price or treat weighted-average EPS shares as closing outstanding shares.",
+        "ratio_blocker": "Basic-equity share classes, prefunded warrants and later issuance not reconciled; no independently reconciled capitalization or debt/market-cap ratio.",
+        "reason": "Share classes and derivative reconciliation is incomplete; different EPS denominators are not in themselves conflicting disclosures."
+      },
+      "source_ids": [
+        "watch-agpu-q1-release",
+        "watch-agpu-q2-2026",
+        "watch-agpu-q3-release",
+        "watch-agpu-q3-2026"
+      ],
+      "financing_rates": [
+        {
+          "id": "WATCH-AGPU-INSURANCE",
+          "ticker": "AGPU",
+          "instrument": "Insurance premium financing",
+          "borrower": "Axe Compute Inc.",
+          "scope": "Selected named financing; not whole-company cost of debt",
+          "currency_scope": "USD-denominated instrument",
+          "as_of": "2026-06-30",
+          "kind": "contractual_loan_rate",
+          "rate_percent": 6.1,
+          "formula": null,
+          "method": "Issuer contractual disclosure",
+          "coverage": "Selected terms only; no inferred company-wide average",
+          "note": "Ten monthly installments through April 2027; first-priority lien on financed policies. Note balance includes interest. This rate does not describe future GPU funding.",
+          "source_ids": [
+            "watch-agpu-q2-2026"
+          ],
+          "status": "terms_only",
+          "market_yield": null
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "watch-wyfi-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026117728/ea0310427-10q_whitefiber.htm",
+      "title": "WhiteFiber September 2026 Form 10-Q",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Revenue 24,017; cash 138,544; restricted 9,012; current third-party 11,873; related-party 29,989; convertibles 330,088; noncurrent third-party 30,683. USD thousands.",
+      "source_unit": "USD thousands",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-wyfi-q2-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026088026/ea0300877-10q_whitefiber.htm",
+      "title": "WhiteFiber June 2026 Form 10-Q",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Total revenues 28,839 18,662 50,762 35,424; Loss from operations (9,255); Adjusted EBITDA 5,535.",
+      "source_unit": "USD thousands",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-wyfi-q1-2026",
+      "url": "https://www.prnewswire.com/news-releases/whitefiber-inc-reports-first-quarter-2026-results-302771681.html",
+      "title": "WhiteFiber first quarter 2026 issuer release",
+      "published_at": "2026-05-14",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Total Revenues 21,923,451 16,767,516; (Loss) income from operations (11,019,824); Adjusted EBITDA 3,001,474.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-wyfi-q4-2025",
+      "url": "https://www.prnewswire.com/news-releases/whitefiber-inc-reports-fourth-quarter-and-full-year-2025-results-302725537.html",
+      "title": "WhiteFiber fourth quarter 2025 issuer release",
+      "published_at": "2026-03-26",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Total revenues $23,560,975 $14,598,757; (Loss) income from operations (5,197,370); Adjusted EBITDA $5,791,063.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-wyfi-q3-release",
+      "url": "https://www.prnewswire.com/news-releases/whitefiber-inc-reports-third-quarter-2026-results-302934441.html",
+      "title": "WhiteFiber third quarter 2026 issuer release",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Switchgear-related commissioning issues delayed the ramp beyond the previously anticipated August timeframe.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-shaz-q2-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226036377/form10-q.htm",
+      "title": "SharonAI June 2026 Form 10-Q",
+      "published_at": "2026-08-06",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Revenue 1,931,381; cash 1,861,347,822; note payable 6,025; current convertibles 20,059; noncurrent convertibles 1,006,515,000. USD.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-shaz-q2-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226036254/ex99-1.htm",
+      "title": "Sharon AI second quarter 2026 issuer release",
+      "published_at": "2026-08-06",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Adjusted EBITDA: $0.6m, compared to $(1.7m) in 2Q 2025; Total Contract Value: $8.8bn as of August 6, 2026.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-shaz-q1-presentation",
+      "url": "https://sharonai.com/wp-content/uploads/2026/05/Sharon-AI-1Q26-Earnings-Call-Presentation-15-MAY-FINAL.pdf",
+      "title": "Sharon AI first quarter 2026 earnings presentation",
+      "published_at": "2026-05-15",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "US$ in thousands Revenue Q1 FY26 $294; Q1 FY25 $325; Loss from operations (2,819); Adjusted EBITDA (2,209).",
+      "source_unit": "USD thousands; rounded",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-shaz-q3-calendar",
+      "url": "https://sharonai.com/press-releases/sharon-ai-to-announce-third-quarter-2026-results/",
+      "title": "Sharon AI third quarter 2026 reporting announcement",
+      "published_at": "2026-11-02",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "will release its third quarter 2026 financial results after the market closes on Monday, November 16, 2026",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-shaz-acceptance",
+      "url": "https://sharonai.com/press-releases/sharon-ai-successfully-delivers-ai-cloud-deployment-for-global-technology-customer/",
+      "title": "Sharon AI customer acceptance announcement",
+      "published_at": "2026-08-20",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "successful delivery and customer acceptance of an initial AI Cloud deployment for a global technology company with a major Asia-Pacific presence.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-shaz-facility",
+      "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226045368/form8-k.htm",
+      "title": "SharonAI subsidiary GPU financing facility",
+      "published_at": "2026-10-01",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "senior secured term loan facilities in an aggregate amount of up to US$356,000,000",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-agpu-q2-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326005556/agpu20260630_10q.htm",
+      "title": "Axe Compute June 2026 Form 10-Q",
+      "published_at": "2026-08-14",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Revenue 3,214,992 2,682; Cash and cash equivalents 21,905,767; Note payable 413,611; Contract liabilities 33,645,987 and 27,108,685.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-agpu-q2-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326005555/exh_991.htm",
+      "title": "Axe Compute second quarter 2026 issuer release",
+      "published_at": "2026-08-14",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Revenue of $3.2 million; Axe Compute Build contract revenue is not yet recognized and begins at go-live.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-agpu-q1-release",
+      "url": "https://investors.axecompute.com/news-releases/news-release-details/axe-compute-inc-reports-first-quarter-2026-financial-results-and",
+      "title": "Axe Compute first quarter 2026 issuer release",
+      "published_at": "2026-05-15",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "Total Revenue: $35 thousand in Q1 2026, compared to $110 thousand in Q1 2025.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-agpu-q3-corrected",
+      "url": "https://axecompute.com.gcs-web.com/news-releases/news-release-details/correction-axe-compute-host-q3-2026-financial-results-conference",
+      "title": "Axe Compute corrected third quarter call announcement",
+      "published_at": "2026-11-13",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "It should have been November 17, 2026, instead of November 16, 2026.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-agpu-georgia-ownership",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326006386/exh_991.htm",
+      "title": "Axe Compute Georgia cluster ownership issuer release",
+      "published_at": "2026-10-05",
+      "retrieved_at": "2026-11-16",
+      "retrieval_precision": "date",
+      "excerpt": "completed its acquisition from Duos Technologies Group, Inc. of 100% of the special purpose vehicle on September 30, 2026.",
+      "source_unit": "USD",
+      "review_status": "reviewed_primary"
+    },
+    {
+      "id": "watch-shaz-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226052382/form10-q.htm",
+      "title": "SharonAI September 2026 Form 10-Q",
+      "published_at": "2026-11-16",
+      "retrieved_at": "2026-11-17",
+      "excerpt": "Three months ended September 30, 2026: revenue 9,930,669; loss from operations (37,461,270); operating cash flow (66,090,364). September cash 1,341,257,049. Convertible notes 1,007,749,910 noncurrent and 20,059 current; note payable 6,097.",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-shaz-q3-release",
+      "url": "https://sharonai.com/press-releases/sharon-ai-reports-third-quarter-2026-results/",
+      "title": "Sharon AI Q3 2026 results and operating update",
+      "published_at": "2026-11-16",
+      "retrieved_at": "2026-11-17",
+      "excerpt": "Q3 adjusted EBITDA (25,769) thousand. Approximately 1,000 B300 GPUs delivered and accepted; 212 MW expected in 2027. January 2027 ARR expected at $400–450M; this is forward-looking, not recognized revenue.",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-agpu-q3-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm",
+      "title": "Axe Q3 2026 results, November 17",
+      "excerpt": "Q3 revenue $7,243,043; net income $11,503,607; adjusted EBITDA $(2,275) thousand. Digital asset gains and unrealized securities gains materially affect profit. Georgia acceptance underway; Build revenues not yet recognized.",
+      "published_at": "2026-11-17",
+      "retrieved_at": "2026-11-17",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-agpu-q3-2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
+      "title": "Axe September 2026 Form 10-Q",
+      "excerpt": "September cash $147,710,376; note payable $291,722; deferred purchase price net of discount $36,597,577; contract liabilities $569,338,973; leases $29,906,360. Continuing operations nine-month operating cash flow $465,234,067, not quarterly.",
+      "published_at": "2026-11-17",
+      "retrieved_at": "2026-11-17",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "call-wyfi-q3-2026-20261117",
+      "title": "WhiteFiber — Q3 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/wyfi/transcripts/731436-q3-2026/",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "wyfi",
+      "quarter_id": "wyfi-2026-09-30",
+      "call_date": "2026-11-10",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "Full billing for the second 20 MW hall has begun on November 9th. All 40 MW are now billing under the contract. ... Initial funding is expected later in November or in December ... subject to ... satisfaction of the remaining funding conditions."
+    },
+    {
+      "id": "call-shaz-q2-2026-20261117",
+      "title": "SharonAI Holdings — Q2 2026 earnings call transcript",
+      "url": "https://www.roic.ai/quote/SHAZ/transcripts/2026-year/2-quarter",
+      "published_at": "2026-08-06",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "shaz",
+      "quarter_id": "shaz-2026-06-30",
+      "call_date": "2026-08-06",
+      "publisher": "Roic AI — earnings call transcript",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "As of today, we have 212 MW of total secured AI factory capacity across Australia and New Zealand ... 120 MW are contracted through multi-year take-or-pay agreements ... We expect to have more than 64,000 NVIDIA GPUs deployed by mid-2027."
+    },
+    {
+      "id": "call-agpu-q2-2026-20261117",
+      "title": "Axe Compute — Q2 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/agpu/transcripts/673678-q2-2026/",
+      "published_at": "2026-08-17",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "agpu",
+      "quarter_id": "agpu-2026-06-30",
+      "call_date": "2026-08-17",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "Quarterly financial figures presented are as reported in the Form 10-Q filed on August 14, 2026. ... ARR and TCV are operating metrics that may not represent revenue recognized in a particular period ... Signed contracts are subject to deployment, customer acceptance, and other risks ... Illustrated steady-state economics are models ... and do not constitute guidance."
+    }
+  ],
+  "cutoff_at": "2026-11-17T18:35:45.406835Z"
+}

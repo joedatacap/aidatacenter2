@@ -1,0 +1,52 @@
+{
+  "status": "reviewed_adapter_candidates_only",
+  "repository": "joelingo2060/athenagent2team",
+  "source_commit": "51b2ca7cc767fddef3ff732dd9929528631aab63",
+  "inspected_paths": [
+    "password/neocloud/index.html",
+    "password/neocloud/data.json",
+    "password/neocloud/schema.json",
+    "scripts/build_neocloud.py"
+  ],
+  "metadata": {
+    "raw_updated": "2026-11-16 12:41",
+    "raw_as_of": "2026-08-21",
+    "raw_stale": false,
+    "timezone": "not_established",
+    "freshness_status": "unverified_per_record",
+    "source_commit": "51b2ca7cc767fddef3ff732dd9929528631aab63",
+    "source_path": "password/neocloud/data.json"
+  },
+  "reported_source_rows": 24,
+  "focus_candidates": 14,
+  "candidate_policy": "Pending evidence candidates only. Public website financial observations are separately reviewed issuer data.",
+  "normalization": {
+    "rev_vs": "rev_vs_consensus",
+    "net_loss": "loss",
+    "missing_company": "Canonical registry by ticker",
+    "missing_period": "not_established; never inferred from release date",
+    "drift_3d": "Preserved only as imported T+3; never used for T+1/T+5",
+    "raw_timestamps": "Preserved without inventing timezone; do not establish record freshness"
+  },
+  "issues": [
+    "Conflicting updated/as_of global dates; timezone not established",
+    "Free-text financial fields require primary metric/scope/period review",
+    "All fourteen focus candidates lacked a reviewed fiscal period in the source record",
+    "Aggregate verdicts, private strategy and unrelated repo sections excluded",
+    "Reference publisher/continuous monitor not inspected or inherited"
+  ],
+  "public_adapter_source": {
+    "url": "https://datacap.xyz/cohorts/compute/earningswatch/earnings.json",
+    "status": "source_access_limited",
+    "reason": "Environment HTTP CONNECT denied (403); private reference files were available read-only instead."
+  },
+  "excluded_sections": [
+    "aethir_bridge",
+    "basket",
+    "delta",
+    "community",
+    "verdicts",
+    "private_strategy"
+  ],
+  "publication": "No raw private payload, commentary, verdicts or imported candidates are embedded in the website."
+}

@@ -1,0 +1,54 @@
+{
+  "provenance": {
+    "repository": "joelingo2060/athenagent2team",
+    "commit": "51b2ca7cc767fddef3ff732dd9929528631aab63",
+    "path": "password/neocloud/data.json",
+    "policy": "Whitelisted earnings fields only; fixtures are unreviewed import candidates, never website facts."
+  },
+  "updated": "2026-11-16 12:41",
+  "as_of": "2026-08-21",
+  "stale": false,
+  "earnings": {
+    "reported": [
+      {
+        "ticker": "CRWV",
+        "date": "2026-11-10",
+        "rev": "$3.661B (+168% YoY, +$1.0B q/q)",
+        "rev_vs": "beat $3.54-3.56B (LSEG/Bloomberg)",
+        "net_loss": "-$709M GAAP, driven by $846M net interest",
+        "drift_3d": "+15.6%",
+        "sec_10q": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm"
+      },
+      {
+        "ticker": "AGPU",
+        "company": "Axe Compute",
+        "date": "2026-08-14",
+        "rev": "$3.2M (first full qtr of compute rev; vs $35K Q1 2026, $3K Q2 2025)",
+        "rev_vs_consensus": "n/d (no estimates)",
+        "loss": "$17.2M net (non-cash digital-asset losses dominate)",
+        "sec_10q": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326005556/agpu20260630_10q.htm",
+        "drift_3d": "+23.7%"
+      },
+      {
+        "ticker": "WYFI",
+        "company": "WhiteFiber",
+        "date": "2026-08-12",
+        "rev": "$28.8M (+54% YoY vs $18.7M)",
+        "rev_vs_consensus": "beat (~$19M est)",
+        "loss": "$15M net (incl. customer-termination costs)",
+        "sec_10q": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026088026/ea0300877-10q_whitefiber.htm",
+        "drift_3d": "+21.9%"
+      },
+      {
+        "ticker": "CRWV",
+        "company": "CoreWeave",
+        "date": "2026-08-11",
+        "rev": "$2.58B (+112% YoY)",
+        "rev_vs_consensus": "beat ($2.56B est)",
+        "loss": "$626M (from $290M)",
+        "sec_10q": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm",
+        "drift_3d": "+20.5%"
+      }
+    ]
+  }
+}

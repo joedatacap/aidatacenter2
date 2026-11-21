@@ -1,0 +1,4254 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-16",
+  "companies": [
+    {
+      "id": "crwv",
+      "ticker": "CRWV",
+      "name": "CoreWeave",
+      "exchange": "NASDAQ",
+      "cik": "1769628",
+      "aliases": [
+        "CRWV",
+        "CoreWeave"
+      ],
+      "business_model": "GPU cloud/operator",
+      "focus_group": "benchmark",
+      "latest_report_status": "verified",
+      "latest_report_note": "Latest available issuer quarterly report identified and primary financial exhibit reviewed at the November 16, 2026 cutoff; no later quarterly report found in bounded issuer/filing search.",
+      "latest_report_checked_at": "2026-11-16T05:25:42Z",
+      "quarters": [
+        {
+          "id": "crwv-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "release_date": "2026-11-10",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-crwv-2026q3"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "crwv-2026-09-30-revenue",
+              "value": 3661000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-crwv-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "crwv-2026-09-30-operating_income",
+              "value": 207000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-crwv-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "crwv-2026-09-30-adjusted_ebitda",
+              "value": 2256000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-crwv-2026q3"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "crwv-2026-09-30-operating_cash_flow",
+              "value": 1975000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-crwv-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "crwv-2026-09-30-cash_capex",
+              "value": 9441000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-crwv-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "revenue_prior_year": {
+              "id": "crwv-2026-09-30-revenue-prior-year",
+              "value": 1365000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue in the prior-year comparable quarter, as presented in the latest issuer report",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-09-30",
+              "source_ids": [
+                "watch-crwv-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed",
+              "note": "Comparison amount retains the later report publication date and its stated rounding/restatement basis."
+            }
+          },
+          "note": "Cash capex is the cash-flow statement line, not total asset additions.",
+          "review_status": "primary_reviewed",
+          "management_guidance_comparison": {
+            "metric": "revenue",
+            "period_end": "2026-09-30",
+            "scope": "Consolidated",
+            "accounting_basis": "GAAP",
+            "guidance_as_of": "2026-08-11",
+            "low": 3450000000,
+            "high": 3600000000,
+            "actual": 3661000000,
+            "status": "reported",
+            "source_ids": [
+              "watch-crwv-q2-outlook",
+              "watch-crwv-2026q3"
+            ],
+            "note": "Actual quarterly revenue exceeds prior management guidance high end by $61M. This is a management-guide comparison, not a consensus beat."
+          },
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-10",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The financing plan is doing as much work as the growth story: management prefers contract-matched lending and customer prepayments to unsecured borrowing at current yields. Backlog alone does not establish available cash.",
+                "source_ids": [
+                  "call-crwv-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Track actual prepayment collections and the financing of deployments. The expected near-term collections discussed on the call are prospective, rather than cash already on the reported balance sheet.",
+                "source_ids": [
+                  "call-crwv-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "crwv-2026-06-30",
+          "fiscal_label": "Q2 2026",
+          "period_end": "2026-06-30",
+          "release_date": "2026-08-11",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-crwv-2026q2"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "crwv-2026-06-30-revenue",
+              "value": 2575000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-crwv-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "crwv-2026-06-30-operating_income",
+              "value": -49000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-crwv-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "crwv-2026-06-30-adjusted_ebitda",
+              "value": 1510000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-crwv-2026q2"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "crwv-2026-06-30-operating_cash_flow",
+              "value": 679000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-crwv-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "crwv-2026-06-30-cash_capex",
+              "value": 6422000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-crwv-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Cash capex is the cash-flow statement line, not total asset additions.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Cash equipment purchases exceeded operating cash generation this quarter. Financing access and the timing of customer cash receipts matter alongside the revenue growth story.",
+                "source_ids": [
+                  "watch-crwv-2026q2"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "crwv-2026-03-31",
+          "fiscal_label": "Q1 2026",
+          "period_end": "2026-03-31",
+          "release_date": "2026-05-07",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-crwv-2026q1"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "crwv-2026-03-31-revenue",
+              "value": 2078000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-crwv-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "crwv-2026-03-31-operating_income",
+              "value": -144000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-crwv-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "crwv-2026-03-31-adjusted_ebitda",
+              "value": 1157000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-crwv-2026q1"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "crwv-2026-03-31-operating_cash_flow",
+              "value": 2984000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-crwv-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "crwv-2026-03-31-cash_capex",
+              "value": 7695000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-crwv-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Cash capex is the cash-flow statement line, not total asset additions.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Cash equipment purchases exceeded operating cash generation this quarter. Financing access and the timing of customer cash receipts matter alongside the revenue growth story.",
+                "source_ids": [
+                  "watch-crwv-2026q1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "crwv-2025-12-31",
+          "fiscal_label": "Q4 2025",
+          "period_end": "2025-12-31",
+          "release_date": "2026-02-26",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-crwv-2025q4"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "crwv-2025-12-31-revenue",
+              "value": 1572000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-crwv-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "crwv-2025-12-31-operating_income",
+              "value": -89000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-crwv-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "crwv-2025-12-31-adjusted_ebitda",
+              "value": 898000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-crwv-2025q4"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "crwv-2025-12-31-operating_cash_flow",
+              "value": 1559000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-crwv-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "crwv-2025-12-31-cash_capex",
+              "value": 4060000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-crwv-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Cash capex is the cash-flow statement line, not total asset additions.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Cash equipment purchases exceeded operating cash generation this quarter. Financing access and the timing of customer cash receipts matter alongside the revenue growth story.",
+                "source_ids": [
+                  "watch-crwv-2025q4"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [
+        {
+          "id": "crwv-fy26-capex",
+          "label": "FY2026 capex outlook",
+          "display": "$35B–$39B → $37B–$39B",
+          "scope": "Consolidated management capital-expenditure outlook",
+          "as_of": "2026-11-10",
+          "source_ids": [
+            "watch-crwv-q2-outlook",
+            "watch-crwv-2026q3"
+          ],
+          "status": "reported",
+          "note": "Prior observation August 11, current November 10, same full-year period and issuer capex basis. Issuer capital expenditures differ from cash-flow-statement cash capex.",
+          "previous": {
+            "metric": "capital_expenditures",
+            "period_start": "2026-01-01",
+            "period_end": "2026-12-31",
+            "scope": "Consolidated",
+            "currency": "USD",
+            "unit": "USD",
+            "accounting_basis": "issuer_capex",
+            "id": "crwv-fy26-capex-2026-08-11",
+            "low": 35000000000,
+            "high": 39000000000,
+            "as_of": "2026-08-11",
+            "source_ids": [
+              "watch-crwv-q2-outlook"
+            ]
+          },
+          "current": {
+            "metric": "capital_expenditures",
+            "period_start": "2026-01-01",
+            "period_end": "2026-12-31",
+            "scope": "Consolidated",
+            "currency": "USD",
+            "unit": "USD",
+            "accounting_basis": "issuer_capex",
+            "id": "crwv-fy26-capex-2026-11-10",
+            "low": 37000000000,
+            "high": 39000000000,
+            "as_of": "2026-11-10",
+            "source_ids": [
+              "watch-crwv-2026q3"
+            ]
+          }
+        },
+        {
+          "id": "crwv-fy26-revenue",
+          "label": "FY2026 revenue outlook",
+          "display": "$12.4B–$13.2B → $13.0B–$13.3B",
+          "scope": "Consolidated recognized revenue guidance",
+          "as_of": "2026-11-10",
+          "source_ids": [
+            "watch-crwv-q2-outlook",
+            "watch-crwv-2026q3"
+          ],
+          "status": "reported",
+          "note": "Prior observation August 11, current November 10; same consolidated revenue metric and full-year period. Midpoint change is derived, not a consensus surprise.",
+          "previous": {
+            "metric": "revenue",
+            "period_start": "2026-01-01",
+            "period_end": "2026-12-31",
+            "scope": "Consolidated",
+            "currency": "USD",
+            "unit": "USD",
+            "accounting_basis": "GAAP",
+            "id": "crwv-fy26-revenue-2026-08-11",
+            "low": 12400000000,
+            "high": 13200000000,
+            "as_of": "2026-08-11",
+            "source_ids": [
+              "watch-crwv-q2-outlook"
+            ]
+          },
+          "current": {
+            "metric": "revenue",
+            "period_start": "2026-01-01",
+            "period_end": "2026-12-31",
+            "scope": "Consolidated",
+            "currency": "USD",
+            "unit": "USD",
+            "accounting_basis": "GAAP",
+            "id": "crwv-fy26-revenue-2026-11-10",
+            "low": 13000000000,
+            "high": 13300000000,
+            "as_of": "2026-11-10",
+            "source_ids": [
+              "watch-crwv-2026q3"
+            ]
+          }
+        }
+      ],
+      "milestones": [],
+      "events": [
+        {
+          "id": "crwv-q3-change",
+          "label": "Revenue and financing demand",
+          "display": "Q3 revenue $3.661B; FY2026 capex range $37B–$39B",
+          "scope": "Consolidated; capex outlook differs from recognized revenue",
+          "as_of": "2026-11-10",
+          "source_ids": [
+            "watch-crwv-2026q3"
+          ],
+          "status": "reported",
+          "note": "Quarterly operating cash flow $1.975B and cash capex $9.441B are distinct; this is not a financing-gap forecast."
+        }
+      ],
+      "gaps": [
+        {
+          "field": "consensus",
+          "status": "not_researched",
+          "reason": "No original pre-release estimate with matching metric, basis and observation time verified; no beat/miss inferred."
+        },
+        {
+          "field": "market_reaction",
+          "status": "not_researched",
+          "reason": "Split-adjusted event-window prices and release-session timing have not been reconciled; T+3 reference is not T+1/T+5."
+        },
+        {
+          "field": "next_earnings_date",
+          "status": "not_disclosed",
+          "reason": "A future confirmed issuer reporting date was not identified in bounded review."
+        },
+        {
+          "field": "quarterly_cash_flow_history",
+          "status": "not_researched",
+          "reason": "Quarter-only cash flow and cash capex missing for some periods; cash statement YTD amounts not substituted. Noncash additions remain separate."
+        }
+      ],
+      "relationships": [],
+      "contracts": [
+        {
+          "label": "Customer concentration",
+          "display": "A: 24%; B: 30%",
+          "scope": "Q3 2026 consolidated revenue",
+          "source_ids": [
+            "v2-crwv-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Anonymous customer labels; do not map them to named customers. Nine-month shares: 33% and 26%.",
+          "id": "crwv-contracts-0"
+        },
+        {
+          "label": "Revenue backlog",
+          "display": "$132.5B",
+          "scope": "Committed customer contracts",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Subject to delivery and service availability; not recognized revenue or cash.",
+          "id": "crwv-contracts-1"
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Active power",
+          "display": ">1.7 GW",
+          "scope": "Company active footprint",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "Power capacity does not establish GPU utilization.",
+          "id": "crwv-capacity-0"
+        },
+        {
+          "label": "Contracted power",
+          "display": ">4.6 GW",
+          "scope": "Company contracted footprint",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "contracted",
+          "note": "Includes future capacity; do not add to active power.",
+          "id": "crwv-capacity-1"
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Named production deployment",
+          "display": "NVIDIA Vera Rubin NVL72",
+          "scope": "Cognition workloads on multi-rack deployment",
+          "source_ids": [
+            "v2-crwv-release"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "Named deployment, not a complete fleet mix.",
+          "id": "crwv-hardware-0"
+        }
+      ],
+      "next_event": {
+        "status": "not_disclosed",
+        "date": null,
+        "label": "Next earnings date not confirmed",
+        "reason": "No future earnings date confirmed in the latest issuer release/index review. Watch the dated project targets separately."
+      },
+      "latest_report_period_end": "2026-09-30",
+      "latest_report_date": "2026-11-10",
+      "latest_report_source_ids": [
+        "watch-crwv-2026q3"
+      ],
+      "earnings_freshness": {
+        "period_end": "2026-09-30",
+        "published_at": "2026-11-10",
+        "reviewed_at": "2026-11-16",
+        "status": "primary_reviewed"
+      },
+      "operating_freshness": {
+        "as_of": "2026-11-10",
+        "reviewed_at": "2026-11-16"
+      }
+    },
+    {
+      "id": "nbis",
+      "ticker": "NBIS",
+      "name": "Nebius Group",
+      "exchange": "NASDAQ",
+      "cik": "1513845",
+      "aliases": [
+        "NBIS",
+        "Nebius Group"
+      ],
+      "business_model": "GPU cloud/operator",
+      "focus_group": "benchmark",
+      "latest_report_status": "verified",
+      "latest_report_note": "Latest available issuer quarterly report identified and primary financial exhibit reviewed at the November 16, 2026 cutoff; no later quarterly report found in bounded issuer/filing search.",
+      "latest_report_checked_at": "2026-11-16T05:25:42Z",
+      "quarters": [
+        {
+          "id": "nbis-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "release_date": "2026-11-12",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-nbis-2026q3"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "nbis-2026-09-30-revenue",
+              "value": 980800000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-nbis-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "nbis-2026-09-30-operating_income",
+              "value": 50400000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-nbis-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "nbis-2026-09-30-adjusted_ebitda",
+              "value": 465800000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-nbis-2026q3"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "nbis-2026-09-30-operating_cash_flow",
+              "value": -273000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-nbis-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "nbis-2026-09-30-cash_capex",
+              "value": 7300400000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-nbis-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "revenue_prior_year": {
+              "id": "nbis-2026-09-30-revenue-prior-year",
+              "value": 146100000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue in the prior-year comparable quarter, as presented in the latest issuer report",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-09-30",
+              "source_ids": [
+                "watch-nbis-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed",
+              "note": "Comparison amount retains the later report publication date and its stated rounding/restatement basis."
+            }
+          },
+          "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-12",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Management describes stronger customer funding for newly contracted capacity. Keep that contract-specific coverage separate from funding the entire company buildout.",
+                "source_ids": [
+                  "call-nbis-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "The operational test is converting delayed colocated capacity into revenue. Management said some New Jersey capacity moved into 2027 without cancellation; demand and delivery timing are separate questions.",
+                "source_ids": [
+                  "call-nbis-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "nbis-2026-06-30",
+          "fiscal_label": "Q2 2026",
+          "period_end": "2026-06-30",
+          "release_date": "2026-08-12",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-nbis-2026q2"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "nbis-2026-06-30-revenue",
+              "value": 582300000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-nbis-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "nbis-2026-06-30-operating_income",
+              "value": -175900000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-nbis-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "nbis-2026-06-30-adjusted_ebitda",
+              "value": 236200000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-nbis-2026q2"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "nbis-2026-06-30-operating_cash_flow",
+              "value": 2246100000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-nbis-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "nbis-2026-06-30-cash_capex",
+              "value": 5657400000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-nbis-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Reported cash capex exceeded operating cash flow this quarter. Read deployment growth together with the funding burden; adjusted EBITDA alone does not establish self-funded expansion.",
+                "source_ids": [
+                  "watch-nbis-2026q2"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "nbis-2026-03-31",
+          "fiscal_label": "Q1 2026",
+          "period_end": "2026-03-31",
+          "release_date": "2026-05-13",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-nbis-2026q1"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "nbis-2026-03-31-revenue",
+              "value": 399000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-nbis-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "nbis-2026-03-31-operating_income",
+              "value": -128000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-nbis-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "nbis-2026-03-31-adjusted_ebitda",
+              "value": 129500000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-nbis-2026q1"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "nbis-2026-03-31-operating_cash_flow",
+              "value": 2258000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-nbis-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "nbis-2026-03-31-cash_capex",
+              "value": 2472900000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-nbis-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Reported cash capex exceeded operating cash flow this quarter. Read deployment growth together with the funding burden; adjusted EBITDA alone does not establish self-funded expansion.",
+                "source_ids": [
+                  "watch-nbis-2026q1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "nbis-2025-12-31",
+          "fiscal_label": "Q4 2025",
+          "period_end": "2025-12-31",
+          "release_date": "2026-02-12",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-nbis-2025q4"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "nbis-2025-12-31-revenue",
+              "value": 227700000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-nbis-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "nbis-2025-12-31-operating_income",
+              "value": -234500000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-nbis-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "nbis-2025-12-31-adjusted_ebitda",
+              "value": 15000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-nbis-2025q4"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "nbis-2025-12-31-operating_cash_flow",
+              "value": 834300000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-nbis-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "nbis-2025-12-31-cash_capex",
+              "value": 2056000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-nbis-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            }
+          },
+          "note": "Continuing-operations basis; Toloka prior periods reclassified to discontinued operations. Cash capex includes intangible assets.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Reported cash capex exceeded operating cash flow this quarter. Read deployment growth together with the funding burden; adjusted EBITDA alone does not establish self-funded expansion.",
+                "source_ids": [
+                  "watch-nbis-2025q4"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [
+        {
+          "id": "nbis-fy26-outlook",
+          "label": "FY2026 revenue expectation",
+          "display": "Low end of the prior $3.0B–$3.4B range",
+          "scope": "Consolidated revenue management outlook",
+          "as_of": "2026-11-12",
+          "source_ids": [
+            "watch-nbis-letter"
+          ],
+          "status": "reported",
+          "note": "Qualitative move toward the low end; not replaced by an invented new point or range."
+        }
+      ],
+      "milestones": [
+        {
+          "id": "nbis-arr-revision",
+          "label": "ARR target timing",
+          "display": "December target now expected in February",
+          "scope": "Nebius AI Cloud operating ARR, not recognized revenue",
+          "as_of": "2026-11-12",
+          "source_ids": [
+            "watch-nbis-letter"
+          ],
+          "status": "reported",
+          "note": "The November letter reports the revision retrospectively. Original separately dated target evidence remains a gap; no met/missed verdict.",
+          "classification": "revised",
+          "original": {
+            "target_window": "December 2026",
+            "status": "historical_target_reported_in_revision"
+          },
+          "revisions": [
+            {
+              "as_of": "2026-11-12",
+              "target_window": "February 2027",
+              "source_ids": [
+                "watch-nbis-letter"
+              ]
+            }
+          ],
+          "outcome": null
+        }
+      ],
+      "events": [
+        {
+          "id": "nbis-q3-change",
+          "label": "Revenue timing and cash flow",
+          "display": "Q3 revenue $980.8M; operating cash flow −$273.0M",
+          "scope": "Consolidated continuing operations",
+          "as_of": "2026-11-12",
+          "source_ids": [
+            "watch-nbis-2026q3",
+            "watch-nbis-letter"
+          ],
+          "status": "reported",
+          "note": "Revenue expectation moves to the low end of the prior range while delivery timing shifts into 2027. These are separate signals."
+        }
+      ],
+      "gaps": [
+        {
+          "field": "consensus",
+          "status": "not_researched",
+          "reason": "No original pre-release estimate with matching metric, basis and observation time verified; no beat/miss inferred."
+        },
+        {
+          "field": "market_reaction",
+          "status": "not_researched",
+          "reason": "Split-adjusted event-window prices and release-session timing have not been reconciled; T+3 reference is not T+1/T+5."
+        },
+        {
+          "field": "next_earnings_date",
+          "status": "not_disclosed",
+          "reason": "A future confirmed issuer reporting date was not identified in bounded review."
+        },
+        {
+          "field": "quarterly_cash_flow_history",
+          "status": "not_researched",
+          "reason": "Quarter-only cash flow and cash capex missing for some periods; cash statement YTD amounts not substituted. Noncash additions remain separate."
+        }
+      ],
+      "relationships": [],
+      "contracts": [
+        {
+          "label": "Prepayments on new deals",
+          "display": ">90% of Q3 signed contract value carried a prepayment",
+          "scope": "New Q3 agreements, not recognized revenue concentration",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Top-customer revenue percentage and cancellation terms are not established here.",
+          "id": "nbis-contracts-0"
+        },
+        {
+          "label": "Selected new customers",
+          "display": "Databricks, Datadog and Snowflake",
+          "scope": "Company-reported cloud agreements",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "",
+          "id": "nbis-contracts-1"
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Revenue-producing sites",
+          "display": "Four new sites",
+          "scope": "US and Europe additions in Q3",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "No consolidated live MW total established in this extract.",
+          "id": "nbis-capacity-0"
+        },
+        {
+          "label": "Third-party delivery delays",
+          "display": "Some capacity moved to early 2027",
+          "scope": "2026 revenue timing",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "announced",
+          "note": "Build timing is distinct from demand or signed contract value.",
+          "id": "nbis-capacity-1"
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Next-generation integration",
+          "display": "First Vera Rubin systems live; customer deployment pending",
+          "scope": "Nebius AI Cloud",
+          "source_ids": [
+            "v2-nbis-letter"
+          ],
+          "as_of": "2026-09-30",
+          "status": "commissioning",
+          "note": "Not a fleet-wide count or revenue-producing deployment claim.",
+          "id": "nbis-hardware-0"
+        }
+      ],
+      "next_event": {
+        "status": "not_disclosed",
+        "date": null,
+        "label": "Next earnings date not confirmed",
+        "reason": "No future earnings date confirmed in the latest issuer release/index review. Watch the dated project targets separately."
+      },
+      "latest_report_period_end": "2026-09-30",
+      "latest_report_date": "2026-11-12",
+      "latest_report_source_ids": [
+        "watch-nbis-2026q3"
+      ],
+      "earnings_freshness": {
+        "period_end": "2026-09-30",
+        "published_at": "2026-11-12",
+        "reviewed_at": "2026-11-16",
+        "status": "primary_reviewed"
+      },
+      "operating_freshness": {
+        "as_of": "2026-11-12",
+        "reviewed_at": "2026-11-16"
+      }
+    },
+    {
+      "id": "iren",
+      "ticker": "IREN",
+      "name": "IREN",
+      "exchange": "NASDAQ",
+      "cik": "1878848",
+      "aliases": [
+        "IREN",
+        "IREN"
+      ],
+      "business_model": "Mixed mining/AI business",
+      "focus_group": "benchmark",
+      "latest_report_status": "verified",
+      "latest_report_note": "Latest available issuer quarterly report identified and primary financial exhibit reviewed at the November 16, 2026 cutoff; no later quarterly report found in bounded issuer/filing search.",
+      "latest_report_checked_at": "2026-11-16T05:25:42Z",
+      "quarters": [
+        {
+          "id": "iren-2026-09-30",
+          "fiscal_label": "Q1 FY2027",
+          "period_end": "2026-09-30",
+          "release_date": "2026-11-05",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-iren-2027q1"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "iren-2026-09-30-revenue",
+              "value": 228000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "iren-2026-09-30-operating_income",
+              "value": -186000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "iren-2026-09-30-adjusted_ebitda",
+              "value": 66000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "iren-2026-09-30-operating_cash_flow",
+              "value": 529000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "iren-2026-09-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [],
+              "reason": "Two distinct cash investing lines are retained: $2.131B PPE net of computer hardware and $2.693B computer hardware. No silent noncash equipment-financing additions."
+            },
+            "ai_cloud_revenue": {
+              "id": "iren-2026-09-30-ai-cloud",
+              "value": 200000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "AI Cloud services plus lease revenue",
+              "scope": "AI Cloud segment",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex_non_compute": {
+              "id": "iren-2026-09-30-ppe",
+              "value": 2131000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash payments for property, plant and equipment net of computer hardware",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex_compute": {
+              "id": "iren-2026-09-30-compute",
+              "value": 2693000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash payments for computer hardware",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "revenue_prior_year": {
+              "id": "iren-2026-09-30-revenue-prior-year",
+              "value": 240000000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue in the prior-year comparable quarter, as presented in the latest issuer report",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-09-30",
+              "source_ids": [
+                "watch-iren-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed",
+              "note": "Comparison amount retains the later report publication date and its stated rounding/restatement basis."
+            }
+          },
+          "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
+          "review_status": "primary_reviewed",
+          "comparability_note": "Fiscal Q1 FY2027, not January–March 2026. Compare by the actual quarter-end date.",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-05",
+            "bullets": [
+              {
+                "label": "What changed",
+                "text": "The call makes the revised ramp conditional on customer changes and equipment delivery. The ARR target is not the same as revenue already recognized.",
+                "source_ids": [
+                  "call-iren-q1-2027-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Commissioning and customer acceptance matter more than the size of the contracted target. January is management's target, with February still possible if supplier timing slips.",
+                "source_ids": [
+                  "call-iren-q1-2027-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "iren-2026-06-30",
+          "fiscal_label": "Q4 FY2026",
+          "period_end": "2026-06-30",
+          "release_date": "2026-08-27",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-iren-2026q4"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "iren-2026-06-30-revenue",
+              "value": 137200000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "iren-2026-06-30-operating_income",
+              "value": -620400000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "iren-2026-06-30-adjusted_ebitda",
+              "value": 19200000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "iren-2026-06-30-operating_cash_flow",
+              "value": 1811100000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "iren-2026-06-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Keep fiscal periods and mining versus AI revenue separate. The issuer-specific adjusted EBITDA measure does not establish the cash generated by the AI cloud segment.",
+                "source_ids": [
+                  "watch-iren-2026q4"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "iren-2026-03-31",
+          "fiscal_label": "Q3 FY2026",
+          "period_end": "2026-03-31",
+          "release_date": "2026-08-27",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-iren-2026q4"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "iren-2026-03-31-revenue",
+              "value": 144800000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "iren-2026-03-31-operating_income",
+              "value": -233500000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "iren-2026-03-31-adjusted_ebitda",
+              "value": 59500000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "iren-2026-03-31-operating_cash_flow",
+              "value": 75300000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-iren-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "iren-2026-03-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
+          "review_status": "primary_reviewed",
+          "record_kind": "later_comparative",
+          "original_release_date": null,
+          "publication_date_note": "August27 is the source publication date for this comparative March quarter, not a claimed original earnings-release date.",
+          "release_date_kind": "source_publication",
+          "publication_date": "2026-08-27",
+          "original_release_status": "not_established",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Keep fiscal periods and mining versus AI revenue separate. The issuer-specific adjusted EBITDA measure does not establish the cash generated by the AI cloud segment.",
+                "source_ids": [
+                  "watch-iren-2026q4"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "iren-2025-12-31",
+          "fiscal_label": "Q2 FY2026",
+          "period_end": "2025-12-31",
+          "release_date": "2026-02-05",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-iren-2026q2"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "iren-2025-12-31-revenue",
+              "value": 184700000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-iren-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "iren-2025-12-31-operating_income",
+              "value": -116400000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-iren-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "iren-2025-12-31-adjusted_ebitda",
+              "value": 75300000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-iren-2026q2"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "iren-2025-12-31-operating_cash_flow",
+              "value": 71600000.0,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-iren-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "iren-2025-12-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "June 30 fiscal year-end. Some prior quarters are later-release comparative observations; preserve rounding and publication dates.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Keep fiscal periods and mining versus AI revenue separate. The issuer-specific adjusted EBITDA measure does not establish the cash generated by the AI cloud segment.",
+                "source_ids": [
+                  "watch-iren-2026q2"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [],
+      "milestones": [
+        {
+          "id": "iren-arr-revision",
+          "label": "Promised versus revised delivery",
+          "display": "$4B ARR target: December 2026 → January 2027, potentially February",
+          "scope": "Operating ARR target subject to commissioning, testing and customer acceptance; not GAAP revenue",
+          "as_of": "2026-11-05",
+          "source_ids": [
+            "watch-iren-2026q4",
+            "watch-iren-release"
+          ],
+          "status": "reported",
+          "note": "A revised future target, not a missed-deadline verdict at the November cutoff.",
+          "classification": "revised",
+          "original": {
+            "as_of": "2026-08-27",
+            "target_date": "2026-12-31",
+            "target_window": "By December 31, 2026",
+            "source_ids": [
+              "watch-iren-2026q4"
+            ]
+          },
+          "revisions": [
+            {
+              "as_of": "2026-11-05",
+              "target_date": "2027-01-31",
+              "target_window": "January 2027, may extend through February 2027",
+              "source_ids": [
+                "watch-iren-release"
+              ]
+            }
+          ],
+          "outcome": null
+        }
+      ],
+      "events": [
+        {
+          "id": "iren-q1-change",
+          "label": "Delivery timing revised",
+          "display": "$4B operating ARR target moved into early 2027",
+          "scope": "AI Cloud operating target; separate from $228M recognized quarterly revenue",
+          "as_of": "2026-11-05",
+          "source_ids": [
+            "watch-iren-release",
+            "watch-iren-2027q1"
+          ],
+          "status": "reported",
+          "note": "Track commissioning and customer acceptance, not ARR as if it were revenue."
+        }
+      ],
+      "gaps": [
+        {
+          "field": "consensus",
+          "status": "not_researched",
+          "reason": "No original pre-release estimate with matching metric, basis and observation time verified; no beat/miss inferred."
+        },
+        {
+          "field": "market_reaction",
+          "status": "not_researched",
+          "reason": "Split-adjusted event-window prices and release-session timing have not been reconciled; T+3 reference is not T+1/T+5."
+        },
+        {
+          "field": "next_earnings_date",
+          "status": "not_disclosed",
+          "reason": "A future confirmed issuer reporting date was not identified in bounded review."
+        },
+        {
+          "field": "quarterly_cash_flow_history",
+          "status": "not_researched",
+          "reason": "Quarter-only cash flow and cash capex missing for some periods; cash statement YTD amounts not substituted. Noncash additions remain separate."
+        }
+      ],
+      "relationships": [],
+      "contracts": [
+        {
+          "label": "Top-three customer concentration",
+          "display": "28% / 24% / 18%",
+          "scope": "Q1 FY2027 total revenue",
+          "source_ids": [
+            "v2-iren-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Revenue starts after commissioning and applicable acceptance; customer identities are not mapped to percentages.",
+          "id": "iren-contracts-0"
+        },
+        {
+          "label": "Microsoft contract",
+          "display": "$9.7B over five years",
+          "scope": "Four Horizon deployments at Childress",
+          "source_ids": [
+            "v2-iren-horizon"
+          ],
+          "as_of": "2026-08-13",
+          "status": "reported",
+          "note": "Contract value is not current revenue; later network-design changes affect timing.",
+          "id": "iren-contracts-1"
+        },
+        {
+          "label": "Delivery conditions",
+          "display": "Microsoft-requested network change",
+          "scope": "Horizon deployments",
+          "source_ids": [
+            "v2-iren-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Filing describes extensions without delay credits for customer-requested changes; fee and timing discussions continue.",
+          "id": "iren-contracts-2"
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Horizon 1",
+          "display": "50 MW IT load",
+          "scope": "Childress; accepted by Microsoft",
+          "source_ids": [
+            "v2-iren-horizon"
+          ],
+          "as_of": "2026-08-13",
+          "status": "operating",
+          "note": "One deployment; not total company operating capacity.",
+          "id": "iren-capacity-0"
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Horizon 1 platform",
+          "display": "NVIDIA GB300 NVL72",
+          "scope": "Accepted Childress cluster",
+          "source_ids": [
+            "v2-iren-horizon"
+          ],
+          "as_of": "2026-08-13",
+          "status": "operating",
+          "note": "",
+          "id": "iren-hardware-0"
+        }
+      ],
+      "next_event": {
+        "status": "not_disclosed",
+        "date": null,
+        "label": "Next earnings date not confirmed",
+        "reason": "No future earnings date confirmed in the latest issuer release/index review. Watch the dated project targets separately."
+      },
+      "latest_report_period_end": "2026-09-30",
+      "latest_report_date": "2026-11-05",
+      "latest_report_source_ids": [
+        "watch-iren-2027q1"
+      ],
+      "earnings_freshness": {
+        "period_end": "2026-09-30",
+        "published_at": "2026-11-05",
+        "reviewed_at": "2026-11-16",
+        "status": "primary_reviewed"
+      },
+      "operating_freshness": {
+        "as_of": "2026-11-05",
+        "reviewed_at": "2026-11-16"
+      }
+    },
+    {
+      "id": "apld",
+      "ticker": "APLD",
+      "name": "Applied Digital",
+      "exchange": "NASDAQ",
+      "cik": "1144879",
+      "aliases": [
+        "APLD",
+        "Applied Digital"
+      ],
+      "business_model": "Infrastructure lessor/developer",
+      "focus_group": "medium",
+      "latest_report_status": "verified",
+      "latest_report_note": "Latest available issuer quarterly report identified and primary financial exhibit reviewed at the November 16, 2026 cutoff; no later quarterly report found in bounded issuer/filing search.",
+      "latest_report_checked_at": "2026-11-16T05:25:42Z",
+      "quarters": [
+        {
+          "id": "apld-2026-08-31",
+          "fiscal_label": "Q1 FY2027",
+          "period_end": "2026-08-31",
+          "release_date": "2026-10-07",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-apld-2027q1"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "apld-2026-08-31-revenue",
+              "value": 341875000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-08-31",
+              "source_ids": [
+                "watch-apld-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "apld-2026-08-31-operating_income",
+              "value": -62379000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-08-31",
+              "source_ids": [
+                "watch-apld-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "apld-2026-08-31-adjusted_ebitda",
+              "value": 64412000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Issuer core operations excluding consolidated Cloud Services/ChronoScale",
+              "period_end": "2026-08-31",
+              "source_ids": [
+                "watch-apld-2027q1"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "apld-2026-08-31-operating_cash_flow",
+              "value": 63921000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-08-31",
+              "source_ids": [
+                "watch-apld-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "cash_capex": {
+              "id": "apld-2026-08-31-cash_capex",
+              "value": 2074698000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-08-31",
+              "source_ids": [
+                "watch-apld-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_revenue": {
+              "id": "apld-2026-08-31-adjusted-revenue",
+              "value": 300393000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Non-GAAP adjusted revenue excluding ChronoScale",
+              "scope": "Issuer core operations excluding consolidated ChronoScale",
+              "period_end": "2026-08-31",
+              "source_ids": [
+                "watch-apld-release"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "revenue_prior_year": {
+              "id": "apld-2026-08-31-revenue-prior-year",
+              "value": 80934000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue in the prior-year comparable quarter, as presented in the latest issuer report",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-08-31",
+              "source_ids": [
+                "watch-apld-2027q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed",
+              "note": "Comparison amount retains the later report publication date and its stated rounding/restatement basis."
+            }
+          },
+          "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
+          "review_status": "primary_reviewed",
+          "comparability_note": "Fiscal Q1 FY2027, not January–March 2026. Compare by the actual quarter-end date.",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-10-07",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Separate base rent from tenant fit-out and recoveries before interpreting the growth headline as repeatable leasing revenue. The call's revenue mix is more informative than the headline percentage alone.",
+                "source_ids": [
+                  "call-apld-q1-2027-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Funding is campus-specific: management calls Polaris Forge 1 and 2 fully funded, while the next three campuses still require financing. Do not apply the funded label to the whole pipeline.",
+                "source_ids": [
+                  "call-apld-q1-2027-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "apld-2026-05-31",
+          "fiscal_label": "Q4 FY2026",
+          "period_end": "2026-05-31",
+          "release_date": "2026-07-27",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-apld-2026q4"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "apld-2026-05-31-revenue",
+              "value": 258748000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-05-31",
+              "source_ids": [
+                "watch-apld-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "apld-2026-05-31-operating_income",
+              "value": -124820000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-05-31",
+              "source_ids": [
+                "watch-apld-2026q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "apld-2026-05-31-adjusted_ebitda",
+              "value": 42351000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Issuer core operations excluding consolidated Cloud Services/ChronoScale",
+              "period_end": "2026-05-31",
+              "source_ids": [
+                "watch-apld-2026q4"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "apld-2026-05-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-05-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "apld-2026-05-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-05-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue and adjusted EBITDA headlines have different scopes: the adjusted measure excludes Cloud Services/ChronoScale. Reconcile that perimeter before using the figures as a single margin story.",
+                "source_ids": [
+                  "watch-apld-2026q4"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "apld-2026-02-28",
+          "fiscal_label": "Q3 FY2026",
+          "period_end": "2026-02-28",
+          "release_date": "2026-04-08",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-apld-2026q3"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "apld-2026-02-28-revenue",
+              "value": 126637000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-02-28",
+              "source_ids": [
+                "watch-apld-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "apld-2026-02-28-operating_income",
+              "value": -85667000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-02-28",
+              "source_ids": [
+                "watch-apld-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "apld-2026-02-28-adjusted_ebitda",
+              "value": 44139000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Issuer core operations excluding consolidated Cloud Services/ChronoScale",
+              "period_end": "2026-02-28",
+              "source_ids": [
+                "watch-apld-2026q3"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "apld-2026-02-28-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-02-28",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "apld-2026-02-28-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-02-28",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue and adjusted EBITDA headlines have different scopes: the adjusted measure excludes Cloud Services/ChronoScale. Reconcile that perimeter before using the figures as a single margin story.",
+                "source_ids": [
+                  "watch-apld-2026q3"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "apld-2025-11-30",
+          "fiscal_label": "Q2 FY2026",
+          "period_end": "2025-11-30",
+          "release_date": "2026-01-07",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-apld-2026q2"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "apld-2025-11-30-revenue",
+              "value": 126589000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-11-30",
+              "source_ids": [
+                "watch-apld-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "apld-2025-11-30-operating_income",
+              "value": -30957000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-11-30",
+              "source_ids": [
+                "watch-apld-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "apld-2025-11-30-adjusted_ebitda",
+              "value": 20200000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Issuer core operations excluding consolidated Cloud Services/ChronoScale",
+              "period_end": "2025-11-30",
+              "source_ids": [
+                "watch-apld-2026q2"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "apld-2025-11-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-11-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "apld-2025-11-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-11-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "GAAP revenue includes consolidated Cloud Services/ChronoScale; issuer non-GAAP Adjusted EBITDA excludes that business. Not a common cross-company definition.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The revenue and adjusted EBITDA headlines have different scopes: the adjusted measure excludes Cloud Services/ChronoScale. Reconcile that perimeter before using the figures as a single margin story.",
+                "source_ids": [
+                  "watch-apld-2026q2"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [],
+      "milestones": [
+        {
+          "id": "apld-pf1-phase2",
+          "label": "Polaris Forge 1 Building 2 phase 2",
+          "display": "Second 75 MW phase reached Ready for Service after quarter-end",
+          "scope": "Named 75 MW critical IT phase; live campus total 250 MW",
+          "as_of": "2026-10-07",
+          "source_ids": [
+            "watch-apld-release"
+          ],
+          "status": "reported",
+          "note": "Ready for Service is issuer-reported delivery; no separately established original deadline/outcome comparison, so not labelled met.",
+          "classification": "insufficient_evidence",
+          "outcome": {
+            "status": "reported_ready_for_service",
+            "as_of": "2026-10-07",
+            "source_ids": [
+              "watch-apld-release"
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "id": "apld-delivery-change",
+          "label": "Campus delivery update",
+          "display": "Polaris Forge 1 live critical IT capacity reaches 250 MW",
+          "scope": "Post-August-quarter delivery disclosure",
+          "as_of": "2026-10-07",
+          "source_ids": [
+            "watch-apld-release"
+          ],
+          "status": "reported",
+          "note": "Recognized consolidated revenue includes fit-out services and ChronoScale; campus MW is not a revenue run rate."
+        }
+      ],
+      "gaps": [
+        {
+          "field": "consensus",
+          "status": "not_researched",
+          "reason": "No original pre-release estimate with matching metric, basis and observation time verified; no beat/miss inferred."
+        },
+        {
+          "field": "market_reaction",
+          "status": "not_researched",
+          "reason": "Split-adjusted event-window prices and release-session timing have not been reconciled; T+3 reference is not T+1/T+5."
+        },
+        {
+          "field": "next_earnings_date",
+          "status": "not_disclosed",
+          "reason": "A future confirmed issuer reporting date was not identified in bounded review."
+        },
+        {
+          "field": "quarterly_cash_flow_history",
+          "status": "not_researched",
+          "reason": "Quarter-only cash flow and cash capex missing for some periods; cash statement YTD amounts not substituted. Noncash additions remain separate."
+        }
+      ],
+      "relationships": [
+        {
+          "name": "ChronoScale",
+          "relationship": "consolidated majority-owned subsidiary",
+          "note": "Historic Cloud Services business; consolidated in GAAP revenue, excluded from issuer adjusted metrics. Do not add parent and subsidiary revenue as independent industry totals.",
+          "source_ids": [
+            "watch-apld-release"
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "label": "Customer concentration",
+          "display": "56% / 21% / 11%",
+          "scope": "Q1 FY2027 consolidated revenue, anonymous A/B/C",
+          "source_ids": [
+            "v2-apld-q"
+          ],
+          "as_of": "2026-08-31",
+          "status": "reported",
+          "note": "Do not infer customer identities from anonymous labels.",
+          "id": "apld-contracts-0"
+        }
+      ],
+      "capacity": [
+        {
+          "id": "apld-pf1-live",
+          "label": "Polaris Forge 1 live capacity",
+          "display": "250 MW critical IT load",
+          "scope": "Named AI campus, not consolidated AI or utility-power total",
+          "as_of": "2026-10-07",
+          "source_ids": [
+            "watch-apld-release"
+          ],
+          "status": "operating",
+          "note": "Subsequent-to-quarter report; financial statement remains August 31. Hardware deployment by ChronoScale or tenants is not automatically parent-owned.",
+          "value": 250,
+          "unit": "MW_IT",
+          "ownership": "Applied Digital campus; customer leased capacity",
+          "definition": "Polaris Forge 1 live capacity"
+        },
+        {
+          "label": "Contracted critical IT load",
+          "display": "1,410 MW",
+          "scope": "Aggregate leased critical IT capacity",
+          "source_ids": [
+            "v2-apld-q"
+          ],
+          "as_of": "2026-08-31",
+          "status": "contracted",
+          "note": "Includes future delivery; not energized capacity.",
+          "id": "apld-capacity-0"
+        },
+        {
+          "label": "Delta Forge 2",
+          "display": "210 MW critical IT load",
+          "scope": "Single building; high investment-grade hyperscaler per issuer",
+          "source_ids": [
+            "v2-apld-q"
+          ],
+          "as_of": "2026-08-31",
+          "status": "construction",
+          "note": "Expected first-half 2028 delivery; approximately $5.2B base-term contracted revenue.",
+          "id": "apld-capacity-1"
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Equipment ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor; tenant GPU model/count not established by this research",
+          "source_ids": [],
+          "as_of": "2026-11-12",
+          "status": "unknown",
+          "note": "No tenant GPU inventory is attributed to the issuer.",
+          "id": "apld-hardware-0"
+        }
+      ],
+      "next_event": {
+        "status": "not_disclosed",
+        "date": null,
+        "label": "Next earnings date not confirmed",
+        "reason": "No future earnings date confirmed in the latest issuer release/index review. Watch the dated project targets separately."
+      },
+      "latest_report_period_end": "2026-08-31",
+      "latest_report_date": "2026-10-07",
+      "latest_report_source_ids": [
+        "watch-apld-2027q1"
+      ],
+      "earnings_freshness": {
+        "period_end": "2026-08-31",
+        "published_at": "2026-10-07",
+        "reviewed_at": "2026-11-16",
+        "status": "primary_reviewed"
+      },
+      "operating_freshness": {
+        "as_of": "2026-10-07",
+        "reviewed_at": "2026-11-16"
+      }
+    },
+    {
+      "id": "hut",
+      "ticker": "HUT",
+      "name": "Hut 8",
+      "exchange": "NASDAQ",
+      "cik": "1964789",
+      "aliases": [
+        "HUT",
+        "Hut 8"
+      ],
+      "business_model": "Mixed mining/AI business",
+      "focus_group": "medium",
+      "latest_report_status": "verified",
+      "latest_report_note": "Latest available issuer quarterly report identified and primary financial exhibit reviewed at the November 16, 2026 cutoff; no later quarterly report found in bounded issuer/filing search.",
+      "latest_report_checked_at": "2026-11-16T05:25:42Z",
+      "quarters": [
+        {
+          "id": "hut-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "release_date": "2026-11-04",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-hut-2026q3"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "hut-2026-09-30-revenue",
+              "value": 71071000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-hut-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "hut-2026-09-30-operating_income",
+              "value": 318207000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-hut-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "hut-2026-09-30-adjusted_ebitda",
+              "value": 33026000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-hut-2026q3"
+              ],
+              "accounting_basis": "issuer_adjusted_excludes_digital_asset_mtm",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "hut-2026-09-30-operating_cash_flow",
+              "value": 27814000,
+              "status": "derived",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-hut-2026q3",
+                "watch-hut-2026q2"
+              ],
+              "formula": "period_difference/v1",
+              "input_ids": [
+                "hut-9m2026-operating_cash_flow",
+                "hut-6m2026-operating_cash_flow"
+              ],
+              "calculation_inputs": [
+                {
+                  "id": "hut-9m2026-operating_cash_flow",
+                  "value": -5031000,
+                  "months": 9,
+                  "period_end": "2026-09-30",
+                  "fiscal_year": 2026,
+                  "scope": "Consolidated continuing operations",
+                  "currency": "USD",
+                  "unit": "USD",
+                  "accounting_basis": "GAAP",
+                  "source_ids": [
+                    "watch-hut-2026q3"
+                  ]
+                },
+                {
+                  "id": "hut-6m2026-operating_cash_flow",
+                  "value": -32845000,
+                  "months": 6,
+                  "period_end": "2026-06-30",
+                  "fiscal_year": 2026,
+                  "scope": "Consolidated continuing operations",
+                  "currency": "USD",
+                  "unit": "USD",
+                  "accounting_basis": "GAAP",
+                  "source_ids": [
+                    "watch-hut-2026q2"
+                  ]
+                }
+              ],
+              "note": "Quarter derived by subtracting compatible six-month cash-flow statement from nine-month cash-flow statement; both original inputs retained."
+            },
+            "cash_capex": {
+              "id": "hut-2026-09-30-cash_capex",
+              "value": 476026000,
+              "status": "derived",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property and equipment; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-hut-2026q3",
+                "watch-hut-2026q2"
+              ],
+              "formula": "period_difference/v1",
+              "input_ids": [
+                "hut-9m2026-cash_capex",
+                "hut-6m2026-cash_capex"
+              ],
+              "calculation_inputs": [
+                {
+                  "id": "hut-9m2026-cash_capex",
+                  "value": 1092208000,
+                  "months": 9,
+                  "period_end": "2026-09-30",
+                  "fiscal_year": 2026,
+                  "scope": "Consolidated continuing operations",
+                  "currency": "USD",
+                  "unit": "USD",
+                  "accounting_basis": "GAAP",
+                  "source_ids": [
+                    "watch-hut-2026q3"
+                  ]
+                },
+                {
+                  "id": "hut-6m2026-cash_capex",
+                  "value": 616182000,
+                  "months": 6,
+                  "period_end": "2026-06-30",
+                  "fiscal_year": 2026,
+                  "scope": "Consolidated continuing operations",
+                  "currency": "USD",
+                  "unit": "USD",
+                  "accounting_basis": "GAAP",
+                  "source_ids": [
+                    "watch-hut-2026q2"
+                  ]
+                }
+              ],
+              "note": "Quarter derived by subtracting compatible six-month cash-flow statement from nine-month cash-flow statement; both original inputs retained."
+            },
+            "revenue_prior_year": {
+              "id": "hut-2026-09-30-revenue-prior-year",
+              "value": 83510000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue in the prior-year comparable quarter, as presented in the latest issuer report",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-09-30",
+              "source_ids": [
+                "watch-hut-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed",
+              "note": "Comparison amount retains the later report publication date and its stated rounding/restatement basis."
+            }
+          },
+          "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-04",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The large project cash balances are not a parent-company cash cushion. Management explicitly separates restricted construction funding from corporate liquidity.",
+                "source_ids": [
+                  "call-hut-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Judge River Bend and Beacon Point against their own construction, lease and debt-service obligations. Project non-recourse financing limits parent recourse; it does not remove delivery or project cash-flow risk.",
+                "source_ids": [
+                  "call-hut-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "hut-2026-06-30",
+          "fiscal_label": "Q2 2026",
+          "period_end": "2026-06-30",
+          "release_date": "2026-08-04",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-hut-2026q2"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "hut-2026-06-30-revenue",
+              "value": 74932000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-hut-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "hut-2026-06-30-operating_income",
+              "value": -206330000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-hut-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "hut-2026-06-30-adjusted_ebitda",
+              "value": 10449000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-hut-2026q2"
+              ],
+              "accounting_basis": "issuer_adjusted_excludes_digital_asset_mtm",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "hut-2026-06-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "hut-2026-06-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "The adjusted EBITDA definition now excludes digital-asset mark-to-market effects. Changes against earlier quarters are not a like-for-like measure of operating improvement.",
+                "source_ids": [
+                  "watch-hut-2026q2"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "hut-2026-03-31",
+          "fiscal_label": "Q1 2026",
+          "period_end": "2026-03-31",
+          "release_date": "2026-05-06",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-hut-2026q1"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "hut-2026-03-31-revenue",
+              "value": 71017000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-hut-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "hut-2026-03-31-operating_income",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "adjusted_ebitda": {
+              "id": "hut-2026-03-31-adjusted_ebitda",
+              "value": -250512000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-hut-2026q1"
+              ],
+              "accounting_basis": "issuer_adjusted_includes_digital_asset_mtm",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "hut-2026-03-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "hut-2026-03-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This historical adjusted EBITDA definition includes digital-asset valuation effects. Its loss is not a clean measure of AI infrastructure operating profitability.",
+                "source_ids": [
+                  "watch-hut-2026q1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "hut-2025-12-31",
+          "fiscal_label": "Q4 2025",
+          "period_end": "2025-12-31",
+          "release_date": "2026-02-25",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-hut-2025q4"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "hut-2025-12-31-revenue",
+              "value": 88494000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-hut-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "hut-2025-12-31-operating_income",
+              "value": -434858000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-hut-2025q4"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "hut-2025-12-31-adjusted_ebitda",
+              "value": -347846000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-hut-2025q4"
+              ],
+              "accounting_basis": "issuer_adjusted_includes_digital_asset_mtm",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "hut-2025-12-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "hut-2025-12-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "Consolidates American Bitcoin; intercompany revenue eliminated. Adjusted EBITDA definition changed beginning Q2 2026 to exclude digital-asset mark-to-market; earlier printed definitions are preserved and not directly comparable.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This historical adjusted EBITDA definition includes digital-asset valuation effects. Its loss is not a clean measure of AI infrastructure operating profitability.",
+                "source_ids": [
+                  "watch-hut-2025q4"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [],
+      "milestones": [
+        {
+          "id": "hut-riverbend-target",
+          "label": "River Bend initial data hall delivery",
+          "display": "Q2 2027 target",
+          "scope": "Project-specific AI campus; not all Hut 8 corporate capacity",
+          "as_of": "2026-11-04",
+          "source_ids": [
+            "watch-hut-release"
+          ],
+          "status": "reported",
+          "note": "Still a future management target. Google supports specified lease obligations, not all issuer or project debt.",
+          "classification": "pending",
+          "original": {
+            "as_of": "2026-11-04",
+            "target_window": "Q2 2027",
+            "source_ids": [
+              "watch-hut-release"
+            ]
+          },
+          "revisions": [],
+          "outcome": null
+        }
+      ],
+      "events": [
+        {
+          "id": "hut-scope-change",
+          "label": "Parent versus project funding",
+          "display": "River Bend initial delivery remains targeted for Q2 2027",
+          "scope": "Project delivery and financing scope",
+          "as_of": "2026-11-04",
+          "source_ids": [
+            "watch-hut-release"
+          ],
+          "status": "reported",
+          "note": "Restricted construction balances and conditional facilities remain separate from parent-available cash."
+        }
+      ],
+      "gaps": [
+        {
+          "field": "consensus",
+          "status": "not_researched",
+          "reason": "No original pre-release estimate with matching metric, basis and observation time verified; no beat/miss inferred."
+        },
+        {
+          "field": "market_reaction",
+          "status": "not_researched",
+          "reason": "Split-adjusted event-window prices and release-session timing have not been reconciled; T+3 reference is not T+1/T+5."
+        },
+        {
+          "field": "next_earnings_date",
+          "status": "not_disclosed",
+          "reason": "A future confirmed issuer reporting date was not identified in bounded review."
+        },
+        {
+          "field": "quarterly_cash_flow_history",
+          "status": "not_researched",
+          "reason": "Quarter-only cash flow and cash capex missing for some periods; cash statement YTD amounts not substituted. Noncash additions remain separate."
+        },
+        {
+          "field": "adjusted_ebitda_comparability",
+          "status": "conflicting",
+          "reason": "Historical Q4 2025/Q1 2026 definitions include digital-asset mark-to-market; Q2/Q3 2026 definitions exclude it. Do not compute a single unchanged-basis trend."
+        }
+      ],
+      "relationships": [
+        {
+          "name": "American Bitcoin",
+          "relationship": "consolidated majority-owned subsidiary",
+          "note": "Subsidiary mining revenue is inside consolidated Hut 8; intercompany services eliminated. Do not count twice.",
+          "source_ids": [
+            "watch-hut-2026q1",
+            "watch-hut-2026q3"
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "label": "River Bend tenant",
+          "display": "Fluidstack USA IV Inc.",
+          "scope": "Entire River Bend data center lease",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Google backstops rent and specified lease obligations, not the notes. No parent guarantee of River Bend notes.",
+          "id": "hut-contracts-0"
+        }
+      ],
+      "capacity": [
+        {
+          "label": "Project construction funds",
+          "display": "Restricted project accounts",
+          "scope": "River Bend / Beacon Point",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "construction",
+          "note": "Construction funding does not prove capacity is operating.",
+          "id": "hut-capacity-0"
+        }
+      ],
+      "hardware": [
+        {
+          "label": "GPU ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor / project borrower",
+          "source_ids": [
+            "v2-hut-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "unknown",
+          "note": "Do not attribute tenant GPUs to Hut 8 without equipment ownership evidence.",
+          "id": "hut-hardware-0"
+        }
+      ],
+      "next_event": {
+        "status": "not_disclosed",
+        "date": null,
+        "label": "Next earnings date not confirmed",
+        "reason": "No future earnings date confirmed in the latest issuer release/index review. Watch the dated project targets separately."
+      },
+      "latest_report_period_end": "2026-09-30",
+      "latest_report_date": "2026-11-04",
+      "latest_report_source_ids": [
+        "watch-hut-2026q3"
+      ],
+      "earnings_freshness": {
+        "period_end": "2026-09-30",
+        "published_at": "2026-11-04",
+        "reviewed_at": "2026-11-16",
+        "status": "primary_reviewed"
+      },
+      "operating_freshness": {
+        "as_of": "2026-11-04",
+        "reviewed_at": "2026-11-16"
+      }
+    },
+    {
+      "id": "wulf",
+      "ticker": "WULF",
+      "name": "TeraWulf",
+      "exchange": "NASDAQ",
+      "cik": "1083301",
+      "aliases": [
+        "WULF",
+        "TeraWulf"
+      ],
+      "business_model": "Infrastructure lessor/developer with mining",
+      "focus_group": "medium",
+      "latest_report_status": "verified",
+      "latest_report_note": "Latest available issuer quarterly report identified and primary financial exhibit reviewed at the November 16, 2026 cutoff; no later quarterly report found in bounded issuer/filing search.",
+      "latest_report_checked_at": "2026-11-16T05:25:42Z",
+      "quarters": [
+        {
+          "id": "wulf-2026-09-30",
+          "fiscal_label": "Q3 2026",
+          "period_end": "2026-09-30",
+          "release_date": "2026-11-06",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-wulf-2026q3"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "wulf-2026-09-30-revenue",
+              "value": 76230000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-wulf-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "wulf-2026-09-30-operating_income",
+              "value": -88225000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-wulf-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "wulf-2026-09-30-adjusted_ebitda",
+              "value": -12801000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-wulf-2026q3"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "wulf-2026-09-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "wulf-2026-09-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-09-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "hpc_lease_revenue": {
+              "id": "wulf-2026-09-30-hpc",
+              "value": 62986000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized HPC lease revenue",
+              "scope": "HPC leasing segment",
+              "period_end": "2026-09-30",
+              "source_ids": [
+                "watch-wulf-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "revenue_prior_year": {
+              "id": "wulf-2026-09-30-revenue-prior-year",
+              "value": 50578000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue in the prior-year comparable quarter, as presented in the latest issuer report",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-09-30",
+              "source_ids": [
+                "watch-wulf-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed",
+              "note": "Comparison amount retains the later report publication date and its stated rounding/restatement basis."
+            }
+          },
+          "note": "Consolidated digital-asset and HPC leasing revenue. Non-GAAP Adjusted EBITDA definition is issuer-specific.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "call_transcript",
+            "reviewed_at": "2026-11-17",
+            "call_date": "2026-11-06",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Justified's customer, credit support and construction partner address different risks. The call still describes remaining project debt as expected financing, rather than a completed draw.",
+                "source_ids": [
+                  "call-wulf-q3-2026-20261117"
+                ]
+              },
+              {
+                "label": "Watch next",
+                "text": "Treat TeraWulf as an infrastructure lessor: management says it does not own the GPUs. Follow accepted, revenue-producing facilities and construction economics rather than attributing a tenant's GPU fleet to the company.",
+                "source_ids": [
+                  "call-wulf-q3-2026-20261117"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "wulf-2026-06-30",
+          "fiscal_label": "Q2 2026",
+          "period_end": "2026-06-30",
+          "release_date": "2026-08-05",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-wulf-2026q2"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "wulf-2026-06-30-revenue",
+              "value": 44767000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-wulf-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "wulf-2026-06-30-operating_income",
+              "value": -140450000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-wulf-2026q2"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "wulf-2026-06-30-adjusted_ebitda",
+              "value": -18340000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [
+                "watch-wulf-2026q2"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "wulf-2026-06-30-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "wulf-2026-06-30-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-06-30",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "Consolidated digital-asset and HPC leasing revenue. Non-GAAP Adjusted EBITDA definition is issuer-specific.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Recognized revenue and GAAP operating losses describe different parts of the ramp. Revenue growth alone does not establish that the buildout is generating operating profit.",
+                "source_ids": [
+                  "watch-wulf-2026q2"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "wulf-2026-03-31",
+          "fiscal_label": "Q1 2026",
+          "period_end": "2026-03-31",
+          "release_date": "2026-05-08",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-wulf-2026q1"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "wulf-2026-03-31-revenue",
+              "value": 34012000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-wulf-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "operating_income": {
+              "id": "wulf-2026-03-31-operating_income",
+              "value": -162142000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-wulf-2026q1"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed"
+            },
+            "adjusted_ebitda": {
+              "id": "wulf-2026-03-31-adjusted_ebitda",
+              "value": -4073000,
+              "status": "reported",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [
+                "watch-wulf-2026q1"
+              ],
+              "accounting_basis": "issuer_adjusted",
+              "review_status": "primary_reviewed"
+            },
+            "operating_cash_flow": {
+              "id": "wulf-2026-03-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "wulf-2026-03-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2026-03-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "Consolidated digital-asset and HPC leasing revenue. Non-GAAP Adjusted EBITDA definition is issuer-specific.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "Recognized revenue and GAAP operating losses describe different parts of the ramp. Revenue growth alone does not establish that the buildout is generating operating profit.",
+                "source_ids": [
+                  "watch-wulf-2026q1"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "wulf-2025-12-31",
+          "fiscal_label": "Q4 2025",
+          "period_end": "2025-12-31",
+          "release_date": "2026-02-26",
+          "months": 3,
+          "scope": "Consolidated continuing operations",
+          "source_ids": [
+            "watch-wulf-2025q4"
+          ],
+          "metrics": {
+            "revenue": {
+              "id": "wulf-2025-12-31-revenue",
+              "value": 35836000,
+              "status": "derived",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Recognized revenue",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [
+                "watch-wulf-2025q4",
+                "watch-wulf-2026q3"
+              ],
+              "accounting_basis": "GAAP",
+              "review_status": "primary_reviewed",
+              "formula": "period_difference/v1",
+              "input_ids": [
+                "wulf-fy2025-revenue",
+                "wulf-9m2025-revenue"
+              ],
+              "calculation_inputs": [
+                {
+                  "id": "wulf-fy2025-revenue",
+                  "value": 168455000,
+                  "months": 12,
+                  "period_end": "2025-12-31",
+                  "fiscal_year": 2025,
+                  "scope": "Consolidated continuing operations",
+                  "currency": "USD",
+                  "unit": "USD",
+                  "accounting_basis": "GAAP",
+                  "source_ids": [
+                    "watch-wulf-2025q4"
+                  ]
+                },
+                {
+                  "id": "wulf-9m2025-revenue",
+                  "value": 132619000,
+                  "months": 9,
+                  "period_end": "2025-09-30",
+                  "fiscal_year": 2025,
+                  "scope": "Consolidated continuing operations",
+                  "currency": "USD",
+                  "unit": "USD",
+                  "accounting_basis": "GAAP",
+                  "source_ids": [
+                    "watch-wulf-2026q3"
+                  ]
+                }
+              ]
+            },
+            "operating_income": {
+              "id": "wulf-2025-12-31-operating_income",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Operating income (loss)",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "adjusted_ebitda": {
+              "id": "wulf-2025-12-31-adjusted_ebitda",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Issuer-defined Adjusted EBITDA; see source reconciliation",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "operating_cash_flow": {
+              "id": "wulf-2025-12-31-operating_cash_flow",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Net cash provided by (used in) operating activities",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            },
+            "cash_capex": {
+              "id": "wulf-2025-12-31-cash_capex",
+              "value": null,
+              "status": "not_researched",
+              "unit": "USD",
+              "currency": "USD",
+              "definition": "Cash purchases of property/equipment and stated capitalized assets; excludes noncash financing additions",
+              "scope": "Consolidated continuing operations",
+              "period_end": "2025-12-31",
+              "source_ids": [],
+              "reason": "Quarter-specific comparable value not extracted; annual/YTD amounts are not substituted."
+            }
+          },
+          "note": "Revenue is a transparent annual-minus-nine-month derivation; no quarterly EBITDA inferred from annual headline.",
+          "review_status": "primary_reviewed",
+          "analyst_read": {
+            "basis": "release_filing",
+            "reviewed_at": "2026-11-17",
+            "bullets": [
+              {
+                "label": "What matters",
+                "text": "This quarter’s revenue is reconstructed from annual and nine-month filings. Treat it as a sourced historical derivation, rather than an original standalone-quarter release.",
+                "source_ids": [
+                  "watch-wulf-2025q4"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "guidance": [],
+      "milestones": [
+        {
+          "id": "wulf-cb5-target",
+          "label": "Lake Mariner CB-5 phased delivery",
+          "display": "Early 2027 target",
+          "scope": "Named Lake Mariner building; not whole-campus utilization",
+          "as_of": "2026-11-06",
+          "source_ids": [
+            "watch-wulf-release"
+          ],
+          "status": "reported",
+          "note": "Future phased delivery target. Customer acceptance and billing commencement require their own evidence.",
+          "classification": "pending",
+          "original": {
+            "as_of": "2026-11-06",
+            "target_window": "Early 2027",
+            "source_ids": [
+              "watch-wulf-release"
+            ]
+          },
+          "revisions": [],
+          "outcome": null
+        }
+      ],
+      "events": [
+        {
+          "id": "wulf-hpc-mix",
+          "label": "HPC recognized revenue",
+          "display": "$62.986M HPC lease revenue in $76.230M total revenue",
+          "scope": "Q3 2026 consolidated and disclosed HPC segment",
+          "as_of": "2026-11-06",
+          "source_ids": [
+            "watch-wulf-2026q3"
+          ],
+          "status": "reported",
+          "note": "Recognized leasing revenue remains separate from $19B Anthropic contracted future revenue."
+        }
+      ],
+      "gaps": [
+        {
+          "field": "consensus",
+          "status": "not_researched",
+          "reason": "No original pre-release estimate with matching metric, basis and observation time verified; no beat/miss inferred."
+        },
+        {
+          "field": "market_reaction",
+          "status": "not_researched",
+          "reason": "Split-adjusted event-window prices and release-session timing have not been reconciled; T+3 reference is not T+1/T+5."
+        },
+        {
+          "field": "next_earnings_date",
+          "status": "not_disclosed",
+          "reason": "A future confirmed issuer reporting date was not identified in bounded review."
+        },
+        {
+          "field": "quarterly_cash_flow_history",
+          "status": "not_researched",
+          "reason": "Quarter-only cash flow and cash capex missing for some periods; cash statement YTD amounts not substituted. Noncash additions remain separate."
+        }
+      ],
+      "relationships": [],
+      "contracts": [
+        {
+          "label": "HPC customer count",
+          "display": "Two customers",
+          "scope": "Q3 and nine-month HPC lease revenue",
+          "source_ids": [
+            "v2-wulf-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Not a percentage of consolidated revenue; concentration shares not established.",
+          "id": "wulf-contracts-0"
+        }
+      ],
+      "capacity": [
+        {
+          "id": "wulf-lm-revenue-generating",
+          "label": "Lake Mariner revenue-generating capacity",
+          "display": "102 MW critical IT load",
+          "scope": "Lake Mariner HPC campus",
+          "as_of": "2026-11-06",
+          "source_ids": [
+            "watch-wulf-release"
+          ],
+          "status": "operating",
+          "note": "CB-3 and CB-4 were energized in October, with tenant acceptance progressing. Energization is not assumed to mean all that capacity already recognizes revenue.",
+          "value": 102,
+          "unit": "MW_IT",
+          "ownership": "TeraWulf campus; tenant leased capacity",
+          "definition": "Lake Mariner revenue-generating capacity"
+        },
+        {
+          "label": "Energized HPC leasing",
+          "display": "102 MW critical IT load",
+          "scope": "Lake Mariner",
+          "source_ids": [
+            "v2-wulf-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "operating",
+          "note": "Energized capacity does not establish utilization.",
+          "id": "wulf-capacity-0"
+        },
+        {
+          "label": "Abernathy stake sold",
+          "display": "50.1% interest sold; no remaining equity interest",
+          "scope": "168 MW critical IT joint venture",
+          "source_ids": [
+            "v2-wulf-q"
+          ],
+          "as_of": "2026-09-30",
+          "status": "reported",
+          "note": "Sale effective July 5, 2026. Do not include this former joint venture as owned operating capacity.",
+          "id": "wulf-capacity-1"
+        }
+      ],
+      "hardware": [
+        {
+          "label": "Equipment ownership",
+          "display": "Not established",
+          "scope": "Infrastructure lessor; tenant GPU model/count not established by this research",
+          "source_ids": [],
+          "as_of": "2026-11-12",
+          "status": "unknown",
+          "note": "No tenant GPU inventory is attributed to the issuer.",
+          "id": "wulf-hardware-0"
+        }
+      ],
+      "next_event": {
+        "status": "not_disclosed",
+        "date": null,
+        "label": "Next earnings date not confirmed",
+        "reason": "No future earnings date confirmed in the latest issuer release/index review. Watch the dated project targets separately."
+      },
+      "latest_report_period_end": "2026-09-30",
+      "latest_report_date": "2026-11-06",
+      "latest_report_source_ids": [
+        "watch-wulf-2026q3"
+      ],
+      "earnings_freshness": {
+        "period_end": "2026-09-30",
+        "published_at": "2026-11-06",
+        "reviewed_at": "2026-11-16",
+        "status": "primary_reviewed"
+      },
+      "operating_freshness": {
+        "as_of": "2026-11-06",
+        "reviewed_at": "2026-11-16"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "watch-crwv-2026q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "title": "Watch Crwv 2026Q3",
+      "published_at": "2026-11-10",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenue $3,661; operating income $207; Adjusted EBITDA $2,256; quarterly operating cash $1,975; property/equipment purchases $9,441 (millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-crwv-2026q2",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx",
+      "title": "Watch Crwv 2026Q2",
+      "published_at": "2026-08-11",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenue $2,575; operating loss $(49); Adjusted EBITDA $1,510; quarterly operating cash $679; cash equipment purchases $6,422 (millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-crwv-2026q1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000220/coreweave1q26earningspress.htm",
+      "title": "Watch Crwv 2026Q1",
+      "published_at": "2026-05-07",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenue $2,078; operating loss $(144); Adjusted EBITDA $1,157; operating cash $2,984; cash equipment purchases $7,695 (millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-crwv-2025q4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000094/coreweave4q25earningspress.htm",
+      "title": "Watch Crwv 2025Q4",
+      "published_at": "2026-02-26",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenue $1,572; operating loss $(89); Adjusted EBITDA $898; quarterly operating cash $1,559; equipment purchases $4,060 (millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-nbis-2026q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-1.htm",
+      "title": "Watch Nbis 2026Q3",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenues 980.8; Adjusted EBITDA 465.8; operating income 50.4; quarterly continuing operating cash (273.0); cash capex 7,300.4 (USD millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-nbis-2026q2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926094568/tm2622968d1_ex99-1.htm",
+      "title": "Watch Nbis 2026Q2",
+      "published_at": "2026-08-12",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenues 582.3; Adjusted EBITDA 236.2; operating loss (175.9); quarterly continuing operating cash 2,246.1; cash capex 5,657.4 (USD millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-nbis-2026q1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926059872/tm2614392d1_ex99-1.htm",
+      "title": "Watch Nbis 2026Q1",
+      "published_at": "2026-05-13",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenues 399.0; Adjusted EBITDA 129.5; operating loss (128.0); continuing operating cash 2,258.0; cash capex 2,472.9 (USD millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-nbis-2025q4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926013946/tm266173d1_ex99-1.htm",
+      "title": "Watch Nbis 2025Q4",
+      "published_at": "2026-02-12",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Revenues 227.7; Adjusted EBITDA 15.0; operating loss (234.5); quarterly continuing operating cash 834.3; cash capex 2,056.0 (USD millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-iren-2027q1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/iren-20260930.htm",
+      "title": "Watch Iren 2027Q1",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter total revenue 228; AI Cloud revenue 200; operating loss (186); Adjusted EBITDA 66; operating cash 529 (USD millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-iren-2026q4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000051/irenreportsfy26results.htm",
+      "title": "Watch Iren 2026Q4",
+      "published_at": "2026-08-27",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter revenue 137.2 versus 144.8; Adjusted EBITDA 19.2 versus 59.5; operating cash 1,811.1 versus 75.3 (USD millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-iren-2026q2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000014/a991irenreportsq2fy26res.htm",
+      "title": "Watch Iren 2026Q2",
+      "published_at": "2026-02-05",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter revenue 184.7; Adjusted EBITDA 75.3; operating loss (116.4); operating cash 71.6 (USD millions).",
+      "source_unit": "USD millions",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-hut-2026q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+      "title": "Watch Hut 2026Q3",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter total revenue 71,071; operating income 318,207; Adjusted EBITDA 33,026; nine-month operating cash (5,031) (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-hut-2026q2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926090025/hut-20260630x10q.htm",
+      "title": "Watch Hut 2026Q2",
+      "published_at": "2026-08-04",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter revenue 74,932; operating loss (206,330); Adjusted EBITDA 10,449; six-month operating cash (32,845) (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-hut-2026q1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926055894/hut-20260506xex99d1.htm",
+      "title": "Watch Hut 2026Q1",
+      "published_at": "2026-05-06",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter revenue 71,017; Adjusted EBITDA (250,512); digital-asset valuation losses remain included under this historical definition (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-hut-2025q4",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926019393/hut-20260225xex99d1.htm",
+      "title": "Watch Hut 2025Q4",
+      "published_at": "2026-02-25",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter revenue 88,494; operating loss (434,858); Adjusted EBITDA (347,846), including digital-asset valuation effects (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-apld-2027q1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "title": "Watch Apld 2027Q1",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter GAAP revenue 341,875; operating loss (62,379). Adjusted revenue 300,393 and Adjusted EBITDA 64,412 exclude ChronoScale (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-apld-2026q4",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/159/applied-digital-reports-fiscal-fourth-quarter-and-full-year",
+      "title": "Watch Apld 2026Q4",
+      "published_at": "2026-07-27",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter GAAP revenue 258,748; operating loss (124,820); Adjusted EBITDA 42,351 excludes ChronoScale (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-apld-2026q3",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/148/applied-digital-reports-fiscal-third-quarter-2026-results",
+      "title": "Watch Apld 2026Q3",
+      "published_at": "2026-04-08",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter GAAP revenue 126,637; operating loss (85,667); Adjusted EBITDA 44,139 excludes Cloud Services (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-apld-2026q2",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/142/applied-digital-reports-fiscal-second-quarter-2026-results",
+      "title": "Watch Apld 2026Q2",
+      "published_at": "2026-01-07",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter GAAP revenue 126,589; operating loss (30,957); Adjusted EBITDA 20,200 (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-wulf-2026q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "title": "Watch Wulf 2026Q3",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter total revenue 76,230; HPC lease revenue 62,986; operating loss (88,225); Adjusted EBITDA (12,801) (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-wulf-2026q2",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000108330126000162/a_wulfearningsreleaseq22026.htm",
+      "title": "Watch Wulf 2026Q2",
+      "published_at": "2026-08-05",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter total revenue 44,767; operating loss (140,450); Adjusted EBITDA (18,340) (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-wulf-2026q1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000108330126000083/a_wulfearningsreleaseq1202.htm",
+      "title": "Watch Wulf 2026Q1",
+      "published_at": "2026-05-08",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Quarter total revenue 34,012; operating loss (162,142); Adjusted EBITDA (4,073) (USD thousands).",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-wulf-2025q4",
+      "url": "https://investors.terawulf.com/news-events/press-releases/detail/132/terawulf-reports-fourth-quarter-and-full-year-2025-results",
+      "title": "Watch Wulf 2025Q4",
+      "published_at": "2026-02-26",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "2025 annual total revenue 168,455 (USD thousands); annual periods are not quarterly observations without an explicit subtraction.",
+      "source_unit": "USD thousands",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-nbis-letter",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-2.htm",
+      "title": "Watch Nbis Letter",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "2026 revenue expected at low end of $3.0–3.4 billion; December ARR timing now February.",
+      "source_unit": "USD; management outlook",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-iren-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+      "title": "Watch Iren Release",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "More than $4 billion ARR target moves from year-end 2026 to January 2027 and may extend to February 2027.",
+      "source_unit": "USD ARR; operating target",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-apld-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000057/apldq127earningsrelease.htm",
+      "title": "Watch Apld Release",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "After quarter-end, second 75 MW phase of Building 2 reached Ready for Service; Polaris Forge 1 live capacity reached 250 MW.",
+      "source_unit": "MW critical IT load; named campus",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-wulf-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071306/a_wulfearningsreleaseq32026.htm",
+      "title": "Watch Wulf Release",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Lake Mariner reached 102 MW revenue-generating critical IT capacity; CB-3 and CB-4 energized in October with tenant acceptance progressing.",
+      "source_unit": "MW critical IT load; phased statuses",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-hut-release",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926122347/tm2628741d1_ex99-1.htm",
+      "title": "Watch Hut Release",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "excerpt": "Initial data hall delivery targeted for Q2 2027 at River Bend, Q3 2027 at Beacon Point Phase 1.",
+      "source_unit": "Project IT capacity and delivery targets",
+      "review_status": "primary_reviewed"
+    },
+    {
+      "id": "watch-crwv-q2-outlook",
+      "url": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CoreWeave-Q2-26-Earnings-Outlook-Presentation.pdf",
+      "title": "CoreWeave Q2 2026 Outlook Presentation — August 11, 2026",
+      "published_at": "2026-08-11",
+      "retrieved_at": "2026-11-16",
+      "retrieved_at_utc": "2026-11-16T05:25:42Z",
+      "source_unit": "USD; issuer guidance",
+      "review_status": "primary_reviewed",
+      "excerpt": "FY2026 revenue $12.4–13.2 billion; capital expenditures $35–39 billion. Q3 revenue guidance $3.45–3.60 billion."
+    },
+    {
+      "id": "call-crwv-q3-2026-20261117",
+      "title": "CoreWeave — Q3 2026 earnings call transcript",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+      "published_at": "2026-11-11",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "crwv",
+      "quarter_id": "crwv-2026-09-30",
+      "call_date": "2026-11-10",
+      "publisher": "CoreWeave investor relations — proofread transcript",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "We will not use the unsecured debt market to fund our business at current yields. ... We expect to finance the majority of the remaining CapEx needed to deliver our backlog through delayed draw term loans matched to specific customer contracts. ... In the next three months alone, we will collect approximately $9 billion in prepayments and deposits from signed customer contracts."
+    },
+    {
+      "id": "call-nbis-q3-2026-20261117",
+      "title": "Nebius Group — Q3 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/nbis/transcripts/731219-q3-2026/",
+      "published_at": "2026-11-12",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "nbis",
+      "quarter_id": "nbis-2026-09-30",
+      "call_date": "2026-11-12",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "The prepayments on new contracts now cover more than 100% of the capital needed to bring this contracted capacity online. ... Some of our colocation sites, including New Jersey, are behind schedule. Customers have been kept informed, and none of that capacity is canceled. Some of it has shifted to 2027."
+    },
+    {
+      "id": "call-iren-q1-2027-20261117",
+      "title": "IREN — Q1 FY2027 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/iren/transcripts/740046-q1-2027/",
+      "published_at": "2026-11-05",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "iren",
+      "quarter_id": "iren-2026-09-30",
+      "call_date": "2026-11-05",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "In July, we said more than $4 billion of operating ARR was targeted to be online by year-end. It's now January. ... A customer asked for a design change ... And two, supplier timing. ... If suppliers deliver, we're targeting January. If they're late ... it may run to the end of February."
+    },
+    {
+      "id": "call-apld-q1-2027-20261117",
+      "title": "Applied Digital — Q1 FY2027 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/apld/transcripts/716233-q1-2027/",
+      "published_at": "2026-10-07",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "apld",
+      "quarter_id": "apld-2026-08-31",
+      "call_date": "2026-10-07",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "The full 400 MW of the CoreWeave campus at Polaris Forge 1 and the 200 MW of contracted capacity at Polaris Forge 2 are now fully funded. ... The next campuses we need to finance are Polaris Forge 3, Delta Forge 1, and Delta Forge 2. ... Our HPC Hosting Business generated $262.6 million of revenue, consisting of $65.8 million of base rent, $183.5 million of tenant fit-out services, and $13.3 million of tenant recoveries."
+    },
+    {
+      "id": "call-hut-q3-2026-20261117",
+      "title": "Hut 8 — Q3 2026 earnings call transcript",
+      "url": "https://stockanalysis.com/stocks/hut/transcripts/723632-q3-2026/",
+      "published_at": "2026-11-04",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "hut",
+      "quarter_id": "hut-2026-09-30",
+      "call_date": "2026-11-04",
+      "publisher": "Stock Analysis / Quartr",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "The balance sheet requires an important distinction between corporate liquidity and project-restricted capital. ... The restricted balances are principally proceeds from the River Bend and Beacon Point financings, held in project accounts for construction, debt service reserves, and other specified project purposes. They are not excess corporate cash. ... Those obligations sit at project subsidiaries ... and are non-recourse to Hut 8's parent company."
+    },
+    {
+      "id": "call-wulf-q3-2026-20261117",
+      "title": "TeraWulf — Q3 2026 earnings call transcript",
+      "url": "https://www.benzinga.com/news/26/11/62977104/terawulf-q3-2026-earnings-call-transcript",
+      "published_at": "2026-11-06",
+      "retrieved_at": "2026-11-17",
+      "source_kind": "earnings_call_transcript",
+      "company_id": "wulf",
+      "quarter_id": "wulf-2026-09-30",
+      "call_date": "2026-11-06",
+      "publisher": "Benzinga — full transcript",
+      "source_unit": "Management remarks; forward-looking statements remain expectations",
+      "excerpt": "We already have the equity required to fund the project. Google's credit support materially strengthens the financing profile and we fully expect to fund the remaining capital requirement with project-level debt ... The definitive EPC agreement covers all three data center buildings ... We do not own the GPUs."
+    }
+  ]
+}
