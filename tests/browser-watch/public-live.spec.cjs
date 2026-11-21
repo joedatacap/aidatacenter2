@@ -32,9 +32,11 @@ test.describe('authorized public Neocloud Watch smoke',()=>{
   expect(digest(live),'Public/canonical reviewed-data digests differ; do not claim synchronization').toBe(digest(canonical));
   const asset=await request.get(TARGET+'watch.js',{timeout:30000});
   expect(asset.status(),'Public renderer asset status').toBe(200);
-  const actualJS=await asset.body(),canonicalJS=fs.readFileSync('work/neocloud-watch-site/watch.js');
-  console.log('PUBLIC_SMOKE_RENDERER '+JSON.stringify({project:info.project.name,url:TARGET+'watch.js',mode:LOCAL_CONTROL?'local_control':'public_live',actual:crypto.createHash('sha256').update(actualJS).digest('hex'),canonical:crypto.createHash('sha256').update(canonicalJS).digest('hex')}));
-  expect(actualJS.equals(canonicalJS),'Public watch.js bytes differ from canonical generated renderer').toBe(true);
+  // Public v4 is deliberately pinned; main includes an unshipped profile renderer fix.
+  const expectedFile=LOCAL_CONTROL?'work/neocloud-watch-site/watch.js':'tests/browser-watch/fixtures/public-v4-watch.js';
+  const actualJS=await asset.body(),canonicalJS=fs.readFileSync(expectedFile);
+  console.log('PUBLIC_SMOKE_RENDERER '+JSON.stringify({project:info.project.name,url:TARGET+'watch.js',mode:LOCAL_CONTROL?'local_control':'public_live',expected_renderer:LOCAL_CONTROL?'local branch build':'5bf5d1ad8b8f6c2c1f255f247f4f0880723de902',actual:crypto.createHash('sha256').update(actualJS).digest('hex'),canonical:crypto.createHash('sha256').update(canonicalJS).digest('hex')}));
+  expect(actualJS.equals(canonicalJS),'Public watch.js bytes differ from the explicitly pinned deployed v4 renderer').toBe(true);
   await openPublic(page);
   await expect(page.locator('#what-changed .change-card')).toHaveCount(3);
   await expect(page.locator('.overview-revenue-card')).toHaveCount(9);
@@ -51,6 +53,14 @@ test.describe('authorized public Neocloud Watch smoke',()=>{
   await openPublic(page,'overview/?peers=agpu,shaz');
   await expect(page.locator('.overview-revenue-card')).toHaveCount(2);
   await expect(page.locator('.balance-pair')).toHaveCount(2);
+  await page.locator('#peer-picker summary').click();
+  await page.getByRole('checkbox',{name:'Select SHAZ',exact:true}).uncheck();
+  await expect(page.locator('.overview-revenue-card')).toHaveCount(1);
+  expect(new URL(page.url()).searchParams.get('peers')).toBe('agpu');
+  await page.getByRole('checkbox',{name:'Select SHAZ',exact:true}).check();
+  await expect(page.locator('.overview-revenue-card')).toHaveCount(2);
+  expect(new Set(new URL(page.url()).searchParams.get('peers').split(','))).toEqual(new Set(['agpu','shaz']));
+  await page.locator('#peer-picker summary').click();
   await page.locator('#q').fill('AGPU');
   await expect(page.locator('[data-company]')).toHaveCount(1);
   await expect(page.locator('.overview-revenue-card')).toHaveCount(1);
@@ -58,7 +68,7 @@ test.describe('authorized public Neocloud Watch smoke',()=>{
   for(const name of ['Earnings','Financing & Debt','Buildout','Overview']){
    await page.locator('#primary-nav').getByRole('link',{name,exact:true}).click();
    expect(new URL(page.url()).origin).toBe(new URL(TARGET).origin);
-   expect(new URL(page.url()).searchParams.get('peers')).toBe('agpu,shaz');
+   expect(new Set(new URL(page.url()).searchParams.get('peers').split(','))).toEqual(new Set(['agpu','shaz']));
    await expect(page.locator('#q')).toHaveValue('AGPU');
    await expect(page.locator('[data-company]')).toHaveCount(1);
   }
@@ -92,11 +102,12 @@ test.describe('authorized public Neocloud Watch smoke',()=>{
   for(const value of ['7243043','147710376','36889299','569338973'])expect(csv).toContain(value);
  });
 
- test('live original and revised IREN target windows remain visible on the company buildout record',async({page})=>{
-  await openPublic(page,'companies/iren/?section=buildout');
-  await expect(page.locator('#company-buildout')).toContainText('By December 31, 2026');
-  await expect(page.locator('#company-buildout')).toContainText('January 2027, may extend through February 2027');
-  await expect(page.locator('#company-buildout')).not.toContainText('[object Object]');
+ test('live homepage tracker preserves original and revised Axe target windows',async({page})=>{
+  await openPublic(page,'overview/?peers=agpu');
+  await expect(page.locator('#buildout-tracker')).toContainText('2026-09-30');
+  await expect(page.locator('#buildout-tracker')).toContainText('Q4 2026 / Q1 2027');
+  await expect(page.locator('#buildout-tracker')).toContainText('customer acceptance underway');
+  await expect(page.locator('#buildout-tracker')).not.toContainText('[object Object]');
  });
 
  test('live chart details work by keyboard or tap and the page has no horizontal overflow',async({page},info)=>{
