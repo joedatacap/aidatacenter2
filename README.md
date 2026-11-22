@@ -19,18 +19,23 @@ npm run preview:watch
 # http://127.0.0.1:8003/overview/
 ```
 
-Pages: Overview, Financing & Debt, Earnings, Buildout, and shared company
-profiles. Nine selected peers are the default; All companies retains all 19
+The current source includes Overview, Markets, Financing & Debt, Earnings, Buildout
+and shared company profiles. The public version and its release status are recorded
+in the runbook. Nine selected peers are the default; All companies retains all 19
 records. Search, filters, peer selections, sections and periods travel in URLs.
 The existing financing evidence and all older previews remain available.
 
-`npm run build:watch` creates `work/neocloud-watch-site/` (24 actual static
+`npm run build:watch` creates `work/neocloud-watch-site/` (25 actual static
 routes) and `work/Neocloud-Watch-V2.html` (download and open for offline use).
 Use `python3 scripts/build_neocloud_watch.py --base-path /research/ --output
 work/custom-site` for a subpath build. Serve the output mounted at that base
 path. No database, API credentials, quote feed or inference service is needed.
 `npm run test:watch` checks hosted and offline navigation on desktop/mobile.
 `npm run deploy:watch:dry-run` checks packaging; it does not deploy anything.
+
+Market history is imported separately. See the [market refresh procedure](docs/WATCH_MARKET_DATA.md)
+and [provider rights and availability](docs/WATCH_MARKET_SOURCES.md). Use
+`npm run build:watch:release` for publication. It requires a verified default-window return.
 
 New financial facts are reviewed snapshots, not automatic imports. Refresh
 instructions and research limits are in the execution status document.

@@ -312,3 +312,23 @@ def test_custom_output_also_builds_offline_file_on_first_run(tmp_path, monkeypat
     receipt = builder.build(base='/research/', output=output)
     assert (output / 'overview/index.html').is_file()
     assert Path(receipt['offline']).is_file()
+
+
+def test_publication_checks_the_default_window_against_observed_closes():
+    from scripts.build_neocloud_watch import require_publishable_market
+
+    monthly = dict(status='available', value=-20, start_session='2026-10-20', end_session='2026-11-20')
+    record = dict(ticker='TEST', listing_status='listed', returns={'1m': monthly},
+                  history=[dict(date='2026-10-20', close=10), dict(date='2026-11-20', close=8)])
+    market = dict(status='partial', end_session='2026-11-20', companies=[record],
+                  windows={'1m': monthly}, license={'status': 'public_display_permitted'})
+    require_publishable_market(market)
+    monthly['value'] = 20
+    with pytest.raises(ValueError, match='disagrees'):
+        require_publishable_market(market)
+    monthly['status'] = 'unavailable'
+    with pytest.raises(ValueError, match='no verified one-month'):
+        require_publishable_market(market)
+    market['license']['status'] = 'unverified'
+    with pytest.raises(ValueError, match='no verified source'):
+        require_publishable_market(market)

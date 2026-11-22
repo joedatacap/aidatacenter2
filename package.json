@@ -12,6 +12,7 @@
     "preview:v2": "npm run build:v2 && python3 -m http.server 8002 --bind 127.0.0.1 --directory v2-preview",
     "test:v2": "npm run build:v2 && playwright test --config playwright.v2.config.cjs",
     "build:watch": "python3 scripts/build_neocloud_watch.py",
+    "build:watch:release": "python3 scripts/build_neocloud_watch.py --release",
     "preview:watch": "npm run build:watch && python3 -m http.server 8003 --bind 127.0.0.1 --directory work/neocloud-watch-site",
     "test:watch": "npm run build:watch && playwright test --config playwright.watch.config.cjs",
     "deploy:watch:dry-run": "npm run build:watch && wrangler deploy --config wrangler.watch.jsonc --dry-run"

@@ -2,6 +2,24 @@
 
 The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). GitHub `joedatacap/aidatacenter2` on `main` is the application source. ChatGPT Sites stores the generated static publication in its own source repository on `main`. A GitHub merge runs tests and packaging dry runs. Publication is a separate operation.
 
+## November 22, 2026 stock-performance update
+
+**Public release remains version 5.** The stock-first homepage and fifth page, Markets, are available in the GitHub build. Publication is held pending a price source with verified rights covering public display, cached history and exports. Building a local preview or merging source does not publish to Sites.
+
+| Observation | Status |
+| --- | --- |
+| Public project | `appgprj_6afb8d8562c0819183402d9c41093312`, existing public audience. Version 5 deployment and source commit are recorded below. |
+| Latest completed US session at the source check | November 20, 2026 at 21:00 UTC. Zero verified price histories acquired for the nine focus companies. The quote timestamp is unavailable. |
+| Equity-size context | November 13 dated provider records. Six focus companies have a usable dated size band. Nebius, SharonAI and Axe Compute retain capitalization blockers. |
+| Financial evidence | November 17, 2026 at 18:35:45.406835 UTC. The emitted financial file must match version 5 SHA-256 `657d5141fe1a8b03e29429954a6829872a8a8c1e600de875eb29dbfb6f2b4838` for this presentation-only release. |
+| Next release gate | Obtain an entitled export, import it with the [refresh procedure](WATCH_MARKET_DATA.md), verify sample returns from the source closes and run the guarded build. Then follow the existing-site steps below. The [source audit](WATCH_MARKET_SOURCES.md) records which providers were checked. |
+
+**Candidate source and QA.** Rebuild from [e461e0f83927a7639f78775286e436ae76bec356](https://github.com/joedatacap/aidatacenter2/commit/e461e0f83927a7639f78775286e436ae76bec356). Later receipt-only commits do not change its generated site. [PR #13](https://github.com/joedatacap/aidatacenter2/pull/13) records the merge to main. The candidate passed 216 Python checks including disposable TLS Postgres and 96 Watch browser checks across desktop and mobile. The [candidate CI run](https://github.com/joedatacap/aidatacenter2/actions/runs/44967910265) includes legacy and workbench regression tests and packaging. No Sites version was saved for this update.
+
+**Release evidence.** The [November 22 production check](https://github.com/joedatacap/aidatacenter2/actions/runs/44967212699) exercised the existing version 5 over HTTPS. All 16 public desktop/mobile checks passed, including the served bundle and financial-file comparison, peer selection, sources, exports and original/revised Buildout dates. Local development could not reach the public origin through its proxy; the production results come from GitHub-hosted Chromium.
+
+The candidate was checked at desktop and mobile widths. The checked-in market snapshot shows the source gap, and the guarded release build rejects it. Functional chart tests use isolated browser responses. Download the [offline candidate](https://drive.google.com/file/d/1htIEp8kkEFjnueyfFtlk1EfFlsKz3tqq/view) to try it locally. The [dated size table](https://drive.google.com/file/d/1JVOsoooZjtGq1-ZBLqhtmCRhlphr9bit/view) shows all nine focus peers. Candidate homepage screenshots show the actual price-availability state on [desktop](https://drive.google.com/file/d/1HUs64nfz1thgftskdZoSsyV8gTrFZf50/view) and [mobile](https://drive.google.com/file/d/1oUe2moXYvau5XYpsmu-1eERcNkb_hnZX/view).
+
 ## November 21, 2026 release receipt
 
 | State | Source and evidence |
@@ -51,13 +69,13 @@ The owner explicitly authorized publication of the existing saved version 5. Sit
 
    ```sh
    stage_dir=$(mktemp -d)
-   python scripts/build_neocloud_watch.py --base-path / --output "$stage_dir/dist"
+   python scripts/build_neocloud_watch.py --release --base-path / --output "$stage_dir/dist"
    ```
 
-   Inspect the staged file list and differences, including `data.json`, `audit.html`, `_headers`, assets and all route indexes. The current release has 29 files in `dist/`, including 24 route indexes. For a presentation or packaging change, compare `data.json` byte for byte with the previous publication. When generated files already match, retain the existing deployment.
+   Inspect the staged file list and differences, including `data.json`, `audit.html`, `_headers`, assets and all route indexes. Version 5 has 29 files in `dist/`, including 24 route indexes. The Markets build adds `markets/index.html` and `market-data.json`. A failed release build stops publication, including reuse of any older staging directory. For a presentation or packaging change, compare `data.json` byte for byte with the previous publication. When generated files already match, retain the existing deployment.
 6. For an authorized publication, update only the existing Sites checkout's `dist/` to match the staged tree. Record the full GitHub SHA in `maintenance/GITHUB_SOURCE.md`. Preserve the hosting manifest and all maintenance history. Verify with `diff -qr "$stage_dir/dist" "$site_checkout/dist"`, setting `site_checkout` to the path opened in step 2. Recheck the remote head and current version before pushing to prevent overwriting another publisher.
 7. Follow the Sites source helper to commit, push and package. For a static Git checkout the equivalent archive command is `git archive --format=tar --output=/absolute/path/to/release.tar HEAD .openai/hosting.json dist` from the verified Sites checkout. The archive contains the manifest and generated output. Call `save_site_version` with the same project ID, **pushed Sites commit SHA** and unchanged archive, then `deploy_site_version` with the returned saved-version ID. Keep the existing public audience. If the call is pending, poll `get_deployment_status` until terminal. Verify `get_site` still returns the expected URL, version and access.
-8. Run browser smoke checks on the actual public origin from a network that can reach it. On desktop and mobile, check a plotted quarter against the reviewed data, select a peer, open its company profile and a source, and inspect downloaded CSV and JSON. Compare public `/data.json` with the staged file. Record the origin, result and any access error separately from local tests. Update the release receipt with the GitHub SHA, Sites SHA, version, deployment ID, data cutoff, CI and browser results.
+8. Run browser smoke checks on the actual public origin from a network that can reach it. On desktop and mobile, check a plotted quarter against the reviewed data, select a peer, open its company profile and a source, and inspect downloaded CSV and JSON. Compare public `/data.json`, `/market-data.json` and `/watch.js` with the staged files. For a Markets release also verify the default ranking, a second window, the scatter, the common history and that exports match the selected peers and dates. Record the origin, result and any access error separately from local tests. Update the release receipt with the GitHub SHA, Sites SHA, version, deployment ID, data cutoff, CI and browser results.
 
 ### Reproduce the version 5 production browser check
 
