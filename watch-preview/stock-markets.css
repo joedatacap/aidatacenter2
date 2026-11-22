@@ -1377,3 +1377,9 @@
     margin-right: 58px;
   }
 }
+
+
+/* The market table follows the ranked chart and the optional size grouping. */
+#markets-control-slot label:has(#order) {
+  display: none;
+}

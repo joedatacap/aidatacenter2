@@ -14,7 +14,7 @@ The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site
 | Financial evidence | November 17, 2026 at 18:35:45.406835 UTC. The emitted financial file must match version 5 SHA-256 `657d5141fe1a8b03e29429954a6829872a8a8c1e600de875eb29dbfb6f2b4838` for this presentation-only release. |
 | Next release gate | Obtain an entitled export, import it with the [refresh procedure](WATCH_MARKET_DATA.md), verify sample returns from the source closes and run the guarded build. Then follow the existing-site steps below. The [source audit](WATCH_MARKET_SOURCES.md) records which providers were checked. |
 
-The candidate implementation is tracked in [PR #13](https://github.com/joedatacap/aidatacenter2/pull/13). The merge commit linked there identifies the accepted source. No Sites version has been saved for this update.
+The market import and capitalization retention logic are at [5e9ae66](https://github.com/joedatacap/aidatacenter2/commit/5e9ae6682cbc389933d235b63d3a493e2056af4d). The full candidate implementation and its checks are tracked in [PR #13](https://github.com/joedatacap/aidatacenter2/pull/13). The merge commit linked there identifies the accepted source. No Sites version has been saved for this update.
 
 **Release evidence.** The [November 22 production check](https://github.com/joedatacap/aidatacenter2/actions/runs/44967212699) exercised the existing version 5 over HTTPS. All 16 public desktop/mobile checks passed, including the served bundle and financial-file comparison, peer selection, sources, exports and original/revised Buildout dates. Local development could not reach the public origin through its proxy; the production results come from GitHub-hosted Chromium.
 
