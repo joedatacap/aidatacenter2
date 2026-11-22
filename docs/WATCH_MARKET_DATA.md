@@ -6,7 +6,7 @@ Market prices and size context are separate from the reviewed financial snapshot
 
 The committed `neocloud/data/market_snapshot.json` is an honest gap manifest. Its availability check was **2026-11-22T00:28:36Z**; its price observation timestamp is **null**. No usable price-history export with verified permission for public static display, redistribution and downloadable cached closes was acquired. There are no real prices or return series in this file. See `WATCH_MARKET_SOURCES.md` for source and license investigation.
 
-The existing six unblocked manually reviewed market-cap observations remain dated November 13, with their original source URLs and provider-defined basic-capitalization caveat. They are labelled `dated_manual`, not newly refreshed. Nebius, SharonAI and Axe retain their capitalization blockers and **Size unverified**, even if a new price series is later available. A feed value cannot clear those blockers. No weighted-average EPS share count is used.
+The existing six unblocked manually reviewed market-cap observations remain dated November 13, with their original source URLs and provider-defined basic-capitalization caveat. They are labelled `dated_manual`, not newly refreshed. Nebius, SharonAI and Axe retain their capitalization blockers and **Size unverified**, even if a new price series is later available. A feed value cannot clear those blockers. A price-only refresh retains the latest verified size observation under the same provider and grant. A newer unresolved observation still carries its blocker. No weighted-average EPS share count is used.
 
 ## Calendar and windows
 

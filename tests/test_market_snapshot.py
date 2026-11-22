@@ -532,3 +532,13 @@ def test_recorded_later_failed_attempt_drives_deterministic_cache_age(raw, tmp_p
         result["availability_checked_at"] == "2026-11-24T01:00:00Z"
         and result["as_of"] is None
     )
+
+
+def test_price_only_refresh_preserves_latest_entitled_size_observation(raw, tmp_path):
+    cache = tmp_path / "market.json"
+    refresh_market_snapshot(raw, cache_path=cache, now=NOW, registry=REGISTRY)
+    previous = load_market_snapshot(cache)["companies"][0]["market_cap"]
+    raw["companies"][0].pop("market_cap")
+    result = refresh_market_snapshot(raw, cache_path=cache, now=NOW, registry=REGISTRY)
+    assert result["status"] == "success"
+    assert load_market_snapshot(cache)["companies"][0]["market_cap"] == previous

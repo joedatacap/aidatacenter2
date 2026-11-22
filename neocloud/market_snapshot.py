@@ -774,6 +774,11 @@ def build_market_snapshot(raw, *, now, registry=None):
             }
         else:
             c["market_cap"] = manual_cap_context(identity)
+        # Price exports can include an older basic cap than the reviewed ledger.
+        if c["market_cap"]["status"] == "verified":
+            manual = manual_cap_context(identity)
+            if manual["status"] == "dated_manual" and cap_date < date.fromisoformat(manual["as_of"]):
+                c["market_cap"] = manual
         result.append(c)
     available = sum(
         any(r["status"] == "available" for r in c["returns"].values()) for c in result
@@ -877,6 +882,22 @@ def _refresh_market_snapshot(
                     or snapshot["end_session"] < old["end_session"]
                 ):
                     raise ValueError("Refusing a regressive market snapshot")
+                same_grant = all(
+                    old["license"].get(key) == snapshot["license"].get(key)
+                    for key in ("provider", "permission_url")
+                )
+                if same_grant:
+                    previous_caps = {c["id"]: c["market_cap"] for c in old["companies"]}
+                    for company in snapshot["companies"]:
+                        previous_cap = previous_caps.get(company["id"], {})
+                        current_cap = company["market_cap"]
+                        if (
+                            previous_cap.get("status") == "verified"
+                            and not company.get("capitalization_blocker")
+                            and current_cap["status"] != "unreconciled"
+                            and (current_cap.get("as_of") or "") < previous_cap["as_of"]
+                        ):
+                            company["market_cap"] = previous_cap
                 previous = {
                     (c["id"], key)
                     for c in old["companies"]

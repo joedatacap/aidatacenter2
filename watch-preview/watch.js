@@ -229,7 +229,7 @@
   const header = ['company_id','ticker','company','exchange','currency','price','price_date',
    'market_cap_usd','market_cap_as_of','share_basis','size','window','return_pct',
    'start_date','end_date','return_status','reason','1w_pct','1m_pct','3m_pct','ytd_pct',
-   'price_basis','source','source_url','cap_source_url','market_data_as_of','market_cap_status','market_cap_reason','price_status'];
+   'price_basis','source','source_url','cap_source_url','market_data_as_of','market_cap_status','market_cap_reason','price_status','source_attribution','source_terms'];
   const rows = payload.companies.map(c=>{
    const quote = c.price || {}, cap = c.market_cap || {}, ret = c.selected_return || {};
    return [c.id,c.ticker,c.name,c.exchange,c.currency,quote.status==='available' ? quote.value : null,quote.date,
@@ -240,7 +240,7 @@
      return observation?.status==='available' && observation.end_session===payload.end_session ? observation.value : null;
     }),
     payload.price_basis,payload.license?.provider,quote.source_url||payload.license?.source_url,
-    cap.source_url,payload.market_data_as_of,cap.status,cap.reason,quote.status];
+    cap.source_url,payload.market_data_as_of,cap.status,cap.reason,quote.status,payload.license?.attribution_text,payload.license?.permission_url];
   });
   download('Neocloud-Watch-markets.csv', [header,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n'), 'text/csv;charset=utf-8');
  }
