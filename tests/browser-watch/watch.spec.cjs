@@ -20,11 +20,11 @@ test('all nine focus companies and wider universe remain reachable',async({page}
  await expect(rows(page)).toContainText('Axe Compute');
 });
 
-test('four pages preserve selected peers and restore back/forward state',async({page})=>{
+test('five pages preserve selected peers and restore back/forward state',async({page})=>{
  await page.goto('/overview/');
  await choosePeers(page,['CRWV','NBIS']);
  await expect(rows(page)).toHaveCount(2);
- for(const [name,path] of [['Earnings','/earnings/'],['Financing & Debt','/financing/'],['Buildout','/buildout/']]){
+ for(const [name,path] of [['Markets','/markets/'],['Earnings','/earnings/'],['Financing & Debt','/financing/'],['Buildout','/buildout/']]){
   await page.locator('#primary-nav').getByRole('link',{name,exact:true}).click();
   expect(new URL(page.url()).pathname).toBe(path);
   expect(new URL(page.url()).searchParams.get('peers')).toContain('crwv');
@@ -57,7 +57,7 @@ test('nine selected peers are supported and saved locally',async({page})=>{
 
 test('each generated page and all company profiles refresh without script errors',async({page})=>{
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- for(const route of ['/','/overview/','/financing/','/earnings/','/buildout/',...FOCUS.map(t=>`/companies/${t.toLowerCase()}/`)]){
+ for(const route of ['/','/overview/','/markets/','/financing/','/earnings/','/buildout/',...FOCUS.map(t=>`/companies/${t.toLowerCase()}/`)]){
   const response=await page.goto(route);expect(response.status()).toBe(200);
   await expect(page.locator('#page-content')).not.toBeEmpty();
  }
@@ -113,7 +113,7 @@ test('standalone offline artifact navigates all pages and company sections witho
  await page.context().setOffline(true);
  await page.setContent(fs.readFileSync('work/Neocloud-Watch-V2.html','utf8'));
  await expect(rows(page)).toHaveCount(9);
- for(const name of ['Financing & Debt','Earnings','Buildout','Overview']){
+ for(const name of ['Markets','Financing & Debt','Earnings','Buildout','Overview']){
   await page.locator('#primary-nav').getByRole('link',{name,exact:true}).click();await expect(rows(page)).toHaveCount(9);
  }
  await page.screenshot({path:`work/watch-overview-${info.project.name}.png`,fullPage:true});
@@ -125,7 +125,7 @@ test('standalone offline artifact navigates all pages and company sections witho
 });
 
 test('all page layouts fit mobile and desktop viewports',async({page},info)=>{
- for(const route of ['/overview/','/financing/','/earnings/','/buildout/','/companies/agpu/?section=financing']){
+ for(const route of ['/overview/','/markets/','/financing/','/earnings/','/buildout/','/companies/agpu/?section=financing']){
   await page.goto(route);await expect(page.locator('#page-content')).not.toBeEmpty();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);
   await page.screenshot({path:`work/watch-${route.split('/')[1]}-${info.project.name}.png`});
