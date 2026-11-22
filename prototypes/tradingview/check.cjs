@@ -47,13 +47,13 @@ async function main() {
             await send('touchEnd',null);
             await page.waitForTimeout(700);
           };
-          for (let i=1;i<=3;i++) {
-            await swipe(345,190);
-            await page.screenshot({path:path.join(output,'mobile-pan-'+i+'.png'),fullPage:true});
-          }
+          await swipe(345,190);
+          await swipe(345,260);
+          await page.screenshot({path:path.join(output,'mobile-month.png'),fullPage:true});
         }
         const overflow = await page.evaluate(()=>document.documentElement.scrollWidth > innerWidth);
         console.log(label, {componentRegistered:loaded,pageOverflow:overflow});
+        if (!loaded || overflow) throw new Error(label + ' failed the embed/layout check');
       } finally { await page.close(); }
     }));
     await fs.copyFile(file, path.join(output, 'Neocloud-TradingView-preview.html'));
