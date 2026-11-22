@@ -30,6 +30,28 @@ async function main() {
         // Inspect screenshots visually for each symbol after the embed settles.
         await page.waitForTimeout(13000);
         await page.screenshot({path:path.join(output,label+'.png'),fullPage:true});
+        if (label === 'mobile') {
+          // Real touch gestures move the official widget's own horizontal viewport.
+          const box = await page.locator('tv-market-data').boundingBox();
+          const y = Math.round(box.y + Math.min(120, box.height / 2));
+          const touch = await page.context().newCDPSession(page);
+          const swipe = async (from, to) => {
+            const send = (type, x) => touch.send('Input.dispatchTouchEvent', {
+              type, touchPoints: x === null ? [] : [{x,y}]
+            });
+            await send('touchStart',from);
+            for (let i=1;i<=12;i++) {
+              await send('touchMove',from+(to-from)*i/12);
+              await page.waitForTimeout(25);
+            }
+            await send('touchEnd',null);
+            await page.waitForTimeout(700);
+          };
+          for (let i=1;i<=3;i++) {
+            await swipe(345,190);
+            await page.screenshot({path:path.join(output,'mobile-pan-'+i+'.png'),fullPage:true});
+          }
+        }
         const overflow = await page.evaluate(()=>document.documentElement.scrollWidth > innerWidth);
         console.log(label, {componentRegistered:loaded,pageOverflow:overflow});
       } finally { await page.close(); }

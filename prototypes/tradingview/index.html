@@ -23,8 +23,9 @@ li{padding:10px 12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;bord
 li a{font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
 li span{font-variant-numeric:tabular-nums}
 small{font-size:12px;border-radius:4px;padding:1px 6px;border:1px solid #bacbb8;color:#36583f;background:#edf2e6}
+.mobile-guide{display:none}
 small.unknown{color:#5b5650;background:#f6f3ed;border-color:#d5cfc0}
-@media(max-width:690px){main{padding:22px 12px}header div{padding:12px}ul{grid-template-columns:repeat(2,minmax(0,1fr))}.widget{padding:5px}}
+@media(max-width:690px){.mobile-guide{display:inline}main{padding:22px 12px}header div{padding:12px}ul{grid-template-columns:repeat(2,minmax(0,1fr))}.widget{padding:5px}}
 @media(max-width:420px){li{gap:4px;padding:8px 6px}}
 </style>
 </head>
@@ -33,13 +34,12 @@ small.unknown{color:#5b5650;background:#f6f3ed;border-color:#d5cfc0}
 <main>
 <section aria-labelledby="performance">
 <h1 id="performance">One-month stock performance</h1>
-<p id="guide">Compare the nine focus companies in TradingView’s <strong>1M</strong> column.</p>
+<p id="guide">Compare the nine focus companies in TradingView’s <strong>1M</strong> column. <span class="mobile-guide">Swipe the table sideways to see more periods.</span></p>
 <div class="widget" id="widget-shell">
 <p id="unavailable" role="status" hidden>TradingView could not load. Check your connection, then reload this preview.</p>
 <tv-market-data symbol-sectors='[{"sectionName":"Focus companies","symbols":["NASDAQ:CRWV","NASDAQ:NBIS","NASDAQ:IREN","NASDAQ:APLD","NASDAQ:HUT","NASDAQ:WULF","NASDAQ:WYFI","NASDAQ:SHAZ","NASDAQ:AGPU"]}]' view="performance" style="width:100%;display:block"></tv-market-data>
 <script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-market-data.js" onerror="document.getElementById('unavailable').hidden=false"></script>
 <noscript><p>Enable JavaScript to display the TradingView widget.</p></noscript>
-<a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank">Market data by TradingView</a>
 </div>
 </section>
 <section aria-labelledby="size"><h2 id="size">Company size</h2>
