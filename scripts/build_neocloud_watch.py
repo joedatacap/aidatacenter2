@@ -72,7 +72,7 @@ def build(*,base='/',output=None,release=False):
     (target/'watch.css').write_text(css)
     shutil.copyfile(source/'audit.html',target/'audit.html')
     (target/'data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
-    (target/'_headers').write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Content-Security-Policy: default-src 'none'; script-src 'self' https://widgets.tradingview-widget.com; frame-src https://widgets.tradingview-widget.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'\n")
+    (target/'_headers').write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Content-Security-Policy: default-src 'none'; script-src 'self' https://widgets.tradingview-widget.com; frame-src https://widgets.tradingview-widget.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://s3-symbol-logo.tradingview.com; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'\n")
     # Every route is a real static directory; no host-specific SPA rewrite is needed.
     offline=html.replace('__WATCH_BASE__','./').replace('name="watch-offline" content="false"','name="watch-offline" content="true"')
     offline=offline.replace('<link rel="stylesheet" href="./watch.css">','<style>'+css+'</style>')

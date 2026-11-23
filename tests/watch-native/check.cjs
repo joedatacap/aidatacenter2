@@ -94,6 +94,7 @@ async function researchChecks(page,origin,label) {
   await page.locator('#peer-picker summary').click();
   await page.getByRole('checkbox',{name:'Select CRWV',exact:true}).check();
   await page.getByRole('checkbox',{name:'Select NBIS',exact:true}).check();
+  await page.locator('#peer-picker summary').click();
   const jsonPromise=page.waitForEvent('download');await page.locator('#export-json').click();
   const jsonDownload=await jsonPromise;const payload=JSON.parse(await fs.readFile(await jsonDownload.path(),'utf8'));
   assert.equal(payload.companies.length,2,'Research JSON follows selected peers');
@@ -145,7 +146,9 @@ async function main() {
   const candidate=MODE==='candidate'?await startCandidate():null;
   const origin=candidate?.origin||LIVE;
   const launch=process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE}:{channel:process.env.WATCH_NATIVE_BROWSER_CHANNEL||'chrome'};
-  const browser=await chromium.launch({...launch,headless:true});
+  let browser;
+  try{browser=await chromium.launch({...launch,headless:true});}
+  catch(error){if(candidate)await new Promise(resolve=>candidate.server.close(resolve));throw error;}
   const summary={mode:MODE,origin,commit:process.env.GITHUB_SHA||null,verified_at:new Date().toISOString(),
     policy:'Native widget output is captured only as intact branded screenshots. No shadow DOM, quote cells, network payloads or series are extracted.',
     visual_review:'Screenshots require visual confirmation of all nine monthly figures and TradingView attribution before publication.',devices:[]};
@@ -177,8 +180,7 @@ async function main() {
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);
         assert(!overflow,'No horizontal page overflow');
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations);
-        const forbidden=diagnostics.csp.filter(item=>!['img-src','img-src-elem'].includes(item.directive));
-        assert.equal(forbidden.length,0,'CSP must allow the native component without broadening unrelated application permissions');
+        assert.equal(diagnostics.csp.length,0,'CSP must allow the native component without broadening unrelated application permissions');
         const research=await researchChecks(page,origin,device.name);
         const assets=await verifyAssets(context.request,origin);
         summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,page_overflow:false,csp_header_present:Boolean(csp),research,assets,diagnostics});
