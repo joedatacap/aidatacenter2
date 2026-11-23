@@ -3,7 +3,7 @@
 .tradingview-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:18px}
 .tradingview-heading h1{font:normal 40px/1.16 Georgia,serif;letter-spacing:-.8px;margin:0 0 12px}
 .tradingview-heading p{font-size:15px;line-height:1.8;color:var(--muted);margin:0;max-width:880px}
-.tradingview-heading p strong{color:var(--ink)}
+.tradingview-heading p strong{color:#214c3b;background:#e1eadb;border-radius:3px;padding:1px 4px;font-variant-numeric:tabular-nums}
 #tradingview-peer-slot{flex-shrink:0}#tradingview-peer-slot .peer-picker>summary{font-size:13px;min-height:42px;background:#fff}#tradingview-peer-slot #peer-count{font-size:12px}#tradingview-peer-slot .peer-panel{right:0;left:auto}
 .tradingview-widget-shell{background:#fff;border:1px solid #d4ddd2;border-radius:8px;padding:11px;min-width:0;max-width:100%;overflow:hidden}
 .tradingview-widget-shell tv-market-data{width:100%;display:block;min-width:0}
@@ -13,22 +13,43 @@
 .tradingview-fallback button{font-size:13px;min-height:42px}
 .tradingview-mobile-guide{display:none}
 .tradingview-coverage-note{font-size:12px;color:var(--muted);line-height:1.8;margin:14px 0}
-.tradingview-size-context{margin-top:25px}
-.tradingview-section-heading{display:flex;gap:20px;align-items:center;justify-content:space-between;margin-bottom:8px}
-.tradingview-section-heading h2{font-size:27px;margin:0}.tradingview-section-heading>span{font-size:12px;color:var(--muted)}
-.tradingview-size-context>p{font-size:13px;color:var(--muted);line-height:1.8;margin:9px 0 16px}
-.tradingview-size-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #d4ddd2;background:#fff;border-radius:7px;overflow:hidden}
-.tradingview-size-list>li{padding:13px 15px;border-bottom:1px solid #e3e9dd;min-width:0}
-.tradingview-size-value{display:flex;gap:8px;align-items:center;flex-wrap:wrap;line-height:1.7;font-size:14px}
-.tradingview-size-value>a,.tradingview-size-value>span:first-child{font-weight:bold;text-decoration-thickness:1px;text-underline-offset:3px;font-size:13px;min-width:42px}
-.tradingview-cap{font-variant-numeric:tabular-nums}
-.tradingview-size-badge{font-size:11px;border-radius:4px;padding:2px 6px;border:1px solid #becfb7;color:#36583f;background:#eef3e7;white-space:nowrap}
-.tradingview-size-badge.unknown{color:#665d50;background:#f6f3ec;border-color:#d5cfc0}.tradingview-size-badge.micro{border-style:dashed}
-.tradingview-company-link{font-size:12px;display:inline-block;line-height:1.7;padding-top:6px;text-decoration:none}
-.tradingview-size-list>li>time{display:block;font-size:12px;color:var(--muted);margin:5px 0}
-.tradingview-size-note{font-size:12px;color:var(--muted);line-height:1.8;margin-top:5px}.tradingview-size-note summary{cursor:pointer;color:var(--accent);min-height:29px}.tradingview-size-note p{font-size:12px;line-height:1.8;margin:7px 0}.tradingview-size-note .evidence-button{font-size:12px}
-.tradingview-size-method{font-size:13px;color:var(--muted);border-bottom:1px solid #dce5d5;padding:14px 0;line-height:1.8}.tradingview-size-method summary{cursor:pointer;color:var(--accent);min-height:32px}.tradingview-size-method p{font-size:13px;line-height:1.8}
+.tradingview-size-context{margin-top:22px}
+.tradingview-section-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 16px}
+.tradingview-section-heading h2{font-size:25px;margin:0}
+.tradingview-section-heading p,.tradingview-size-context>p{font-size:14px;color:var(--muted);line-height:1.5;margin:0}
+.tradingview-size-context>p{margin:4px 0 10px}
+.market-size-frame{border:1px solid #cbd8cb;border-radius:7px;overflow:hidden;background:#fff}
+.market-size-table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse}
+.market-size-table th,.market-size-table td{position:static;min-width:0;padding:5px 14px;line-height:1.45;border:0;border-bottom:1px solid #e0e7db;font-size:14px;letter-spacing:normal;vertical-align:middle;text-align:left}
+.market-size-table thead th{white-space:normal;padding-block:7px;background:#eaf0e6;color:#39534b;font-weight:600;text-transform:none}
+.market-size-table th:first-child{width:52%;min-width:0}
+.market-size-table td:last-child,.market-size-table th:last-child{text-align:right}
+.market-size-table tbody th{background:transparent;font-weight:normal;text-transform:none}
+.market-size-table tr:last-child :is(td,th){border-bottom:0}
+.market-size-table tbody tr:nth-child(even){background:#f8faf5}
+.market-size-table tbody tr:hover,.market-size-table tbody tr:focus-within{background:#edf3e7}
+.tradingview-company-link{display:flex;gap:10px;align-items:baseline;min-width:0;padding:2px 0;text-decoration:none;line-height:1.5}
+.tradingview-company-link strong{min-width:4em;text-decoration:underline;text-underline-offset:3px}
+.tradingview-company-link span{color:var(--ink);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.market-size-table .tradingview-size-attribution{font-variant-numeric:tabular-nums}
+.market-size-table .tradingview-size-attribution a{font-size:14px;font-weight:600;display:inline-block;padding:2px 0}
+.market-size-table .tradingview-size-attribution small{display:block;font-size:12px}
+.tradingview-size-badge{display:inline-block;font-size:12px;font-weight:600;padding:1px 7px;border-radius:4px;line-height:1.55}
+.tradingview-size-badge.large{background:#255046;color:white}
+.tradingview-size-badge.mid{background:#d9e8d6;color:#28493a}
+.tradingview-size-badge.small{background:#f0f3ea;color:#425541;border:1px solid #cfdbc8;padding-block:0}
+.tradingview-size-badge.unavailable{background:#f3eee6;color:#665d50}
+.tradingview-size-method{font-size:14px;color:var(--muted);margin-top:5px;line-height:1.6}
+.tradingview-size-method summary{cursor:pointer;color:var(--accent);padding:5px 0}
+.tradingview-size-method p{margin:6px 0}
 .tradingview-research-links{margin:28px 0}.tradingview-research-links h2{font-size:26px}.tradingview-research-links p{font-size:14px;color:var(--muted)}.tradingview-research-links>div{display:flex;gap:12px;flex-wrap:wrap}.tradingview-research-links a{font-size:14px;border:1px solid #cad7c2;border-radius:5px;background:#fff;padding:11px 16px;text-decoration:none}
-@media(max-width:900px){.tradingview-heading{display:block}.tradingview-heading h1{font-size:35px}#tradingview-peer-slot{margin-top:15px}.tradingview-size-list{grid-template-columns:repeat(2,minmax(0,1fr))}#tradingview-peer-slot .peer-panel{right:auto;left:0}}
-@media(max-width:650px){.tradingview-heading h1{font-size:31px;letter-spacing:-.7px}.tradingview-heading p{font-size:14px}.tradingview-mobile-guide{display:inline}.tradingview-widget-shell{padding:5px}.tradingview-section-heading{display:block}.tradingview-section-heading h2{font-size:25px}.tradingview-section-heading>span{display:block;font-size:12px;margin-top:6px}.tradingview-size-context>p{font-size:13px}.tradingview-size-list>li{padding:11px 10px}.tradingview-size-value{gap:5px 6px;font-size:13px}.tradingview-size-value>a{font-size:13px}.tradingview-size-badge{font-size:11px}.tradingview-size-note{font-size:12px}.tradingview-size-note p{font-size:12px;overflow-wrap:anywhere}.tradingview-company-link{font-size:12px;min-height:32px}.tradingview-size-method p{font-size:13px}#tradingview-peer-slot .peer-panel{max-width:84vw}}
-@media(max-width:360px){.tradingview-size-list{grid-template-columns:minmax(0,1fr)}.tradingview-heading h1{font-size:28px}}
+@media(max-width:900px){.tradingview-heading{display:block}.tradingview-heading h1{font-size:35px}#tradingview-peer-slot{margin-top:15px}#tradingview-peer-slot .peer-panel{right:auto;left:0}}
+@media(max-width:650px){
+  .tradingview-heading h1{font-size:31px;letter-spacing:-.7px}.tradingview-heading p{font-size:14px}.tradingview-mobile-guide{display:inline}.tradingview-widget-shell{padding:5px}
+  .tradingview-section-heading{display:block}.tradingview-section-heading p{margin-top:3px}
+  .market-size-table th,.market-size-table td{padding:4px 8px}.market-size-table thead th{padding-block:7px}
+  .market-size-table th:first-child{width:48%}.market-size-table thead th:nth-child(2){width:17%}
+  .tradingview-company-link{display:block}.tradingview-company-link strong{min-width:0}.tradingview-company-link span{display:block;font-size:12px;line-height:1.25}
+  #tradingview-peer-slot .peer-panel{max-width:84vw}
+}
+@media(max-width:360px){.tradingview-heading h1{font-size:28px}.market-size-table th:first-child{width:43%}}

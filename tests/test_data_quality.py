@@ -161,6 +161,44 @@ def test_null_or_discrepant_cap_never_becomes_zero_or_micro():
     )
 
 
+def test_intraday_size_keeps_session_context_without_clearing_debt_ratio_guards():
+    base = financial_baseline()
+    observed = cap(
+        as_of="2026-11-23", session_status="intraday", time_precision="date",
+        metadata_last_updated="2026-11-20", qualification_label="Share basis unresolved",
+    )
+    result = apply(base, [observed])
+    company = next(c for c in result["companies"] if c["ticker"] == "NBIS")
+    current = company["size_observation"]
+    assert current["session_status"] == "intraday"
+    assert current["time_precision"] == "date"
+    assert current["metadata_last_updated"] == "2026-11-20"
+    assert current["qualification_label"] == "Share basis unresolved"
+    assert current["as_of"] == "2026-11-23"
+    assert company["financing"]["v2"]["debt_market_cap_percent"] is None
+    assert result["reviewed_at"] == base["reviewed_at"]
+    assert result["cutoff_at"] == base["cutoff_at"]
+    unlabelled = apply(base, [cap()])
+    original = next(c for c in unlabelled["companies"] if c["ticker"] == "NBIS")["size_observation"]
+    assert "session_status" not in original
+    assert "qualification_label" not in original
+
+
+@pytest.mark.parametrize("session_status", ["live", "closed", "", None, True, []])
+def test_invalid_capitalization_session_status_is_rejected(session_status):
+    with pytest.raises(ValueError, match="session_status"):
+        apply(financial_baseline(), [cap(session_status=session_status)])
+
+
+def test_capitalization_metadata_date_and_time_precision_are_checked():
+    with pytest.raises(ValueError, match="metadata date"):
+        apply(financial_baseline(), [cap(metadata_last_updated="2026-11-24")])
+    with pytest.raises(ValueError, match="ISO date"):
+        apply(financial_baseline(), [cap(metadata_last_updated="unknown")])
+    with pytest.raises(ValueError, match="date only"):
+        apply(financial_baseline(), [cap(time_precision="second")])
+
+
 @pytest.mark.parametrize(
     "value", [0, -1, True, float("nan"), float("inf"), "not a cap"]
 )

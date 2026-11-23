@@ -9,23 +9,50 @@ function tradingViewCompanies() {
 }
 
 function tradingViewSizeName(company) {
-  const cap = displaySizeObservation(company);
-  if (!cap?.eligible) return 'Size unverified';
-  return {large:'Large',mid:'Medium',small:'Small',micro:'Micro'}[comparisonSize(company)] || 'Size unverified';
+  const band = comparisonSize(company);
+  return {large:'Large', mid:'Mid', small:'Small', micro:'Small'}[band] || 'Unavailable';
+}
+
+function sizeObservationDate(cap) {
+  if (!cap?.as_of) return 'Date unavailable';
+  const date = `<time datetime="${esc(cap.as_of)}">${day(cap.as_of)}</time>`;
+  return cap.session_status === 'intraday' ? date + ' · US intraday' : date;
+}
+
+function marketSizeRow(company, cap, sharedDate) {
+  const size = tradingViewSizeName(company);
+  const source = safeURL(cap?.source_url) || sourceIds(cap).map(id => safeURL(sources.get(id)?.url)).find(Boolean);
+  const amount = cap?.eligible ? money(cap.value) : 'Unavailable';
+  const value = source && cap?.eligible
+    ? `<a href="${esc(source)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(company.ticker)} market cap ${esc(amount)}, source observation">${amount}</a>`
+    : esc(amount);
+  return `<tr data-size-company="${esc(company.id)}" data-size-date="${esc(cap?.as_of)}">
+    <th scope="row"><a data-app class="tradingview-company-link" href="${esc(profile(company))}">
+      <strong>${esc(company.ticker)}</strong><span>${esc(company.name)}</span></a></th>
+    <td><span class="tradingview-size-badge ${size.toLowerCase()}">${size}</span></td>
+    <td class="tradingview-size-attribution">${value}
+      ${sharedDate ? '' : `<small>${sizeObservationDate(cap)}</small>`}
+      ${cap?.qualification_label ? `<small class="tradingview-size-qualification">${esc(cap.qualification_label)}</small>` : ''}
+    </td></tr>`;
 }
 
 function tradingViewSizeContext(companies) {
   if (!companies.length) return '';
-  const dates=[...new Set(companies.map(company=>displaySizeObservation(company)?.as_of).filter(Boolean))];
-  const cards=companies.map(company=>{
-    const cap=displaySizeObservation(company),size=tradingViewSizeName(company),known=size!=='Size unverified';
-    const source=safeURL(cap?.source_url)?{url:cap.source_url}:sourceIds(cap).map(id=>sources.get(id)).find(record=>safeURL(record?.url));
-    const qualification=cap?.qualification_label||(cap?.source_values_disagree?'Provider figures differ':'');
-    const qualificationText=Array.isArray(qualification)?qualification.join(' · '):qualification;
-    const shares=list(cap?.share_sources).map(record=>sizeSourceLink(typeof record==='string'?record:record?.source_url||record?.url,record?.description||'Share-basis disclosure')).join('');
-    return `<li data-size-company="${esc(company.id)}"><div class="tradingview-size-value">${source?'<a href="'+esc(safeURL(source.url))+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(company.ticker)+' capitalization source">'+esc(company.ticker)+'</a>':'<span>'+esc(company.ticker)+'</span>'}${known?'<span class="tradingview-cap">'+money(cap.value)+'</span>':''}${cap?.source_values_disagree?'<span class="tradingview-provider-headline">Provider headline</span>':''}<span class="tradingview-size-badge ${known?esc(comparisonSize(company)):'unknown'}">${esc(size)}</span></div>${qualificationText?'<p class="tradingview-size-qualification">'+esc(qualificationText)+'</p>':''}${cap?.updated?'<div class="tradingview-size-attribution"><time datetime="'+esc(cap.as_of||'')+'">'+day(cap.as_of)+'</time> · '+sizeSourceLink(cap.source_url,'Stock Analysis')+'</div>':dates.length!==1&&cap?.as_of?'<time datetime="'+esc(cap.as_of)+'">'+day(cap.as_of)+'</time>':''}<a data-app class="tradingview-company-link" href="${esc(profile(company))}">Company brief</a>${cap?.updated||!known?'<details class="tradingview-size-note"><summary>'+(known?'Size basis & qualifications':'Why size is unverified')+'</summary><p>Observation '+day(cap?.as_of)+' · '+esc(words(cap?.status||'not_researched'))+'</p><p>'+esc(cap?.share_basis||'Share-count basis not established.')+'</p>'+(cap?.source_excerpt?'<blockquote class="size-source-excerpt">'+esc(cap.source_excerpt)+'</blockquote>':'')+(cap?.caveat?'<p>'+esc(cap.caveat)+'</p>':'')+shares+'</details>':''}</li>`;
-  }).join('');
-  return `<section id="tradingview-size-context" class="tradingview-size-context" aria-labelledby="tradingview-size-title"><div class="tradingview-section-heading"><h2 id="tradingview-size-title">Company size</h2><span>Neocloud Watch research</span></div><p>Provider-reported USD market caps ${dates.length===1?'as of <time datetime="'+esc(dates[0])+'">'+day(dates[0])+'</time>':'retain their individual observation dates'}. These dated size observations are separate from TradingView’s market data and historical financing inputs. Select a ticker for its capitalization source.</p><ul class="tradingview-size-list">${cards}</ul><details class="tradingview-size-method"><summary>Size definitions & dated evidence</summary><p>Large: $10B+; Medium: $2B to below $10B; Small: $300M to below $2B; Micro: below $300M. These are market-cap categories, not the manually selected research groups. Size estimates retain their reported share basis and qualifications. Unresolved size observations stay unverified. An updated size category does not clear a historical debt-ratio blocker or establish diluted capitalization.</p><p>The official widget supplies its own attribution, market timestamps, performance periods and controls. Widget values are not copied into Neocloud Watch CSV or evidence exports.</p></details></section>`;
+  const caps = companies.map(displaySizeObservation);
+  const first = caps[0];
+  const sharedDate = first?.as_of && caps.every(cap => cap?.as_of === first.as_of && cap.session_status === first.session_status);
+  const rows = companies.map((company, index) => marketSizeRow(company, caps[index], sharedDate));
+  return `<section id="tradingview-size-context" class="tradingview-size-context" aria-labelledby="tradingview-size-title">
+    <div class="tradingview-section-heading"><h2 id="tradingview-size-title">Company size</h2>
+      <p id="tradingview-size-date">Stock Analysis · ${sharedDate ? sizeObservationDate(first) : 'Observation dates shown by company'}</p></div>
+    <p id="tradingview-size-basis">Provider-reported market caps. TradingView updates performance separately.</p>
+    <div class="market-size-frame"><table class="market-size-table" aria-labelledby="tradingview-size-title" aria-describedby="tradingview-size-date tradingview-size-basis">
+      <thead><tr><th scope="col">Company</th><th scope="col">Size</th><th scope="col">Market cap (USD)</th></tr></thead>
+      <tbody>${rows.join('')}</tbody></table></div>
+    <details class="tradingview-size-method"><summary>Size thresholds &amp; sources</summary>
+      <p>Small is below $2B, Mid is $2B to below $10B, and Large is $10B or more. Small includes micro-caps below $300M. Unknown values are unavailable.</p>
+      <p>Select a market cap for its source or a company for share-class details and qualifications. Research debt ratios retain their original dates and inputs.</p>
+    </details></section>`;
 }
 
 function tradingViewHero() {

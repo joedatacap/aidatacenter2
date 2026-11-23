@@ -1,6 +1,6 @@
 // Independent expectations from the accepted application snapshot, not widget data.
 const ELIGIBLE_SIZE_STATUSES=new Set(['provider_reported','verified','dated_provider','reconciled']);
-const SIZE_LABELS={large:'Large',mid:'Medium',small:'Small',micro:'Micro',unknown:'Size unverified'};
+const SIZE_LABELS={large:'Large',mid:'Mid',small:'Small',micro:'Small',unknown:'Unavailable'};
 function expectedSize(company){
  const current=company.size_observation;
  if(current){
