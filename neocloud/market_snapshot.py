@@ -11,6 +11,7 @@ from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 import json
+import math
 import os
 from pathlib import Path
 import tempfile
@@ -1045,3 +1046,30 @@ def load_market_snapshot(path=CACHE, *, now=None, registry=None):
         (now - timestamp(result["as_of"])).total_seconds() / 86400
     )
     return result
+
+
+def require_publishable_market(market):
+    """Validate a future release that publishes a locally sourced monthly return."""
+    license_record = market.get('license', {})
+    if market.get('status') not in ('ready', 'partial') or license_record.get('status') != 'public_display_permitted':
+        raise ValueError('Publication held: no verified source cleared for public market data.')
+
+    end = market.get('end_session')
+    window = market.get('windows', {}).get('1m', {})
+    if not end or not window.get('start_session') or window.get('end_session') != end:
+        raise ValueError('Publication held: the default monthly window lacks confirmed endpoints.')
+
+    comparisons = 0
+    for row in market['companies']:
+        monthly = row.get('returns', {}).get('1m', {})
+        if row.get('listing_status') != 'listed' or monthly.get('status') != 'available':
+            continue
+        closes = {p['date']: p['close'] for p in row.get('history', [])}
+        first, last = closes.get(window['start_session']), closes.get(end)
+        if (monthly.get('start_session') != window['start_session'] or monthly.get('end_session') != end
+                or not first or first <= 0 or not last or last <= 0 or monthly.get('value') is None
+                or not math.isclose(monthly['value'], 100 * (last / first - 1), abs_tol=1e-8)):
+            raise ValueError(f"Publication held: {row['ticker']} monthly return disagrees with the cached closes.")
+        comparisons += 1
+    if not comparisons:
+        raise ValueError('Publication held: no verified one-month return for the default focus companies.')

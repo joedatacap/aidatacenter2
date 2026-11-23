@@ -309,13 +309,19 @@ def test_custom_output_also_builds_offline_file_on_first_run(tmp_path, monkeypat
     monkeypatch.setattr(builder, 'ROOT', checkout)
 
     output = tmp_path / 'public'
+    output.mkdir()
+    (output / 'market-data.json').write_text('retired snapshot')
     receipt = builder.build(base='/research/', output=output)
+    assert not (output / 'market-data.json').exists()
+    assert 'id="market-data"' not in (output / 'overview/index.html').read_text()
+    with pytest.raises(ValueError, match='empty'):
+        builder.build(output=output, release=True)
     assert (output / 'overview/index.html').is_file()
     assert Path(receipt['offline']).is_file()
 
 
 def test_publication_checks_the_default_window_against_observed_closes():
-    from scripts.build_neocloud_watch import require_publishable_market
+    from neocloud.market_snapshot import require_publishable_market
 
     monthly = dict(status='available', value=-20, start_session='2026-10-20', end_session='2026-11-20')
     record = dict(ticker='TEST', listing_status='listed', returns={'1m': monthly},

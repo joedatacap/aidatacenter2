@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stock performance preview · Neocloud Watch</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f6f6f0;color:#183632;font:16px/1.5 system-ui,sans-serif}
+header{background:#163a37;color:#f7f9ed}
+header div,main{max-width:1080px;margin:auto}
+header div{padding:15px 24px;display:flex;align-items:center;gap:12px;font-size:14px;letter-spacing:.14em}
+header b{font:28px Georgia,serif;background:#e1e8ac;color:#143931;padding:0 8px;border-radius:3px}
+main{padding:32px 24px 40px}
+h1,h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.035em;line-height:1.1;margin:0}
+h1{font-size:clamp(34px,5vw,54px)}h2{font-size:26px}
+p{color:#4b625c;margin:10px 0 16px}
+.widget{background:white;border:1px solid #d4ddd2;border-radius:9px;padding:12px;min-width:0}
+.widget a,li a{color:#176450}
+section+section{margin-top:26px}
+ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #d4ddd2;background:#fff;border-radius:8px}
+li{padding:10px 12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #e8ebe3;font-size:14px}
+li a{font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
+li span{font-variant-numeric:tabular-nums}
+small{font-size:12px;border-radius:4px;padding:1px 6px;border:1px solid #bacbb8;color:#36583f;background:#edf2e6}
+.mobile-guide{display:none}
+small.unknown{color:#5b5650;background:#f6f3ed;border-color:#d5cfc0}
+@media(max-width:690px){.mobile-guide{display:inline}main{padding:22px 12px}header div{padding:12px}ul{grid-template-columns:repeat(2,minmax(0,1fr))}.widget{padding:5px}}
+@media(max-width:420px){li{gap:4px;padding:8px 6px}}
+</style>
+</head>
+<body>
+<header><div><b aria-hidden="true">N</b> NEOCLOUD WATCH</div></header>
+<main>
+<section aria-labelledby="performance">
+<h1 id="performance">One-month stock performance</h1>
+<p id="guide">Compare the nine focus companies in TradingView’s <strong>1M</strong> column. <span class="mobile-guide">Swipe the table sideways to see more periods.</span></p>
+<div class="widget" id="widget-shell">
+<p id="unavailable" role="status" hidden>TradingView could not load. Check your connection, then reload this preview.</p>
+<tv-market-data symbol-sectors='[{"sectionName":"Focus companies","symbols":["NASDAQ:CRWV","NASDAQ:NBIS","NASDAQ:IREN","NASDAQ:APLD","NASDAQ:HUT","NASDAQ:WULF","NASDAQ:WYFI","NASDAQ:SHAZ","NASDAQ:AGPU"]}]' view="performance" style="width:100%;display:block"></tv-market-data>
+<script type="module" src="https://widgets.tradingview-widget.com/w/en/tv-market-data.js" onerror="document.getElementById('unavailable').hidden=false"></script>
+<noscript><p>Enable JavaScript to display the TradingView widget.</p></noscript>
+</div>
+</section>
+<section aria-labelledby="size"><h2 id="size">Company size</h2>
+<p>Neocloud Watch research · USD market caps as of <time datetime="2026-11-13">November 13, 2026</time>. Select a ticker for its capitalization source.</p>
+<ul><li><a href="https://stockanalysis.com/stocks/crwv/market-cap/" aria-label="CRWV capitalization source">CRWV</a> <span>$29.55B</span> <small class="large">Large</small></li>
+<li><a href="https://stockanalysis.com/stocks/nbis/market-cap/" aria-label="NBIS capitalization source">NBIS</a> <span></span> <small class="unknown">Size unverified</small></li>
+<li><a href="https://stockanalysis.com/stocks/iren/market-cap/" aria-label="IREN capitalization source">IREN</a> <span>$7.71B</span> <small class="mid">Medium</small></li>
+<li><a href="https://stockanalysis.com/stocks/apld/market-cap/" aria-label="APLD capitalization source">APLD</a> <span>$4.83B</span> <small class="mid">Medium</small></li>
+<li><a href="https://stockanalysis.com/stocks/hut/market-cap/" aria-label="HUT capitalization source">HUT</a> <span>$6.91B</span> <small class="mid">Medium</small></li>
+<li><a href="https://stockanalysis.com/stocks/wulf/market-cap/" aria-label="WULF capitalization source">WULF</a> <span>$6.33B</span> <small class="mid">Medium</small></li>
+<li><a href="https://stockanalysis.com/stocks/wyfi/market-cap/" aria-label="WYFI capitalization source">WYFI</a> <span>$427.06M</span> <small class="small">Small</small></li>
+<li><a href="https://stockanalysis.com/stocks/shaz/market-cap/" aria-label="SHAZ capitalization source">SHAZ</a> <span></span> <small class="unknown">Size unverified</small></li>
+<li><a href="https://stockanalysis.com/stocks/agpu/market-cap/" aria-label="AGPU capitalization source">AGPU</a> <span></span> <small class="unknown">Size unverified</small></li></ul>
+</section>
+</main>
+</body>
+</html>

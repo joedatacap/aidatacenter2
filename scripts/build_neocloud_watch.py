@@ -5,15 +5,14 @@ No public backend, credentials, quote API or production deployment is involved.
 from __future__ import annotations
 import argparse
 import json
-import math
 from pathlib import Path
 import re
 import shutil
+import tempfile
 from urllib.parse import urlparse
 from neocloud.directory import build_directory
 from neocloud.website_v2 import build_website_v2
 from neocloud.watch import build_watch
-from neocloud.market_snapshot import load_market_snapshot
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -39,44 +38,21 @@ def embedded_json(element_id, payload):
     return f'<script id="{element_id}" type="application/json">{serialized}</script>'
 
 
-def require_publishable_market(market):
-    """A preview can display coverage gaps. A release needs real default-window data."""
-    license_record = market.get('license', {})
-    if market.get('status') not in ('ready', 'partial') or license_record.get('status') != 'public_display_permitted':
-        raise ValueError('Publication held: no verified source cleared for public market data.')
-
-    end = market.get('end_session')
-    window = market.get('windows', {}).get('1m', {})
-    if not end or not window.get('start_session') or window.get('end_session') != end:
-        raise ValueError('Publication held: the default monthly window lacks confirmed endpoints.')
-
-    comparisons = 0
-    for row in market['companies']:
-        monthly = row.get('returns', {}).get('1m', {})
-        if row.get('listing_status') != 'listed' or monthly.get('status') != 'available':
-            continue
-        closes = {p['date']: p['close'] for p in row.get('history', [])}
-        first, last = closes.get(window['start_session']), closes.get(end)
-        if (monthly.get('start_session') != window['start_session'] or monthly.get('end_session') != end
-                or not first or first <= 0 or not last or last <= 0 or monthly.get('value') is None
-                or not math.isclose(monthly['value'], 100 * (last / first - 1), abs_tol=1e-8)):
-            raise ValueError(f"Publication held: {row['ticker']} monthly return disagrees with the cached closes.")
-        comparisons += 1
-    if not comparisons:
-        raise ValueError('Publication held: no verified one-month return for the default focus companies.')
-
-
 def build(*,base='/',output=None,release=False):
     base=base_path(base)
     source=ROOT/'watch-preview'
+    if release and output is None:
+        (ROOT / 'work').mkdir(exist_ok=True)
+        output = tempfile.mkdtemp(prefix='watch-release-', dir=ROOT / 'work')
     target=Path(output) if output else ROOT/'work/neocloud-watch-site'
+    if release and target.exists() and any(target.iterdir()):
+        raise ValueError('Release output must be empty. Choose a fresh staging directory.')
     target.mkdir(parents=True,exist_ok=True)
+    # Remove the retired generated snapshot when updating a local preview in place.
+    (target / 'market-data.json').unlink(missing_ok=True)
     data=load_snapshot()
-    market = load_market_snapshot(registry=data['companies'])
-    if release:
-        require_publishable_market(market)
     html=(source/'index.html').read_text()
-    embed = embedded_json('watch-data', data) + embedded_json('market-data', market)
+    embed = embedded_json('watch-data', data)
     html=html.replace('</body>',embed+'</body>')
     hosted=html.replace('__WATCH_BASE__',base)
     hosted=hosted.replace('href="./watch.css"',f'href="{base}watch.css"').replace('src="./watch.js"',f'src="{base}watch.js"')
@@ -86,18 +62,17 @@ def build(*,base='/',output=None,release=False):
     # The hosted and standalone editions share the same CSS and JS.
     # Keep chart functions inside the app closure to reuse evidence and URL helpers.
     js = (source/'watch.js').read_text()
-    for component in ('overview-charts', 'stock-markets'):
+    for component in ('overview-charts', 'tradingview'):
         marker = f'/* @include {component}.js */'
         if js.count(marker) != 1:
             raise ValueError(f'Expected one include for {component} in watch.js')
         js = js.replace(marker, (source/f'{component}.js').read_text())
-    css = '\n'.join((source/f'{name}.css').read_text() for name in ('watch', 'overview-charts', 'stock-markets'))
+    css = '\n'.join((source/f'{name}.css').read_text() for name in ('watch', 'overview-charts', 'tradingview'))
     (target/'watch.js').write_text(js)
     (target/'watch.css').write_text(css)
     shutil.copyfile(source/'audit.html',target/'audit.html')
     (target/'data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
-    (target/'market-data.json').write_text(json.dumps(market,ensure_ascii=False,indent=2)+'\n')
-    (target/'_headers').write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'\n")
+    (target/'_headers').write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Content-Security-Policy: default-src 'none'; script-src 'self' https://widgets.tradingview-widget.com; frame-src https://widgets.tradingview-widget.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://s3-symbol-logo.tradingview.com; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'\n")
     # Every route is a real static directory; no host-specific SPA rewrite is needed.
     offline=html.replace('__WATCH_BASE__','./').replace('name="watch-offline" content="false"','name="watch-offline" content="true"')
     offline=offline.replace('<link rel="stylesheet" href="./watch.css">','<style>'+css+'</style>')
@@ -116,7 +91,7 @@ def build(*,base='/',output=None,release=False):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-path',default='/');parser.add_argument('--output')
-    parser.add_argument('--release', action='store_true', help='Require a verified, publicly displayable one-month comparison before packaging.')
+    parser.add_argument('--release', action='store_true', help='Stage the public widget edition into an empty output directory.')
     args=parser.parse_args()
     try:
         receipt = build(base=args.base_path, output=args.output, release=args.release)

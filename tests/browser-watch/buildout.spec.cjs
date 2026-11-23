@@ -1,4 +1,4 @@
-const {test,expect}=require('@playwright/test');
+const {test,expect}=require('./support.cjs');
 
 const cases=[
  {id:'iren',label:'Promised versus revised delivery',summary:'$4B ARR target',original:'By December 31, 2026',originalDate:'2026-08-27',completion:'2026-12-31',revision:'January 2027, may extend through February 2027',revisionDate:'2026-11-05',classification:'revised'},
