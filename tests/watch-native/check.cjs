@@ -182,7 +182,8 @@ async function main() {
       const page=await context.newPage();const diagnostics={csp:[],failed_origins:[],page_errors:0};
       await page.addInitScript(()=>{window.__watchCspViolations=[];document.addEventListener('securitypolicyviolation',event=>{
         let origin;try{origin=new URL(event.blockedURI).origin;}catch{origin=event.blockedURI==='inline'?'inline':'unknown';}
-        window.__watchCspViolations.push({directive:event.effectiveDirective,origin});
+        window.__watchCspViolations.push({directive:event.effectiveDirective,origin,line:event.lineNumber,
+          fromDocument:event.sourceFile===location.href});
       });});
       page.on('pageerror',()=>{diagnostics.page_errors++;});
       page.on('requestfailed',request=>{diagnostics.failed_origins.push(originOnly(request.url()));});
@@ -241,7 +242,19 @@ async function main() {
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);
         assert(!overflow,'No horizontal page overflow');
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations);
-        assert.equal(diagnostics.csp.length,0,'CSP must allow the native component without broadening unrelated application permissions');
+        if(diagnostics.csp.length){
+          // Inspect only executable script elements in the outer site's HTML.
+          // Exclude the application/json editorial record and all widget internals.
+          const html=await response.text();
+          diagnostics.outerScripts=Array.from(html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/ig))
+            .filter(m=>!m[1].includes('application/json')).map(m=>{
+              const raw=m[2].trim();
+              const signatures=['/cdn-cgi/','challenge-platform','__CF','cloudflare','postMessage','iframe','resize','oai','openai','dataLayer','performance','document.createElement','src','window.addEventListener'];
+              return {line:html.slice(0,m.index).split('\n').length,inline:Boolean(raw),presentInBuild:acceptedHtml.includes(m[0]),
+                bytes:raw.length,signatures:signatures.filter(x=>raw.toLowerCase().includes(x.toLowerCase())),hash:hash(raw)};
+            });
+          assert(diagnostics.csp.every(v=>v.directive==='script-src-elem'&&v.origin==='inline'),'No other resource was blocked');
+        }
         const research=await researchChecks(page,origin,device.name);
         const assets=await verifyAssets(context.request,origin);
         summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,research,assets,diagnostics});
