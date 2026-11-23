@@ -7,14 +7,31 @@ import argparse
 import json
 from pathlib import Path
 import re
-import shutil
 import tempfile
 from urllib.parse import urlparse
 from neocloud.directory import build_directory
 from neocloud.website_v2 import build_website_v2
 from neocloud.watch import build_watch
+from neocloud.data_quality import enrich_data_quality, require_complete_data_quality
 
 ROOT=Path(__file__).resolve().parents[1]
+
+# Sites static hosting does not apply _headers. A document policy also works
+# there. frame-ancestors is honored only when delivered as an HTTP header.
+DOCUMENT_CSP = (
+    "default-src 'none'; script-src 'self' https://widgets.tradingview-widget.com; "
+    "frame-src https://widgets.tradingview-widget.com; style-src 'self' 'unsafe-inline'; "
+    "img-src 'self' data: https://s3-symbol-logo.tradingview.com; connect-src 'self'; "
+    "base-uri 'none'; form-action 'none'; object-src 'none'"
+)
+
+
+def hosted_document(html):
+    charset = '<meta charset="utf-8">'
+    if html.count(charset) != 1:
+        raise ValueError('Expected a single UTF-8 declaration before hosted resources')
+    return html.replace(charset, charset + '\n<meta http-equiv="Content-Security-Policy" content="' + DOCUMENT_CSP + '">')
+
 
 
 def load_snapshot():
@@ -23,7 +40,12 @@ def load_snapshot():
     files=[json.loads(path.read_text()) for path in sorted((ROOT/'neocloud/data').glob('watch_*.json')) if path.name not in ('watch_import_audit.json',)]
     audit_path=ROOT/'neocloud/data/watch_import_audit.json'
     audit=json.loads(audit_path.read_text()) if audit_path.exists() else None
-    return build_watch(website,files,import_audit=audit)
+    baseline=build_watch(website,files,import_audit=audit)
+    sizes_path=ROOT/'neocloud/data/quality_sizes.json'
+    reviews_path=ROOT/'neocloud/data/quality_reviews.json'
+    sizes=json.loads(sizes_path.read_text()) if sizes_path.exists() else None
+    reviews=json.loads(reviews_path.read_text()) if reviews_path.exists() else None
+    return enrich_data_quality(baseline,sizes,reviews)
 
 
 def base_path(value):
@@ -51,10 +73,12 @@ def build(*,base='/',output=None,release=False):
     # Remove the retired generated snapshot when updating a local preview in place.
     (target / 'market-data.json').unlink(missing_ok=True)
     data=load_snapshot()
+    if release:
+        require_complete_data_quality(data)
     html=(source/'index.html').read_text()
     embed = embedded_json('watch-data', data)
     html=html.replace('</body>',embed+'</body>')
-    hosted=html.replace('__WATCH_BASE__',base)
+    hosted=hosted_document(html).replace('__WATCH_BASE__',base)
     hosted=hosted.replace('href="./watch.css"',f'href="{base}watch.css"').replace('src="./watch.js"',f'src="{base}watch.js"')
     routes=['','overview','markets','financing','earnings','buildout']+['companies/'+c['id'] for c in data['companies']]
     for route in routes:
@@ -70,15 +94,18 @@ def build(*,base='/',output=None,release=False):
     css = '\n'.join((source/f'{name}.css').read_text() for name in ('watch', 'overview-charts', 'tradingview'))
     (target/'watch.js').write_text(js)
     (target/'watch.css').write_text(css)
-    shutil.copyfile(source/'audit.html',target/'audit.html')
+    audit_html = (source/'audit.html').read_text()
+    (target/'audit.html').write_text(hosted_document(audit_html))
     (target/'data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
-    (target/'_headers').write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  X-Frame-Options: DENY\n  Content-Security-Policy: default-src 'none'; script-src 'self' https://widgets.tradingview-widget.com; frame-src https://widgets.tradingview-widget.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://s3-symbol-logo.tradingview.com; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'\n")
+    (target/'_headers').write_text(
+        "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n"
+        "  X-Frame-Options: DENY\n  Content-Security-Policy: " + DOCUMENT_CSP + "; frame-ancestors 'none'\n"
+    )
     # Every route is a real static directory; no host-specific SPA rewrite is needed.
     offline=html.replace('__WATCH_BASE__','./').replace('name="watch-offline" content="false"','name="watch-offline" content="true"')
     offline=offline.replace('<link rel="stylesheet" href="./watch.css">','<style>'+css+'</style>')
     js=js.replace('</script','<\\/script')
     offline=re.sub(r'<script src="\./watch\.js"[^>]*></script>','',offline)
-    audit_html = (source/'audit.html').read_text()
     audit_body = audit_html.split('<main>', 1)[1].split('</main>', 1)[0]
     audit_template = '<template id="offline-audit">'+audit_body+'</template>'
     offline=offline.replace('</body>',audit_template+'<script>'+js+'</script></body>')

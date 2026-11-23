@@ -2,6 +2,16 @@
 
 The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). GitHub `joedatacap/aidatacenter2` on `main` is the application source. ChatGPT Sites stores the generated static publication in its own source repository on `main`. A GitHub merge runs tests and packaging dry runs. Publication is a separate operation.
 
+## November 23 data-quality update
+
+The historical financial record retains its November 17 cutoff. The separately dated size observations and disclosure checks are in [quality_sizes.json](../neocloud/data/quality_sizes.json) and [quality_reviews.json](../neocloud/data/quality_reviews.json). On the website, open a badge for its quoted source and share-count basis, or a company brief for disclosure events, channels checked and gaps.
+
+For future updates, review issuer releases and filings from the previous disclosure check through an explicit timestamp. Use filing acceptance timestamps at the cutoff boundary. Review material filings themselves, including counterparty filings where relevant. Distinguish the filing date from its underlying transaction date. The nine SEC submissions indexes for this release were retrieved once on a network with access to EDGAR. [Index check](https://github.com/joedatacap/aidatacenter2/actions/runs/45117057194)
+
+Keep provider-reported size separate from validated ratio denominators. Check source and observation dates, genuine outstanding shares, class economics, recent issuance, splits and outstanding warrants. Disclose differences before assigning a band. Where alternative plausible figures cross a boundary, retain an unresolved band pending adequate evidence. Keep the three historical ratio guards and all prior financial records unless a separate review supports changing them.
+
+The generated hosted documents now have a content security policy immediately after the character encoding declaration. Static Sites exposes a directory setting and did not serve the version 6 `_headers` policy as an HTTP header. The release retains the header file for compatible static servers. Document policy restricts scripts and frames to the official widget and the application as specified, and permits the widget logo origin for images. A browser probe on the served audit page checks that an in-memory fetch violates `connect-src`. Frame embedding restrictions such as `frame-ancestors` require an actual response header. Host support for custom headers or a separately reviewed same-site Worker response would be needed to enforce those directives. This update retains static hosting.
+
 ## November 23, 2026 · public version 6
 
 | Release record | Value |

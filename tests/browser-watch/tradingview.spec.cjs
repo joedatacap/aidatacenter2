@@ -1,5 +1,6 @@
 const {test,expect}=require('./support.cjs');
 const fs=require('node:fs');
+const {expectedSize}=require('./size-contract.cjs');
 
 // These checks exercise our host, permissions boundary, research state and
 // fallback only. The support fixture blocks nonlocal traffic. Native delivery
@@ -32,8 +33,11 @@ test('blocked widget loading exposes retry and independent dated research withou
  await expect(page.locator('#tradingview-fallback')).toContainText(/load|unavailable|blocked|network/i);
  await expect(page.locator('#error')).toBeHidden();
  await expect(page.locator('#tradingview-size-context')).toContainText(/dated|2026-11-13/i);
- await expect(page.locator('#tradingview-size-context [data-size-company=agpu]')).toContainText(/unverified|unresolved/i);
- await expect(page.locator('#tradingview-size-context [data-size-company=nbis]')).toContainText(/unverified|unresolved/i);
+ const accepted=JSON.parse(await page.locator('#watch-data').textContent());
+ for(const id of ['agpu','nbis']){
+  const company=accepted.companies.find(c=>c.id===id),size=expectedSize(company);
+  await expect(page.locator('#tradingview-size-context [data-size-company='+id+'] .tradingview-size-badge')).toHaveText(size.label);
+ }
  await expect(page.locator('.overview-revenue-card')).toHaveCount(2);
  await page.locator('[data-retry-tradingview]').click();
  await expect(page.locator('#tradingview-fallback')).toBeVisible();

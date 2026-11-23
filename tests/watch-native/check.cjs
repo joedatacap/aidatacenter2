@@ -6,6 +6,7 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const {chromium} = require('playwright');
+const {expectedSize}=require('../browser-watch/size-contract.cjs');
 
 const ROOT = path.resolve(__dirname, '../..');
 const SITE = path.join(ROOT, 'work/neocloud-watch-site');
@@ -72,7 +73,7 @@ async function swipeMonthly(page) {
   // Prior native-widget proof established this small scroll reveals 1M beside
   // the widget's own pinned company column. Screenshots retain its branding.
   await swipe(Math.min(345,viewport.width-30),190);
-  await swipe(Math.min(345,viewport.width-30),260);
+  await swipe(Math.min(345,viewport.width-30),230);
   await touch.detach();
 }
 
@@ -159,6 +160,7 @@ async function main() {
   let browser;
   try{browser=await chromium.launch({...launch,headless:true});}
   catch(error){if(candidate)await new Promise(resolve=>candidate.server.close(resolve));throw error;}
+  const acceptedData=JSON.parse(await fs.readFile(path.join(SITE,'data.json'),'utf8'));
   const summary={mode:MODE,origin,commit:process.env.GITHUB_SHA||null,verified_at:new Date().toISOString(),
     policy:'Native widget output is captured only as intact branded screenshots. No shadow DOM, quote cells, network payloads or series are extracted.',
     visual_review:'Screenshots require visual confirmation of all nine monthly figures and TradingView attribution before publication.',devices:[]};
@@ -178,6 +180,29 @@ async function main() {
         assert(response?.ok(),'Homepage navigation succeeds');
         const csp=response.headers()['content-security-policy']||null;
         if(MODE==='candidate')assert(csp,'Candidate server applies the generated CSP');
+        const policySelector='meta[http-equiv="Content-Security-Policy"]';
+        const metaPolicy=await page.locator(policySelector).getAttribute('content');
+        assert(metaPolicy?.includes("default-src 'none'")&&metaPolicy.includes("connect-src 'self'"));
+        const probe=await context.newPage();
+        let blocked;
+        try {
+          await probe.goto(origin+'/audit.html');
+          assert.equal(await probe.locator(policySelector).getAttribute('content'),metaPolicy);
+          // This in-memory resource works without networking. A matching violation
+          // proves that the browser enforced connect-src on a served document.
+          blocked=await probe.evaluate(async()=>{
+            const violation=new Promise(resolve=>{
+              document.addEventListener('securitypolicyviolation',event=>{
+                if(event.effectiveDirective==='connect-src'&&event.blockedURI==='data')resolve(true);
+              });
+              setTimeout(()=>resolve(false),1500);
+            });
+            try {await fetch('data:text/plain,policy-check');return false;}
+            catch {return violation;}
+          });
+          assert(blocked,'Served document enforces connect-src in the browser');
+        } finally {await probe.close();}
+
         await page.getByRole('heading',{name:'Neocloud stock performance',exact:true}).waitFor({timeout:20000});
         const widget=page.locator('tv-market-data');await widget.waitFor({state:'visible',timeout:20000});
         const configured=JSON.parse(await widget.getAttribute('symbol-sectors'));
@@ -185,7 +210,18 @@ async function main() {
         assert.equal(await widget.getAttribute('view'),'performance');
         const sizeCards=page.locator('[data-size-company]');
         assert.deepEqual(await sizeCards.evaluateAll(cards=>cards.map(card=>card.dataset.sizeCompany)),SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
-        assert.equal(await sizeCards.filter({hasText:'Size unverified'}).count(),3);
+        for(const symbol of SYMBOLS){
+          const id=symbol.split(':')[1].toLowerCase(),company=acceptedData.companies.find(c=>c.id===id);
+          assert(company,'Accepted application data contains focus company '+id);
+          const expected=expectedSize(company),card=page.locator('[data-size-company="'+id+'"]');
+          assert.equal((await card.locator('.tradingview-size-badge').innerText()).trim(),expected.label,'Size classification matches accepted app data: '+id);
+          if(expected.observation){
+            assert((await card.innerText()).includes(expected.date),'Size card shows the actual observation date: '+id);
+            assert.equal(await card.locator('.tradingview-size-attribution a').getAttribute('href'),expected.observation.source_url,'Size attribution links to the accepted source: '+id);
+            if(expected.observation.source_excerpt)assert.equal((await card.locator('.size-source-excerpt').textContent()).trim(),expected.observation.source_excerpt.trim(),'Editorial source excerpt matches accepted app data: '+id);
+            if(expected.observation.qualification_label)assert((await card.innerText()).includes(expected.observation.qualification_label),'Size qualification remains visible: '+id);
+          }
+        }
         await page.waitForFunction(()=>customElements.get('tv-market-data')!==undefined,null,{timeout:30000});
         await page.waitForTimeout(13000);
         await screenshotTop(page,device.name+'-homepage');
@@ -196,7 +232,7 @@ async function main() {
         assert.equal(diagnostics.csp.length,0,'CSP must allow the native component without broadening unrelated application permissions');
         const research=await researchChecks(page,origin,device.name);
         const assets=await verifyAssets(context.request,origin);
-        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,page_overflow:false,csp_header_present:Boolean(csp),research,assets,diagnostics});
+        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,research,assets,diagnostics});
       } catch(error){
         await page.screenshot({path:path.join(OUTPUT,device.name+'-failure.png'),fullPage:true}).catch(()=>{});
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations||[]).catch(()=>[]);

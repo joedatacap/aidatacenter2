@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - feat/release-tradingview
+      - feat/watch-data-nov23
       - qa/watch-native-live
       - qa/watch-native-live-*
   workflow_dispatch:

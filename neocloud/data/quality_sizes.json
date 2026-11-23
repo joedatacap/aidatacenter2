@@ -1,0 +1,175 @@
+{
+  "reviewed_at": "2026-11-23",
+  "observations": [
+    {
+      "ticker": "CRWV",
+      "as_of": "2026-11-20",
+      "value_usd": 21970000000,
+      "source_url": "https://stockanalysis.com/stocks/crwv/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$21.97 billion as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+          "description": "465,847,732 Class A and 90,277,992 Class B shares were outstanding on October 30. No Class C shares were outstanding."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+    },
+    {
+      "ticker": "NBIS",
+      "as_of": "2026-11-20",
+      "value_usd": 23820000000,
+      "source_url": "https://stockanalysis.com/stocks/nbis/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$23.82 billion as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-1.htm",
+          "description": "At September 30 the issuer reported 259,597,352 Class A and 33,305,053 Class B shares outstanding. The total excludes 29,138,539 Class A treasury shares."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+          "description": "Class A and B participate equally in dividends and distributions. Their voting rights differ."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "Both economically participating classes support a Large classification. Changes after September 30 have not been fully reconciled through November 20. The historical debt ratio remains withheld."
+    },
+    {
+      "ticker": "IREN",
+      "as_of": "2026-11-20",
+      "value_usd": 5020000000,
+      "source_url": "https://stockanalysis.com/stocks/iren/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$5.02 billion as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/R1.htm",
+          "description": "The October 30 cover-page count was 424,357,381 ordinary shares, up from 406,865,943 on September 30."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+    },
+    {
+      "ticker": "APLD",
+      "as_of": "2026-11-20",
+      "value_usd": 3470000000,
+      "source_url": "https://stockanalysis.com/stocks/apld/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$3.47 billion as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+          "description": "The October 6 cover-page count was 302,387,140 common shares. Preferred stock, warrants and shares potentially issuable on conversion are separate."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+    },
+    {
+      "ticker": "HUT",
+      "as_of": "2026-11-20",
+      "value_usd": 5520000000,
+      "source_url": "https://stockanalysis.com/stocks/hut/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$5.52 billion as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
+          "description": "The issuer reported 120,037,556 common shares outstanding on November 2. The capitalization observation uses US dollars."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+    },
+    {
+      "ticker": "WULF",
+      "as_of": "2026-11-20",
+      "value_usd": 4940000000,
+      "source_url": "https://stockanalysis.com/stocks/wulf/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$4.94 billion as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+          "description": "The November 2 cover-page count was 501,521,605 common shares outstanding. Potential warrant and convertible dilution is separate."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+    },
+    {
+      "ticker": "WYFI",
+      "as_of": "2026-11-20",
+      "value_usd": 287580000,
+      "source_url": "https://stockanalysis.com/stocks/wyfi/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$287.58 million as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026117728/ea0310427-10q_whitefiber.htm",
+          "description": "The issuer reported 45,287,751 ordinary shares outstanding on November 6."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The November 13 observation was $427.06M (Small). The November 20 figure is about 4% below the $300M threshold. The latest filing count is from November 6."
+    },
+    {
+      "ticker": "SHAZ",
+      "as_of": "2026-11-20",
+      "value_usd": 647590000,
+      "source_url": "https://stockanalysis.com/stocks/shaz/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$647.59 million as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226052382/form10-q.htm",
+          "description": "On November 10, 38,341,987 Class A and 136,341 Class B shares were outstanding. All 6,374,823 June prefunded warrants were exercised by September 30. The count also follows issuance of 8,430,784 Class A shares on conversion of earlier notes."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226014068/form10-k.htm",
+          "description": "Class A and B have identical economic rights and different voting rights."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/2068385/000182912625010276/sharonaiholdings_8k.htm",
+          "description": "The 1-for-50 reverse split took effect on December 24, 2025. The 2026 counts already reflect it."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "Both common classes support a Small classification. Exercised warrants are already reflected in outstanding shares. Subsequent changes through November 20 have not been fully reconciled. The historical debt ratio remains withheld."
+    },
+    {
+      "ticker": "AGPU",
+      "as_of": "2026-11-20",
+      "value_usd": 66190000,
+      "source_url": "https://stockanalysis.com/stocks/agpu/market-cap/",
+      "source_date": "2026-11-20",
+      "source_excerpt": "$66.19 million as of November 20, 2026",
+      "share_sources": [
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
+          "description": "The November 13 cover-page count was 13,650,314 common shares, up from 13,634,097 on September 30. Note 11 separately reports 7,736,379 exercisable prefunded warrants at quarter end."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326005556/agpu20260630_10q.htm",
+          "description": "The September 2025 1-for-15 reverse split is already reflected in the 2026 share counts."
+        }
+      ],
+      "status": "provider_reported",
+      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The provider headline is $66.19M; its November 20 historical row is $77.90M. The two figures imply different share counts. Both fall below $300M. The debt ratio remains withheld until the share count and warrant treatment can be reconciled.",
+      "qualification_label": "Provider figures differ"
+    }
+  ]
+}
