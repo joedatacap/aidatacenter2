@@ -2,6 +2,12 @@
 
 Reviewed **2026-11-22 UTC** for the stock-performance update. This is a record of the sources and access actually checked, not a claim that every provider is unavailable or that a legal right follows merely from API access.
 
+## November 23 follow-up for dated size badges
+
+The nine company briefs and badges cite one short, unchanged November 20 capitalization excerpt per focus company from its public Stock Analysis market-cap page. Each observation records the date, the linked source, its provider-reported basis and a separate link to a primary filing about outstanding shares. The provider’s November 10 terms expressly allow unmodified, clearly attributed snippets and except AI agents that follow robots.txt from its automated-access restriction. The individual public market-cap pages used here are outside the disallowed paths. The research downloads carry the new size category, date and source link. They omit the new vendor dollar amounts and excerpts. This is a one-time editorial citation in company research. No feed, stock-history download or refresh automation is authorized by this check. [Terms of use](https://stockanalysis.com/terms-of-use/) · [Robots rules](https://stockanalysis.com/robots.txt) · [API availability](https://stockanalysis.com/help/faq/api-access/)
+
+Axe Compute's November 20 headline and dated historical row disagree. Both support the same Micro category. The site distinguishes the headline from the alternative, shows the November 13 filing count and September 30 prefunded warrants, and continues to withhold the historical debt-to-market-cap ratio. WhiteFiber crossed the $300M threshold between the two observations. [Axe Compute capitalization](https://stockanalysis.com/stocks/agpu/market-cap/) · [WhiteFiber capitalization](https://stockanalysis.com/stocks/wyfi/market-cap/)
+
 ## Outcome
 
 **No usable, authorized public price-history snapshot was acquired.** Do not populate the public return chart from search snippets, fixture prices, existing manually reviewed market caps, or an unlicensed CSV. Software readiness and market-data readiness are separate release gates.

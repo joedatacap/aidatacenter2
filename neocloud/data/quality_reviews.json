@@ -1,0 +1,292 @@
+{
+  "reviewed_at": "2026-11-23",
+  "window_start": "2026-11-17T18:35:45.406835Z",
+  "reviews": [
+    {
+      "ticker": "CRWV",
+      "status": "no_material_update",
+      "checked_at": "2026-11-23T05:19:39.774872+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001769628.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. Post-cutoff forms: 2026-11-20 144 (×7). Form 144 notices describe proposed holder sales. They do not establish completed sales or a new company issuance."
+        },
+        {
+          "url": "https://investors.coreweave.com/news/",
+          "result": "Reviewed issuer announcements, including the November 19 industry survey. No new financial results or material financing or delivery milestone identified."
+        },
+        {
+          "url": "https://investors.coreweave.com/events-and-presentations/",
+          "result": "Checked the issuer event calendar for an announced earnings date."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources."
+      ]
+    },
+    {
+      "ticker": "NBIS",
+      "status": "source_access_incomplete",
+      "checked_at": "2026-11-23T05:19:40.502894+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001513845.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. Post-cutoff forms: 2026-11-20 4."
+        },
+        {
+          "url": "https://nebius.com/newsroom",
+          "result": "The latest financial release listed was November 12. The November 18 startup awards announcement does not establish new recognized revenue."
+        },
+        {
+          "url": "https://nebius.com/investor-events",
+          "result": "No upcoming earnings event was listed."
+        },
+        {
+          "url": "https://maya.tase.co.il/he/reports/1782055",
+          "result": "Mega Or exchange notice dated November 18, indexed as agreements covering approximately 135 MW of IT capacity. The exchange landing page did not expose a contract naming Nebius."
+        },
+        {
+          "url": "https://www.calcalistech.com/ctechnews/article/zrt5oaw9s",
+          "result": "Secondary coverage identifies Nebius as the customer and describes two future Israeli sites. Kept as an attribution gap pending primary confirmation."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1513845/000151384526000156/form4.xml",
+          "result": "Yael Almog reported a November 18 grant of 10,795 restricted share units, vesting quarterly beginning January 4, 2027. The grant is not a present issuance of 10,795 outstanding shares."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources.",
+        "Secondary reporting names Nebius in a proposed 134 MW Israeli buildout. A primary disclosure naming the customer was not located. No capacity was added to Nebius operating or accepted totals."
+      ]
+    },
+    {
+      "ticker": "IREN",
+      "status": "no_material_update",
+      "checked_at": "2026-11-23T05:19:41.141273+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001878848.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. Post-cutoff forms: 2026-11-19 SCHEDULE 13G, 2026-11-18 SCHEDULE 13G."
+        },
+        {
+          "url": "https://iren.com/investors/news",
+          "result": "The latest results announcement listed was November 5."
+        },
+        {
+          "url": "https://iren.com/investors/sec-filings",
+          "result": "Reviewed November 18 and 19 beneficial ownership filings. The filers reported positions in IREN. Neither filing documents proceeds from a new IREN issuance."
+        },
+        {
+          "url": "https://iren.com/investors/reports",
+          "result": "Checked reports and presentations for a new earnings release or announcement."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1595888/000159588826000170/xslSCHEDULE_13G_X02/primary_doc.xml",
+          "result": "Jane Street reported beneficial ownership. Positions attributed to related entities must not be added together."
+        },
+        {
+          "url": "https://iren.gcs-web.com/static-files/f1b4e48d-359e-440e-976d-0514056e3052",
+          "result": "Citadel-related entities reported beneficial ownership. Positions attributed to related entities must not be added together."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources."
+      ]
+    },
+    {
+      "ticker": "APLD",
+      "status": "updated",
+      "checked_at": "2026-11-23T05:19:41.772176+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001144879.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. Post-cutoff forms: 2026-11-20 SCHEDULE 13D/A, 2026-11-20 4."
+        },
+        {
+          "url": "https://ir.applieddigital.com/sec-filings/all-sec-filings",
+          "result": "Reviewed the November 20 Schedule 13D/A and Form 4 on Applied Digital’s investment in ChronoScale."
+        },
+        {
+          "url": "https://ir.applieddigital.com/news-events/press-releases",
+          "result": "Reviewed issuer releases for new earnings, financing and buildout disclosures."
+        },
+        {
+          "url": "https://ir.applieddigital.com/news-events/ir-calendar",
+          "result": "Reviewed the issuer calendar for a confirmed results date."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1549084/000149315226052998/form8-k.htm",
+          "result": "ChronoScale’s November 18 Form 8-K sets out conditions on its Odessa partnership, financing and GPU services agreement."
+        }
+      ],
+      "events": [
+        {
+          "title": "Applied Digital funds a $97M convertible loan to ChronoScale",
+          "publication_date": "2026-11-20",
+          "observation_date": "2026-11-18",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1549084/000149315226053589/xslSCHEDULE_13D_X02/primary_doc.xml",
+          "detail": "Applied Digital reported funding the full $97 million unsecured, non-interest-bearing note to ChronoScale. Conversion into 12,125,000 ChronoScale common shares at $8 requires the specified approval to take effect. Otherwise the principal matures December 31, 2026. Applied Digital is the lender. The reported transaction does not revise its historical consolidated debt or cash balance.",
+          "category": "investment_financing",
+          "supporting_passages": [
+            "providing for an unsecured loan in the aggregate principal amount of $97.0 million (the \"Principal Amount\"), the entire amount of which has been funded.",
+            "Upon the effectiveness of the Stockholder Approval (as defined below), the outstanding Principal Amount will automatically convert into 12,125,000 shares of Common Stock, equal to the Principal Amount divided by $8.00 per share, subject to adjustment for stock splits, combinations and reclassifications.",
+            "No interest accrues or is payable on the Principal Amount, including during the existence of any event of default.",
+            "If not otherwise converted pursuant to its terms as described above into shares of Common Stock, the outstanding Principal Amount will mature on December 31, 2026 (the \"Maturity Date\")."
+          ]
+        },
+        {
+          "title": "ChronoScale signs agreements for a phased Odessa deployment",
+          "publication_date": "2026-11-18",
+          "observation_date": "2026-11-18",
+          "source_url": "https://ir.chronoscale.com/press-releases/detail/796/chronoscale-announces-new-development-partnership-to",
+          "detail": "ChronoScale, which Applied Digital controls, announced agreements for a 50/50 development partnership with STN. The customer ordered a 65 MW first phase targeted for the first half of 2027. ChronoScale estimates up to $7.5 billion of partnership contract value over six years, subject to performance and delivery. Later phases are potential orders. No operating capacity, customer acceptance or Applied Digital revenue is recorded from this announcement.",
+          "category": "contract_and_buildout",
+          "supporting_passages": [
+            "entered into definitive agreements to form a 50/50 development partnership with STN, Inc. to develop its Odessa, Texas site",
+            "The agreement contemplates AI infrastructure capacity across three phases with the first phase ordered and scheduled for deployment in the first half of calendar year 2027.",
+            "the expected up to $7.5 billion TCV of the confirmed 65 MW first phase",
+            "up to $7.5 billion in total contract value (“TCV”) to the partnership over six years."
+          ]
+        }
+      ],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources."
+      ]
+    },
+    {
+      "ticker": "HUT",
+      "status": "no_material_update",
+      "checked_at": "2026-11-23T05:19:42.395077+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001964789.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. No subsequent filing was listed."
+        },
+        {
+          "url": "https://www.hut8.com/news-insights/press-releases",
+          "result": "No new material issuer release was identified after the cutoff."
+        },
+        {
+          "url": "https://www.hut8.com/investors/events-presentations",
+          "result": "Reviewed the issuer event calendar. No future earnings release date found."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources."
+      ]
+    },
+    {
+      "ticker": "WULF",
+      "status": "no_material_update",
+      "checked_at": "2026-11-23T05:19:43.170771+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001083301.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. No subsequent filing was listed."
+        },
+        {
+          "url": "https://investors.terawulf.com/news-events",
+          "result": "The November 4 financing-support update and November 6 results predate the review."
+        },
+        {
+          "url": "https://investors.terawulf.com/news-events/ir-calendar",
+          "result": "No future earnings event listed. November 20 was the prior webcast replay expiry."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources."
+      ]
+    },
+    {
+      "ticker": "WYFI",
+      "status": "source_access_incomplete",
+      "checked_at": "2026-11-23T05:28:44.714525+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002042022.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. No subsequent filing was listed."
+        },
+        {
+          "url": "https://www.whitefiber.com/investors",
+          "result": "The investor hub still featured second-quarter results despite the filed third-quarter report."
+        },
+        {
+          "url": "https://www.whitefiber.com/investors-news",
+          "result": "The press-release list showed placeholders, and the linked investor room was inaccessible during the check."
+        },
+        {
+          "url": "https://www.whitefiber.com/events",
+          "result": "The listed November conference dates belong to 2025, not the current review period."
+        },
+        {
+          "url": "https://www.whitefiber.com/blog/active-active-disaster-recovery",
+          "result": "The November 18 technical article describes 512 H200 GPUs across two Continuum sites and dates commercial availability to September 23. It reports existing operations, with no incremental delivery verified."
+        },
+        {
+          "url": "https://www.prnewswire.com/news/whitefiber%2C-inc./",
+          "result": "Checked the company’s distributed press releases. The latest item listed was November 10 quarterly results. The November 18 company blog describes an existing service."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources.",
+        "The SEC index was available. The issuer news list and investor room did not provide a current complete release list."
+      ]
+    },
+    {
+      "ticker": "SHAZ",
+      "status": "no_material_update",
+      "checked_at": "2026-11-23T05:19:44.429852+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002068385.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. No subsequent filing was listed."
+        },
+        {
+          "url": "https://sharonai.com/media-and-news/",
+          "result": "The latest issuer release listed was the November 16 quarterly results."
+        },
+        {
+          "url": "https://sharonai.com/events/",
+          "result": "Reviewed the issuer event list. No confirmed future earnings call date found."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources."
+      ]
+    },
+    {
+      "ticker": "AGPU",
+      "status": "no_material_update",
+      "checked_at": "2026-11-23T05:19:45.142843+00:00",
+      "channels": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001446159.json",
+          "result": "Checked the SEC submissions index from the November 17 cutoff. Post-cutoff forms: 2026-11-19 3."
+        },
+        {
+          "url": "https://investors.axecompute.com/press-releases",
+          "result": "Reviewed company news. The November 17 quarterly release is already in the historical financial ledger."
+        },
+        {
+          "url": "https://investors.axecompute.com/events-and-presentations",
+          "result": "The November 17 results call is archived. No dated next call was listed."
+        },
+        {
+          "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007605/ownership.xml",
+          "result": "The November 19 Form 3 for director Guang Yang reports no securities owned as of the November 9 reporting event. It does not report a share issuance."
+        }
+      ],
+      "events": [],
+      "gaps": [
+        "No confirmed next earnings date found in the reviewed sources."
+      ]
+    }
+  ]
+}

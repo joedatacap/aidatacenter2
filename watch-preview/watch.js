@@ -28,7 +28,7 @@
  const finance=c=>c.financing||{}, debt=c=>finance(c).metrics?.debt, cash=c=>finance(c).metrics?.cash, market=c=>c.market_cap||finance(c).v2?.market_cap;
  function context(c,key){return list(c[key]).length?list(c[key]):list(finance(c).v2?.[key]);}
  function currentQuarter(c){return list(c.quarters).find(q=>q.id===state.period||q.period_end===state.period)||latest(c);}
- function companyCell(c){const m=market(c);return `<a data-app class="company-name" href="${esc(profile(c))}">${esc(c.name)}</a><span class="ticker">${esc(c.ticker)}</span><span class="company-model">${esc(modelLabels[c.business_model]||words(c.business_model||finance(c).group))}</span>${state.columns.includes('market')?note(m?money(m.value)+' equity · '+m.as_of:'Capitalization not established'):''}`;}
+ function companyCell(c){const m=market(c);return `<a data-app class="company-name" href="${esc(profile(c))}">${esc(c.name)}</a><span class="ticker">${esc(c.ticker)}</span><span class="company-model">${esc(modelLabels[c.business_model]||words(c.business_model||finance(c).group))}</span>${state.columns.includes('market')?note(m?'Historical cap '+money(m.value)+' · '+m.as_of:'Capitalization not established'):''}`;}
  function facts(records,empty='No reviewed disclosure loaded for this field.'){if(!list(records).length)return `<p class="empty-panel">${esc(empty)}</p>`;return list(records).map(f=>`<article class="fact-card"><div class="fact-top"><span class="badge">${esc(words(f.status||'reported'))}</span><span class="small muted">${day(f.as_of||f.period_end)}</span></div><h3>${esc(f.label||f.title||f.metric||'Reported disclosure')}${f.display?' <span class="fact-display">'+esc(f.display)+'</span>':''}</h3>${finite(f.value)?`<p class="number">${metricValue(f)}</p>`:''}<p>${esc(f.scope||f.definition||'Scope in cited source')}</p>${f.note?`<p>${esc(f.note)}</p>`:''}${evidence(sourceIds(f))}</article>`).join('');}
  function miniFacts(records){return list(records).length?list(records).slice(0,2).map(f=>`<strong>${esc(f.display||f.label||f.title)}</strong>${note([f.label,f.status,f.as_of].filter(Boolean).join(' · '))}${evidence(sourceIds(f))}`).join('<br>'):missing({status:'not_researched',reason:'No reviewed operating disclosure loaded.'});}
  function guidanceClassification(g){return g.change?.classification||g.change?.status||g.change_status||g.direction||(['raised','cut','maintained','not_researched','not_disclosed','not_comparable','insufficient_evidence'].includes(g.status)?g.status:'not_comparable');}
@@ -44,10 +44,85 @@
  function guidanceSignal(c,q=null){const g=guidanceRecords(c,q).at(-1);if(!g)return missing({status:'not_researched',reason:'Comparable prior and current management guidance are not established.'});return `<strong>${esc(words(guidanceClassification(g)))}</strong>${note(g.label||g.metric||g.note)}${evidence(sourceIds(g))}`;}
  function nextEvent(c){const events=list(c.events).filter(e=>e.date&&e.date>=data.reviewed_at&&['confirmed','estimated','pending'].includes(e.status)).sort((a,b)=>a.date.localeCompare(b.date));const e=events[0];return e?`<strong>${day(e.date)}</strong>${note((e.label||e.title||e.type||'Event')+' · '+e.status)}${evidence(sourceIds(e))}`:missing({status:'not_disclosed',reason:'No future event date confirmed in this reviewed snapshot.'});}
  function growth(c,q=latest(c)){const f=q?.metrics?.revenue_yoy;return f?metricValue(f,'revenue_yoy'):missing({status:'not_comparable',reason:'Compatible prior-year quarter not established.'});}
+ // Current size observations are independent of historical debt/valuation inputs.
+ function displaySizeObservation(company){
+  const update=company.size_observation;
+  if(update){
+   const value=update.value_usd??update.value;
+   const eligible=['provider_reported','verified','dated_provider','reconciled'].includes(update.status)&&finite(value)&&Number(value)>0;
+   return {...update,source_values_disagree:Boolean(update.source_values_disagree||String(update.qualification_label||'').toLowerCase()==='provider figures differ'),value,as_of:update.as_of||update.source_date,share_basis:update.share_basis||update.basis,caveat:update.caveat||update.discrepancy,eligible,size_band:eligible?update.size_band||'unknown':'unknown',updated:true};
+  }
+  const previous=market(company);
+  return previous?{...previous,share_basis:previous.definition||previous.scope,caveat:previous.ratio_blocker||previous.note,eligible:!previous.ratio_blocker&&finite(previous.value),size_band:previous.ratio_blocker?'unknown':company.market_cap_band||'unknown',updated:false}:null;
+ }
+ function sizeSourceLink(url,label='Source disclosure'){
+  const safe=safeURL(url);
+  return safe?`<a href="${esc(safe)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`:'';
+ }
+ function quotedPassages(passages){
+  return list(passages).map(text=>`<blockquote>${esc(text)}</blockquote>`).join('');
+ }
+
+ function sizeReview(company){
+  const size=displaySizeObservation(company);
+  const label=tradingViewSizeName(company);
+  const shareEvidence=list(size.share_sources).map(source=>`
+   <div>${sizeSourceLink(source.url,source.description)}
+    ${source.supporting_passages?.length?`<details><summary>Filing excerpts</summary>${quotedPassages(source.supporting_passages)}</details>`:''}
+   </div>`).join('');
+  return `<article class="data-review-card" data-size-review="${esc(company.id)}">
+   <h3>Provider-reported company size</h3>
+   <div class="data-review-value"><strong>${finite(size.value)?money(size.value):'Not established'}</strong>
+    ${size.source_values_disagree?'<span class="tradingview-provider-headline">Provider headline</span>':''}
+    <span class="badge">${esc(label)}</span></div>
+   ${size.qualification_label?`<p class="tradingview-size-qualification">${esc(size.qualification_label)}</p>`:''}
+   <p>Observation <time datetime="${esc(size.as_of)}">${day(size.as_of)}</time> · ${sizeSourceLink(size.source_url,'Stock Analysis')}</p>
+   <p>${esc(size.share_basis)}</p>
+   ${size.source_excerpt?`<blockquote class="size-source-excerpt">${esc(size.source_excerpt)}</blockquote>`:''}
+   ${size.caveat?`<p class="data-review-caveat">${esc(size.caveat)}</p>`:''}
+   <div class="data-review-links">${shareEvidence}</div>
+   <p class="data-review-boundary">Historical debt ratios use their original inputs and dates.</p>
+  </article>`;
+ }
+
+ function disclosureEvent(event){
+  return `<li data-disclosure-event="${esc(event.publication_date)}">
+   <h4>${esc(event.title)}</h4>
+   <div class="disclosure-event-dates">Published ${day(event.publication_date)} · observation ${day(event.observation_date)}</div>
+   <p>${esc(event.detail)}</p>
+   <span class="badge">${esc(words(event.category))}</span> ${sizeSourceLink(event.source_url,'Read disclosure')}
+   <details><summary>Supporting passages</summary>${quotedPassages(event.supporting_passages)}</details>
+  </li>`;
+ }
+
+ function disclosureReview(company){
+  const review=company.disclosure_review;
+  const events=review.events.map(disclosureEvent).join('');
+  const channels=review.channels.map(channel=>
+   `<p>${sizeSourceLink(channel.url,new URL(channel.url).hostname)} · ${esc(channel.result)}</p>`
+  ).join('');
+  return `<article class="data-review-card" data-disclosure-review="${esc(company.id)}">
+   <h3>Public-disclosure review</h3>
+   <p><strong>${esc(words(review.status))}</strong> · checked
+    <time datetime="${esc(review.checked_at)}" title="${esc(review.checked_at)}">${day(review.checked_at.slice(0,10))}</time></p>
+   ${events?`<ul class="disclosure-event-list">${events}</ul>`:'<p>No new material event was verified in the sources checked.</p>'}
+   <ul class="data-review-gaps">${review.gaps.map(gap=>`<li>${esc(gap)}</li>`).join('')}</ul>
+   <details class="disclosure-reviewed-sources"><summary>Reviewed public channels (${review.channels.length})</summary>${channels}</details>
+  </article>`;
+ }
+
+ function companyDataReview(company){
+  if(!company.size_observation&&!company.disclosure_review)return '';
+  return `<section id="company-data-review" class="company-data-review" aria-labelledby="company-data-review-title">
+   <h2 id="company-data-review-title">Latest size & disclosure review</h2><div class="data-review-grid">
+   ${company.size_observation?sizeReview(company):''}${company.disclosure_review?disclosureReview(company):''}
+   </div></section>`;
+ }
  // Use the same dated size classification wherever the shared filter travels.
  function comparisonSize(company){
-  return market(company)?.ratio_blocker ? 'unknown' : company.market_cap_band;
+  return displaySizeObservation(company)?.size_band||'unknown';
  }
+
  function filters(){const query=state.q.toLowerCase();let rows=data.companies.filter(c=>(!query||[c.name,c.ticker,...list(c.aliases)].join(' ').toLowerCase().includes(query))&&(state.focus==='all'||state.focus==='focus'?state.focus==='all'||['benchmark','medium','smaller'].includes(c.focus_group):c.focus_group===state.focus)&&(state.model==='all'||c.business_model===state.model)&&(state.size==='all'||comparisonSize(c)===state.size)&&(!state.peers.length||state.peers.includes(c.id)));rows.sort((a,b)=>{if(state.order==='name')return a.name.localeCompare(b.name);const val=c=>state.order==='revenue'?latest(c)?.metrics?.revenue?.value:state.order==='market'?market(c)?.value:debt(c)?.value;const av=val(a),bv=val(b);return !finite(av)||!finite(bv)?!finite(av)&&!finite(bv)?a.name.localeCompare(b.name):!finite(av)?1:-1:Number(bv)-Number(av)||a.name.localeCompare(b.name);});return rows;}
  function table(headings,rows,label){const detail=label==='Disclosed instrument inventory';return `<div class="table-wrap${detail?' detail-table':''}" tabindex="0" role="region" aria-label="${esc(label)}"><table><thead><tr>${headings.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr ${detail?'data-instrument="true"':'data-company="'+esc(r.c.id)+'"'}>${r.cells.map((cell,i)=>`<td data-label="${esc(headings[i])}">${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
  function heading(title,description,kicker='RESEARCH WORKSPACE'){return `<div class="page-heading"><div><p class="eyebrow">${esc(kicker)}</p><h1 id="page-title">${esc(title)}</h1><p>${esc(description)}</p></div><span class="record-count" role="status">${visible.length} companies</span></div>`;}
@@ -160,8 +235,8 @@
   return stats+(l.takeaway?`<p class="scope-line">${esc(l.takeaway)}</p>`:'')+(tab==='cash'?cashHTML:tab==='repayments'?repayments:tab==='debt'?borrowing+repayments+inventoryHTML+ratesHTML+valuation:borrowing+repayments+inventoryHTML+ratesHTML+cashHTML+valuation);
  }
  function relationships(c){return list(c.relationships).length?`<div class="scope-line"><strong>Entity relationships / overlapping exposure</strong>${list(c.relationships).map(r=>`<p>${esc(r.note||r.display||r.description||JSON.stringify(r))} ${evidence(sourceIds(r))}</p>`).join('')}</div>`:'';}
- function freshness(c){const f=c.freshness||{},keys=[['earnings','Earnings'],['balance_sheet','Balance sheet'],['operations','Operations'],['market_data','Market data']];return `<div class="freshness">${keys.map(([id,label])=>{const v=f[id];return `<span><strong>${label}</strong> ${esc(typeof v==='object'?(v.as_of||v.date||words(v.status)):v||'Not researched')}</span>`;}).join('')}</div>`;}
- function profilePage(){const c=state.company;if(!c)return heading('Company not found.','This company ID is not in the reviewed registry.')+`<p><a data-app href="${esc(href('overview'))}">Return to Overview →</a></p>`;const section=sections[state.section]?state.section:'summary';const qs=list(c.quarters).slice().sort((a,b)=>b.period_end.localeCompare(a.period_end));const back=href(state.from,{company:null,section:'summary',tab:state.return_tab,period:state.return_period,return_tab:'',return_period:''});let body='';if(section==='financing')body=financeBrief(c);else if(section==='earnings')body=`<div class="section-heading"><h2>Reported quarters</h2><label>Fiscal period<select id="period">${qs.length?qs.map(q=>`<option value="${esc(q.id)}" ${currentQuarter(c)?.id===q.id?'selected':''}>${esc(q.fiscal_label||q.period_end)} · ${esc(q.period_end)}</option>`).join(''):'<option value="">No verified period</option>'}</select></label></div>${trend(c)}${quarterCard(c,currentQuarter(c))}`;else if(section==='buildout')body=buildoutBrief(c);else{const q=latest(c);body=`<div class="summary-grid"><article><p class="eyebrow">WHAT CHANGED</p><h3>${q?esc(q.fiscal_label||q.period_end):'Latest report status'}</h3><p>${q?'Recognized revenue '+money(q.metrics?.revenue?.value)+' for the period ended '+q.period_end+'.':esc(c.latest_report_note)}</p>${evidence(sourceIds(q))}<a data-app href="${esc(profile(c,'earnings'))}">Read earnings →</a></article><article><p class="eyebrow">WHY IT MATTERS</p><h3>Funding & obligations</h3><p>${esc(finance(c).liquidity?.takeaway||'Review borrower scope, restricted cash and instrument terms before comparing financing capacity.')}</p>${evidence(sourceIds(debt(c)))}<a data-app href="${esc(profile(c,'financing'))}">Inspect financing →</a></article><article><p class="eyebrow">WHAT TO WATCH</p><h3>Delivery & next catalyst</h3><p>${esc(context(c,'capacity')[0]?.note||'Original targets and actual delivery require source-backed reconciliation.')}</p>${evidence(sourceIds(context(c,'capacity')[0]))}<a data-app href="${esc(profile(c,'buildout'))}">Inspect buildout →</a></article></div><h2>Research completeness</h2><p>${esc(words(c.latest_report_status))} · ${esc(c.latest_report_note||'')}</p>${list(c.gaps).length?`<ul class="gap-list">${list(c.gaps).map(g=>`<li>${esc(typeof g==='string'?g:g.reason||g.note||g.field||JSON.stringify(g))}</li>`).join('')}</ul>`:'<p class="small muted">Review field-level qualifications; software coverage does not establish complete research.</p>'}<h3>Next event</h3><p>${nextEvent(c)}</p>`;}return `<div class="profile-top"><a data-app class="back" href="${esc(back)}">← Back to ${esc(pages[state.from])}</a><button id="print-profile" type="button" class="text-button">Print / save PDF</button></div>`+heading(c.name,c.business_description||modelLabels[c.business_model]||words(c.business_model),c.ticker+' / COMPANY BRIEF')+`<div class="profile-badges"><span class="ticker">${esc(c.ticker)}</span><span class="badge">${esc(words(c.focus_group||'Context peer'))}</span><span class="badge">${esc(c.exchange||'Exchange not established')}</span><span class="badge">${esc(c.market_cap_band||'unknown')} equity band</span></div>`+freshness(c)+relationships(c)+`<nav class="profile-nav" aria-label="Company sections">${Object.entries(sections).map(([id,name])=>`<a data-app data-section="${id}" href="${esc(profile(c,id))}" ${section===id?'aria-current="page"':''}>${name}</a>`).join('')}</nav><section class="profile-body" id="company-${section}">${body}</section>`;}
+ function freshness(c){const f=c.freshness||{},keys=[['earnings','Earnings'],['balance_sheet','Balance sheet'],['operations','Operations'],['market_data','Historical valuation']];return `<div class="freshness">${keys.map(([id,label])=>{const v=f[id];return `<span><strong>${label}</strong> ${esc(typeof v==='object'?(v.as_of||v.date||words(v.status)):v||'Not researched')}</span>`;}).join('')}</div>`;}
+ function profilePage(){const c=state.company;if(!c)return heading('Company not found.','This company ID is not in the reviewed registry.')+`<p><a data-app href="${esc(href('overview'))}">Return to Overview →</a></p>`;const section=sections[state.section]?state.section:'summary';const qs=list(c.quarters).slice().sort((a,b)=>b.period_end.localeCompare(a.period_end));const back=href(state.from,{company:null,section:'summary',tab:state.return_tab,period:state.return_period,return_tab:'',return_period:''});let body='';if(section==='financing')body=financeBrief(c);else if(section==='earnings')body=`<div class="section-heading"><h2>Reported quarters</h2><label>Fiscal period<select id="period">${qs.length?qs.map(q=>`<option value="${esc(q.id)}" ${currentQuarter(c)?.id===q.id?'selected':''}>${esc(q.fiscal_label||q.period_end)} · ${esc(q.period_end)}</option>`).join(''):'<option value="">No verified period</option>'}</select></label></div>${trend(c)}${quarterCard(c,currentQuarter(c))}`;else if(section==='buildout')body=buildoutBrief(c);else{const q=latest(c);body=companyDataReview(c)+`<div class="summary-grid"><article><p class="eyebrow">WHAT CHANGED</p><h3>${q?esc(q.fiscal_label||q.period_end):'Latest report status'}</h3><p>${q?'Recognized revenue '+money(q.metrics?.revenue?.value)+' for the period ended '+q.period_end+'.':esc(c.latest_report_note)}</p>${evidence(sourceIds(q))}<a data-app href="${esc(profile(c,'earnings'))}">Read earnings →</a></article><article><p class="eyebrow">WHY IT MATTERS</p><h3>Funding & obligations</h3><p>${esc(finance(c).liquidity?.takeaway||'Review borrower scope, restricted cash and instrument terms before comparing financing capacity.')}</p>${evidence(sourceIds(debt(c)))}<a data-app href="${esc(profile(c,'financing'))}">Inspect financing →</a></article><article><p class="eyebrow">WHAT TO WATCH</p><h3>Delivery & next catalyst</h3><p>${esc(context(c,'capacity')[0]?.note||'Original targets and actual delivery require source-backed reconciliation.')}</p>${evidence(sourceIds(context(c,'capacity')[0]))}<a data-app href="${esc(profile(c,'buildout'))}">Inspect buildout →</a></article></div><h2>Research completeness</h2><p>${esc(words(c.latest_report_status))} · ${esc(c.latest_report_note||'')}</p>${list(c.gaps).length?`<ul class="gap-list">${list(c.gaps).map(g=>`<li>${esc(typeof g==='string'?g:g.reason||g.note||g.field||JSON.stringify(g))}</li>`).join('')}</ul>`:'<p class="small muted">Review field-level qualifications; software coverage does not establish complete research.</p>'}<h3>Next event</h3><p>${nextEvent(c)}</p>`;}return `<div class="profile-top"><a data-app class="back" href="${esc(back)}">← Back to ${esc(pages[state.from])}</a><button id="print-profile" type="button" class="text-button">Print / save PDF</button></div>`+heading(c.name,c.business_description||modelLabels[c.business_model]||words(c.business_model),c.ticker+' / COMPANY BRIEF')+`<div class="profile-badges"><span class="ticker">${esc(c.ticker)}</span><span class="badge">${esc(words(c.focus_group||'Context peer'))}</span><span class="badge">${esc(c.exchange||'Exchange not established')}</span><span class="badge">${esc({large:'Large',mid:'Medium',small:'Small',micro:'Micro',unknown:'Size unverified'}[comparisonSize(c)]||'Size unverified')}${comparisonSize(c)==='unknown'?'':' size'}${c.size_observation?.as_of?' · '+day(c.size_observation.as_of):''}</span></div>`+freshness(c)+relationships(c)+`<nav class="profile-nav" aria-label="Company sections">${Object.entries(sections).map(([id,name])=>`<a data-app data-section="${id}" href="${esc(profile(c,id))}" ${section===id?'aria-current="page"':''}>${name}</a>`).join('')}</nav><section class="profile-body" id="company-${section}">${body}</section>`;}
  function updateControls(){for(const [id,key]of[['q','q'],['focus','focus'],['business-model','model'],['size','size'],['order','order']]){if(document.activeElement!==$(id))$(id).value=state[key];}const changed=state.peers.join(',')!==lastSelected.join(',');$('peer-count').textContent=state.peers.length?state.peers.length+' / 9':'All matching';$('peer-choices').querySelectorAll('input').forEach(input=>{input.checked=state.peers.includes(input.value);});lastSelected=[...state.peers];$('primary-nav').innerHTML=Object.entries(pages).map(([id,name])=>`<a data-app href="${esc(href(id,{tab:state.page===id?state.tab:'',section:'summary',period:''}))}" ${state.page===id?'aria-current="page"':''}>${esc(name)}</a>`).join('');document.querySelector('[data-home]').href=href('overview',{tab:'',section:'summary'});}
  function render(){
   const controls=$('shared-controls'),picker=$('peer-picker'),active=document.activeElement;
@@ -194,11 +269,19 @@
   if (typeof value !== 'number' && /^[=+@\-\t\r]/.test(text)) text = "'"+text;
   return '"'+text.replaceAll('"','""')+'"';
  }
- function exportRows(){return state.page==='companies'&&state.company?[state.company]:visible;}
+ function exportRows(){
+  const companies=state.page==='companies'&&state.company?[state.company]:visible;
+  // Updated third-party size snippets are editorial display only, not a market-data export.
+  return companies.map(company=>{
+   if(!company.size_observation)return company;
+   const observation=company.size_observation;
+   return {...company,size_observation:{ticker:observation.ticker||company.ticker,as_of:observation.as_of,size_band:comparisonSize(company),status:observation.status,source_url:observation.source_url}};
+  });
+ }
  function exportJSON(){
   download('Neocloud-Watch-evidence.json',JSON.stringify({reviewed_at:data.reviewed_at,page:state.page,filters:{q:state.q,focus:state.focus,model:state.model,size:state.size,peers:state.peers,period:state.period},companies:exportRows(),sources:data.sources,financing_rates:list(data.financing_rates).filter(r=>exportRows().some(c=>c.ticker===r.ticker)),instruments:list(data.instruments).filter(r=>exportRows().some(c=>c.ticker===r.ticker)),market_data_policy:data.market_data_policy},null,2),'application/json');}
  function exportCSV(){
-  const header=['company_id','ticker','company','focus_group','business_model','market_cap_band','latest_report_status','period_end','fiscal_period','revenue_usd','revenue_status','revenue_definition','borrowings_usd','borrowings_as_of','cash_usd','cash_as_of','market_cap_usd','market_cap_as_of','quarters_json','guidance_json','financing_json','capacity_json','milestones_json','contracts_json','hardware_json','gaps_json','financing_rates_json','historical_notes_json','events_json','relationships_json','capital_structure_json','source_urls'];const rows=exportRows().map(c=>{const q=currentQuarter(c),m=market(c);return [c.id,c.ticker,c.name,c.focus_group,c.business_model,c.market_cap_band,c.latest_report_status,q?.period_end,q?.fiscal_label,q?.metrics?.revenue?.value,q?.metrics?.revenue?.status,q?.metrics?.revenue?.definition,debt(c)?.value,debt(c)?.as_of||finance(c).as_of,cash(c)?.value,cash(c)?.as_of||finance(c).as_of,m?.value,m?.as_of,JSON.stringify(c.quarters),JSON.stringify(c.guidance),JSON.stringify(c.financing),JSON.stringify(context(c,'capacity')),JSON.stringify(c.milestones),JSON.stringify(context(c,'contracts')),JSON.stringify(context(c,'hardware')),JSON.stringify(c.gaps),JSON.stringify(list(data.financing_rates).filter(r=>r.ticker===c.ticker)),JSON.stringify(list(data.instruments).filter(r=>r.ticker===c.ticker)),JSON.stringify(c.events),JSON.stringify(c.relationships||[]),JSON.stringify(c.capital_structure||null),data.sources.map(s=>safeURL(s.url)).filter(Boolean).join(' | ') ];});
+  const header=['company_id','ticker','company','focus_group','business_model','market_cap_band','latest_report_status','period_end','fiscal_period','revenue_usd','revenue_status','revenue_definition','borrowings_usd','borrowings_as_of','cash_usd','cash_as_of','market_cap_usd','market_cap_as_of','quarters_json','guidance_json','financing_json','capacity_json','milestones_json','contracts_json','hardware_json','gaps_json','financing_rates_json','historical_notes_json','events_json','relationships_json','capital_structure_json','size_observation_json','disclosure_review_json','source_urls'];const rows=exportRows().map(c=>{const q=currentQuarter(c),m=market(c);return [c.id,c.ticker,c.name,c.focus_group,c.business_model,c.market_cap_band,c.latest_report_status,q?.period_end,q?.fiscal_label,q?.metrics?.revenue?.value,q?.metrics?.revenue?.status,q?.metrics?.revenue?.definition,debt(c)?.value,debt(c)?.as_of||finance(c).as_of,cash(c)?.value,cash(c)?.as_of||finance(c).as_of,m?.value,m?.as_of,JSON.stringify(c.quarters),JSON.stringify(c.guidance),JSON.stringify(c.financing),JSON.stringify(context(c,'capacity')),JSON.stringify(c.milestones),JSON.stringify(context(c,'contracts')),JSON.stringify(context(c,'hardware')),JSON.stringify(c.gaps),JSON.stringify(list(data.financing_rates).filter(r=>r.ticker===c.ticker)),JSON.stringify(list(data.instruments).filter(r=>r.ticker===c.ticker)),JSON.stringify(c.events),JSON.stringify(c.relationships||[]),JSON.stringify(c.capital_structure||null),JSON.stringify(c.size_observation||null),JSON.stringify(c.disclosure_review||null),data.sources.map(s=>safeURL(s.url)).filter(Boolean).join(' | ') ];});
   download('Neocloud-Watch-comparison.csv',[header,...rows].map(row=>row.map(csvCell).join(',')).join('\r\n'),'text/csv;charset=utf-8');}
  function reset(){navigate(state.page,{q:'',focus:'focus',model:'all',size:'all',order:'name',peers:[],columns:'',tab:'',period:''});$('notice').textContent='Filters reset to the nine-company focus set.';}
  async function init(){try{const embedded=$('watch-data');if(embedded)data=JSON.parse(embedded.textContent);else{const response=await fetch(base+'data.json');if(!response.ok)throw Error('Missing snapshot');data=await response.json();}if(!Array.isArray(data.companies))throw Error('Invalid snapshot');
