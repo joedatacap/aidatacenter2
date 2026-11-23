@@ -32,7 +32,7 @@ test('blocked widget loading exposes retry and independent dated research withou
  await expect(page.locator('#tradingview-fallback')).toBeVisible();
  await expect(page.locator('#tradingview-fallback')).toContainText(/load|unavailable|blocked|network/i);
  await expect(page.locator('#error')).toBeHidden();
- await expect(page.locator('#tradingview-size-context')).toContainText(/dated|2026-11-13/i);
+ await expect(page.locator('#tradingview-size-context')).toContainText(/Provider-reported market caps/);
  const accepted=JSON.parse(await page.locator('#watch-data').textContent());
  for(const id of ['agpu','nbis']){
   const company=accepted.companies.find(c=>c.id===id),size=expectedSize(company);

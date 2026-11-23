@@ -55,6 +55,115 @@ async function screenshotTop(page,label) {
   await page.screenshot({path:path.join(OUTPUT,label+'.png'),clip:{x:0,y:0,width,height}});
 }
 
+// This is our dated editorial table, separate from the vendor component. Only
+// application markup and accepted research are read; vendor figures stay visual.
+async function sizeTableChecks(page,acceptedData,ids) {
+  const section=page.locator('#tradingview-size-context');
+  const rows=page.locator('#tradingview-size-context [data-size-company]');
+  assert.deepEqual(await rows.evaluateAll(items=>items.map(item=>item.dataset.sizeCompany)),ids,
+    'Compact size table matches the selected focus companies');
+  if(!ids.length)return {rows:0,semantic:true,source_links:0,profile_links:0};
+  assert.equal(await section.locator('table').count(),1,'Size context uses one semantic table');
+  assert.equal(await section.locator('thead').count(),1,'Size table has a header group');
+  assert.equal(await section.locator('tbody').count(),1,'Size table has a body group');
+  assert.equal(await section.locator('thead th').count(),3,'Size table names the Company, Size and Market cap columns');
+  for(const id of ids){
+    const company=acceptedData.companies.find(item=>item.id===id);
+    assert(company,'Accepted application data contains focus company '+id);
+    const expected=expectedSize(company),row=section.locator('[data-size-company="'+id+'"]');
+    assert.equal(await row.evaluate(item=>item.tagName),'TR','Each size record is a semantic row');
+    assert.equal(await row.locator(':scope > th, :scope > td').count(),3,'Each size row has the three named cells');
+    const label=(await row.locator('.tradingview-size-badge').innerText()).trim();
+    assert.equal(label,expected.label,'Displayed size matches accepted app data: '+id);
+    assert(['Large','Mid','Small','Unavailable'].includes(label),'Only three established display classes are used');
+    assert.equal(await row.getAttribute('data-size-date'),expected.date,'Size row retains its actual observation date: '+id);
+    assert((await section.innerText()).includes(expected.date.slice(0,10)),'Size observation date is visible in the row or shared table attribution: '+id);
+    if(expected.band==='unknown'){
+      assert((await row.locator('.tradingview-size-attribution').innerText()).includes('Unavailable'),'Unknown cap stays unavailable: '+id);
+      assert.equal(await row.locator('.tradingview-size-attribution a').count(),0,'Unknown cap does not link an inferred value');
+    }else if(expected.observation){
+      const source=row.locator('.tradingview-size-attribution a');
+      assert.equal(await source.getAttribute('href'),expected.observation.source_url,'Size attribution links to the accepted source: '+id);
+      assert(await source.isVisible(),'Size source link is visible: '+id);
+      const amount=Number(expected.value);
+      const [divisor,suffix]=[[1e9,'B'],[1e6,'M'],[1e3,'K'],[1,'']].find(([threshold])=>Math.abs(amount)>=threshold)||[1,''];
+      const display='$'+(amount/divisor).toLocaleString('en-US',{maximumFractionDigits:divisor===1?0:2})+suffix;
+      assert.equal((await source.innerText()).trim(),display,'Displayed USD cap matches the accepted dated observation: '+id);
+      if(expected.observation.session_status==='intraday'){
+        assert((await section.innerText()).includes('intraday'),'Open-session size observations are visibly labeled intraday');
+      }
+
+    }
+    const profile=row.locator('.tradingview-company-link');
+    assert(await profile.isVisible(),'Company profile link is visible: '+id);
+    const profileURL=new URL(await profile.getAttribute('href'),page.url());
+    assert.equal(profileURL.pathname,'/companies/'+id+'/','Size row opens the matching company brief');
+    assert((await profile.innerText()).trim(),'Company profile link has a visible name');
+  }
+  const geometry=await section.evaluate(element=>{
+    const table=element.querySelector('table'),box=table.getBoundingClientRect();
+    return {page:document.documentElement.scrollWidth<=document.documentElement.clientWidth,
+      table:box.left>=-1&&box.right<=document.documentElement.clientWidth+1,
+      unclipped:table.scrollHeight<=table.clientHeight+1};
+  });
+  assert(geometry.page&&geometry.table&&geometry.unclipped,'Entire compact size table fits without page overflow or clipped rows');
+  return {rows:ids.length,semantic:true,source_links:ids.filter(id=>expectedSize(acceptedData.companies.find(item=>item.id===id)).band!=='unknown').length,profile_links:ids.length,display_classes:'Large/Mid/Small; Small includes micro',page_overflow:false};
+}
+
+async function sizeProfileChecks(page,origin,acceptedData,ids) {
+  for(const id of ids){
+    const company=acceptedData.companies.find(item=>item.id===id);
+    const observation=company.size_observation;
+    if(!observation)continue;
+    await page.goto(origin+'/companies/'+id+'/');
+    const review=page.locator('[data-size-review="'+id+'"]');
+    await review.waitFor({state:'visible'});
+    const text=await review.innerText();
+    assert(text.includes(observation.as_of),'Company profile retains the size observation date: '+id);
+    const excerpt=review.locator('.size-source-excerpt');
+    if(observation.source_excerpt){
+      assert.equal((await excerpt.textContent()).trim(),observation.source_excerpt.trim(),
+        'Profile preserves the original attributed editorial passage: '+id);
+    }
+    for(const field of ['share_basis','basis','caveat','discrepancy','qualification_label']){
+      if(observation[field])assert(text.includes(observation[field]),'Profile retains the size '+field+': '+id);
+    }
+    assert(await review.locator('a[href="'+observation.source_url+'"]').first().isVisible(),
+      'Profile links to the dated capitalization source: '+id);
+  }
+  return {profiles:ids.length,attributed_passages:true,share_basis:true,qualifications:true};
+}
+
+async function screenshotSizeTable(page,label) {
+  const section=page.locator('#tradingview-size-context');
+  await section.scrollIntoViewIfNeeded();
+  const table=section.locator('table'),sectionBox=await section.boundingBox(),tableBox=await table.boundingBox();
+  assert(sectionBox&&tableBox,'Compact size section is visible for capture');
+  assert(tableBox.y>=sectionBox.y-1&&tableBox.y+tableBox.height<=sectionBox.y+sectionBox.height+1,
+    'Size capture includes every table row');
+  await section.screenshot({path:path.join(OUTPUT,label+'-size-table.png')});
+}
+
+async function peerSizeChecks(page,origin,acceptedData,label) {
+  await page.goto(origin+'/markets/?peers=crwv,nbis');
+  await page.locator('#tradingview-size-context').waitFor();
+  const selected=await sizeTableChecks(page,acceptedData,['crwv','nbis']);
+  const configured=JSON.parse(await page.locator('tv-market-data').getAttribute('symbol-sectors'));
+  assert.deepEqual(configured.flatMap(group=>group.symbols),['NASDAQ:CRWV','NASDAQ:NBIS'],
+    'Native component and editorial size table receive the same selected peers');
+  await screenshotSizeTable(page,label+'-selected');
+  await page.goto(origin+'/markets/?peers=crwv,nbis&q=no-matching-focus-company');
+  await page.getByRole('heading',{name:'Neocloud stock performance',exact:true}).waitFor();
+  assert.equal(await page.locator('tv-market-data').count(),0,'Empty matching selection does not configure a widget');
+  const empty=await sizeTableChecks(page,acceptedData,[]);
+  assert((await page.locator('#page-content').innerText()).includes('No focus companies match'),
+    'Empty matching selection provides an honest visible message');
+  assert.equal(new URL(page.url()).searchParams.get('peers'),'crwv,nbis','Empty search preserves the selected peers');
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),
+    'Empty matching selection fits the viewport');
+  return {selected,empty};
+}
+
 async function swipeMonthly(page) {
   const widget=page.locator('tv-market-data');await widget.scrollIntoViewIfNeeded();
   const box=await widget.boundingBox();assert(box,'Widget host is visible for touch');
@@ -224,31 +333,22 @@ async function main() {
         assert.deepEqual(configured.flatMap(section=>section.symbols),SYMBOLS,'Native component receives exactly the nine public focus listings');
         assert.equal(await widget.getAttribute('view'),'performance');
         assert.equal(hash(await page.locator('#watch-data').textContent()),hash(embedded[1]),'Served embedded research matches the accepted build');
-        const sizeCards=page.locator('[data-size-company]');
-        assert.deepEqual(await sizeCards.evaluateAll(cards=>cards.map(card=>card.dataset.sizeCompany)),SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
-        for(const symbol of SYMBOLS){
-          const id=symbol.split(':')[1].toLowerCase(),company=acceptedData.companies.find(c=>c.id===id);
-          assert(company,'Accepted application data contains focus company '+id);
-          const expected=expectedSize(company),card=page.locator('[data-size-company="'+id+'"]');
-          assert.equal((await card.locator('.tradingview-size-badge').innerText()).trim(),expected.label,'Size classification matches accepted app data: '+id);
-          if(expected.observation){
-            assert((await card.innerText()).includes(expected.date),'Size card shows the actual observation date: '+id);
-            assert.equal(await card.locator('.tradingview-size-attribution a').getAttribute('href'),expected.observation.source_url,'Size attribution links to the accepted source: '+id);
-            if(expected.observation.source_excerpt)assert.equal((await card.locator('.size-source-excerpt').textContent()).trim(),expected.observation.source_excerpt.trim(),'Editorial source excerpt matches accepted app data: '+id);
-            if(expected.observation.qualification_label)assert((await card.innerText()).includes(expected.observation.qualification_label),'Size qualification remains visible: '+id);
-          }
-        }
+        const sizeTable=await sizeTableChecks(page,acceptedData,SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
         await page.waitForFunction(()=>customElements.get('tv-market-data')!==undefined,null,{timeout:30000});
         await page.waitForTimeout(13000);
         await screenshotTop(page,device.name+'-homepage');
         if(device.touch){await swipeMonthly(page);await screenshotTop(page,'mobile-month');}
+        await screenshotSizeTable(page,device.name);
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);
         assert(!overflow,'No horizontal page overflow');
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations);
         assert.equal(diagnostics.csp.length,0,'CSP must allow the native component without broadening unrelated application permissions');
+        const size_profiles=await sizeProfileChecks(page,origin,acceptedData,SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
+        const peer_sizes=await peerSizeChecks(page,origin,acceptedData,device.name);
+        await page.goto(origin+'/');
         const research=await researchChecks(page,origin,device.name);
         const assets=await verifyAssets(context.request,origin);
-        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,research,assets,diagnostics});
+        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,size_table:sizeTable,size_profiles,peer_sizes,research,assets,diagnostics});
       } catch(error){
         await page.screenshot({path:path.join(OUTPUT,device.name+'-failure.png'),fullPage:true}).catch(()=>{});
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations||[]).catch(()=>[]);
@@ -261,4 +361,4 @@ async function main() {
   console.log(JSON.stringify({mode:MODE,status:'passed',devices:summary.devices.length,screenshots:OUTPUT,visual_review_required:true}));
 }
 if(require.main===module)main().catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={headerRules,startCandidate,csvRows};
+module.exports={headerRules,startCandidate,csvRows,sizeTableChecks,sizeProfileChecks,peerSizeChecks};

@@ -12,22 +12,23 @@ test('dated size badges and common filters match accepted observations independe
   const company=data.companies.find(c=>c.id===id),size=expectedSize(company),card=page.locator('[data-size-company='+id+']');
   expect(company.size_observation).toBeTruthy();
   await expect(card.locator('.tradingview-size-badge')).toHaveText(size.label);
-  await expect(card.locator('.tradingview-size-attribution')).toContainText(size.date);
-  await expect(card.locator('.tradingview-size-attribution a')).toHaveText('Stock Analysis');
-  await expect(card.locator('.tradingview-size-attribution a')).toHaveAttribute('href',company.size_observation.source_url);
-  const detail=card.locator('.tradingview-size-note');
-  await detail.locator('summary').click();
-  if(company.size_observation.source_excerpt)await expect(detail.locator('.size-source-excerpt')).toHaveText(company.size_observation.source_excerpt);
-  await detail.locator('summary').click();
+  await expect(card).toHaveAttribute('data-size-date',size.date);
+  await expect(page.locator('#tradingview-size-context')).toContainText(size.date);
+  const source=card.locator('.tradingview-size-attribution a');
+  await expect(source).toContainText('$');
+  await expect(source).toHaveAttribute('href',company.size_observation.source_url);
+  await expect(card.locator('.tradingview-company-link')).toHaveAttribute('href',new RegExp('/companies/'+id+'/'));
   if(company.size_observation.qualification_label)await expect(card.locator('.tradingview-size-qualification')).toHaveText(company.size_observation.qualification_label);
-  if(company.size_observation.source_values_disagree||company.size_observation.qualification_label==='Provider figures differ')await expect(card.locator('.tradingview-provider-headline')).toHaveText('Provider headline');
  }
- await page.locator('#size').selectOption('large');
- const expected=data.companies.filter(c=>FOCUS.includes(c.id)&&expectedSize(c).band==='large').map(c=>c.id).sort();
- expect(await page.locator('[data-size-company]').evaluateAll(nodes=>nodes.map(n=>n.dataset.sizeCompany).sort())).toEqual(expected);
- await page.locator('#primary-nav').getByRole('link',{name:'Financing & Debt',exact:true}).click();
- expect(new URL(page.url()).searchParams.get('size')).toBe('large');
- expect(await page.locator('[data-company]').evaluateAll(nodes=>nodes.map(n=>n.dataset.company).sort())).toEqual(expected);
+ for(const category of ['large','mid','small']){
+  await page.locator('#size').selectOption(category);
+  const expected=data.companies.filter(c=>FOCUS.includes(c.id)&&expectedSize(c).label.toLowerCase()===category).map(c=>c.id).sort();
+  expect(await page.locator('[data-size-company]').evaluateAll(nodes=>nodes.map(n=>n.dataset.sizeCompany).sort())).toEqual(expected);
+  await page.locator('#primary-nav').getByRole('link',{name:'Financing & Debt',exact:true}).click();
+  expect(new URL(page.url()).searchParams.get('size')).toBe(category);
+  expect(await page.locator('[data-company]').evaluateAll(nodes=>nodes.map(n=>n.dataset.company).sort())).toEqual(expected);
+  await page.locator('#primary-nav').getByRole('link',{name:'Overview',exact:true}).click();
+ }
 });
 
 test('company summaries disclose review dates, channels, material events and unchanged historical inputs',async({page})=>{

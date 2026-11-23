@@ -3,11 +3,11 @@
   "observations": [
     {
       "ticker": "CRWV",
-      "as_of": "2026-11-20",
-      "value_usd": 21970000000,
+      "as_of": "2026-11-23",
+      "value_usd": 26990000000,
       "source_url": "https://stockanalysis.com/stocks/crwv/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$21.97 billion as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$26.99 billion as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
@@ -18,16 +18,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. The filing count predates the valuation. Changes through November 23 have not been independently reconciled.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "NBIS",
-      "as_of": "2026-11-20",
-      "value_usd": 23820000000,
+      "as_of": "2026-11-23",
+      "value_usd": 29330000000,
       "source_url": "https://stockanalysis.com/stocks/nbis/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$23.82 billion as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$29.33 billion as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-1.htm",
@@ -47,16 +50,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "Both economically participating classes support a Large classification. Changes after September 30 have not been fully reconciled through November 20. The historical debt ratio remains withheld. Legal shares outstanding and EPS-equivalent shares use different bases. The provider does not identify its treatment of these warrants in the quoted figure."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. Both economically participating classes support a Large classification. Changes after September 30 have not been fully reconciled through November 23. Legal shares outstanding and EPS-equivalent shares use different bases; the provider does not identify its treatment of prefunded warrants. The historical debt ratio remains withheld.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "IREN",
-      "as_of": "2026-11-20",
-      "value_usd": 5020000000,
+      "as_of": "2026-11-23",
+      "value_usd": 6360000000,
       "source_url": "https://stockanalysis.com/stocks/iren/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$5.02 billion as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$6.36 billion as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000066/R1.htm",
@@ -75,16 +81,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. The filing count predates the valuation. Changes through November 23 have not been independently reconciled.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "APLD",
-      "as_of": "2026-11-20",
-      "value_usd": 3470000000,
+      "as_of": "2026-11-23",
+      "value_usd": 4220000000,
       "source_url": "https://stockanalysis.com/stocks/apld/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$3.47 billion as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$4.22 billion as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
@@ -96,16 +105,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. The filing count predates the valuation. Changes through November 23 have not been independently reconciled.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "HUT",
-      "as_of": "2026-11-20",
-      "value_usd": 5520000000,
+      "as_of": "2026-11-23",
+      "value_usd": 6430000000,
       "source_url": "https://stockanalysis.com/stocks/hut/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$5.52 billion as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$6.43 billion as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/1964789/000119312526446146/hut-20260930.htm",
@@ -116,16 +128,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. The filing count predates the valuation. Changes through November 23 have not been independently reconciled.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "WULF",
-      "as_of": "2026-11-20",
-      "value_usd": 4940000000,
+      "as_of": "2026-11-23",
+      "value_usd": 5640000000,
       "source_url": "https://stockanalysis.com/stocks/wulf/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$4.94 billion as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$5.64 billion as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
@@ -136,16 +151,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "The filing count predates the valuation. Changes from that date through November 20 have not been independently reconciled."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. The filing count predates the valuation. Changes through November 23 have not been independently reconciled.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "WYFI",
-      "as_of": "2026-11-20",
-      "value_usd": 287580000,
+      "as_of": "2026-11-23",
+      "value_usd": 347810000,
       "source_url": "https://stockanalysis.com/stocks/wyfi/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$287.58 million as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$347.81 million as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026117728/ea0310427-10q_whitefiber.htm",
@@ -157,16 +175,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "The November 13 observation was $427.06M (Small). The November 20 figure is about 4% below the $300M threshold. The latest filing count is from November 6."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. The November 20 observation was $287.58M (Micro); this November 23 intraday observation is above $300M (Small). This is an intraday band change, not a new completed-session classification. The cited filing count is from November 6; later share changes have not been fully reconciled.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "SHAZ",
-      "as_of": "2026-11-20",
-      "value_usd": 647590000,
+      "as_of": "2026-11-23",
+      "value_usd": 794000000,
       "source_url": "https://stockanalysis.com/stocks/shaz/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$647.59 million as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$794 million as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226052382/form10-q.htm",
@@ -194,16 +215,19 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "Both common classes support a Small classification. Exercised warrants are already reflected in outstanding shares. Subsequent changes through November 20 have not been fully reconciled. The historical debt ratio remains withheld."
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. Both common classes support a Small classification. Exercised June prefunded warrants are already reflected in the reported share count. Subsequent changes through November 23 have not been fully reconciled. The historical debt ratio remains withheld.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20"
     },
     {
       "ticker": "AGPU",
-      "as_of": "2026-11-20",
-      "value_usd": 66190000,
+      "as_of": "2026-11-23",
+      "value_usd": 79400000,
       "source_url": "https://stockanalysis.com/stocks/agpu/market-cap/",
-      "source_date": "2026-11-20",
-      "source_excerpt": "$66.19 million as of November 20, 2026",
+      "source_date": "2026-11-23",
+      "source_excerpt": "$79.4 million as of November 23, 2026",
       "share_sources": [
         {
           "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
@@ -224,9 +248,24 @@
         }
       ],
       "status": "provider_reported",
-      "basis": "Rounded provider-reported equity capitalization in USD. The cited filing gives a dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
-      "discrepancy": "The provider headline is $66.19M; its November 20 historical row is $77.90M. The two figures imply different share counts. Both fall below $300M. The debt ratio remains withheld until the share count and warrant treatment can be reconciled.",
-      "qualification_label": "Provider figures differ"
+      "basis": "Rounded provider-reported intraday equity capitalization in USD; exact valuation time unavailable. The cited filing gives a separately dated outstanding share count. Fully diluted capitalization and enterprise value use different bases.",
+      "discrepancy": "The cap heading explicitly dates this observation to November 23, but the page\u2019s data-source metadata still says last updated November 20. The market was open at retrieval. Capitalization has date precision only; the stock-price header time is not its valuation timestamp. The November 23 headline is $79.4M; the most recent historical row is November 20 at $77.90M. Those dates differ, so this is not a same-date comparison. The archived November 20 headline was $66.19M and conflicted with that same-day historical row. The current share and prefunded-warrant bases remain unresolved; the debt ratio remains withheld. All three provider amounts fall below $300M.",
+      "session_status": "intraday",
+      "time_precision": "date",
+      "metadata_last_updated": "2026-11-20",
+      "qualification_label": "Share basis unresolved"
     }
-  ]
+  ],
+  "review_context": {
+    "checked_at": "2026-11-23T18:02:19Z",
+    "local_review_date": "2026-11-24",
+    "local_timezone": "Asia/Singapore",
+    "last_completed_us_session": "2026-11-20",
+    "last_completed_us_session_close_utc": "2026-11-20T21:00:00Z",
+    "current_us_session": "2026-11-23",
+    "current_us_session_state": "open",
+    "publication_decision": "Use explicitly dated provider intraday cap observations; no November 23 closing quote claimed.",
+    "research_record": "docs/SIZE_OBSERVATION_REVIEW_2026-11-24.md",
+    "previous_observations_commit": "39c82c43ffd0861331c071ac4c965f18b420a916"
+  }
 }

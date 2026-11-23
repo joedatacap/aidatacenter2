@@ -200,3 +200,19 @@ test('standalone audit opens without leaving the selected peer group',async({pag
  await expect(dialog).toBeHidden();
  await expect(page.locator('[data-company]')).toHaveCount(3);
 });
+
+test('size table shows unavailable values and individual dates when observations differ',async({page})=>{
+ await offlineFixture(page,data=>{
+  // Withhold an existing observation in this test's in-memory copy only.
+  const observation=data.companies.find(company=>company.id==='nbis').size_observation;
+  Object.assign(observation,{status:'unavailable',value_usd:null,value:null,as_of:null,source_date:null,size_band:'unknown'});
+ });
+ const table=page.locator('.market-size-table');
+ await expect(table.locator('thead th')).toHaveText(['Company','Size','Market cap (USD)']);
+ const row=table.locator('[data-size-company="nbis"]');
+ await expect(row.locator('.tradingview-size-badge')).toHaveText('Unavailable');
+ await expect(row.locator('.tradingview-size-attribution')).toHaveText(/Unavailable\s*Date unavailable/);
+ await expect(row.locator('.tradingview-company-link')).toHaveAttribute('href',/companies\/nbis\//);
+ await expect(table.locator('[data-size-company="crwv"] time')).toBeVisible();
+ await expect(table.locator('tbody tr')).toHaveCount(9);
+});

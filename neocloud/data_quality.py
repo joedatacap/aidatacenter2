@@ -207,6 +207,22 @@ def size_record(raw, reviewed_at):
     }
     if qualification is not None:
         record["qualification_label"] = qualification
+    if "session_status" in raw:
+        session_status = raw["session_status"]
+        if not isinstance(session_status, str) or session_status not in {
+            "intraday", "completed_session"
+        }:
+            raise ValueError("Capitalization session_status must be intraday or completed_session")
+        record["session_status"] = session_status
+    if "time_precision" in raw:
+        if raw["time_precision"] != "date":
+            raise ValueError("Capitalization time_precision currently supports date only")
+        record["time_precision"] = "date"
+    if "metadata_last_updated" in raw:
+        metadata_date = calendar_date(raw["metadata_last_updated"], "Capitalization metadata_last_updated")
+        if metadata_date > reviewed_at:
+            raise ValueError("Capitalization metadata date is after its review date")
+        record["metadata_last_updated"] = raw["metadata_last_updated"]
     if "source_values_disagree" in raw:
         if not isinstance(raw["source_values_disagree"], bool):
             raise ValueError("Source-value disagreement flag must be boolean")
