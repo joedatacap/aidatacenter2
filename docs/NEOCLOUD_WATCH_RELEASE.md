@@ -2,6 +2,27 @@
 
 The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). GitHub `joedatacap/aidatacenter2` on `main` is the application source. ChatGPT Sites stores the generated static publication in its own source repository on `main`. A GitHub merge runs tests and packaging dry runs. Publication is a separate operation.
 
+## November 24, 2026 · public version 9
+
+The compact market comparison is live at the [existing public site](https://neocloud-watch.gpuchips.chatgpt.site/). The previous release was version 8. The project and public audience are unchanged.
+
+| Release record | Verified value |
+| --- | --- |
+| Deployment | Version 9 · `appgdep_6b048324439881919d3121fbd89c5ac1` · succeeded November 24 at 02:17:16 Singapore time |
+| GitHub | [Application merge 1fbc43cd2d2feb72936d6a5205b87c4cf2d50ed3](https://github.com/joedatacap/aidatacenter2/commit/1fbc43cd2d2feb72936d6a5205b87c4cf2d50ed3) · [PR #17](https://github.com/joedatacap/aidatacenter2/pull/17) |
+| Sites source | `feb7c164505e6c98cf352ad620ee58f76c90f7e9` · saved version `appgprj_6afb8d8562c0819183402d9c41093312~appgver_5243de8208c08191a755c7d109e23b42`. All 30 static files match the accepted main build. |
+| Data | USD caps for all nine issuers, observed intraday on November 23 US market time with date-only precision. The earlier provider metadata and the AGPU share-basis qualification appear in the sources. See the [dated source record](SIZE_OBSERVATION_REVIEW_2026-11-24.md). The research JSON hash is `e8ba7ea5f60218ac91d5f5d3a03250f33afb22bfb6459066092947998a89039a`. The complete v8 dataset outside the size observations and their review date matched before publication. |
+| Tests | 248 Python tests including disposable TLS PostgreSQL, 96 Watch desktop/mobile checks, 76 legacy preview checks, 38 workbench checks and three packaging dry runs. [PR checks](https://github.com/joedatacap/aidatacenter2/actions/runs/45235606271) · [candidate and screenshots](https://github.com/joedatacap/aidatacenter2/actions/runs/45235597248) |
+| Production | All nine TradingView rows displayed genuine monthly figures. The complete nine-row table, two selected peers, empty results, profile evidence, sources, original/revised Buildout targets and both research downloads passed on desktop and touch-emulated mobile. The public JS, CSS, embedded research and JSON matched main. [Live proof](https://github.com/joedatacap/aidatacenter2/actions/runs/45236796369) |
+
+The official widget supplies performance and its timing. A separate compact table directly underneath shows the same selected tickers with linked profiles and capitalization sources. Small includes all eligible caps below $2B, Mid spans $2B to below $10B, and Large starts at $10B. The underlying research still distinguishes Micro below $300M. The original financing inputs, ratio restrictions, disclosure-review timestamps and financial cutoff of November 17 are preserved.
+
+The [market source audit](WATCH_MARKET_SOURCES.md) documents the official widget configuration and the return-data entitlement gap. Homepage scatter coverage is 0/9. For a custom chart, establish the right to display a public derivative visualization of dated, comparable one-month returns and verify ticker-level coverage before enabling it.
+
+For the next size update, inspect each capitalization heading and record whether the observation is intraday or a completed session. Retain conflicting metadata and exact source passages. Review the native browser artifact visually after publication and select a touch position where the entire 1M column is readable. The existing-site publication procedure below applies.
+
+Production screenshots: [Desktop comparison](https://drive.google.com/file/d/1eWYGy6PEui_xm3CRgNCjAjGKFyicroJF/view?usp=drivesdk) · [Mobile 1M column](https://drive.google.com/file/d/1Z8Qo0Awr2a89Pt1i2NFsPwV_yWGT5OQm/view?usp=drivesdk) · [Mobile size table](https://drive.google.com/file/d/1p7I6lzNlMgYFkewTAIC_SNAytePQlm8F/view?usp=drivesdk).
+
 ## November 23, 2026 · public version 8
 
 The existing [public site](https://neocloud-watch.gpuchips.chatgpt.site/) serves version **8**. Sites reported deployment `appgdep_6b03d2c312308191b5390b537840bd43` succeeded on November 23 at 13:44:40 Singapore time (05:44:40 UTC). The project and public audience are the same as version 6. The data was first deployed as version 7 at 13:36 Singapore time. Version 8 changed only the document policy in 26 HTML files.
