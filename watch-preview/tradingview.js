@@ -57,8 +57,10 @@ function tradingViewSizeContext(companies) {
 
 function tradingViewHero() {
   const companies = tradingViewCompanies(), symbols = companies.map(company => 'NASDAQ:'+company.ticker);
-  return `<section id="tradingview-performance" class="tradingview-performance" aria-labelledby="page-title">
-    <div class="tradingview-heading"><div><h1 id="page-title">Neocloud stock performance</h1><p id="tradingview-guide">Compare monthly performance in the <strong>1M</strong> column. <span class="tradingview-mobile-guide">Swipe table to see 1M →</span></p></div><div id="tradingview-peer-slot"></div></div>
+  const homepage = state.page === 'overview';
+  const title = homepage ? '<h2 id="performance-title">Neocloud stock performance</h2>' : '<h1 id="page-title">Neocloud stock performance</h1>';
+  return `<section id="tradingview-performance" class="tradingview-performance" aria-labelledby="${homepage ? 'performance-title' : 'page-title'}">
+    <div class="tradingview-heading"><div>${title}<p id="tradingview-guide">Compare monthly performance in the <strong>1M</strong> column. <span class="tradingview-mobile-guide">Swipe table to see 1M →</span></p></div>${homepage ? '' : '<div id="tradingview-peer-slot"></div>'}</div>
     ${symbols.length ? `<div id="tradingview-widget-shell" class="tradingview-widget-shell"><p id="tradingview-status" class="tradingview-status" role="status">Loading TradingView’s market widget…</p><div id="tradingview-fallback" class="tradingview-fallback" hidden><p>TradingView could not load. Check your connection, then retry the widget. The research pages remain available.</p><button type="button" data-retry-tradingview>Retry TradingView</button></div><tv-market-data id="tradingview-market-data" symbol-sectors="${esc(JSON.stringify([{sectionName:'Focus companies',symbols}]))}" view="performance"></tv-market-data><noscript>Enable JavaScript to display TradingView’s market widget.</noscript></div>` : '<p class="empty-panel">No focus companies match the current research selection. Choose a focus company to display TradingView’s performance widget.</p>'}
     ${visible.length !== companies.length ? '<p class="tradingview-coverage-note">The verified widget covers the nine focus symbols. Other company records remain available in the research comparison and company briefs.</p>' : ''}
     ${tradingViewSizeContext(companies)}

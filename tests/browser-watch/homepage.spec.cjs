@@ -135,7 +135,7 @@ test('overview exports match selected chart companies and protect the audited Ax
 
 test('overview hierarchy is compact, chart details work by keyboard, and layouts fit supported widths',async({page})=>{
  await page.goto('/overview/?peers=agpu,iren,apld');
- const positions=await page.evaluate(()=>['#tradingview-performance','#what-changed','#overview-charts','#buildout-tracker','#overview-comparison','#shared-controls','#overview-comparison .table-wrap'].map(id=>({id,top:document.querySelector(id)?.getBoundingClientRect().top})));
+ const positions=await page.evaluate(()=>['#market-cap-chart','#tradingview-performance','#what-changed','#overview-charts','#buildout-tracker','#overview-comparison','#shared-controls','#overview-comparison .table-wrap'].map(id=>({id,top:document.querySelector(id)?.getBoundingClientRect().top})));
  for(let i=1;i<positions.length;i++)expect(positions[i].top,positions[i].id).toBeGreaterThanOrEqual(positions[i-1].top);
  await expect(page.locator('#overview-comparison thead')).not.toContainText('Next event');
  const detail=revenueCard(page,'agpu').locator('.revenue-observation summary').first();

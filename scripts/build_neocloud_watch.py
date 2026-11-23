@@ -99,12 +99,12 @@ def build(*,base='/',output=None,release=False):
     # The hosted and standalone editions share the same CSS and JS.
     # Keep chart functions inside the app closure to reuse evidence and URL helpers.
     js = (source/'watch.js').read_text()
-    for component in ('overview-charts', 'tradingview'):
+    for component in ('overview-charts', 'tradingview', 'market-cap-chart'):
         marker = f'/* @include {component}.js */'
         if js.count(marker) != 1:
             raise ValueError(f'Expected one include for {component} in watch.js')
         js = js.replace(marker, (source/f'{component}.js').read_text())
-    css = '\n'.join((source/f'{name}.css').read_text() for name in ('watch', 'overview-charts', 'tradingview'))
+    css = '\n'.join((source/f'{name}.css').read_text() for name in ('watch', 'overview-charts', 'tradingview', 'market-cap-chart'))
     (target/'watch.js').write_text(js)
     (target/'watch.css').write_text(css)
     audit_html = (source/'audit.html').read_text()
