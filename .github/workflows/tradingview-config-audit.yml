@@ -1,0 +1,84 @@
+name: TradingView public configuration audit
+on:
+  push:
+    branches: [qa/tradingview-config-20261123]
+permissions:
+  contents: read
+jobs:
+  constructor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --ignore-scripts
+      - name: Read public documentation configuration only
+        shell: bash
+        run: |
+          mkdir -p work/tradingview-config-audit
+          node <<'JS'
+          const fs=require('node:fs/promises');
+          const {chromium}=require('playwright');
+          (async()=>{
+            const browser=await chromium.launch({channel:'chrome',headless:true});
+            const context=await browser.newContext();
+            const blocked=new Set();
+            await context.route('**/*',route=>{
+              const req=route.request(),url=new URL(req.url());
+              const docs=url.hostname==='www.tradingview.com'&&url.pathname.startsWith('/widget-docs/');
+              const staticFile=url.hostname==='static.tradingview.com';
+              const allowed=(docs||staticFile)&&!req.isNavigationRequest()||docs&&req.frame()===page.mainFrame();
+              if(allowed)return route.continue();
+              blocked.add(url.origin+url.pathname);
+              return route.abort();
+            });
+            // Never connect a quote websocket or load a preview iframe.
+            await context.routeWebSocket(/.*/,ws=>ws.close());
+            const page=await context.newPage();
+            const paths=[
+              ['market-data','widgets/watchlists/market-data/'],
+              ['screener','widgets/screeners/screener/'],
+              ['heatmap','widgets/heatmaps/heatmap/']
+            ];
+            const results=[];
+            try{
+              for(const [name,path] of paths){
+                const url='https://www.tradingview.com/widget-docs/'+path;
+                let navigationError=null;
+                try{
+                  await page.goto(url,{waitUntil:'domcontentloaded',timeout:35000});
+                  await page.waitForTimeout(7000);
+                }catch(e){navigationError=e.message.split('\n')[0]}
+                const evidence=await page.evaluate(()=>{
+                  const clean=s=>(s||'').replace(/\s+/g,' ').trim();
+                  // Native document queries do not enter widget shadow roots or frames.
+                  const controls=Array.from(document.querySelectorAll('input,select,textarea')).map(el=>({
+                    tag:el.tagName,type:el.type||null,name:el.name||null,id:el.id||null,
+                    ariaLabel:el.getAttribute('aria-label'),placeholder:el.getAttribute('placeholder'),
+                    label:clean(el.labels&&Array.from(el.labels).map(l=>l.textContent).join(' ')),
+                    value:el.value||null,
+                    options:el.tagName==='SELECT'?Array.from(el.options).map(o=>({text:clean(o.text),value:o.value})):undefined
+                  }));
+                  const buttons=Array.from(document.querySelectorAll('button,[role=button],[role=tab]')).map(el=>({role:el.getAttribute('role'),text:clean(el.textContent),ariaLabel:el.getAttribute('aria-label')})).filter(x=>x.text||x.ariaLabel);
+                  const code=Array.from(document.querySelectorAll('pre,textarea')).map(el=>el.value||el.textContent).filter(s=>s&&(/tv-market-data|tv-screener|tv-heatmap|symbol-sectors|dataSource|blockSize|columns/.test(s)));
+                  const headings=Array.from(document.querySelectorAll('h1,h2,h3')).map(el=>clean(el.textContent));
+                  return {title:document.title,headings,controls,buttons,code};
+                });
+                const record={name,url,navigationError,inspectedAt:new Date().toISOString(),...evidence};
+                results.push(record);
+                console.log('CONFIG_AUDIT '+JSON.stringify(record));
+              }
+              const summary={purpose:'Read-only official constructor controls; preview frames, external data and websockets blocked; no prices or embedded widget internals inspected',results,blockedRequests:Array.from(blocked).sort()};
+              await fs.writeFile('work/tradingview-config-audit/public-constructor-config.json',JSON.stringify(summary,null,2));
+              console.log('BLOCKED_REQUESTS '+JSON.stringify(Array.from(blocked).sort()));
+            }finally{await context.close();await browser.close()}
+          })().catch(e=>{console.error(e);process.exitCode=1});
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tradingview-public-constructor-config
+          path: work/tradingview-config-audit/
+          retention-days: 7
