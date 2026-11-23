@@ -44,6 +44,7 @@ def cap(ticker="NBIS", value=33_960_000_000, **changes):
                 {
                     "url": "https://issuer.example/filing",
                     "description": "Issuer share-class context; not an EPS denominator.",
+                    "supporting_passages": ["Sample cover-page share count."],
                 }
             ],
             "discrepancy": "Outstanding share-class reconciliation does not clear the debt-ratio guard.",
@@ -67,6 +68,7 @@ def review(ticker="NBIS", **changes):
             "events": [
                 {
                     "title": "Synthetic scoped event",
+                    "supporting_passages": ["Sample issuer statement for this test."],
                     "publication_date": "2026-11-20",
                     "observation_date": "2026-11-20",
                     "source_url": "https://issuer.example/announcement",
@@ -322,3 +324,15 @@ def test_static_research_json_excludes_editorial_cap_values_and_preserves_their_
             assert set(summary) == {'ticker', 'as_of', 'size_band', 'status', 'source_url'}
             assert all(observed[key] == value for key, value in summary.items())
             assert observed['source_excerpt'] and observed['value_usd'] > 0
+
+
+def test_material_disclosure_evidence_survives_normalization():
+    row = review()
+    original = row['events'][0]
+    normalized = apply(financial_baseline(), reviews=[row])
+    nbis = next(c for c in normalized['companies'] if c['ticker'] == 'NBIS')
+    assert nbis['disclosure_review']['events'][0]['supporting_passages'] == original['supporting_passages']
+    for invalid in ([], ['']):
+        original['supporting_passages'] = invalid
+        with pytest.raises(ValueError, match='[Pp]assage'):
+            apply(financial_baseline(), reviews=[row])

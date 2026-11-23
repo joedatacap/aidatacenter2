@@ -130,7 +130,15 @@ async function researchChecks(page,origin,label) {
   const fields=target.locator('dl > dd');
   assert.match(await fields.nth(0).innerText(),/December 2026/);
   assert.match(await fields.nth(2).innerText(),/February 2027/);
-  return {json_companies:2,csv_companies:2,source_drawer:true,navigation:true,buildout_revised_target:true};
+  await page.goto(origin+'/companies/apld/');
+  const disclosures=page.locator('#company-data-review [data-disclosure-event]');
+  assert.equal(await disclosures.count(),2,'Both reviewed Applied Digital disclosures are present');
+  for(const item of await disclosures.all()){
+    await item.locator('summary').click();
+    assert(await item.locator('blockquote').first().isVisible(),'The original supporting passage is visible');
+    assert.match(await item.getByRole('link',{name:'Read disclosure'}).getAttribute('href'),/^https:\/\//);
+  }
+  return {json_companies:2,csv_companies:2,source_drawer:true,navigation:true,buildout_revised_target:true,apld_disclosures:2};
 }
 
 async function verifyAssets(request,origin) {

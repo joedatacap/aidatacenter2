@@ -119,6 +119,13 @@ def nonempty_text(value, label):
     return value
 
 
+def supporting_passages(raw):
+    passages = raw.get("supporting_passages")
+    if not isinstance(passages, list) or not passages:
+        raise ValueError("An evidence record requires supporting passages from its linked source")
+    return [nonempty_text(text, "Supporting passage") for text in passages]
+
+
 def size_record(raw, reviewed_at):
     for key in (
         "ticker",
@@ -162,6 +169,7 @@ def size_record(raw, reviewed_at):
         share_sources.append(
             {
                 "url": public_source(source.get("url")),
+                "supporting_passages": supporting_passages(source),
                 "description": nonempty_text(
                     source.get("description"), "Share evidence description"
                 ),
@@ -257,6 +265,7 @@ def disclosure_record(raw, reviewed_at):
                 "source_url": public_source(event.get("source_url")),
                 "detail": nonempty_text(event.get("detail"), "Event detail"),
                 "category": nonempty_text(event.get("category"), "Event category"),
+                "supporting_passages": supporting_passages(event),
             }
         )
     gaps = [nonempty_text(gap, "Disclosure gap") for gap in raw["gaps"]]

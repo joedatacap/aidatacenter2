@@ -59,11 +59,64 @@
   const safe=safeURL(url);
   return safe?`<a href="${esc(safe)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`:'';
  }
+ function quotedPassages(passages){
+  return list(passages).map(text=>`<blockquote>${esc(text)}</blockquote>`).join('');
+ }
+
+ function sizeReview(company){
+  const size=displaySizeObservation(company);
+  const label=tradingViewSizeName(company);
+  const shareEvidence=list(size.share_sources).map(source=>`
+   <div>${sizeSourceLink(source.url,source.description)}
+    ${source.supporting_passages?.length?`<details><summary>Filing excerpts</summary>${quotedPassages(source.supporting_passages)}</details>`:''}
+   </div>`).join('');
+  return `<article class="data-review-card" data-size-review="${esc(company.id)}">
+   <h3>Provider-reported company size</h3>
+   <div class="data-review-value"><strong>${finite(size.value)?money(size.value):'Not established'}</strong>
+    ${size.source_values_disagree?'<span class="tradingview-provider-headline">Provider headline</span>':''}
+    <span class="badge">${esc(label)}</span></div>
+   ${size.qualification_label?`<p class="tradingview-size-qualification">${esc(size.qualification_label)}</p>`:''}
+   <p>Observation <time datetime="${esc(size.as_of)}">${day(size.as_of)}</time> · ${sizeSourceLink(size.source_url,'Stock Analysis')}</p>
+   <p>${esc(size.share_basis)}</p>
+   ${size.source_excerpt?`<blockquote class="size-source-excerpt">${esc(size.source_excerpt)}</blockquote>`:''}
+   ${size.caveat?`<p class="data-review-caveat">${esc(size.caveat)}</p>`:''}
+   <div class="data-review-links">${shareEvidence}</div>
+   <p class="data-review-boundary">Historical debt ratios use their original inputs and dates.</p>
+  </article>`;
+ }
+
+ function disclosureEvent(event){
+  return `<li data-disclosure-event="${esc(event.publication_date)}">
+   <h4>${esc(event.title)}</h4>
+   <div class="disclosure-event-dates">Published ${day(event.publication_date)} · observation ${day(event.observation_date)}</div>
+   <p>${esc(event.detail)}</p>
+   <span class="badge">${esc(words(event.category))}</span> ${sizeSourceLink(event.source_url,'Read disclosure')}
+   <details><summary>Supporting passages</summary>${quotedPassages(event.supporting_passages)}</details>
+  </li>`;
+ }
+
+ function disclosureReview(company){
+  const review=company.disclosure_review;
+  const events=review.events.map(disclosureEvent).join('');
+  const channels=review.channels.map(channel=>
+   `<p>${sizeSourceLink(channel.url,new URL(channel.url).hostname)} · ${esc(channel.result)}</p>`
+  ).join('');
+  return `<article class="data-review-card" data-disclosure-review="${esc(company.id)}">
+   <h3>Public-disclosure review</h3>
+   <p><strong>${esc(words(review.status))}</strong> · checked
+    <time datetime="${esc(review.checked_at)}" title="${esc(review.checked_at)}">${day(review.checked_at.slice(0,10))}</time></p>
+   ${events?`<ul class="disclosure-event-list">${events}</ul>`:'<p>No new material event was verified in the sources checked.</p>'}
+   <ul class="data-review-gaps">${review.gaps.map(gap=>`<li>${esc(gap)}</li>`).join('')}</ul>
+   <details class="disclosure-reviewed-sources"><summary>Reviewed public channels (${review.channels.length})</summary>${channels}</details>
+  </article>`;
+ }
+
  function companyDataReview(company){
-  const size=displaySizeObservation(company),review=company.disclosure_review;
-  if(!company.size_observation&&!review)return '';
-  const channels=list(review?.channels),events=list(review?.events);
-  return `<section id="company-data-review" class="company-data-review" aria-labelledby="company-data-review-title"><h2 id="company-data-review-title">Latest size & disclosure review</h2><div class="data-review-grid">${company.size_observation?`<article class="data-review-card" data-size-review="${esc(company.id)}"><h3>Provider-reported company size</h3><div class="data-review-value"><strong>${finite(size.value)?money(size.value):'Not established'}</strong>${size.source_values_disagree?'<span class="tradingview-provider-headline">Provider headline</span>':''}<span class="badge">${esc({large:'Large',mid:'Medium',small:'Small',micro:'Micro',unknown:'Size unverified'}[comparisonSize(company)]||'Size unverified')}</span></div>${size.qualification_label||size.source_values_disagree?'<p class="tradingview-size-qualification">'+esc(Array.isArray(size.qualification_label)?size.qualification_label.join(' · '):size.qualification_label||'Provider figures differ')+'</p>':''}<p>Observation <time datetime="${esc(size.as_of||'')}">${day(size.as_of)}</time> · ${sizeSourceLink(size.source_url,'Stock Analysis')} · ${esc(words(size.status))}</p><p>${esc(size.share_basis||'Share-count basis not established.')}</p>${size.source_excerpt?`<blockquote class="size-source-excerpt">${esc(size.source_excerpt)}</blockquote>`:''}${size.caveat?`<p class="data-review-caveat">${esc(size.caveat)}</p>`:''}<div class="data-review-links">${list(size.share_sources).map(source=>sizeSourceLink(typeof source==='string'?source:source.source_url||source.url,source.description||'Share-basis disclosure')).join('')}</div><p class="data-review-boundary">Size context only. Historical financing values, debt ratios and their restrictions retain their original inputs and dates.</p></article>`:''}${review?`<article class="data-review-card" data-disclosure-review="${esc(company.id)}"><h3>Public-disclosure review</h3><p><strong>${esc(words(review.status))}</strong> · checked <time datetime="${esc(review.checked_at||'')}" title="${esc(review.checked_at||'')}">${day(review.checked_at?.slice(0,10))}</time></p><p>This review covers the linked public disclosures. It does not redate every financial statement or remove existing coverage gaps.</p>${events.length?`<ul class="disclosure-event-list">${events.map(event=>`<li data-disclosure-event="${esc(event.id||event.publication_date||'')}"><h4>${esc(event.title||'Reviewed disclosure')}</h4><div class="disclosure-event-dates">Published ${day(event.publication_date)}${event.observation_date?' · observation '+day(event.observation_date):''}</div><p>${esc(event.detail||'')}</p>${event.category?`<span class="badge">${esc(words(event.category))}</span>`:''} ${sizeSourceLink(event.source_url,'Read disclosure')}</li>`).join('')}</ul>`:'<p>No separate material event was recorded in this bounded review. This does not establish that no events occurred.</p>'}${list(review.gaps).length?`<ul class="data-review-gaps">${list(review.gaps).map(gap=>`<li>${esc(typeof gap==='string'?gap:gap.reason||gap.description||gap.note||'Source coverage incomplete')}</li>`).join('')}</ul>`:''}<details class="disclosure-reviewed-sources"><summary>Reviewed public channels (${channels.length})</summary>${channels.map(channel=>`<p>${sizeSourceLink(channel.url,channel.description||'Public disclosure channel')}${channel.result?' · '+esc(typeof channel.result==='string'?channel.result:words(channel.result.status||'reviewed')):''}</p>`).join('')}</details></article>`:''}</div></section>`;
+  if(!company.size_observation&&!company.disclosure_review)return '';
+  return `<section id="company-data-review" class="company-data-review" aria-labelledby="company-data-review-title">
+   <h2 id="company-data-review-title">Latest size & disclosure review</h2><div class="data-review-grid">
+   ${company.size_observation?sizeReview(company):''}${company.disclosure_review?disclosureReview(company):''}
+   </div></section>`;
  }
  // Use the same dated size classification wherever the shared filter travels.
  function comparisonSize(company){

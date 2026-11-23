@@ -41,11 +41,14 @@ test('company summaries disclose review dates, channels, material events and unc
   await expect(panel.locator('[data-disclosure-review]')).toContainText(review.checked_at.slice(0,10));
   await expect(panel.locator('[data-disclosure-review]')).toContainText(review.status.replaceAll('_',' '));
   for(const event of review.events||[]){
-   await expect(panel.locator('.disclosure-event-list')).toContainText(event.title);
+   const item=panel.locator('.disclosure-event-list li').filter({hasText:event.title});
+   await item.locator('summary').click();
+   await expect(item.locator('blockquote')).toHaveText(event.supporting_passages);
+   await expect(item.getByRole('link',{name:'Read disclosure'})).toHaveAttribute('href',event.source_url);
    await expect(panel.locator('.disclosure-event-list')).toContainText(event.publication_date);
    await expect(panel.locator('a[href="'+event.source_url+'"]').first()).toBeVisible();
   }
-  await expect(panel).toContainText('Historical financing values, debt ratios and their restrictions retain their original inputs and dates.');
+  await expect(panel).toContainText('Historical debt ratios use their original inputs and dates.');
   await page.locator('[data-section=financing]').click();
   const finance=company.financing;
   if(finance?.v2?.market_cap?.as_of)await expect(page.locator('#company-financing')).toContainText(finance.v2.market_cap.as_of);
