@@ -245,7 +245,9 @@
   // Recover stable controls before replacing page markup; their listeners and values survive navigation.
   if(controls&&controls.parentElement!==document.querySelector('main'))document.querySelector('main').insertBefore(controls,$('page-content'));
   if(picker&&!controls.contains(picker))controls.querySelector('.selection-row').prepend(picker);
-  state=readState();controls.hidden=state.page==='markets';visible=filters();updateControls();document.title=`Neocloud Watch — ${state.page==='companies'?state.company?.name||'Company':pages[state.page]}`;const page=state.page==='companies'?profilePage():state.page==='financing'?financingPage():state.page==='earnings'?earningsPage():state.page==='buildout'?buildoutPage():state.page==='markets'?tradingViewMarketsPage():overview();$('page-content').innerHTML=page+(state.page!=='companies'&&!visible.length?'<div class="empty-panel"><h2>No matching companies.</h2><p>Broaden the research group, clear selected peers or reset the filters.</p><button type="button" data-reset>Reset filters</button></div>':'');if(state.page==='overview'||state.page==='markets'){
+  state=readState();
+  if(lastRoute!==state.page)picker.open=false;
+  controls.hidden=state.page==='markets';visible=filters();updateControls();document.title=`Neocloud Watch — ${state.page==='companies'?state.company?.name||'Company':pages[state.page]}`;const page=state.page==='companies'?profilePage():state.page==='financing'?financingPage():state.page==='earnings'?earningsPage():state.page==='buildout'?buildoutPage():state.page==='markets'?tradingViewMarketsPage():overview();$('page-content').innerHTML=page+(state.page!=='companies'&&!visible.length?'<div class="empty-panel"><h2>No matching companies.</h2><p>Broaden the research group, clear selected peers or reset the filters.</p><button type="button" data-reset>Reset filters</button></div>':'');if(state.page==='overview'||state.page==='markets'){
    const controlSlot = state.page === 'markets' ? 'markets-control-slot' : 'overview-control-slot';
    if(state.page==='overview')$(controlSlot)?.append(controls);
    $('tradingview-peer-slot')?.append(picker);
