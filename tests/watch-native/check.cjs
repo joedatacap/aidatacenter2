@@ -72,7 +72,7 @@ async function swipeMonthly(page) {
   // Prior native-widget proof established this small scroll reveals 1M beside
   // the widget's own pinned company column. Screenshots retain its branding.
   await swipe(Math.min(345,viewport.width-30),190);
-  await swipe(Math.min(345,viewport.width-30),260);
+  await swipe(Math.min(345,viewport.width-30),230);
   await touch.detach();
 }
 
