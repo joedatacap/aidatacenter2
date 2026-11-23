@@ -2,6 +2,24 @@
 
 The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). GitHub `joedatacap/aidatacenter2` on `main` is the application source. ChatGPT Sites stores the generated static publication in its own source repository on `main`. A GitHub merge runs tests and packaging dry runs. Publication is a separate operation.
 
+## November 24, 2026 · public version 10
+
+The existing [public site](https://neocloud-watch.gpuchips.chatgpt.site/) serves the ranked market-cap chart above both market comparison tables. The project and public audience are unchanged.
+
+| Release record | Verified value |
+| --- | --- |
+| GitHub application | [PR #18](https://github.com/joedatacap/aidatacenter2/pull/18) · [merged main dddc74017f9880bdd21c60028d02dcd152644e8c](https://github.com/joedatacap/aidatacenter2/commit/dddc74017f9880bdd21c60028d02dcd152644e8c) |
+| Sites deployment | Version 10 · saved version `appgprj_6afb8d8562c0819183402d9c41093312~appgver_4a98156e67fc8191acd207f66c0542d5` · deployment `appgdep_6b048822a6a48191b7ee4967408d5cf6` succeeded 24 November 2026 at 02:38:33 Singapore time · Sites source `b4facf28d2046d5da0f86611280a45ecb5c83028` |
+| Source synchronization | A clean build from the release merge matched all 30 files in the candidate and in the Sites source checkout. Relative to version 9 only `watch.js` and `watch.css` changed. The financial research and the size data are unchanged. Public research JSON SHA-256 `e8ba7ea5f60218ac91d5f5d3a03250f33afb22bfb6459066092947998a89039a`. |
+| Candidate | 248 Python tests including disposable TLS PostgreSQL, 110 Watch browser checks, 76 legacy preview checks, 38 workbench checks and three packaging dry runs passed. The native browser test also compared plotted lengths, exact USD labels, source and profile links, and size and peer selections against the accepted records. [CI](https://github.com/joedatacap/aidatacenter2/actions/runs/45239801724) · [Candidate browser verification](https://github.com/joedatacap/aidatacenter2/actions/runs/45239785433) |
+| Public verification | Desktop and touch-emulated mobile rendered nine ranked bars and all nine monthly figures in the intact TradingView widget. Small and peer-filtered selections, dates and qualification labels, chart geometry, profiles, evidence, historical targets and research downloads passed. Served assets matched main. [Live check and screenshots](https://github.com/joedatacap/aidatacenter2/actions/runs/45240586787) |
+
+The chart uses the [November 23 US intraday observations](SIZE_OBSERVATION_REVIEW_2026-11-24.md). Each full-dollar label preserves the rounded amount supplied by the provider. Exact valuation times are unavailable. The current Axe Compute observation is a dated, attributed headline of $79,400,000 and carries the explicit label “Provider-reported; share basis unresolved.” Its historical ratio restriction is unchanged.
+
+On refresh, include an observation only when eligible, positive, USD-denominated, and backed by a dated current record and a public source. Omit conflicting values from the plot and give a reason. Keep the zero baseline when rescaling to a selected group. The combined size-versus-return scatter remains a future feature pending an appropriate return source. TradingView returns stay inside its hosted widget.
+
+Production screenshots · [Desktop homepage](https://drive.google.com/file/d/1JrHV2oi9KppVzQnU7i-FbDNR0HdAxV6-/view?usp=drivesdk) · [Mobile chart](https://drive.google.com/file/d/1MsjdJ-bFxZhZE8Ug7h9LhV9FQBLG-CYa/view?usp=drivesdk) · [Mobile Small filter](https://drive.google.com/file/d/1CnDhJUIiQzZA4XMmc9J__GnByZBoC7hw/view?usp=drivesdk).
+
 ## November 24, 2026 · public version 9
 
 The compact market comparison is live at the [existing public site](https://neocloud-watch.gpuchips.chatgpt.site/). The previous release was version 8. The project and public audience are unchanged.
