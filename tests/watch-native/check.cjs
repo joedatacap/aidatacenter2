@@ -119,7 +119,17 @@ async function researchChecks(page,origin,label) {
   await page.locator('#evidence-dialog').waitFor({state:'visible'});
   assert(await page.locator('#evidence-body a[href^="https://"]').count()>0,'Source drawer contains real research references');
   await page.locator('#close-evidence').click();
-  return {json_companies:2,csv_companies:2,source_drawer:true,navigation:true};
+  await nav.getByRole('link',{name:'Markets',exact:true}).click();
+  await page.locator('#tradingview-size-context').waitFor();
+  assert.equal(await page.locator('[data-size-company]').count(),2);
+  await nav.getByRole('link',{name:'Buildout',exact:true}).click();
+  await page.waitForURL(url=>url.pathname==='/buildout/'&&url.searchParams.get('peers')?.includes('nbis'));
+  await page.goto(origin+'/buildout/?tab=projects&peers=nbis');
+  const target=page.locator('.timeline .fact-card').filter({has:page.getByRole('heading',{name:'ARR target timing',exact:true})});
+  const fields=target.locator('dl > dd');
+  assert.match(await fields.nth(0).innerText(),/December 2026/);
+  assert.match(await fields.nth(2).innerText(),/February 2027/);
+  return {json_companies:2,csv_companies:2,source_drawer:true,navigation:true,buildout_revised_target:true};
 }
 
 async function verifyAssets(request,origin) {
@@ -164,7 +174,7 @@ async function main() {
       page.on('pageerror',()=>{diagnostics.page_errors++;});
       page.on('requestfailed',request=>{diagnostics.failed_origins.push(originOnly(request.url()));});
       try {
-        const response=await page.goto(origin+'/overview/',{waitUntil:'domcontentloaded',timeout:60000});
+        const response=await page.goto(origin+'/',{waitUntil:'domcontentloaded',timeout:60000});
         assert(response?.ok(),'Homepage navigation succeeds');
         const csp=response.headers()['content-security-policy']||null;
         if(MODE==='candidate')assert(csp,'Candidate server applies the generated CSP');
@@ -173,6 +183,9 @@ async function main() {
         const configured=JSON.parse(await widget.getAttribute('symbol-sectors'));
         assert.deepEqual(configured.flatMap(section=>section.symbols),SYMBOLS,'Native component receives exactly the nine public focus listings');
         assert.equal(await widget.getAttribute('view'),'performance');
+        const sizeCards=page.locator('[data-size-company]');
+        assert.deepEqual(await sizeCards.evaluateAll(cards=>cards.map(card=>card.dataset.sizeCompany)),SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
+        assert.equal(await sizeCards.filter({hasText:'Size unverified'}).count(),3);
         await page.waitForFunction(()=>customElements.get('tv-market-data')!==undefined,null,{timeout:30000});
         await page.waitForTimeout(13000);
         await screenshotTop(page,device.name+'-homepage');
