@@ -2,7 +2,43 @@
 
 The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). GitHub `joedatacap/aidatacenter2` on `main` is the application source. ChatGPT Sites stores the generated static publication in its own source repository on `main`. A GitHub merge runs tests and packaging dry runs. Publication is a separate operation.
 
-## November 23 data-quality update
+## November 23, 2026 · public version 8
+
+The existing [public site](https://neocloud-watch.gpuchips.chatgpt.site/) serves version **8**. Sites reported deployment `appgdep_6b03d2c312308191b5390b537840bd43` succeeded on November 23 at 13:44:40 Singapore time (05:44:40 UTC). The project and public audience are the same as version 6. The data was first deployed as version 7 at 13:36 Singapore time. Version 8 changed only the document policy in 26 HTML files.
+
+Version 7 came from GitHub `0cbdbbc06482d3f95d39af8844774e3ea4e33fe9`, Sites source `6b4a97a1f61b8fd02526ed4b9ac34628f0342288`, deployment `appgdep_6b03d0ca29248191a82bd0bd7b6c434e`. [Data CI](https://github.com/joedatacap/aidatacenter2/actions/runs/45118409897) · [first public check](https://github.com/joedatacap/aidatacenter2/actions/runs/45118835435) · [host script diagnosis and research verification](https://github.com/joedatacap/aidatacenter2/actions/runs/45119031162)
+
+| Release record | Verified value |
+| --- | --- |
+| GitHub application source | [Merged commit 8599abac0d8a49617830a7a15069c97f94bf19ad](https://github.com/joedatacap/aidatacenter2/commit/8599abac0d8a49617830a7a15069c97f94bf19ad) · [data PR #15](https://github.com/joedatacap/aidatacenter2/pull/15) and [hosting PR #16](https://github.com/joedatacap/aidatacenter2/pull/16) · tested release head `95e3d20a7d8c030f81f79a2fa3df5feb3074d0a7` |
+| Sites publication | Source `a01fa53ece2c23f10c88214fa3f15fa3c4ba59fd` · saved version `appgprj_6afb8d8562c0819183402d9c41093312~appgver_2f491dc72bc88191ac0dda545c8c912f` · all 30 files matched the accepted root-path build before publication |
+| Size observations | November 20, 2026, USD. Version 6 displayed November 13 observations. Each badge links to its dated provider observation. The company profile also links to relevant share-class, split and warrant disclosures. |
+| Research review | November 17 at 18:35:45.406835 UTC through the company-specific November 23 checks at 13:19–13:28 Singapore time. No confirmed next earnings date surfaced. Historical financial statements retain their original cutoff and scopes. |
+| Financial integrity | Removing only the new size and review fields reproduced the complete version 6 research dataset. Released research JSON SHA-256 `07f42383dfc5b14bc627d538427f8432cb054201c32a57c326895d879b744546`. All three historical debt/market-cap restrictions remain in force. |
+| Candidate checks | 240 Python tests, including disposable TLS PostgreSQL, 94 Watch browser checks, 76 legacy preview checks, 38 workbench checks and three packaging dry runs. [PR checks](https://github.com/joedatacap/aidatacenter2/actions/runs/45119327236) · [networked desktop and mobile proof](https://github.com/joedatacap/aidatacenter2/actions/runs/45119313847) |
+| Public verification | Desktop Chromium and touch-emulated mobile each displayed all nine branded monthly figures, in the badge order. Both passed peer navigation, the source drawer, APLD’s evidence excerpts, research CSV/JSON exports and the original/revised Nebius targets. The live application data and served JS, CSS and research JSON matched the accepted build. [Live browser run and original screenshots](https://github.com/joedatacap/aidatacenter2/actions/runs/45119687269) |
+
+### Size and disclosure decisions
+
+| Company | Nov 13 badge | Nov 20 badge · provider-reported USD | Post-cutoff primary-source review |
+| --- | --- | --- | --- |
+| CRWV | Large | Large · $21.97B | Checked. Seven Form 144 notices concern proposed holder sales. |
+| NBIS | Size unverified | Large · $23.82B | Incomplete. An exchange notice describes future Israeli capacity. Secondary reporting names Nebius, but primary confirmation of customer identity is outstanding. The Nov 18 officer RSU grant has a future vesting schedule. |
+| IREN | Medium | Medium · $5.02B | Checked. Ownership filings yielded no new issuer financing. |
+| APLD | Medium | Medium · $3.47B | Updated. Applied Digital funded a $97M loan to ChronoScale. ChronoScale announced a conditional, phased Odessa project with a 65 MW first order and an H1 2027 deployment target. |
+| HUT | Medium | Medium · $5.52B | Checked. No material update found. |
+| WULF | Medium | Medium · $4.94B | Checked. The November 20 date was a webcast replay expiry. |
+| WYFI | Small | Micro · $287.58M | Incomplete. SEC submissions and the issuer-distributed release feed were checked. The issuer's IR archive was incomplete. The November technical post referred to an earlier deployment. |
+| SHAZ | Size unverified | Small · $647.59M | Checked. No material update found. The latest share count already includes exercised June prefunded warrants. |
+| AGPU | Size unverified | Micro · $66.19M headline | Checked. A director’s Form 3 reported no holdings. The provider's history gives $77.90M for the same date. Both fall below $300M. The treatment of prefunded warrants remains unresolved. |
+
+The [size evidence](../neocloud/data/quality_sizes.json) and [disclosure review](../neocloud/data/quality_reviews.json) record sources, passages and limitations. Use the disclosure timestamps to continue each company's review. Keep cited provider excerpts and figures in the editorial display, and preserve the research export projection.
+
+### Production content security policy
+
+The public root omitted the configured Content-Security-Policy HTTP response header on both devices. Both documents delivered `base-uri 'none'; object-src 'none'` in HTML. On the live audit page the browser rejected the controlled base URL change and reported a `base-uri` violation. Normal homepage loads recorded zero CSP violations, failed requests or page errors. The stricter HTTP policy and `frame-ancestors` require a host that supports custom response headers and can coordinate its injected scripts. The application continues to use the existing static host.
+
+## Updating the size and disclosure evidence
 
 The historical financial record retains its November 17 cutoff. The separately dated size observations and disclosure checks are in [quality_sizes.json](../neocloud/data/quality_sizes.json) and [quality_reviews.json](../neocloud/data/quality_reviews.json). On the website, open a badge for its quoted source and share-count basis, or a company brief for disclosure events, channels checked and gaps.
 
@@ -111,7 +147,7 @@ The owner explicitly authorized publication of the existing saved version 5. Sit
    Inspect the staged file list and differences, including `data.json`, `audit.html`, `_headers`, assets and all route indexes. Version 5 has 29 files in `dist/`, including 24 route indexes. The TradingView edition has 30 files including 25 route indexes. It includes `markets/index.html` and excludes `market-data.json`. A failed release build stops publication, including reuse of any older staging directory. For a presentation or packaging change, compare `data.json` byte for byte with the previous publication. When generated files already match, retain the existing deployment.
 6. For an authorized publication, update only the existing Sites checkout's `dist/` to match the staged tree. Record the full GitHub SHA in `maintenance/GITHUB_SOURCE.md`. Preserve the hosting manifest and all maintenance history. Verify with `diff -qr "$stage_dir/dist" "$site_checkout/dist"`, setting `site_checkout` to the path opened in step 2. Recheck the remote head and current version before pushing to prevent overwriting another publisher.
 7. Follow the Sites source helper to commit, push and package. For a static Git checkout the equivalent archive command is `git archive --format=tar --output=/absolute/path/to/release.tar HEAD .openai/hosting.json dist` from the verified Sites checkout. The archive contains the manifest and generated output. Call `save_site_version` with the same project ID, **pushed Sites commit SHA** and unchanged archive, then `deploy_site_version` with the returned saved-version ID. Keep the existing public audience. If the call is pending, poll `get_deployment_status` until terminal. Verify `get_site` still returns the expected URL, version and access.
-8. Run the **Watch native browser proof** workflow in candidate mode before publication and live mode after publication. Dispatch it against the accepted source, or push that exact source to a fresh `qa/watch-native-live-<release>` ref for the public check. The candidate server enforces the generated headers. The live target is fixed to the public Sites origin. Download the workflow artifact and inspect the branded desktop and mobile screenshots for actual monthly figures across all nine companies, provider attribution, the Today and 1M labels, and mobile scrolling. Component registration alone is insufficient. Keep quote data out of tests and exports. Check peer selection, company profiles, source links, research CSV and JSON, and compare the served JavaScript, CSS and financial data to the accepted build. Record the build SHA, Sites SHA, version, deployment ID, data cutoff and links to the checks in this file.
+8. Run the **Watch native browser proof** workflow in candidate mode before publication and live mode after publication. Dispatch it against the accepted source, or push that exact source to a fresh `qa/watch-native-candidate-<release>` ref for the candidate and a fresh `qa/watch-native-live-<release>` ref for the public check. The candidate server enforces the generated headers. The live target is fixed to the public Sites origin. Download the workflow artifact and inspect the branded desktop and mobile screenshots for actual monthly figures across all nine companies, provider attribution, the Today and 1M labels, and mobile scrolling. Component registration alone is insufficient. Keep quote data out of tests and exports. Check peer selection, company profiles, source links, research CSV and JSON, and compare the served JavaScript, CSS and financial data to the accepted build. Record the build SHA, Sites SHA, version, deployment ID, data cutoff and links to the checks in this file.
 
 ### Reproduce the version 5 production browser check
 
