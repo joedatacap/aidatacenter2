@@ -37,7 +37,8 @@ test('company summaries disclose review dates, channels, material events and unc
   expect(review).toBeTruthy();
   const panel=page.locator('#company-data-review');
   await expect(panel).toBeVisible();
-  await expect(panel.locator('[data-disclosure-review]')).toContainText(review.checked_at);
+  await expect(panel.locator('[data-disclosure-review] time')).toHaveAttribute('datetime',review.checked_at);
+  await expect(panel.locator('[data-disclosure-review]')).toContainText(review.checked_at.slice(0,10));
   await expect(panel.locator('[data-disclosure-review]')).toContainText(review.status.replaceAll('_',' '));
   for(const event of review.events||[]){
    await expect(panel.locator('.disclosure-event-list')).toContainText(event.title);

@@ -15,6 +15,8 @@ import ipaddress
 import re
 from urllib.parse import parse_qsl, urlparse
 
+from neocloud.watch import market_cap_band
+
 CLASSIFIABLE_SIZE = {"provider_reported", "verified", "dated_provider", "reconciled"}
 UNRESOLVED_SIZE = {
     "unavailable",
@@ -108,13 +110,7 @@ def size_category(value):
     if value is None:
         return "unknown"
     value = positive_dollars(value)
-    if value >= 10_000_000_000:
-        return "large"
-    if value >= 2_000_000_000:
-        return "mid"
-    if value >= 300_000_000:
-        return "small"
-    return "micro"
+    return market_cap_band(value)
 
 
 def nonempty_text(value, label):
