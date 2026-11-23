@@ -83,6 +83,7 @@ test('cap grouping controls share selection and URL filters with both comparison
  expect(new URL(page.url()).searchParams.get('size')).toBe('small');
  expect(await page.locator('[data-company]').evaluateAll(nodes=>nodes.map(n=>n.dataset.company).sort())).toEqual(chosen);
  await page.goBack();expect((await rowIds(page)).sort()).toEqual(chosen);
+ await expect(page.locator('#peer-picker')).toHaveJSProperty('open',false);
  await page.locator('[data-cap-group=mid]').click();
  expect(new URL(page.url()).searchParams.get('size')).toBe('mid');
  await expect(page.locator('#market-cap-chart .cap-empty')).toBeVisible();
