@@ -165,25 +165,43 @@ async function peerSizeChecks(page,origin,acceptedData,label) {
 }
 
 async function swipeMonthly(page) {
-  const widget=page.locator('tv-market-data');await widget.scrollIntoViewIfNeeded();
-  const box=await widget.boundingBox();assert(box,'Widget host is visible for touch');
+  const widget=page.locator('tv-market-data');
   const viewport=page.viewportSize();
-  const y=Math.round(Math.min(viewport.height-20,Math.max(30,box.y+Math.min(120,box.height/2))));
   const touch=await page.context().newCDPSession(page);
-  async function swipe(from,to){
+  const captures=[];
+  async function dragLeft(distance) {
+    await widget.scrollIntoViewIfNeeded();
+    const box=await widget.boundingBox();
+    assert(box,'Widget host is visible for touch');
+    const y=Math.round(Math.min(viewport.height-20,Math.max(30,box.y+Math.min(120,box.height/2))));
+    const from=Math.min(345,viewport.width-30);
     await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:from,y}]});
-    for(let i=1;i<=12;i++){
-      await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:from+(to-from)*i/12,y}]});
-      await page.waitForTimeout(25);
+    // Slow direct gestures, followed by a stationary hold before release, avoid
+    // momentum flinging the monthly figures beneath the pinned company column.
+    for(let step=1;step<=18;step++){
+      const x=from-distance*step/18;
+      await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x,y}]});
+      await page.waitForTimeout(35);
     }
+    await page.waitForTimeout(250);
+    await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:from-distance,y}]});
     await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
     await page.waitForTimeout(700);
   }
-  // Prior native-widget proof established this small scroll reveals 1M beside
-  // the widget's own pinned company column. Screenshots retain its branding.
-  await swipe(Math.min(345,viewport.width-30),190);
-  await swipe(Math.min(345,viewport.width-30),230);
-  await touch.detach();
+  try {
+    // Capture three nearby positions for visual review. These distances are
+    // touch gestures only; no vendor DOM, scroll offsets or quote cells are read.
+    for(const position of [
+      {distance:180,label:'mobile-month-less-scroll'},
+      {distance:60,label:'mobile-month'},
+      {distance:60,label:'mobile-month-more-scroll'}
+    ]){
+      await dragLeft(position.distance);
+      await screenshotTop(page,position.label);
+      captures.push(position.label+'.png');
+    }
+  } finally {await touch.detach();}
+  return captures;
 }
 
 function csvRows(text) {
@@ -337,7 +355,7 @@ async function main() {
         await page.waitForFunction(()=>customElements.get('tv-market-data')!==undefined,null,{timeout:30000});
         await page.waitForTimeout(13000);
         await screenshotTop(page,device.name+'-homepage');
-        if(device.touch){await swipeMonthly(page);await screenshotTop(page,'mobile-month');}
+        const monthly_screenshots=device.touch?await swipeMonthly(page):[];
         await screenshotSizeTable(page,device.name);
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);
         assert(!overflow,'No horizontal page overflow');
@@ -348,7 +366,7 @@ async function main() {
         await page.goto(origin+'/');
         const research=await researchChecks(page,origin,device.name);
         const assets=await verifyAssets(context.request,origin);
-        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,size_table:sizeTable,size_profiles,peer_sizes,research,assets,diagnostics});
+        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,monthly_screenshots,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,size_table:sizeTable,size_profiles,peer_sizes,research,assets,diagnostics});
       } catch(error){
         await page.screenshot({path:path.join(OUTPUT,device.name+'-failure.png'),fullPage:true}).catch(()=>{});
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations||[]).catch(()=>[]);

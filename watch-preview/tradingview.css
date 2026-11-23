@@ -3,7 +3,7 @@
 .tradingview-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:18px}
 .tradingview-heading h1{font:normal 40px/1.16 Georgia,serif;letter-spacing:-.8px;margin:0 0 12px}
 .tradingview-heading p{font-size:15px;line-height:1.8;color:var(--muted);margin:0;max-width:880px}
-.tradingview-heading p strong{color:var(--ink)}
+.tradingview-heading p strong{color:#214c3b;background:#e1eadb;border-radius:3px;padding:1px 4px;font-variant-numeric:tabular-nums}
 #tradingview-peer-slot{flex-shrink:0}#tradingview-peer-slot .peer-picker>summary{font-size:13px;min-height:42px;background:#fff}#tradingview-peer-slot #peer-count{font-size:12px}#tradingview-peer-slot .peer-panel{right:0;left:auto}
 .tradingview-widget-shell{background:#fff;border:1px solid #d4ddd2;border-radius:8px;padding:11px;min-width:0;max-width:100%;overflow:hidden}
 .tradingview-widget-shell tv-market-data{width:100%;display:block;min-width:0}

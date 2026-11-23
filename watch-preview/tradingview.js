@@ -16,7 +16,7 @@ function tradingViewSizeName(company) {
 function sizeObservationDate(cap) {
   if (!cap?.as_of) return 'Date unavailable';
   const date = `<time datetime="${esc(cap.as_of)}">${day(cap.as_of)}</time>`;
-  return cap.session_status === 'intraday' ? date + ' · intraday' : date;
+  return cap.session_status === 'intraday' ? date + ' · US intraday' : date;
 }
 
 function marketSizeRow(company, cap, sharedDate) {
