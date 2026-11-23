@@ -2,7 +2,27 @@
 
 The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). GitHub `joedatacap/aidatacenter2` on `main` is the application source. ChatGPT Sites stores the generated static publication in its own source repository on `main`. A GitHub merge runs tests and packaging dry runs. Publication is a separate operation.
 
-## TradingView homepage release
+## November 23, 2026 · public version 6
+
+| Release record | Value |
+| --- | --- |
+| Public deployment | [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/) · existing project and public audience · version **6** · deployment `appgdep_6b03b9f810c081919ac1f3fcddbf5bc4` succeeded on November 23 at 11:58 Singapore time (03:58 UTC). |
+| GitHub source | [Release merge 52d196252c009c45a1a42bc07bdc2c9b4a5732d0](https://github.com/joedatacap/aidatacenter2/commit/52d196252c009c45a1a42bc07bdc2c9b4a5732d0) · [PR #14](https://github.com/joedatacap/aidatacenter2/pull/14). Its tree matches the tested integration head `f9f0c3173b04ee68869b8d4212fe63db9398a70c`. |
+| Sites source | `2622b539cde6293344f253a6738164512106949c`. Saved version `appgprj_6afb8d8562c0819183402d9c41093312~appgver_6c895ed794308191aafdf33148406046`. All 30 staged files matched the clean main build. |
+| Financial evidence | Cutoff `2026-11-17T18:35:45.406835Z`. The financial file is byte-identical to v5, SHA-256 `657d5141fe1a8b03e29429954a6829872a8a8c1e600de875eb29dbfb6f2b4838`. The November 17 corrections carry through intact. |
+| Prepublication verification | 216 Python tests including disposable TLS PostgreSQL, 86 Watch browser checks, 76 legacy preview checks, 38 workbench checks and three packaging dry runs. The separate networked run rendered the nine real widget rows on desktop and mobile using the generated content security policy. [PR tests](https://github.com/joedatacap/aidatacenter2/actions/runs/45108710054) · [Candidate browser run](https://github.com/joedatacap/aidatacenter2/actions/runs/45108705587) |
+
+### Public verification
+
+Desktop Chromium (1440 × 1100) and touch-emulated mobile Chromium (390 × 844) opened the public root. Both showed the nine focus companies in badge order, TradingView’s attribution and delayed-data indicators. The desktop screenshot shows a numeric 1M figure in every row. Touch scrolling reveals 1M inside the widget and the page stays within the viewport. The served JavaScript, CSS and financial data matched the accepted build byte for byte. [Live browser run and original screenshots](https://github.com/joedatacap/aidatacenter2/actions/runs/45109112712)
+
+On both viewports, two selected peers carried through research navigation. Source links opened in the evidence drawer, and downloaded CSV and JSON contained exactly those two companies. Markets, Financing & Debt, Earnings, Buildout and a company profile were exercised. The public Nebius Buildout card displayed the original December 2026 target and its February 2027 revision.
+
+The staged server served the generated content-security-policy header. The public Sites root response omitted that header. Both public browsers loaded the widget without page errors or failed requests during initial rendering.
+
+Production screenshots show the homepage at first load and after a touch swipe positions 1M beside the pinned company names. The second mobile capture used the same deployed release with a longer swipe for a clear view of the final row. [Desktop](https://drive.google.com/file/d/1xyM-izfrlgolPCZOem62xmcq-mUcCY6k/view) · [Mobile at first load](https://drive.google.com/file/d/1pulCEowFEYmsgJwZkHmO9WCjd1IuSwsa/view) · [Mobile with all nine 1M values](https://drive.google.com/file/d/1kAS2lq4BcEXC6d3IMCOGZcPTI_mGTDit/view) · [Touch verification](https://github.com/joedatacap/aidatacenter2/actions/runs/45109321834)
+
+### Homepage data and limitations
 
 The official TradingView Market Data widget supplies the Performance table on Overview and Markets. Use its 1M column for monthly performance. Today is a separate daily measure. TradingView supplies the actual periods, branding and delay indicators. Keep the nine focus listings in the same order as the adjacent Neocloud Watch market-cap badges. The November 13 capitalization observations support six size classifications. NBIS, SHAZ and AGPU remain **Size unverified**.
 
