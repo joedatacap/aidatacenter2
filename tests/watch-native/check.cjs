@@ -193,25 +193,29 @@ async function main() {
         if(MODE==='candidate')assert(csp,'Candidate server applies the generated CSP');
         const policySelector='meta[http-equiv="Content-Security-Policy"]';
         const metaPolicy=await page.locator(policySelector).getAttribute('content');
-        assert(metaPolicy?.includes("default-src 'none'")&&metaPolicy.includes("connect-src 'self'"));
+        assert.equal(metaPolicy,"base-uri 'none'; object-src 'none'");
         const probe=await context.newPage();
         let blocked;
         try {
           await probe.goto(origin+'/audit.html');
           assert.equal(await probe.locator(policySelector).getAttribute('content'),metaPolicy);
-          // This in-memory resource works without networking. A matching violation
-          // proves that the browser enforced connect-src on a served document.
+          // A temporary base element changes URL resolution without loading a
+          // resource. Check both its actual effect and the browser's violation.
           blocked=await probe.evaluate(async()=>{
+            const original=document.baseURI;
             const violation=new Promise(resolve=>{
               document.addEventListener('securitypolicyviolation',event=>{
-                if(event.effectiveDirective==='connect-src'&&event.blockedURI==='data')resolve(true);
+                if(event.effectiveDirective==='base-uri')resolve(true);
               });
               setTimeout(()=>resolve(false),1500);
             });
-            try {await fetch('data:text/plain,policy-check');return false;}
-            catch {return violation;}
+            const base=document.createElement('base');
+            base.href='/policy-check/';
+            document.head.prepend(base);
+            try {return document.baseURI===original&&await violation;}
+            finally {base.remove();}
           });
-          assert(blocked,'Served document enforces connect-src in the browser');
+          assert(blocked,'Served document enforces base-uri in the browser');
         } finally {await probe.close();}
 
         await page.getByRole('heading',{name:'Neocloud stock performance',exact:true}).waitFor({timeout:20000});

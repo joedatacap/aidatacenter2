@@ -4,6 +4,7 @@ on:
     branches:
       - feat/release-tradingview
       - feat/watch-data-nov23
+      - qa/watch-native-candidate-*
       - qa/watch-native-live
       - qa/watch-native-live-*
   workflow_dispatch:
