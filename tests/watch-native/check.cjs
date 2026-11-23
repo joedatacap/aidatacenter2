@@ -55,6 +55,85 @@ async function screenshotTop(page,label) {
   await page.screenshot({path:path.join(OUTPUT,label+'.png'),clip:{x:0,y:0,width,height}});
 }
 
+async function screenshotWidget(page,label) {
+  // Capture the outer, intact official component shell. The chart above it can
+  // make a top-of-page image very tall; this separate image retains the full
+  // vendor display and attribution without reading or modifying its contents.
+  const shell=page.locator('#tradingview-widget-shell');
+  await shell.scrollIntoViewIfNeeded();
+  const shellBox=await shell.boundingBox(),widgetBox=await page.locator('tv-market-data').boundingBox();
+  assert(shellBox&&widgetBox&&widgetBox.height>250,'Full official widget is visible for capture');
+  assert(widgetBox.y>=shellBox.y-1&&widgetBox.y+widgetBox.height<=shellBox.y+shellBox.height+1,
+    'Widget capture includes the entire official host');
+  await shell.screenshot({path:path.join(OUTPUT,label+'.png')});
+}
+
+async function capChartChecks(page,acceptedData,ids) {
+  const section=page.locator('#market-cap-chart');
+  await section.waitFor({state:'visible'});
+  await page.getByRole('heading',{name:'Market capitalization',exact:true,level:1}).waitFor();
+  const expected=ids.map(id=>({company:acceptedData.companies.find(item=>item.id===id)}))
+    .map(item=>({...item,size:expectedSize(item.company)}))
+    .sort((a,b)=>Number(b.size.value)-Number(a.size.value));
+  assert.deepEqual(await section.locator('[data-cap-company]').evaluateAll(rows=>rows.map(row=>row.dataset.capCompany)),
+    expected.map(item=>item.company.id),'Market-cap chart ranks the accepted selected companies by descending capitalization');
+  if(!expected.length)return {rows:0};
+  const axisMax=Number(await section.locator('[data-cap-max]').getAttribute('data-cap-max'));
+  assert(Number.isFinite(axisMax)&&axisMax>=Math.max(...expected.map(item=>Number(item.size.value))),
+    'Market-cap axis includes the largest accepted observation');
+  for(const {company,size} of expected){
+    const row=section.locator('[data-cap-company="'+company.id+'"]');
+    assert.equal(await row.getAttribute('data-cap-date'),size.date,'Chart row retains its dated observation: '+company.id);
+    assert((await section.innerText()).includes(size.date.slice(0,10)),'Chart visibly dates the accepted observation');
+    const value=row.locator('[data-cap-value]');
+    assert.equal((await value.innerText()).trim(),'$'+Number(size.value).toLocaleString('en-US',{maximumFractionDigits:2}),
+      'Chart displays the accepted USD capitalization in full dollars: '+company.id);
+    assert.equal(await value.getAttribute('href'),size.observation.source_url,'Chart value links to its attributed source');
+    const profile=row.locator('[data-cap-profile]');
+    assert(await profile.isVisible(),'Chart company link is visible');
+    assert.equal(new URL(await profile.getAttribute('href'),page.url()).pathname,'/companies/'+company.id+'/',
+      'Chart company link opens the corresponding company brief');
+    const track=await row.locator('[data-cap-track]').boundingBox(),bar=await row.locator('[data-cap-bar]').boundingBox();
+    assert(track&&bar&&track.width>0,'Chart has a visible plot track and bar');
+    const expectedWidth=track.width*Number(size.value)/axisMax;
+    assert(Math.abs(bar.width-expectedWidth)<=1.1,'Chart bar width follows its accepted USD value on the shared linear scale: '+company.id);
+    assert(bar.x>=track.x-1&&bar.x+bar.width<=track.x+track.width+1,'Chart fill stays within its plot track');
+    if(company.id==='agpu')assert((await row.innerText()).includes('Provider-reported; share basis unresolved.'),
+      'AGPU carries the exact unresolved-share-basis qualification');
+    if(size.observation.session_status==='intraday')assert((await section.innerText()).includes('intraday'),
+      'Chart labels open-session capitalization observations');
+  }
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),
+    'Market-cap chart does not cause horizontal page overflow');
+  return {rows:expected.length,descending:true,linear_scale:true,accepted_values:true,dated:true,source_links:true,profile_links:true,page_overflow:false};
+}
+
+async function capChartGroupChecks(page,origin,acceptedData,label) {
+  const ids=SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase());
+  const smallIds=ids.filter(id=>['small','micro'].includes(expectedSize(acceptedData.companies.find(company=>company.id===id)).band));
+  await page.locator('#market-cap-chart [data-cap-group="small"]').click();
+  assert.equal(new URL(page.url()).searchParams.get('size'),'small','Chart group control uses the shared size filter');
+  const small=await capChartChecks(page,acceptedData,smallIds);
+  await sizeTableChecks(page,acceptedData,smallIds);
+  assert.deepEqual(JSON.parse(await page.locator('tv-market-data').getAttribute('symbol-sectors')).flatMap(group=>group.symbols),
+    smallIds.map(id=>'NASDAQ:'+acceptedData.companies.find(company=>company.id===id).ticker),
+    'Small group filters the chart, size table and configured widget symbols together');
+  assert(smallIds.includes('agpu'),'Small group includes AGPU');
+  await page.locator('#market-cap-chart').screenshot({path:path.join(OUTPUT,label+'-small-market-cap-chart.png')});
+  await page.locator('#market-cap-chart [data-cap-group="all"]').click();
+  await capChartChecks(page,acceptedData,ids);
+  await page.goto(origin+'/?peers=wyfi,agpu');
+  const selected=await capChartChecks(page,acceptedData,['wyfi','agpu']);
+  await sizeTableChecks(page,acceptedData,['wyfi','agpu']);
+  assert.deepEqual(JSON.parse(await page.locator('tv-market-data').getAttribute('symbol-sectors')).flatMap(group=>group.symbols),
+    ['NASDAQ:WYFI','NASDAQ:AGPU'],'Chart peers match the table and configured widget selection');
+  await page.locator('#market-cap-chart').screenshot({path:path.join(OUTPUT,label+'-selected-market-cap-chart.png')});
+  await page.goto(origin+'/markets/?peers=wyfi,agpu');
+  assert.equal(await page.locator('#market-cap-chart').count(),0,'Capitalization chart is confined to the homepage');
+  await page.goto(origin+'/');
+  return {small,selected,small_includes_micro:true,shared_filter:true,homepage_only:true};
+}
+
 // This is our dated editorial table, separate from the vendor component. Only
 // application markup and accepted research are read; vendor figures stay visual.
 async function sizeTableChecks(page,acceptedData,ids) {
@@ -198,7 +277,8 @@ async function swipeMonthly(page) {
     ]){
       await dragLeft(position.distance);
       await screenshotTop(page,position.label);
-      captures.push(position.label+'.png');
+      await screenshotWidget(page,position.label+'-widget');
+      captures.push(position.label+'.png',position.label+'-widget.png');
     }
   } finally {await touch.detach();}
   return captures;
@@ -351,22 +431,26 @@ async function main() {
         assert.deepEqual(configured.flatMap(section=>section.symbols),SYMBOLS,'Native component receives exactly the nine public focus listings');
         assert.equal(await widget.getAttribute('view'),'performance');
         assert.equal(hash(await page.locator('#watch-data').textContent()),hash(embedded[1]),'Served embedded research matches the accepted build');
+        const cap_chart=await capChartChecks(page,acceptedData,SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
+        await page.locator('#market-cap-chart').screenshot({path:path.join(OUTPUT,device.name+'-market-cap-chart.png')});
         const sizeTable=await sizeTableChecks(page,acceptedData,SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
         await page.waitForFunction(()=>customElements.get('tv-market-data')!==undefined,null,{timeout:30000});
         await page.waitForTimeout(13000);
         await screenshotTop(page,device.name+'-homepage');
+        await screenshotWidget(page,device.name+'-widget');
         const monthly_screenshots=device.touch?await swipeMonthly(page):[];
         await screenshotSizeTable(page,device.name);
         const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);
         assert(!overflow,'No horizontal page overflow');
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations);
         assert.equal(diagnostics.csp.length,0,'CSP must allow the native component without broadening unrelated application permissions');
+        const cap_groups=await capChartGroupChecks(page,origin,acceptedData,device.name);
         const size_profiles=await sizeProfileChecks(page,origin,acceptedData,SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
         const peer_sizes=await peerSizeChecks(page,origin,acceptedData,device.name);
         await page.goto(origin+'/');
         const research=await researchChecks(page,origin,device.name);
         const assets=await verifyAssets(context.request,origin);
-        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,monthly_screenshots,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,size_table:sizeTable,size_profiles,peer_sizes,research,assets,diagnostics});
+        summary.devices.push({name:device.name,viewport:{width:device.width,height:device.height},touch:device.touch,component_registered:true,configured_symbols:SYMBOLS.length,monthly_screenshots,page_overflow:false,csp_header_present:Boolean(csp),document_csp:metaPolicy,document_csp_enforced:blocked,cap_chart,cap_groups,size_table:sizeTable,size_profiles,peer_sizes,research,assets,diagnostics});
       } catch(error){
         await page.screenshot({path:path.join(OUTPUT,device.name+'-failure.png'),fullPage:true}).catch(()=>{});
         diagnostics.csp=await page.evaluate(()=>window.__watchCspViolations||[]).catch(()=>[]);
@@ -379,4 +463,4 @@ async function main() {
   console.log(JSON.stringify({mode:MODE,status:'passed',devices:summary.devices.length,screenshots:OUTPUT,visual_review_required:true}));
 }
 if(require.main===module)main().catch(error=>{console.error(error.message);process.exitCode=1;});
-module.exports={headerRules,startCandidate,csvRows,sizeTableChecks,sizeProfileChecks,peerSizeChecks};
+module.exports={headerRules,startCandidate,csvRows,sizeTableChecks,sizeProfileChecks,peerSizeChecks,capChartChecks,capChartGroupChecks};
