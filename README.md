@@ -33,9 +33,12 @@ path. No database, API credentials, quote feed or inference service is needed.
 `npm run test:watch` checks hosted and offline navigation on desktop/mobile.
 `npm run deploy:watch:dry-run` checks packaging; it does not deploy anything.
 
-Market history is imported separately. See the [market refresh procedure](docs/WATCH_MARKET_DATA.md)
-and [provider rights and availability](docs/WATCH_MARKET_SOURCES.md). Use
-`npm run build:watch:release` for publication. It requires a verified default-window return.
+Overview and Markets display the official TradingView Performance widget for the
+nine focus listings. It requires an internet connection. The 1M column uses
+TradingView’s period definition. Market-cap badges and financial exports come
+from the separately dated research ledger. The custom stock charts, price history
+and market-data exports are reserved for a future licensed source.
+Use `npm run build:watch:release` to stage this edition in a clean directory.
 
 New financial facts are reviewed snapshots, not automatic imports. Refresh
 instructions and research limits are in the execution status document.

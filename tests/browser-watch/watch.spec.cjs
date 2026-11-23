@@ -1,4 +1,4 @@
-const {test,expect}=require('@playwright/test');
+const {test,expect}=require('./support.cjs');
 const fs=require('node:fs');
 const FOCUS=['CRWV','NBIS','IREN','APLD','HUT','WULF','WYFI','SHAZ','AGPU'];
 const rows=page=>page.locator('[data-company]');
@@ -28,7 +28,8 @@ test('five pages preserve selected peers and restore back/forward state',async({
   await page.locator('#primary-nav').getByRole('link',{name,exact:true}).click();
   expect(new URL(page.url()).pathname).toBe(path);
   expect(new URL(page.url()).searchParams.get('peers')).toContain('crwv');
-  await expect(rows(page)).toHaveCount(2);
+  if(name==='Markets')await expect(page.locator('#tradingview-performance')).toBeVisible();
+  else await expect(rows(page)).toHaveCount(2);
   await expect(page.locator('#primary-nav').getByRole('link',{name,exact:true})).toHaveAttribute('aria-current','page');
  }
  await page.goBack();await expect(page.locator('#primary-nav').getByRole('link',{name:'Financing & Debt',exact:true})).toHaveAttribute('aria-current','page');
@@ -114,7 +115,9 @@ test('standalone offline artifact navigates all pages and company sections witho
  await page.setContent(fs.readFileSync('work/Neocloud-Watch-V2.html','utf8'));
  await expect(rows(page)).toHaveCount(9);
  for(const name of ['Markets','Financing & Debt','Earnings','Buildout','Overview']){
-  await page.locator('#primary-nav').getByRole('link',{name,exact:true}).click();await expect(rows(page)).toHaveCount(9);
+  await page.locator('#primary-nav').getByRole('link',{name,exact:true}).click();
+  if(name==='Markets')await expect(page.locator('#tradingview-performance')).toBeVisible();
+  else await expect(rows(page)).toHaveCount(9);
  }
  await page.screenshot({path:`work/watch-overview-${info.project.name}.png`,fullPage:true});
  await page.locator('.company-name').filter({hasText:'Axe Compute'}).first().click();

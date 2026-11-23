@@ -1,4 +1,4 @@
-const {test,expect}=require('@playwright/test');
+const {test,expect}=require('./support.cjs');
 const fs=require('node:fs');
 const artifact='work/Neocloud-Watch-V2.html';
 function snapshot(){const html=fs.readFileSync(artifact,'utf8'),match=html.match(/<script id="watch-data" type="application\/json">([\s\S]*?)<\/script>/);return {html,encoded:match[1],data:JSON.parse(match[1])};}
@@ -135,7 +135,7 @@ test('overview exports match selected chart companies and protect the audited Ax
 
 test('overview hierarchy is compact, chart details work by keyboard, and layouts fit supported widths',async({page})=>{
  await page.goto('/overview/?peers=agpu,iren,apld');
- const positions=await page.evaluate(()=>['#stock-hero','#what-changed','#overview-charts','#buildout-tracker','#overview-comparison','#shared-controls','#overview-comparison .table-wrap'].map(id=>({id,top:document.querySelector(id)?.getBoundingClientRect().top})));
+ const positions=await page.evaluate(()=>['#tradingview-performance','#what-changed','#overview-charts','#buildout-tracker','#overview-comparison','#shared-controls','#overview-comparison .table-wrap'].map(id=>({id,top:document.querySelector(id)?.getBoundingClientRect().top})));
  for(let i=1;i<positions.length;i++)expect(positions[i].top,positions[i].id).toBeGreaterThanOrEqual(positions[i-1].top);
  await expect(page.locator('#overview-comparison thead')).not.toContainText('Next event');
  const detail=revenueCard(page,'agpu').locator('.revenue-observation summary').first();
