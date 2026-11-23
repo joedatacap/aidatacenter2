@@ -60,6 +60,18 @@ def embedded_json(element_id, payload):
     return f'<script id="{element_id}" type="application/json">{serialized}</script>'
 
 
+def research_snapshot(data):
+    """Keep the public JSON download separate from attributed page excerpts."""
+    companies = []
+    for company in data['companies']:
+        observation = company.get('size_observation')
+        if observation is not None:
+            context = {key: observation[key] for key in ('ticker', 'as_of', 'size_band', 'status', 'source_url')}
+            company = {**company, 'size_observation': context}
+        companies.append(company)
+    return {**data, 'companies': companies}
+
+
 def build(*,base='/',output=None,release=False):
     base=base_path(base)
     source=ROOT/'watch-preview'
@@ -96,7 +108,7 @@ def build(*,base='/',output=None,release=False):
     (target/'watch.css').write_text(css)
     audit_html = (source/'audit.html').read_text()
     (target/'audit.html').write_text(hosted_document(audit_html))
-    (target/'data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+    (target/'data.json').write_text(json.dumps(research_snapshot(data),ensure_ascii=False,indent=2)+'\n')
     (target/'_headers').write_text(
         "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n"
         "  X-Frame-Options: DENY\n  Content-Security-Policy: " + DOCUMENT_CSP + "; frame-ancestors 'none'\n"

@@ -160,7 +160,10 @@ async function main() {
   let browser;
   try{browser=await chromium.launch({...launch,headless:true});}
   catch(error){if(candidate)await new Promise(resolve=>candidate.server.close(resolve));throw error;}
-  const acceptedData=JSON.parse(await fs.readFile(path.join(SITE,'data.json'),'utf8'));
+  const acceptedHtml=await fs.readFile(path.join(SITE,'index.html'),'utf8');
+  const embedded=acceptedHtml.match(/<script id="watch-data" type="application\/json">([\s\S]*?)<\/script>/);
+  assert(embedded,'Accepted build has an embedded editorial view');
+  const acceptedData=JSON.parse(embedded[1]);
   const summary={mode:MODE,origin,commit:process.env.GITHUB_SHA||null,verified_at:new Date().toISOString(),
     policy:'Native widget output is captured only as intact branded screenshots. No shadow DOM, quote cells, network payloads or series are extracted.',
     visual_review:'Screenshots require visual confirmation of all nine monthly figures and TradingView attribution before publication.',devices:[]};
@@ -208,6 +211,7 @@ async function main() {
         const configured=JSON.parse(await widget.getAttribute('symbol-sectors'));
         assert.deepEqual(configured.flatMap(section=>section.symbols),SYMBOLS,'Native component receives exactly the nine public focus listings');
         assert.equal(await widget.getAttribute('view'),'performance');
+        assert.equal(hash(await page.locator('#watch-data').textContent()),hash(embedded[1]),'Served embedded research matches the accepted build');
         const sizeCards=page.locator('[data-size-company]');
         assert.deepEqual(await sizeCards.evaluateAll(cards=>cards.map(card=>card.dataset.sizeCompany)),SYMBOLS.map(symbol=>symbol.split(':')[1].toLowerCase()));
         for(const symbol of SYMBOLS){

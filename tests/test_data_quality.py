@@ -309,3 +309,16 @@ def test_canonical_quality_inputs_cover_all_nine_without_changing_the_baseline()
         assert company["size_observation"].get("qualification_label") == source.get(
             "qualification_label"
         )
+
+
+def test_static_research_json_excludes_editorial_cap_values_and_preserves_their_citations():
+    from scripts.build_neocloud_watch import load_snapshot, research_snapshot
+    data = load_snapshot()
+    lookup = {c['ticker']: c for c in research_snapshot(data)['companies']}
+    for company in data['companies']:
+        observed = company.get('size_observation')
+        if observed:
+            summary = lookup[company['ticker']]['size_observation']
+            assert set(summary) == {'ticker', 'as_of', 'size_band', 'status', 'source_url'}
+            assert all(observed[key] == value for key, value in summary.items())
+            assert observed['source_excerpt'] and observed['value_usd'] > 0
