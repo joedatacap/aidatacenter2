@@ -8,7 +8,7 @@ const {expectedSize}=require('./size-contract.cjs');
 const FOCUS=['CRWV','NBIS','IREN','APLD','HUT','WULF','WYFI','SHAZ','AGPU'];
 async function researchJSON(page){const pending=page.waitForEvent('download');await page.locator('#export-json').click();return JSON.parse(fs.readFileSync(await(await pending).path(),'utf8'));}
 
-test('official market host leads the homepage without shipping the unpublished custom-price interface',async({page})=>{
+test('capitalization chart leads the homepage while the official stock host remains separate from unpublished price interfaces',async({page})=>{
  await page.goto('/overview/');
  await expect(page.locator('#tradingview-performance')).toBeVisible();
  await expect(page.locator('#page-title')).not.toBeEmpty();
@@ -21,7 +21,7 @@ test('official market host leads the homepage without shipping the unpublished c
  for(const ticker of FOCUS)expect(configuration.toUpperCase()).toContain('NASDAQ:'+ticker);
  await expect(page.locator('#market-data')).toHaveCount(0);
  await expect(page.locator('.stock-return-row,.scatter-point,.normalized-series-details')).toHaveCount(0);
- const order=await page.evaluate(()=>['#tradingview-performance','#what-changed','#overview-charts','#buildout-tracker','#overview-comparison'].map(s=>document.querySelector(s).getBoundingClientRect().top));
+ const order=await page.evaluate(()=>['#market-cap-chart','#tradingview-performance','#what-changed','#overview-charts','#buildout-tracker','#overview-comparison'].map(s=>document.querySelector(s).getBoundingClientRect().top));
  for(let i=1;i<order.length;i++)expect(order[i]).toBeGreaterThan(order[i-1]);
  const financial=JSON.parse(await page.locator('#watch-data').textContent());
  expect(financial.reviewed_at).toBe('2026-11-17');
