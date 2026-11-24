@@ -2,6 +2,20 @@
 
 The public site is [Neocloud Watch](https://neocloud-watch.gpuchips.chatgpt.site/). GitHub `joedatacap/aidatacenter2` on `main` is the application source. ChatGPT Sites stores the generated static publication in its own source repository on `main`. A GitHub merge runs tests and packaging dry runs. Publication is a separate operation.
 
+## November 24, 2026 · public version 11
+
+[Public homepage](https://neocloud-watch.gpuchips.chatgpt.site/) · [Company-by-company review and refresh procedure](#incremental-disclosure-refresh--november-24-2026)
+
+| Release record | Verified value |
+| --- | --- |
+| Canonical application | [PR #19](https://github.com/joedatacap/aidatacenter2/pull/19) · [main c44d19d76cfd1287885bf7c4718c1ffdc0bf8999](https://github.com/joedatacap/aidatacenter2/commit/c44d19d76cfd1287885bf7c4718c1ffdc0bf8999) |
+| Publication | Version 11, saved version `appgprj_6afb8d8562c0819183402d9c41093312~appgver_ce50e7fd099c8191a6ed9309e8146d0b`, deployment `appgdep_6b05263ec7ec819190d863c239839ac5`, succeeded 2026-11-24 13:53:08 Singapore time. Sites source `88c199d644aae5df5d9059e24e4b5467a8d665bb`. Same public URL and audience. |
+| Data cutoffs | Statements retain the November 17 research cutoff and individual publication dates. Market cap is the November 23 US intraday provider snapshot. Disclosure review ran November 24 at approximately 05:39 UTC. The nine prior reviews, including the older APLD events, were preserved in full. |
+| Integrity | All 30 staged files matched the candidate. Comparison to version 10 confirmed identical market caps, earnings, instrument terms, balances, and historical operational observations. Production research JSON SHA-256 `1547050e7c1f45cd45727e825f3d714ca47bab64350344de4940da54e0f19bf5`. |
+| Verification | 249 Python tests (including disposable TLS PostgreSQL), 112 Watch browser tests, 76 legacy browser tests, 38 workbench tests and three packaging dry runs passed. [PR regression tests](https://github.com/joedatacap/aidatacenter2/actions/runs/45335718193) · [Networked candidate](https://github.com/joedatacap/aidatacenter2/actions/runs/45335687996) · [Production screenshots and results](https://github.com/joedatacap/aidatacenter2/actions/runs/45336440564) |
+
+The public browser checks matched the bundled and served research and application assets to the merged build. Desktop and touch-emulated mobile both showed nine TradingView monthly figures. Size and peer filtering, chart values and scale labels, dated earnings, historical and current Applied Digital disclosures, company sources and research exports passed.
+
 ## November 24, 2026 · public version 10
 
 The existing [public site](https://neocloud-watch.gpuchips.chatgpt.site/) serves the ranked market-cap chart above both market comparison tables. The project and public audience are unchanged.
