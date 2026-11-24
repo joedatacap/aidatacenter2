@@ -18,9 +18,7 @@ function capPlotOmission(company, cap) {
 function capPlotRow({company, cap}, maximum, sharedDate) {
   const group = tradingViewSizeName(company);
   const amount = money(cap.value, true);
-  const shareNote = cap.qualification_label;
-  const qualification = shareNote?.toLowerCase() === 'share basis unresolved'
-    ? 'Provider-reported; share basis unresolved.' : shareNote;
+  const qualification = sizeQualification(cap);
   return `<li class="cap-row" data-cap-company="${esc(company.id)}" data-cap-date="${esc(cap.as_of)}">
     <div class="cap-identity">
       <a data-app data-cap-profile aria-label="${esc(company.name)} (${esc(company.ticker)}), company profile" href="${esc(profile(company))}"><strong>${esc(company.ticker)}</strong><span>${esc(company.name)}</span></a>
@@ -51,9 +49,11 @@ function marketCapChart(companies) {
     `<button type="button" data-cap-group="${id}" aria-pressed="${state.size === id}">${label}</button>`
   ).join('');
   let plot = '<p class="cap-empty">No eligible market caps in this selection.</p>';
+  let scaleLabel = 'Linear scale from $0';
   if (first) {
     const step = 10 ** Math.floor(Math.log10(first.value));
     const maximum = Math.ceil(first.value / step) * step;
+    scaleLabel = `Selection scale: $0 to ${money(maximum)} USD (linear)`;
     plot = `<div class="cap-plot" data-cap-max="${maximum}">
       <div class="cap-axis" aria-hidden="true"><span>Company / size</span>
         <div class="cap-ticks"><span>$0</span><span>${money(maximum / 2)}</span><span>${money(maximum)}</span></div>
@@ -63,10 +63,10 @@ function marketCapChart(companies) {
   }
   return `<section id="market-cap-chart" class="cap-chart" aria-labelledby="page-title">
     <div class="cap-heading"><h1 id="page-title">Market capitalization</h1><div id="tradingview-peer-slot"></div></div>
-    <p class="cap-source">${stockAnalysis ? 'Provider-reported USD values · Stock Analysis' : 'USD market-cap observations'}${sharedDate ? ' · '+sizeObservationDate(first) : ''}</p>
+    <p class="cap-source">${stockAnalysis ? 'Provider-reported USD values · Stock Analysis' : 'USD market-cap observations'}${sharedDate ? ' · Observed '+sizeObservationDate(first) : ''}</p>
     <p class="cap-timing">${!sharedDate && plotted.length ? 'Dates appear beside each observation. ' : ''}Source figures are rounded. Exact valuation times are unavailable.</p>
     <div class="cap-toolbar"><div class="cap-groups" role="group" aria-label="Filter by company size">${buttons}</div>
-      <span>Linear scale from $0</span></div>
+      <span data-cap-scale aria-live="polite">${scaleLabel}</span></div>
     ${plot}
     ${omitted.length ? `<div class="cap-omissions"><strong>Excluded from chart</strong><ul>${omitted.join('')}</ul></div>` : ''}
   </section>`;

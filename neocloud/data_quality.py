@@ -230,7 +230,7 @@ def size_record(raw, reviewed_at):
     return record
 
 
-def disclosure_record(raw, reviewed_at):
+def _single_disclosure_review(raw, reviewed_at):
     for key in ("ticker", "status", "checked_at", "channels", "events", "gaps"):
         if key not in raw:
             raise ValueError(f"Disclosure review missing {key}")
@@ -285,7 +285,11 @@ def disclosure_record(raw, reviewed_at):
             }
         )
     gaps = [nonempty_text(gap, "Disclosure gap") for gap in raw["gaps"]]
+    earnings = raw.get("earnings_release_check")
+    if earnings is not None and earnings not in {"new_release", "checked_no_new_release", "partial", "not_checked"}:
+        raise ValueError("Unknown earnings release check outcome")
     return {
+        **({"earnings_release_check": earnings} if earnings is not None else {}),
         "ticker": raw["ticker"],
         "status": status,
         "checked_at": raw["checked_at"],
@@ -294,6 +298,23 @@ def disclosure_record(raw, reviewed_at):
         "gaps": gaps,
         "scope_note": "Review covers the listed channels and dated events only. Financial statements, instrument terms and operating observations retain their original dates.",
     }
+
+
+def disclosure_record(raw, reviewed_at):
+    current = _single_disclosure_review(raw, reviewed_at)
+    history = []
+    for entry in raw.get("previous_reviews", []):
+        previous = _single_disclosure_review(entry, reviewed_at)
+        if previous["ticker"] != current["ticker"] or "previous_reviews" in entry:
+            raise ValueError("Review history must be flat and belong to the same issuer")
+        if history and checked_instant(previous["checked_at"]) <= checked_instant(history[-1]["checked_at"]):
+            raise ValueError("Review history must be chronological")
+        history.append(previous)
+    if history:
+        if checked_instant(history[-1]["checked_at"]) >= checked_instant(current["checked_at"]):
+            raise ValueError("Current review must follow its historical checks")
+        current["previous_reviews"] = history
+    return current
 
 
 def enrich_data_quality(snapshot, sizes=None, reviews=None):

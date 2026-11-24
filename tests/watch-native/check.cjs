@@ -81,6 +81,9 @@ async function capChartChecks(page,acceptedData,ids) {
   const axisMax=Number(await section.locator('[data-cap-max]').getAttribute('data-cap-max'));
   assert(Number.isFinite(axisMax)&&axisMax>=Math.max(...expected.map(item=>Number(item.size.value))),
     'Market-cap axis includes the largest accepted observation');
+  const ticks=section.locator('.cap-ticks span');
+  assert.equal(await ticks.first().innerText(),'$0');
+  assert((await section.locator('[data-cap-scale]').innerText()).includes('$0 to '+await ticks.last().innerText()));
   for(const {company,size} of expected){
     const row=section.locator('[data-cap-company="'+company.id+'"]');
     assert.equal(await row.getAttribute('data-cap-date'),size.date,'Chart row retains its dated observation: '+company.id);
@@ -205,7 +208,7 @@ async function sizeProfileChecks(page,origin,acceptedData,ids) {
         'Profile preserves the original attributed editorial passage: '+id);
     }
     for(const field of ['share_basis','basis','caveat','discrepancy','qualification_label']){
-      if(observation[field])assert(text.includes(observation[field]),'Profile retains the size '+field+': '+id);
+      if(observation[field])assert(text.toLowerCase().includes(observation[field].toLowerCase()),'Profile retains the size '+field+': '+id);
     }
     assert(await review.locator('a[href="'+observation.source_url+'"]').first().isVisible(),
       'Profile links to the dated capitalization source: '+id);
@@ -323,6 +326,9 @@ async function researchChecks(page,origin,label) {
   assert(new URL(page.url()).pathname.startsWith('/companies/crwv/'),'Company profile navigation works');
   await nav.getByRole('link',{name:'Earnings',exact:true}).click();
   await page.waitForURL(url=>url.pathname==='/earnings/');
+  const dates=page.locator('.report-card .earnings-dates').first();
+  assert.match(await dates.innerText(),/Reporting period ended .*Source published/);
+  await dates.locator('..').screenshot({path:path.join(OUTPUT,label+'-earnings-dates.png')});
   const sources=page.locator('[data-sources]').first();await sources.click();
   await page.locator('#evidence-dialog').waitFor({state:'visible'});
   assert(await page.locator('#evidence-body a[href^="https://"]').count()>0,'Source drawer contains real research references');
@@ -338,14 +344,15 @@ async function researchChecks(page,origin,label) {
   assert.match(await fields.nth(0).innerText(),/December 2026/);
   assert.match(await fields.nth(2).innerText(),/February 2027/);
   await page.goto(origin+'/companies/apld/');
+  await page.locator('.disclosure-history > summary').click();
   const disclosures=page.locator('#company-data-review [data-disclosure-event]');
-  assert.equal(await disclosures.count(),2,'Both reviewed Applied Digital disclosures are present');
+  assert.equal(await disclosures.count(),4,'Current and historical Applied Digital disclosures are present');
   for(const item of await disclosures.all()){
     await item.locator('summary').click();
     assert(await item.locator('blockquote').first().isVisible(),'The original supporting passage is visible');
     assert.match(await item.getByRole('link',{name:'Read disclosure'}).getAttribute('href'),/^https:\/\//);
   }
-  return {json_companies:2,csv_companies:2,source_drawer:true,navigation:true,buildout_revised_target:true,apld_disclosures:2};
+  return {json_companies:2,csv_companies:2,source_drawer:true,navigation:true,buildout_revised_target:true,apld_disclosures:await disclosures.count()};
 }
 
 async function verifyAssets(request,origin) {

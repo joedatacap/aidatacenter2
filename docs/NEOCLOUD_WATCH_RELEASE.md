@@ -77,6 +77,34 @@ The [size evidence](../neocloud/data/quality_sizes.json) and [disclosure review]
 
 The public root omitted the configured Content-Security-Policy HTTP response header on both devices. Both documents delivered `base-uri 'none'; object-src 'none'` in HTML. On the live audit page the browser rejected the controlled base URL change and reported a `base-uri` violation. Normal homepage loads recorded zero CSP violations, failed requests or page errors. The stricter HTTP policy and `frame-ancestors` require a host that supports custom response headers and can coordinate its injected scripts. The application continues to use the existing static host.
 
+## Incremental disclosure refresh · November 24, 2026
+
+The financial statement research cutoff is November 17. Capitalization is a separate November 23 US intraday observation, with date-only precision. TradingView supplies quote and performance timing for each listing, including its delay marker. TradingView refreshes its own hosted widget when viewed. Issuer disclosures, financial records and market-cap observations are reviewed editorially and published as static files. A rebuild reads the ledgers. At this release the existing Sites project listed zero scheduled automations. GitHub CI and publication verification run on the configured branch events.
+
+### Repeat the check
+
+1. On current GitHub main, read the latest release receipt and each issuer’s `checked_at` in [the disclosure ledger](../neocloud/data/quality_reviews.json). Use the last successful channel time when a prior source was inaccessible. Record the exact UTC check times and the source coverage. Retain previous snapshots in chronological `previous_reviews` order without nesting them.
+2. Open issuer releases, investor events, and each issuer’s SEC submissions endpoint in the ledger. Check filing acceptance timestamps after the prior cutoff, including publications on the cutoff date. Read relevant documents and counterparty filings. This pass used the [existing one-time SEC index check on a networked runner](https://github.com/joedatacap/aidatacenter2/actions/runs/45334825861) and issuer releases. Its artifact supplies the nine retrieval times. Adjust the date window for the next pass. An index alone does not establish a transaction or a completed delivery.
+3. The existing `python scripts/refresh_neocloud_watch.py --evidence-url PUBLIC_ISSUER_URL --dry-run --output work/candidate.json` fingerprints a public document for review. Enter each verified change with the source URL, publication and observation dates, passages, scope, and specific gaps. Record the earnings check even when another category changed. Use `partial` for partial earnings coverage and `not_checked` when no check ran. Mark an inaccessible channel explicitly. Promote new quarterly results to the appropriate Watch earnings ledger only after verifying the period, accounting basis and source publication date. Keep historical dates and conditional terms.
+4. Handle market caps in [the separate size ledger](../neocloud/data/quality_sizes.json) only on a new authorized, attributable observation. Check share basis, preserve the primary evidence and earlier release snapshot, and record session/date precision. Financing ratios have separate denominator requirements. The D delay marker in the widget is supplied by TradingView.
+5. Run `python -m pytest -q`, `npm run test:watch`, and `python scripts/build_neocloud_watch.py --release --output work/<empty-release-directory>` in the repository test environment. Use the networked candidate and live checks in the publication procedure below. Inspect desktop and mobile, the zero and upper scale ticks for each selection, the dated earnings views, both APLD disclosures and their predecessors, the three Axe qualifications, the nine widget rows and the research downloads. Compare served assets to the accepted main build before recording the release receipt.
+
+### Evidence from this pass
+
+From the previous November 23 issuer-specific checks through the November 24 checks around 05:39 UTC (13:39 Singapore), the SEC submissions indexes returned no November 23 or 24 filings for the nine issuers. Issuer releases supplied the changes below. The [ledger](../neocloud/data/quality_reviews.json) records exact timestamps, URLs, supporting passages, history and access gaps. No new quarterly earnings release or next confirmed earnings date was identified.
+
+| Company | Issuer finding |
+| --- | --- |
+| CoreWeave | November 23 announcement confirmed the CFO’s December 1 UBS conference appearance. The dynamic event list was only partly readable. |
+| Nebius | November 23 retail-inference article was product commentary. Israeli project customer attribution remains unresolved. |
+| IREN | No new earnings, financing or buildout release found. |
+| Applied Digital | Delta Forge 1 closed a $300M, 364-day, project-secured delayed-draw bridge at SOFR + 300 bp. Amount drawn undisclosed. A separate signed 18-year, 150 MW lease has approximately $5.4B base-term contracted revenue. The issuer targets first delivery in H1 2028, subject to milestones, utility arrangements and approvals. |
+| Hut 8 | No new earnings, financing or buildout release found. |
+| TeraWulf | No new release or signed Muskie tenant agreement verified. |
+| WhiteFiber | Investor hub now links to the existing November 10 Q3 results. News and calendar indexes remain incomplete. |
+| SharonAI | No new disclosure found. Commissioning targets retain their original status. |
+| Axe Compute | No new release found. The events calendar was inaccessible, the capitalization share basis remains unresolved, and no new Georgia customer acceptance was verified. |
+
 ## Updating the size and disclosure evidence
 
 The historical financial record retains its November 17 cutoff. The separately dated size observations and disclosure checks are in [quality_sizes.json](../neocloud/data/quality_sizes.json) and [quality_reviews.json](../neocloud/data/quality_reviews.json). On the website, open a badge for its quoted source and share-count basis, or a company brief for disclosure events, channels checked and gaps.
