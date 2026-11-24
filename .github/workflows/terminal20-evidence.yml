@@ -1,0 +1,20 @@
+name: Issue 20 primary evidence and live baseline
+on: {push: {branches: [qa/terminal20-evidence]}}
+permissions: {contents: read}
+jobs:
+  evidence:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read production assets
+        run: |
+          mkdir -p proof
+          for f in watch.js watch.css data.json; do
+            curl --fail --silent --show-error --max-time 45 "https://neocloud-watch.gpuchips.chatgpt.site/$f" | sha256sum | sed "s/ -$/ $f/" >> proof/live-sha256.txt
+          done
+          cat proof/live-sha256.txt
+      - name: Read submissions and structured financials
+        run: python scripts/stage_terminal_sec.py --since 2026-11-23 --contact research@datacap.xyz > proof/sec.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: issue20-primary-evidence, path: proof}
