@@ -244,3 +244,11 @@ dialog h2 { font-size: 28px; }
   .comparison { min-width: 0; }
   .fact-card, .milestone, .change-card { break-inside: avoid; }
 }
+
+/* Core trading workflows */
+.thesis-form { margin: 24px 0; max-width: 850px; }
+.thesis-form label { display:block; font-weight:600; margin:16px 0; }
+.thesis-form textarea { display:block; width:100%; padding:12px; font:inherit; color:var(--ink); background:var(--white); border:1px solid var(--line); border-radius:5px; resize:vertical; }
+.catalyst-card h2 { font-size:24px; margin-top:12px; }
+.catalyst-card { min-width:0; overflow-wrap:anywhere; }
+#thesis-status { margin-top:12px; }
