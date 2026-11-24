@@ -332,6 +332,7 @@
   }
 
   function render() {
+    if ($('evidence-dialog').open) $('evidence-dialog').close();
     state = readState();
     const historical = state.view === 'history' || state.view === 'changes';
     $('historical-controls').hidden = !historical;
@@ -395,6 +396,11 @@
       $(id).addEventListener('change', event => navigate(state.view, {[key]: event.target.value}));
     }
     $('reset').addEventListener('click', reset);
+    document.querySelector('.skip-link').addEventListener('click', event => {
+      event.preventDefault();
+      $('page-content').focus();
+      $('page-content').scrollIntoView({block: 'start'});
+    });
     $('close-evidence').addEventListener('click', () => $('evidence-dialog').close());
     $('evidence-dialog').addEventListener('click', event => { if (event.target === $('evidence-dialog')) $('evidence-dialog').close(); });
     document.addEventListener('change', event => {
