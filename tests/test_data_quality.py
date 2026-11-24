@@ -374,3 +374,17 @@ def test_material_disclosure_evidence_survives_normalization():
         original['supporting_passages'] = invalid
         with pytest.raises(ValueError, match='[Pp]assage'):
             apply(financial_baseline(), reviews=[row])
+
+
+def test_disclosure_history_preserves_issuer_window_and_rejects_invalid_checks():
+    from datetime import date
+    from neocloud.data_quality import disclosure_record
+
+    before = review(checked_at="2026-11-22T10:00:00Z")
+    current = review(previous_reviews=[before], earnings_release_check="checked_no_new_release")
+    result = disclosure_record(current, date(2026, 11, 23))
+    assert result["previous_reviews"] == [disclosure_record(before, date(2026, 11, 22))]
+    for changes in ({"previous_reviews": [review()]}, {"previous_reviews": [dict(before, ticker="APLD")]},
+                    {"earnings_release_check": "unchecked_but_current"}):
+        with pytest.raises(ValueError):
+            disclosure_record({**current, **changes}, date(2026, 11, 23))

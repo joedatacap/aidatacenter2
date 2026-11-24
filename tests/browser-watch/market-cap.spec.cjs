@@ -58,6 +58,10 @@ test('cap grouping controls share selection and URL filters with both comparison
  await page.goto('/overview/');
  const data=await readData(page),companies=data.companies.filter(c=>FOCUS.includes(c.id));
  const allMax=await axis(page);
+ const ticks=page.locator('.cap-ticks span');
+ await expect(ticks.first()).toHaveText('$0');
+ const allEnd=await ticks.last().innerText();
+ await expect(page.locator('[data-cap-scale]')).toContainText('$0 to '+allEnd);
  const small=companies.filter(c=>Number(c.size_observation.value_usd)<2e9);
  expect(small.length).toBeGreaterThan(0);
  const example=small.reduce((a,b)=>a.size_observation.value_usd>b.size_observation.value_usd?a:b);
@@ -65,6 +69,10 @@ test('cap grouping controls share selection and URL filters with both comparison
  await page.locator('[data-cap-group=small]').click();
  expect(new URL(page.url()).searchParams.get('size')).toBe('small');
  await expect(page.locator('[data-cap-group=small]')).toHaveAttribute('aria-pressed','true');
+ await expect(ticks.first()).toHaveText('$0');
+ const smallEnd=await ticks.last().innerText();
+ expect(smallEnd).not.toBe(allEnd);
+ await expect(page.locator('[data-cap-scale]')).toContainText('$0 to '+smallEnd);
  const groupMax=await axis(page);expect(groupMax).toBeLessThan(allMax);
  expect((await fraction(page,example.id)).share).toBeGreaterThan(initial.share);
  const expected=small.map(c=>c.id).sort();

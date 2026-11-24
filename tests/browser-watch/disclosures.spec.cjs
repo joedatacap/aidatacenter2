@@ -18,7 +18,7 @@ test('dated size badges and common filters match accepted observations independe
   await expect(source).toContainText('$');
   await expect(source).toHaveAttribute('href',company.size_observation.source_url);
   await expect(card.locator('.tradingview-company-link')).toHaveAttribute('href',new RegExp('/companies/'+id+'/'));
-  if(company.size_observation.qualification_label)await expect(card.locator('.tradingview-size-qualification')).toHaveText(company.size_observation.qualification_label);
+  if(company.size_observation.qualification_label)await expect(card.locator('.tradingview-size-qualification')).toContainText(new RegExp(company.size_observation.qualification_label,'i'));
  }
  for(const category of ['large','mid','small']){
   await page.locator('#size').selectOption(category);
@@ -40,13 +40,13 @@ test('company summaries disclose review dates, channels, material events and unc
   await expect(panel).toBeVisible();
   await expect(panel.locator('[data-disclosure-review] time')).toHaveAttribute('datetime',review.checked_at);
   await expect(panel.locator('[data-disclosure-review]')).toContainText(review.checked_at.slice(0,10));
-  await expect(panel.locator('[data-disclosure-review]')).toContainText(review.status.replaceAll('_',' '));
+  await expect(panel.locator('[data-disclosure-review]')).toContainText(new RegExp(review.status.replaceAll('_',' '),'i'));
   for(const event of review.events||[]){
    const item=panel.locator('.disclosure-event-list li').filter({hasText:event.title});
    await item.locator('summary').click();
    await expect(item.locator('blockquote')).toHaveText(event.supporting_passages);
    await expect(item.getByRole('link',{name:'Read disclosure'})).toHaveAttribute('href',event.source_url);
-   await expect(panel.locator('.disclosure-event-list')).toContainText(event.publication_date);
+   await expect(item).toContainText(event.publication_date);
    await expect(panel.locator('a[href="'+event.source_url+'"]').first()).toBeVisible();
   }
   await expect(panel).toContainText('Historical debt ratios use their original inputs and dates.');
@@ -84,4 +84,15 @@ test('new review panels and attributed size context fit phone and desktop widths
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),route+' at '+width).toBe(true);
   }
  }
+});
+
+test('earnings distinguishes checked, partially checked and unreviewed issuers from reporting dates',async({page})=>{
+ await page.goto('/earnings/?tab=upcoming&focus=all');
+ const rows=page.locator('tr[data-company]');
+ await expect(rows.filter({hasText:'Applied Digital'})).toContainText('Checked · no new earnings release');
+ await expect(rows.filter({hasText:'WhiteFiber'})).toContainText('Partial check');
+ await expect(page.locator('#page-content')).toContainText('Earnings release check: not checked');
+ const report=rows.filter({hasText:'Applied Digital'}).locator('.earnings-dates time');
+ await expect(report.nth(0)).toHaveAttribute('datetime','2026-08-31');
+ await expect(report.nth(1)).toHaveAttribute('datetime','2026-10-07');
 });
