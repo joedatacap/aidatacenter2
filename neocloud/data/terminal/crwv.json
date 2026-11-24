@@ -1,0 +1,795 @@
+{
+  "id": "crwv",
+  "ticker": "CRWV",
+  "name": "CoreWeave",
+  "role": "Benchmark peer · GPU cloud operator",
+  "overview": "Large GPU cloud operator with growing reported revenue and active power, substantial secured and unsecured financing, and concentrated long-term customer exposure. Contract backlog and future lease commitments depend on infrastructure delivery; they are not cash or current revenue.",
+  "reviewed_at": "2026-11-24T11:10:45.797944Z",
+  "identity_source": "crwv-10q-q3",
+  "size": {
+    "label": "Large",
+    "as_of": "2026-11-23",
+    "basis": "Provider-reported rounded equity market capitalization: $26.88B as of November 23; page headline and history row agree when checked November 24 at 11:09 UTC. Exact valuation time unavailable; data-source metadata says last updated November 20. This later observation supersedes the previously captured $26.99B November 23 intraday snapshot; no issuer restatement is implied. Not enterprise value. Independent share-basis check: SEC cover reports October 30 shares of Class A 465,847,732, Class B 90,277,992 and Class C 0. Those older shares have not been reconciled to the November 23 provider denominator; current and fully diluted share bases remain unverified. Large threshold: at least $10B.",
+    "source": "crwv-cap-provider",
+    "value_usd": 26880000000
+  },
+  "sources": [
+    {
+      "id": "crwv-10q-q3",
+      "title": "CoreWeave Q3 2026 Form 10-Q — filed November 12",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "published": "2026-11-12",
+      "excerpt": "Quarter ended September 30, 2026. Balance sheet and Notes 2, 5, 8 and 10 separately disclose cash restrictions, remaining performance obligations, leases and borrowings. Cover identifies Nasdaq CRWV and shares outstanding October 30."
+    },
+    {
+      "id": "crwv-q3-release",
+      "title": "CoreWeave reports Q3 2026 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "published": "2026-11-10",
+      "excerpt": "Q3 revenue $3,661 million; operating income $207 million; adjusted EBITDA $2,256 million. Revenue backlog approximately $132.5 billion. FY2026 revenue guidance $13.0–13.3 billion and capex $37–39 billion."
+    },
+    {
+      "id": "crwv-q2-release",
+      "title": "CoreWeave reports Q2 2026 results",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Reports-Strong-Second-Quarter-2026-Results/default.aspx",
+      "published": "2026-08-11",
+      "excerpt": "Q2 revenue $2,575 million. Active power reached 1.5 GW; contracted power approximately 3.7 GW. Bring-up and validation of NVIDIA Vera Rubin NVL72 completed."
+    },
+    {
+      "id": "crwv-q2-outlook",
+      "title": "CoreWeave Q2 2026 outlook presentation — August 11",
+      "url": "https://s205.q4cdn.com/133937190/files/doc_financials/2026/q2/CoreWeave-Q2-26-Earnings-Outlook-Presentation.pdf",
+      "published": "2026-08-11",
+      "excerpt": "FY2026 revenue $12.4–13.2 billion, capital expenditures $35–39 billion, exiting 2026 annualized run-rate revenue $18.5–19.5 billion. Annualized run-rate revenue is last-month revenue multiplied by twelve."
+    },
+    {
+      "id": "crwv-q1-release",
+      "title": "CoreWeave reports Q1 2026 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000220/coreweave1q26earningspress.htm",
+      "published": "2026-05-07",
+      "excerpt": "Revenue for the three months ended March 31, 2026 was $2,078 million."
+    },
+    {
+      "id": "crwv-q4-release",
+      "title": "CoreWeave reports Q4 and full-year 2025 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000094/coreweave4q25earningspress.htm",
+      "published": "2026-02-26",
+      "excerpt": "Revenue for the three months ended December 31, 2025 was $1,572 million."
+    },
+    {
+      "id": "crwv-q3-call",
+      "title": "CoreWeave Q3 2026 earnings-call transcript — issuer-hosted",
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+      "published": "2026-11-11",
+      "excerpt": "Management expects approximately $9 billion in prepayments and deposits from signed customer contracts over the next three months. It describes delayed-draw term loans matched to contracts as the expected funding source for most remaining backlog capex."
+    },
+    {
+      "id": "crwv-conference",
+      "title": "CoreWeave announces UBS Global Technology and AI Conference participation",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-to-Participate-in-the-2026-UBS-Global-Technology-and-AI-Conference/default.aspx",
+      "published": "2026-11-23",
+      "excerpt": "CFO Nitin Agrawal will present December 1, 2026 at 11:35 a.m. Eastern Time. A live webcast and replay will be available on investor relations."
+    },
+    {
+      "id": "crwv-cap-provider",
+      "title": "Stock Analysis — CRWV market-cap observation dated November 23, checked November 24",
+      "url": "https://stockanalysis.com/stocks/crwv/market-cap/",
+      "published": "2026-11-23",
+      "excerpt": "Market-cap heading and November 23 history row both show $26.88 billion, checked November 24 at 11:09 UTC. Provider says current capitalization updates intraday, historical capitalization daily; data-source metadata says last updated November 20. Exact valuation time and current share denominator are not independently reconciled."
+    },
+    {
+      "id": "crwv-sec-index",
+      "title": "SEC submissions index — observed November 24 at 11:05:28 UTC",
+      "url": "https://data.sec.gov/submissions/CIK0001769628.json",
+      "published": "2026-11-24",
+      "excerpt": "Observed index identifies CoreWeave, Inc., CIK 1769628, Nasdaq CRWV. Latest periodic filing is the September 30, 2026 Form 10-Q filed November 12; no newer November 23–24 filing in the retrieved recent list. This date is the observation date of a changing index."
+    },
+    {
+      "id": "crwv-sec-facts",
+      "title": "SEC companyfacts — observed November 24 at 11:05:28 UTC",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001769628.json",
+      "published": "2026-11-24",
+      "excerpt": "Accession 0001769628-26-000465 contains RevenueFromContractWithCustomerExcludingAssessedTax of $3,661,000,000 for July 1–September 30 and CashAndCashEquivalentsAtCarryingValue of $4,122,000,000 at September 30. Observation date, not a new financial publication."
+    }
+  ],
+  "facts": [
+    {
+      "id": "crwv-revenue-2025q4",
+      "kind": "revenue",
+      "label": "Q4 2025 revenue",
+      "value": "$1.572B",
+      "unit": "USD",
+      "definition": "Recognized GAAP quarterly revenue; not ARR, backlog or customer prepayments.",
+      "scope": "CoreWeave consolidated; Three months October 1–December 31, 2025",
+      "as_of": "2025-12-31",
+      "basis": "reported",
+      "verification": "Reviewed primary quarterly revenue statement; identical consolidated three-month revenue basis.",
+      "source": "crwv-q4-release",
+      "locator": "Q4 2025 revenue primary earnings release, condensed consolidated statements of operations, three-month revenue row ending 2025-12-31."
+    },
+    {
+      "id": "crwv-revenue-2026q1",
+      "kind": "revenue",
+      "label": "Q1 2026 revenue",
+      "value": "$2.078B",
+      "unit": "USD",
+      "definition": "Recognized GAAP quarterly revenue; not ARR, backlog or customer prepayments.",
+      "scope": "CoreWeave consolidated; Three months January 1–March 31, 2026",
+      "as_of": "2026-03-31",
+      "basis": "reported",
+      "verification": "Reviewed primary quarterly revenue statement; identical consolidated three-month revenue basis.",
+      "source": "crwv-q1-release",
+      "locator": "Q1 2026 revenue primary earnings release, condensed consolidated statements of operations, three-month revenue row ending 2026-03-31."
+    },
+    {
+      "id": "crwv-revenue-2026q2",
+      "kind": "revenue",
+      "label": "Q2 2026 revenue",
+      "value": "$2.575B",
+      "unit": "USD",
+      "definition": "Recognized GAAP quarterly revenue; not ARR, backlog or customer prepayments.",
+      "scope": "CoreWeave consolidated; Three months April 1–June 30, 2026",
+      "as_of": "2026-06-30",
+      "basis": "reported",
+      "verification": "Reviewed primary quarterly revenue statement; identical consolidated three-month revenue basis.",
+      "source": "crwv-q2-release",
+      "locator": "Q2 2026 revenue primary earnings release, condensed consolidated statements of operations, three-month revenue row ending 2026-06-30."
+    },
+    {
+      "id": "crwv-revenue-2026q3",
+      "kind": "revenue",
+      "label": "Q3 2026 revenue",
+      "value": "$3.661B",
+      "unit": "USD",
+      "definition": "Recognized GAAP quarterly revenue; not ARR, backlog or customer prepayments.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Primary quarterly statement reviewed. Q3 also reconciled to the SEC companyfacts July 1–September 30 duration and accession 0001769628-26-000465.",
+      "source": "crwv-q3-release",
+      "primary": true,
+      "locator": "Q3 earnings release, condensed consolidated statements of operations, three months ended September 30, 2026, revenue row ($3,661 million); corroborated by SEC RevenueFromContractWithCustomerExcludingAssessedTax July 1–September 30 duration, accession 0001769628-26-000465."
+    },
+    {
+      "id": "crwv-op-income",
+      "kind": "earnings",
+      "label": "Q3 GAAP operating income",
+      "value": "$207M",
+      "unit": "USD",
+      "definition": "GAAP income from operations, before interest and income taxes.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: GAAP financial results / condensed consolidated statements of operations; three months ended September 30, 2026, income (loss) from operations row."
+    },
+    {
+      "id": "crwv-net-loss",
+      "kind": "earnings",
+      "label": "Q3 GAAP net loss",
+      "value": "−$709M",
+      "unit": "USD",
+      "definition": "GAAP consolidated net loss; distinct from adjusted EBITDA and adjusted net loss.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: condensed consolidated statements of operations; three months ended September 30, 2026, net loss row."
+    },
+    {
+      "id": "crwv-adjusted-ebitda",
+      "kind": "earnings",
+      "label": "Q3 adjusted EBITDA",
+      "value": "$2.256B",
+      "unit": "USD",
+      "definition": "Issuer-defined non-GAAP adjusted EBITDA; reconciliation supplied by issuer. This is not operating cash flow.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: non-GAAP financial results and reconciliation of GAAP to non-GAAP financial measures; three months ended September 30, 2026, adjusted EBITDA row."
+    },
+    {
+      "id": "crwv-interest-net",
+      "kind": "financing",
+      "label": "Q3 net interest expense",
+      "value": "$846M expense",
+      "unit": "USD",
+      "definition": "Income-statement net interest expense. Not the same as cash interest or the debt-note contractual-interest amount.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: condensed consolidated statements of operations; three months ended September 30, 2026, interest expense, net row. This is not Note 10 debt interest alone."
+    },
+    {
+      "id": "crwv-ocf",
+      "kind": "cash",
+      "label": "Q3 operating cash flow",
+      "value": "$1.975B",
+      "unit": "USD",
+      "definition": "Net cash provided by operating activities for the quarter; includes working-capital and customer-payment timing.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: condensed consolidated statements of cash flows; three months ended September 30, 2026, net cash provided by operating activities row ($1,975 million)."
+    },
+    {
+      "id": "crwv-cash-capex",
+      "kind": "cash",
+      "label": "Q3 cash capex",
+      "value": "$9.441B outflow",
+      "unit": "USD",
+      "definition": "Purchases of property and equipment, including capitalized internal-use software, from the quarterly cash-flow statement. Excludes noncash additions; different basis from management capex guidance.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: condensed consolidated statements of cash flows; three months ended September 30, 2026, purchases of property and equipment, including capitalized internal-use software row ($(9,441) million)."
+    },
+    {
+      "id": "crwv-ocf-less-cash-capex",
+      "kind": "cash",
+      "label": "Q3 operating cash flow less cash capex",
+      "value": "−$7.466B",
+      "unit": "USD",
+      "definition": "Historical quarterly operating cash flow less cash purchases of property and equipment. Excludes other investing and financing flows; not a forecast funding gap.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "calculated",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "formula": "$1.975B − $9.441B = −$7.466B",
+      "inputs": [
+        "crwv-ocf",
+        "crwv-cash-capex"
+      ],
+      "locator": "Calculation from Q3 earnings release: quarterly operating cash flow $1,975 million less cash purchases of property/equipment $9,441 million; both in three-month cash-flow columns."
+    },
+    {
+      "id": "crwv-cash",
+      "kind": "cash",
+      "label": "Cash and cash equivalents",
+      "value": "$4.122B",
+      "unit": "USD",
+      "definition": "Balance-sheet cash and cash equivalents line, excluding separately reported restricted cash and marketable securities.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed primary balance sheet and reconciled to SEC companyfacts cash-at-carrying-value instant September 30, accession 0001769628-26-000465.",
+      "source": "crwv-10q-q3",
+      "primary": true,
+      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 cash and cash equivalents row ($4,122 million). Corroborated by SEC CashAndCashEquivalentsAtCarryingValue instant in accession 0001769628-26-000465."
+    },
+    {
+      "id": "crwv-restricted-current",
+      "kind": "cash",
+      "label": "Restricted cash — current",
+      "value": "$1.405B",
+      "unit": "USD",
+      "definition": "Restricted cash and cash equivalents classified current; not unrestricted liquidity.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 restricted cash and cash equivalents, current row ($1,405 million)."
+    },
+    {
+      "id": "crwv-restricted-noncurrent",
+      "kind": "cash",
+      "label": "Restricted cash — noncurrent",
+      "value": "$877M",
+      "unit": "USD",
+      "definition": "Restricted cash and cash equivalents classified noncurrent; not unrestricted liquidity.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 restricted cash and cash equivalents, non-current row ($877 million). Note 9 explains restricted surety collateral."
+    },
+    {
+      "id": "crwv-debt-recourse",
+      "kind": "debt",
+      "label": "Recourse borrowings — carrying value",
+      "value": "$41.600B",
+      "unit": "USD",
+      "definition": "Current plus noncurrent recourse debt, net of unamortized discounts and issuance costs. Includes debt guaranteed by CoreWeave; excludes leases.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 10 — Debt: total debt obligations table, September 30, 2026 column; total recourse debt, net of unamortized discount and issuance costs row ($41,600 million)."
+    },
+    {
+      "id": "crwv-debt-nonrecourse",
+      "kind": "debt",
+      "label": "Nonrecourse borrowings — carrying value",
+      "value": "$5.273B",
+      "unit": "USD",
+      "definition": "Current plus noncurrent nonrecourse subsidiary debt net of discounts and issuance costs; limited carve-out guarantees may apply. Excludes leases.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 10 — Debt: total debt obligations table, September 30, 2026 column; total non-recourse debt, net of unamortized discount and issuance costs row ($5,273 million). The following paragraph defines nonrecourse carve-outs."
+    },
+    {
+      "id": "crwv-debt-total",
+      "kind": "debt",
+      "label": "Total borrowings — carrying value",
+      "value": "$46.873B",
+      "unit": "USD",
+      "definition": "Recourse plus nonrecourse debt carrying amounts; excludes operating and finance lease liabilities and does not imply the full principal maturity amount.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "calculated",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "formula": "$41.600B + $5.273B = $46.873B",
+      "inputs": [
+        "crwv-debt-recourse",
+        "crwv-debt-nonrecourse"
+      ],
+      "primary": true,
+      "locator": "Calculation from Form 10-Q, Note 10 — Debt: recourse carrying amount $41,600 million plus nonrecourse carrying amount $5,273 million; not the principal payment table total."
+    },
+    {
+      "id": "crwv-debt-principal",
+      "kind": "debt",
+      "label": "Borrowings — remaining principal",
+      "value": "$47.505B",
+      "unit": "USD",
+      "definition": "Total future principal payments in Note 10, before $632M of debt discounts/issuance costs; excludes lease payments.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 10 — Debt: future principal payments table, Years Ending December 31, Total row ($47,505 million), immediately before debt interest expense table."
+    },
+    {
+      "id": "crwv-debt-maturities",
+      "kind": "debt",
+      "label": "Principal payment schedule",
+      "value": "2026 remainder $2.433B; 2027 $10.974B; 2028 $5.479B; 2029 $4.727B; 2030 $4.247B; thereafter $19.645B",
+      "unit": "USD / calendar bucket",
+      "definition": "Note 10 principal repayment buckets, summing to $47.505B. Annual buckets cannot establish exact rolling 12- or 24-month maturities.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 10 — Debt: future principal payments table, all calendar-year rows, remaining portion of 2026 through thereafter. Total $47,505 million."
+    },
+    {
+      "id": "crwv-ddtl4",
+      "kind": "financing",
+      "label": "DDTL 4.0 — project-backed nonrecourse financing",
+      "value": "$8.5B facility; $4.583B outstanding principal",
+      "unit": "USD",
+      "definition": "Facility capacity is not drawn debt. March 2032 maturity; floating tranche SOFR + 2.25% or alternative-base option; fixed tranche Treasury benchmark + 2.00%; undrawn commitment fee 0.50%. Debt-table 7% is an accounting effective rate, not a single cash coupon.",
+      "scope": "CoreWeave Compute Acquisition Co. VIII subsidiary facility; Note 10",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 10 — Debt: September 30 debt obligations table (DDTL 4.0 $4,583 million principal) and Delayed Draw Term Loans subsection beginning In March 2026 (facility $8.5 billion; pricing, availability, payment triggers, security and maturity)."
+    },
+    {
+      "id": "crwv-ddtl55",
+      "kind": "financing",
+      "label": "DDTL 5.5 — shorter-duration contract financing",
+      "value": "$2.6B facility; $1.555B outstanding principal",
+      "unit": "USD",
+      "definition": "August 2026 facility; Term SOFR + 5.50%, September 2031 maturity. Secured by subsidiary equity and assets, unconditionally guaranteed by CoreWeave; customer-contract and excess-cash-flow prepayment requirements. Debt-table 11% is effective interest, not the floating cash coupon.",
+      "scope": "CoreWeave subsidiary facility; Note 10",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 10 — Debt: September 30 debt obligations table (DDTL 5.5 $1,555 million principal), issuance/stated-interest table ($2,600 million; Term SOFR + 5.50%) and DDTL 5.5 facility paragraphs on guarantees and prepayments."
+    },
+    {
+      "id": "crwv-convertible2033",
+      "kind": "financing",
+      "label": "2033 convertible notes",
+      "value": "$4.2B principal; 2.875% stated coupon",
+      "unit": "USD / % annual coupon",
+      "definition": "Issued September 2026, matures April 2033. Convertible debt creates financing and potential dilution exposure; the cash coupon is not its total economic cost.",
+      "scope": "CoreWeave consolidated; Note 10",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 10 — Debt: issuance/stated-interest table, September 2026 2033 Convertible Senior Notes row ($4,200 million; 2.875%), and Convertible Senior Notes subsection for April 2033 maturity."
+    },
+    {
+      "id": "crwv-revolver-available",
+      "kind": "financing",
+      "label": "Revolver availability",
+      "value": "$754M available",
+      "unit": "USD",
+      "definition": "Reported available capacity under the $2.5B revolver, not unrestricted cash; outstanding principal $1.2B. Do not calculate availability as commitment minus principal alone.",
+      "scope": "CoreWeave consolidated; liquidity discussion",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Item 2, liquidity and capital resources / debt financing discussion: $754 million available capacity under the $2.5 billion revolving credit facility. Note 10 debt table separately reports $1,200 million principal outstanding."
+    },
+    {
+      "id": "crwv-deferred-revenue",
+      "kind": "commitments",
+      "label": "Deferred revenue",
+      "value": "$10.002B",
+      "unit": "USD",
+      "definition": "Current $2.269B plus noncurrent $7.733B contract liabilities. Not debt or unrestricted cash; recognition requires service performance.",
+      "scope": "CoreWeave consolidated; September 30, 2026 balance sheet",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, condensed consolidated balance sheets: September 30 deferred revenue, current $2,269 million and non-current $7,733 million. Note 2 — Revenue describes contract liability recognition and customer liabilities."
+    },
+    {
+      "id": "crwv-rpo",
+      "kind": "commitments",
+      "label": "Remaining performance obligations",
+      "value": "$132.3B",
+      "unit": "USD",
+      "definition": "Transaction price allocated to undelivered or partly undelivered committed performance obligations, net of estimated variable consideration. 36% expected within the next 24 months, 38% months 25–48; subject to delivery and service availability. Not recognized revenue.",
+      "scope": "CoreWeave consolidated; Note 2, as of September 30",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 2 — Revenue, Remaining Performance Obligations (RPO) subsection: $132.3 billion unsatisfied RPO and 36%/38% expected recognition windows."
+    },
+    {
+      "id": "crwv-backlog",
+      "kind": "commitments",
+      "label": "Issuer revenue backlog",
+      "value": "Approximately $132.5B",
+      "unit": "USD",
+      "definition": "Issuer backlog includes RPO plus other estimated future revenue under committed contracts, subject to delivery and availability. Different definition from $132.3B GAAP RPO; do not sum the two.",
+      "scope": "CoreWeave consolidated; committed customer contracts",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "primary": true,
+      "locator": "Q3 earnings release: Additional Third Quarter 2026 Financial Highlights, revenue backlog approximately $132.5 billion as of September 30; footnote 1 defines backlog to include RPO plus other amounts under committed contracts."
+    },
+    {
+      "id": "crwv-concentration",
+      "kind": "concentration",
+      "label": "Q3 largest-customer revenue shares",
+      "value": "30% and 24%",
+      "unit": "% of consolidated quarterly revenue",
+      "definition": "Anonymous top two customers account for 54% combined. Named customer announcements do not identify these labels. Filing warns lettered customers may differ from prior periods.",
+      "scope": "CoreWeave consolidated; three months July 1–September 30, 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "primary": true,
+      "locator": "Form 10-Q, risk factors customer-concentration discussion: approximately 30% and 24% of revenue from top two customers for the three months ended September 30, 2026. Note 2 customer concentration table explains lettered customer labels may differ across periods."
+    },
+    {
+      "id": "crwv-active-power",
+      "kind": "capacity",
+      "label": "Active power",
+      "value": "More than 1.7 GW",
+      "unit": "GW electrical / issuer active-power definition",
+      "definition": "Operational active-power footprint reported by issuer; not a count of revenue-producing GPUs, GPU utilization, leased IT load or contracted backlog.",
+      "scope": "CoreWeave global infrastructure footprint",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "primary": true,
+      "locator": "Q3 earnings release: Continued Rapid Scaling of Purpose-Built AI Infrastructure operating highlights, active power exceeding 1.7 GW after adding more than 200 MW in Q3."
+    },
+    {
+      "id": "crwv-contracted-power",
+      "kind": "capacity",
+      "label": "Contracted power",
+      "value": "More than 4.6 GW",
+      "unit": "GW electrical / issuer contracted-power definition",
+      "definition": "Contracted power portfolio, including capacity not yet active. Do not add to active power or describe all contracted capacity as operating or revenue-producing.",
+      "scope": "CoreWeave global infrastructure footprint",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: Continued Rapid Scaling of Purpose-Built AI Infrastructure operating highlights, contracted power exceeding 4.6 GW after growth of more than 900 MW in Q3."
+    },
+    {
+      "id": "crwv-hardware",
+      "kind": "capacity",
+      "label": "Latest disclosed GPU-platform milestone",
+      "value": "Vera Rubin NVL72 production workloads",
+      "unit": "qualitative / platform milestone",
+      "definition": "Issuer reports multi-rack production running first Cognition workloads. This milestone does not establish fleet-wide mix, GPU counts, utilization or revenue by generation.",
+      "scope": "CoreWeave platform; issuer Q3 operational update",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: technology leadership highlights describing NVIDIA Vera Rubin NVL72 multi-rack production and first Cognition workloads; not a fleet-composition table."
+    },
+    {
+      "id": "crwv-uncommenced-leases",
+      "kind": "commitments",
+      "label": "Uncommenced lease payments",
+      "value": "$47.4B estimated undiscounted",
+      "unit": "USD",
+      "definition": "Estimated future payments for uncommenced leases beginning 2026–2029, terms seven–seventeen years. Excludes specified uncertain construction-cost-based arrangements; not current borrowing principal or balance-sheet lease carrying value.",
+      "scope": "CoreWeave consolidated; Note 8 future lease commitments",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 8 — Leases: future leases not yet commenced paragraph ($47.4 billion estimated undiscounted payments; 2026–2029 commencements), followed by explicit exclusions for uncertain construction-cost-based rents."
+    },
+    {
+      "id": "crwv-construction-commitments",
+      "kind": "commitments",
+      "label": "Future construction commitments",
+      "value": "Approximately $2.1B",
+      "unit": "USD",
+      "definition": "Contractual future construction costs for data centers and technical infrastructure. Separate commitment category; not drawn borrowings.",
+      "scope": "CoreWeave consolidated; Note 5",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Note 5 — Property and Equipment, net: approximately $2.1 billion contractual commitments for future construction costs associated with data centers and technical infrastructure."
+    },
+    {
+      "id": "crwv-other-purchase-commitments",
+      "kind": "commitments",
+      "label": "Other legally binding purchase/service commitments",
+      "value": "Approximately $4B",
+      "unit": "USD",
+      "definition": "Routine enforceable goods/services commitments, primarily technology equipment, enterprise software and service arrangements. Do not conflate with leases or assume a reconciled all-in funding gap.",
+      "scope": "CoreWeave consolidated; liquidity discussion",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q, Item 2, liquidity discussion commitments bullet: approximately $4 billion enforceable, legally binding goods/services purchase commitments, primarily equipment and enterprise software/service arrangements."
+    },
+    {
+      "id": "crwv-guidance-revenue",
+      "kind": "guidance",
+      "label": "FY2026 revenue outlook",
+      "value": "$13.0B–$13.3B",
+      "unit": "USD",
+      "definition": "Forward-looking recognized revenue for January 1–December 31, 2026; prior August 11 range $12.4B–$13.2B. Not consensus.",
+      "scope": "CoreWeave consolidated; FY2026 management guidance",
+      "as_of": "2026-11-10",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: Business Outlook, first sentence raising full-year 2026 revenue guidance to $13.0–$13.3 billion. Prior range: August 11 outlook presentation, page 3, FY26 Revenue."
+    },
+    {
+      "id": "crwv-guidance-capex",
+      "kind": "guidance",
+      "label": "FY2026 capital-expenditure outlook",
+      "value": "$37B–$39B",
+      "unit": "USD",
+      "definition": "Forward-looking issuer capital expenditures for FY2026; low end raised from $35B in August. Management capex includes items/timing beyond cash-flow-statement cash capex.",
+      "scope": "CoreWeave consolidated; FY2026 management guidance",
+      "as_of": "2026-11-10",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: Business Outlook, full-year capex $37–$39 billion versus prior $35–$39 billion and explanation of earlier expected infrastructure delivery. Prior range: August 11 outlook presentation page 3."
+    },
+    {
+      "id": "crwv-guidance-arr",
+      "kind": "guidance",
+      "label": "Exiting 2026 annualized run-rate revenue",
+      "value": "$20B–$21B",
+      "unit": "USD annualized / last-month run rate",
+      "definition": "Management annualizes final-month revenue by twelve. It is not FY2026 recognized revenue, RPO, contracted ARR or a new revenue observation. Prior August 11 range $18.5B–$19.5B.",
+      "scope": "CoreWeave consolidated; exit-2026 management guidance",
+      "as_of": "2026-11-10",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-release",
+      "locator": "Q3 earnings release: Business Outlook, final sentence raising exit-2026 annualized run-rate revenue to $20–$21 billion, and annualized run-rate footnote. Prior range/definition: August 11 outlook presentation, page 3."
+    },
+    {
+      "id": "crwv-prepayments-prospective",
+      "kind": "guidance",
+      "label": "Expected near-term customer prepayments",
+      "value": "Approximately $9B over the next three months",
+      "unit": "USD / prospective collection",
+      "definition": "Management expectation stated on November 10 earnings call; not verified collected cash at September 30 or November 24, not unrestricted liquidity and not incremental recognized revenue.",
+      "scope": "Signed customer contracts; prospective receipts from November 10, 2026",
+      "as_of": "2026-11-10",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
+      "source": "crwv-q3-call",
+      "locator": "Issuer-hosted Q3 earnings-call transcript: management financing discussion, paragraph beginning In the next three months alone, we will collect approximately $9 billion in prepayments and deposits from signed customer contracts. Call November 10; transcript published November 11."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "crwv-fy26-revenue-path",
+      "project": "FY2026 consolidated revenue",
+      "type": "guidance",
+      "original": {
+        "published": "2026-08-11",
+        "target": "January–December 2026 revenue $12.4B–$13.2B",
+        "source": "crwv-q2-outlook"
+      },
+      "revisions": [
+        {
+          "published": "2026-11-10",
+          "target": "January–December 2026 revenue $13.0B–$13.3B",
+          "source": "crwv-q3-release"
+        }
+      ],
+      "outcome": null,
+      "status": "revised; outcome pending",
+      "explanation": "Original denotes the earliest observation captured in this reviewed chronology, not the first guidance ever issued. Same fiscal horizon; no FY2026 actual outcome yet."
+    },
+    {
+      "id": "crwv-fy26-capex-path",
+      "project": "FY2026 issuer capital expenditures",
+      "type": "guidance",
+      "original": {
+        "published": "2026-08-11",
+        "target": "January–December 2026 capex $35B–$39B",
+        "source": "crwv-q2-outlook"
+      },
+      "revisions": [
+        {
+          "published": "2026-11-10",
+          "target": "January–December 2026 capex $37B–$39B",
+          "source": "crwv-q3-release"
+        }
+      ],
+      "outcome": null,
+      "status": "revised; outcome pending",
+      "explanation": "Original denotes the earliest observation captured in this reviewed chronology, not the first guidance ever issued. Same fiscal horizon; no FY2026 actual outcome yet."
+    },
+    {
+      "id": "crwv-exit-arr-path",
+      "project": "Exit-2026 annualized run-rate revenue",
+      "type": "guidance",
+      "original": {
+        "published": "2026-08-11",
+        "target": "December 2026 monthly revenue annualized: $18.5B–$19.5B",
+        "source": "crwv-q2-outlook"
+      },
+      "revisions": [
+        {
+          "published": "2026-11-10",
+          "target": "December 2026 monthly revenue annualized: $20B–$21B",
+          "source": "crwv-q3-release"
+        }
+      ],
+      "outcome": null,
+      "status": "revised; outcome pending",
+      "explanation": "Original denotes the earliest observation captured in this reviewed chronology, not the first guidance ever issued. Same fiscal horizon; no FY2026 actual outcome yet."
+    },
+    {
+      "id": "crwv-single-site-delivery",
+      "project": "Unnamed leased data-center site — 453 MW undelivered",
+      "type": "power_delivery",
+      "original": {
+        "published": "2026-11-12",
+        "target": "Electrical power delivered in phases in 2026 and 2028; 453 MW undelivered at September 30.",
+        "source": "crwv-10q-q3"
+      },
+      "revisions": [],
+      "outcome": null,
+      "status": "planned; delivery outcome unverified",
+      "explanation": "First captured observation in this prototype, not an established original contractual deadline. Note 8 does not identify the site. Rent tied to construction costs, capped at $16.9B over sixteen years; excluded from the $47.4B uncommenced-lease estimate. No basis to mark capacity active or attribute it to a named project."
+    },
+    {
+      "id": "crwv-ubs-conference",
+      "project": "UBS Global Technology and AI Conference",
+      "type": "investor_conference",
+      "original": {
+        "published": "2026-11-23",
+        "target": "December 1, 2026 at 11:35 a.m. US Eastern (16:35 UTC); CFO Nitin Agrawal.",
+        "source": "crwv-conference",
+        "target_end": "2026-12-01"
+      },
+      "revisions": [],
+      "outcome": null,
+      "status": "scheduled",
+      "explanation": "Confirmed investor presentation with webcast/replay; not an earnings date or a financing transaction."
+    }
+  ],
+  "changes": [
+    {
+      "id": "crwv-revenue-revision",
+      "type": "guidance",
+      "published": "2026-11-10",
+      "before": "August 11: FY2026 revenue $12.4B–$13.2B.",
+      "after": "November 10: FY2026 revenue $13.0B–$13.3B.",
+      "why": "Same consolidated full-year recognized-revenue scope. The revision is management guidance, without a verified analyst-consensus comparison.",
+      "source": "crwv-q3-release",
+      "before_source": "crwv-q2-outlook"
+    },
+    {
+      "id": "crwv-capex-revision",
+      "type": "guidance",
+      "published": "2026-11-10",
+      "before": "August 11: FY2026 capex $35B–$39B.",
+      "after": "November 10: FY2026 capex $37B–$39B.",
+      "why": "Issuer attributes the higher low end to infrastructure expected to deploy and reach customers earlier. This is an expectation, not evidence that every project was delivered.",
+      "source": "crwv-q3-release",
+      "before_source": "crwv-q2-outlook"
+    },
+    {
+      "id": "crwv-arr-revision",
+      "type": "guidance",
+      "published": "2026-11-10",
+      "before": "August 11: exit-2026 annualized run-rate revenue $18.5B–$19.5B.",
+      "after": "November 10: exit-2026 annualized run-rate revenue $20B–$21B.",
+      "why": "Same last-month annualization definition, distinct from full-year revenue and contract backlog.",
+      "source": "crwv-q3-release",
+      "before_source": "crwv-q2-outlook"
+    },
+    {
+      "id": "crwv-active-power-change",
+      "type": "capacity",
+      "published": "2026-11-10",
+      "before": "June 30: 1.5 GW active power, disclosed August 11.",
+      "after": "September 30: more than 1.7 GW active power; issuer says more than 200 MW added in Q3.",
+      "why": "Reported operational footprint increased. Electrical power does not directly measure GPU utilization or recognized revenue.",
+      "source": "crwv-q3-release",
+      "before_source": "crwv-q2-release"
+    },
+    {
+      "id": "crwv-contracted-power-change",
+      "type": "capacity",
+      "published": "2026-11-10",
+      "before": "June 30: approximately 3.7 GW contracted power.",
+      "after": "September 30: more than 4.6 GW contracted power.",
+      "why": "Future delivery obligations and power portfolio expanded; contracted capacity remains separate from active capacity.",
+      "source": "crwv-q3-release",
+      "before_source": "crwv-q2-release"
+    },
+    {
+      "id": "crwv-platform-production",
+      "type": "delivery",
+      "published": "2026-11-10",
+      "before": "August 11 release: NVIDIA Vera Rubin NVL72 bring-up and validation completed.",
+      "after": "November 10 release: first multi-rack production workloads for Cognition.",
+      "why": "A specific platform moved from validation to disclosed production. This does not establish fleet-wide deployment or a previously promised project deadline.",
+      "source": "crwv-q3-release",
+      "before_source": "crwv-q2-release"
+    }
+  ],
+  "questions": [
+    "Freshness: SEC submissions and companyfacts retrieved November 24 at 11:05:28 UTC show the September 30 Form 10-Q filed November 12 as the latest periodic filing, with no newer November 23–24 filing in that snapshot. Its Q3 revenue and cash tags reconcile to the reviewed financial statements. Changing SEC indexes use observation dates above, not invented publication dates.",
+    "Issuer freshness: the November 23 UBS conference release was re-read November 24. The dynamic issuer news/event indexes did not expose a complete rendered list, so issuer-channel coverage is partial. The next earnings release date remains unconfirmed; the December 1 conference is not earnings.",
+    "Which customer contracts and sites underwrite each facility, and what delivery, cancellation, collateral, amortization, covenant and cash-sweep triggers apply? This prototype is a reviewed selection, not every credit agreement or a complete covenant model.",
+    "How much of the prospective $9B customer prepayment/deposit collection has actually arrived, and what restrictions, refund or cancellation terms attach? Do not add it to September 30 cash.",
+    "What GPU generation mix, installed GPU count, utilization and revenue-producing capacity reconcile to active power? The reviewed platform milestone and GW figures cannot establish these.",
+    "Can provider market capitalization be reconciled to a same-time share price and current Class A/Class B economic share basis, including ATM issuance and convertible dilution? A dated provider observation is available; that denominator reconciliation remains unverified.",
+    "How do lease commencement, construction and purchase commitments reconcile without overlap to contract-level future capex and financing? No complete all-in funding gap or rolling twelve-month maturity model is claimed.",
+    "Anonymous concentration labels cannot safely identify Microsoft, OpenAI, Meta or another named counterparty; lettered customer identities may change between reporting periods. No unsupported mapping is used.",
+    "The unnamed 453 MW project has only a first captured November 12 target observation here. Earlier original deadlines and actual phased handover dates require primary evidence before delay status can be assigned."
+  ]
+}

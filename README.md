@@ -5,6 +5,10 @@
 For a new GPT or Codex chat, start with the [project handoff](docs/HANDOFF.md),
 including release status, evidence boundaries and the publishing runbook.
 
+## Neocloud Intelligence Terminal prototype
+
+Build the three-company research preview with `python scripts/build_terminal.py`, then open `work/Neocloud-Intelligence-Terminal.html` in a browser. The [research and update guide](docs/INTELLIGENCE_TERMINAL.md) covers evidence, history, Crosscheck identifiers and the downloadable PR preview.
+
 ## Neocloud Watch V2 — connected research website
 
 For the public URL, canonical commits and publication steps, see the [Watch release runbook](docs/NEOCLOUD_WATCH_RELEASE.md).

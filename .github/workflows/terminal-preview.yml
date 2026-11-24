@@ -1,0 +1,30 @@
+name: Intelligence Terminal preview
+on:
+  pull_request:
+    paths:
+      - 'neocloud/data/terminal/**'
+      - 'terminal-preview/**'
+      - 'scripts/*terminal*.py'
+      - 'tests/*terminal*'
+      - '.github/workflows/terminal-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - run: npm ci --ignore-scripts
+      - run: python scripts/build_terminal.py --output work/terminal-preview/Neocloud-Intelligence-Terminal.html
+      - run: node tests/terminal-browser.cjs work/terminal-preview
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Neocloud-Intelligence-Terminal
+          path: work/terminal-preview/
+          if-no-files-found: error
+          retention-days: 30

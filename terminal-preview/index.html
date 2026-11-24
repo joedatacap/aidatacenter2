@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Neocloud Intelligence Terminal</title>
+  <!-- TERMINAL_STYLE -->
+</head>
+<body>
+  <a class="skip-link" href="#page-content">Skip to research</a>
+  <header class="masthead">
+    <a class="brand" href="#/compare" aria-label="Neocloud Intelligence Terminal">
+      <span class="monogram" aria-hidden="true">N</span>
+      <span><strong>NEOCLOUD</strong><small>INTELLIGENCE TERMINAL</small></span>
+    </a>
+    <div class="edition"><strong id="review-date">Research snapshot</strong></div>
+  </header>
+  <nav id="primary-nav" class="primary-nav" aria-label="Research views">
+    <a data-view="compare" href="#/compare">Compare companies</a>
+    <a data-view="companies" href="#/companies">Company briefs</a>
+    <a data-view="history" href="#/history">Commitment history</a>
+    <a data-view="changes" href="#/changes">Material changes</a>
+  </nav>
+  <main id="terminal-main">
+    <section id="terminal-controls" class="controls" aria-label="Research selection">
+      <div class="selection-line">
+        <details id="peer-picker" class="peer-picker">
+          <summary>Companies <span id="peer-count">0 selected</span></summary>
+          <div class="peer-panel">
+            <div class="peer-actions"><button type="button" data-select="all">Select all</button><button type="button" data-select="none">Clear selection</button></div>
+            <fieldset id="peer-options"><legend class="visually-hidden">Companies in this comparison</legend></fieldset>
+          </div>
+        </details>
+        <label class="search-control" for="q"><span class="visually-hidden">Search research</span><input id="q" type="search" placeholder="Search companies, projects, disclosures…" autocomplete="off"></label>
+        <button id="reset" class="text-button" type="button">Reset view</button>
+      </div>
+      <div id="historical-controls" class="historical-controls" hidden>
+        <label for="asof">Knowledge as of<input id="asof" type="date"><small>Uses disclosure dates, not statement dates.</small></label>
+        <label id="type-control" for="change-type">Change type<select id="change-type"><option value="all">All changes</option><option value="delivery">Delivery</option><option value="capacity">Capacity</option><option value="financing">Financing</option><option value="customer">Customer</option><option value="guidance">Guidance</option></select></label>
+        <label id="from-control" for="date-from">Published from<input id="date-from" type="date"></label>
+        <label id="to-control" for="date-to">Published through<input id="date-to" type="date"></label>
+      </div>
+    </section>
+    <div id="page-content" tabindex="-1"><p class="empty">Loading the reviewed research…</p></div>
+    <noscript><p class="empty">Enable JavaScript to compare the embedded research. This file needs no account or server.</p></noscript>
+  </main>
+  <footer class="footer"><span>Neocloud Intelligence Terminal</span><p>Missing evidence stays unavailable. Definitions, scopes, units and reporting periods remain attached to the figures.</p></footer>
+  <dialog id="evidence-dialog" aria-labelledby="evidence-title">
+    <div class="dialog-top"><span class="eyebrow">SOURCE RECORD</span><button id="close-evidence" type="button" aria-label="Close source record">Close ×</button></div>
+    <div id="evidence-body"></div>
+  </dialog>
+  <!-- TERMINAL_DATA -->
+  <!-- TERMINAL_SCRIPT -->
+</body>
+</html>
