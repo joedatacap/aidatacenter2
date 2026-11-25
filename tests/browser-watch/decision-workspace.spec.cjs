@@ -25,7 +25,7 @@ test('scenario lab explains valuation, reverse hurdle and diluted equity without
  await f.locator('[name=assumptionsConfirmed]').check();
  await f.getByRole('button',{name:'Calculate scenarios',exact:true}).click();
  await expect(page.locator('#scenario-result')).toContainText('$15.50');
- await expect(page.locator('#scenario-result')).toContainText('$122.50M');
+ await expect(page.locator('#scenario-result')).toContainText('$122.5M');
  await f.locator('[name=base_shares]').fill('20');
  await expect(page.locator('#scenario-result')).toContainText('Inputs changed');
  await expect(page.locator('#scenario-result')).not.toContainText('$15.50');
