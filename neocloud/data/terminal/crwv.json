@@ -4,14 +4,14 @@
   "name": "CoreWeave",
   "role": "Benchmark peer · GPU cloud operator",
   "overview": "Large GPU cloud operator with growing reported revenue and active power, substantial secured and unsecured financing, and concentrated long-term customer exposure. Contract backlog and future lease commitments depend on infrastructure delivery; they are not cash or current revenue.",
-  "reviewed_at": "2026-11-24T11:10:45.797944Z",
+  "reviewed_at": "2026-11-25T04:04:57.417132Z",
   "identity_source": "crwv-10q-q3",
   "size": {
     "label": "Large",
-    "as_of": "2026-11-23",
-    "basis": "Provider-reported rounded equity market capitalization: $26.88B as of November 23; page headline and history row agree when checked November 24 at 11:09 UTC. Exact valuation time unavailable; data-source metadata says last updated November 20. This later observation supersedes the previously captured $26.99B November 23 intraday snapshot; no issuer restatement is implied. Not enterprise value. Independent share-basis check: SEC cover reports October 30 shares of Class A 465,847,732, Class B 90,277,992 and Class C 0. Those older shares have not been reconciled to the November 23 provider denominator; current and fully diluted share bases remain unverified. Large threshold: at least $10B.",
-    "source": "crwv-cap-provider",
-    "value_usd": 26880000000
+    "as_of": "2026-11-24",
+    "basis": "Provider-reported rounded equity market capitalization $23.69B for November 24, observed November 25. Page quotes November 24 close $42.61 at 16:00 EST; metadata says last updated November 23. Older October 30 issuer basic economic shares 556,125,724 × that closing price = $23.697B, consistent with rounding but not proof of no subsequent issuance. Not enterprise value or a live quote; current fully diluted share basis remains unverified. Large threshold: at least $10B.",
+    "source": "crwv-cap-nov24",
+    "value_usd": 23690000000
   },
   "sources": [
     {
@@ -90,6 +90,27 @@
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001769628.json",
       "published": "2026-11-24",
       "excerpt": "Accession 0001769628-26-000465 contains RevenueFromContractWithCustomerExcludingAssessedTax of $3,661,000,000 for July 1–September 30 and CashAndCashEquivalentsAtCarryingValue of $4,122,000,000 at September 30. Observation date, not a new financial publication."
+    },
+    {
+      "id": "crwv-cap-nov24",
+      "title": "CRWV November 24 closing-price and market-cap research observation",
+      "url": "https://stockanalysis.com/stocks/crwv/market-cap/",
+      "published": "2026-11-24",
+      "excerpt": "Page observed November 25: November 24 close $42.61 at 16:00 EST; market capitalization $23.69B. Provider metadata says last updated November 23. A dated third-party observation, not an execution quote."
+    },
+    {
+      "id": "crwv-sec-index-nov25",
+      "title": "SEC submissions index — observed November 25",
+      "url": "https://data.sec.gov/submissions/CIK0001769628.json",
+      "published": "2026-11-25",
+      "excerpt": "Retrieved recent index includes eight November 24 Form 4 filings (accessions ending 468 through 482, even numbers), November 12 Form 10-Q and November 10 Form 8-K. No later 8-K appears in this retrieved list. Index observation date, not a filing publication date."
+    },
+    {
+      "id": "crwv-form4-nov24",
+      "title": "November 24 Form 4 — Agrawal; vesting-associated tax sales",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000468/xslF345X06/form4.xml",
+      "published": "2026-11-24",
+      "excerpt": "November 20 transactions include restricted-stock vesting and sales whose footnotes identify tax-withholding obligations. This filing is not evidence of an independent discretionary bearish trade. Seven other November 24 Forms 4 were also reviewed."
     }
   ],
   "facts": [
@@ -638,6 +659,76 @@
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-q3-call",
       "locator": "Issuer-hosted Q3 earnings-call transcript: management financing discussion, paragraph beginning In the next three months alone, we will collect approximately $9 billion in prepayments and deposits from signed customer contracts. Call November 10; transcript published November 11."
+    },
+    {
+      "id": "crwv-basic-shares",
+      "kind": "reported",
+      "label": "Basic economic shares outstanding",
+      "value": "556,125,724",
+      "unit": "shares",
+      "definition": "Cover: Class A 465,847,732 + Class B 90,277,992 + Class C zero. Not diluted EPS weighted-average shares or a current fully diluted denominator.",
+      "scope": "CoreWeave consolidated",
+      "as_of": "2026-10-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; arithmetic explicitly labeled.",
+      "source": "crwv-10q-q3",
+      "locator": "Form 10-Q cover, shares outstanding as of October 30."
+    },
+    {
+      "id": "crwv-atm",
+      "kind": "reported",
+      "label": "ATM share authorization",
+      "value": "Up to 35M Class A shares",
+      "unit": "shares / authorized issuance",
+      "definition": "September 17 program; no sales or collared forwards as of September 30. Later utilization unverified. Full issuance would add about 6.3% to October 30 basic shares before other changes; cash proceeds must also enter valuation.",
+      "scope": "CoreWeave consolidated",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; arithmetic explicitly labeled.",
+      "source": "crwv-10q-q3",
+      "locator": "Note 12, Equity Distribution Agreement: 35 million share authorization and no September 30 sales/forward agreements."
+    },
+    {
+      "id": "crwv-interest-guidance",
+      "kind": "guidance",
+      "label": "Q4 interest expense guidance",
+      "value": "$1.05B–$1.15B",
+      "unit": "USD / quarter",
+      "definition": "Management expectation for Q4 financing expense; not an observed result or interest paid.",
+      "scope": "CoreWeave consolidated",
+      "as_of": "2026-11-10",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; arithmetic explicitly labeled.",
+      "source": "crwv-q3-release",
+      "locator": "Business Outlook, Q4 2026 interest expense range."
+    },
+    {
+      "id": "crwv-adjusted-oi-guidance",
+      "kind": "guidance",
+      "label": "FY adjusted operating income guidance",
+      "value": "$1.275B–$1.375B",
+      "unit": "USD / year",
+      "definition": "Non-GAAP FY2026 guidance; nine-month adjusted operating income $528M implies Q4 $747M–$847M, below guided interest. Not a net-income forecast.",
+      "scope": "CoreWeave consolidated",
+      "as_of": "2026-11-10",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; arithmetic explicitly labeled.",
+      "source": "crwv-q3-release",
+      "locator": "Business Outlook and nine-month reconciliation of GAAP operating income to adjusted operating income."
+    },
+    {
+      "id": "crwv-active-power-guidance",
+      "kind": "guidance",
+      "label": "Year-end active power target",
+      "value": "More than 1.85 GW",
+      "unit": "GW / active power",
+      "definition": "Management year-end 2026 expectation; active power is not utilization or billed revenue.",
+      "scope": "CoreWeave consolidated",
+      "as_of": "2026-11-10",
+      "basis": "reported",
+      "verification": "Reviewed against primary disclosure; arithmetic explicitly labeled.",
+      "source": "crwv-q3-release",
+      "locator": "Business Outlook, year-end active power expectation."
     }
   ],
   "milestones": [
@@ -794,7 +885,7 @@
     }
   ],
   "questions": [
-    "Freshness: SEC submissions and companyfacts retrieved November 24 at 11:05:28 UTC show the September 30 Form 10-Q filed November 12 as the latest periodic filing, with no newer November 23–24 filing in that snapshot. Its Q3 revenue and cash tags reconcile to the reviewed financial statements. Changing SEC indexes use observation dates above, not invented publication dates.",
+    "Freshness: SEC submissions index re-read November 25 includes eight November 24 Form 4 filings; latest periodic filing remains November 12 Q3 Form 10-Q and latest 8-K in retrieved list is November 10. This updates the earlier November 24 observation without treating that historical snapshot as an error. Reviewed Form 4 sales describe tax withholding associated with vesting; do not label them discretionary bearish sales.",
     "Issuer freshness: the November 23 UBS conference release was re-read November 24. The dynamic issuer news/event indexes did not expose a complete rendered list, so issuer-channel coverage is partial. The next earnings release date remains unconfirmed; the December 1 conference is not earnings.",
     "Which customer contracts and sites underwrite each facility, and what delivery, cancellation, collateral, amortization, covenant and cash-sweep triggers apply? This prototype is a reviewed selection, not every credit agreement or a complete covenant model.",
     "How much of the prospective $9B customer prepayment/deposit collection has actually arrived, and what restrictions, refund or cancellation terms attach? Do not add it to September 30 cash.",

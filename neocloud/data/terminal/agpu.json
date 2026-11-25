@@ -4,7 +4,7 @@
   "name": "Axe Compute Inc.",
   "role": "GPU compute provider: Access capacity services and Build owned-cluster delivery",
   "overview": "Axe supplies enterprise GPU compute through Access and dedicated Build infrastructure. Its legacy Helomics business was sold and is reported as discontinued operations. Current recognized compute revenue, signed future contracts and customer-funded delivery obligations have different scopes. Georgia hardware is owned through an acquired SPV while Duos owns/operates the facility; technical provisioning has not established customer acceptance or Build revenue commencement.",
-  "reviewed_at": "2026-11-24T11:10:34.191058Z",
+  "reviewed_at": "2026-11-25T04:03:17.009597Z",
   "identity_source": "agpu-q3-identity",
   "size": {
     "label": "Size unverified",
@@ -16,91 +16,91 @@
   "sources": [
     {
       "id": "agpu-q3-identity",
-      "title": "Axe Compute Q3 2026 Form 10-Q — identity and current share count",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 identity and current share count",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "AXE COMPUTE INC.; trading symbol AGPU. As of November 13, 2026, 13,650,314 common shares were outstanding. The quarterly reporting period ended September 30, 2026. The company describes GPU compute services and owned GPU infrastructure; the Helomics sale closed September 11, 2026."
     },
     {
       "id": "agpu-q3-revenue",
-      "title": "Axe Compute Q3 2026 results — revenue and earnings scope",
+      "title": "Axe Compute Q3 2026 results \u2014 revenue and earnings scope",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm",
       "published": "2026-11-17",
       "excerpt": "Three months ended September 30, 2026: revenue $7,243,043; operating income $6,825,897, including gains on digital assets of $10,477,971. All revenue was delivered under Access; Build revenue begins upon deployment. Adjusted EBITDA was $(2,275) thousand in the issuer non-GAAP reconciliation, not positive operating cash earnings."
     },
     {
       "id": "agpu-q3-balance",
-      "title": "Axe Compute Q3 2026 Form 10-Q — September balance sheet",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 September balance sheet",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "September 30, 2026 balance sheet: cash and cash equivalents $147,710,376; note payable $291,722; deferred purchase price payable, net of discount $36,597,577. Current/noncurrent operating lease liabilities were $15,470,820/$14,435,540. Current/noncurrent contract liabilities were $100,881,687/$468,457,286."
     },
     {
       "id": "agpu-q3-concentration",
-      "title": "Axe Compute Q3 2026 Form 10-Q — Note 4 customer concentration",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 Note 4 customer concentration",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "For the three months ended September 30, 2026, Customer A represented 22% of revenue and Customer B 58%; for nine months their percentages were 30% and 48%. The customers are not named. Revenue recognized under fixed-term GPU compute contracts represented all reported revenue."
     },
     {
       "id": "agpu-q3-rpo",
-      "title": "Axe Compute Q3 2026 Form 10-Q — Note 4 contract balances",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 Note 4 contract balances",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "The contract-liability rollforward reports advance billings $579,796,296, revenue recognized $(10,457,323), and closing contract liabilities $569,338,973. The issuer also identifies $569.3 million of remaining performance obligations: $8,104,000 in the remaining three months of 2026, $129,093,077 in 2027, $127,220,420 in 2028 and $304,921,476 in 2029. These are not additional amounts to add to the same contract-liability balance."
     },
     {
       "id": "agpu-q3-dpp",
-      "title": "Axe Compute Q3 2026 Form 10-Q — Georgia deferred purchase financing",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 Georgia deferred purchase financing",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "The deferred purchase price has $42.9 million face amount, $715,000 monthly installments, and all unpaid amounts due by the earlier of September 30, 2027 and a financing secured by the cluster. Duos retains a security interest. It bears no stated interest; $36.6 million present value uses a 17.71% imputed rate over an expected 12-month term. The $6.3 million discount is recognized as interest. Note 8 schedules $2.1 million in remaining 2026 and $40.8 million in 2027, assuming the outside date."
     },
     {
       "id": "agpu-q3-insurance",
-      "title": "Axe Compute Q3 2026 Form 10-Q — Note 10 insurance note",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 Note 10 insurance note",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "June 2026 director-and-officer insurance financing requires ten monthly installment payments through April 2027, secured by a first-priority lien on the financed policies. The annual percentage rate is 6.1%; September balance is approximately $0.3 million including interest. The exact balance-sheet note amount is $291,722."
     },
     {
       "id": "agpu-q3-leases",
-      "title": "Axe Compute Q3 2026 Form 10-Q — Note 9 commenced and uncommenced leases",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 Note 9 commenced and uncommenced leases",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "Total operating lease liabilities at September 30 were $29,906,360. Separately, total future payments under leases committed to but not yet commenced were $407.4 million, expected to commence in 2026 and 2027 with terms of two to four years. The 12.3% weighted-average discount rate on recognized operating leases is an accounting borrowing-rate assumption, not a corporate loan coupon."
     },
     {
       "id": "agpu-q3-vendors",
-      "title": "Axe Compute Q3 2026 Form 10-Q — Note 4 vendor prepayments",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 Note 4 vendor prepayments",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "The issuer recorded $92.7 million of compute prepayments at September 30: $85.6 million for leases not yet commenced and $7.1 million for compute capacity and expenses. These are prepaid vendor assets, not an undrawn credit facility or additional cash balance."
     },
     {
       "id": "agpu-q3-cashflow",
-      "title": "Axe Compute Q3 2026 Form 10-Q — cash-flow period",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 cash-flow period",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "Net cash provided by continuing operating activities was $465,234,067 for the nine months ended September 30, 2026. The issuer release attributes the inflow principally to customer prepayments, partly offset by vendor prepayments. The statement is nine-month cumulative; it is not a three-month Q3 cash-flow measure."
     },
     {
       "id": "agpu-q3-georgia",
-      "title": "Axe Compute Q3 2026 results — Georgia stage and revised roadmap",
+      "title": "Axe Compute Q3 2026 results \u2014 Georgia stage and revised roadmap",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm",
       "published": "2026-11-17",
       "excerpt": "The Georgia cluster consists of 288 Supermicro NVIDIA B300 NVL8 servers containing 2,304 GPUs at a Duos-operated facility with approximately 5 MW of committed power. It was not placed in service at September 30. The cluster is energized and provisioned, with customer acceptance underway. The roadmap states fourth quarter 2026 and first quarter 2027 to complete acceptance and place the cluster into service. All Q3 revenue was Access."
     },
     {
       "id": "agpu-q3-contracts",
-      "title": "Axe Compute Q3 2026 results — contracts, TCV and future ARR",
+      "title": "Axe Compute Q3 2026 results \u2014 contracts, TCV and future ARR",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm",
       "published": "2026-11-17",
       "excerpt": "The company reports more than $2.8 billion of July 2026 Build contracts and more than $3 billion of signed total contract value. It expects more than $700 million annualized run rate upon full deployment. The company does not provide formal financial guidance. Signed TCV and full-deployment run rate are not recognized revenue or current operating ARR."
     },
     {
       "id": "agpu-original-deployment",
-      "title": "Axe Compute Q1 2026 results — original Georgia deployment target",
+      "title": "Axe Compute Q1 2026 results \u2014 original Georgia deployment target",
       "url": "https://investors.axecompute.com/news-releases/news-release-details/axe-compute-inc-reports-first-quarter-2026-financial-results-and",
       "published": "2026-05-15",
       "excerpt": "The issuer described a 36-month, $260 million enterprise contract for a dedicated 2,304 NVIDIA B300 GPU cluster. Deployment was targeted for Q3 2026, with approximately $21 million of quarterly revenue once live. This was a forward-looking original service-entry target, not completion evidence."
@@ -114,24 +114,38 @@
     },
     {
       "id": "agpu-q3-share-basis",
-      "title": "Axe Compute Q3 2026 Form 10-Q — outstanding shares and prefunded warrants",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 outstanding shares and prefunded warrants",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
       "published": "2026-11-17",
       "excerpt": "The November 13 cover-page common-share count was 13,650,314. At September 30, 7,736,379 prefunded warrants were outstanding, vested and exercisable without expiration; their $0.01 exercise price causes inclusion in EPS weighted-average common shares. EPS weighted averages are not a current basic common-share count. Preferred stock, other warrants and conversion rights are separate capitalization considerations."
     },
     {
       "id": "agpu-q2-split",
-      "title": "Axe Compute Q2 2026 Form 10-Q — reverse-split basis",
+      "title": "Axe Compute Q2 2026 Form 10-Q \u2014 reverse-split basis",
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326005556/agpu20260630_10q.htm",
       "published": "2026-08-14",
       "excerpt": "The company completed a one-for-fifteen reverse split on September 29, 2025, effective for trading September 30, 2025. The filing says share and per-share amounts have already been adjusted for the reverse split. Do not apply that split a second time to the 2026 share counts."
     },
     {
       "id": "agpu-provider-cap",
-      "title": "StockAnalysis AGPU capitalization page — dated provider headline, not reconciled value",
+      "title": "StockAnalysis AGPU capitalization page \u2014 dated provider headline, not reconciled value",
       "url": "https://stockanalysis.com/stocks/agpu/market-cap/",
       "published": "2026-11-23",
       "excerpt": "Fresh page read on November 24 displayed $78.7 million as of November 23, 2026 and a separate historical November 20 row of $77.90 million. Provider metadata still said last updated November 20. The v11 reviewed capture retained $79.4 million for a November 23 intraday headline. Different readings have no verified common valuation time; current prefunded-warrant/share basis remains unresolved."
+    },
+    {
+      "id": "agpu-q3-margin-capital",
+      "title": "Axe Compute Q3 2026 Form 10-Q \u2014 expense and capitalization tables",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
+      "published": "2026-11-17",
+      "excerpt": "Q3 revenue 7,243,043; cost of revenue 6,911,526. September 30 common shares 13,634,097 and prefunded warrants 7,736,379; prefunded exercise price $0.01. Remaining ATM capacity approximately $83M; other warrants 1,592,749. These are distinct capital instruments, not a fully diluted share total."
+    },
+    {
+      "id": "agpu-nov24-proxy",
+      "title": "Axe Compute definitive annual meeting proxy \u2014 December 17 vote and proposed equity plan",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007694/agpu20261122_def14a.htm",
+      "published": "2026-11-24",
+      "excerpt": "Annual meeting December 17, 2026, 11:00 a.m. Eastern. Proposal 3 adds 2,000,000 plan shares, increasing reserve from 1,066,667 to 3,066,667; annual increases up to 5% begin January 1, 2028 through 2034. Issuer-reported equity award overhang changes from 13.5% to 28.1%, excluding future evergreen increases. Proposed capacity is not current issuance. November 6 common count is 13,650,314."
     }
   ],
   "facts": [
@@ -141,7 +155,7 @@
       "label": "Q3 recognized revenue",
       "value": "$7,243,043",
       "unit": "USD",
-      "definition": "US GAAP revenue for July 1–September 30, 2026, all delivered under Access; not signed Build contract value.",
+      "definition": "US GAAP revenue for July 1\u2013September 30, 2026, all delivered under Access; not signed Build contract value.",
       "scope": "Continuing operations; Access model",
       "as_of": "2026-09-30",
       "basis": "reported",
@@ -253,7 +267,7 @@
       "basis": "reported",
       "verification": "Issuer reported; primary disclosure reviewed",
       "source": "agpu-q3-insurance",
-      "locator": "Note 10 — Note Payable: June 2026 insurance financing, 6.1% APR and April 2027 installments"
+      "locator": "Note 10 \u2014 Note Payable: June 2026 insurance financing, 6.1% APR and April 2027 installments"
     },
     {
       "id": "agpu-prepayments-rpo",
@@ -267,7 +281,7 @@
       "basis": "reported",
       "verification": "Issuer reported; primary disclosure reviewed",
       "source": "agpu-q3-rpo",
-      "locator": "Note 4 — Revenue Recognition and Contracts with Customers: Contract Balances rollforward and RPO schedule",
+      "locator": "Note 4 \u2014 Revenue Recognition and Contracts with Customers: Contract Balances rollforward and RPO schedule",
       "primary": true
     },
     {
@@ -282,7 +296,7 @@
       "basis": "reported",
       "verification": "Issuer reported; primary disclosure reviewed",
       "source": "agpu-q3-leases",
-      "locator": "Note 9 — Leases: short-term, long-term and total operating lease liabilities table"
+      "locator": "Note 9 \u2014 Leases: short-term, long-term and total operating lease liabilities table"
     },
     {
       "id": "agpu-uncommenced-leases",
@@ -296,7 +310,7 @@
       "basis": "reported",
       "verification": "Issuer reported; primary disclosure reviewed",
       "source": "agpu-q3-leases",
-      "locator": "Note 9 — Leases: total future payments for committed leases not yet commenced"
+      "locator": "Note 9 \u2014 Leases: total future payments for committed leases not yet commenced"
     },
     {
       "id": "agpu-vendor-prepayments",
@@ -310,7 +324,7 @@
       "basis": "reported",
       "verification": "Issuer reported; primary disclosure reviewed",
       "source": "agpu-q3-vendors",
-      "locator": "Note 4 — Compute Prepayments: $92.7M asset allocation"
+      "locator": "Note 4 \u2014 Compute Prepayments: $92.7M asset allocation"
     },
     {
       "id": "agpu-customer-concentration",
@@ -324,7 +338,7 @@
       "basis": "reported",
       "verification": "Issuer reported; primary disclosure reviewed",
       "source": "agpu-q3-concentration",
-      "locator": "Note 4 — Contracts with Customers: Three Months Ended September 30, 2026 customer concentration columns",
+      "locator": "Note 4 \u2014 Contracts with Customers: Three Months Ended September 30, 2026 customer concentration columns",
       "primary": true
     },
     {
@@ -416,7 +430,7 @@
       "id": "agpu-ebitda-q3",
       "kind": "earnings",
       "label": "Q3 adjusted EBITDA",
-      "value": "−$2,275,000",
+      "value": "\u2212$2,275,000",
       "unit": "USD; non-GAAP",
       "definition": "Issuer reconciliation reports $(2,275) thousand. This is a non-GAAP quarter measure and not operating cash flow.",
       "scope": "Continuing operations; three months ended September 30",
@@ -444,7 +458,7 @@
       "id": "agpu-ocf-nine-months",
       "kind": "cash_flow",
       "label": "Nine-month operating cash flow",
-      "value": "$465,234,067 — nine months, not Q3",
+      "value": "$465,234,067 \u2014 nine months, not Q3",
       "unit": "USD",
       "definition": "Continuing-operations cumulative operating cash flow, heavily affected by customer/vendor prepayments. No compatible six-month recast bridge was established for a quarter-only cash-flow calculation.",
       "scope": "Nine months ended September 30; continuing operations",
@@ -486,7 +500,7 @@
       "id": "agpu-provider-headline",
       "kind": "market_context",
       "label": "Separately dated provider capitalization headline",
-      "value": "$78,700,000 — provider headline; share basis unresolved",
+      "value": "$78,700,000 \u2014 provider headline; share basis unresolved",
       "unit": "USD; rounded provider headline",
       "definition": "Fresh page read November 24 still dates the headline November 23 intraday; exact valuation time is unavailable. The v11 capture was $79.4 million for that date. This is not independently reconciled equity value, a closing valuation or a debt-ratio denominator.",
       "scope": "Third-party headline; not a size classification or validated denominator",
@@ -495,12 +509,122 @@
       "verification": "Provider reported; current share basis unreconciled",
       "source": "agpu-provider-cap",
       "locator": "Market Cap heading and headline; History November 20 row; Data Source / last-updated metadata"
+    },
+    {
+      "id": "agpu-cost-revenue-q3",
+      "kind": "earnings",
+      "label": "Q3 cost of revenue",
+      "value": "$6,911,526",
+      "unit": "USD",
+      "definition": "Compute cost of revenue for the same quarter as $7,243,043 recognized Access revenue; excludes other operating expenses.",
+      "scope": "Continuing operations; Q3 2026",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Issuer reported; primary disclosure reviewed",
+      "source": "agpu-q3-margin-capital",
+      "locator": "Condensed financial statements and Notes 11\u201312"
+    },
+    {
+      "id": "agpu-gross-margin-q3",
+      "kind": "earnings",
+      "label": "Q3 Access gross profit and margin",
+      "value": "$331,517; 4.58%",
+      "unit": "USD and percent",
+      "definition": "Calculated historical Access margin; does not establish prospective Build economics or cash margin. Positive GAAP operating income includes digital-asset gains.",
+      "scope": "Continuing operations; Q3 2026",
+      "as_of": "2026-09-30",
+      "basis": "calculated",
+      "verification": "Primary disclosure reviewed; calculation from disclosed inputs",
+      "source": "agpu-q3-margin-capital",
+      "locator": "Condensed financial statements and Notes 11\u201312",
+      "inputs": [
+        "agpu-revenue-q3",
+        "agpu-cost-revenue-q3"
+      ],
+      "formula": "Gross profit = 7,243,043 - 6,911,526 = 331,517; gross margin = 331,517 / 7,243,043 * 100 = 4.5770%, rounded to 4.58%.",
+      "primary": true
+    },
+    {
+      "id": "agpu-common-sep30",
+      "kind": "share_basis",
+      "label": "September 30 common shares",
+      "value": "13,634,097",
+      "unit": "Shares",
+      "definition": "Point-in-time issued common shares, not weighted-average EPS shares.",
+      "scope": "September 30 legal common capitalization",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Issuer reported; primary disclosure reviewed",
+      "source": "agpu-q3-margin-capital",
+      "locator": "Condensed financial statements and Notes 11\u201312"
+    },
+    {
+      "id": "agpu-prefunded-sep30",
+      "kind": "share_basis",
+      "label": "September 30 prefunded warrants",
+      "value": "7,736,379",
+      "unit": "Warrants",
+      "definition": "Nominal $0.01 exercise price; these existing economic claims require inclusion when assessing economic common equity. Historical exercises already reflected in common must not be added again.",
+      "scope": "September 30 outstanding prefunded warrants",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Issuer reported; primary disclosure reviewed",
+      "source": "agpu-q3-margin-capital",
+      "locator": "Condensed financial statements and Notes 11\u201312"
+    },
+    {
+      "id": "agpu-economic-shares-sep30",
+      "kind": "share_basis",
+      "label": "Same-date common plus prefunded snapshot",
+      "value": "21,370,476 economic shares; partial, historical",
+      "unit": "Common shares plus prefunded equivalents",
+      "definition": "Common plus nominal-exercise prefunded only. Excludes preferred conversion, other warrants, options, subsequent grants/exercises and ATM issuance. Ownership blockers affect exercise eligibility, not economic overhang. This is not a verified current fully diluted denominator.",
+      "scope": "September 30, 2026 partial economic capitalization",
+      "as_of": "2026-09-30",
+      "basis": "calculated",
+      "verification": "Primary disclosure reviewed; calculation from disclosed inputs",
+      "source": "agpu-q3-margin-capital",
+      "locator": "Condensed financial statements and Notes 11\u201312",
+      "inputs": [
+        "agpu-common-sep30",
+        "agpu-prefunded-sep30"
+      ],
+      "formula": "13,634,097 common + 7,736,379 prefunded warrants = 21,370,476."
+    },
+    {
+      "id": "agpu-atm-capacity",
+      "kind": "financing",
+      "label": "Remaining ATM sale capacity",
+      "value": "$83M as of September 30",
+      "unit": "USD",
+      "definition": "Potential future issuance capacity; not cash on hand, committed financing or a forecast of issuance. Current availability and post-quarter sales require updating.",
+      "scope": "ATM program capacity at quarter end",
+      "as_of": "2026-09-30",
+      "basis": "reported",
+      "verification": "Issuer reported; primary disclosure reviewed",
+      "source": "agpu-q3-margin-capital",
+      "locator": "Condensed financial statements and Notes 11\u201312"
+    },
+    {
+      "id": "agpu-plan-proposal",
+      "kind": "share_basis",
+      "label": "December 17 equity plan vote",
+      "value": "Proposed +2M reserve shares; evergreen begins 2028",
+      "unit": "Proposed plan capacity",
+      "definition": "Requires shareholder approval. Proposed reserve 1,066,667 to 3,066,667; annual increase up to 5% of prior year-end common, subject to lower board determination, January 2028\u20132034. Reported award overhang 13.5% to 28.1% excludes evergreen; it is not ownership dilution or current issued shares.",
+      "scope": "2024 equity incentive plan amendment; not completed issuance",
+      "as_of": "2026-11-24",
+      "basis": "reported",
+      "verification": "Issuer reported; primary disclosure reviewed",
+      "source": "agpu-nov24-proxy",
+      "locator": "Notice of annual meeting; Proposal 3; equity plan information as of November 6",
+      "primary": true
     }
   ],
   "milestones": [
     {
       "id": "agpu-georgia-ownership",
-      "project": "Georgia GPU SPV — Columbus",
+      "project": "Georgia GPU SPV \u2014 Columbus",
       "type": "hardware_ownership",
       "original": {
         "published": "2026-10-05",
@@ -575,6 +699,21 @@
       "outcome": null,
       "status": "revenue_commencement_unverified",
       "explanation": "The original revenue expectation is forward-looking. Q3 recognized revenue was entirely Access, and Georgia was not in service at September 30. The later five-year contract term does not itself establish billing, acceptance or revenue."
+    },
+    {
+      "id": "agpu-dec17-plan-vote",
+      "project": "Annual meeting and equity incentive plan",
+      "type": "shareholder_vote",
+      "original": {
+        "published": "2026-11-24",
+        "target": "December 17, 2026 at 11:00 a.m. Eastern: scheduled shareholder vote on Proposal 3 to add 2M reserve shares and a 2028\u20132034 evergreen.",
+        "source": "agpu-nov24-proxy",
+        "target_end": "2026-12-17"
+      },
+      "revisions": [],
+      "outcome": null,
+      "status": "scheduled_unresolved",
+      "explanation": "Calendar date is disclosed; approval and subsequent grants or issuance remain unverified. An approval changes available plan capacity, not instant outstanding shares."
     }
   ],
   "changes": [
@@ -606,6 +745,15 @@
       "why": "Analyst interpretation: the company has disclosed a later target and an intermediate technical stage. Preserve both dates and monitor customer acceptance/revenue; do not turn ownership or power status into completed delivery.",
       "source": "agpu-q3-georgia",
       "before_source": "agpu-original-deployment"
+    },
+    {
+      "id": "agpu-nov24-plan-proposal",
+      "type": "financing",
+      "published": "2026-11-24",
+      "before": "Existing equity plan reserve 1,066,667 shares; issuer-reported current award overhang 13.5%.",
+      "after": "New proxy proposes adding 2M reserve shares, taking reported award overhang to 28.1%, with up-to-5% annual evergreen beginning 2028 if approved.",
+      "why": "Analyst interpretation: a dated December 17 capital-allocation catalyst. Approval, actual grants and economic dilution are separate stages; this filing arrived after the previous November 24 review.",
+      "source": "agpu-nov24-proxy"
     }
   ],
   "questions": [
@@ -618,7 +766,7 @@
     "How should the 13,650,314 common shares dated November 13, 7,736,379 prefunded warrants dated September 30, preferred/conversion rights, other warrants and later exercises enter basic versus economic/fully diluted capitalization? Do not use EPS weighted averages.",
     "What evidence supports the difference between the v11 $79.4M and freshly displayed $78.7M provider headlines for the same November 23 intraday date? Exact valuation times are not verified; the size and debt ratio remain withheld.",
     "When will the next earnings call be formally dated? The calendar reread November 24 was accessible and still contained an undated upcoming section and archived November 17 results call.",
-    "Has any new issuer disclosure appeared since the prior review at 2026-11-24T05:39:36Z? SEC submissions were independently screened through 11:05:30 UTC with no new November 23–24 issuer filing, and the fresh IR news list still ended November 17. Local direct IR filing-index access returned 403; this is bounded coverage, not continuous monitoring.",
-    "Can a compatible recast six-month cash-flow statement be established to derive Q3-only operating cash flow and capex? The loaded $465.2M inflow is nine-month and customer-prepayment-driven."
+    "Can a compatible recast six-month cash-flow statement be established to derive Q3-only operating cash flow and capex? The loaded $465.2M inflow is nine-month and customer-prepayment-driven.",
+    "The November 25 review found the November 24 definitive proxy after the prior review cutoff. Will December 17 shareholders approve Proposal 3, and what awards or ATM sales follow? The reviewed SEC submissions list also contains a November 24 annual-report filing; this review does not claim continuous monitoring or a separately verified new operating update from that attachment."
   ]
 }

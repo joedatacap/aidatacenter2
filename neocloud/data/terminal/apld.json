@@ -3,13 +3,13 @@
   "ticker": "APLD",
   "name": "Applied Digital Corporation",
   "role": "AI data-center developer and lessor; consolidated cloud subsidiary",
-  "overview": "A Nevada corporation listed on Nasdaq as APLD. The operating story is conversion of contracted campuses into rent: tenant fit-out and controlled ChronoScale also contribute to reported revenue. New lease commitments and project financing remain distinct from delivered critical IT capacity, drawn debt and parent-accessible cash.",
-  "reviewed_at": "2026-11-24T11:14:26Z",
+  "overview": "A Nevada corporation listed on Nasdaq as APLD. The operating story is conversion of contracted campuses into rent: tenant fit-out and controlled ChronoScale also contribute to reported revenue. New lease commitments and project financing remain distinct from delivered critical IT capacity, drawn debt and parent-accessible cash. November 24 adds a verified first 25 MW RFS at Polaris Forge 2 and a larger Series G equity financing commitment; execution improves while funding and dilution remain central.",
+  "reviewed_at": "2026-11-25T04:02:21Z",
   "identity_source": "apld-q1-filing",
   "size": {
     "label": "Mid",
     "as_of": "2026-11-23",
-    "basis": "Provider-reported rounded USD equity cap. Mid uses the $2B–<$10B band. The page identifies a November 23 close separately from November 24 premarket trading; cap precision is date-only. Independent shares-through-November-23 reconciliation remains incomplete; no enterprise value or debt/market-cap ratio inferred.",
+    "basis": "Provider-reported rounded USD equity cap. Mid uses the $2B\u2013<$10B band. The page identifies a November 23 close separately from November 24 premarket trading; cap precision is date-only. Independent shares-through-November-23 reconciliation remains incomplete; no enterprise value or debt/market-cap ratio inferred.",
     "source": "apld-cap-20261123",
     "value_usd": 4180000000
   },
@@ -47,14 +47,14 @@
       "title": "Additional 75 MW online at Polaris Forge 1",
       "url": "https://ir.applieddigital.com/news-events/press-releases/detail/161/applied-digital-brings-an-additional-75-mw-of-ai",
       "published": "2026-10-02",
-      "excerpt": "The milestone completes Building 2’s full 150 MW of critical IT load and brings fully operational critical IT load at Polaris Forge 1 to 250 MW. The fully leased AI Factory Campus is contracted to deliver 400 MW of critical IT load at full buildout."
+      "excerpt": "The milestone completes Building 2\u2019s full 150 MW of critical IT load and brings fully operational critical IT load at Polaris Forge 1 to 250 MW. The fully leased AI Factory Campus is contracted to deliver 400 MW of critical IT load at full buildout."
     },
     {
       "id": "apld-november-bridge",
       "title": "Delta Forge 1 senior secured bridge facility",
       "url": "https://ir.applieddigital.com/news-events/press-releases/detail/164/applied-digital-announces-300-million-senior-secured",
       "published": "2026-11-23",
-      "excerpt": "The bridge facility consists of a $300 million delayed draw term loan with a 364-day maturity, bearing interest at the Secured Overnight Financing Rate (“SOFR”) plus 300 basis points. ... The loan is prepayable at any time without premium and is secured by the assets of the project."
+      "excerpt": "The bridge facility consists of a $300 million delayed draw term loan with a 364-day maturity, bearing interest at the Secured Overnight Financing Rate (\u201cSOFR\u201d) plus 300 basis points. ... The loan is prepayable at any time without premium and is secured by the assets of the project."
     },
     {
       "id": "apld-november-lease",
@@ -72,7 +72,7 @@
     },
     {
       "id": "apld-chronoscale-note",
-      "title": "Applied Digital Schedule 13D/A — funded ChronoScale convertible note",
+      "title": "Applied Digital Schedule 13D/A \u2014 funded ChronoScale convertible note",
       "url": "https://www.sec.gov/Archives/edgar/data/1549084/000149315226053589/xslSCHEDULE_13D_X02/primary_doc.xml",
       "published": "2026-11-20",
       "excerpt": "providing for an unsecured loan in the aggregate principal amount of $97.0 million (the \"Principal Amount\"), the entire amount of which has been funded. ... No interest accrues or is payable on the Principal Amount ... the outstanding Principal Amount will mature on December 31, 2026"
@@ -83,6 +83,20 @@
       "url": "https://ir.chronoscale.com/press-releases/detail/796/chronoscale-announces-new-development-partnership-to",
       "published": "2026-11-18",
       "excerpt": "entered into definitive agreements to form a 50/50 development partnership with STN, Inc. to develop its Odessa, Texas site ... the first phase ordered and scheduled for deployment in the first half of calendar year 2027. ... The first 65 MW of the planned deployment ... a right of first offer on the remaining 285 MW ... if those are ordered."
+    },
+    {
+      "id": "apld-november-pf2",
+      "title": "Polaris Forge 2: first 25 MW Ready for Service",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/166/applied-digital-achieves-initial-25-mw-ready-for-service-in",
+      "published": "2026-11-24",
+      "excerpt": "Issuer reports 25 MW RFS after integrated fit-out; 75 MW base-build commissioned. The other 50 MW still requires fit-out and customer delivery. This is a partial operating milestone."
+    },
+    {
+      "id": "apld-november-pepa",
+      "title": "November 24 Form 8-K: expanded Series G preferred equity facility",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226054002/form8-k.htm",
+      "published": "2026-11-24",
+      "excerpt": "Item 1.01: PEPA aggregate commitment increased from $2.0B to $2.5B; remaining availability $1.035B. Item 3.02 identifies Series G convertible preferred and common stock issuable on conversion. Availability is not cash received."
     }
   ],
   "facts": [
@@ -93,12 +107,12 @@
       "value": "$341.875M",
       "unit": "USD",
       "definition": "GAAP total, including services and rental revenue.",
-      "scope": "Consolidated continuing operations, June–August 2026; includes ChronoScale.",
+      "scope": "Consolidated continuing operations, June\u2013August 2026; includes ChronoScale.",
       "as_of": "2026-08-31",
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Part I, Item 1 — Condensed Consolidated Statements of Operations, Total revenue; three months ended August 31, 2026; USD thousands.",
+      "locator": "Part I, Item 1 \u2014 Condensed Consolidated Statements of Operations, Total revenue; three months ended August 31, 2026; USD thousands.",
       "primary": true
     },
     {
@@ -113,7 +127,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Part I, Item 1 — Statements of Operations, Services and other revenue; compare the adjacent rental line and Total revenue."
+      "locator": "Part I, Item 1 \u2014 Statements of Operations, Services and other revenue; compare the adjacent rental line and Total revenue."
     },
     {
       "id": "apld-rental-revenue",
@@ -127,7 +141,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Part I, Item 1 — Statements of Operations, Data center rental and other revenue; three months ended August 31, 2026."
+      "locator": "Part I, Item 1 \u2014 Statements of Operations, Data center rental and other revenue; three months ended August 31, 2026."
     },
     {
       "id": "apld-base-rent",
@@ -141,7 +155,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-release",
-      "locator": "HPC Hosting Update — revenue components; also Net Operating Income reconciliation, HPC Hosting Business base rental revenue (GAAP)."
+      "locator": "HPC Hosting Update \u2014 revenue components; also Net Operating Income reconciliation, HPC Hosting Business base rental revenue (GAAP)."
     },
     {
       "id": "apld-fitout",
@@ -155,7 +169,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-release",
-      "locator": "HPC Hosting Update — quarter revenue split between base rent, tenant fit-out services and tenant recoveries."
+      "locator": "HPC Hosting Update \u2014 quarter revenue split between base rent, tenant fit-out services and tenant recoveries."
     },
     {
       "id": "apld-adjusted-ebitda",
@@ -169,7 +183,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-release",
-      "locator": "Reconciliation of GAAP to Non-GAAP Measures — EBITDA and Adjusted EBITDA, August 31, 2026 column; USD thousands.",
+      "locator": "Reconciliation of GAAP to Non-GAAP Measures \u2014 EBITDA and Adjusted EBITDA, August 31, 2026 column; USD thousands.",
       "excerpt": "Adjusted EBITDA (Non-GAAP) ... 64,412"
     },
     {
@@ -184,7 +198,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q4-release",
-      "locator": "Fiscal Fourth Quarter 2026 Financial Highlights — Revenues; scope paragraph distinguishes continuing operations and consolidated ChronoScale."
+      "locator": "Fiscal Fourth Quarter 2026 Financial Highlights \u2014 Revenues; scope paragraph distinguishes continuing operations and consolidated ChronoScale."
     },
     {
       "id": "apld-ocf",
@@ -198,7 +212,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Part I, Item 1 — Condensed Consolidated Statements of Cash Flows, CASH FLOW PROVIDED BY (USED IN) OPERATING ACTIVITIES; three-month column.",
+      "locator": "Part I, Item 1 \u2014 Condensed Consolidated Statements of Cash Flows, CASH FLOW PROVIDED BY (USED IN) OPERATING ACTIVITIES; three-month column.",
       "excerpt": "CASH FLOW PROVIDED BY (USED IN) OPERATING ACTIVITIES ... 63,921"
     },
     {
@@ -213,13 +227,13 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Part I, Item 1 — Statements of Cash Flows, Purchases of property and equipment and other assets; three-month column."
+      "locator": "Part I, Item 1 \u2014 Statements of Cash Flows, Purchases of property and equipment and other assets; three-month column."
     },
     {
       "id": "apld-cash-after-purchases",
       "kind": "cash",
       "label": "Operating cash after asset purchases",
-      "value": "−$2.010777B",
+      "value": "\u2212$2.010777B",
       "unit": "USD",
       "definition": "Historical cash-flow residual; not a forward financing gap or cash balance.",
       "scope": "Same-period consolidated cash flows; excludes financing flows.",
@@ -227,12 +241,12 @@
       "basis": "calculated",
       "verification": "Calculated from two same-company, same-period reported cash-flow facts",
       "source": "apld-q1-filing",
-      "formula": "$63,921,000 operating cash flow − $2,074,698,000 cash purchases = −$2,010,777,000",
+      "formula": "$63,921,000 operating cash flow \u2212 $2,074,698,000 cash purchases = \u2212$2,010,777,000",
       "inputs": [
         "apld-ocf",
         "apld-asset-purchases"
       ],
-      "locator": "Statements of Cash Flows — operating cash-flow row less purchases of property/equipment/other assets; see the two input facts."
+      "locator": "Statements of Cash Flows \u2014 operating cash-flow row less purchases of property/equipment/other assets; see the two input facts."
     },
     {
       "id": "apld-cash",
@@ -246,7 +260,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Part I, Item 1 — Condensed Consolidated Balance Sheets, Cash and cash equivalents; August 31, 2026 column.",
+      "locator": "Part I, Item 1 \u2014 Condensed Consolidated Balance Sheets, Cash and cash equivalents; August 31, 2026 column.",
       "primary": true
     },
     {
@@ -261,7 +275,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Balance Sheets — Restricted cash, current assets; August 31, 2026 column."
+      "locator": "Balance Sheets \u2014 Restricted cash, current assets; August 31, 2026 column."
     },
     {
       "id": "apld-restricted-noncurrent",
@@ -275,7 +289,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Financial-statement notes — Cash, Cash Equivalents, and Restricted Cash reconciliation: Restricted cash included in other assets."
+      "locator": "Financial-statement notes \u2014 Cash, Cash Equivalents, and Restricted Cash reconciliation: Restricted cash included in other assets."
     },
     {
       "id": "apld-restricted-total",
@@ -294,7 +308,7 @@
         "apld-restricted-current",
         "apld-restricted-noncurrent"
       ],
-      "locator": "Cash, Cash Equivalents, and Restricted Cash reconciliation — current Restricted cash plus Restricted cash included in other assets."
+      "locator": "Cash, Cash Equivalents, and Restricted Cash reconciliation \u2014 current Restricted cash plus Restricted cash included in other assets."
     },
     {
       "id": "apld-debt-current",
@@ -308,7 +322,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Balance Sheets — Current portion of debt; August 31, 2026 column, separately from finance/operating leases."
+      "locator": "Balance Sheets \u2014 Current portion of debt; August 31, 2026 column, separately from finance/operating leases."
     },
     {
       "id": "apld-debt-longterm",
@@ -322,7 +336,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Balance Sheets — Long-term debt; also Note 9 debt table, Long-term debt, net."
+      "locator": "Balance Sheets \u2014 Long-term debt; also Note 9 debt table, Long-term debt, net."
     },
     {
       "id": "apld-borrowings",
@@ -341,7 +355,7 @@
         "apld-debt-current",
         "apld-debt-longterm"
       ],
-      "locator": "Balance Sheets — Current portion of debt plus Long-term debt; separate lease liabilities are excluded.",
+      "locator": "Balance Sheets \u2014 Current portion of debt plus Long-term debt; separate lease liabilities are excluded.",
       "primary": true
     },
     {
@@ -356,7 +370,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Note 5, Revenue — major-customer revenue concentration table, August 31, 2026 column.",
+      "locator": "Note 5, Revenue \u2014 major-customer revenue concentration table, August 31, 2026 column.",
       "primary": true
     },
     {
@@ -371,7 +385,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Note 18, Commitments and Contingencies — Energy Contracts, Jamestown minimum energy-service commitment."
+      "locator": "Note 18, Commitments and Contingencies \u2014 Energy Contracts, Jamestown minimum energy-service commitment."
     },
     {
       "id": "apld-pf1-live",
@@ -385,7 +399,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-release",
-      "locator": "Management Commentary — October 1 Ready for Service date for the second 75 MW phase; campus total 250 MW across two buildings and 10 halls.",
+      "locator": "Management Commentary \u2014 October 1 Ready for Service date for the second 75 MW phase; campus total 250 MW across two buildings and 10 halls.",
       "primary": true
     },
     {
@@ -400,7 +414,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-november-lease",
-      "locator": "November 23 lease release — portfolio total contracted critical IT load and grid-connected peak load paragraph."
+      "locator": "November 23 lease release \u2014 portfolio total contracted critical IT load and grid-connected peak load paragraph."
     },
     {
       "id": "apld-portfolio-power",
@@ -414,7 +428,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-november-lease",
-      "locator": "November 23 lease release — same portfolio paragraph; grid-connected peak load is power-side scope."
+      "locator": "November 23 lease release \u2014 same portfolio paragraph; grid-connected peak load is power-side scope."
     },
     {
       "id": "apld-new-lease-capacity",
@@ -428,7 +442,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-november-lease",
-      "locator": "November 23 lease release — opening lease description and conditional delivery paragraph."
+      "locator": "November 23 lease release \u2014 opening lease description and conditional delivery paragraph."
     },
     {
       "id": "apld-new-lease-value",
@@ -442,7 +456,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-november-lease",
-      "locator": "November 23 lease release — base-term contracted revenue and separately conditional renewal options.",
+      "locator": "November 23 lease release \u2014 base-term contracted revenue and separately conditional renewal options.",
       "primary": true
     },
     {
@@ -457,7 +471,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-november-lease",
-      "locator": "November 23 lease release — portfolio contracted base-term revenue attributable to investment-grade paragraph."
+      "locator": "November 23 lease release \u2014 portfolio contracted base-term revenue attributable to investment-grade paragraph."
     },
     {
       "id": "apld-delta-bridge",
@@ -471,7 +485,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-november-bridge",
-      "locator": "November 23 bridge release — facility purpose, delayed-draw terms, draw conditions and project security paragraphs.",
+      "locator": "November 23 bridge release \u2014 facility purpose, delayed-draw terms, draw conditions and project security paragraphs.",
       "primary": true
     },
     {
@@ -486,7 +500,7 @@
       "basis": "reported",
       "verification": "Not disclosed in reviewed issuer announcement",
       "source": "apld-november-bridge",
-      "locator": "November 23 bridge release — commitment and draw conditions; no funded amount is stated."
+      "locator": "November 23 bridge release \u2014 commitment and draw conditions; no funded amount is stated."
     },
     {
       "id": "apld-revolver",
@@ -500,7 +514,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Note 9, Debt — 2026 Revolving Credit Facility: June 26 commitment increase and August 31 funded drawings/standby letters of credit.",
+      "locator": "Note 9, Debt \u2014 2026 Revolving Credit Facility: June 26 commitment increase and August 31 funded drawings/standby letters of credit.",
       "excerpt": "the aggregate revolving commitments under the 2026 Revolving Credit Facility increased to $430.0 million"
     },
     {
@@ -515,7 +529,7 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Note 9, Debt — 7.000% Senior Secured Notes due 2031, APLD ComputeCo 3 LLC; June 15, 2031 maturity paragraph.",
+      "locator": "Note 9, Debt \u2014 7.000% Senior Secured Notes due 2031, APLD ComputeCo 3 LLC; June 15, 2031 maturity paragraph.",
       "excerpt": "The 2031 7.000% Notes will mature on June 15, 2031"
     },
     {
@@ -530,8 +544,8 @@
       "basis": "reported",
       "verification": "Primary issuer evidence reviewed",
       "source": "apld-q1-filing",
-      "locator": "Note 9, Debt — Loan and Security Agreement, Texas Capital liquidity and close-of-trading-day market capitalization condition.",
-      "excerpt": "requires the Company’s market capitalization to remain above $2.0 billion as of the close of any trading day."
+      "locator": "Note 9, Debt \u2014 Loan and Security Agreement, Texas Capital liquidity and close-of-trading-day market capitalization condition.",
+      "excerpt": "requires the Company\u2019s market capitalization to remain above $2.0 billion as of the close of any trading day."
     },
     {
       "id": "apld-chronoscale-investment",
@@ -545,7 +559,7 @@
       "basis": "reported",
       "verification": "Primary Schedule 13D/A reviewed",
       "source": "apld-chronoscale-note",
-      "locator": "Item 4, Purpose of Transaction — funded Convertible Note; stockholder approval, conversion and maturity conditions.",
+      "locator": "Item 4, Purpose of Transaction \u2014 funded Convertible Note; stockholder approval, conversion and maturity conditions.",
       "excerpt": "the Issuer issued an unsecured convertible promissory note ... payable to the Reporting Person"
     },
     {
@@ -561,6 +575,80 @@
       "verification": "Primary subsidiary announcement reviewed; planned deployment only",
       "source": "apld-chronoscale-odessa",
       "locator": "Development Partnership; initial phase, remaining 285 MW right of first offer, and Phased Deployment / risk qualifications."
+    },
+    {
+      "id": "apld-pf2-rfs",
+      "kind": "capacity",
+      "label": "Polaris Forge 2 ready for service",
+      "value": "25 MW",
+      "unit": "MW critical IT",
+      "definition": "First integrated-fit-out data hall; issuer-reported RFS does not establish billed rent or cash collection.",
+      "scope": "Polaris Forge 2, first 150 MW building",
+      "as_of": "2026-11-24",
+      "basis": "reported",
+      "verification": "Primary issuer evidence reviewed",
+      "source": "apld-november-pf2",
+      "locator": "Release opening paragraphs",
+      "primary": true
+    },
+    {
+      "id": "apld-pf2-commissioned",
+      "kind": "capacity",
+      "label": "Polaris Forge 2 base-build commissioning",
+      "value": "75 MW",
+      "unit": "MW critical IT",
+      "definition": "Includes the 25 MW RFS hall; remaining 50 MW requires fit-out and delivery. Do not add to RFS as separate capacity.",
+      "scope": "Polaris Forge 2, first 150 MW building",
+      "as_of": "2026-11-24",
+      "basis": "reported",
+      "verification": "Primary issuer evidence reviewed",
+      "source": "apld-november-pf2",
+      "locator": "Release opening paragraphs",
+      "primary": true
+    },
+    {
+      "id": "apld-pepa-capacity",
+      "kind": "financing",
+      "label": "Series G PEPA aggregate commitment",
+      "value": "$2.5B",
+      "unit": "USD",
+      "definition": "Aggregate contractual capacity increased from $2.0B. Not cash, drawn debt, or remaining availability.",
+      "scope": "APLD parent preferred equity purchase agreement",
+      "as_of": "2026-11-24",
+      "basis": "reported",
+      "verification": "Primary issuer evidence reviewed",
+      "source": "apld-november-pepa",
+      "locator": "Form 8-K Items 1.01 and 3.02",
+      "primary": true
+    },
+    {
+      "id": "apld-pepa-availability",
+      "kind": "financing",
+      "label": "Series G PEPA remaining availability",
+      "value": "$1.035B",
+      "unit": "USD",
+      "definition": "Issuer-reported remaining availability after expansion; future preferred issuance and common conversion can dilute shareholders. Not cash received.",
+      "scope": "APLD parent preferred equity purchase agreement",
+      "as_of": "2026-11-24",
+      "basis": "reported",
+      "verification": "Primary issuer evidence reviewed",
+      "source": "apld-november-pepa",
+      "locator": "Form 8-K Items 1.01 and 3.02",
+      "primary": true
+    },
+    {
+      "id": "apld-chronoscale-beneficial",
+      "kind": "ownership",
+      "label": "ChronoScale beneficial ownership \u2014 conversion assumed",
+      "value": "85.6%",
+      "unit": "percent",
+      "definition": "Schedule 13D/A reported beneficial ownership assuming full conversion of the $97M note. Not an unconditional current fully diluted economic percentage.",
+      "scope": "APLD interest in ChronoScale following November 18 private placement; note conversion assumed.",
+      "as_of": "2026-11-18",
+      "basis": "reported",
+      "verification": "Primary issuer evidence reviewed",
+      "source": "apld-chronoscale-note",
+      "locator": "Schedule 13D/A Item 5(a): 151,653,227 beneficial shares assuming full note conversion; issuer outstanding shares at November 20 were 164,962,452."
     }
   ],
   "milestones": [
@@ -593,9 +681,13 @@
         "target_end": "2026-12-31"
       },
       "revisions": [],
-      "outcome": null,
-      "status": "pending",
-      "explanation": "A dated target remains outstanding at this review. No later issuer delivery confirmation or changed date was verified."
+      "outcome": {
+        "published": "2026-11-24",
+        "description": "First 25 MW at PF2 reported RFS. 75 MW base-build commissioning includes that hall; the remaining 50 MW is not yet reported delivered.",
+        "source": "apld-november-pf2"
+      },
+      "status": "in_progress",
+      "explanation": "Original December 31 target retained. PF1 250 MW operational plus PF2 25 MW RFS gives 275 MW across the disclosed statuses, still 25 MW below 300 MW. This does not verify billed rent or completed full campus delivery."
     },
     {
       "id": "apld-new-lease-delivery",
@@ -628,7 +720,7 @@
     },
     {
       "id": "apld-chronoscale-odessa-delivery",
-      "project": "ChronoScale / STN Odessa partnership — first ordered phase",
+      "project": "ChronoScale / STN Odessa partnership \u2014 first ordered phase",
       "type": "delivery",
       "original": {
         "published": "2026-11-18",
@@ -639,7 +731,7 @@
       "revisions": [],
       "outcome": null,
       "status": "pending",
-      "explanation": "Subsidiary/JV deployment plan; no observed delivery or revenue-generating capacity is promoted. Later phases require further orders. Not the parent’s new 150 MW lease."
+      "explanation": "Subsidiary/JV deployment plan; no observed delivery or revenue-generating capacity is promoted. Later phases require further orders. Not the parent\u2019s new 150 MW lease."
     }
   ],
   "changes": [
@@ -679,24 +771,45 @@
       "published": "2026-11-20",
       "before": "October 7: Applied Digital reported approximately 96% ownership of ChronoScale and consolidated its results, while excluding them from adjusted measures. This is dated ownership context.",
       "after": "November 20 filing reports the full $97M note funded in the November 18 transaction: APLD lends to ChronoScale, with share conversion conditional on approval effectiveness.",
-      "why": "A parent-to-subsidiary investment direction, not a new APLD parent debt instrument. Keep the funded note separate from ChronoScale’s conditional Odessa development plan and broader financing framework.",
+      "why": "A parent-to-subsidiary investment direction, not a new APLD parent debt instrument. Keep the funded note separate from ChronoScale\u2019s conditional Odessa development plan and broader financing framework.",
       "source": "apld-chronoscale-note",
       "before_source": "apld-q1-release"
+    },
+    {
+      "id": "apld-pf2-initial-rfs-change",
+      "type": "capacity",
+      "published": "2026-11-24",
+      "before": "October 7 targeted initial PF2 operations and 300 MW delivered North Dakota capacity by December 31.",
+      "after": "First 25 MW PF2 hall reported RFS; 75 MW base-build commissioned. Original 300 MW target remains open.",
+      "why": "A partial observed outcome replaces an entirely pending milestone; commissioning and delivery remain distinct.",
+      "source": "apld-november-pf2",
+      "before_source": "apld-q1-release"
+    },
+    {
+      "id": "apld-pepa-expanded",
+      "type": "financing",
+      "published": "2026-11-24",
+      "before": "Series G PEPA aggregate commitment was $2.0B, as reported in the October 7 quarterly filing.",
+      "after": "Aggregate commitment $2.5B; remaining availability $1.035B. No cash receipt is inferred.",
+      "why": "Greater financing capacity provides optionality but preferred conversion can increase common shares; separate from project debt and Macquarie equity.",
+      "source": "apld-november-pepa",
+      "before_source": "apld-q1-filing"
     }
   ],
   "questions": [
     "How much of the Delta Forge 1 delayed-draw bridge has actually been funded, and which construction, utility-rate, approval and lender-consent conditions remain?",
     "What financing terms and equity contributions will close the remaining Delta Forge 1 / Polaris Forge 3 funding in Q1 2027 and Delta Forge 2 funding in Q2?",
     "Which campus hosts the new 150 MW lease, and what evidence will establish utility readiness, delivery commencement and tenant acceptance?",
-    "Can Polaris Forge 2 reach initial service and the stated North Dakota 300 MW delivered target by the end of 2026? No revised date or outcome has been verified.",
     "How do base rent and cash collections develop relative to fit-out services, which currently account for a large part of HPC revenue?",
     "How much consolidated cash can the parent deploy after project restrictions, reserves and subsidiary obligations? The cash balance is not a parent-only wallet.",
     "How should the changing building names in historical documents be mapped to legal project entities before assigning financing or timeline revisions? No exact numbering bridge is assumed here.",
     "When will the next fiscal-quarter earnings date be confirmed? The issuer calendar still lists no future event at this review.",
-    "Source freshness: issuer release and filing indexes were rechecked November 24; the shared SEC submissions check at 11:05 UTC found no November 23–24 filing. The newest periodic financials remain August 31, published October 7.",
-    "Coverage limit — the older $5B Macquarie programmatic equity partnership is not a received-cash balance; its full remaining commitments and draw conditions were not refreshed here. See the November 23 lease announcement: https://ir.applieddigital.com/news-events/press-releases/detail/165/applied-digital-secures-new-150-mw-18-year-lease-with .",
-    "Coverage limit — Finland’s up-to-approximately 1 GW potential power, and all older construction/financing commitments, have not been reconstructed as a current funding-gap total. Potential power is excluded from delivered or contracted critical-IT sums. Source: https://ir.applieddigital.com/news-events/press-releases/detail/163/applied-digital-reports-fiscal-first-quarter-2027-results .",
-    "Odessa coverage — later 285 MW phases require additional orders; up-to-$7.5B partnership contract value is not current APLD revenue. What evidence will establish approvals, funded contributions and first-phase delivery? Source: https://ir.chronoscale.com/press-releases/detail/796/chronoscale-announces-new-development-partnership-to .",
-    "How do the November 18 private placement and conditional note conversion affect ChronoScale ownership? The older approximately 96% holding is not asserted as the current post-transaction or fully diluted percentage. Source: https://www.sec.gov/Archives/edgar/data/1549084/000149315226053589/xslSCHEDULE_13D_X02/primary_doc.xml ."
+    "Coverage limit \u2014 the older $5B Macquarie programmatic equity partnership is not a received-cash balance; its full remaining commitments and draw conditions were not refreshed here. See the November 23 lease announcement: https://ir.applieddigital.com/news-events/press-releases/detail/165/applied-digital-secures-new-150-mw-18-year-lease-with .",
+    "Coverage limit \u2014 Finland\u2019s up-to-approximately 1 GW potential power, and all older construction/financing commitments, have not been reconstructed as a current funding-gap total. Potential power is excluded from delivered or contracted critical-IT sums. Source: https://ir.applieddigital.com/news-events/press-releases/detail/163/applied-digital-reports-fiscal-first-quarter-2027-results .",
+    "Odessa coverage \u2014 later 285 MW phases require additional orders; up-to-$7.5B partnership contract value is not current APLD revenue. What evidence will establish approvals, funded contributions and first-phase delivery? Source: https://ir.chronoscale.com/press-releases/detail/796/chronoscale-announces-new-development-partnership-to .",
+    "What is ChronoScale ownership after approval effectiveness and other dilutive instruments? November 20 Schedule 13D/A reports 85.6% beneficial ownership assuming full $97M note conversion, replacing the older approximately 96% context.",
+    "What evidence confirms the next 25 MW RFS and the original 300 MW North Dakota target by December 31? November 24 established only 25 MW at PF2, not the full 75 MW commissioned phase.",
+    "What Series G issuance, conversion prices and common share changes follow the November 24 PEPA expansion? $1.035B availability is not a funded balance.",
+    "Source freshness: November 24 PF2 release and SEC 8-K 0001493152-26-054002 reviewed November 25. Periodic financials remain August 31, published October 7."
   ]
 }

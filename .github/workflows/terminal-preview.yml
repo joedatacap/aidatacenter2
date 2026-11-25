@@ -3,9 +3,11 @@ on:
   pull_request:
     paths:
       - 'neocloud/data/terminal/**'
+      - 'neocloud/data/decisions/**'
       - 'terminal-preview/**'
       - 'scripts/*terminal*.py'
       - 'tests/*terminal*'
+      - 'tests/decision-math.cjs'
       - '.github/workflows/terminal-preview.yml'
   workflow_dispatch:
 permissions:
@@ -21,6 +23,7 @@ jobs:
         with: {node-version: '22', cache: npm}
       - run: npm ci --ignore-scripts
       - run: python scripts/build_terminal.py --output work/terminal-preview/Neocloud-Intelligence-Terminal.html
+      - run: node tests/decision-math.cjs
       - run: node tests/terminal-browser.cjs work/terminal-preview
       - uses: actions/upload-artifact@v4
         with:
