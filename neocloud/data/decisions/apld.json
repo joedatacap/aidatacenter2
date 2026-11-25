@@ -1,0 +1,136 @@
+{
+  "id": "apld",
+  "reviewed_at": "2026-11-25T04:02:21Z",
+  "stance": "Conditional watch: delivery progress is constructive; valuation and parent funding remain unqualified.",
+  "question": "Can delivered rent grow faster than financing claims and share dilution over the next 30\u201390 days?",
+  "takeaway": "PF2 has moved from a promise to a first 25 MW RFS hall. The trade now depends on additional delivery, rent conversion and funding terms. A new $2.5B Series G commitment expands financing options, not shareholder value by itself.",
+  "valuation_note": "Use project-level cash flows after construction spending, debt service and preferred distributions, then parent residual value divided by a reconciled diluted share count. No price target: current quote, refreshed capitalization, ownership waterfalls and remaining build costs are not fully verified.",
+  "cases": [
+    {
+      "name": "Bull",
+      "thesis": "Further RFS converts to recurring rent while project financing limits parent equity funding.",
+      "requires": "Evidence of at least the next 25 MW toward the original 300 MW North Dakota target, rent commencement and favorable funded project terms.",
+      "invalidated_by": "Delivery slippage, weak rent conversion or financing that transfers too much residual value to lenders/preferred investors.",
+      "sources": [
+        "apld-november-pf2",
+        "apld-q1-release",
+        "apld-november-pepa"
+      ]
+    },
+    {
+      "name": "Base",
+      "thesis": "Capacity ramps in stages but near-term common-equity returns remain sensitive to funding terms and dilution.",
+      "requires": "Ongoing delivery without assuming all commissioned MW earns rent; distinguish fit-out revenue from recurring base rent.",
+      "invalidated_by": "Either demonstrated recurring cash/distribution inflection or a material delivery/funding shortfall.",
+      "sources": [
+        "apld-november-pf2",
+        "apld-q1-filing"
+      ]
+    },
+    {
+      "name": "Bear",
+      "thesis": "Construction cash needs and preferred issuance outrun recurring rent, reducing per-share upside despite a larger lease book.",
+      "requires": "Missed milestones, adverse project financing, significant new issuance or weak cash conversion to emerge.",
+      "invalidated_by": "On-schedule tenant service, improving rent collections and fully evidenced funding with manageable parent contributions.",
+      "sources": [
+        "apld-q1-filing",
+        "apld-november-pepa",
+        "apld-november-bridge"
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "date": "2026-12-31",
+      "label": "North Dakota 300 MW target",
+      "watch": "Next PF2 hall and tenant service/rent evidence; current disclosed statuses total 275 MW.",
+      "positive": "Additional RFS and rent commencement corroborate target progress.",
+      "negative": "Confirmed failure to deliver by the deadline, an explicit schedule revision or customer acceptance problem. No public update alone means unconfirmed, not failed.",
+      "sources": [
+        "apld-q1-release",
+        "apld-november-pf2"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "label": "ChronoScale note conversion or maturity",
+      "watch": "$97M parent-funded note: approval effectiveness and conversion versus repayment/extension.",
+      "positive": "Clear conversion terms and reconciled post-deal ownership.",
+      "negative": "Unclear settlement or additional parent support beyond the disclosed note.",
+      "sources": [
+        "apld-chronoscale-note"
+      ]
+    },
+    {
+      "date": "Next earnings \u2014 date unconfirmed",
+      "label": "Recurring economics and share bridge",
+      "watch": "Base rent, fit-out, collections, unrestricted parent cash, capex and Series G common conversion.",
+      "positive": "Recurring rent/cash improves with transparent funding and dilution reconciliation.",
+      "negative": "Headline growth driven by fit-out while funding pressure rises.",
+      "sources": [
+        "apld-q1-filing",
+        "apld-november-pepa"
+      ]
+    },
+    {
+      "date": "Q1 calendar 2027 \u2014 deadline beyond 90-day window",
+      "label": "Delta Forge 1 / Polaris Forge 3 finance",
+      "watch": "Closing evidence, amount funded, project recourse and parent equity requirement.",
+      "positive": "Executed funding on sustainable terms.",
+      "negative": "Target slips or high residual claims/parent contributions.",
+      "sources": [
+        "apld-november-lease",
+        "apld-november-bridge"
+      ]
+    }
+  ],
+  "gaps": [
+    "No verified current executable quote or same-date fully diluted share count; no entry/stop or price target is asserted.",
+    "Parent-accessible liquidity and remaining construction spend are not reconstructed.",
+    "Macquarie preferred waterfall/redemption economics and ChronoScale fully diluted economics need a full entity-level bridge (85.6% reported beneficial ownership assumes note conversion).",
+    "Issuer calendar has no confirmed next earnings date at review."
+  ],
+  "metrics": [
+    {
+      "label": "PF2 first RFS",
+      "value": "25 MW",
+      "basis": "November 24 issuer report; not 75 MW delivered.",
+      "sources": [
+        "apld-november-pf2"
+      ]
+    },
+    {
+      "label": "PF2 base-build commissioned",
+      "value": "75 MW",
+      "basis": "Includes the 25 MW RFS hall; remaining 50 MW awaits fit-out/delivery.",
+      "sources": [
+        "apld-november-pf2"
+      ]
+    },
+    {
+      "label": "Series G availability",
+      "value": "$1.035B",
+      "basis": "November 24 remaining facility availability; not received cash.",
+      "sources": [
+        "apld-november-pepa"
+      ]
+    },
+    {
+      "label": "Q1 HPC base rent",
+      "value": "$65.8M",
+      "basis": "Quarter ended August 31; distinct from $183.5M fit-out revenue.",
+      "sources": [
+        "apld-q1-release"
+      ]
+    },
+    {
+      "label": "Redeemable minority equity",
+      "value": "$2.011B",
+      "basis": "August 31 carrying amount; project preferred claims, not ordinary parent equity.",
+      "sources": [
+        "apld-q1-filing"
+      ]
+    }
+  ],
+  "sources": []
+}

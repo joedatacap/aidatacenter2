@@ -5,7 +5,8 @@ on:
       - 'watch-preview/**'
       - 'terminal-preview/**'
       - 'scripts/build*watch*'
-      - 'tests/browser-watch/terminal-integration.spec.cjs'
+      - 'tests/browser-watch/**'
+      - 'neocloud/data/decisions/**'
       - '.github/workflows/integrated-review.yml'
 permissions:
   contents: read
@@ -21,7 +22,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: PYTHONPATH=. python scripts/build_neocloud_watch.py
       - run: npx playwright install --with-deps chromium
-      - run: npx playwright test --config playwright.watch.config.cjs terminal-integration
+      - run: npx playwright test --config playwright.watch.config.cjs terminal-integration decision-workspace
       - uses: actions/upload-artifact@v4
         if: always()
         with:

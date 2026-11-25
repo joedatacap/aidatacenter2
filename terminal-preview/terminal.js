@@ -15,9 +15,9 @@
   ];
   const viewNames = {
     desk: 'Trading desk', catalysts: 'Catalysts', thesis: 'My theses', compare: 'Compare companies', companies: 'Company briefs',
-    history: 'Commitment history', changes: 'Material changes'
+    history: 'Commitment history', changes: 'Material changes', 'user-research': 'Decision briefs', 'user-scenario': 'Scenario lab', 'user-journal': 'Decision journal', 'user-updates': 'Disclosure inbox'
   };
-  let companies = [], state, latestReview = '', dataError = '';
+  let companies = [], state, latestReview = '', dataError = '', decisionData = {briefs: [], queue: null};
 
   function safeURL(value) {
     try {
@@ -50,7 +50,7 @@
     }
     for (const key of ['q', 'asof', 'from', 'to']) if (next[key]) params.set(key, next[key]);
     if (next.type && next.type !== 'all') params.set('type', next.type);
-    const path = view === 'companies' && next.company ? '/companies/' + encodeURIComponent(next.company) : '/' + view;
+    const path = ['companies','user-research','user-scenario','user-journal'].includes(view) && next.company ? '/' + view + '/' + encodeURIComponent(next.company) : '/' + view;
     return '#' + path + (params.size ? '?' + params.toString() : '');
   }
 
@@ -377,7 +377,7 @@
       .sort((a,b) => b.change.published.localeCompare(a.change.published));
     const next = catalysts().slice(0,3);
     return heading('What deserves your attention?', 'A research desk for positions held days to months. Review new evidence, the next catalyst and your own assumptions.')
-      + snapshotNote() + '<div class="section-title"><h2>Latest material changes</h2><span>Newest disclosure first · not ranked buy/sell signals</span></div>'
+      + snapshotNote() + (window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,refresh:render}) : '') + '<div class="section-title"><h2>Latest material changes</h2><span>Newest disclosure first · not ranked buy/sell signals</span></div>'
       + (rows.length ? '<div class="change-list">' + rows.slice(0,6).map(({company,change}) => {
         const note = notes[company.id];
         const needsReview = note?.reviewedThrough && change.published > note.reviewedThrough;
@@ -430,7 +430,7 @@
     document.title = 'Neocloud Intelligence Terminal — ' + viewNames[state.view];
     $('page-content').innerHTML = dataError ? empty(dataError) : !companies.length
       ? empty('No reviewed company data has been embedded in this file. Build the terminal with its source ledger.')
-      : state.view === 'desk' ? deskPage() : state.view === 'catalysts' ? catalystsPage() : state.view === 'thesis' ? thesisPage() : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
+      : state.view.startsWith('user-') && window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,refresh:render}) : state.view === 'desk' ? deskPage() : state.view === 'catalysts' ? catalystsPage() : state.view === 'thesis' ? thesisPage() : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
   }
 
   function openEvidence(button) {
@@ -463,6 +463,7 @@
 
   function init() {
     try {
+      decisionData = JSON.parse($('decision-data')?.textContent || '{"briefs":[],"queue":null}');
       const parsed = JSON.parse($('terminal-data')?.textContent || '[]');
       if (!Array.isArray(parsed)) throw new Error('Research must be a company array.');
       companies = parsed.filter(company => company && typeof company.id === 'string');

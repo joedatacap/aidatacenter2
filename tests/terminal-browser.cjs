@@ -24,7 +24,8 @@ async function exercise(browser, directory, device, viewport) {
     await checkLayout(page);
     await page.screenshot({path: path.join(directory, device + '-desk.png')});
     await page.goto(preview + '#/catalysts?peers=agpu');
-    await expect(page.locator('[data-catalyst]')).toHaveCount(2);
+    await expect(page.locator('[data-catalyst=agpu-dec17-plan-vote]')).toHaveCount(1);
+    await expect(page.locator('[data-catalyst]')).toHaveCount(3);
     await expect(page.locator('#page-content')).toContainText('first quarter 2027');
     await expect(page.locator('[data-catalyst="agpu-georgia-ownership"]')).toHaveCount(0);
     await checkLayout(page);
