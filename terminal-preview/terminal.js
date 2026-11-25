@@ -415,6 +415,7 @@
     if ($('evidence-dialog').open) $('evidence-dialog').close();
     state = readState();
     const historical = state.view === 'history' || state.view === 'changes';
+    $('terminal-controls').hidden = state.view.startsWith('user-') && state.view !== 'user-updates';
     $('historical-controls').hidden = !historical;
     for (const id of ['type-control', 'from-control', 'to-control']) $(id).hidden = state.view !== 'changes';
     for (const [id, key] of [['q', 'q'], ['asof', 'asof'], ['change-type', 'type'], ['date-from', 'from'], ['date-to', 'to']]) {
