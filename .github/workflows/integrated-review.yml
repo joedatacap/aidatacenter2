@@ -1,0 +1,33 @@
+name: Integrated Watch review
+on:
+  pull_request:
+    paths:
+      - 'watch-preview/**'
+      - 'terminal-preview/**'
+      - 'scripts/build*watch*'
+      - 'tests/browser-watch/terminal-integration.spec.cjs'
+      - '.github/workflows/integrated-review.yml'
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm}
+      - run: npm ci --ignore-scripts
+      - run: PYTHONPATH=. python scripts/build_neocloud_watch.py
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --config playwright.watch.config.cjs terminal-integration
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Integrated-Neocloud-Watch-Review
+          path: |
+            work/Neocloud-Watch-V2.html
+            work/Neocloud-Intelligence-Terminal.html
+            work/playwright-watch-results/
+          retention-days: 30

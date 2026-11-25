@@ -338,3 +338,17 @@ def test_publication_checks_the_default_window_against_observed_closes():
     market['license']['status'] = 'unverified'
     with pytest.raises(ValueError, match='no verified source'):
         require_publishable_market(market)
+
+
+def test_terminal_is_connected_without_weakening_hosted_policy(tmp_path):
+    from scripts import build_neocloud_watch as builder
+    builder.build(base='/review/', output=tmp_path)
+    terminal = (tmp_path/'terminal/index.html').read_text()
+    assert 'href="/review/overview/"' in terminal
+    assert 'href="/review/markets/"' in terminal
+    assert 'src="/review/terminal/terminal.js"' in terminal
+    assert '<script>' not in terminal
+    assert '<style>' not in terminal
+    assert 'unsafe-inline' not in builder.HEADER_CSP.split('script-src', 1)[1].split(';', 1)[0]
+    assert (tmp_path/'terminal/terminal.css').is_file()
+    assert 'Trading Desk' in (tmp_path/'watch.js').read_text()

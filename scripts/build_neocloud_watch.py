@@ -9,12 +9,17 @@ from pathlib import Path
 import re
 import tempfile
 from urllib.parse import urlparse
+import importlib.util
 from neocloud.directory import build_directory
 from neocloud.website_v2 import build_website_v2
 from neocloud.watch import build_watch
 from neocloud.data_quality import enrich_data_quality, require_complete_data_quality
 
 ROOT=Path(__file__).resolve().parents[1]
+_terminal_spec = importlib.util.spec_from_file_location('watch_terminal_build', ROOT/'scripts/build_terminal.py')
+_terminal_module = importlib.util.module_from_spec(_terminal_spec)
+_terminal_spec.loader.exec_module(_terminal_module)
+build_terminal = _terminal_module.build
 
 # Static Sites adds a per-response Cloudflare script and iframe. The partial
 # document policy has no script or frame restrictions on that managed runtime.
@@ -125,7 +130,25 @@ def build(*,base='/',output=None,release=False):
     artifact = ROOT/'work/Neocloud-Watch-V2.html'
     artifact.parent.mkdir(parents=True, exist_ok=True)
     artifact.write_text(offline)
-    return {'site':str(target),'offline':str(artifact),'companies':len(data['companies']),'routes':len(routes),'base_path':base}
+    # One site: preserve the market landing page and mount research at /terminal/.
+    # Use external hosted assets to retain the existing strict response CSP.
+    terminal_file = target/'terminal/index.html'
+    terminal = build_terminal(output=terminal_file).read_text()
+    def connect_terminal(document, home, markets):
+        document = document.replace('href="#/desk" aria-label="Neocloud Intelligence Terminal"', f'href="{home}" aria-label="Neocloud Watch homepage"')
+        document = document.replace('<strong>NEOCLOUD</strong><small>INTELLIGENCE TERMINAL</small>', '<strong>NEOCLOUD WATCH</strong><small>TRADING DESK · REVIEW</small>')
+        return document.replace('<nav id="primary-nav"', f'<nav class="primary-nav" aria-label="Site pages"><a href="{home}">← Market homepage</a><a href="{markets}">Markets &amp; prices</a><a href="#/desk" aria-current="page">Trading Desk</a></nav><nav id="primary-nav"')
+    terminal_hosted = connect_terminal(terminal, base+'overview/', base+'markets/')
+    terminal_css = re.search(r'<style>(.*?)</style>', terminal_hosted, re.S).group(1)
+    terminal_js = re.search(r'<script>(.*?)</script>', terminal_hosted, re.S).group(1)
+    (target/'terminal/terminal.css').write_text(terminal_css)
+    (target/'terminal/terminal.js').write_text(terminal_js)
+    terminal_hosted = re.sub(r'<style>.*?</style>', lambda _: f'<link rel="stylesheet" href="{base}terminal/terminal.css">', terminal_hosted, flags=re.S)
+    terminal_hosted = re.sub(r'<script>.*?</script>', lambda _: f'<script src="{base}terminal/terminal.js" defer></script>', terminal_hosted, flags=re.S)
+    terminal_file.write_text(hosted_document(terminal_hosted))
+    terminal_offline = artifact.parent/'Neocloud-Intelligence-Terminal.html'
+    terminal_offline.write_text(connect_terminal(terminal, './Neocloud-Watch-V2.html#/overview/', './Neocloud-Watch-V2.html#/markets/'))
+    return {'site':str(target),'offline':str(artifact),'companies':len(data['companies']),'routes':len(routes)+1,'base_path':base}
 
 
 if __name__=='__main__':

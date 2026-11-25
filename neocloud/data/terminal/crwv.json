@@ -266,7 +266,8 @@
       "verification": "Reviewed primary balance sheet and reconciled to SEC companyfacts cash-at-carrying-value instant September 30, accession 0001769628-26-000465.",
       "source": "crwv-10q-q3",
       "primary": true,
-      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 cash and cash equivalents row ($4,122 million). Corroborated by SEC CashAndCashEquivalentsAtCarryingValue instant in accession 0001769628-26-000465."
+      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 cash and cash equivalents row ($4,122 million). Corroborated by SEC CashAndCashEquivalentsAtCarryingValue instant in accession 0001769628-26-000465.",
+      "excerpt": "September 30, 2026 | December 31, 2025; USD millions. Cash and cash equivalents $ 4,122 $ 3,127"
     },
     {
       "id": "crwv-restricted-current",
@@ -280,7 +281,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 restricted cash and cash equivalents, current row ($1,405 million)."
+      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 restricted cash and cash equivalents, current row ($1,405 million).",
+      "excerpt": "September 30, 2026 | December 31, 2025; USD millions. Restricted cash and cash equivalents, current 1,405 819"
     },
     {
       "id": "crwv-restricted-noncurrent",
@@ -294,7 +296,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 restricted cash and cash equivalents, non-current row ($877 million). Note 9 explains restricted surety collateral."
+      "locator": "Form 10-Q, Item 1, condensed consolidated balance sheets: September 30, 2026 restricted cash and cash equivalents, non-current row ($877 million). Note 9 explains restricted surety collateral.",
+      "excerpt": "September 30, 2026 | December 31, 2025; USD millions. Restricted cash and cash equivalents, non-current 877 184"
     },
     {
       "id": "crwv-debt-recourse",
@@ -308,7 +311,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Note 10 — Debt: total debt obligations table, September 30, 2026 column; total recourse debt, net of unamortized discount and issuance costs row ($41,600 million)."
+      "locator": "Form 10-Q, Note 10 — Debt: total debt obligations table, September 30, 2026 column; total recourse debt, net of unamortized discount and issuance costs row ($41,600 million).",
+      "excerpt": "September 30, 2026 | December 31, 2025; USD millions. Total recourse debt, net of unamortized discount and issuance costs 41,600 20,726"
     },
     {
       "id": "crwv-debt-nonrecourse",
@@ -322,7 +326,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Note 10 — Debt: total debt obligations table, September 30, 2026 column; total non-recourse debt, net of unamortized discount and issuance costs row ($5,273 million). The following paragraph defines nonrecourse carve-outs."
+      "locator": "Form 10-Q, Note 10 — Debt: total debt obligations table, September 30, 2026 column; total non-recourse debt, net of unamortized discount and issuance costs row ($5,273 million). The following paragraph defines nonrecourse carve-outs.",
+      "excerpt": "September 30, 2026 | December 31, 2025; USD millions. Total non-recourse debt, net of unamortized discount and issuance costs $ 5,273 $ 647"
     },
     {
       "id": "crwv-debt-total",
@@ -342,7 +347,8 @@
         "crwv-debt-nonrecourse"
       ],
       "primary": true,
-      "locator": "Calculation from Form 10-Q, Note 10 — Debt: recourse carrying amount $41,600 million plus nonrecourse carrying amount $5,273 million; not the principal payment table total."
+      "locator": "Calculation from Form 10-Q, Note 10 — Debt: recourse carrying amount $41,600 million plus nonrecourse carrying amount $5,273 million; not the principal payment table total.",
+      "excerpt": "September 30, 2026 | December 31, 2025; USD millions. Total recourse debt, net of unamortized discount and issuance costs 41,600 20,726; September 30, 2026 | December 31, 2025; USD millions. Total non-recourse debt, net of unamortized discount and issuance costs $ 5,273 $ 647"
     },
     {
       "id": "crwv-debt-principal",
@@ -356,7 +362,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Note 10 — Debt: future principal payments table, Years Ending December 31, Total row ($47,505 million), immediately before debt interest expense table."
+      "locator": "Form 10-Q, Note 10 — Debt: future principal payments table, Years Ending December 31, Total row ($47,505 million), immediately before debt interest expense table.",
+      "excerpt": "Future principal payments as of September 30, 2026, USD millions: Years Ending December 31, Amount Remaining portion of 2026 $ 2,433 2027 10,974 2028 5,479 2029 4,727 2030 4,247 Thereafter 19,645 Total $ 47,505"
     },
     {
       "id": "crwv-debt-maturities",
@@ -370,7 +377,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Note 10 — Debt: future principal payments table, all calendar-year rows, remaining portion of 2026 through thereafter. Total $47,505 million."
+      "locator": "Form 10-Q, Note 10 — Debt: future principal payments table, all calendar-year rows, remaining portion of 2026 through thereafter. Total $47,505 million.",
+      "excerpt": "Future principal payments as of September 30, 2026, USD millions: Years Ending December 31, Amount Remaining portion of 2026 $ 2,433 2027 10,974 2028 5,479 2029 4,727 2030 4,247 Thereafter 19,645 Total $ 47,505"
     },
     {
       "id": "crwv-ddtl4",
@@ -384,7 +392,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Note 10 — Debt: September 30 debt obligations table (DDTL 4.0 $4,583 million principal) and Delayed Draw Term Loans subsection beginning In March 2026 (facility $8.5 billion; pricing, availability, payment triggers, security and maturity)."
+      "locator": "Form 10-Q, Note 10 — Debt: September 30 debt obligations table (DDTL 4.0 $4,583 million principal) and Delayed Draw Term Loans subsection beginning In March 2026 (facility $8.5 billion; pricing, availability, payment triggers, security and maturity).",
+      "excerpt": "Debt table (maturity | effective interest rate | September 2026 principal | December 2025 principal; USD millions): DDTL 4.0 Facility Mar 2032 7 % 4,583 —\nIssuance table (date | stated interest | capacity, USD millions): DDTL 4.0 Facility March 2026 SOFR + 2.25 %;  Treasury + 2.00 % $ 8,500\nThe agreement provides an $ 8.5 billion DDTL facility (the \"DDTL 4.0 Facility\") available in one or more draws through June 30, 2027, the commitment termination date. As of September 30, 2026, the facility has $ 2.2 billion of outstanding floating-rate loan and $ 2.4 billion of outstanding fixed-rate loan. Amounts borrowed under the floating-rate commitments bear interest, at the Company's option, at daily compounded SOFR plus 2.25 % per annum or the alternative base rate plus 1.25 % per annum. Amounts borrowed under the fixed-rate commitments bear interest at 2.00 % per annum plus a blended rate based upon the applicable United States Treasury securities per the credit agreement at the time of the borrowing.The DDTL 4.0 Facility matures in March 2032."
     },
     {
       "id": "crwv-ddtl55",
@@ -398,7 +407,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Note 10 — Debt: September 30 debt obligations table (DDTL 5.5 $1,555 million principal), issuance/stated-interest table ($2,600 million; Term SOFR + 5.50%) and DDTL 5.5 facility paragraphs on guarantees and prepayments."
+      "locator": "Form 10-Q, Note 10 — Debt: September 30 debt obligations table (DDTL 5.5 $1,555 million principal), issuance/stated-interest table ($2,600 million; Term SOFR + 5.50%) and DDTL 5.5 facility paragraphs on guarantees and prepayments.",
+      "excerpt": "Debt table (maturity | effective interest rate | September 2026 principal | December 2025 principal; USD millions): DDTL 5.5 Facility Sep 2031 11 % 1,555 —\nIssuance table (date | stated interest | capacity, USD millions): DDTL 5.5 Facility August 2026 Term SOFR + 5.50 % $ 2,600\nThe agreement provides a $ 2.6 billion DDTL facility (the \"DDTL 5.5 Facility\") available in one or more draws through December 31, 2026, the commitment termination date. The principal amount of the DDTL 5.5 Facility is required to be repaid in monthly installments, beginning in February 2027, with the expected final payment due in July 2031."
     },
     {
       "id": "crwv-convertible2033",
@@ -412,7 +422,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, Note 10 — Debt: issuance/stated-interest table, September 2026 2033 Convertible Senior Notes row ($4,200 million; 2.875%), and Convertible Senior Notes subsection for April 2033 maturity."
+      "locator": "Form 10-Q, Note 10 — Debt: issuance/stated-interest table, September 2026 2033 Convertible Senior Notes row ($4,200 million; 2.875%), and Convertible Senior Notes subsection for April 2033 maturity.",
+      "excerpt": "Debt table (maturity | effective interest rate | September 2026 principal | December 2025 principal; USD millions): 2033 Convertible Senior Notes Apr 2033 3 % 4,200 —\nIssuance table (date | stated interest | principal, USD millions): 2033 Convertible Senior Notes September 2026 2.875 % $ 4,200"
     },
     {
       "id": "crwv-revolver-available",
@@ -440,7 +451,8 @@
       "basis": "reported",
       "verification": "Reviewed against primary disclosure; USD millions converted to displayed billions where applicable.",
       "source": "crwv-10q-q3",
-      "locator": "Form 10-Q, condensed consolidated balance sheets: September 30 deferred revenue, current $2,269 million and non-current $7,733 million. Note 2 — Revenue describes contract liability recognition and customer liabilities."
+      "locator": "Form 10-Q, condensed consolidated balance sheets: September 30 deferred revenue, current $2,269 million and non-current $7,733 million. Note 2 — Revenue describes contract liability recognition and customer liabilities.",
+      "excerpt": "September 30, 2026 | December 31, 2025; USD millions. Deferred revenue, current 2,269 1,709; Deferred revenue, non-current 7,733 6,476"
     },
     {
       "id": "crwv-rpo",

@@ -71,3 +71,9 @@ The default **Trading desk** shows the six most recent curated disclosure change
 **My theses** stores thesis, expectation/horizon, invalidation condition, next evidence and a user-selected disclosure review-through date. Notes save to localStorage on this browser/origin only and are not team-synced. Export creates a personal JSON backup. Corrupt or blocked storage produces an error without claiming a successful save. Moving the standalone file or changing the origin may change storage availability. Notes never enter the public company ledger, URL or repository. Team storage and authenticated synchronization remain future work.
 
 Run the existing terminal Python tests and `node tests/terminal-browser.cjs work/terminal-preview` after building. The browser suite covers all original research views plus desk filtering, pending/partial catalysts, saved notes after refresh, text escaping, export and corrupt-storage protection at desktop/mobile sizes.
+
+## Integrated Watch review
+
+`build_neocloud_watch.py` now mounts Trading Desk at `/terminal/` and adds it to the existing Watch navigation. The root/Overview and Markets remain the original market experience. The terminal has return links to both. Hosted terminal scripts and styles are external assets, retaining the existing response security policy. The three-company research scope is unchanged.
+
+The downloadable review contains two connected HTML files: `Neocloud-Watch-V2.html` (open this first) and `Neocloud-Intelligence-Terminal.html`. Keep them in the same folder. The market widget needs internet; reviewed research works offline. This is a review build, not a production publication.
