@@ -409,7 +409,9 @@
       }).join('');
   }
 
+  let renderedLocation = null;
   function render() {
+    renderedLocation = location.href;
     if ($('evidence-dialog').open) $('evidence-dialog').close();
     state = readState();
     const historical = state.view === 'history' || state.view === 'changes';
@@ -524,8 +526,11 @@
       const link = document.createElement('a'); link.href=url; link.download='neocloud-theses.json'; link.click();
       setTimeout(() => URL.revokeObjectURL(url),1000);
     });
-    addEventListener('hashchange', render);
-    addEventListener('popstate', render);
+    // Native hash navigation emits both events. Render once so a late event
+    // cannot replace a form after the user has started typing.
+    const renderLocation = () => { if (location.href !== renderedLocation) render(); };
+    addEventListener('hashchange', renderLocation);
+    addEventListener('popstate', renderLocation);
     render();
   }
   init();

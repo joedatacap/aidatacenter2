@@ -14,6 +14,8 @@ test('market homepage and trading desk form one connected review site',async({pa
  await page.locator('[data-view=thesis]').click();
  const form=page.locator('[data-thesis=agpu]');
  await form.locator('[name=thesis]').fill('Review acceptance evidence');
+ await page.evaluate(()=>{dispatchEvent(new PopStateEvent('popstate'));dispatchEvent(new HashChangeEvent('hashchange'));});
+ await expect(form.locator('[name=thesis]')).toHaveValue('Review acceptance evidence');
  await form.locator('button[type=submit]').click();
  await expect(page.locator('#thesis-status')).toContainText('saved');
  await page.getByRole('link',{name:'Markets & prices',exact:true}).click();
