@@ -61,3 +61,19 @@ For sources, coalesce by exact SEC accession and document (including exhibit) or
    The browser check uses local Chrome or `PLAYWRIGHT_CHROMIUM_EXECUTABLE`. It opens the generated file offline. In managed environments that restrict file navigation, serve that same directory on loopback and set `TERMINAL_PREVIEW_TEST_URL` to the served HTML URL. The PR workflow tests the downloadable file directly.
 
 **Recommended next iteration.** Close one measurable evidence gap: backfill primary dated acceptance and first-billing disclosures for the Georgia cluster, when available. Cross-reference the exact physical phase and ownership, keeping technical power-on, customer acceptance, service entry and first recognized revenue as separate events. That gives the team a concrete delivery test before expanding coverage.
+
+## Trading workflow prototype (follow-up to PR #21)
+
+The default **Trading desk** shows the six most recent curated disclosure changes, with prior disclosure, new evidence, interpretation and a source drawer. It is ordered by publication date, not a buy/sell score. A saved review-through date flags subsequently published changes for that company; this is a date comparison, not automated thesis interpretation.
+
+**Catalysts** reuses unresolved milestones and retains partially completed projects. Exact events and broad management target windows are labeled separately. Sorting uses the existing explicit target-end field; no dates are inferred from prose. Passed windows request a fresh outcome check rather than declaring a delay. All reviewed records remain a static snapshot, with a visible review date and no live prices or consensus.
+
+**My theses** stores thesis, expectation/horizon, invalidation condition, next evidence and a user-selected disclosure review-through date. Notes save to localStorage on this browser/origin only and are not team-synced. Export creates a personal JSON backup. Corrupt or blocked storage produces an error without claiming a successful save. Moving the standalone file or changing the origin may change storage availability. Notes never enter the public company ledger, URL or repository. Team storage and authenticated synchronization remain future work.
+
+Run the existing terminal Python tests and `node tests/terminal-browser.cjs work/terminal-preview` after building. The browser suite covers all original research views plus desk filtering, pending/partial catalysts, saved notes after refresh, text escaping, export and corrupt-storage protection at desktop/mobile sizes.
+
+## Integrated Watch review
+
+`build_neocloud_watch.py` now mounts Trading Desk at `/terminal/` and adds it to the existing Watch navigation. The root/Overview and Markets remain the original market experience. The terminal has return links to both. Hosted terminal scripts and styles are external assets, retaining the existing response security policy. The three-company research scope is unchanged.
+
+The downloadable review contains two connected HTML files: `Neocloud-Watch-V2.html` (open this first) and `Neocloud-Intelligence-Terminal.html`. Keep them in the same folder. The market widget needs internet; reviewed research works offline. This is a review build, not a production publication.

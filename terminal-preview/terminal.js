@@ -14,7 +14,7 @@
     ['concentration', 'Customer concentration'], ['guidance', 'Guidance'], ['earnings', 'Earnings & cash generation']
   ];
   const viewNames = {
-    compare: 'Compare companies', companies: 'Company briefs',
+    desk: 'Trading desk', catalysts: 'Catalysts', thesis: 'My theses', compare: 'Compare companies', companies: 'Company briefs',
     history: 'Commitment history', changes: 'Material changes'
   };
   let companies = [], state, latestReview = '', dataError = '';
@@ -31,11 +31,11 @@
   }
 
   function readState() {
-    const raw = location.hash.slice(1) || '/compare';
+    const raw = location.hash.slice(1) || '/desk';
     const [path, query = ''] = raw.split('?');
     const parts = path.split('/').filter(Boolean), params = new URLSearchParams(query);
     return {
-      view: viewNames[parts[0]] ? parts[0] : 'compare',
+      view: viewNames[parts[0]] ? parts[0] : 'desk',
       company: parts[1] || '',
       peers: params.has('peers') ? params.get('peers').split(',').filter(id => companies.some(company => company.id === id)) : companies.map(company => company.id),
       q: params.get('q') || '', asof: params.get('asof') || '',
@@ -331,7 +331,87 @@
         : empty('No disclosure changes match these dates, companies, change types and search terms.'));
   }
 
+
+  const thesisKey = 'neocloud-theses-v1';
+  let storageError = '';
+  function readTheses() {
+    try {
+      const value = JSON.parse(localStorage.getItem(thesisKey) || '{}');
+      if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error();
+      return value;
+    } catch { storageError = 'Saved notes could not be read. Export or recover existing notes before saving again.'; return {}; }
+  }
+  function thesisLink(company) {
+    return '<a data-app href="' + escape(href('thesis', {peers: [company.id], q: ''})) + '">Review ' + escape(company.ticker) + ' thesis</a>';
+  }
+  function snapshotNote() {
+    return '<div class="reading-note"><div><strong>Reviewed snapshot, not a live feed.</strong> Research reviewed through ' + date(latestReview)
+      + '. Dates below are management targets or scheduled events, not market consensus. Prices and market reactions are not loaded.</div></div>';
+  }
+  function catalysts() {
+    return selectedCompanies().flatMap(company => list(company.milestones).filter(m => !m.outcome || m.status === 'in_progress')
+      .map(m => ({company, milestone: m, target: list(m.revisions).slice().sort((a,b) => a.published.localeCompare(b.published)).at(-1) || m.original})))
+      .filter(({company, milestone, target}) => matches([company.ticker, company.name, milestone.project, target.target].join(' ')))
+      .sort((a,b) => (a.target.target_end || '9999').localeCompare(b.target.target_end || '9999'));
+  }
+  function catalystCard({company, milestone: m, target}) {
+    const today = new Date().toISOString().slice(0,10);
+    const timing = !target.target_end ? 'No sortable date; see disclosed window' : target.target_end < today
+      ? 'Target window passed; recheck outcome' : m.status === 'scheduled' ? 'Scheduled event' : 'Management target window';
+    return '<article class="fact-card catalyst-card" data-catalyst="' + escape(m.id) + '"><span class="eyebrow">' + escape(company.ticker)
+      + ' · ' + escape(human(m.type)) + '</span><h2>' + escape(m.project) + '</h2><span class="badge caution">' + timing
+      + '</span><p class="summary-value">' + escape(target.target) + '</p><p class="small muted">Target disclosed ' + date(target.published)
+      + (target.target_end ? ' · Event date / window ends ' + date(target.target_end) : '') + '</p><p>' + escape(m.explanation)
+      + '</p>' + evidence(company, target.source, '', 'Open target evidence') + '<p class="small">' + thesisLink(company) + '</p></article>';
+  }
+  function catalystsPage() {
+    const rows = catalysts();
+    return heading('Upcoming catalysts', 'Track the next evidence that could change your view. Broad windows stay broad; no earnings date is inferred.')
+      + snapshotNote() + '<p class="small muted">Sorted by disclosed event date or end of target window. Undated and partially completed commitments remain visible. This is a latest-snapshot view.</p>'
+      + (rows.length ? '<div class="fact-grid">' + rows.map(catalystCard).join('') + '</div>' : empty('No pending commitments match your selection.'));
+  }
+  function deskPage() {
+    const notes = readTheses();
+    const rows = selectedCompanies().flatMap(company => list(company.changes).map(change => ({company, change})))
+      .filter(({company, change}) => matches([company.ticker, company.name, change.before, change.after, change.why].join(' ')))
+      .sort((a,b) => b.change.published.localeCompare(a.change.published));
+    const next = catalysts().slice(0,3);
+    return heading('What deserves your attention?', 'A research desk for positions held days to months. Review new evidence, the next catalyst and your own assumptions.')
+      + snapshotNote() + '<div class="section-title"><h2>Latest material changes</h2><span>Newest disclosure first · not ranked buy/sell signals</span></div>'
+      + (rows.length ? '<div class="change-list">' + rows.slice(0,6).map(({company,change}) => {
+        const note = notes[company.id];
+        const needsReview = note?.reviewedThrough && change.published > note.reviewedThrough;
+        return '<article class="change-card" data-desk-change="' + escape(change.id) + '"><span class="eyebrow">' + escape(company.ticker)
+          + ' · ' + escape(human(change.type)) + ' · ' + date(change.published) + '</span>'
+          + (needsReview ? '<span class="badge caution">Published after your last review</span>' : '')
+          + '<div class="change-pair"><section><h3>Prior disclosed position</h3><p>' + escape(change.before) + '</p></section><section><h3>New evidence</h3><p>'
+          + escape(change.after) + '</p></section></div><p><strong>Interpretation</strong> ' + escape(change.why.replace(/^Analyst interpretation:\s*/i,''))
+          + '</p>' + evidence(company, change.source, '', 'Verify source') + '<p>' + thesisLink(company) + '</p></article>';
+      }).join('') + '</div><p><a data-app href="' + escape(href('changes')) + '">All changes and historical filters</a></p>' : empty('No changes match your selection.'))
+      + '<div class="section-title"><h2>Next evidence to watch</h2><a data-app href="' + escape(href('catalysts')) + '">All catalysts</a></div>'
+      + '<div class="fact-grid">' + next.map(catalystCard).join('') + '</div>';
+  }
+  function thesisPage() {
+    const notes = readTheses();
+    const fields = [['thesis','My thesis'],['expectation','My expectation and time horizon'],['invalidation','What would invalidate my thesis?'],['nextEvidence','Next evidence I need']];
+    return heading('My theses', 'Write down your assumptions before the next event. Personal views remain separate from company disclosures.')
+      + '<div class="reading-note"><div><strong>Saved in this browser only; not shared with your team.</strong> Export a backup before changing devices or clearing browser data. Exports contain your personal notes.</div></div>'
+      + '<button type="button" id="export-theses">Export notes</button><p id="thesis-status" role="status">' + escape(storageError) + '</p>'
+      + selectedCompanies().filter(companyMatches).map(company => {
+        const note = notes[company.id] || {};
+        return '<form class="fact-card thesis-form" data-thesis="' + escape(company.id) + '"><span class="eyebrow">' + escape(company.ticker)
+          + ' · USER ASSUMPTIONS</span><h2>' + escape(company.name) + '</h2>'
+          + '<p class="small muted">Management guidance is in the <a data-app href="' + escape(profile(company)) + '">company brief</a>. Analyst consensus and price-implied expectations are not loaded.</p>'
+          + fields.map(([key,label]) => '<label>' + label + '<textarea name="' + key + '" rows="3" maxlength="5000">' + escape(note[key] || '') + '</textarea></label>').join('')
+          + '<label>Disclosures reviewed through<input type="date" name="reviewedThrough" max="' + escape(latestReview) + '" value="' + escape(note.reviewedThrough || '')
+          + '"></label><p class="small muted">Set this only after reviewing the company evidence through that date. Saving notes alone does not mark research reviewed.</p>'
+          + '<button type="submit">Save ' + escape(company.ticker) + ' thesis</button><p class="small muted" data-saved-at>Last saved: ' + escape(note.savedAt || 'Not saved') + '</p></form>';
+      }).join('');
+  }
+
+  let renderedLocation = null;
   function render() {
+    renderedLocation = location.href;
     if ($('evidence-dialog').open) $('evidence-dialog').close();
     state = readState();
     const historical = state.view === 'history' || state.view === 'changes';
@@ -350,7 +430,7 @@
     document.title = 'Neocloud Intelligence Terminal — ' + viewNames[state.view];
     $('page-content').innerHTML = dataError ? empty(dataError) : !companies.length
       ? empty('No reviewed company data has been embedded in this file. Build the terminal with its source ledger.')
-      : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
+      : state.view === 'desk' ? deskPage() : state.view === 'catalysts' ? catalystsPage() : state.view === 'thesis' ? thesisPage() : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
   }
 
   function openEvidence(button) {
@@ -422,8 +502,35 @@
         $('page-content').scrollIntoView({block: 'start'});
       }
     });
-    addEventListener('hashchange', render);
-    addEventListener('popstate', render);
+
+    document.addEventListener('submit', event => {
+      const form = event.target.closest('[data-thesis]');
+      if (!form) return;
+      event.preventDefault();
+      const notes = readTheses();
+      if (storageError) { $('thesis-status').textContent = storageError; return; }
+      const values = Object.fromEntries(new FormData(form));
+      if (values.reviewedThrough && values.reviewedThrough > latestReview) return;
+      notes[form.dataset.thesis] = {...values, savedAt: new Date().toISOString()};
+      try {
+        localStorage.setItem(thesisKey, JSON.stringify(notes));
+        $('thesis-status').textContent = 'Thesis saved in this browser.';
+        form.querySelector('[data-saved-at]').textContent = 'Last saved: ' + notes[form.dataset.thesis].savedAt;
+      } catch { $('thesis-status').textContent = 'Could not save: browser storage is unavailable or full. Your text remains in the form.'; }
+    });
+    document.addEventListener('click', event => {
+      if (!event.target.closest('#export-theses')) return;
+      const notes = readTheses();
+      if (storageError) { $('thesis-status').textContent = storageError; return; }
+      const url = URL.createObjectURL(new Blob([JSON.stringify({version:1, exportedAt:new Date().toISOString(), notes},null,2)],{type:'application/json'}));
+      const link = document.createElement('a'); link.href=url; link.download='neocloud-theses.json'; link.click();
+      setTimeout(() => URL.revokeObjectURL(url),1000);
+    });
+    // Native hash navigation emits both events. Render once so a late event
+    // cannot replace a form after the user has started typing.
+    const renderLocation = () => { if (location.href !== renderedLocation) render(); };
+    addEventListener('hashchange', renderLocation);
+    addEventListener('popstate', renderLocation);
     render();
   }
   init();

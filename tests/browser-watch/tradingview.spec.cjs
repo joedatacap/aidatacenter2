@@ -64,7 +64,7 @@ test('a registered component retains one host and updates only our configured pe
 
 test('Markets keeps provider controls separate from research selections and downloadable evidence',async({page})=>{
  await page.goto('/markets/?peers=agpu,wyfi');
- await expect(page.locator('#primary-nav a')).toHaveText(['Overview','Markets','Financing & Debt','Earnings','Buildout']);
+ await expect(page.locator('#primary-nav a')).toHaveText(['Overview','Markets','Financing & Debt','Earnings','Buildout','Trading Desk']);
  await expect(page.locator('#tradingview-performance')).toBeVisible();
  await expect(page.locator('#shared-controls')).toBeHidden();
  await expect(page.locator('#export-json')).toBeHidden();
