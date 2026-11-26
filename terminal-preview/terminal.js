@@ -15,7 +15,7 @@
   ];
   const viewNames = {
     desk: 'Trading desk', catalysts: 'Catalysts', thesis: 'My theses', compare: 'Compare companies', companies: 'Company briefs',
-    history: 'Commitment history', changes: 'Material changes', 'user-research': 'Decision briefs', 'user-scenario': 'Scenario lab', 'user-journal': 'Decision journal', 'user-updates': 'Disclosure inbox'
+    history: 'Commitment history', changes: 'Material changes', 'user-sheet': 'Decision sheets', 'user-research': 'Decision briefs', 'user-scenario': 'Scenario lab', 'user-journal': 'Decision journal', 'user-updates': 'Disclosure inbox'
   };
   let companies = [], state, latestReview = '', dataError = '', decisionData = {briefs: [], queue: null};
 
@@ -50,7 +50,7 @@
     }
     for (const key of ['q', 'asof', 'from', 'to']) if (next[key]) params.set(key, next[key]);
     if (next.type && next.type !== 'all') params.set('type', next.type);
-    const path = ['companies','user-research','user-scenario','user-journal'].includes(view) && next.company ? '/' + view + '/' + encodeURIComponent(next.company) : '/' + view;
+    const path = ['companies','user-sheet','user-research','user-scenario','user-journal'].includes(view) && next.company ? '/' + view + '/' + encodeURIComponent(next.company) : '/' + view;
     return '#' + path + (params.size ? '?' + params.toString() : '');
   }
 
@@ -431,7 +431,7 @@
     document.title = 'Neocloud Intelligence Terminal — ' + viewNames[state.view];
     $('page-content').innerHTML = dataError ? empty(dataError) : !companies.length
       ? empty('No reviewed company data has been embedded in this file. Build the terminal with its source ledger.')
-      : state.view.startsWith('user-') && window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,refresh:render}) : state.view === 'desk' ? deskPage() : state.view === 'catalysts' ? catalystsPage() : state.view === 'thesis' ? thesisPage() : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
+      : state.view === 'user-sheet' && window.DecisionSheets ? DecisionSheets.render({companies,state,sheets:decisionData.sheets||[],market:decisionData.market||{}}) : state.view.startsWith('user-') && window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,refresh:render}) : state.view === 'desk' ? deskPage() : state.view === 'catalysts' ? catalystsPage() : state.view === 'thesis' ? thesisPage() : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
   }
 
   function openEvidence(button) {

@@ -1,10 +1,10 @@
 {
   "id": "agpu",
-  "reviewed_at": "2026-11-25T04:03:17.009597Z",
+  "reviewed_at": "2026-11-26T05:06:56.816738Z",
   "stance": "Evidence-gated speculative transition",
   "question": "Does Georgia acceptance turn the contract story into profitable, funded Build revenue before dilution absorbs the upside?",
   "takeaway": "Q3 Access gross margin was only 4.58%; positive operating income included $10.48M digital-asset gains. The next operating proof is customer acceptance and service entry. A new December 17 equity-plan vote adds a nearer capital-allocation checkpoint.",
-  "valuation_note": "No defensible current price target: current quote and economic share count are unresolved. September 30 common plus prefunded warrants totaled 21.37M, before other instruments. Do not divide $700M full-deployment ARR by today\u2019s basic market cap or treat customer-funded cash as surplus.",
+  "valuation_note": "November 26 sheet supersedes the prior open question on amended Georgia contract size: October 5 issuer release estimates $364.6M over five years. Revenue cadence, numerical gross margin and common cash economics remain unresolved. Observed November 25 close is $6.63 (provider snapshot, not executable); the new sheet quantifies cash-flow hurdles using the historical 21.37M common-plus-prefunded floor, not a current fully diluted valuation or stock target.",
   "cases": [
     {
       "name": "Bull",
@@ -55,7 +55,7 @@
     {
       "date": "Q4 2026 / Q1 2027",
       "label": "Georgia acceptance \u2192 service \u2192 revenue",
-      "watch": "Dated customer acceptance, commencement and contract economics under the amended five-year term.",
+      "watch": "Dated customer acceptance, commencement and revenue cadence/margin under the amended five-year term; issuer estimates $364.6M lifetime revenue, not a verified even quarterly schedule.",
       "positive": "Accepted service plus credible revenue/margin evidence, separately dated.",
       "negative": "Failed acceptance or an explicit later revision. No news by the 90-day horizon is not automatically a missed March 31 roadmap.",
       "sources": [
@@ -91,10 +91,10 @@
     }
   ],
   "gaps": [
-    "No verified current executable quote, spread, volume, borrow availability or full economic share count.",
+    "No verified current executable quote, spread, borrow availability or full economic share count; a separately dated November 25 provider closing-price snapshot is now available.",
     "No documented customer acceptance or later Build revenue commencement in the reviewed operating disclosures.",
     "No complete dated funding bridge; customer-funded cash cannot be assumed distributable.",
-    "No disclosed Build gross margin and no reconciliation of original $21M quarterly expectation to the amended five-year Georgia contract.",
+    "No disclosed numerical Build gross margin or amended Georgia billing cadence. October 5 issuer lifetime estimate is now established at $364.6M over five years; see the November 26 decision sheet, superseding this portion of the November 25 brief.",
     "Customer A/B identities and contract termination protections are not established.",
     "No confirmed next earnings date; the 90-day horizon ends February 23, before the revised Q1 roadmap ends."
   ],

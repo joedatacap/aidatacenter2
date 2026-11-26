@@ -4,7 +4,7 @@
   "name": "Axe Compute Inc.",
   "role": "GPU compute provider: Access capacity services and Build owned-cluster delivery",
   "overview": "Axe supplies enterprise GPU compute through Access and dedicated Build infrastructure. Its legacy Helomics business was sold and is reported as discontinued operations. Current recognized compute revenue, signed future contracts and customer-funded delivery obligations have different scopes. Georgia hardware is owned through an acquired SPV while Duos owns/operates the facility; technical provisioning has not established customer acceptance or Build revenue commencement.",
-  "reviewed_at": "2026-11-25T04:03:17.009597Z",
+  "reviewed_at": "2026-11-26T05:06:32.436802Z",
   "identity_source": "agpu-q3-identity",
   "size": {
     "label": "Size unverified",
@@ -146,6 +146,13 @@
       "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007694/agpu20261122_def14a.htm",
       "published": "2026-11-24",
       "excerpt": "Annual meeting December 17, 2026, 11:00 a.m. Eastern. Proposal 3 adds 2,000,000 plan shares, increasing reserve from 1,066,667 to 3,066,667; annual increases up to 5% begin January 1, 2028 through 2034. Issuer-reported equity award overhang changes from 13.5% to 28.1%, excluding future evergreen increases. Proposed capacity is not current issuance. November 6 common count is 13,650,314."
+    },
+    {
+      "id": "agpu-georgia-amended-revenue",
+      "title": "October 5 Georgia acquisition release \u2014 amended lifetime revenue expectation",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326006386/exh_991.htm",
+      "published": "2026-10-05",
+      "excerpt": "Issuer estimates $364.6 million revenue over the customer agreement, extended to five years through 2031. Duos covers facility colocation and energy for that term. Margin improvement is expected, but no numerical gross margin or quarterly revenue schedule is supplied."
     }
   ],
   "facts": [
@@ -619,6 +626,20 @@
       "source": "agpu-nov24-proxy",
       "locator": "Notice of annual meeting; Proposal 3; equity plan information as of November 6",
       "primary": true
+    },
+    {
+      "id": "agpu-georgia-amended-tcv",
+      "kind": "guidance",
+      "label": "Amended Georgia lifetime revenue expectation",
+      "value": "$364.6M over five years; cadence unverified",
+      "unit": "USD; forward-looking lifetime estimate",
+      "definition": "October 5 issuer estimate under amended term. Even spread would be $72.92M/year or $18.23M/quarter, arithmetic only, not reported guidance or a verified recognition schedule. Supersedes reliance on original $21M/quarter under the three-year term; numerical margin remains undisclosed.",
+      "scope": "Georgia customer contract only; not incremental to total portfolio TCV",
+      "as_of": "2026-10-05",
+      "basis": "estimated",
+      "verification": "Issuer forward-looking estimate; primary release reviewed November 26",
+      "source": "agpu-georgia-amended-revenue",
+      "locator": "October 5 acquisition release: expected lifetime customer-agreement revenue and five-year term"
     }
   ],
   "milestones": [
@@ -691,6 +712,11 @@
       },
       "revisions": [
         {
+          "published": "2026-10-05",
+          "target": "Customer term extended to five years through 2031; issuer estimates $364.6M lifetime revenue, without an established quarterly recognition schedule.",
+          "source": "agpu-georgia-amended-revenue"
+        },
+        {
           "published": "2026-11-17",
           "target": "Build revenue follows contracted-cluster deployment; Georgia acceptance and service entry remain on the Q4 2026 / Q1 2027 operational roadmap.",
           "source": "agpu-q3-georgia"
@@ -698,7 +724,7 @@
       ],
       "outcome": null,
       "status": "revenue_commencement_unverified",
-      "explanation": "The original revenue expectation is forward-looking. Q3 recognized revenue was entirely Access, and Georgia was not in service at September 30. The later five-year contract term does not itself establish billing, acceptance or revenue."
+      "explanation": "Original $21M quarterly expectation related to the earlier three-year contract. The October 5 amended five-year expectation is $364.6M lifetime revenue; it does not establish level billing, acceptance or actual commencement. Q3 revenue remained entirely Access. November 26 decision sheet supersedes the earlier research gap about amended lifetime size; cadence and margin remain unresolved."
     },
     {
       "id": "agpu-dec17-plan-vote",

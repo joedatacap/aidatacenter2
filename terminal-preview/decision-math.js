@@ -1,4 +1,5 @@
 /* Pure illustrative decision calculations. No market data or forecasts.
+ * Historical market statistics describe supplied completed sessions only.
  * Browser: DecisionMath. Node: require('./decision-math.js').
  * All functions return {ok:false,errors:[message]} on invalid inputs, never
  * substitute zero for a missing value, and do not mutate inputs.
@@ -39,6 +40,20 @@
  *   debt twice. Shares: assumed fully diluted millions, including financing.
  *   Returns presentValues,presentValueCashflows,presentValueTerminal,rawEquity,
  *   equity,price,deficit,years. This is discounted equity, not enterprise value.
+ * marketContext(bars,{allowPartial:false}?)
+ *   Chronological, unique date YYYY-MM-DD OHLCV records with completed:true.
+ *   Positive same-basis OHLC prices; nonnegative volume. Caller must verify the
+ *   series has no missing exchange sessions and consistent split adjustments.
+ *   Default requires 21 bars: 20 returns need 21 closes. Explicit allowPartial
+ *   accepts exactly 20 bars with volatility null; never annualizes 19 as 20.
+ *   Last 20 closes define price range and mean volume/dollar-volume. Dollar
+ *   volume is close*volume proxy, not actual traded dollars or execution depth.
+ *   meanTrueRange14 is simple arithmetic mean, NOT Wilder ATR. Volatility uses
+ *   sample standard deviation of 20 daily log returns, annualized by sqrt(252).
+ * equityHurdle({price,shares,equityYieldPct})
+ *   USD/share price, fully diluted shares in millions, positive yield percent.
+ *   Returns equityValue and requiredAnnualCash in USD millions. This is the
+ *   common cash distribution needed for the specified yield, not a forecast.
  */
 (function (root, factory) {
   'use strict';
@@ -194,5 +209,72 @@
     return result({presentValues, presentValueCashflows, presentValueTerminal,
       rawEquity, equity, price: equity / shares, deficit: rawEquity < 0, years});
   }
-  return Object.freeze({scenario, reverse, position, weighted, projectResidual});
+  function equityHurdle(input) {
+    if (!inputObject(input)) return fail(['Enter all common-equity hurdle inputs.']);
+    const errors = [];
+    const price = number(input.price, 'Market price', errors, {positive: true});
+    const shares = number(input.shares, 'Fully diluted shares (millions)', errors, {positive: true});
+    const equityYieldPct = number(input.equityYieldPct, 'Required common cash yield (%)', errors, {positive: true, max: 100});
+    if (errors.length) return fail(errors);
+    const equityValue = price * shares;
+    return result({equityValue, requiredAnnualCash: equityValue * equityYieldPct / 100,
+      equityYieldPct, units: 'USD millions', status: 'Required common cash distribution hurdle, not a forecast'});
+  }
+  function marketContext(bars, options = {}) {
+    if (!inputObject(options) || (options.allowPartial !== undefined && typeof options.allowPartial !== 'boolean')) {
+      return fail(['allowPartial must be an explicit boolean.']);
+    }
+    const minimum = options.allowPartial === true ? 20 : 21;
+    if (!Array.isArray(bars) || bars.length < minimum) {
+      return fail(['Supply at least ' + minimum + ' completed chronological sessions; 20 returns require 21 closes.']);
+    }
+    const errors = [];
+    const rows = Array.from(bars, (bar, i) => {
+      if (!inputObject(bar)) { errors.push('Session ' + (i + 1) + ' is missing.'); return null; }
+      const date = bar.date;
+      if (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
+          !Number.isFinite(Date.parse(date + 'T00:00:00Z')) || new Date(date + 'T00:00:00Z').toISOString().slice(0, 10) !== date) {
+        errors.push('Session ' + (i + 1) + ' needs a valid YYYY-MM-DD date.');
+      }
+      if (bar.completed !== true) errors.push('Session ' + (i + 1) + ' must explicitly be completed.');
+      const row = {date};
+      for (const field of ['open', 'high', 'low', 'close', 'volume']) {
+        row[field] = number(bar[field], 'Session ' + (i + 1) + ' ' + field, errors, {positive: field !== 'volume'});
+      }
+      if (row.low > row.high || row.open < row.low || row.open > row.high || row.close < row.low || row.close > row.high) {
+        errors.push('Session ' + (i + 1) + ' has inconsistent OHLC bounds.');
+      }
+      return row;
+    });
+    for (let i = 1; i < rows.length; i++) {
+      if (rows[i] && rows[i - 1] && rows[i].date <= rows[i - 1].date) errors.push('Session dates must be unique and strictly ascending.');
+    }
+    if (errors.length) return fail(errors);
+    const last = rows[rows.length - 1];
+    const trailing = rows.slice(-20);
+    const mean = values => values.reduce((sum, value) => sum + value, 0) / values.length;
+    const trueRanges = rows.slice(-14).map((bar, i) => {
+      const previous = rows[rows.length - 15 + i].close;
+      return Math.max(bar.high - bar.low, Math.abs(bar.high - previous), Math.abs(bar.low - previous));
+    });
+    let realizedVolatility20Pct = null;
+    if (rows.length >= 21) {
+      const last21 = rows.slice(-21);
+      const logs = last21.slice(1).map((bar, i) => Math.log(bar.close) - Math.log(last21[i].close));
+      const average = mean(logs);
+      const variance = logs.reduce((sum, value) => sum + Math.pow(value - average, 2), 0) / 19;
+      realizedVolatility20Pct = Math.sqrt(variance * 252) * 100;
+    }
+    return result({status: 'Historical completed-session statistics, not a forecast',
+      firstDate: trailing[0].date, lastDate: last.date, suppliedSessions: rows.length,
+      complete: rows.length >= 21, volatilityReturnCount: rows.length >= 21 ? 20 : 19,
+      return5SessionPct: (last.close / rows[rows.length - 6].close - 1) * 100,
+      averageVolume20: mean(trailing.map(bar => bar.volume)),
+      averageDollarVolume20: mean(trailing.map(bar => bar.close * bar.volume)),
+      dollarVolumeBasis: '20-session mean close times volume proxy; not actual traded dollars',
+      closeHigh20: Math.max(...trailing.map(bar => bar.close)),
+      closeLow20: Math.min(...trailing.map(bar => bar.close)),
+      meanTrueRange14: mean(trueRanges), realizedVolatility20Pct});
+  }
+  return Object.freeze({scenario, reverse, position, weighted, projectResidual, equityHurdle, marketContext});
 });

@@ -1,0 +1,101 @@
+{
+  "crwv": {
+    "as_of": "2026-11-25",
+    "retrieved_at": "2026-11-26T05:06:43.935Z",
+    "source_url": "https://stockanalysis.com/stocks/crwv/history/",
+    "provider": "Stock Analysis / S&P Global Market Intelligence",
+    "close": 42.57,
+    "day_volume": 82511630,
+    "day_low": 37.4,
+    "day_high": 43.02,
+    "metrics": {
+      "ok": true,
+      "status": "Historical completed-session statistics, not a forecast",
+      "firstDate": "2026-10-29",
+      "lastDate": "2026-11-25",
+      "suppliedSessions": 21,
+      "complete": true,
+      "volatilityReturnCount": 20,
+      "return5SessionPct": -10.997282040560318,
+      "averageVolume20": 72663022.05,
+      "averageDollarVolume20": 3636357900.069501,
+      "dollarVolumeBasis": "20-session mean close times volume proxy; not actual traded dollars",
+      "closeHigh20": 60.77,
+      "closeLow20": 39.51,
+      "meanTrueRange14": 6.9542857142857155,
+      "realizedVolatility20Pct": 157.15298802762112
+    },
+    "note": "Analytical snapshot from 21 completed daily observations, October 28–November 25. History was reopened to replace earlier intraday cached rows with completed-session values. No licensed live feed is connected; recheck your broker quote, spread and liquidity before sizing.",
+    "levels": {
+      "review_low": 37.4,
+      "recovery_level": 48.33,
+      "rationale": "The review low is the lowest observed low of the latest five sessions. The recovery reference is the November 23 close, before the November 24 selloff. A close back above it would recover that reference, but would not prove fair value or a durable trend. A fresh break below the review low calls for reassessing planned downside rather than automatically averaging down."
+    }
+  },
+  "apld": {
+    "as_of": "2026-11-25",
+    "retrieved_at": "2026-11-26T05:06:43.935Z",
+    "source_url": "https://stockanalysis.com/stocks/apld/history/",
+    "provider": "Stock Analysis / S&P Global Market Intelligence",
+    "close": 12.29,
+    "day_volume": 29663851,
+    "day_low": 10.78,
+    "day_high": 12.5,
+    "metrics": {
+      "ok": true,
+      "status": "Historical completed-session statistics, not a forecast",
+      "firstDate": "2026-10-29",
+      "lastDate": "2026-11-25",
+      "suppliedSessions": 21,
+      "complete": true,
+      "volatilityReturnCount": 20,
+      "return5SessionPct": -14.948096885813156,
+      "averageVolume20": 29268645.65,
+      "averageDollarVolume20": 441768218.5935,
+      "dollarVolumeBasis": "20-session mean close times volume proxy; not actual traded dollars",
+      "closeHigh20": 19.41,
+      "closeLow20": 11.49,
+      "meanTrueRange14": 1.8985714285714284,
+      "realizedVolatility20Pct": 149.34994901510598
+    },
+    "note": "Analytical snapshot from 21 completed daily observations, October 28–November 25. History was reopened to replace earlier intraday cached rows with completed-session values. No licensed live feed is connected; recheck your broker quote, spread and liquidity before sizing.",
+    "levels": {
+      "review_low": 10.78,
+      "recovery_level": 13.82,
+      "rationale": "The review low is the lowest observed low of the latest five sessions. The recovery reference is the November 23 close, before the November 24 selloff. A close back above it would recover that reference, but would not prove fair value or a durable trend. A fresh break below the review low calls for reassessing planned downside rather than automatically averaging down."
+    }
+  },
+  "agpu": {
+    "as_of": "2026-11-25",
+    "retrieved_at": "2026-11-26T05:06:43.936Z",
+    "source_url": "https://stockanalysis.com/stocks/agpu/history/",
+    "provider": "Stock Analysis / S&P Global Market Intelligence",
+    "close": 6.63,
+    "day_volume": 206771,
+    "day_low": 5.77,
+    "day_high": 6.66,
+    "metrics": {
+      "ok": true,
+      "status": "Historical completed-session statistics, not a forecast",
+      "firstDate": "2026-10-29",
+      "lastDate": "2026-11-25",
+      "suppliedSessions": 21,
+      "complete": true,
+      "volatilityReturnCount": 20,
+      "return5SessionPct": -3.7735849056603765,
+      "averageVolume20": 230496.9,
+      "averageDollarVolume20": 1634961.005,
+      "dollarVolumeBasis": "20-session mean close times volume proxy; not actual traded dollars",
+      "closeHigh20": 8.84,
+      "closeLow20": 5.71,
+      "meanTrueRange14": 0.9314285714285716,
+      "realizedVolatility20Pct": 150.55206672880706
+    },
+    "note": "Analytical snapshot from 21 completed daily observations, October 28–November 25. History was reopened to replace earlier intraday cached rows with completed-session values. No licensed live feed is connected; recheck your broker quote, spread and liquidity before sizing.",
+    "levels": {
+      "review_low": 5.52,
+      "recovery_level": 6.88,
+      "rationale": "The review low is the lowest observed low of the latest five sessions. The recovery reference is the November 23 close, before the November 24 selloff. A close back above it would recover that reference, but would not prove fair value or a durable trend. A fresh break below the review low calls for reassessing planned downside rather than automatically averaging down."
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "id": "apld",
+  "reviewed_at": "2026-11-26T05:06:25+00:00",
+  "sources": [
+    {
+      "id": "apld-sheet-q1",
+      "title": "FY2027 Q1 Form 10-Q \u2014 August 31 accounts; Notes 10, 12, 16, 21",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "published": "2026-10-07"
+    },
+    {
+      "id": "apld-sheet-annual",
+      "title": "FY2026 Form 10-K \u2014 TopCo 2 common ownership and financing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000048/apld-20260531.htm",
+      "published": "2026-07-27"
+    },
+    {
+      "id": "apld-sheet-preferred",
+      "title": "FY2026 temporary-equity note \u2014 Series G amendments and Macquarie waterfall",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000048/R24.htm",
+      "published": "2026-07-27"
+    },
+    {
+      "id": "apld-sheet-pepa",
+      "title": "November 24 Form 8-K \u2014 expanded PEPA",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226054002/form8-k.htm",
+      "published": "2026-11-24"
+    },
+    {
+      "id": "apld-sheet-pf2",
+      "title": "Polaris Forge 2 initial Ready for Service",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/166/applied-digital-achieves-initial-25-mw-ready-for-service-in",
+      "published": "2026-11-24"
+    },
+    {
+      "id": "apld-sheet-bridge",
+      "title": "Delta Forge 1 delayed-draw bridge",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/164/applied-digital-announces-300-million-senior-secured",
+      "published": "2026-11-23"
+    },
+    {
+      "id": "apld-sheet-lease",
+      "title": "New 150 MW lease and financing calendar",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/165/applied-digital-secures-new-150-mw-18-year-lease-with",
+      "published": "2026-11-23"
+    },
+    {
+      "id": "apld-sheet-price",
+      "title": "Stock Analysis November 25 regular-session closing observation",
+      "url": "https://stockanalysis.com/stocks/apld/",
+      "published": "2026-11-25"
+    }
+  ],
+  "capital_bridge": [
+    {
+      "label": "Price and historical basic share bridge",
+      "value": "$12.29 \u00d7 302.387140M = $3,716.338M",
+      "basis": "Nov25 16:00 EST close; not live or the separate $12.77 after-hours print. October6 basic shares, not current fully diluted capitalization. Do not add the disclosed subsequent 5.2M conversion shares again without a dated reconciliation.",
+      "sources": [
+        "apld-sheet-price",
+        "apld-sheet-q1"
+      ]
+    },
+    {
+      "label": "Cash location at August31",
+      "value": "$2,949.909M group; $2,909.372M TopCo2; $40.537M outside TopCo2",
+      "basis": "Calculated subtraction. 98.63% of group cash sits inside TopCo2. The remainder includes other entities and is NOT verified parent-only liquidity. Restricted balances are excluded.",
+      "sources": [
+        "apld-sheet-q1"
+      ]
+    },
+    {
+      "label": "Already incurred construction obligations",
+      "value": "$563.897M accrued construction + $154.749M retainer = $718.646M",
+      "basis": "August31 consolidated liabilities, not total remaining build cost. Add to a prospective cash-use schedule only after checking overlap with capex budgets and payment timing.",
+      "sources": [
+        "apld-sheet-q1"
+      ]
+    },
+    {
+      "label": "Build spending versus remaining funding",
+      "value": "Remaining committed build cost: unverified",
+      "basis": "Q1 PP&E/other-asset purchases $2,074.698M are historical cash use, not forward capex. Construction-in-progress $3,670.267M is accumulated cost, not cost to complete. No defensible current funded-to-completion percentage.",
+      "sources": [
+        "apld-sheet-q1"
+      ]
+    },
+    {
+      "label": "TopCo2 economic ownership",
+      "value": "APLD 86.5%; Macquarie affiliate 13.5% common, plus preferred",
+      "basis": "May31 fully diluted project common ownership, not an 86.5% entitlement to every operating cash dollar. The preferred distribution waterfall comes first. August31 filing reports no material preferred-term changes.",
+      "sources": [
+        "apld-sheet-annual",
+        "apld-sheet-q1"
+      ]
+    },
+    {
+      "label": "Macquarie preferred seniority",
+      "value": "12.75% accrual; 1.80\u00d7 minimum MOIC; 2.00\u00d7 for specified IPO/drag sales",
+      "basis": "Annual temporary-equity note: daily accrual, semiannual compounding; excess cash first covers specified losses, unpaid preferred dividends and liquidation preference, then common. Debt-cost and trigger-event escalators apply. Minimum MOIC includes common-unit value; never add it mechanically to the full common stake. Redemption pricing varies by date.",
+      "sources": [
+        "apld-sheet-preferred"
+      ]
+    },
+    {
+      "label": "Preferred capital hurdle illustration",
+      "value": "$1,825M \u00d7 1.80 = $3,285M; simple annual accrual $232.688M",
+      "basis": "Calculated on four closings totaling $1,825M at May31. Not a present redemption quote: distributions, accrued dividends, adjustments, common value and redemption timing matter. Illustrative full-year semiannual PIK at unchanged 12.75% adds $240.104M; actual tranches have different start dates. Book NCI is not the economic payoff.",
+      "sources": [
+        "apld-sheet-annual",
+        "apld-sheet-preferred"
+      ]
+    },
+    {
+      "label": "Series G availability and dilution",
+      "value": "$2,500M capacity; $1,035M remaining availability",
+      "basis": "November24 facility disclosure, not cash. Annual amendments allow per-put floor changes and a controlled proceeds account. Nominal commitment cannot be treated as instantly accessible funding or converted using a permanently fixed historical floor.",
+      "sources": [
+        "apld-sheet-pepa",
+        "apld-sheet-preferred"
+      ]
+    },
+    {
+      "label": "Series G stated-value sensitivity",
+      "value": "$100M / $10, $15, $20 = 10.000M, 6.667M, 5.000M shares",
+      "basis": "Analyst-selected EFFECTIVE conversion prices; not stock-price targets or actual permitted puts. Models $100M stated value, not $100M net cash proceeds. At the historical basic share count, added shares equal 3.31%, 2.20%, 1.65%; net economics also include funding proceeds and issuance costs.",
+      "sources": [
+        "apld-sheet-pepa",
+        "apld-sheet-preferred",
+        "apld-sheet-q1"
+      ]
+    },
+    {
+      "label": "Delta Forge1 bridge cost sensitivity",
+      "value": "$300M \u00d7 (assumed SOFR + 3%)",
+      "basis": "November23: 364-day delayed draw, actual funding unverified. At analyst-assumed SOFR 3%/4%/5%, a full-year $300M draw costs $18M/$21M/$24M before fees and actual day count. This is not current SOFR or complete construction finance.",
+      "sources": [
+        "apld-sheet-bridge"
+      ]
+    },
+    {
+      "label": "Immediate operating hurdle",
+      "value": "25MW more toward the original 300MW target",
+      "basis": "November24: PF1 250MW operational + PF2 25MW RFS = 275MW across disclosed statuses. PF2 75MW base-build commissioning is not 75MW delivered. Require additional service and rent evidence; no public update alone means unknown.",
+      "sources": [
+        "apld-sheet-pf2"
+      ]
+    }
+  ],
+  "scenarios": [],
+  "decision": {
+    "new_position": "Do not underwrite a valuation-backed new position from headline backlog or consolidated cash. Put APLD on conditional watch: an entry thesis must specify why service-to-rent conversion and project residual value will improve more than dilution and the preferred waterfall consume. The price-linked cash hurdle below makes that burden explicit; it is not a buy signal.",
+    "existing_holding": "Re-underwrite against the project cash waterfall, not the historical purchase price. Retain only a position whose loss budget can tolerate delivery and financing gaps; do not add solely because contracted MW grows. If ownership relied on treating all group cash as parent cash or 86.5% of EBITDA as distributable cash, that rationale needs correction now.",
+    "upgrade": "Verified additional service toward 300MW by December31, billed/collected rent, dated parent-accessible liquidity and funded completion budgets; then show common distributions AFTER project debt, capex, preferred payments and minority claims that plausibly meet the price-linked hurdle. Favorable financing needs executed terms, not just capacity.",
+    "downgrade": "Confirmed delivery miss or explicit deadline revision; construction funding gap; adverse Series G issuance; preferred-rate triggers or project distributions that cannot reach common holders. No announcement is an information gap, not by itself a failure. Q1 2027 financing deadlines extend beyond the February24 90-day horizon."
+  },
+  "hurdle": {
+    "method": "Reverse common-equity cash hurdle \u2014 illustrative 10-year annuity, not fair value or a 90-day price forecast",
+    "formula": "Required annual distributable common cash ($M) = price \u00d7 shares_M \u00d7 r / [1 \u2212 (1+r)^(-10)]. Ten year-end payments, zero terminal equity, zero separately added cash/assets. Cash must already be net of project capex/debt/preferred/minority claims and parent costs/claims.",
+    "assumptions": "Analyst-selected 10-year payment period and 12%/16%/20% equity discount rates. Uses Nov25 regular close and Oct6 historical basic shares. No growth, no delayed commencement, no future dilution, no terminal value. These are demanding simplifications, not forecasts or contractual cash rights; construction delays and dilution increase the hurdle. Do not subtract capital claims twice.",
+    "sources": [
+      "apld-sheet-price",
+      "apld-sheet-q1",
+      "apld-sheet-preferred"
+    ],
+    "rows": [
+      {
+        "label": "12% equity discount rate",
+        "required_annual_cash_m": 657.733,
+        "rate_pct": 12,
+        "shares_m": 302.38714,
+        "price": 12.29,
+        "years": 10,
+        "explanation": "Level annual cash available to parent common equity after ALL senior and minority claims; not revenue, EBITDA or project operating cash."
+      },
+      {
+        "label": "16% equity discount rate",
+        "required_annual_cash_m": 768.914,
+        "rate_pct": 16,
+        "shares_m": 302.38714,
+        "price": 12.29,
+        "years": 10,
+        "explanation": "Level annual cash available to parent common equity after ALL senior and minority claims; not revenue, EBITDA or project operating cash."
+      },
+      {
+        "label": "20% equity discount rate",
+        "required_annual_cash_m": 886.431,
+        "rate_pct": 20,
+        "shares_m": 302.38714,
+        "price": 12.29,
+        "years": 10,
+        "explanation": "Level annual cash available to parent common equity after ALL senior and minority claims; not revenue, EBITDA or project operating cash."
+      }
+    ],
+    "sensitivity": "At 16%, 20% more shares with the same reference price requires $922.697M/year rather than $768.914M; this holds total cash-generating assets unchanged and does not credit financing proceeds. A two-year deferral of the same ten payments raises the 16% requirement to $1,034.651M/year (payments in years 3\u201312). Neither is a forecast."
+  },
+  "gaps": [
+    "Numeric bull/base/bear common-equity valuations are withheld: project-by-project cash distributions and current share/claims reconciliation cannot yet be supported. scenarios is intentionally empty, not missing work.",
+    "Parent-only unrestricted cash, transfer permissions and current construction payment schedule remain unverified; $40.537M is an August31 outside-TopCo2 residual only.",
+    "No complete remaining cost-to-build / funded-undrawn facility / tenant cash / required parent equity schedule. The $300M bridge and $1.035B PEPA availability cannot be summed into cash.",
+    "Current Series G per-put floor, issuance, controlled-account releases and fully diluted shares require refreshed instrument-level reconciliation.",
+    "Macquarie payoff needs actual tranche dates, accrued balances, prior distributions, redemption date and common value; 1.80\u00d7 is not an additive blanket liability.",
+    "The reverse cash hurdle does not incorporate a price premium/discount for near-term catalysts, market expectations or an executable entry/exit. No numerical fair-value target is asserted."
+  ]
+}

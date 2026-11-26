@@ -155,6 +155,62 @@ test('residual form strings do not mutate input and twenty-year discounting rema
   assert.equal(r.ok, true); assert.equal(r.years, 20); assert(Number.isFinite(r.price));
   assert.equal(JSON.stringify(input), before);
 });
+function marketBars(closes = Array.from({length: 21}, (_, i) => 100 + i)) {
+  return closes.map((close, i) => ({date: new Date(Date.UTC(2026, 0, i + 1)).toISOString().slice(0, 10),
+    open: close, high: close + 2, low: close - 2, close, volume: (i + 1) * 100, completed: true}));
+}
+test('market context uses twenty closes but twenty-one prices for twenty returns', () => {
+  const bars = marketBars(); const saved = JSON.stringify(bars); const r = M.marketContext(bars);
+  assert.equal(r.ok, true); assert.equal(r.complete, true); assert.equal(r.volatilityReturnCount, 20);
+  close(r.return5SessionPct, (120 / 115 - 1) * 100);
+  close(r.averageVolume20, 1150);
+  close(r.averageDollarVolume20, bars.slice(1).reduce((a, b) => a + b.close * b.volume, 0) / 20);
+  assert.equal(r.closeHigh20, 120); assert.equal(r.closeLow20, 101); close(r.meanTrueRange14, 4);
+  const logs = bars.slice(1).map((b, i) => Math.log(b.close / bars[i].close));
+  const average = logs.reduce((a, b) => a + b, 0) / 20;
+  close(r.realizedVolatility20Pct, Math.sqrt(logs.reduce((a, b) => a + (b - average) ** 2, 0) / 19) * Math.sqrt(252) * 100);
+  assert.match(r.dollarVolumeBasis, /proxy/); assert.equal(JSON.stringify(bars), saved);
+});
+test('market context handles signed returns and gaps with simple mean true range', () => {
+  const bars = marketBars(Array.from({length: 21}, (_, i) => 200 - 5 * i));
+  const r = M.marketContext(bars); assert.equal(r.ok, true);
+  close(r.return5SessionPct, -20); close(r.meanTrueRange14, 7);
+  assert(r.realizedVolatility20Pct > 0);
+  const flat = marketBars(Array(21).fill(100)).map(bar => ({...bar, open: 100, high: 100, low: 100, volume: 0}));
+  const f = M.marketContext(flat); assert.equal(f.ok, true);
+  for (const key of ['return5SessionPct', 'meanTrueRange14', 'realizedVolatility20Pct', 'averageVolume20', 'averageDollarVolume20']) close(f[key], 0);
+  const alternating = marketBars(Array.from({length: 21}, (_, i) => 100 * Math.exp(i % 2 ? 0.1 : 0)));
+  close(M.marketContext(alternating).realizedVolatility20Pct, Math.sqrt(0.2 / 19 * 252) * 100);
+});
+test('market context requires complete records and never substitutes missing or partial sessions', () => {
+  const bars = marketBars(); assert.equal(M.marketContext(bars.slice(1)).ok, false);
+  const partial = M.marketContext(bars.slice(1), {allowPartial: true});
+  assert.equal(partial.ok, true); assert.equal(partial.complete, false); assert.equal(partial.realizedVolatility20Pct, null);
+  assert.equal(M.marketContext(bars.slice(2), {allowPartial: true}).ok, false);
+  for (const patch of [{date: '2026-02-30'}, {date: ''}, {date: '2026-01-01'},
+    {completed: false}, {completed: undefined}, {close: ''}, {close: null}, {close: NaN},
+    {volume: Infinity}, {volume: -1}, {low: 200}, {high: 1}, {open: 0}, {close: 1000}]) {
+    const bad = bars.map(b => ({...b})); bad[1] = {...bad[1], ...patch};
+    assert.equal(M.marketContext(bad).ok, false, JSON.stringify(patch));
+  }
+  assert.equal(M.marketContext([...bars].reverse()).ok, false);
+  const sparse = [...bars]; delete sparse[1]; assert.equal(M.marketContext(sparse).ok, false);
+  assert.equal(M.marketContext(bars, {allowPartial: 'true'}).ok, false);
+  const overflow = bars.map(b => ({...b, volume: 1e308})); assert.equal(M.marketContext(overflow).ok, false);
+});
+test('common equity hurdle is a distribution identity with explicit million-dollar units', () => {
+  const r = M.equityHurdle({price: 20, shares: 100, equityYieldPct: 8});
+  assert.equal(r.ok, true); close(r.equityValue, 2000); close(r.requiredAnnualCash, 160);
+  close(r.requiredAnnualCash / r.equityValue * 100, 8); assert.equal(r.units, 'USD millions');
+  close(M.equityHurdle({price: 20, shares: 150, equityYieldPct: 8}).requiredAnnualCash, 240);
+  for (const key of ['price', 'shares', 'equityYieldPct']) {
+    for (const bad of ['', null, false, NaN, Infinity, -1, 0]) {
+      assert.equal(M.equityHurdle({price: 20, shares: 100, equityYieldPct: 8, [key]: bad}).ok, false);
+    }
+  }
+  assert.equal(M.equityHurdle({price: 20, shares: 100, equityYieldPct: 101}).ok, false);
+  assert.equal(M.equityHurdle({price: 1e308, shares: 1e308, equityYieldPct: 8}).ok, false);
+});
 test('browser global exports the identical API without CommonJS', () => {
   const context = vm.createContext({});
   vm.runInContext(fs.readFileSync(require.resolve('../terminal-preview/decision-math.js'), 'utf8'), context);

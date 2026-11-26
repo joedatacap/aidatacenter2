@@ -22,7 +22,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: PYTHONPATH=. python scripts/build_neocloud_watch.py
       - run: npx playwright install --with-deps chromium
-      - run: npx playwright test --config playwright.watch.config.cjs terminal-integration decision-workspace
+      - run: npx playwright test --config playwright.watch.config.cjs terminal-integration decision-workspace decision-sheets
       - uses: actions/upload-artifact@v4
         if: always()
         with:
