@@ -7,8 +7,9 @@ test('market homepage and trading desk form one connected review site',async({pa
  const before=await page.locator('#watch-data').textContent();
  await expect(page.locator('[data-terminal-link]')).toHaveAttribute('href','/terminal/#/desk');
  await page.locator('[data-terminal-link]').click();
- await expect(page.locator('#page-title')).toContainText('What deserves your attention');
+ await expect(page.locator('[data-justin-report=crwv]')).toBeVisible();
  await page.screenshot({path:test.info().outputPath('integrated-trading-desk.png'),fullPage:true});
+ await page.locator('.advanced-nav > summary').click();
  await page.locator('[data-view=catalysts]').click();
  await expect(page.locator('[data-catalyst]').first()).toBeVisible();
  await page.locator('[data-view=thesis]').click();
@@ -21,6 +22,7 @@ test('market homepage and trading desk form one connected review site',async({pa
  await page.getByRole('link',{name:'Markets & prices',exact:true}).click();
  await expect(page).toHaveURL(/\/markets\//);
  await page.locator('[data-terminal-link]').click();
+ await page.locator('.advanced-nav > summary').click();
  await page.locator('[data-view=thesis]').click();
  await expect(page.locator('[data-thesis=agpu] [name=thesis]')).toHaveValue('Review acceptance evidence');
  await page.getByRole('link',{name:'← Market homepage',exact:true}).click();
@@ -32,7 +34,7 @@ test('market homepage and trading desk form one connected review site',async({pa
 test('downloaded review keeps homepage and terminal navigation together',async({page})=>{
  await page.goto(pathToFileURL(path.resolve('work/Neocloud-Watch-V2.html')).href);
  await page.locator('[data-terminal-link]').click();
- await expect(page.locator('#page-title')).toContainText('What deserves your attention');
+ await expect(page.locator('[data-justin-report=crwv]')).toBeVisible();
  await page.getByRole('link',{name:'← Market homepage',exact:true}).click();
  await expect(page.locator('[data-terminal-link]')).toBeVisible();
 });

@@ -18,7 +18,7 @@ async function exercise(browser, directory, device, viewport) {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     const preview = localURL || pathToFileURL(path.join(directory, 'Neocloud-Intelligence-Terminal.html')).href;
-    await page.goto(preview);
+    await page.goto(preview + '#/desk-tools');
     await expect(page.locator('#page-title')).toContainText('What deserves your attention');
     await expect(page.locator('[data-desk-change]')).toHaveCount(6);
     await checkLayout(page);
@@ -54,7 +54,7 @@ async function exercise(browser, directory, device, viewport) {
     assert.equal(exported.notes.crwv.invalidation, 'Customer acceptance postponed');
     await checkLayout(page);
     await page.screenshot({path: path.join(directory, device + '-thesis.png')});
-    await page.goto(preview + '#/desk?peers=crwv');
+    await page.goto(preview + '#/desk-tools?peers=crwv');
     await expect(page.locator('#page-content')).toContainText('Published after your last review');
     // Corrupt storage must never be silently overwritten by a save.
     await page.evaluate(() => localStorage.setItem('neocloud-theses-v1', '{broken'));

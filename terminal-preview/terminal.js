@@ -14,7 +14,7 @@
     ['concentration', 'Customer concentration'], ['guidance', 'Guidance'], ['earnings', 'Earnings & cash generation']
   ];
   const viewNames = {
-    desk: 'Trading desk', catalysts: 'Catalysts', thesis: 'My theses', compare: 'Compare companies', companies: 'Company briefs',
+    desk: 'Justin reports', justin: 'Justin reports', 'desk-tools': 'Desk tools', catalysts: 'Catalysts', thesis: 'My theses', compare: 'Compare companies', companies: 'Company briefs',
     history: 'Commitment history', changes: 'Material changes', 'user-sheet': 'Decision sheets', 'user-research': 'Decision briefs', 'user-scenario': 'Scenario lab', 'user-journal': 'Decision journal', 'user-updates': 'Disclosure inbox'
   };
   let companies = [], state, latestReview = '', dataError = '', decisionData = {briefs: [], queue: null};
@@ -50,7 +50,7 @@
     }
     for (const key of ['q', 'asof', 'from', 'to']) if (next[key]) params.set(key, next[key]);
     if (next.type && next.type !== 'all') params.set('type', next.type);
-    const path = ['companies','user-sheet','user-research','user-scenario','user-journal'].includes(view) && next.company ? '/' + view + '/' + encodeURIComponent(next.company) : '/' + view;
+    const path = ['justin','companies','user-sheet','user-research','user-scenario','user-journal'].includes(view) && next.company ? '/' + view + '/' + encodeURIComponent(next.company) : '/' + view;
     return '#' + path + (params.size ? '?' + params.toString() : '');
   }
 
@@ -377,7 +377,7 @@
       .sort((a,b) => b.change.published.localeCompare(a.change.published));
     const next = catalysts().slice(0,3);
     return heading('What deserves your attention?', 'A research desk for positions held days to months. Review new evidence, the next catalyst and your own assumptions.')
-      + snapshotNote() + (window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,refresh:render}) : '') + '<div class="section-title"><h2>Latest material changes</h2><span>Newest disclosure first · not ranked buy/sell signals</span></div>'
+      + snapshotNote() + (window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,justin:decisionData.justin,market:decisionData.market,refresh:render}) : '') + '<div class="section-title"><h2>Latest material changes</h2><span>Newest disclosure first · not ranked buy/sell signals</span></div>'
       + (rows.length ? '<div class="change-list">' + rows.slice(0,6).map(({company,change}) => {
         const note = notes[company.id];
         const needsReview = note?.reviewedThrough && change.published > note.reviewedThrough;
@@ -415,7 +415,7 @@
     if ($('evidence-dialog').open) $('evidence-dialog').close();
     state = readState();
     const historical = state.view === 'history' || state.view === 'changes';
-    $('terminal-controls').hidden = state.view.startsWith('user-') && state.view !== 'user-updates';
+    $('terminal-controls').hidden = ['desk','justin','user-sheet'].includes(state.view) || (state.view.startsWith('user-') && state.view !== 'user-updates');
     $('historical-controls').hidden = !historical;
     for (const id of ['type-control', 'from-control', 'to-control']) $(id).hidden = state.view !== 'changes';
     for (const [id, key] of [['q', 'q'], ['asof', 'asof'], ['change-type', 'type'], ['date-from', 'from'], ['date-to', 'to']]) {
@@ -425,13 +425,13 @@
     $('peer-count').textContent = state.peers.length + ' selected';
     for (const link of document.querySelectorAll('#primary-nav [data-view]')) {
       link.href = href(link.dataset.view);
-      if (link.dataset.view === state.view) link.setAttribute('aria-current', 'page');
+      if (link.dataset.view === state.view || (link.dataset.view === 'desk' && ['justin','user-sheet'].includes(state.view))) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     }
     document.title = 'Neocloud Intelligence Terminal — ' + viewNames[state.view];
     $('page-content').innerHTML = dataError ? empty(dataError) : !companies.length
       ? empty('No reviewed company data has been embedded in this file. Build the terminal with its source ledger.')
-      : state.view === 'user-sheet' && window.DecisionSheets ? DecisionSheets.render({companies,state,sheets:decisionData.sheets||[],market:decisionData.market||{}}) : state.view.startsWith('user-') && window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,refresh:render}) : state.view === 'desk' ? deskPage() : state.view === 'catalysts' ? catalystsPage() : state.view === 'thesis' ? thesisPage() : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
+      : ['desk','justin','user-sheet'].includes(state.view) && window.Justin ? Justin.render({companies,state,sheets:decisionData.sheets||[],market:decisionData.market||{},justin:decisionData.justin||{reports:[],cohort:null},refresh:render}) : state.view === 'user-sheet' && window.DecisionSheets ? DecisionSheets.render({companies,state,sheets:decisionData.sheets||[],market:decisionData.market||{}}) : state.view.startsWith('user-') && window.DecisionWorkspace ? DecisionWorkspace.render({companies,state,briefs:decisionData.briefs,queue:decisionData.queue,justin:decisionData.justin,market:decisionData.market,refresh:render}) : ['desk','desk-tools'].includes(state.view) ? deskPage() : state.view === 'catalysts' ? catalystsPage() : state.view === 'thesis' ? thesisPage() : state.view === 'companies' ? profilePage() : state.view === 'history' ? historyPage() : state.view === 'changes' ? changesPage() : comparePage();
   }
 
   function openEvidence(button) {

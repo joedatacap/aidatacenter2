@@ -258,3 +258,36 @@ dialog h2 { font-size: 28px; }
 @media(max-width:1000px){.decision-cases,.decision-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.decision-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.scenario-columns{grid-template-columns:1fr}.scenario-columns fieldset{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.decision-hero{padding:20px}.decision-hero h2{font-size:25px}.decision-takeaway{font-size:16px}.decision-verdict,.decision-cases,.decision-metrics,.decision-checkpoints article,.decision-form-grid{grid-template-columns:1fr}.decision-verdict{gap:8px}.scenario-columns fieldset{grid-template-columns:1fr}.decision-tabs a{flex:1;text-align:center;padding:12px}.decision-toolbar{align-items:stretch}.decision-actions>*{min-height:44px}.scenario-output{padding:14px}.primary-nav a{font-size:14px;white-space:normal}.decision-launch .section-title{align-items:start;gap:12px}.decision-launch .section-title>a{max-width:120px}}
 @media print{.decision-toolbar,.decision-tabs,.decision-actions,.primary-nav,.controls,.masthead,.site-pages,form,.footer{display:none!important}.decision-hero,.decision-limits,.decision-cases article{background:white;color:black}.decision-cases,.decision-metrics{display:block}.decision-cases article,.decision-checkpoints article,.journal-history article{break-inside:avoid;margin:14px 0}.decision-evidence{display:block}.decision-evidence>a{display:block}.decision-table-wrap{overflow:visible}.decision-table-wrap table{min-width:0}}
+
+/* Justin's research note */
+.advanced-nav summary, .justin-report summary { cursor:pointer; padding:10px 4px; font-weight:650; }
+.advanced-nav[open] a { display:block; }
+.justin-report { max-width:1050px; margin:auto; font-size:1rem; }
+.justin-byline,.justin-callhead { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.justin-byline { border-bottom:1px solid var(--line); padding-bottom:10px; color:var(--muted); }
+.justin-byline strong { font:italic 32px var(--serif); color:var(--ink); margin-right:8px; }
+.justin-tabs { margin:14px 0; }
+.justin-call { background:var(--white); padding:clamp(16px,3vw,32px); border:1px solid var(--line); border-top:4px solid var(--green); }
+.justin-callhead h1 { margin-bottom:6px; }
+.justin-callhead span,.justin-prices dt,.justin-byline time { color:var(--muted); font-size:.9rem; }
+.justin-verdict { font-size:1.15rem; }.justin-verdict strong {color:var(--green);}
+.justin-thesis { max-width:75ch; font-size:1.12rem; }
+.justin-prices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-block:1px solid var(--line); margin:16px 0; padding:12px 0; gap:8px; }
+.justin-prices dd { margin:0; font-family:var(--serif); font-size:clamp(1.45rem,3vw,2.3rem); font-variant-numeric:tabular-nums; }
+.justin-odds,.justin-next p:last-child { margin-bottom:0; }
+.justin-columns { display:grid; grid-template-columns:2fr 1fr; gap:20px; padding:22px 0 12px; }
+.justin-signals,.justin-details ul { padding-left:21px; }.justin-signals li,.justin-details li { margin-bottom:8px; }
+.justin-next {border-left:2px solid var(--line); padding-left:18px;}
+.justin-details,.justin-model,.justin-peers { border-top:1px solid var(--line); padding:8px 0; }
+.justin-peers { padding-top:22px; }.justin-scroll { overflow:auto; }
+.justin-peers table { width:100%; min-width:0; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.justin-peers caption { text-align:left; font-size:.875rem; margin-bottom:8px; color:var(--muted); }
+.justin-peers th,.justin-peers td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; }
+.justin-peers :is(th,td):nth-child(n+3) { text-align:right; }.justin-selected { background:var(--wash); }
+.justin-peers .small { margin-top:10px; }.justin-report details p {overflow-wrap:anywhere;}
+@media(max-width:640px) {
+  .justin-columns {grid-template-columns:1fr;gap:8px;}.justin-next {padding-left:12px;}
+  .justin-prices dt {font-size:.82rem;}.justin-peers th,.justin-peers td {padding:6px 3px;font-size:.84rem;}
+  .justin-byline strong {font-size:26px;}.justin-tabs {margin:8px 0;}
+}
+.justin-call [data-save-justin] { margin-top:12px; color:white; background:var(--green); border-color:var(--green); font-weight:650; }

@@ -4,6 +4,7 @@ on:
     paths:
       - 'neocloud/data/terminal/**'
       - 'neocloud/data/decisions/**'
+      - 'neocloud/data/justin/**'
       - 'terminal-preview/**'
       - 'scripts/*terminal*.py'
       - 'tests/*terminal*'

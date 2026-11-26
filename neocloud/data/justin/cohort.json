@@ -1,0 +1,107 @@
+{
+  "as_of": "2026-11-25",
+  "basis": "USD regular-session historical Close for 2026-11-25 versus 2026-11-18, five completed trading-session intervals (Nov 19, 20, 23, 24, 25). Price return = (close / prior_close - 1) × 100, rounded to two decimals; not total shareholder return, after-hours return or live pricing. The provider Close and Adj. Close match on both endpoint dates for all nine. Manually observed 2026-11-26; source links identify the dated rows.",
+  "rows": [
+    {
+      "id": "crwv",
+      "group": "GPU cloud operator",
+      "close": 42.57,
+      "prior_close": 47.83,
+      "return_pct": -11.0,
+      "ps": 2.39,
+      "ps_basis": "Stock Analysis published trailing P/S snapshot, observed 2026-11-26; page quote timestamp 2026-11-25 16:00 EST. Provider ratio, not a filing-derived or fully diluted valuation. Trailing revenue $9.89B. P/S omits debt and financing costs; low equity sales multiples can coexist with highly leveraged enterprise value.",
+      "source_url": "https://stockanalysis.com/stocks/crwv/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/crwv/statistics/"
+    },
+    {
+      "id": "nbis",
+      "group": "GPU cloud operator / diversified group",
+      "close": 84.99,
+      "prior_close": 106.96,
+      "return_pct": -20.54,
+      "ps": 11.37,
+      "ps_basis": "Stock Analysis published trailing P/S snapshot, observed 2026-11-26; page quote timestamp 2026-11-25 16:00 EST. Provider ratio, not a filing-derived or fully diluted valuation. Trailing consolidated revenue $2.19B. Group valuation and revenue include businesses beyond GPU cloud; not a pure cloud-segment multiple. Class-level capitalization and fully diluted shares are not independently reconciled.",
+      "source_url": "https://stockanalysis.com/stocks/nbis/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/nbis/statistics/"
+    },
+    {
+      "id": "iren",
+      "group": "Integrated AI cloud / Bitcoin mining",
+      "close": 12.85,
+      "prior_close": 15.24,
+      "return_pct": -15.68,
+      "ps": 7.85,
+      "ps_basis": "Stock Analysis published trailing P/S snapshot, observed 2026-11-26; page quote timestamp 2026-11-25 16:00 EST. Provider ratio, not a filing-derived or fully diluted valuation. Trailing revenue $695.01M mixes AI cloud and Bitcoin mining; mining economics and an AI ramp make a pure-cloud ranking inappropriate.",
+      "source_url": "https://stockanalysis.com/stocks/iren/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/iren/statistics/"
+    },
+    {
+      "id": "apld",
+      "group": "HPC data-center landlord / hosting",
+      "close": 12.29,
+      "prior_close": 14.45,
+      "return_pct": -14.95,
+      "ps": 4.26,
+      "ps_basis": "Stock Analysis published trailing P/S snapshot, observed 2026-11-26; page quote timestamp 2026-11-25 16:00 EST. Provider ratio, not a filing-derived or fully diluted valuation. Trailing revenue $872.25M. A hosting/landlord multiple is not equivalent to GPU-cloud economics; project debt, preferred and minority waterfalls affect parent common equity.",
+      "source_url": "https://stockanalysis.com/stocks/apld/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/apld/statistics/"
+    },
+    {
+      "id": "hut",
+      "group": "Power infrastructure / compute / Bitcoin",
+      "close": 48.83,
+      "prior_close": 57.19,
+      "return_pct": -14.62,
+      "ps": 19.19,
+      "ps_basis": "Stock Analysis published trailing P/S snapshot, observed 2026-11-26; page quote timestamp 2026-11-25 16:00 EST. Provider ratio, not a filing-derived or fully diluted valuation. Trailing revenue $305.51M spans power, infrastructure and compute. Bitcoin-related assets and subsidiary interests complicate comparison with cloud subscription sales.",
+      "source_url": "https://stockanalysis.com/stocks/hut/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/hut/statistics/"
+    },
+    {
+      "id": "wulf",
+      "group": "HPC infrastructure / Bitcoin mining",
+      "close": 10.03,
+      "prior_close": 12,
+      "return_pct": -16.42,
+      "ps": 26.36,
+      "ps_basis": "Stock Analysis published trailing P/S snapshot, observed 2026-11-26; page quote timestamp 2026-11-25 16:00 EST. Provider ratio, not a filing-derived or fully diluted valuation. Trailing revenue $190.85M is a small base relative to the proposed HPC build-out. P/S is not a multiple on contracted future revenue or an energized-capacity valuation.",
+      "source_url": "https://stockanalysis.com/stocks/wulf/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/wulf/statistics/"
+    },
+    {
+      "id": "wyfi",
+      "group": "GPU cloud / colocation",
+      "close": 6.5,
+      "prior_close": 8.51,
+      "return_pct": -23.62,
+      "ps": null,
+      "ps_basis": "Stock Analysis statistics snapshot observed 2026-11-26; quote timestamp 2026-11-25 16:00 EST. WITHHELD: published P/S 2.91x conflicts with displayed $294.37M market capitalization / $96.93M trailing revenue = 3.04x. Same page quotes November 25 close; ratio update basis is unreconciled. Cloud and colocation revenues have different capital intensity.",
+      "source_url": "https://stockanalysis.com/stocks/wyfi/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/wyfi/statistics/"
+    },
+    {
+      "id": "shaz",
+      "group": "Emerging GPU cloud / infrastructure",
+      "close": 16.71,
+      "prior_close": 21.99,
+      "return_pct": -24.01,
+      "ps": 51.38,
+      "ps_basis": "Stock Analysis published trailing P/S snapshot, observed 2026-11-26; page quote timestamp 2026-11-25 16:00 EST. Provider ratio, not a filing-derived or fully diluted valuation. Trailing revenue $12.51M is a very small denominator relative to announced capacity; 51.38x is not a valuation of accepted future deployments. Provider share classes and potential financing dilution remain unreconciled.",
+      "source_url": "https://stockanalysis.com/stocks/shaz/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/shaz/statistics/"
+    },
+    {
+      "id": "agpu",
+      "group": "Emerging compute / digital-asset treasury",
+      "close": 6.63,
+      "prior_close": 6.89,
+      "return_pct": -3.77,
+      "ps": null,
+      "ps_basis": "Stock Analysis statistics snapshot observed 2026-11-26; quote timestamp 2026-11-25 16:00 EST. WITHHELD: published P/S 8.04x conflicts with displayed $90.50M market capitalization / $10.58M trailing revenue = 8.55x. Same page quotes November 25 close; ratio update basis is unreconciled. Business transition, continuing-operation scope, treasury exposure and prefunded warrants require reconciliation.",
+      "source_url": "https://stockanalysis.com/stocks/agpu/history/",
+      "valuation_url": "https://stockanalysis.com/stocks/agpu/statistics/"
+    }
+  ],
+  "valuation_note": "Trailing P/S is the provider-reported equity price-to-sales multiple, not EV/sales, forward sales, backlog or recurring revenue. All source pages were observed 2026-11-26 and display a 2026-11-25 regular close; individual financial inputs and ratios can update on different schedules. Seven published ratios are retained with company-specific qualifications; WYFI and AGPU are null because same-page capitalization / trailing revenue does not reconcile to published P/S. No missing ratio is zero. Fundamental ranking is appropriate only after matching business model, revenue scope, financial period, share basis and leverage; these nine are a research cohort, not nine interchangeable valuation peers. No cheapest-stock or buy ranking is implied. GPU cloud, landlord/hosting, mining/power and treasury transition businesses require different cash-flow models. TTM small revenue bases exaggerate early-stage multiples; announced capacity and contracted backlog are not recognized sales. Provider capitalization is not independently reconciled fully diluted equity.",
+  "prior_as_of": "2026-11-18"
+}

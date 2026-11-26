@@ -1,0 +1,69 @@
+{
+  "id": "apld",
+  "rating": "Hold",
+  "new_money": "Wait",
+  "confidence": "Low",
+  "thesis": "Another 25 MW would close the gap to the year-end delivery target. The equity case depends on how much rent reaches common shareholders after construction and financing costs.",
+  "objective": {
+    "price": 14.2,
+    "method": "One November 25 trading range ($1.72) above that day’s high ($12.50), rounded to $14.20.",
+    "condition": "A daily close above $12.50 with the delivery timetable and funding plan intact.",
+    "trigger": 12.5
+  },
+  "invalidation": {
+    "price": 10.78,
+    "reason": "A daily close below the November 25 low breaks the setup. An announced delivery delay or funding gap would trigger an earlier review."
+  },
+  "catalyst": {
+    "date": "2026-12-31",
+    "event": "Year-end target for 300 MW delivered in North Dakota. Check the service status of the remaining 25 MW."
+  },
+  "signals": [
+    {
+      "text": "The first 25 MW at Polaris Forge 2 reached ready-for-service status. Commissioning covers another stage before delivery.",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/166/applied-digital-achieves-initial-25-mw-ready-for-service-in"
+    },
+    {
+      "text": "Series G financing capacity rose to $2.5B. Future conversions can dilute common shares.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226054002/form8-k.htm"
+    },
+    {
+      "text": "At August 31, $2.91B of the group’s $2.95B cash sat inside TopCo2, where project claims have priority.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm"
+    }
+  ],
+  "gaps": [
+    {
+      "input": "How many shares will new financing create?",
+      "source": "Reconcile Series G issuance and conversion terms in 8-Ks to the next 10-Q share count."
+    },
+    {
+      "input": "How much rent will reach common shareholders?",
+      "source": "Trace project debt, remaining build costs and preferred distributions in the next financing exhibits and 10-Q."
+    }
+  ],
+  "sources": [
+    {
+      "title": "November 25 regular-session price and range; observed November 26",
+      "url": "https://stockanalysis.com/stocks/apld/"
+    },
+    {
+      "title": "November 24 PF2 service milestone",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/166/applied-digital-achieves-initial-25-mw-ready-for-service-in"
+    },
+    {
+      "title": "November 24 Series G facility expansion",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000149315226054002/form8-k.htm"
+    },
+    {
+      "title": "October 7 Form 10-Q — August 31 cash location",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm"
+    },
+    {
+      "title": "October 7 issuer year-end 300 MW target",
+      "url": "https://ir.applieddigital.com/news-events/press-releases/detail/163/applied-digital-reports-fiscal-first-quarter-2027-results"
+    }
+  ],
+  "as_of": "2026-11-26",
+  "peer_read": "Applied Digital trades at 4.26× trailing sales. Its tenants pay rent, and preferred investors have priority over common shareholders. A GPU operator’s sales multiple has limited use here."
+}
