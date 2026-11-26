@@ -346,11 +346,199 @@ def load_companies(root=ROOT, *, input_dir=None, now=None):
     ]
 
 
+def _finite_number(value, label, *, minimum=None, positive=False, maximum=None):
+    try:
+        finite = type(value) in (int, float) and math.isfinite(value)
+    except OverflowError:
+        finite = False
+    if not finite:
+        raise ValueError(f"{label}: expected a finite number, not a boolean")
+    if (positive and value <= 0) or (minimum is not None and value < minimum):
+        raise ValueError(f"{label}: number is below the permitted minimum")
+    if maximum is not None and value > maximum:
+        raise ValueError(f"{label}: number is above the permitted maximum")
+    return value
+
+
+def _finite_tree(value, label):
+    """Optional research metadata may vary, but non-finite JSON is never valid."""
+    if type(value) in (int, float):
+        _finite_number(value, label)
+    elif isinstance(value, dict):
+        for key, child in value.items():
+            _finite_tree(child, f"{label}.{key}")
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            _finite_tree(child, f"{label}[{index}]")
+
+
+def _validate_decision_sheet(value, company, *, now):
+    sheet = _object(value, "sheet")
+    if sheet.get("id") != company["id"]:
+        raise ValueError("sheet: company mismatch")
+    reviewed = _instant(sheet.get("reviewed_at"), "sheet.reviewed_at")
+    if reviewed > now:
+        raise ValueError("sheet: future review")
+    refs = {source["id"]: source["published"] for source in company["sources"]}
+    for source in _rows(sheet.get("sources"), "sheet.sources"):
+        source = _object(source, "sheet.source")
+        for key in ("id", "title"):
+            _text(source.get(key), "sheet.source." + key)
+        _url(source.get("url"), "sheet.source.url")
+        published = _date(source.get("published"), "sheet.source.published")
+        if published > reviewed.date():
+            raise ValueError("sheet source published after review")
+        if source["id"] in refs:
+            raise ValueError("sheet source duplicate id")
+        if "excerpt" in source:
+            _text(source["excerpt"], "sheet.source.excerpt")
+        refs[source["id"]] = source["published"]
+
+    def references(row, label):
+        sources = _rows(row.get("sources"), label + ".sources")
+        if not sources:
+            raise ValueError(label + ": needs source references")
+        seen = set()
+        for sid in sources:
+            _text(sid, label + ".source")
+            if sid not in refs:
+                raise ValueError(label + ": unknown source reference")
+            if sid in seen:
+                raise ValueError(label + ": duplicate source reference")
+            if _date(refs[sid], label + ".source.published") > reviewed.date():
+                raise ValueError("sheet source published after review")
+            seen.add(sid)
+
+    bridge = _rows(sheet.get("capital_bridge"), "sheet.capital_bridge")
+    if not bridge:
+        raise ValueError("sheet.capital_bridge: must not be empty")
+    for row in bridge:
+        row = _object(row, "sheet.capital_bridge.row")
+        for key in ("label", "basis"):
+            _text(row.get(key), "sheet.capital_bridge." + key)
+        if isinstance(row.get("value"), str):
+            _text(row["value"], "sheet.capital_bridge.value")
+        else:
+            # A signed net-debt/cash bridge can legitimately be negative.
+            _finite_number(row.get("value"), "sheet.capital_bridge.value")
+        references(row, "sheet.capital_bridge")
+    decision = _object(sheet.get("decision"), "sheet.decision")
+    for key in ("new_position", "existing_holding", "upgrade", "downgrade"):
+        _text(decision.get(key), "sheet.decision." + key)
+    for gap in _rows(sheet.get("gaps"), "sheet.gaps"):
+        _text(gap, "sheet.gap")
+    names = set()
+    for scenario in _rows(sheet.get("scenarios", []), "sheet.scenarios"):
+        scenario = _object(scenario, "sheet.scenario")
+        name = _text(scenario.get("name"), "sheet.scenario.name")
+        if name in names:
+            raise ValueError("sheet.scenario: duplicate name")
+        names.add(name)
+        _text(scenario.get("rationale"), "sheet.scenario.rationale")
+        references(scenario, "sheet.scenario")
+        inputs = _object(scenario.get("inputs"), "sheet.scenario.inputs")
+        for key in ("revenue", "margin", "multiple", "debt", "cash", "claims", "shares"):
+            _finite_number(inputs.get(key), "sheet.scenario." + key, minimum=0,
+                           positive=key in ("multiple", "shares"), maximum=100 if key == "margin" else None)
+        enterprise = inputs["revenue"] * inputs["margin"] / 100 * inputs["multiple"]
+        raw_equity = enterprise - inputs["debt"] + inputs["cash"] - inputs["claims"]
+        for key, number in (("enterprise_value", enterprise), ("raw_equity", raw_equity),
+                            ("per_share", max(0, raw_equity) / inputs["shares"])):
+            _finite_number(number, "sheet.scenario.calculation." + key)
+    if "hurdle" in sheet:
+        hurdle = _object(sheet["hurdle"], "sheet.hurdle")
+        for key in ("method", "formula"):
+            _text(hurdle.get(key), "sheet.hurdle." + key)
+        for key in ("title", "basis", "assumptions", "sensitivity", "explanation"):
+            if key in hurdle:
+                _text(hurdle[key], "sheet.hurdle." + key)
+        if "sources" in hurdle:
+            references(hurdle, "sheet.hurdle")
+        rows = _rows(hurdle.get("rows"), "sheet.hurdle.rows")
+        if not rows:
+            raise ValueError("sheet.hurdle.rows: must not be empty")
+        for row in rows:
+            row = _object(row, "sheet.hurdle.row")
+            for key in ("label", "explanation"):
+                _text(row.get(key), "sheet.hurdle.row." + key)
+            for key in ("required_annual_cash_m", "rate_pct", "shares_m", "price", "years"):
+                _finite_number(row.get(key), "sheet.hurdle.row." + key, positive=True)
+            if type(row["years"]) is not int:
+                raise ValueError("sheet.hurdle.row.years: expected integer payment count")
+            if "sources" in row:
+                references(row, "sheet.hurdle.row")
+    if "valuation_date" in sheet:
+        if _date(sheet["valuation_date"], "sheet.valuation_date") > reviewed.date():
+            raise ValueError("sheet valuation date after review")
+    # Preserve researcher-specific methodology, horizon and model metadata.
+    _finite_tree(sheet, "sheet")
+    return deepcopy(sheet)
+
+
+def _load_market_context(path, companies, *, now):
+    if not path.exists():
+        return {}
+    market = _object(json.loads(path.read_text(encoding="utf-8")), "market")
+    identifiers = {company["id"] for company in companies}
+    for identifier, value in market.items():
+        if identifier not in identifiers:
+            raise ValueError("market: unknown company")
+        row = _object(value, "market.row")
+        as_of = _date(row.get("as_of"), "market.as_of")
+        retrieved = _instant(row.get("retrieved_at"), "market.retrieved_at")
+        if as_of > retrieved.date() or retrieved > now:
+            raise ValueError("market: invalid observation chronology")
+        _url(row.get("source_url"), "market.source_url")
+        for key in ("provider", "note"):
+            _text(row.get(key), "market." + key)
+        for key in ("close", "day_low", "day_high"):
+            _finite_number(row.get(key), "market." + key, positive=True)
+        _finite_number(row.get("day_volume"), "market.day_volume", minimum=0)
+        if not row["day_low"] <= row["close"] <= row["day_high"]:
+            raise ValueError("market: close must lie within the session range")
+        metrics = _object(row.get("metrics"), "market.metrics")
+        text_fields = {"status", "dollarVolumeBasis"}
+        date_fields = {"firstDate", "lastDate"}
+        nonnegative = {"averageVolume20", "averageDollarVolume20", "meanTrueRange14", "realizedVolatility20Pct"}
+        positive = {"closeHigh20", "closeLow20"}
+        integer_fields = {"suppliedSessions", "volatilityReturnCount"}
+        for key, metric in metrics.items():
+            if key in text_fields:
+                _text(metric, "market.metrics." + key)
+            elif key in date_fields:
+                if _date(metric, "market.metrics." + key) > as_of:
+                    raise ValueError("market metrics date after session")
+            elif key in ("complete", "ok"):
+                if type(metric) is not bool:
+                    raise ValueError("market.metrics.complete: expected boolean coverage metadata")
+            elif key == "realizedVolatility20Pct" and metric is None:
+                # A 20-session sample has only 19 returns. Missing is not zero.
+                continue
+            else:
+                _finite_number(metric, "market.metrics." + key, minimum=0 if key in nonnegative else None,
+                               positive=key in positive or key in integer_fields)
+                if key in integer_fields and type(metric) is not int:
+                    raise ValueError("market metric session counts must be integers")
+        if "lastDate" in metrics and metrics["lastDate"] != row["as_of"]:
+            raise ValueError("market metrics last date must match observation")
+        if "firstDate" in metrics and "lastDate" in metrics and metrics["firstDate"] > metrics["lastDate"]:
+            raise ValueError("market metrics date order invalid")
+        if "closeLow20" in metrics and "closeHigh20" in metrics and not metrics["closeLow20"] <= row["close"] <= metrics["closeHigh20"]:
+            raise ValueError("market close outside historical closing range")
+        levels = _object(row.get("levels"), "market.levels")
+        for key in ("review_low", "recovery_level"):
+            _finite_number(levels.get(key), "market.levels." + key, positive=True)
+        _text(levels.get("rationale"), "market.levels.rationale")
+        _finite_tree(row, "market")
+    return deepcopy(market)
+
+
 def load_decisions(root, companies, *, now=None):
     directory = Path(root) / "neocloud/data/decisions"
     if not directory.exists():
-        return {"briefs": [], "queue": None}
+        return {"briefs": [], "queue": None, "sheets": [], "market": {}}
     briefs = []
+    sheets = []
     for company in companies:
         path = directory / (company["id"] + ".json")
         record = _object(json.loads(path.read_text(encoding="utf-8")), "decision")
@@ -400,6 +588,12 @@ def load_decisions(root, companies, *, now=None):
         for gap in _rows(record.get("gaps"), "decision.gaps"):
             _text(gap, "decision.gap")
         briefs.append(record)
+        sheet_path = directory / (company["id"] + "-sheet.json")
+        if sheet_path.exists():
+            sheets.append(_validate_decision_sheet(
+                json.loads(sheet_path.read_text(encoding="utf-8")), company,
+                now=now or datetime.now(timezone.utc)))
+    market = _load_market_context(directory / "market-context.json", companies, now=now or datetime.now(timezone.utc))
     queue_path = directory / "disclosures.json"
     queue = json.loads(queue_path.read_text()) if queue_path.exists() else None
     if queue is not None:
@@ -472,7 +666,7 @@ def load_decisions(root, companies, *, now=None):
                 if review.get("disposition") != row["status"]:
                     raise ValueError("disclosure review disposition mismatch")
                 _text(review.get("reason"), "disclosure.review.reason")
-    return {"briefs": briefs, "queue": queue}
+    return {"briefs": briefs, "queue": queue, "sheets": sheets, "market": market}
 
 
 def build(*, root=ROOT, input_dir=None, output=None, now=None):
@@ -485,7 +679,7 @@ def build(*, root=ROOT, input_dir=None, output=None, now=None):
             raise ValueError(f"Template must contain exactly one {marker}")
     css = (assets / "terminal.css").read_text(encoding="utf-8")
     js = "\n".join((assets / name).read_text(encoding="utf-8") for name in
-                   ("decision-math.js", "decision-workspace.js", "terminal.js") if (assets / name).exists())
+                   ("decision-math.js", "decision-workspace.js", "decision-sheets.js", "terminal.js") if (assets / name).exists())
     decision_data = load_decisions(root, companies, now=now)
     decision_payload = json.dumps(decision_data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
     if re.search(r"</style\b", css, re.I) or re.search(r"</script\b", js, re.I):

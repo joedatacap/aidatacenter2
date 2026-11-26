@@ -132,4 +132,4 @@ def test_partial_source_failure_and_reasoned_review_survive(tmp_path):
 
 
 def test_no_decision_directory_remains_compatible(tmp_path):
-    assert load_decisions(tmp_path, COMPANIES, now=NOW) == {'briefs': [], 'queue': None}
+    assert load_decisions(tmp_path, COMPANIES, now=NOW) == {'briefs': [], 'queue': None, 'sheets': [], 'market': {}}
