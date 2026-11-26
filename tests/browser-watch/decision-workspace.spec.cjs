@@ -179,6 +179,7 @@ test('Justin paper call saves without portfolio inputs and preserves its report 
  const exported=JSON.parse(await fs.readFile(await (await download).path(),'utf8'));
  expect(exported.journal[0].paperCall).toEqual(record.paperCall);
  await importBackup(page,exported);
+ await expect(page.locator('#decision-status')).toContainText('Backup merged');
  await expect(page.locator('[data-journal-entry]')).toHaveCount(1);
  expect((await page.evaluate(()=>JSON.parse(localStorage.getItem('neocloud-decisions-v1')))).journal[0].paperCall).toEqual(record.paperCall);
  const poisoned=backup([{...record,id:'bad-paper',paperCall:{...record.paperCall,reportJSON:'{broken'}}]);
