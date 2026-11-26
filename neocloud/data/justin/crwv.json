@@ -1,0 +1,61 @@
+{
+  "id": "crwv",
+  "rating": "Hold",
+  "new_money": "Wait",
+  "confidence": "Low",
+  "thesis": "Interest expense could absorb all of Q4 adjusted operating profit. A financing update would give the rebound a reason to last.",
+  "objective": {
+    "price": 48,
+    "method": "Retest of the November 23 close of $48.33, rounded to $48.",
+    "condition": "A daily close above $43.10 plus issuer confirmation of customer cash receipts or financing.",
+    "trigger": 43.1
+  },
+  "invalidation": {
+    "price": 37.4,
+    "reason": "A daily close below the November 25 low breaks the rebound thesis. A delivery cut or materially worse financing terms would also change the call."
+  },
+  "catalyst": {
+    "date": "2026-12-01",
+    "event": "CFO at UBS. Listen for the amount of customer cash collected and the terms attached."
+  },
+  "signals": [
+    {
+      "text": "Q4 guidance implies $747M–$847M of adjusted operating profit against $1.05B–$1.15B of interest expense.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm"
+    },
+    {
+      "text": "Management expected about $9B of customer funds over three months from November 10. The amount collected is still open.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm"
+    },
+    {
+      "text": "Shares recovered from $37.40 to close at $42.57 on November 25, below the $48.33 close two sessions earlier.",
+      "url": "https://stockanalysis.com/stocks/crwv/history/"
+    }
+  ],
+  "gaps": [
+    {
+      "input": "How much of the expected $9B arrived, and how much can fund builds?",
+      "source": "Check the UBS webcast and reconcile disclosed receipts to the next cash-flow statement."
+    },
+    {
+      "input": "What will the next round of borrowing cost per share?",
+      "source": "Use the executed credit agreement and next filing to update interest, maturities and fully diluted shares."
+    }
+  ],
+  "sources": [
+    {
+      "title": "CRWV daily history through November 25, checked November 26",
+      "url": "https://stockanalysis.com/stocks/crwv/history/"
+    },
+    {
+      "title": "November 10 Q3 results: adjusted-income reconciliation, outlook and prospective customer funds",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm"
+    },
+    {
+      "title": "November 23 issuer notice: December 1 CFO conference",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-to-Participate-in-the-2026-UBS-Global-Technology-and-AI-Conference/default.aspx"
+    }
+  ],
+  "as_of": "2026-11-26",
+  "peer_read": "CoreWeave trades at 2.39× trailing sales versus 11.37× for Nebius. CoreWeave’s debt makes equity price-to-sales an incomplete measure of that discount."
+}

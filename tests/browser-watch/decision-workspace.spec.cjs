@@ -47,6 +47,7 @@ test('scenario lab explains valuation, reverse hurdle and diluted equity without
 
 test('new and existing position decisions retain timestamped assumptions and support outcome review',async({page})=>{
  await page.goto('/terminal/#/user-journal/agpu');
+ await page.locator('[data-advanced-plan] > summary').click();
  const f=page.locator('[data-plan]');
  await f.locator('[name=context]').selectOption('existing');
  await f.locator('[name=decision]').selectOption('Watch');
@@ -155,4 +156,33 @@ test('corrupt decision storage is not silently overwritten',async({page})=>{
  await page.locator('[data-save-scenario]').click();
  await expect(page.locator('#decision-status')).toContainText('Nothing was overwritten');
  expect(await page.evaluate(()=>localStorage.getItem('neocloud-decisions-v1'))).toBe('{broken');
+});
+
+test('Justin paper call saves without portfolio inputs and preserves its report across reload and backup',async({page})=>{
+ await page.goto('/terminal/#/user-journal/crwv');
+ await expect(page.locator('[data-paper-call]')).toContainText('CRWV');
+ await expect(page.locator('[data-plan]')).toBeHidden();
+ await page.getByRole('button',{name:'Save Justin paper call',exact:true}).click();
+ await expect(page.locator('[data-journal-entry]')).toHaveCount(1);
+ await expect(page.locator('#decision-status')).toContainText('no order placed');
+ const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('neocloud-decisions-v1')));
+ const record=stored.journal[0];
+ expect(record.paperCall.version).toBe(1);
+ expect(JSON.parse(record.paperCall.reportJSON).id).toBe('crwv');
+ expect(JSON.parse(record.paperCall.marketJSON).as_of).toBe('2026-11-25');
+ expect(stored.plans).toEqual({});
+ await page.reload();
+ await page.locator('[data-journal-entry] summary').click();
+ await expect(page.locator('[data-journal-entry]')).toContainText('Original Justin paper call');
+ const download=page.waitForEvent('download');await page.locator('[data-decision-export]').click();
+ const fs=require('node:fs/promises');
+ const exported=JSON.parse(await fs.readFile(await (await download).path(),'utf8'));
+ expect(exported.journal[0].paperCall).toEqual(record.paperCall);
+ await importBackup(page,exported);
+ await expect(page.locator('[data-journal-entry]')).toHaveCount(1);
+ expect((await page.evaluate(()=>JSON.parse(localStorage.getItem('neocloud-decisions-v1')))).journal[0].paperCall).toEqual(record.paperCall);
+ const poisoned=backup([{...record,id:'bad-paper',paperCall:{...record.paperCall,reportJSON:'{broken'}}]);
+ await importBackup(page,poisoned);
+ await expect(page.locator('#decision-status')).toContainText('Import failed');
+ await expect(page.locator('[data-journal-entry]')).toHaveCount(1);
 });

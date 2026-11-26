@@ -533,6 +533,63 @@ def _load_market_context(path, companies, *, now):
     return deepcopy(market)
 
 
+def load_justin(directory, market, now):
+    """Require dated, internally consistent evidence before exposing an analyst call."""
+    cohort = json.loads((directory / "cohort.json").read_text(encoding="utf-8"))
+    observation = _date(cohort["as_of"], "cohort.as_of")
+    today = (now or datetime.now(timezone.utc)).date()
+    if not _date(cohort["prior_as_of"], "cohort.prior_as_of") < observation <= today:
+        raise ValueError("Future cohort snapshot")
+    peers = {row["id"]: row for row in cohort["rows"]}
+    expected = set("crwv nbis iren apld hut wulf wyfi shaz agpu".split())
+    if set(peers) != expected or len(cohort["rows"]) != len(expected):
+        raise ValueError("Cohort requires each of the nine issuers once")
+    for peer in peers.values():
+        price = _finite_number(peer["close"], "cohort.close", positive=True)
+        prior = _finite_number(peer["prior_close"], "cohort.prior_close", positive=True)
+        actual = _finite_number(peer["return_pct"], "cohort.return_pct")
+        if abs(actual - 100 * (price / prior - 1)) > 0.00501:
+            raise ValueError("Cohort return differs from closing prices")
+        if peer["ps"] is not None:
+            _finite_number(peer["ps"], "cohort.ps", positive=True)
+        for key in ("group", "ps_basis"):
+            _text(peer[key], key)
+        for key in ("source_url", "valuation_url"):
+            _url(peer[key], key)
+    reports = []
+    for ticker in COMPANIES:
+        report = json.loads((directory / (ticker + ".json")).read_text(encoding="utf-8"))
+        if report["id"] != ticker or report["rating"] not in {"Buy", "Hold", "Sell"}:
+            raise ValueError("Invalid Justin company or rating")
+        issued = _date(report["as_of"], "report.as_of")
+        if not observation <= issued <= today:
+            raise ValueError("Report and quote dates are inconsistent")
+        if market[ticker]["close"] != peers[ticker]["close"] or market[ticker]["as_of"] != cohort["as_of"]:
+            raise ValueError("Analyst and decision-sheet quote dates or closes differ")
+        for key in ("new_money", "confidence", "thesis", "peer_read"):
+            _text(report[key], key)
+        for key in ("price", "trigger"):
+            _finite_number(report["objective"][key], key, positive=True)
+        _finite_number(report["invalidation"]["price"], "invalidation", positive=True)
+        levels = [report["invalidation"]["price"], report["objective"]["trigger"], report["objective"]["price"]]
+        if len(set(levels)) < 3 or levels not in (sorted(levels), sorted(levels, reverse=True)):
+            raise ValueError("Tactical trigger must lie between objective and invalidation")
+        for item, keys in (("objective", ("method", "condition")), ("invalidation", ("reason",)), ("catalyst", ("event",))):
+            for key in keys:
+                _text(report[item][key], key)
+        _date(report["catalyst"]["date"], "catalyst.date")
+        if len(report["signals"]) != 3 or len(report["gaps"]) != 2 or not report["sources"]:
+            raise ValueError("Expected three signals, two data gaps and primary sources")
+        for item in report["signals"] + report["sources"]:
+            _text(item.get("text", item.get("title")), "evidence")
+            _url(item["url"], "evidence.url")
+        for gap in report["gaps"]:
+            _text(gap["input"], "gap.input")
+            _text(gap["source"], "gap.source")
+        reports.append(report)
+    return {"reports": reports, "cohort": cohort}
+
+
 def load_decisions(root, companies, *, now=None):
     directory = Path(root) / "neocloud/data/decisions"
     if not directory.exists():
@@ -666,7 +723,11 @@ def load_decisions(root, companies, *, now=None):
                 if review.get("disposition") != row["status"]:
                     raise ValueError("disclosure review disposition mismatch")
                 _text(review.get("reason"), "disclosure.review.reason")
-    return {"briefs": briefs, "queue": queue, "sheets": sheets, "market": market}
+    result = {"briefs": briefs, "queue": queue, "sheets": sheets, "market": market}
+    justin = directory.parent / "justin"
+    if justin.exists():
+        result["justin"] = load_justin(justin, market, now)
+    return result
 
 
 def build(*, root=ROOT, input_dir=None, output=None, now=None):
@@ -679,7 +740,7 @@ def build(*, root=ROOT, input_dir=None, output=None, now=None):
             raise ValueError(f"Template must contain exactly one {marker}")
     css = (assets / "terminal.css").read_text(encoding="utf-8")
     js = "\n".join((assets / name).read_text(encoding="utf-8") for name in
-                   ("decision-math.js", "decision-workspace.js", "decision-sheets.js", "terminal.js") if (assets / name).exists())
+                   ("decision-math.js", "decision-workspace.js", "decision-sheets.js", "justin.js", "terminal.js") if (assets / name).exists())
     decision_data = load_decisions(root, companies, now=now)
     decision_payload = json.dumps(decision_data, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
     if re.search(r"</style\b", css, re.I) or re.search(r"</script\b", js, re.I):
