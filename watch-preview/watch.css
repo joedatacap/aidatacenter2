@@ -147,3 +147,8 @@
 
 /* Keep all six destinations visible and readable on narrow screens. */
 @media(max-width:650px){#primary-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}#primary-nav a{font-size:12px;padding:11px 4px;white-space:normal;min-height:44px;display:flex;align-items:center;justify-content:center}}
+
+.investment-brief{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;background:#e2eeea;border-top:3px solid #226951;padding:clamp(1rem,2.6vw,2rem);margin:1rem 0;color:#173d36}
+.investment-brief h2{font:500 clamp(1.9rem,4vw,3rem)/1.08 Georgia,serif;margin:.55rem 0}
+.investment-brief p{max-width:70ch;margin:0}.investment-brief a{display:inline-block;white-space:nowrap;border-radius:.24rem;background:#175d4b;color:white;padding:.78rem 1.1rem;font-weight:650;text-decoration:none}
+@media(max-width:700px){.investment-brief{align-items:flex-start;flex-direction:column}.investment-brief a{white-space:normal}}
