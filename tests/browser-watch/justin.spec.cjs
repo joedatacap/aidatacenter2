@@ -22,6 +22,8 @@ test('company profile opens the matching report and a single click saves the dat
   await report.getByRole('button', {name:'Save Justin’s call'}).click();
   await expect(page).toHaveURL(/user-journal\/agpu/);
   await expect(page.locator('[data-journal-entry]')).toHaveCount(1);
+  await expect(page.locator('[data-journal-entry]')).toContainText('Original objective $7.91');
+  await expect(page.locator('[data-journal-entry]')).toContainText('Research 2026-11-26');
   await page.reload();
   await expect(page.locator('[data-journal-entry]')).toHaveCount(1);
 });
