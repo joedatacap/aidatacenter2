@@ -310,7 +310,6 @@ def markdown(companies, date_label):
 
 
 def make_api(research, target, base="/", history_dir=None):
-    from scripts.equity_history import build_scorecard, seed_observations
     folder = target / "api/v1"
     rows = {t:public_company(c) for t,c in research["companies"].items()}
     edition = research["edition"]
@@ -323,7 +322,9 @@ def make_api(research, target, base="/", history_dir=None):
     # Scheduled previews consume the same run's immutable scoring result, including
     # any entitled observation source. Otherwise build from the reviewed archive.
     score_runs = sorted((history_dir/"scorecard-runs").glob("*.json"))
-    scores = read(score_runs[-1]) if score_runs else build_scorecard(history_dir, seed_observations(), datetime.now(timezone.utc).isoformat())
+    scores = read(score_runs[-1]) if score_runs else {
+        "checked_at":None, "status":"awaiting_first_scorecard", "versions":[],
+        "reason":"Run the accountability monitor to record an edition and score eligible observations."}
     events_dir = history_dir/"event-runs"
     events_paths = sorted(events_dir.glob("*.json"))
     last_events = read(events_paths[-1]) if events_paths else {"events":[],"status":"awaiting_first_monitor_run"}
