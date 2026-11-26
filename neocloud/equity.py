@@ -277,7 +277,10 @@ def build_research(watch):
         path = DATA / "justin" / (ticker.lower()+".json")
         if path.exists():
             original[ticker] = read(path)
-    return {"edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
+    benchmark_citations = [{"ticker":b["ticker"],"return_pct":b["price_audit"]["return_pct"],
+                            "source":audit["sources"][b["price_audit"]["sources"][0]]["url"]}
+                           for b in audit["benchmarks"]]
+    return {"benchmark_citations":benchmark_citations, "edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
             "quotes":quotes, "quote_date":rows["as_of"], "market":market_history(load_market_snapshot(DATA/"market_snapshot.json"), audit)}
 
 
@@ -339,6 +342,15 @@ def make_api(research, target, base="/", history_dir=None):
                       "market_history_status":market["status"], "data_policy":"Dated issuer evidence, independent scenario estimates and analyst judgment. Full source registers accompany company records."})
     emit("market/history", market)
     emit("justin/scorecard",scores)
+    history = []
+    for v in scores["versions"]:
+        path = history_dir/"versions"/v["company"]/(v["version_id"]+".json")
+        original = read(path)["content"]["report"]
+        history.append({**{k:v[k] for k in ("company","version_id","current_edition","recorded_at","publication_status","release","rating")},
+                        "horizon":"tactical" if "objective" in original else "investment",
+                        "tactical_objective": original.get("objective"), "target_12m":original.get("target_12m"),
+                        "thesis":original["thesis"], "invalidation":original.get("invalidation")})
+    emit("justin/history",history)
     emit("events", last_events)
     reports={}
     for ticker,c in rows.items():
@@ -351,7 +363,7 @@ def make_api(research, target, base="/", history_dir=None):
                            "tactical_status":"published" if ticker in research["tactical"] else "no_published_tactical_call",
                            "sources":c["sources"],"conflict_disclosure":c.get("conflict_disclosure")}
     emit("justin/research",reports)
-    emit("snapshot",{"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"events":last_events})
+    emit("snapshot",{"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"history":history,"events":last_events})
     emit("index",dict(endpoints))
     (folder/"snapshot.md").write_text(markdown(rows,edition))
     return endpoints

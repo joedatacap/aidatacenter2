@@ -14,6 +14,7 @@ Use GET on the canonical paths. JSON MIME type is determined by the .json extens
 | /api/v1/companies/NBIS/{financials,financing,contracts,valuation,events,audit}.json | Separate company collections; substitute any covered ticker and one section |
 | /api/v1/market/history.json | Approved downloadable bars, identity and benchmark audits; empty when rights or data are missing |
 | /api/v1/justin/research.json | Nine investment reports with separate tactical editions, sources, caveats and conflicts |
+| /api/v1/justin/history.json | Immutable edition hashes, timestamps, original call, price objective and release status |
 | /api/v1/justin/scorecard.json | Versioned, forward-only comparisons and pending reasons |
 | /api/v1/events.json | Monitored disclosures, channel health, changes and review status |
 | /api/v1/snapshot.json and /api/v1/snapshot.md | Consolidated machine-readable and human-readable snapshots |

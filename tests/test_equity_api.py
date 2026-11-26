@@ -73,6 +73,8 @@ def test_versions_and_ui(staged):
     snap=read(staged/"api/v1/snapshot.json")["data"]
     assert len(snap["companies"])==9
     assert len([v for v in snap["scorecard"]["versions"] if v["current_edition"]])==12
+    assert len(snap["history"]) == len(snap["scorecard"]["versions"])
+    assert any(v["tactical_objective"] for v in snap["history"])
     assert snap["events"]["checked_at"]
     for t,c in snap["companies"].items():
         assert len(c["financials"]["models"])==6

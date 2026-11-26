@@ -80,7 +80,9 @@ def overview(research, href, base, offline):
                       f'<a href="{e(q["source_url"])}">{q["return_pct"]:+.1f}%</a>',
                       f'{mult:.2f}×' if num(mult) else "—"])
     doc=brief(research, href)+'<section class="section"><h2>Relative value</h2><p>Basic equity uses the November 25 close and each issuer’s dated common share count. Compare within the same business model. A dash indicates missing claims or consolidated earnings inputs.</p>'
-    doc+=table(["Company","Business","Basic equity","5 sessions","EV / FY27 base revenue"],peers)+'</section>'
+    benchmarks = " · ".join(f'<a href="{e(b["source"])}">{e(b["ticker"])} {b["return_pct"]:+.1f}%</a>' for b in research["benchmark_citations"])
+    doc+=f'<p><b>Five-session benchmarks</b> · {benchmarks}</p>'
+    doc+=table(["Company","Business","Basic equity","5 sessions","EV / FY27 base revenue"],peers)+'</section>' 
     doc+='<section class="section"><h2>Next evidence to watch</h2>'+table(["Company","Financing or delivery checkpoint"],[[f'<a href="{e(href(t))}">{t}</a>',e(narrative(companies[t]["report"]["catalysts"][0]))] for t in companies if companies[t]["report"]["catalysts"]])+'</section>'
     doc+='<section class="section"><h2>Benchmarks and accountability</h2><p>Justin tracks the other eight stocks, QQQ and NVDA over one week and one, three, six and twelve months. Unpublished calls and observations without an eligible return series stay unscored.</p>'
     if not offline:
