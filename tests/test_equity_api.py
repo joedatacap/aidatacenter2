@@ -109,3 +109,27 @@ def test_nbis_delivery_delay_cash_timing(staged):
             row["fcf_delta_if_collected_as_earned_m"] - row["revenue_delta_m"])
     for filename in ("research/nbis/index.html", "api/v1/snapshot.md"):
         assert "One-quarter delivery delay" in (staged/filename).read_text()
+
+
+def test_iren_acceptance_delay_crosses_june_year_end(staged):
+    company = read(staged/"api/v1/companies/IREN.json")["data"]
+    for model in company["financials"]["models"]:
+        if model["year"] != 2027:
+            continue
+        stress = model["acceptance_delay"]
+        q1, q2, q3, q4 = model["inputs"]["quarter_revenue"]
+        assert stress["delayed_quarterly_revenue_m"] == [q1, q2, q2, q3]
+        revenue_delta = q2 - q4
+        assert sum(stress["delayed_quarterly_revenue_m"]) == model["metrics"]["revenue"] + revenue_delta
+        margin = model["inputs"]["gross_margin_ex_da"]
+        assert stress["ebitda_delta_m"] == pytest.approx(revenue_delta * margin)
+        assert stress["cash_delta_if_collected_as_earned_m"] == stress["ebitda_delta_m"]
+        assert stress["cash_delta_if_already_prepaid_m"] == pytest.approx(revenue_delta * (margin - 1))
+        shares = next(v["assumed_diluted_shares"] for v in company["valuation"]["analysis"]["scenarios"]
+                      if v["scenario"] == model["scenario"])
+        for cash_key, share_key in [("as_earned", "collected_as_earned"), ("prepaid", "already_prepaid")]:
+            assert stress[f"conditional_cash_per_share_delta_{cash_key}"] == round(
+                stress[f"cash_delta_if_{share_key}_m"] / shares, 3)
+        assert stress["actual_cash_delta_m"] is None and stress["revised_target"] is None
+    for path in ["research/iren/index.html", "api/v1/snapshot.md"]:
+        assert "a quarter of delay cuts FY27 revenue by $690M" in (staged/path).read_text()

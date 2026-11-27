@@ -1,6 +1,6 @@
 {
   "ticker": "IREN",
-  "as_of": "2026-11-26",
+  "as_of": "2026-11-27",
   "business_model": "Vertically integrated GPU cloud: owned power/data centers plus financed compute; residual Bitcoin operations transitioning out.",
   "sources": {
     "q1": {
@@ -323,7 +323,7 @@
         "capex": 19824,
         "fcf": null
       },
-      "method": "Justin independent assumptions, not issuer guidance or consensus. Revenue=sum(quarter_revenue): Q1 actual228 plus three explicit forecast quarters; bear April acceptance, base February, bull January. FY27 capex=4824 Q1 hardware/PPE +15000 remaining plan. Pre-D&A gross contribution=revenue*gross_margin_ex_da. Analytical gross_profit=pre-D&A contribution minus ALL modeled D&A. Adjusted EBITDA proxy=pre-D&A contribution-cash_opex_ex_sbc; standardized EBITDA=adjusted proxy-stock_compensation. Net-income proxy=standardized EBITDA-D&A-net_interest-cash_tax, excluding fair-value gains. Standardized FCF=null because prepaid revenue recognition and new prepayments are unresolved. Supplemental pre-customer-financing cash proxy=adjusted EBITDA-net_interest-cash_tax-capex-working_capital_cash_use; not distributable cash or GAAP CFO-capex.",
+      "method": "Justin independent assumptions, not issuer guidance or consensus. Revenue=sum(quarter_revenue): Q1 actual228 plus three explicit forecast quarters; bear April acceptance, base February, bull January. FY27 capex=4824 Q1 hardware/PPE +15000 remaining plan. Pre-D&A gross contribution=revenue*gross_margin_ex_da. Analytical gross_profit=pre-D&A contribution minus ALL modeled D&A. Adjusted EBITDA proxy=pre-D&A contribution-cash_opex_ex_sbc; standardized EBITDA=adjusted proxy-stock_compensation. Net-income proxy=standardized EBITDA-D&A-net_interest-cash_tax, excluding fair-value gains. Standardized FCF=null because prepaid revenue recognition and new prepayments are unresolved. Supplemental pre-customer-financing cash proxy=adjusted EBITDA-net_interest-cash_tax-capex-working_capital_cash_use; not distributable cash or GAAP CFO-capex. Acceptance stress holds Q2 revenue flat for one extra quarter and shifts the modeled consolidated ramp back three months. Delayed FY27 quarters are 228, 240, 240, 250 million dollars. This isolates timing by assuming all growth over Q2 requires customer acceptance. With fixed costs, capex and tax unchanged, FY27 EBITDA changes by -439.2 million. If collected as earned, cash changes by -439.2 million. If already prepaid with no refund, cash changes by +170.8 million from avoided service costs. Customer billing dates and actual cash effects are unknown. Per-share effects assume the cash difference persists to valuation with FY28 EBITDA, claims and dilution fixed.",
       "sources": [
         "q1"
       ],
@@ -337,6 +337,31 @@
         "adjusted_ebitda_proxy": 478.96,
         "gross_profit_before_da": 1128.96,
         "cash_flow_before_customer_financing_and_prepaid_revenue_adjustment": -20245.04
+      },
+      "acceptance_delay": {
+        "status": "Justin timing sensitivity",
+        "period": "July 2026 through June 2027",
+        "sources": [
+          "q1"
+        ],
+        "delayed_quarterly_revenue_m": [
+          228,
+          240,
+          240,
+          250
+        ],
+        "delayed_fiscal_revenue_m": 958,
+        "revenue_delta_m": -610,
+        "gross_profit_delta_m": -439.2,
+        "ebitda_delta_m": -439.2,
+        "net_income_delta_m": -439.2,
+        "capex_delta_m": 0,
+        "cash_delta_if_collected_as_earned_m": -439.2,
+        "cash_delta_if_already_prepaid_m": 170.8,
+        "conditional_cash_per_share_delta_as_earned": -0.676,
+        "conditional_cash_per_share_delta_prepaid": 0.263,
+        "actual_cash_delta_m": null,
+        "revised_target": null
       }
     },
     {
@@ -367,7 +392,7 @@
         "capex": 19824,
         "fcf": null
       },
-      "method": "Justin independent assumptions, not issuer guidance or consensus. Revenue=sum(quarter_revenue): Q1 actual228 plus three explicit forecast quarters; bear April acceptance, base February, bull January. FY27 capex=4824 Q1 hardware/PPE +15000 remaining plan. Pre-D&A gross contribution=revenue*gross_margin_ex_da. Analytical gross_profit=pre-D&A contribution minus ALL modeled D&A. Adjusted EBITDA proxy=pre-D&A contribution-cash_opex_ex_sbc; standardized EBITDA=adjusted proxy-stock_compensation. Net-income proxy=standardized EBITDA-D&A-net_interest-cash_tax, excluding fair-value gains. Standardized FCF=null because prepaid revenue recognition and new prepayments are unresolved. Supplemental pre-customer-financing cash proxy=adjusted EBITDA-net_interest-cash_tax-capex-working_capital_cash_use; not distributable cash or GAAP CFO-capex.",
+      "method": "Justin independent assumptions, not issuer guidance or consensus. Revenue=sum(quarter_revenue): Q1 actual228 plus three explicit forecast quarters; bear April acceptance, base February, bull January. FY27 capex=4824 Q1 hardware/PPE +15000 remaining plan. Pre-D&A gross contribution=revenue*gross_margin_ex_da. Analytical gross_profit=pre-D&A contribution minus ALL modeled D&A. Adjusted EBITDA proxy=pre-D&A contribution-cash_opex_ex_sbc; standardized EBITDA=adjusted proxy-stock_compensation. Net-income proxy=standardized EBITDA-D&A-net_interest-cash_tax, excluding fair-value gains. Standardized FCF=null because prepaid revenue recognition and new prepayments are unresolved. Supplemental pre-customer-financing cash proxy=adjusted EBITDA-net_interest-cash_tax-capex-working_capital_cash_use; not distributable cash or GAAP CFO-capex. Acceptance stress holds Q2 revenue flat for one extra quarter and shifts the modeled consolidated ramp back three months. Delayed FY27 quarters are 228, 260, 260, 650 million dollars. This isolates timing by assuming all growth over Q2 requires customer acceptance. With fixed costs, capex and tax unchanged, FY27 EBITDA changes by -552 million. If collected as earned, cash changes by -552 million. If already prepaid with no refund, cash changes by +138 million from avoided service costs. Customer billing dates and actual cash effects are unknown. Per-share effects assume the cash difference persists to valuation with FY28 EBITDA, claims and dilution fixed.",
       "sources": [
         "q1"
       ],
@@ -381,6 +406,31 @@
         "adjusted_ebitda_proxy": 1020.4,
         "gross_profit_before_da": 1670.4,
         "cash_flow_before_customer_financing_and_prepaid_revenue_adjustment": -19653.6
+      },
+      "acceptance_delay": {
+        "status": "Justin timing sensitivity",
+        "period": "July 2026 through June 2027",
+        "sources": [
+          "q1"
+        ],
+        "delayed_quarterly_revenue_m": [
+          228,
+          260,
+          260,
+          650
+        ],
+        "delayed_fiscal_revenue_m": 1398,
+        "revenue_delta_m": -690,
+        "gross_profit_delta_m": -552.0,
+        "ebitda_delta_m": -552.0,
+        "net_income_delta_m": -552.0,
+        "capex_delta_m": 0,
+        "cash_delta_if_collected_as_earned_m": -552.0,
+        "cash_delta_if_already_prepaid_m": 138.0,
+        "conditional_cash_per_share_delta_as_earned": -1.004,
+        "conditional_cash_per_share_delta_prepaid": 0.251,
+        "actual_cash_delta_m": null,
+        "revised_target": null
       }
     },
     {
@@ -411,7 +461,7 @@
         "capex": 19824,
         "fcf": null
       },
-      "method": "Justin independent assumptions, not issuer guidance or consensus. Revenue=sum(quarter_revenue): Q1 actual228 plus three explicit forecast quarters; bear April acceptance, base February, bull January. FY27 capex=4824 Q1 hardware/PPE +15000 remaining plan. Pre-D&A gross contribution=revenue*gross_margin_ex_da. Analytical gross_profit=pre-D&A contribution minus ALL modeled D&A. Adjusted EBITDA proxy=pre-D&A contribution-cash_opex_ex_sbc; standardized EBITDA=adjusted proxy-stock_compensation. Net-income proxy=standardized EBITDA-D&A-net_interest-cash_tax, excluding fair-value gains. Standardized FCF=null because prepaid revenue recognition and new prepayments are unresolved. Supplemental pre-customer-financing cash proxy=adjusted EBITDA-net_interest-cash_tax-capex-working_capital_cash_use; not distributable cash or GAAP CFO-capex.",
+      "method": "Justin independent assumptions, not issuer guidance or consensus. Revenue=sum(quarter_revenue): Q1 actual228 plus three explicit forecast quarters; bear April acceptance, base February, bull January. FY27 capex=4824 Q1 hardware/PPE +15000 remaining plan. Pre-D&A gross contribution=revenue*gross_margin_ex_da. Analytical gross_profit=pre-D&A contribution minus ALL modeled D&A. Adjusted EBITDA proxy=pre-D&A contribution-cash_opex_ex_sbc; standardized EBITDA=adjusted proxy-stock_compensation. Net-income proxy=standardized EBITDA-D&A-net_interest-cash_tax, excluding fair-value gains. Standardized FCF=null because prepaid revenue recognition and new prepayments are unresolved. Supplemental pre-customer-financing cash proxy=adjusted EBITDA-net_interest-cash_tax-capex-working_capital_cash_use; not distributable cash or GAAP CFO-capex. Acceptance stress holds Q2 revenue flat for one extra quarter and shifts the modeled consolidated ramp back three months. Delayed FY27 quarters are 228, 275, 275, 800 million dollars. This isolates timing by assuming all growth over Q2 requires customer acceptance. With fixed costs, capex and tax unchanged, FY27 EBITDA changes by -684.75 million. If collected as earned, cash changes by -684.75 million. If already prepaid with no refund, cash changes by +140.25 million from avoided service costs. Customer billing dates and actual cash effects are unknown. Per-share effects assume the cash difference persists to valuation with FY28 EBITDA, claims and dilution fixed.",
       "sources": [
         "q1"
       ],
@@ -425,6 +475,31 @@
         "adjusted_ebitda_proxy": 1344.49,
         "gross_profit_before_da": 1994.49,
         "cash_flow_before_customer_financing_and_prepaid_revenue_adjustment": -19279.51
+      },
+      "acceptance_delay": {
+        "status": "Justin timing sensitivity",
+        "period": "July 2026 through June 2027",
+        "sources": [
+          "q1"
+        ],
+        "delayed_quarterly_revenue_m": [
+          228,
+          275,
+          275,
+          800
+        ],
+        "delayed_fiscal_revenue_m": 1578,
+        "revenue_delta_m": -825,
+        "gross_profit_delta_m": -684.75,
+        "ebitda_delta_m": -684.75,
+        "net_income_delta_m": -684.75,
+        "capex_delta_m": 0,
+        "cash_delta_if_collected_as_earned_m": -684.75,
+        "cash_delta_if_already_prepaid_m": 140.25,
+        "conditional_cash_per_share_delta_as_earned": -1.369,
+        "conditional_cash_per_share_delta_prepaid": 0.281,
+        "actual_cash_delta_m": null,
+        "revised_target": null
       }
     },
     {
@@ -713,6 +788,7 @@
       "Low share prices can make incremental equity financing highly dilutive."
     ],
     "invalidation": [
+      "Watch the first accepted and billed deployments. In the base timing stress, a quarter of delay cuts FY27 revenue by $690M and EBITDA by $552M. Cash falls $552M if collected as earned or rises $138M if already prepaid and nonrefundable. At 550M assumed shares the isolated cash effect is \u2212$1.00 or +$0.25 per share if it persists. The FY28 operating multiple requires separate evidence of a lasting earnings change.",
       "Base FY27 revenue case fails if January-March quarterly revenue materially trails650M assumed here.",
       "FY28 base requires100 average incremental productive MW with18M annual revenue perMW and90% capture; uncontracted or unfinanced deployment invalidates it.",
       "No investable price target until future financing and diluted-share bridge reconcile."

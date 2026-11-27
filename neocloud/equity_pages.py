@@ -118,7 +118,7 @@ def company_view(t,c,research,href,base,offline):
     doc+='<details><summary>Bear, base and bull assumptions</summary>'
     for m in models:
         doc+=f'<details><summary>{m["year"]} · {e(m["scenario"].title())} · {e(m["period"])}</summary><p>{e(m["method"])}</p>'+value(m["inputs"])+value(m["metrics"])
-        for name in ("components","contract_bridge","supplemental_metrics"):
+        for name in ("components","contract_bridge","supplemental_metrics","acceptance_delay"):
             if name in m:doc+=value(m[name])
         doc+=sources(c,m["sources"])+'</details>'
     doc+='</details>'
