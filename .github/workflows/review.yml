@@ -25,3 +25,36 @@ jobs:
                       raise RuntimeError('Hosted research failed to render: '+page)
                   print(page,marker,'visible in rendered DOM',len(run.stdout))
           PY
+      - name: Check overview navigation, filing access and mobile decision panels
+        run: |
+          npm install --no-audit --no-fund --ignore-scripts --prefix "$RUNNER_TEMP/research-browser" playwright-core@1.65.0
+          NODE_PATH="$RUNNER_TEMP/research-browser/node_modules" node <<'JS'
+          const { chromium } = require('playwright-core');
+          const assert = require('node:assert/strict');
+          (async () => {
+            const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome' });
+            try {
+              const base='https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/';
+              for (const width of [390, 1440]) {
+                const page=await browser.newPage({viewport:{width,height:844}});
+                for (const ticker of ['NBIS','CRWV']) {
+                  await page.goto(base+'index.html');
+                  const home = page.locator('.uw-comparison');
+                  await home.waitFor();
+                  await home.getByRole('link',{name:ticker,exact:true}).click();
+                  const report=page.locator('[data-underwriting="'+ticker+'"]');
+                  await report.waitFor();
+                  assert(await report.innerText());
+                  const filing=page.locator('a[href^="https://www.sec.gov/Archives/"]').first();
+                  assert(await filing.count());
+                  const nav=page.locator('a[href$="#'+ticker.toLowerCase()+'-uw-funding"]').first();
+                  await nav.click();
+                  assert((await page.url()).includes('-uw-funding'));
+                  assert(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth));
+                  console.log(width,ticker,'navigation and report OK');
+                }
+                await page.close();
+              }
+            } finally { await browser.close(); }
+          })().catch(e=>{console.error(e);process.exitCode=1});
+          JS

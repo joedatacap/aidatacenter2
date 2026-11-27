@@ -1,3 +1,3 @@
-# Review copy of the Neocloud Watch equity reports
+# November 27 research review
 
-Open `index.html` for the two-company underwriting comparison and nine-company call audit. Each uppercase ticker has a standalone HTML report. These pages use the same research renderer and data as the review PR. Relative links also work if the folder is downloaded. The public Neocloud Watch site uses a separate release process.
+The [research comparison](https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/index.html) links nine company reports. [Nebius](https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/NBIS.html) and [CoreWeave](https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/CRWV.html) include the new funding models. Research pages use the review PR's renderer and data, with their CSS embedded and navigation adapted for the viewer. The production site uses a separate release process.
