@@ -63,26 +63,40 @@ def brief(research, href):
         signals[t]=f"FY27 base revenue {cash(row['revenue'])} · "+(f"FCF {cash(row['fcf'])}" if row["fcf"] is not None else f"capex {cash(row['capex'])}")
     signals["AGPU"]="Customer acceptance and first billing remain the gates."
     cards="".join(f'<div><a href="{e(href(t))}">{t} · {e(label)}</a><p>{e(signals[t])}</p></div>' for t,label,copy in FEATURES)
-    declines = sum(row["return_pct"] < 0 for row in research["quotes"].values())
-    breadth = "All nine stocks fell" if declines==9 else f"{declines} of nine stocks fell"
+    matched = [m["ticker"] for group in research["peer_comparison"]["groups"]
+               for m in group["members"] if m["matched_benchmark_window"]]
+    declines = sum(research["return_citations"][t]["return_pct"] < 0 for t in matched)
+    breadth = "All nine stocks fell" if declines == 9 else f"{declines} of {len(matched)} comparable stocks fell"
+    if not matched:
+        breadth = "A matched cohort return was unavailable"
     return f'<section class="mast"><span class="byline">JUSTIN / EQUITY RESEARCH · {edition}</span><h1>Who can fund the next build?</h1><p>{breadth} over the five sessions ended {research["quote_date"]}. The next distinction is how soon contracted capacity starts billing and how much cash each company needs to get there.</p></section><div class="tiles">{cards}</div>'
 
 
 def overview(research, href, base, offline):
     companies=research["companies"]
-    peers=[]
-    for t,c in companies.items():
-        q=research["quotes"][t]
-        bridge=c["valuation"]["bridge"]
-        fwd=next((x for x in bridge["forward"] if x["year"]==2027),{})
-        mult=fwd.get("ev_revenue")
-        peers.append([f'<a href="{e(href(t))}">{t}</a>',e(q["group"]),cash(bridge["common_equity_m"]),
-                      f'<a href="{e(q["source_url"])}">{q["return_pct"]:+.1f}%</a>',
-                      f'{mult:.2f}×' if num(mult) else "—"])
-    doc=brief(research, href)+'<section class="section"><h2>Relative value</h2><p>Basic equity uses the November 25 close and each issuer’s dated common share count. Compare within the same business model. A dash indicates missing claims or consolidated earnings inputs.</p>'
-    benchmarks = " · ".join(f'<a href="{e(b["source"])}">{e(b["ticker"])} {b["return_pct"]:+.1f}%</a>' for b in research["benchmark_citations"])
-    doc+=f'<p><b>Five-session benchmarks</b> · {benchmarks}</p>'
-    doc+=table(["Company","Business","Basic equity","5 sessions","EV / FY27 base revenue"],peers)+'</section>' 
+    peers = research["peer_comparison"]
+    doc = brief(research, href) + '<section class="section"><h2>Relative value</h2>'
+    doc += f'<p>Basic equity uses the {e(peers["reference_date"])} close and each issuer’s dated common share count. Multiples use mixed-date enterprise values and Justin’s base revenue estimates.</p>'
+    if peers["benchmarks_verified"]:
+        links = []
+        for ticker in peers["benchmarks"]:
+            citation = research["return_citations"][ticker]
+            links.append(f'<a href="{e(citation["source"])}">{e(ticker)} {citation["return_pct"]:+.1f}%</a>')
+        doc += f'<p><b>Five-session benchmarks</b> · {e(peers["window_start"])} to {e(peers["window_end"])} · {" · ".join(links)}</p>'
+    for group in peers["groups"]:
+        doc += f'<h3>{e(group["name"])}</h3><p>{e(group["comparison"])}</p>'
+        rows = []
+        for member in group["members"]:
+            ticker = member["ticker"]
+            quote = research["return_citations"][ticker]
+            window = f'<a href="{e(quote["source"])}">{quote["return_pct"]:+.1f}%</a>' if member["matched_benchmark_window"] and num(quote.get("return_pct")) else "Unverified"
+            multiple = member["ev_to_base_revenue"]
+            rows.append([f'<a href="{e(href(ticker))}">{e(ticker)}</a>', e(member["stage"]),
+                         cash(companies[ticker]["valuation"]["bridge"]["common_equity_m"]), window,
+                         f'{multiple:.2f}×' if multiple is not None else e(member["withheld_reason"]),
+                         e(member["model_period"])])
+        doc += table(["Company", "Selected contract stage", "Basic equity", "5 sessions", "EV / FY27 base revenue", "Modeled period"], rows)
+    doc += "</section>"
     doc+='<section class="section"><h2>Next evidence to watch</h2>'+table(["Company","Financing or delivery checkpoint"],[[f'<a href="{e(href(t))}">{t}</a>',e(narrative(companies[t]["report"]["catalysts"][0]))] for t in companies if companies[t]["report"]["catalysts"]])+'</section>'
     doc+='<section class="section"><h2>Benchmarks and accountability</h2><p>Justin tracks the other eight stocks, QQQ and NVDA over one week and one, three, six and twelve months. Unpublished calls and observations without an eligible return series stay unscored.</p>'
     if not offline:

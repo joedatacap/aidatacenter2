@@ -153,3 +153,46 @@ def test_agpu_sec_ownership_floor_and_accelerating_payoff(staged):
     for path in ["research/agpu/index.html", "api/v1/snapshot.md"]:
         report = (staged/path).read_text()
         assert "20,344,393" in report and "$34.32M" in report and "$18.23M" in report
+
+
+def test_peer_groups_and_fiscal_basis(staged):
+    peers = read(staged/"api/v1/peers.json")["data"]
+    assert peers == read(staged/"api/v1/snapshot.json")["data"]["peers"]
+    members = {r["ticker"]: r for group in peers["groups"] for r in group["members"]}
+    assert len(members) == sum(len(g["members"]) for g in peers["groups"]) == 9
+    assert peers["benchmarks"] == ["QQQ", "NVDA"] and peers["benchmarks_verified"]
+    assert all(row["matched_benchmark_window"] and row["source_urls"] for row in members.values())
+    assert (peers["window_start"], peers["window_end"]) == ("2026-11-18", "2026-11-25")
+    assert "return_pct" not in json.dumps(peers) and "adjusted_close" not in json.dumps(peers)
+    assert "2027-06-30" in members["IREN"]["model_period"]
+    assert "9 months" in members["APLD"]["model_period"]
+    for ticker, row in members.items():
+        bridge = read(staged/f"api/v1/companies/{ticker}/valuation.json")["data"]["bridge"]
+        forward = next(r for r in bridge["forward"] if r["year"] == 2027)
+        assert row["ev_to_base_revenue"] == forward["ev_revenue"]
+        assert bool(row["withheld_reason"]) == (forward["ev_revenue"] is None)
+    for path in ["research/index.html", "api/v1/snapshot.md"]:
+        output = (staged/path).read_text()
+        assert all(g["name"] in output for g in peers["groups"])
+
+
+@pytest.mark.parametrize("change", ["date", "missing_close", "inconsistent_return", "currency", "missing_benchmark"])
+def test_peer_window_rejects_incompatible_endpoints(staged, change):
+    from neocloud.equity import peer_comparison
+    companies = read(staged/"api/v1/snapshot.json")["data"]["companies"]
+    audit = read(DATA/"equity-audit.json")
+    target = next(r for r in audit["companies"] if r["ticker"] == "NBIS")["price_audit"]
+    if change == "date":
+        target["start"]["date"] = "2026-11-17"
+    elif change == "missing_close":
+        target["end"]["adjusted_close"] = None
+    elif change == "inconsistent_return":
+        target["return_pct"] = 0
+    elif change == "currency":
+        target["currency"] = "EUR"
+    else:
+        audit["benchmarks"] = [b for b in audit["benchmarks"] if b["ticker"] != "NVDA"]
+    peers = peer_comparison(companies, audit, "2026-11-25")
+    matched = {r["ticker"] for g in peers["groups"] for r in g["members"] if r["matched_benchmark_window"]}
+    assert "NBIS" not in matched
+    assert len(matched) == (0 if change == "missing_benchmark" else 8)

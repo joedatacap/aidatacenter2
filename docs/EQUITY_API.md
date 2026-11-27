@@ -30,3 +30,5 @@ Source IDs resolve locally in sources, watch_sources or the audit source registe
 ## Versioning
 
 Investment drafts, publications and subsequent outcomes are distinct. Official public release notices attach to an exact immutable hash. Edited calls produce new records. Use scorecard status and matched dates before quoting any performance. The event monitor queues review candidates; subsequent model changes need supporting public evidence and a new edition.
+
+`GET /api/v1/peers.json` returns the nine-company operating comparison shown on the research overview. Each member includes its selected contract stage and sources, statement date, modeled fiscal period, indicative EV/base-revenue multiple or reason withheld, and eligibility for the dated QQQ and NVDA comparison. Eligibility requires matching endpoint dates, currency and adjustment basis and a return reproducible from the reviewed endpoints. Display-only market observations stay in attributed editorial views. The consolidated JSON and Markdown downloads also include the operating comparisons.

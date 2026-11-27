@@ -70,3 +70,13 @@ On November 6, Axe reported 13,650,314 common shares. Two proxy footnotes identi
 Twelve assumed $715,000 installments retire $8.58M of the $42.9M face obligation. The $34.32M residual accelerates at the September 2027 deadline, or an earlier secured refinancing triggers payoff of the then-outstanding balance. The filing does not condition these payments on customer acceptance. Actual installments paid, Georgia collections and margins remain unverified. [Seller terms](https://www.sec.gov/Archives/edgar/data/1446159/000117184326006386/exh_991.htm) · [Acceptance update](https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm)
 
 The July prospectus establishes the ordinary conversion of the full 79,246 Series B balance into two common shares in aggregate. It also specifies a 4.99% ownership blocker and separate fundamental-transaction terms. September diluted EPS independently includes two incremental common shares. The valuation still withholds a current preferred claim value. [Prospectus, description of capital stock](https://www.sec.gov/Archives/edgar/data/1446159/000117184326005015/f424b3_072926.htm)
+
+## Operating peer checks, November 27
+
+| Company | Evidence that distinguishes the selected contract stage |
+| --- | --- |
+| APLD | The November 23 announcement describes an executed 150 MW lease over 18 years. Renewal options sit outside the base term. [Issuer release](https://ir.applieddigital.com/news-events/press-releases/detail/165/applied-digital-secures-new-150-mw-18-year-lease-with) |
+| HUT | The River Bend substation reached initial energization. The first data hall remained targeted for Q2 2027. [November 4 results](https://www.sec.gov/Archives/edgar/data/1964789/000110465926122347/tm2628741d1_ex99-1.htm) |
+| WULF | Commenced Lake Mariner leases covered 102 MW at September 30. HPC lease revenue includes certain power costs passed through without markup. [Q3 filing](https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm) |
+| WYFI | NC-1 started billing for the first 20 MW on August 15. Both 20 MW tranches were operational by the filing date. The filing gives an explicit billing start for the first tranche. [Q3 filing](https://www.sec.gov/Archives/edgar/data/2042022/000121390026117728/ea0310427-10q_whitefiber.htm) |
+| SHAZ | Management expects 35% of $3.8B of September remaining performance obligations to be recognized over the following 24 months. The disclosure supports roughly $1.33B across those two years, with quarterly recognition and cash collection schedules unresolved. [Q3 filing, revenue note](https://www.sec.gov/Archives/edgar/data/2068385/000149315226052382/form10-q.htm) |
