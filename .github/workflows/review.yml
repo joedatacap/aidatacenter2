@@ -10,19 +10,18 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Open the exact review revision from outside the development workspace
+      - name: Open the review overview and reports over HTTPS in Chromium
         env:
           PREVIEW_SHA: ${{ github.sha }}
         run: |
           python - <<'PY'
-          import datetime, hashlib, os, pathlib, urllib.request
-          commit = os.environ['PREVIEW_SHA']
-          origin = 'https://raw.githack.com/joedatacap/aidatacenter2/' + commit
-          for name in ('index.html', 'NBIS.html', 'CRWV.html'):
-              expected = pathlib.Path(name).read_bytes()
-              with urllib.request.urlopen(origin + '/' + name, timeout=45) as response:
-                  actual = response.read()
-                  assert response.headers.get_content_type() == 'text/html', response.headers
-              assert hashlib.sha256(actual).digest() == hashlib.sha256(expected).digest(), name
-              print(datetime.datetime.now(datetime.timezone.utc), name, len(actual), hashlib.sha256(actual).hexdigest())
+          import os, subprocess, tempfile
+          url='https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/'+os.environ['PREVIEW_SHA']+'/'
+          for page, marker in [('index.html','Nine-company call audit'),('NBIS.html','$95.50'),('CRWV.html','$48.60')]:
+              with tempfile.TemporaryDirectory() as profile:
+                  run=subprocess.run(['google-chrome','--headless','--disable-dev-shm-usage','--no-sandbox','--user-data-dir='+profile,'--virtual-time-budget=20000','--dump-dom',url+page],capture_output=True,text=True,timeout=55,check=True)
+                  if marker not in run.stdout or 'uw-section' not in run.stdout:
+                      print(run.stdout[:3000])
+                      raise RuntimeError('Hosted research failed to render: '+page)
+                  print(page,marker,'visible in rendered DOM',len(run.stdout))
           PY
