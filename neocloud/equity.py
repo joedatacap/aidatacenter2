@@ -180,6 +180,37 @@ def referenced_ids(obj):
             yield from referenced_ids(value)
 
 
+def nbis_delivery_stress(models):
+    """Isolate one lost quarter of service on a hypothetical 100 MW tranche."""
+    rows = []
+    for model in models:
+        if model["year"] != 2027:
+            continue
+        inputs = model["inputs"]
+        revenue_loss = 100 * inputs["realized_annual_revenue_per_mw_m"] / 4
+        contribution_loss = revenue_loss * (1 - inputs["cash_cost_of_revenue_pct"] / 100)
+        # The annual model expenses tax only on positive earnings.
+        tax_rate = inputs["tax_rate_on_profit_pct"] / 100
+        baseline_income = model["metrics"]["net_income"]
+        pretax = baseline_income / (1 - tax_rate) if baseline_income > 0 else baseline_income
+        delayed_pretax = pretax - contribution_loss
+        income_delta = delayed_pretax - max(0, delayed_pretax) * tax_rate - baseline_income
+        rows.append({
+            "scenario": model["scenario"], "revenue_delta_m": -revenue_loss,
+            "gross_profit_delta_m": -contribution_loss, "ebitda_delta_m": -contribution_loss,
+            "net_income_delta_m": round(income_delta, 3), "capex_delta_m": 0,
+            "fcf_delta_if_collected_as_earned_m": round(income_delta, 3),
+            "fcf_delta_if_already_prepaid_m": round(income_delta + revenue_loss, 3),
+        })
+    return {
+        "reviewed": "2026-11-27", "sources": ["annual", "letter", "notes"],
+        "anchor": "On November 12 Nebius scheduled the remaining New Jersey Microsoft tranches for Q2 2027. Actual tranche size and customer cash timing remain unresolved.",
+        "assumption": "Justin sensitivity in USD millions. Shift 100 illustrative revenue-earning MW from April 1 to July 1. Q2 loses one full service quarter. Q3 and Q4 resume the original run rate with no catch-up billing. The 100 MW is a unit sensitivity, not an issuer estimate.",
+        "cash_basis": "Variable service costs flex. D&A, capex, fixed costs, financing and new deposits stay at scenario levels. At one cash endpoint the missed service would have been collected during 2027. At the other the cash was already received, so deferred revenue recognition falls by the missed revenue. Refunds, credits and revised deposit dates require contract evidence.",
+        "actual_tranche_mw": None, "actual_cash_effect_m": None, "rows": rows,
+    }
+
+
 def company_package(c, ledger, quote, mapping, watch_sources):
     validate(ledger)
     sources = ledger["sources"]
@@ -212,6 +243,8 @@ def company_package(c, ledger, quote, mapping, watch_sources):
               "valuation":{"bridge":valuation_bridge(c, ledger, quote),"analysis":ledger["valuation"]},
               "events":{"reviewed":c["events"],"disclosure_review":c["disclosure_review"],"catalysts":reports["catalysts"]},
               "report":reports}
+    if c["ticker"] == "NBIS":
+        result["financials"]["delivery_stress"] = nbis_delivery_stress(ledger["models"])
     if ledger.get("conflict_disclosure"):
         result["conflict_disclosure"] = ledger["conflict_disclosure"]
     old_ids = set(referenced_ids(result))
@@ -302,6 +335,15 @@ def markdown(companies, date_label):
             cells = [f"{m['metrics'][k]:,.1f}" if num(m["metrics"][k]) else "—" for k in METRICS]
             lines.append("| " + " | ".join([str(m["year"]),m["scenario"],*cells]) + " |")
         lines.append("")
+        stress = c["financials"].get("delivery_stress")
+        if stress:
+            lines.extend(["### One-quarter delivery delay", "", stress["anchor"], "",
+                          stress["assumption"], "", stress["cash_basis"], "",
+                          "| 2027 scenario | Revenue change | EBITDA change | FCF change if collected as earned | FCF change if prepaid |",
+                          "|---|---:|---:|---:|---:|"])
+            for row in stress["rows"]:
+                lines.append("| {scenario} | {revenue_delta_m:,.1f} | {ebitda_delta_m:,.1f} | {fcf_delta_if_collected_as_earned_m:,.1f} | {fcf_delta_if_already_prepaid_m:,.1f} |".format(**row))
+            lines.append("")
         for field,title in (("catalysts","Catalysts"),("risks","Risks"),("invalidation","Thesis breaks"),("missing","Evidence needed")):
             lines.extend([f"### {title}", "", *["- " + narrative(x) for x in r[field]], ""])
         lines.extend(["### Contracts", "", *[f"- {a['customer']}: {a['stage']}. {a['recognition']}" for a in c["contracts"]["register"]], "",

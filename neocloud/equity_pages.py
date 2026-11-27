@@ -107,6 +107,14 @@ def company_view(t,c,research,href,base,offline):
     models=c["financials"]["models"]
     doc+='<h3>Forward financials</h3><p>Justin’s independent base case. Figures use each issuer’s fiscal year. Contract-only estimates appear under scenario assumptions.</p>'
     doc+=table(["Fiscal year",*LABELS.values()],[[str(m["year"]),*[cash(m["metrics"][k]) for k in METRICS]] for m in models if m["scenario"]=="base"])
+    stress = c["financials"].get("delivery_stress")
+    if stress:
+        doc += "<h3>One-quarter delivery delay</h3>"
+        doc += "".join(f"<p>{e(stress[key])}</p>" for key in ("anchor", "assumption", "cash_basis"))
+        columns = ["revenue_delta_m", "ebitda_delta_m", "fcf_delta_if_collected_as_earned_m", "fcf_delta_if_already_prepaid_m"]
+        doc += table(["2027 scenario", "Revenue change", "EBITDA change", "FCF change if collected as earned", "FCF change if prepaid"],
+                     [[e(row["scenario"]), *[cash(row[key]) for key in columns]] for row in stress["rows"]])
+        doc += sources(c, stress["sources"])
     doc+='<details><summary>Bear, base and bull assumptions</summary>'
     for m in models:
         doc+=f'<details><summary>{m["year"]} · {e(m["scenario"].title())} · {e(m["period"])}</summary><p>{e(m["method"])}</p>'+value(m["inputs"])+value(m["metrics"])

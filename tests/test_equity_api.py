@@ -90,3 +90,22 @@ def test_future_source_rejected():
     ledger["sources"][next(iter(ledger["sources"]))]["published"]="2099-01-01"
     with pytest.raises(ValueError,match="Future source"):
         validate(ledger)
+
+
+def test_nbis_delivery_delay_cash_timing(staged):
+    stress = read(staged/"api/v1/companies/NBIS/financials.json")["data"]["delivery_stress"]
+    rows = {row["scenario"]: row for row in stress["rows"]}
+    assert set(rows) == {"bear", "base", "bull"}
+    assert stress["actual_tranche_mw"] is None and stress["actual_cash_effect_m"] is None
+    base = rows["base"]
+    assert base["revenue_delta_m"] == -625
+    assert base["ebitda_delta_m"] == -481.25
+    # Baseline pretax 183.5 becomes a loss, removing 36.7 of modeled cash tax.
+    assert base["fcf_delta_if_collected_as_earned_m"] == pytest.approx(-444.55)
+    assert base["fcf_delta_if_already_prepaid_m"] == pytest.approx(180.45)
+    for row in rows.values():
+        assert row["capex_delta_m"] == 0
+        assert row["fcf_delta_if_already_prepaid_m"] == pytest.approx(
+            row["fcf_delta_if_collected_as_earned_m"] - row["revenue_delta_m"])
+    for filename in ("research/nbis/index.html", "api/v1/snapshot.md"):
+        assert "One-quarter delivery delay" in (staged/filename).read_text()
