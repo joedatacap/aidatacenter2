@@ -1,6 +1,6 @@
 {
   "ticker": "AGPU",
-  "as_of": "2026-11-26",
+  "as_of": "2026-11-27",
   "business_model": "Transition from Access GPU-capacity resale and ATH treasury exposure to owned Build clusters. Public information only; historical Access economics do not establish future Build margins.",
   "sources": {
     "q3": {
@@ -50,6 +50,12 @@
       "url": "https://stockanalysis.com/stocks/agpu/history/",
       "published": "2026-11-25",
       "period": "November 25 16:00 EST closing snapshot; reviewed November 26"
+    },
+    "prospectus": {
+      "title": "Axe Compute July 29 prospectus, Description of Capital Stock",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326005015/f424b3_072926.htm",
+      "published": "2026-07-29",
+      "period": "July 17 capitalization and Series B terms"
     }
   },
   "facts": [
@@ -141,7 +147,7 @@
       "period": "November 26, 2026",
       "source": "q3",
       "status": "unavailable",
-      "note": "79,246 SeriesB preferred outstanding Sep30; Q3 EPS includes2 incremental common equivalents. Current redemption/liquidation/conversion claims not fully reconciled; no invented zero or one-for-one conversion."
+      "note": "The July 29 prospectus specifies two common shares in aggregate on ordinary conversion. The September 10-Q still reports 79,246 Series B outstanding. A separate fundamental-transaction provision and ownership blocker apply. The value of the senior claim remains unresolved."
     },
     {
       "metric": "noncontrolling_interest",
@@ -258,7 +264,7 @@
       "period": "Q3 2026",
       "source": "q3",
       "status": "verified",
-      "note": "Calculated7.243043−6.911526; margin4.5770%. Calculation from verified inputs."
+      "note": "Calculated7.243043\u22126.911526; margin4.5770%. Calculation from verified inputs."
     },
     {
       "metric": "q3_operating_ex_digital_gains",
@@ -267,7 +273,7 @@
       "period": "Q3 2026",
       "source": "q3",
       "status": "verified",
-      "note": "Calculated6.825897 GAAP operating income−10.477971 digital gains. Not issuer adjusted EBITDA, cash profit or FCF."
+      "note": "Calculated6.825897 GAAP operating income\u221210.477971 digital gains. Not issuer adjusted EBITDA, cash profit or FCF."
     },
     {
       "metric": "q3_adjusted_ebitda",
@@ -365,7 +371,7 @@
       "components": {
         "georgia_revenue_sensitivity_m": 36.46
       },
-      "method": "Partial Georgia arithmetic364.6/5×0.5=36.46 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
+      "method": "Partial Georgia arithmetic364.6/5\u00d70.5=36.46 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
       "sources": [
         "georgia",
         "release",
@@ -399,7 +405,7 @@
       "components": {
         "georgia_revenue_sensitivity_m": 54.69
       },
-      "method": "Partial Georgia arithmetic364.6/5×0.75=54.69 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
+      "method": "Partial Georgia arithmetic364.6/5\u00d70.75=54.69 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
       "sources": [
         "georgia",
         "release",
@@ -433,7 +439,7 @@
       "components": {
         "georgia_revenue_sensitivity_m": 72.92
       },
-      "method": "Partial Georgia arithmetic364.6/5×1.0=72.92 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
+      "method": "Partial Georgia arithmetic364.6/5\u00d71.0=72.92 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
       "sources": [
         "georgia",
         "release",
@@ -467,7 +473,7 @@
       "components": {
         "georgia_revenue_sensitivity_m": 36.46
       },
-      "method": "Partial Georgia arithmetic364.6/5×0.5=36.46 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
+      "method": "Partial Georgia arithmetic364.6/5\u00d70.5=36.46 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
       "sources": [
         "georgia",
         "release",
@@ -501,7 +507,7 @@
       "components": {
         "georgia_revenue_sensitivity_m": 72.92
       },
-      "method": "Partial Georgia arithmetic364.6/5×1.0=72.92 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
+      "method": "Partial Georgia arithmetic364.6/5\u00d71.0=72.92 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
       "sources": [
         "georgia",
         "release",
@@ -535,7 +541,7 @@
       "components": {
         "georgia_revenue_sensitivity_m": 72.92
       },
-      "method": "Partial Georgia arithmetic364.6/5×1.0=72.92 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
+      "method": "Partial Georgia arithmetic364.6/5\u00d71.0=72.92 USD M. Holding lifetime economics level is hypothetical; missing billing/acceptance schedule prevents promotion to consolidated revenue. For2028 bear,50% represents stress to usable contracted service, not a reported cancellation. The same base/bull project result in2028 does not imply equal total-company outcomes.",
       "sources": [
         "georgia",
         "release",
@@ -555,7 +561,7 @@
       "stage": "Issuer-reported energized/provisioned; customer acceptance pending at November17 observation",
       "original_timing": "May15 disclosure: Q3 2026 go-live,36-month take-or-pay,approximately$21M quarterly revenue.",
       "current_timing": "November17 roadmap: Q4 2026/Q1 2027 acceptance and service; five-year contract through2031.",
-      "recognition": "Technical readiness, acceptance, commencement, billing, GAAP revenue and common cash are separate gates. All Q3 sales were Access. Subsequent Build recognition not verified.",
+      "recognition": "Technical readiness, acceptance, commencement, billing, GAAP revenue and common cash are separate gates. All Q3 sales were Access. Subsequent Build recognition not verified. At level service, a quarter of the amended term represents $18.23M of illustrative Georgia revenue. Three seller installments total $2.145M if paid during that quarter, including while service is delayed. The difference cannot establish project cash margin.",
       "lifetime_value_m": 364.6,
       "value_basis": "October5 issuer forward estimate; not current ARR or a new sum to add to portfolioTCV.",
       "sources": [
@@ -613,13 +619,13 @@
     "economic_shares_m": 21.370476,
     "share_date": "2026-09-30",
     "partial_equity_exposure_m": 141.686256,
-    "formula": "6.63×21.370476=141.68625588 USD M; mixed price/share dates deliberately disclosed, not current fully diluted market cap.",
+    "formula": "6.63\u00d721.370476=141.68625588 USD M; mixed price/share dates deliberately disclosed, not current fully diluted market cap.",
     "reverse": {
       "annual_common_cash_m": 47.377008,
       "discount_rate_pct": 20,
       "years": 5,
       "terminal_equity_value_m": 0,
-      "method": "6.63×21.370476 / sum(1.2^(-t),t=1..5)=47.377008 USD M per year. Hypothetical level cash available to common AFTER taxes, capex, leases, debt service and all senior claims; no second debt deduction. Zero terminal and20% are analyst sensitivity assumptions, not measured fair value or required return.",
+      "method": "6.63\u00d721.370476 / sum(1.2^(-t),t=1..5)=47.377008 USD M per year. Hypothetical level cash available to common AFTER taxes, capex, leases, debt service and all senior claims; no second debt deduction. Zero terminal and20% are analyst sensitivity assumptions, not measured fair value or required return.",
       "dilution_sensitivity_m": 51.810883,
       "dilution_note": "Hypothetically issuing2M zero-proceeds common raises annual hurdle to51.810883M. Plan approval alone does not issue those shares."
     },
@@ -650,7 +656,42 @@
     "sources": [
       "q3",
       "georgia"
-    ]
+    ],
+    "georgia_seller_payoff": {
+      "as_of": "2026-09-30",
+      "sources": [
+        "q3",
+        "georgia"
+      ],
+      "face_m": 42.9,
+      "monthly_installment_m": 0.715,
+      "maturity": "2027-09-30",
+      "acceleration": "Earlier cluster-secured financing requires payoff of the remaining face balance.",
+      "illustrations": [
+        {
+          "installments_paid": 0,
+          "paid_m": 0.0,
+          "remaining_payoff_m": 42.9
+        },
+        {
+          "installments_paid": 3,
+          "paid_m": 2.145,
+          "remaining_payoff_m": 40.755
+        },
+        {
+          "installments_paid": 6,
+          "paid_m": 4.29,
+          "remaining_payoff_m": 38.61
+        },
+        {
+          "installments_paid": 12,
+          "paid_m": 8.58,
+          "remaining_payoff_m": 34.32
+        }
+      ],
+      "current_unpaid_m": null,
+      "reason": "The cases count hypothetical payments. Subsequent actual payments and refinancing proceeds have not been verified."
+    }
   },
   "ownership_audit": {
     "status": "Historical partial economic common reconciled; current fully diluted count unavailable",
@@ -659,23 +700,52 @@
     "events": [
       "Nov13 legal common13.650314M is16,217 aboveSep30; residual prefunded must be updated before combining.",
       "Other Sep30 warrants1.592749M atweighted12.53 are distinct; treasury-stock dilution requires tranche prices/vesting.",
-      "79,246SeriesB preferred shares are not79,246 common; Q3 EPS contributes2 incremental common equivalents, not a rights reconciliation.",
+      "The July prospectus describes 79,246 Series B shares convertible into two common shares in aggregate, subject to a 4.99% blocker. A fundamental transaction has separate conversion terms. The September 10-Q reports the same preferred count and two incremental common shares in Q3 diluted EPS.",
       "Nov2 consulting restricted-share awards total300,000USD value; verify counts and overlap with issued common.",
-      "Dec17 vote proposes+2M plan capacity and evergreen beginning2028; authorization is not current dilution."
+      "Dec17 vote proposes+2M plan capacity and evergreen beginning2028; authorization is not current dilution.",
+      "DataMeds issued the $1.4M convertible note to Axe. Its $4.323M September carrying value is an asset. Conversion delivers DataMeds shares, with zero incremental AGPU shares from this instrument (10-Q Note 6)."
     ],
     "sources": [
       "q3",
       "proxy",
       "grant",
-      "consulting"
-    ]
+      "consulting",
+      "prospectus"
+    ],
+    "record_date_bridge": {
+      "as_of": "2026-11-06",
+      "source": "proxy",
+      "locator": "Beneficial ownership, notes 2 and 3 and equity plan record-date table",
+      "legal_common": 13650314,
+      "nominal_exercise_usd": 0.01,
+      "identified_holders": [
+        {
+          "name": "Aethir Network Foundation Company",
+          "already_in_legal_common": 878000,
+          "prefunded_in_beneficial_ownership": 485666,
+          "prefunded_excluded_by_blocker": 4227010
+        },
+        {
+          "name": "WeGlobal Limited",
+          "already_in_legal_common": 0,
+          "prefunded_in_beneficial_ownership": 1363666,
+          "prefunded_excluded_by_blocker": 617737
+        }
+      ],
+      "identified_prefunded": 6694079,
+      "partial_economic_shares_floor": 20344393,
+      "all_holder_prefunded": null,
+      "fully_diluted_shares": null,
+      "interpretation": "The 9.99% blockers limit immediate exercise. The underlying warrants still exist. Other holders are outside these two proxy footnotes. September warrants and November holdings overlap and cannot be summed."
+    }
   },
   "report": {
     "rating": "Hold / evidence-gated speculative exposure; new capital waits for acceptance and funding economics",
-    "thesis": "Public contract size is material, but its conversion into per-share cash is unresolved. Q3 operating result excluding digital gains was−3.652074M. Larger common-equivalent exposure, customer funding obligations and Duos concentration matter more than a basic-market-cap-versus-cash shortcut.",
+    "thesis": "The November 6 proxy supports at least 20,344,393 economic shares across legal common and two disclosed warrant holders. Georgia acceptance and collections determine how much of the five-year contract reaches those shares. If Axe makes twelve scheduled seller payments, $34.32M of the original face amount still comes due by September 30, 2027. Earlier cluster-secured financing accelerates payoff.",
     "conviction": "Low for forward equity value; higher for the dated share/contract and earnings-quality findings.",
     "target_12m": null,
     "catalysts": [
+      "Dated Georgia service acceptance, first Build revenue and customer receipts, followed by terms for refinancing the secured seller balance.",
       "December17 shareholder vote on plan expansion.",
       "Georgia acceptance/service evidence in revisedQ4 2026/Q1 2027 window.",
       "Next results: Build contribution, margins, funding and actual share issuance; date unverified."
@@ -688,7 +758,7 @@
     "invalidation": [
       "Documented failed acceptance or new adverse roadmap revision.",
       "Funding/actual dilution that destroys modeled per-share cash; renegotiated customer or cost coverage.",
-      "No automatic missed revised deadline beforeMarch31 2027 merely because30–90days passes."
+      "No automatic missed revised deadline beforeMarch31 2027 merely because30\u201390days passes."
     ],
     "missing": [
       "Current same-date common/prefunded/option/warrant/preferred rights and issued awards.",

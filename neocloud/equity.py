@@ -180,6 +180,31 @@ def referenced_ids(obj):
             yield from referenced_ids(value)
 
 
+def nbis_delay_rows(models):
+    """Isolate one lost quarter of service on a hypothetical 100 MW tranche."""
+    rows = []
+    for model in models:
+        if model["year"] != 2027:
+            continue
+        inputs = model["inputs"]
+        revenue_loss = 100 * inputs["realized_annual_revenue_per_mw_m"] / 4
+        contribution_loss = revenue_loss * (1 - inputs["cash_cost_of_revenue_pct"] / 100)
+        # The annual model expenses tax only on positive earnings.
+        tax_rate = inputs["tax_rate_on_profit_pct"] / 100
+        baseline_income = model["metrics"]["net_income"]
+        pretax = baseline_income / (1 - tax_rate) if baseline_income > 0 else baseline_income
+        delayed_pretax = pretax - contribution_loss
+        income_delta = delayed_pretax - max(0, delayed_pretax) * tax_rate - baseline_income
+        rows.append({
+            "scenario": model["scenario"], "revenue_delta_m": -revenue_loss,
+            "gross_profit_delta_m": -contribution_loss, "ebitda_delta_m": -contribution_loss,
+            "net_income_delta_m": round(income_delta, 3), "capex_delta_m": 0,
+            "fcf_delta_if_collected_as_earned_m": round(income_delta, 3),
+            "fcf_delta_if_already_prepaid_m": round(income_delta + revenue_loss, 3),
+        })
+    return rows
+
+
 def company_package(c, ledger, quote, mapping, watch_sources):
     validate(ledger)
     sources = ledger["sources"]
@@ -212,6 +237,10 @@ def company_package(c, ledger, quote, mapping, watch_sources):
               "valuation":{"bridge":valuation_bridge(c, ledger, quote),"analysis":ledger["valuation"]},
               "events":{"reviewed":c["events"],"disclosure_review":c["disclosure_review"],"catalysts":reports["catalysts"]},
               "report":reports}
+    if "delivery_stress" in ledger:
+        if ledger["delivery_stress"]["rows"] != nbis_delay_rows(ledger["models"]):
+            raise ValueError("NBIS delivery sensitivity disagrees with the versioned model")
+        result["financials"]["delivery_stress"] = ledger["delivery_stress"]
     if ledger.get("conflict_disclosure"):
         result["conflict_disclosure"] = ledger["conflict_disclosure"]
     old_ids = set(referenced_ids(result))
@@ -253,6 +282,71 @@ def public_company(company):
     return result
 
 
+PEER_GROUPS = (
+    ("GPU cloud operators", ("NBIS", "CRWV", "IREN"),
+     "Compare revenue from accepted capacity with hardware spending and financing. IREN closes its fiscal year in June and retains mining exposure."),
+    ("Data-center leasing and hosting", ("APLD", "HUT", "WULF"),
+     "Compare rent commencement, remaining construction costs and cash available to common shareholders after project claims. HUT and WULF also have mining exposure."),
+    ("Emerging and mixed compute businesses", ("WYFI", "SHAZ", "AGPU"),
+     "Track each contract from commissioning to billing. WhiteFiber also leases space, SHAZ reports portfolio obligations, and Axe combines resale with owned clusters."),
+)
+
+
+def peer_comparison(companies, audit, reference_date):
+    """Compare the reviewed operating models and check the dated market window."""
+    benchmarks = {b["ticker"]: b["price_audit"] for b in audit["benchmarks"]}
+    observations = {c["ticker"]: c["price_audit"] for c in audit["companies"]}
+    anchor = benchmarks.get("QQQ", {})
+    start = anchor.get("start", {}).get("date")
+    end = anchor.get("end", {}).get("date")
+
+    def comparable(obs):
+        dates_match = (start and end and start < end == reference_date and
+                       obs.get("start", {}).get("date") == start and obs.get("end", {}).get("date") == end)
+        first = obs.get("start", {}).get("adjusted_close")
+        last = obs.get("end", {}).get("adjusted_close")
+        return bool(dates_match and obs.get("currency") == "USD" and anchor.get("basis") and obs.get("basis") == anchor["basis"]
+                    and obs.get("status") == "provider_reported_endpoint_pair_verified"
+                    and num(first) and first > 0 and num(last) and last > 0 and num(obs.get("return_pct"))
+                    and math.isclose(obs["return_pct"], (last / first - 1) * 100, abs_tol=1e-5))
+
+    benchmark_ok = all(comparable(benchmarks.get(t, {})) for t in ("QQQ", "NVDA"))
+    groups = []
+    for label, tickers, lens in PEER_GROUPS:
+        members = []
+        for ticker in tickers:
+            c = companies[ticker]
+            bridge = c["valuation"]["bridge"]
+            model = next(m for m in c["financials"]["models"] if m["year"] == 2027 and m["scenario"] == "base")
+            forward = next(m for m in bridge["forward"] if m["year"] == 2027)
+            contract = c["contracts"]["register"][0]
+            missing = list(bridge["ev_missing"])
+            if model["metrics"]["revenue"] is None:
+                missing.append("consolidated FY2027 base revenue")
+            matched = benchmark_ok and comparable(observations.get(ticker, {}))
+            actions = c["audit"]["identity_and_actions"]
+            members.append({
+                "ticker": ticker, "business_model": c["business_model"],
+                "freshness": c["freshness"],
+                "split_history": [a for a in actions["corporate_actions"] if a["type"] in ("forward_split", "reverse_split")],
+                "action_coverage": actions["historical_action_coverage"],
+                "action_source_register": c["audit"]["sources"],
+                "model_period": model["period"], "ev_to_base_revenue": forward["ev_revenue"],
+                "multiple_basis": bridge["method"], "input_periods": bridge["input_periods"],
+                "withheld_reason": None if forward["ev_revenue"] is not None else
+                    "Missing or unusable inputs: " + ", ".join(missing or ["positive consolidated revenue or reference equity value"]),
+                "contract": contract["customer"], "stage": contract["stage"],
+                "source_urls": [c["sources"][k]["url"] for k in contract["sources"]],
+                "matched_benchmark_window": matched,
+            })
+        groups.append({"name": label, "comparison": lens, "members": members})
+    if {m["ticker"] for g in groups for m in g["members"]} != set(companies):
+        raise ValueError("Peer groups disagree with the research cohort")
+    return {"groups": groups, "reference_date": reference_date, "window_start": start, "window_end": end,
+            "benchmarks": ["QQQ", "NVDA"], "benchmarks_verified": benchmark_ok,
+            "return_basis": "Provider-adjusted USD closing endpoints. The download includes comparison eligibility and dates only."}
+
+
 def build_research(watch):
     rows = read(DATA / "justin/cohort.json")
     quotes = {r["id"].upper():r for r in rows["rows"]}
@@ -277,10 +371,11 @@ def build_research(watch):
         path = DATA / "justin" / (ticker.lower()+".json")
         if path.exists():
             original[ticker] = read(path)
-    benchmark_citations = [{"ticker":b["ticker"],"return_pct":b["price_audit"]["return_pct"],
-                            "source":audit["sources"][b["price_audit"]["sources"][0]]["url"]}
-                           for b in audit["benchmarks"]]
-    return {"benchmark_citations":benchmark_citations, "edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
+    # Keep display-only observations outside the downloadable comparison.
+    citations = {r["ticker"]: {"return_pct":r["price_audit"].get("return_pct"),
+                               "source":audit["sources"][r["price_audit"]["sources"][0]]["url"]}
+                 for r in [*audit["companies"], *audit["benchmarks"]]}
+    return {"decision_brief": read(DATA/"decision-briefs/2026-11-27.json"), "peer_comparison": peer_comparison(companies, audit, rows["as_of"]), "return_citations":citations, "edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
             "quotes":quotes, "quote_date":rows["as_of"], "market":market_history(load_market_snapshot(DATA/"market_snapshot.json"), audit)}
 
 
@@ -290,8 +385,39 @@ def narrative(item):
     return str(item)
 
 
-def markdown(companies, date_label):
+def decision_markdown(brief):
+    lines = ["# What could change Justin’s call?", "",
+             f"Research preview · {brief['edition']} · Reference close {brief['reference_date']}.",
+             "", brief["reference_price_policy"], ""]
+    for row in brief["decisions"]:
+        lines.extend([f"## {row['ticker']} · {row['long_term']}", "",
+                      f"**Days to months.** {row['tactical_days_to_months']}", "",
+                      row["sensitivity"], ""])
+        if row.get("tactical_condition"):
+            lines.extend([row["tactical_condition"], ""])
+        if row["conditional_base_value"] is not None:
+            lines.extend([f"Conditional value at {row['conditional_value_date']}: "
+                          f"${row['conditional_base_value']:.2f} ({row['conditional_return_pct']:+.1f}%).", ""])
+        lines.extend([f"**Firm 12-month target withheld.** {row['target_withheld_reason']}", "",
+                      f"**Catalyst.** {row['catalyst']}", "", f"**What changes the call.** {row['reversal']}", ""])
+        if row.get("conflict_disclosure"):
+            lines.extend([row["conflict_disclosure"], ""])
+        links = [f"[{s['label']}]({s['url']})" for s in row["evidence"]]
+        links.append(f"[Reference close]({row['reference_source']})")
+        lines.extend([" · ".join(links), ""])
+    return "\n".join(lines)
+
+
+def markdown(companies, date_label, peers):
     lines = ["# Neocloud Watch equity research", "", f"Research edition {date_label}. Amounts in USD millions unless stated. Fiscal years follow each issuer. Blank estimates have no defensible value at this cutoff.", ""]
+    lines.extend(["## Operating peer comparison", "", f"Valuation reference date {peers['reference_date']}. Multiples use mixed-date enterprise value and Justin’s base revenue estimate.", ""])
+    for group in peers["groups"]:
+        lines.extend([f"### {group['name']}", "", group["comparison"], ""])
+        for row in group["members"]:
+            multiple = row["ev_to_base_revenue"]
+            valuation = f"{multiple:.2f}×" if multiple is not None else row["withheld_reason"]
+            lines.append(f"- **{row['ticker']}** · {row['contract']} · {row['stage']} · {row['model_period']} · {valuation}. [Evidence]({row['source_urls'][0]})")
+        lines.append("")
     for ticker, c in companies.items():
         r = c["report"]
         lines.extend([f"## {ticker} · {c['name']}", "", f"**{r['rating']}** · {r['conviction']} conviction · 12 months", "", r["thesis"], "",
@@ -302,6 +428,15 @@ def markdown(companies, date_label):
             cells = [f"{m['metrics'][k]:,.1f}" if num(m["metrics"][k]) else "—" for k in METRICS]
             lines.append("| " + " | ".join([str(m["year"]),m["scenario"],*cells]) + " |")
         lines.append("")
+        stress = c["financials"].get("delivery_stress")
+        if stress:
+            lines.extend(["### One-quarter delivery delay", "", stress["anchor"], "",
+                          stress["assumption"], "", stress["cash_basis"], "",
+                          "| 2027 scenario | Revenue change | EBITDA change | FCF change if collected as earned | FCF change if prepaid |",
+                          "|---|---:|---:|---:|---:|"])
+            for row in stress["rows"]:
+                lines.append("| {scenario} | {revenue_delta_m:,.1f} | {ebitda_delta_m:,.1f} | {fcf_delta_if_collected_as_earned_m:,.1f} | {fcf_delta_if_already_prepaid_m:,.1f} |".format(**row))
+            lines.append("")
         for field,title in (("catalysts","Catalysts"),("risks","Risks"),("invalidation","Thesis breaks"),("missing","Evidence needed")):
             lines.extend([f"### {title}", "", *["- " + narrative(x) for x in r[field]], ""])
         lines.extend(["### Contracts", "", *[f"- {a['customer']}: {a['stage']}. {a['recognition']}" for a in c["contracts"]["register"]], "",
@@ -340,6 +475,11 @@ def make_api(research, target, base="/", history_dir=None):
     emit("companies", listing)
     emit("overview", {"research_as_of":edition, "source_freshness":{t:c["freshness"] for t,c in rows.items()}, "cohort":listing, "benchmarks":["QQQ","NVDA"], "reference_price_date":research["quote_date"],
                       "market_history_status":market["status"], "data_policy":"Dated issuer evidence, independent scenario estimates and analyst judgment. Full source registers accompany company records."})
+    brief = research["decision_brief"]
+    emit("justin/decisions", brief)
+    emit("justin/decisions/" + brief["edition"], brief)
+    (folder/"justin/decisions.md").write_text(decision_markdown(brief))
+    emit("peers", research["peer_comparison"])
     emit("market/history", market)
     emit("justin/scorecard",scores)
     history = []
@@ -363,7 +503,7 @@ def make_api(research, target, base="/", history_dir=None):
                            "tactical_status":"published" if ticker in research["tactical"] else "no_published_tactical_call",
                            "sources":c["sources"],"conflict_disclosure":c.get("conflict_disclosure")}
     emit("justin/research",reports)
-    emit("snapshot",{"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"history":history,"events":last_events})
+    emit("snapshot",{"decisions":brief,"peers":research["peer_comparison"],"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"history":history,"events":last_events})
     emit("index",dict(endpoints))
-    (folder/"snapshot.md").write_text(markdown(rows,edition))
+    (folder/"snapshot.md").write_text(decision_markdown(brief) + "\n" + markdown(rows,edition,research["peer_comparison"]))
     return endpoints

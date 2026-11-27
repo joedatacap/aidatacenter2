@@ -236,3 +236,12 @@ if __name__ == '__main__':
         fn()
         print('PASS', name)
     print(f'{len(tests)} independent model tests passed')
+
+
+def test_nbis_customer_funding_period_and_scope():
+    funding = load("nbis")["financing"]["september_customer_funding"]
+    approximately(funding["closing_deferred_revenue_m"] - funding["opening_deferred_revenue_m"],
+                  funding["nine_month_net_increase_m"])
+    approximately(funding["management_expected_recognition_through_2028_09_30_m"],
+                  funding["rpo_m"] * 0.4)
+    assert funding["gross_customer_cash_received_m"] is None

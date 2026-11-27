@@ -63,26 +63,69 @@ def brief(research, href):
         signals[t]=f"FY27 base revenue {cash(row['revenue'])} · "+(f"FCF {cash(row['fcf'])}" if row["fcf"] is not None else f"capex {cash(row['capex'])}")
     signals["AGPU"]="Customer acceptance and first billing remain the gates."
     cards="".join(f'<div><a href="{e(href(t))}">{t} · {e(label)}</a><p>{e(signals[t])}</p></div>' for t,label,copy in FEATURES)
-    declines = sum(row["return_pct"] < 0 for row in research["quotes"].values())
-    breadth = "All nine stocks fell" if declines==9 else f"{declines} of nine stocks fell"
+    matched = [m["ticker"] for group in research["peer_comparison"]["groups"]
+               for m in group["members"] if m["matched_benchmark_window"]]
+    declines = sum(research["return_citations"][t]["return_pct"] < 0 for t in matched)
+    breadth = "All nine stocks fell" if declines == 9 else f"{declines} of {len(matched)} comparable stocks fell"
+    if not matched:
+        breadth = "A matched cohort return was unavailable"
     return f'<section class="mast"><span class="byline">JUSTIN / EQUITY RESEARCH · {edition}</span><h1>Who can fund the next build?</h1><p>{breadth} over the five sessions ended {research["quote_date"]}. The next distinction is how soon contracted capacity starts billing and how much cash each company needs to get there.</p></section><div class="tiles">{cards}</div>'
+
+
+def decision_view(research, href, base, offline):
+    brief = research["decision_brief"]
+    output = [f'<section id="decisions" class="section"><h2>What could change Justin’s call?</h2>'
+              f'<p>Research preview · {e(brief["edition"])}. Regular-session reference prices as of {e(brief["reference_date"])}.</p>']
+    for row in brief["decisions"]:
+        ticker = row["ticker"]
+        quote = research["quotes"][ticker]["close"] if research["quote_date"] == brief["reference_date"] else None
+        reference = f"${quote:.2f}" if num(quote) else "See dated source"
+        output.append(f'<article class="pane"><h3><a href="{e(href(ticker))}">{e(ticker)}</a> · {e(row["long_term"])}</h3>'
+                      f'<p><b>Days to months</b> · {e(row["tactical_days_to_months"])}</p>'
+                      f'<p>{e(row["sensitivity"])}</p><p>Reference close · <a href="{e(row["reference_source"])}">{reference}</a></p>')
+        if row.get("tactical_condition"):
+            output.append(f'<p>{e(row["tactical_condition"])}</p>')
+        if row["conditional_base_value"] is not None:
+            output.append(f'<p><b>Conditional value at {e(row["conditional_value_date"])}</b> · '
+                          f'${row["conditional_base_value"]:.2f} ({row["conditional_return_pct"]:+.1f}%)</p>')
+        output.append(f'<p><b>Firm 12-month target withheld</b> · {e(row["target_withheld_reason"])}</p>'
+                      f'<p><b>Catalyst</b> · {e(row["catalyst"])}</p><p><b>What changes the call</b> · {e(row["reversal"])}</p>')
+        if row.get("conflict_disclosure"):
+            output.append(f'<p>{e(row["conflict_disclosure"])}</p>')
+        links = [f'<a href="{e(item["url"])}">{e(item["label"])}</a>' for item in row["evidence"]]
+        output.append('<p class="source">' + ' · '.join(links) + '</p></article>')
+    if not offline:
+        output.append(f'<p><a href="{e(base)}api/v1/justin/decisions.json">Download JSON</a> · '
+                      f'<a href="{e(base)}api/v1/justin/decisions.md">Download Markdown</a></p>')
+    return "".join(output) + "</section>"
 
 
 def overview(research, href, base, offline):
     companies=research["companies"]
-    peers=[]
-    for t,c in companies.items():
-        q=research["quotes"][t]
-        bridge=c["valuation"]["bridge"]
-        fwd=next((x for x in bridge["forward"] if x["year"]==2027),{})
-        mult=fwd.get("ev_revenue")
-        peers.append([f'<a href="{e(href(t))}">{t}</a>',e(q["group"]),cash(bridge["common_equity_m"]),
-                      f'<a href="{e(q["source_url"])}">{q["return_pct"]:+.1f}%</a>',
-                      f'{mult:.2f}×' if num(mult) else "—"])
-    doc=brief(research, href)+'<section class="section"><h2>Relative value</h2><p>Basic equity uses the November 25 close and each issuer’s dated common share count. Compare within the same business model. A dash indicates missing claims or consolidated earnings inputs.</p>'
-    benchmarks = " · ".join(f'<a href="{e(b["source"])}">{e(b["ticker"])} {b["return_pct"]:+.1f}%</a>' for b in research["benchmark_citations"])
-    doc+=f'<p><b>Five-session benchmarks</b> · {benchmarks}</p>'
-    doc+=table(["Company","Business","Basic equity","5 sessions","EV / FY27 base revenue"],peers)+'</section>' 
+    peers = research["peer_comparison"]
+    decisions_url = "#decisions" if offline else base + "research/decisions/"
+    doc = brief(research, href) + f'<p><a href="{e(decisions_url)}">Four-company decision brief</a></p>' + '<section class="section"><h2>Relative value</h2>'
+    doc += f'<p>Basic equity uses the {e(peers["reference_date"])} close and each issuer’s dated common share count. Multiples use mixed-date enterprise values and Justin’s base revenue estimates.</p>'
+    if peers["benchmarks_verified"]:
+        links = []
+        for ticker in peers["benchmarks"]:
+            citation = research["return_citations"][ticker]
+            links.append(f'<a href="{e(citation["source"])}">{e(ticker)} {citation["return_pct"]:+.1f}%</a>')
+        doc += f'<p><b>Five-session benchmarks</b> · {e(peers["window_start"])} to {e(peers["window_end"])} · {" · ".join(links)}</p>'
+    for group in peers["groups"]:
+        doc += f'<h3>{e(group["name"])}</h3><p>{e(group["comparison"])}</p>'
+        rows = []
+        for member in group["members"]:
+            ticker = member["ticker"]
+            quote = research["return_citations"][ticker]
+            window = f'<a href="{e(quote["source"])}">{quote["return_pct"]:+.1f}%</a>' if member["matched_benchmark_window"] and num(quote.get("return_pct")) else "Unverified"
+            multiple = member["ev_to_base_revenue"]
+            rows.append([f'<a href="{e(href(ticker))}">{e(ticker)}</a>', e(member["stage"]),
+                         cash(companies[ticker]["valuation"]["bridge"]["common_equity_m"]), window,
+                         f'{multiple:.2f}×' if multiple is not None else e(member["withheld_reason"]),
+                         e(member["model_period"])])
+        doc += table(["Company", "Selected contract stage", "Basic equity", "5 sessions", "EV / FY27 base revenue", "Modeled period"], rows)
+    doc += "</section>"
     doc+='<section class="section"><h2>Next evidence to watch</h2>'+table(["Company","Financing or delivery checkpoint"],[[f'<a href="{e(href(t))}">{t}</a>',e(narrative(companies[t]["report"]["catalysts"][0]))] for t in companies if companies[t]["report"]["catalysts"]])+'</section>'
     doc+='<section class="section"><h2>Benchmarks and accountability</h2><p>Justin tracks the other eight stocks, QQQ and NVDA over one week and one, three, six and twelve months. Unpublished calls and observations without an eligible return series stay unscored.</p>'
     if not offline:
@@ -94,23 +137,40 @@ def company_view(t,c,research,href,base,offline):
     r=c["report"]; q=research["quotes"][t]
     nav='<nav class="tabbar" aria-label="Company research">'+''.join(f'<a href="{e(href(k))}"'+(' aria-current="page"' if k==t else '')+f'>{k}</a>' for k in research["companies"])+'</nav>'
     target=r["target_12m"]
+    close = q.get("close")
+    close_label = f"${close:,.2f}" if num(close) else "Unavailable"
     doc=f'<article class="pane" id="{t}"><p class="eyebrow">JUSTIN / INVESTMENT RESEARCH · {e(c["as_of"])}</p><h2>{e(c["name"])} <small>{t}</small></h2>'+nav
-    doc+=f'<div class="call"><b>{e(r["rating"])}</b>{e(r["thesis"])}</div><div class="strip"><div><small>Nov 25 reference close</small><b><a href="{e(q["source_url"])}">${q["close"]:,.2f}</a></b></div><div><small>12-month target</small><b>{("Withheld" if target is None else f"${target:.2f}")}</b></div><div><small>Conviction</small><b>{e(r["conviction"])}</b></div></div>'
+    doc+=f'<div class="call"><b>{e(r["rating"])}</b>{e(r["thesis"])}</div><div class="strip"><div><small>{e(research["quote_date"])} reference close</small><b><a href="{e(q["source_url"])}">{close_label}</a></b></div><div><small>12-month target</small><b>{("Withheld" if target is None else f"${target:.2f}")}</b></div><div><small>Conviction</small><b>{e(r["conviction"])}</b></div></div>'
     if c.get("conflict_disclosure"):
         doc+=f'<p><b>Conflict disclosure.</b> {e(c["conflict_disclosure"]["text"])}</p>'
+    decision = next((row for row in research["decision_brief"]["decisions"] if row["ticker"] == t), None)
     tac=research["tactical"].get(t)
     if tac:
         doc+=f'<p><b>30–90 day trading view.</b> {e(tac["rating"])} existing shares · {e(tac["new_money"])} on new capital. Conditional objective ${tac["objective"]["price"]:.2f}. {e(tac["objective"]["condition"])}</p>'
+    elif decision:
+        doc += f'<p><b>Days to months · preview.</b> {e(decision["tactical_days_to_months"])}</p>'
     else:
-        doc+='<p class="muted">Tactical coverage has yet to open for this stock.</p>'
+        doc += '<p class="muted">Tactical coverage has yet to open for this stock.</p>'
+    if decision:
+        decision_url = "#decisions" if offline else base + "research/decisions/"
+        doc += f'<p><a href="{e(decision_url)}">November 27 decision and financing sensitivities</a></p>'
+
     doc+='<section class="section"><h3>What changes the call</h3>'+table(["Next catalyst","Principal risk","Reassess if"],[[e(narrative(r[k][0])) if r[k] else "Unavailable" for k in ("catalysts","risks","invalidation")]])+'</section>'
     models=c["financials"]["models"]
     doc+='<h3>Forward financials</h3><p>Justin’s independent base case. Figures use each issuer’s fiscal year. Contract-only estimates appear under scenario assumptions.</p>'
     doc+=table(["Fiscal year",*LABELS.values()],[[str(m["year"]),*[cash(m["metrics"][k]) for k in METRICS]] for m in models if m["scenario"]=="base"])
+    stress = c["financials"].get("delivery_stress")
+    if stress:
+        doc += "<h3>One-quarter delivery delay</h3>"
+        doc += "".join(f"<p>{e(stress[key])}</p>" for key in ("anchor", "assumption", "cash_basis"))
+        columns = ["revenue_delta_m", "ebitda_delta_m", "fcf_delta_if_collected_as_earned_m", "fcf_delta_if_already_prepaid_m"]
+        doc += table(["2027 scenario", "Revenue change", "EBITDA change", "FCF change if collected as earned", "FCF change if prepaid"],
+                     [[e(row["scenario"]), *[cash(row[key]) for key in columns]] for row in stress["rows"]])
+        doc += sources(c, stress["sources"])
     doc+='<details><summary>Bear, base and bull assumptions</summary>'
     for m in models:
         doc+=f'<details><summary>{m["year"]} · {e(m["scenario"].title())} · {e(m["period"])}</summary><p>{e(m["method"])}</p>'+value(m["inputs"])+value(m["metrics"])
-        for name in ("components","contract_bridge","supplemental_metrics"):
+        for name in ("components","contract_bridge","supplemental_metrics","acceptance_delay"):
             if name in m:doc+=value(m[name])
         doc+=sources(c,m["sources"])+'</details>'
     doc+='</details>'
@@ -133,8 +193,11 @@ def render(research,target,base,offline_path):
     for t,c in research["companies"].items():
         page=folder/t.lower()/"index.html";page.parent.mkdir(exist_ok=True)
         page.write_text(shell(t+" investment report",company_view(t,c,research,href,base,False),base,False))
+    decisions = folder/"decisions"
+    decisions.mkdir(exist_ok=True)
+    (decisions/"index.html").write_text(shell("Four-company decision brief",decision_view(research,href,base,False),base,False))
     anchor=lambda t:"#"+t
-    body=overview(research,anchor,"",True)+"".join(company_view(t,c,research,anchor,"",True) for t,c in research["companies"].items())
+    body=overview(research,anchor,"",True)+decision_view(research,anchor,"",True)+"".join(company_view(t,c,research,anchor,"",True) for t,c in research["companies"].items())
     offline_path.write_text(shell("Equity research preview",body,"",True))
 
 
