@@ -133,3 +133,23 @@ def test_iren_acceptance_delay_crosses_june_year_end(staged):
         assert stress["actual_cash_delta_m"] is None and stress["revised_target"] is None
     for path in ["research/iren/index.html", "api/v1/snapshot.md"]:
         assert "a quarter of delay cuts FY27 revenue by $690M" in (staged/path).read_text()
+
+
+def test_agpu_sec_ownership_floor_and_accelerating_payoff(staged):
+    root = staged/"api/v1/companies/AGPU"
+    bridge = read(root/"audit.json")["data"]["ownership"]["record_date_bridge"]
+    assert bridge["as_of"] == "2026-11-06"
+    warrants = sum(holder["prefunded_in_beneficial_ownership"] + holder["prefunded_excluded_by_blocker"]
+                   for holder in bridge["identified_holders"])
+    assert bridge["identified_prefunded"] == warrants == 6694079
+    assert bridge["legal_common"] + warrants == bridge["partial_economic_shares_floor"] == 20344393
+    assert bridge["fully_diluted_shares"] is bridge["all_holder_prefunded"] is None
+    seller = read(root/"financing.json")["data"]["analysis"]["georgia_seller_payoff"]
+    assert seller["current_unpaid_m"] is None
+    for case in seller["illustrations"]:
+        assert case["paid_m"] == pytest.approx(case["installments_paid"] * seller["monthly_installment_m"])
+        assert case["paid_m"] + case["remaining_payoff_m"] == pytest.approx(seller["face_m"])
+    assert seller["illustrations"][-1]["remaining_payoff_m"] == 34.32
+    for path in ["research/agpu/index.html", "api/v1/snapshot.md"]:
+        report = (staged/path).read_text()
+        assert "20,344,393" in report and "$34.32M" in report and "$18.23M" in report
