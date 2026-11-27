@@ -317,9 +317,21 @@ def markdown(companies, date_label):
     lines = ["# Neocloud Watch equity research", "", f"Research edition {date_label}. Amounts in USD millions unless stated. Fiscal years follow each issuer. Blank estimates have no defensible value at this cutoff.", ""]
     for ticker, c in companies.items():
         r = c["report"]
-        lines.extend([f"## {ticker} · {c['name']}", "", f"**{r['rating']}** · {r['conviction']} conviction · 12 months", "", r["thesis"], "",
-                      f"Price target: {r['target_12m'] if r['target_12m'] is not None else 'Withheld'}.", "",
-                      "| Year | Scenario | Revenue | Gross profit | EBITDA | Net income | Capex | FCF |",
+        lines.extend([f"## {ticker} · {c['name']}", "", f"**{r['rating']}** · {r['conviction']} · 12 months", "", r["thesis"], ""])
+        if "underwriting" in c:
+            model = c["underwriting"]
+            lines.extend([f"### Funding through {model['target_date']}", "",
+                          "The equity gap is net of assumed borrowing and before hypothetical common issuance.", "",
+                          "| Scenario | Net equity gap (USD M) | Total dilution | Value/share | Return |",
+                          "|---|---:|---:|---:|---:|"])
+            for case in model["computed"]["cases"]:
+                lines.append(f"| {case['id']} | {case['funding_gap']:,.1f} | {case['dilution_pct']:.1f}% "
+                             f"| ${case['value_per_share']:,.2f} | {case['return_pct']:+.1f}% |")
+            lines.extend(["", f"### Historical operating forecasts from {c['financials']['model_as_of']}", ""])
+        else:
+            target = r["target_12m"]
+            lines.extend([f"Price target: {target if target is not None else 'Withheld'}.", ""])
+        lines.extend(["| Year | Scenario | Revenue | Gross profit | EBITDA | Net income | Capex | FCF |",
                       "|---|---|---:|---:|---:|---:|---:|---:|"])
         for m in c["financials"]["models"]:
             cells = [f"{m['metrics'][k]:,.1f}" if num(m["metrics"][k]) else "—" for k in METRICS]

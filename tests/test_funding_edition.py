@@ -24,6 +24,9 @@ def test_reports_and_archive_agree(site, ticker):
     model = resource(site, f"companies/{ticker}/underwriting")
     current = resource(site, "justin/research")[ticker]["investment"]
     base = next(c for c in model["computed"]["cases"] if c["id"] == "base")
+    markdown = (site / "api/v1/snapshot.md").read_text()
+    assert f"Historical operating forecasts from {company['prior_report']['as_of']}" in markdown
+    assert f"| ${base['value_per_share']:,.2f} | {base['return_pct']:+.1f}% |" in markdown
     assert current == company["report"]
     assert current["target_12m"] == pytest.approx(base["value_per_share"])
     assert current["expected_return_pct"] == pytest.approx(base["return_pct"])
