@@ -1,6 +1,6 @@
 {
   "ticker": "NBIS",
-  "as_of": "2026-11-26",
+  "as_of": "2026-11-27",
   "business_model": "Integrated AI cloud: owned and colocated GPU infrastructure, cloud software and managed inference; dedicated hyperscaler contracts plus third-party cloud customers. Consolidated Avride/TripleTen and investment stakes require separate treatment.",
   "sources": {
     "q3": {
@@ -180,7 +180,7 @@
       "period": "2026-09-30",
       "source": "notes",
       "status": "verified",
-      "note": "40% expected next24months to September2028; excludes original term\u22641year. Not full-year sales."
+      "note": "40% expected next24months to September2028; excludes original term≤1year. Not full-year sales."
     },
     {
       "metric": "price",
@@ -252,7 +252,7 @@
       "period": "FY2027",
       "source": "letter",
       "status": "management_guidance",
-      "note": "Management revenue range12\u201313B."
+      "note": "Management revenue range12–13B."
     },
     {
       "metric": "2027_revenue_high",
@@ -270,7 +270,7 @@
       "period": "FY2027",
       "source": "letter",
       "status": "management_guidance",
-      "note": "Management capital spending range40\u201345B."
+      "note": "Management capital spending range40–45B."
     },
     {
       "metric": "2027_capex_high",
@@ -279,7 +279,7 @@
       "period": "FY2027",
       "source": "letter",
       "status": "management_guidance",
-      "note": "Funding expected75\u201385% from prepayments plus financing; not cash already available."
+      "note": "Funding expected75–85% from prepayments plus financing; not cash already available."
     },
     {
       "metric": "top_three_q3_customer_revenue",
@@ -335,7 +335,7 @@
         "capex": 35000,
         "fcf": -24316.0
       },
-      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW\u00d7realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue\u00d7(1\u2212cash cost ratio)\u2212all D&A (analytical fully burdened definition). EBITDA=revenue\u00d7(1\u2212cash cost ratio)\u2212cash opex\u2212SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA\u2212D&A\u2212average debt\u00d7cash interest rate\u2212noncash customer-financing interest+average cash\u00d7cash yield. Net income=pretax\u2212max(pretax,0)\u00d720%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments\u2212recognition of prepaid revenue\u2212other WC\u2212capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
       "sources": [
         "letter",
         "notes",
@@ -382,7 +382,7 @@
         "capex": 42500,
         "fcf": -24703.2
       },
-      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW\u00d7realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue\u00d7(1\u2212cash cost ratio)\u2212all D&A (analytical fully burdened definition). EBITDA=revenue\u00d7(1\u2212cash cost ratio)\u2212cash opex\u2212SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA\u2212D&A\u2212average debt\u00d7cash interest rate\u2212noncash customer-financing interest+average cash\u00d7cash yield. Net income=pretax\u2212max(pretax,0)\u00d720%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments\u2212recognition of prepaid revenue\u2212other WC\u2212capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
       "sources": [
         "letter",
         "notes",
@@ -429,7 +429,7 @@
         "capex": 45000,
         "fcf": -23427.68
       },
-      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW\u00d7realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue\u00d7(1\u2212cash cost ratio)\u2212all D&A (analytical fully burdened definition). EBITDA=revenue\u00d7(1\u2212cash cost ratio)\u2212cash opex\u2212SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA\u2212D&A\u2212average debt\u00d7cash interest rate\u2212noncash customer-financing interest+average cash\u00d7cash yield. Net income=pretax\u2212max(pretax,0)\u00d720%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments\u2212recognition of prepaid revenue\u2212other WC\u2212capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
       "sources": [
         "letter",
         "notes",
@@ -476,7 +476,7 @@
         "capex": 30000,
         "fcf": -25925.3
       },
-      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW\u00d7realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue\u00d7(1\u2212cash cost ratio)\u2212all D&A (analytical fully burdened definition). EBITDA=revenue\u00d7(1\u2212cash cost ratio)\u2212cash opex\u2212SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA\u2212D&A\u2212average debt\u00d7cash interest rate\u2212noncash customer-financing interest+average cash\u00d7cash yield. Net income=pretax\u2212max(pretax,0)\u00d720%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments\u2212recognition of prepaid revenue\u2212other WC\u2212capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
       "sources": [
         "letter",
         "notes",
@@ -523,7 +523,7 @@
         "capex": 40000,
         "fcf": -23782.6
       },
-      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW\u00d7realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue\u00d7(1\u2212cash cost ratio)\u2212all D&A (analytical fully burdened definition). EBITDA=revenue\u00d7(1\u2212cash cost ratio)\u2212cash opex\u2212SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA\u2212D&A\u2212average debt\u00d7cash interest rate\u2212noncash customer-financing interest+average cash\u00d7cash yield. Net income=pretax\u2212max(pretax,0)\u00d720%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments\u2212recognition of prepaid revenue\u2212other WC\u2212capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
       "sources": [
         "letter",
         "notes",
@@ -570,7 +570,7 @@
         "capex": 45000,
         "fcf": -20240.4
       },
-      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW\u00d7realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue\u00d7(1\u2212cash cost ratio)\u2212all D&A (analytical fully burdened definition). EBITDA=revenue\u00d7(1\u2212cash cost ratio)\u2212cash opex\u2212SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA\u2212D&A\u2212average debt\u00d7cash interest rate\u2212noncash customer-financing interest+average cash\u00d7cash yield. Net income=pretax\u2212max(pretax,0)\u00d720%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments\u2212recognition of prepaid revenue\u2212other WC\u2212capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
       "sources": [
         "letter",
         "notes",
@@ -589,7 +589,7 @@
       "customer": "Microsoft",
       "description": "Approximately17.4B five-year tranche agreement; optional extra capacity separate.",
       "stage": "Partially delivered",
-      "original_timing": "2025\u20132026 tranche deployments",
+      "original_timing": "2025–2026 tranche deployments",
       "current_timing": "November12: more than half expected by YE2026; remaining New Jersey tranches Q2 2027.",
       "recognition": "Service-period recognition on delivered available capacity; take-or-pay utilization does not waive availability/delivery obligations. Service credits and tranche termination rights apply.",
       "sources": [
@@ -641,7 +641,7 @@
       6000,
       11250
     ],
-    "formula": "40,000\u00d7(1\u221285%)=6,000;45,000\u00d7(1\u221275%)=11,250. This is management-guided capex coverage residual, NOT total liquidity deficit.",
+    "formula": "40,000×(1−85%)=6,000;45,000×(1−75%)=11,250. This is management-guided capex coverage residual, NOT total liquidity deficit.",
     "citi_facility_m": 3500,
     "citi_funded_m": null,
     "citi_terms": "364-day maturity, initially Term SOFR+2.75%, escalating up to3.50% margin subject adjustments; October22 postdates September balance sheet.",
@@ -650,7 +650,7 @@
       "No complete current debt draw/maturity/use bridge;12/24month total gap remains unverified.",
       "Customer funding can create financing expense and future delivery obligations; it is not free equity.",
       "Newly signed $3.5B facility is not September debt or known cash.",
-      "Contract-backed finance75\u201385% coverage includes expected borrowing, not solely customer cash."
+      "Contract-backed finance75–85% coverage includes expected borrowing, not solely customer cash."
     ],
     "sources": [
       "letter",
@@ -662,28 +662,53 @@
         "scenario": "bear",
         "2027_need_m": 24316.0,
         "2027_2028_cumulative_need_m": 50241.3,
-        "basis": "Modeled negative FCF after customer prepayment movements; before debt/equity proceeds, maturities and opening cash. Calendar2027\u201328, not rolling next24months from November26."
+        "basis": "Modeled negative FCF after customer prepayment movements; before debt/equity proceeds, maturities and opening cash. Calendar2027–28, not rolling next24months from November26."
       },
       {
         "scenario": "base",
         "2027_need_m": 24703.2,
         "2027_2028_cumulative_need_m": 48485.8,
-        "basis": "Modeled negative FCF after customer prepayment movements; before debt/equity proceeds, maturities and opening cash. Calendar2027\u201328, not rolling next24months from November26."
+        "basis": "Modeled negative FCF after customer prepayment movements; before debt/equity proceeds, maturities and opening cash. Calendar2027–28, not rolling next24months from November26."
       },
       {
         "scenario": "bull",
         "2027_need_m": 23427.68,
         "2027_2028_cumulative_need_m": 43668.08,
-        "basis": "Modeled negative FCF after customer prepayment movements; before debt/equity proceeds, maturities and opening cash. Calendar2027\u201328, not rolling next24months from November26."
+        "basis": "Modeled negative FCF after customer prepayment movements; before debt/equity proceeds, maturities and opening cash. Calendar2027–28, not rolling next24months from November26."
       }
-    ]
+    ],
+    "september_customer_funding": {
+      "period_end": "2026-09-30",
+      "unit": "USD millions",
+      "sources": [
+        "notes"
+      ],
+      "opening_deferred_revenue_m": 1577.5,
+      "closing_deferred_revenue_m": 9409.2,
+      "nine_month_net_increase_m": 7831.7,
+      "revenue_recognized_from_opening_balance_m": 217.5,
+      "gross_customer_cash_received_m": null,
+      "reason": "Note 4 reports a net liability movement and recognition from the opening balance only. Gross collections require the full roll-forward, including recognition of current-period deposits and noncash movements.",
+      "rpo_m": 38700,
+      "management_expected_recognition_through_2028_09_30_m": 15480,
+      "basis": "40% of September RPO over the next 24 months. This includes qualifying deferred revenue and unbilled commitments and excludes contracts originally one year or shorter. It does not specify quarterly deliveries or collections."
+    },
+    "post_period_construction_advance": {
+      "date": "2026-10-01",
+      "amount_advanced_m": 230.6,
+      "unit": "USD millions",
+      "sources": [
+        "notes"
+      ],
+      "basis": "Note 4 describes an additional advance by Nebius to construction VIEs. It is a use of funds after September 30. Subsequent discretionary lending is excluded. Other intervening movements prevent a current cash estimate."
+    }
   },
   "valuation": {
     "method": "Reverse hurdle; no invented common-equity target",
     "basic_equity_value_m": 24893.775,
     "economic_equity_reference_m": 26684.169,
     "historical_ev_reference_m": 33450.369,
-    "basis": "Nov25 close \u00d7 Sept30 economic shares; September carrying debt less unrestricted group cash. Not current principal EV: financing/dilution after September unresolved. Operating leases excluded under rent-expensed convention; nonmarketable investments not added at speculative valuations.",
+    "basis": "Nov25 close × Sept30 economic shares; September carrying debt less unrestricted group cash. Not current principal EV: financing/dilution after September unresolved. Operating leases excluded under rent-expensed convention; nonmarketable investments not added at speculative valuations.",
     "reverse_2028_base_revenue_multiple": 1.705,
     "reverse_2028_base_ebitda_multiple": 2.751,
     "warning": "Historical enterprise reference divided by future modeled earnings is a sensitivity, not a like-date forward valuation. Large negative FCF can increase future debt/shares materially.",
@@ -694,7 +719,7 @@
     ],
     "ev_status": "historical qualified alternatives; current full EV blocked",
     "historical_ev_note12_alternative_m": 33422.369,
-    "historical_ev_formula": "84.99\u00d7313.968341 + balance-sheet debt14190.8 + preferred0 + bookNCI1 \u2212 cash7425.6; Note12 alternative replaces debt with14162.8. USD millions.",
+    "historical_ev_formula": "84.99×313.968341 + balance-sheet debt14190.8 + preferred0 + bookNCI1 − cash7425.6; Note12 alternative replaces debt with14162.8. USD millions.",
     "ev_blockers": [
       "Same-date debt table and balance sheet disagree by28M; do not invent reconciliation.",
       "Current drawn Citi balance and subsequent shares/cash unresolved.",
@@ -738,7 +763,8 @@
     "missing": [
       "Current instrument-level fully diluted shares and actual Citi draws.",
       "Site/cohort commissioning schedule and prepaid-revenue amortization by customer.",
-      "2028 capex, funding mix, GPU residual values and sustainable renewal pricing."
+      "2028 capex, funding mix, GPU residual values and sustainable renewal pricing.",
+      "The New Jersey tranche MW, refund rights and timing of new customer deposits determine whether an acceptance delay primarily affects earnings or also consumes cash."
     ],
     "sources": [
       "letter",
@@ -760,5 +786,50 @@
     "net_income": "Normalized consolidated scenario excludes unpredictable investment marks/acquisition gains and assumes no tax-loss benefit; not a promised GAAP result.",
     "fcf": "Levered operating cash approximation less cash capex, with customer advances explicitly rolled through; excludes financing proceeds. Cannot infer distributable cash from EBITDA.",
     "calibration": "Q3 issuer adjusted EBITDA47.49% and cloud segment53% do not set forecast margins mechanically. Modeled EBITDA margins rise with selected cash overhead operating leverage; this is an explicit optimistic scale assumption in base/bull, stressable through costs/opex."
+  },
+  "delivery_stress": {
+    "reviewed": "2026-11-27",
+    "sources": [
+      "annual",
+      "letter",
+      "notes"
+    ],
+    "anchor": "On November 12 Nebius scheduled the remaining New Jersey Microsoft tranches for Q2 2027. Actual tranche size and customer cash timing remain unresolved.",
+    "assumption": "Justin sensitivity in USD millions. Shift 100 illustrative revenue-earning MW from April 1 to July 1. Q2 loses one full service quarter. Q3 and Q4 resume the original run rate with no catch-up billing. The 100 MW is a unit sensitivity, not an issuer estimate.",
+    "cash_basis": "Variable service costs flex. D&A, capex, fixed costs, financing and new deposits stay at scenario levels. At one cash endpoint the missed service would have been collected during 2027. At the other the cash was already received, so deferred revenue recognition falls by the missed revenue. Refunds, credits and revised deposit dates require contract evidence.",
+    "actual_tranche_mw": null,
+    "actual_cash_effect_m": null,
+    "rows": [
+      {
+        "scenario": "bear",
+        "revenue_delta_m": -500.0,
+        "gross_profit_delta_m": -365.0,
+        "ebitda_delta_m": -365.0,
+        "net_income_delta_m": -365.0,
+        "capex_delta_m": 0,
+        "fcf_delta_if_collected_as_earned_m": -365.0,
+        "fcf_delta_if_already_prepaid_m": 135.0
+      },
+      {
+        "scenario": "base",
+        "revenue_delta_m": -625.0,
+        "gross_profit_delta_m": -481.25,
+        "ebitda_delta_m": -481.25,
+        "net_income_delta_m": -444.55,
+        "capex_delta_m": 0,
+        "fcf_delta_if_collected_as_earned_m": -444.55,
+        "fcf_delta_if_already_prepaid_m": 180.45
+      },
+      {
+        "scenario": "bull",
+        "revenue_delta_m": -675.0,
+        "gross_profit_delta_m": -533.25,
+        "ebitda_delta_m": -533.25,
+        "net_income_delta_m": -426.6,
+        "capex_delta_m": 0,
+        "fcf_delta_if_collected_as_earned_m": -426.6,
+        "fcf_delta_if_already_prepaid_m": 248.4
+      }
+    ]
   }
 }

@@ -180,7 +180,7 @@ def referenced_ids(obj):
             yield from referenced_ids(value)
 
 
-def nbis_delivery_stress(models):
+def nbis_delay_rows(models):
     """Isolate one lost quarter of service on a hypothetical 100 MW tranche."""
     rows = []
     for model in models:
@@ -202,13 +202,7 @@ def nbis_delivery_stress(models):
             "fcf_delta_if_collected_as_earned_m": round(income_delta, 3),
             "fcf_delta_if_already_prepaid_m": round(income_delta + revenue_loss, 3),
         })
-    return {
-        "reviewed": "2026-11-27", "sources": ["annual", "letter", "notes"],
-        "anchor": "On November 12 Nebius scheduled the remaining New Jersey Microsoft tranches for Q2 2027. Actual tranche size and customer cash timing remain unresolved.",
-        "assumption": "Justin sensitivity in USD millions. Shift 100 illustrative revenue-earning MW from April 1 to July 1. Q2 loses one full service quarter. Q3 and Q4 resume the original run rate with no catch-up billing. The 100 MW is a unit sensitivity, not an issuer estimate.",
-        "cash_basis": "Variable service costs flex. D&A, capex, fixed costs, financing and new deposits stay at scenario levels. At one cash endpoint the missed service would have been collected during 2027. At the other the cash was already received, so deferred revenue recognition falls by the missed revenue. Refunds, credits and revised deposit dates require contract evidence.",
-        "actual_tranche_mw": None, "actual_cash_effect_m": None, "rows": rows,
-    }
+    return rows
 
 
 def company_package(c, ledger, quote, mapping, watch_sources):
@@ -243,8 +237,10 @@ def company_package(c, ledger, quote, mapping, watch_sources):
               "valuation":{"bridge":valuation_bridge(c, ledger, quote),"analysis":ledger["valuation"]},
               "events":{"reviewed":c["events"],"disclosure_review":c["disclosure_review"],"catalysts":reports["catalysts"]},
               "report":reports}
-    if c["ticker"] == "NBIS":
-        result["financials"]["delivery_stress"] = nbis_delivery_stress(ledger["models"])
+    if "delivery_stress" in ledger:
+        if ledger["delivery_stress"]["rows"] != nbis_delay_rows(ledger["models"]):
+            raise ValueError("NBIS delivery sensitivity disagrees with the versioned model")
+        result["financials"]["delivery_stress"] = ledger["delivery_stress"]
     if ledger.get("conflict_disclosure"):
         result["conflict_disclosure"] = ledger["conflict_disclosure"]
     old_ids = set(referenced_ids(result))
