@@ -76,5 +76,6 @@ jobs:
             work/playwright-install.log
             work/neocloud-watch-site/
             work/Neocloud-Watch-V2.html
+            work/NCW-Equity-Research.html
             work/playwright-watch-results/
             work/watch-*.png

@@ -30,6 +30,7 @@ jobs:
           name: Integrated-Neocloud-Watch-Review
           path: |
             work/Neocloud-Watch-V2.html
+            work/NCW-Equity-Research.html
             work/Neocloud-Intelligence-Terminal.html
             work/playwright-watch-results/
           retention-days: 30

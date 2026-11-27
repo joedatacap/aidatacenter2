@@ -1,0 +1,133 @@
+{
+  "edition": "2026-11-27",
+  "recorded_at": "2026-11-27T12:49:54.849280+00:00",
+  "publication_status": "preview",
+  "public_release_at": null,
+  "reference_date": "2026-11-25",
+  "reference_price_policy": "The HTML report displays the attributed regular close. Downloads retain the date and source link.",
+  "decisions": [
+    {
+      "ticker": "NBIS",
+      "investment_version_id": "470135a022075ec13d00339f10b354c4183cdb90204bc9bd6baaadaf2c4c435e",
+      "tactical_days_to_months": "Wait for the February ARR update before adding.",
+      "tactical_basis": "November 27 preview assessment",
+      "long_term": "Hold / high risk",
+      "reference_price": null,
+      "reference_source": "https://stockanalysis.com/stocks/nbis/history/",
+      "target_12m": null,
+      "conditional_base_value": 95.5,
+      "conditional_value_date": "2027-11-27",
+      "conditional_return_pct": 12.4,
+      "target_withheld_reason": "Actual Citi draws, equity issue terms and customer deposit timing.",
+      "sensitivity": "$11.36B of hypothetical equity financing leaves 34.7% modeled dilution.",
+      "catalyst": "February ARR evidence, followed by Q2 New Jersey delivery.",
+      "reversal": "Reconsider if funded delivery supports at least 25% upside with dilution at or below 25%. Another delay without protected collections weakens the case.",
+      "evidence": [
+        {
+          "label": "Q3 2026 shareholder letter",
+          "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-2.htm"
+        },
+        {
+          "label": "September 30 detailed consolidated financial statements",
+          "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm"
+        },
+        {
+          "label": "November 27 funding scenario and assumptions",
+          "url": "https://github.com/joedatacap/aidatacenter2/blob/9dbc2d250cb2f2e9c9c8554549c0e0f6fe423daa/docs/NBIS_UNDERWRITING.md"
+        }
+      ]
+    },
+    {
+      "ticker": "CRWV",
+      "investment_version_id": "b0530b59ccea37ea98d31ff1851ed00921f5a4c9a1d46cfc2681a3a6ee2b0f93",
+      "tactical_days_to_months": "Hold existing exposure. Wait for customer cash receipts or financing confirmation before adding.",
+      "tactical_basis": "November 26 tactical call",
+      "long_term": "Hold",
+      "reference_price": null,
+      "reference_source": "https://stockanalysis.com/stocks/crwv/history/",
+      "target_12m": null,
+      "conditional_base_value": 48.6,
+      "conditional_value_date": "2027-11-27",
+      "conditional_return_pct": 14.2,
+      "target_withheld_reason": "Actual collections, executable financing terms and fleet replacement costs.",
+      "sensitivity": "$7.74B of hypothetical equity funding requires about 206M financing shares, versus the 35M-share September ATM checkpoint.",
+      "catalyst": "Evidence of customer cash receipts and executable project financing.",
+      "reversal": "Reconsider if financing and replacement capex support a 30% upside margin. Delayed collections or more costly financing weakens the case.",
+      "evidence": [
+        {
+          "label": "CoreWeave Q3 Form 10-Q",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm"
+        },
+        {
+          "label": "CoreWeave Q3 2026 results and non-GAAP reconciliation",
+          "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm"
+        },
+        {
+          "label": "November 27 funding scenario and assumptions",
+          "url": "https://github.com/joedatacap/aidatacenter2/blob/9dbc2d250cb2f2e9c9c8554549c0e0f6fe423daa/docs/CRWV_UNDERWRITING.md"
+        }
+      ],
+      "tactical_condition": "A daily close above $43.10 plus issuer confirmation of customer cash receipts or financing."
+    },
+    {
+      "ticker": "IREN",
+      "investment_version_id": "7a9cec329a3975baae0e8379ef5e321a304f06e89214e209630e8ef4cbfdf87a",
+      "tactical_days_to_months": "Watch through January and February for customer acceptance and billing.",
+      "tactical_basis": "November 27 preview assessment",
+      "long_term": "Watch / financing-dependent",
+      "reference_price": null,
+      "reference_source": "https://stockanalysis.com/stocks/iren/history/",
+      "target_12m": null,
+      "conditional_base_value": null,
+      "conditional_value_date": null,
+      "conditional_return_pct": null,
+      "target_withheld_reason": "Customer-level prepayment recognition and collections, future funding terms and economic share count.",
+      "sensitivity": "Delaying the base ramp one quarter cuts June FY27 revenue by $690M and EBITDA by $552M. Cash changes by −$552M if collected as earned or +$138M if already prepaid and nonrefundable.",
+      "catalyst": "First customer acceptance and billing for the remaining deployments.",
+      "reversal": "Reassess on documented acceptance and committed funding. January–March revenue materially below the $650M base assumption weakens the ramp case.",
+      "evidence": [
+        {
+          "label": "IREN Q1 FY2027 issuer results",
+          "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm"
+        },
+        {
+          "label": "IREN Q1 FY2027 10-Q, issuer XBRL copy",
+          "url": "https://irisenergy.gcs-web.com/node/12706/xbrl-viewer"
+        }
+      ]
+    },
+    {
+      "ticker": "AGPU",
+      "investment_version_id": "46692b5402445d49cfec7d0be614614b10c98122ec3a38fbb910bc1d1e6e0dc4",
+      "tactical_days_to_months": "Hold existing exposure. Wait for Georgia acceptance or service confirmation before adding.",
+      "tactical_basis": "November 26 tactical call",
+      "long_term": "Hold / speculative",
+      "reference_price": null,
+      "reference_source": "https://stockanalysis.com/stocks/agpu/history/",
+      "target_12m": null,
+      "conditional_base_value": null,
+      "conditional_value_date": null,
+      "conditional_return_pct": null,
+      "target_withheld_reason": "All-holder warrant balance, Georgia cash margin and terms for refinancing the seller balance.",
+      "sensitivity": "November 6 filings support a floor of 20,344,393 economic shares. Twelve assumed $715,000 installments leave a $34.32M Georgia seller payoff.",
+      "catalyst": "Dated Georgia service acceptance, first Build revenue and cash collected.",
+      "reversal": "Reassess when Georgia cash margin and refinancing terms establish the cash available to common shareholders. Failed acceptance or a dilutive refinancing weakens the case.",
+      "evidence": [
+        {
+          "label": "Definitive proxy: equity awards and beneficial ownership",
+          "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007694/agpu20261122_def14a.htm"
+        },
+        {
+          "label": "Axe Compute Q3 Form 10-Q",
+          "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm"
+        },
+        {
+          "label": "Q3 release and revised deployment roadmap",
+          "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007509/exh_991.htm"
+        }
+      ],
+      "tactical_condition": "A daily close above $7.04 plus a public update confirming Georgia customer acceptance or service.",
+      "conflict_disclosure": "The publisher has professional ties to Axe Compute and Aethir. Justin uses public filings and issuer disclosures for this case. Aethir Network Foundation holds Axe common stock and pre-funded warrants, while Axe holds ATH and obtains network compute. Duos has both commercial and creditor roles."
+    }
+  ]
+}

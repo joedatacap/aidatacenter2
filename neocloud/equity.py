@@ -375,7 +375,7 @@ def build_research(watch):
     citations = {r["ticker"]: {"return_pct":r["price_audit"].get("return_pct"),
                                "source":audit["sources"][r["price_audit"]["sources"][0]]["url"]}
                  for r in [*audit["companies"], *audit["benchmarks"]]}
-    return {"peer_comparison": peer_comparison(companies, audit, rows["as_of"]), "return_citations":citations, "edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
+    return {"decision_brief": read(DATA/"decision-briefs/2026-11-27.json"), "peer_comparison": peer_comparison(companies, audit, rows["as_of"]), "return_citations":citations, "edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
             "quotes":quotes, "quote_date":rows["as_of"], "market":market_history(load_market_snapshot(DATA/"market_snapshot.json"), audit)}
 
 
@@ -383,6 +383,29 @@ def narrative(item):
     if isinstance(item, dict):
         return " · ".join(str(item[k]) for k in ("date", "event", "description", "reason") if item.get(k)) or json.dumps(item, ensure_ascii=False)
     return str(item)
+
+
+def decision_markdown(brief):
+    lines = ["# What could change Justin’s call?", "",
+             f"Research preview · {brief['edition']} · Reference close {brief['reference_date']}.",
+             "", brief["reference_price_policy"], ""]
+    for row in brief["decisions"]:
+        lines.extend([f"## {row['ticker']} · {row['long_term']}", "",
+                      f"**Days to months.** {row['tactical_days_to_months']}", "",
+                      row["sensitivity"], ""])
+        if row.get("tactical_condition"):
+            lines.extend([row["tactical_condition"], ""])
+        if row["conditional_base_value"] is not None:
+            lines.extend([f"Conditional value at {row['conditional_value_date']}: "
+                          f"${row['conditional_base_value']:.2f} ({row['conditional_return_pct']:+.1f}%).", ""])
+        lines.extend([f"**Firm 12-month target withheld.** {row['target_withheld_reason']}", "",
+                      f"**Catalyst.** {row['catalyst']}", "", f"**What changes the call.** {row['reversal']}", ""])
+        if row.get("conflict_disclosure"):
+            lines.extend([row["conflict_disclosure"], ""])
+        links = [f"[{s['label']}]({s['url']})" for s in row["evidence"]]
+        links.append(f"[Reference close]({row['reference_source']})")
+        lines.extend([" · ".join(links), ""])
+    return "\n".join(lines)
 
 
 def markdown(companies, date_label, peers):
@@ -452,6 +475,10 @@ def make_api(research, target, base="/", history_dir=None):
     emit("companies", listing)
     emit("overview", {"research_as_of":edition, "source_freshness":{t:c["freshness"] for t,c in rows.items()}, "cohort":listing, "benchmarks":["QQQ","NVDA"], "reference_price_date":research["quote_date"],
                       "market_history_status":market["status"], "data_policy":"Dated issuer evidence, independent scenario estimates and analyst judgment. Full source registers accompany company records."})
+    brief = research["decision_brief"]
+    emit("justin/decisions", brief)
+    emit("justin/decisions/" + brief["edition"], brief)
+    (folder/"justin/decisions.md").write_text(decision_markdown(brief))
     emit("peers", research["peer_comparison"])
     emit("market/history", market)
     emit("justin/scorecard",scores)
@@ -476,7 +503,7 @@ def make_api(research, target, base="/", history_dir=None):
                            "tactical_status":"published" if ticker in research["tactical"] else "no_published_tactical_call",
                            "sources":c["sources"],"conflict_disclosure":c.get("conflict_disclosure")}
     emit("justin/research",reports)
-    emit("snapshot",{"peers":research["peer_comparison"],"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"history":history,"events":last_events})
+    emit("snapshot",{"decisions":brief,"peers":research["peer_comparison"],"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"history":history,"events":last_events})
     emit("index",dict(endpoints))
-    (folder/"snapshot.md").write_text(markdown(rows,edition,research["peer_comparison"]))
+    (folder/"snapshot.md").write_text(decision_markdown(brief) + "\n" + markdown(rows,edition,research["peer_comparison"]))
     return endpoints

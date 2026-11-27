@@ -196,3 +196,34 @@ def test_peer_window_rejects_incompatible_endpoints(staged, change):
     matched = {r["ticker"] for g in peers["groups"] for r in g["members"] if r["matched_benchmark_window"]}
     assert "NBIS" not in matched
     assert len(matched) == (0 if change == "missing_benchmark" else 8)
+
+
+def test_decision_brief_preserves_horizons_and_preview(staged):
+    from neocloud.equity import decision_markdown
+    api = staged/"api/v1"
+    brief = read(api/"justin/decisions.json")["data"]
+    assert brief == read(api/"justin/decisions/2026-11-27.json")["data"]
+    assert brief == read(api/"snapshot.json")["data"]["decisions"]
+    assert brief["publication_status"] == "preview" and brief["public_release_at"] is None
+    assert brief["reference_date"] == "2026-11-25"
+    assert brief["recorded_at"].startswith(brief["edition"])
+    markdown = decision_markdown(brief)
+    assert markdown == (api/"justin/decisions.md").read_text()
+    assert markdown in (api/"snapshot.md").read_text()
+    html = (staged/"research/decisions/index.html").read_text()
+    assert "Four-company decision brief" in (staged/"research/index.html").read_text()
+    assert [r["ticker"] for r in brief["decisions"]] == ["NBIS","CRWV","IREN","AGPU"]
+    quotes = {r["id"].upper():r for r in read(DATA/"justin/cohort.json")["rows"]}
+    for row in brief["decisions"]:
+        ticker = row["ticker"]
+        assert (DATA/"equity-history/versions"/ticker.lower()/(row["investment_version_id"]+".json")).exists()
+        assert row["reference_price"] is None and row["target_12m"] is None
+        assert row["evidence"] and row["target_withheld_reason"] and row["reversal"]
+        assert row["sensitivity"] in markdown and row["sensitivity"] in html
+        assert f"${quotes[ticker]['close']:.2f}" in html
+        if ticker in ("NBIS","CRWV"):
+            assert row["conditional_value_date"] == "2027-11-27"
+            assert row["conditional_return_pct"] == round((row["conditional_base_value"]/quotes[ticker]["close"]-1)*100,1)
+        else:
+            assert row["conditional_base_value"] is row["conditional_return_pct"] is None
+    assert brief["decisions"][-1]["conflict_disclosure"] == read(DATA/"equity/agpu.json")["conflict_disclosure"]["text"]

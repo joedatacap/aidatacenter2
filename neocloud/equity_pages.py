@@ -72,10 +72,39 @@ def brief(research, href):
     return f'<section class="mast"><span class="byline">JUSTIN / EQUITY RESEARCH · {edition}</span><h1>Who can fund the next build?</h1><p>{breadth} over the five sessions ended {research["quote_date"]}. The next distinction is how soon contracted capacity starts billing and how much cash each company needs to get there.</p></section><div class="tiles">{cards}</div>'
 
 
+def decision_view(research, href, base, offline):
+    brief = research["decision_brief"]
+    output = [f'<section id="decisions" class="section"><h2>What could change Justin’s call?</h2>'
+              f'<p>Research preview · {e(brief["edition"])}. Regular-session reference prices as of {e(brief["reference_date"])}.</p>']
+    for row in brief["decisions"]:
+        ticker = row["ticker"]
+        quote = research["quotes"][ticker]["close"] if research["quote_date"] == brief["reference_date"] else None
+        reference = f"${quote:.2f}" if num(quote) else "See dated source"
+        output.append(f'<article class="pane"><h3><a href="{e(href(ticker))}">{e(ticker)}</a> · {e(row["long_term"])}</h3>'
+                      f'<p><b>Days to months</b> · {e(row["tactical_days_to_months"])}</p>'
+                      f'<p>{e(row["sensitivity"])}</p><p>Reference close · <a href="{e(row["reference_source"])}">{reference}</a></p>')
+        if row.get("tactical_condition"):
+            output.append(f'<p>{e(row["tactical_condition"])}</p>')
+        if row["conditional_base_value"] is not None:
+            output.append(f'<p><b>Conditional value at {e(row["conditional_value_date"])}</b> · '
+                          f'${row["conditional_base_value"]:.2f} ({row["conditional_return_pct"]:+.1f}%)</p>')
+        output.append(f'<p><b>Firm 12-month target withheld</b> · {e(row["target_withheld_reason"])}</p>'
+                      f'<p><b>Catalyst</b> · {e(row["catalyst"])}</p><p><b>What changes the call</b> · {e(row["reversal"])}</p>')
+        if row.get("conflict_disclosure"):
+            output.append(f'<p>{e(row["conflict_disclosure"])}</p>')
+        links = [f'<a href="{e(item["url"])}">{e(item["label"])}</a>' for item in row["evidence"]]
+        output.append('<p class="source">' + ' · '.join(links) + '</p></article>')
+    if not offline:
+        output.append(f'<p><a href="{e(base)}api/v1/justin/decisions.json">Download JSON</a> · '
+                      f'<a href="{e(base)}api/v1/justin/decisions.md">Download Markdown</a></p>')
+    return "".join(output) + "</section>"
+
+
 def overview(research, href, base, offline):
     companies=research["companies"]
     peers = research["peer_comparison"]
-    doc = brief(research, href) + '<section class="section"><h2>Relative value</h2>'
+    decisions_url = "#decisions" if offline else base + "research/decisions/"
+    doc = brief(research, href) + f'<p><a href="{e(decisions_url)}">Four-company decision brief</a></p>' + '<section class="section"><h2>Relative value</h2>'
     doc += f'<p>Basic equity uses the {e(peers["reference_date"])} close and each issuer’s dated common share count. Multiples use mixed-date enterprise values and Justin’s base revenue estimates.</p>'
     if peers["benchmarks_verified"]:
         links = []
@@ -155,8 +184,11 @@ def render(research,target,base,offline_path):
     for t,c in research["companies"].items():
         page=folder/t.lower()/"index.html";page.parent.mkdir(exist_ok=True)
         page.write_text(shell(t+" investment report",company_view(t,c,research,href,base,False),base,False))
+    decisions = folder/"decisions"
+    decisions.mkdir(exist_ok=True)
+    (decisions/"index.html").write_text(shell("Four-company decision brief",decision_view(research,href,base,False),base,False))
     anchor=lambda t:"#"+t
-    body=overview(research,anchor,"",True)+"".join(company_view(t,c,research,anchor,"",True) for t,c in research["companies"].items())
+    body=overview(research,anchor,"",True)+decision_view(research,anchor,"",True)+"".join(company_view(t,c,research,anchor,"",True) for t,c in research["companies"].items())
     offline_path.write_text(shell("Equity research preview",body,"",True))
 
 
