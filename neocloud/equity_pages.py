@@ -137,15 +137,24 @@ def company_view(t,c,research,href,base,offline):
     r=c["report"]; q=research["quotes"][t]
     nav='<nav class="tabbar" aria-label="Company research">'+''.join(f'<a href="{e(href(k))}"'+(' aria-current="page"' if k==t else '')+f'>{k}</a>' for k in research["companies"])+'</nav>'
     target=r["target_12m"]
+    close = q.get("close")
+    close_label = f"${close:,.2f}" if num(close) else "Unavailable"
     doc=f'<article class="pane" id="{t}"><p class="eyebrow">JUSTIN / INVESTMENT RESEARCH · {e(c["as_of"])}</p><h2>{e(c["name"])} <small>{t}</small></h2>'+nav
-    doc+=f'<div class="call"><b>{e(r["rating"])}</b>{e(r["thesis"])}</div><div class="strip"><div><small>Nov 25 reference close</small><b><a href="{e(q["source_url"])}">${q["close"]:,.2f}</a></b></div><div><small>12-month target</small><b>{("Withheld" if target is None else f"${target:.2f}")}</b></div><div><small>Conviction</small><b>{e(r["conviction"])}</b></div></div>'
+    doc+=f'<div class="call"><b>{e(r["rating"])}</b>{e(r["thesis"])}</div><div class="strip"><div><small>{e(research["quote_date"])} reference close</small><b><a href="{e(q["source_url"])}">{close_label}</a></b></div><div><small>12-month target</small><b>{("Withheld" if target is None else f"${target:.2f}")}</b></div><div><small>Conviction</small><b>{e(r["conviction"])}</b></div></div>'
     if c.get("conflict_disclosure"):
         doc+=f'<p><b>Conflict disclosure.</b> {e(c["conflict_disclosure"]["text"])}</p>'
+    decision = next((row for row in research["decision_brief"]["decisions"] if row["ticker"] == t), None)
     tac=research["tactical"].get(t)
     if tac:
         doc+=f'<p><b>30–90 day trading view.</b> {e(tac["rating"])} existing shares · {e(tac["new_money"])} on new capital. Conditional objective ${tac["objective"]["price"]:.2f}. {e(tac["objective"]["condition"])}</p>'
+    elif decision:
+        doc += f'<p><b>Days to months · preview.</b> {e(decision["tactical_days_to_months"])}</p>'
     else:
-        doc+='<p class="muted">Tactical coverage has yet to open for this stock.</p>'
+        doc += '<p class="muted">Tactical coverage has yet to open for this stock.</p>'
+    if decision:
+        decision_url = "#decisions" if offline else base + "research/decisions/"
+        doc += f'<p><a href="{e(decision_url)}">November 27 decision and financing sensitivities</a></p>'
+
     doc+='<section class="section"><h3>What changes the call</h3>'+table(["Next catalyst","Principal risk","Reassess if"],[[e(narrative(r[k][0])) if r[k] else "Unavailable" for k in ("catalysts","risks","invalidation")]])+'</section>'
     models=c["financials"]["models"]
     doc+='<h3>Forward financials</h3><p>Justin’s independent base case. Figures use each issuer’s fiscal year. Contract-only estimates appear under scenario assumptions.</p>'

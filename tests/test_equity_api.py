@@ -227,3 +227,18 @@ def test_decision_brief_preserves_horizons_and_preview(staged):
         else:
             assert row["conditional_base_value"] is row["conditional_return_pct"] is None
     assert brief["decisions"][-1]["conflict_disclosure"] == read(DATA/"equity/agpu.json")["conflict_disclosure"]["text"]
+
+
+def test_missing_close_on_company_and_dated_brief():
+    from neocloud.equity import build_research
+    from neocloud.equity_pages import company_view, decision_view
+    from scripts.build_neocloud_watch import load_snapshot
+    research = build_research(load_snapshot())
+    research["quotes"]["NBIS"]["close"] = None
+    href = lambda ticker: "/research/" + ticker.lower() + "/"
+    company = company_view("NBIS", research["companies"]["NBIS"], research, href, "/", False)
+    assert "Unavailable" in company and "Days to months · preview" in company
+    assert "See dated source" in decision_view(research, href, "/", False)
+    research["quote_date"] = "2026-11-30"
+    research["quotes"]["NBIS"]["close"] = 12345.67
+    assert "$12345.67" not in decision_view(research, href, "/", False)
