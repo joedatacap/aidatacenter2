@@ -272,8 +272,8 @@ def decision(u):
     if reference_url:
         price = '<a href="' + esc(reference_url) + '">' + price + "</a>"
     stamp = "Information cutoff " + esc(u.get("cutoff", "Unavailable")) + " · 12-month target date " + esc(u.get("target_date", "Unavailable"))
-    desktop = ('<div class="uw-desktop-decision"><div class="uw-decision"><strong>12-month call · ' + copy(call.get("rating")) + "</strong>"
-        + "<h1>" + copy(call.get("summary")) + "</h1></div>"
+    desktop = ('<div class="uw-desktop-decision"><div class="uw-decision"><strong>12-month call</strong>'
+        + "<h1>" + copy(call.get("rating")) + "</h1><p>" + copy(call.get("summary")) + "</p></div>"
         + '<div class="uw-price-strip"><div><small>Reference price · ' + esc(reference.get("as_of", "Date unavailable")) + "</small><strong>" + price
         + "</strong>" + ("<small>" + esc(reference["observed_at"]) + "</small>" if reference.get("observed_at") else "")
         + "</div><div><small>12-month base value / share</small><strong>" + dollars(case.get("value_per_share"))
