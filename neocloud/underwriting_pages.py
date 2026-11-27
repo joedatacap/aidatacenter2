@@ -79,7 +79,7 @@ CSS = """
 .pane-underwriting>*{order:3;min-width:0}
 .pane-underwriting>.eyebrow{order:0;font-size:.68rem;margin:5px 0}
 .pane-underwriting>h2{order:0;font-size:1.5rem;margin:5px 0}
-.pane-underwriting>.uw-opening{order:1;margin:8px 0 12px}
+.pane-underwriting>.uw-opening{order:1;margin:4px 0 12px}
 .pane-underwriting>.tabbar{order:2;margin:12px 0}
 .uw-desktop-decision{display:none}
 .uw-mobile-decision{display:block;background:white;border:1px solid var(--line);border-radius:4px;padding:13px}
@@ -88,7 +88,7 @@ CSS = """
 .uw-mobile-metrics small{display:block;color:var(--muted);font-size:.73rem}
 .uw-mobile-metrics strong{display:block;font-size:1.16rem;font-variant-numeric:tabular-nums}
 .uw-mobile-metrics strong span{font-size:.82rem}
-.uw-mobile-answers>section{padding:8px 0;border-top:1px solid var(--line)}
+.uw-mobile-answers>section{padding:5px 0;border-top:1px solid var(--line)}
 .uw-mobile-answers h3{font-size:.81rem;margin:0 0 3px;color:var(--green)}
 .uw-mobile-answers p{font-size:.875rem;line-height:1.4;margin:0}
 .uw-mobile-decision>details{padding:9px 0 0;font-size:.9rem}
@@ -97,6 +97,11 @@ CSS = """
 .uw-decision{padding:16px}
 .uw-table td,.uw-table th{padding:9px}
 .uw-price-strip strong{font-size:1.45rem}
+}
+@media(max-width:700px) and (max-height:720px){
+.pane-underwriting>.eyebrow{order:2}
+.pane-underwriting>.uw-opening{display:flex;flex-direction:column}
+.uw-opening>.uw-stamp{order:1}
 }
 @media print{.uw-nav{display:none}
 .uw-source blockquote{break-inside:avoid}

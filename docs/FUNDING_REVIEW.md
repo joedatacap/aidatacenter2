@@ -24,3 +24,5 @@ The November 26 ledgers, three tactical calls and prior immutable editions remai
 For the next research run, start with APLD project-to-parent cash flows, AGPU's single-date economic shares and accepted Georgia cash margin, then SHAZ's committed capex versus cash receipts and actual draws. Each has a dated source and a specific decision question in the call audit.
 
 The standalone review runs on a separate Git branch. [Open the comparison](https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/index.html), [Nebius](https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/NBIS.html) or [CoreWeave](https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/CRWV.html).
+
+[PR #28](https://github.com/joedatacap/aidatacenter2/pull/28) is a separate open draft on the same base. Its illustrative 100 MW delivery-delay analysis has not landed on `research/equity-sprint`. Reconcile the NBIS research page with that increment if both PRs advance.
