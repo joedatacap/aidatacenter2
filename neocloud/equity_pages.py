@@ -2,10 +2,17 @@
 from html import escape
 from pathlib import Path
 from neocloud.equity import METRICS, narrative, num
+from neocloud.underwriting_pages import (
+    CSS as UNDERWRITING_CSS,
+    overview as underwriting_overview,
+    report as underwriting_report,
+    call_audit as underwriting_audit,
+)
 
 CSS = """
 :root{color-scheme:light;--ink:#112e33;--muted:#52666a;--line:#cad4d0;--green:#006858;--bg:#f5f6f1}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--bg);font:16px/1.5 'Inter',system-ui,sans-serif}a{color:var(--green);text-underline-offset:3px}a:focus-visible,summary:focus-visible{outline:3px solid #ec9c2f;outline-offset:3px}.top,main,footer{max-width:1140px;margin:auto;padding:18px clamp(16px,4vw,54px)}.top{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);align-items:center}.top b,.byline,th,.eyebrow{font-weight:700;letter-spacing:.065em}.eyebrow,.byline,th{font-size:.88rem}.mast{margin:26px 0 24px}.mast h1{font:500 clamp(2.15rem,5vw,4rem)/1.08 Georgia,serif;letter-spacing:-.045em;max-width:850px;margin:12px 0}.mast p,.lead{max-width:80ch}.mast p,.meta,.muted{color:var(--muted)}h2{font:500 2.15rem/1.15 Georgia,serif;margin:16px 0}h3{margin-bottom:6px}.strip,.tiles,.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.strip>*,.tiles>*,.facts>*{background:white;padding:16px}.strip b,.facts strong{display:block;font-size:1.35rem;font-variant-numeric:tabular-nums}.strip small,.facts small{color:var(--muted);font-size:.9rem}.tiles a{text-decoration:none;font-weight:700}.tiles p{margin:4px 0}.call{padding:16px 20px;background:#deefea;border-left:4px solid #087562}.call b{display:block}.scroll{overflow-x:auto}.tabbar{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.tabbar a,.pill{background:white;border:1px solid var(--line);border-radius:3px;padding:7px 11px;font-size:.95rem;text-decoration:none}.tabbar a[aria-current=page]{background:var(--ink);color:white}.section{margin:32px 0}table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--line);text-align:left}th,td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#e6ece8;white-space:nowrap;letter-spacing:.015em}td.number{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}.kicker{color:var(--green);font-weight:650}details{border-top:1px solid var(--line);padding:12px 0}summary{cursor:pointer;color:var(--green);font-weight:650}.source{font-size:.9rem}.pane{scroll-margin-top:12px;border-top:2px solid var(--ink);padding-top:24px}.printonly{display:none}dl{margin:0}dt{font-weight:650;color:var(--ink)}dd{margin:0 0 10px 0}li{margin:4px 0}ul{padding-left:22px}.data dd{overflow-wrap:anywhere}.data{padding:12px;background:white;border:1px solid var(--line)}.source a{overflow-wrap:anywhere}footer{border-top:1px solid var(--line);color:var(--muted)}@media(max-width:700px){.strip,.tiles,.facts{grid-template-columns:1fr}.top{font-size:.9rem}td,th{padding:8px}h2{font-size:1.7rem}}@media print{.top,.tabbar{display:none}.scroll{overflow:visible}}
 """
+CSS += UNDERWRITING_CSS
 LABELS = {"revenue":"Revenue","gross_profit":"Gross profit","ebitda":"EBITDA","net_income":"Net income","capex":"Capex","fcf":"FCF"}
 FEATURES = [
     ("NBIS", "Funding the ramp", "Compare 2027 revenue with the cash required to deploy capacity."),
@@ -79,7 +86,11 @@ def overview(research, href, base, offline):
         peers.append([f'<a href="{e(href(t))}">{t}</a>',e(q["group"]),cash(bridge["common_equity_m"]),
                       f'<a href="{e(q["source_url"])}">{q["return_pct"]:+.1f}%</a>',
                       f'{mult:.2f}×' if num(mult) else "—"])
-    doc=brief(research, href)+'<section class="section"><h2>Relative value</h2><p>Basic equity uses the November 25 close and each issuer’s dated common share count. Compare within the same business model. A dash indicates missing claims or consolidated earnings inputs.</p>'
+    new_overview=underwriting_overview(research,href)
+    doc=(new_overview or brief(research, href))
+    if not new_overview and research.get("call_audit"):
+        doc+=underwriting_audit(research["call_audit"],href)
+    doc+='<section class="section"><h2>Relative value</h2><p>Basic equity uses the November 25 close and each issuer’s dated common share count. Compare within the same business model. A dash indicates missing claims or consolidated earnings inputs.</p>'
     benchmarks = " · ".join(f'<a href="{e(b["source"])}">{e(b["ticker"])} {b["return_pct"]:+.1f}%</a>' for b in research["benchmark_citations"])
     doc+=f'<p><b>Five-session benchmarks</b> · {benchmarks}</p>'
     doc+=table(["Company","Business","Basic equity","5 sessions","EV / FY27 base revenue"],peers)+'</section>' 
@@ -91,10 +102,22 @@ def overview(research, href, base, offline):
 
 
 def company_view(t,c,research,href,base,offline):
-    r=c["report"]; q=research["quotes"][t]
+    underwriting=c.get("underwriting")
+    prior=c.get("prior_report",c["report"])
+    r=prior.get("report",prior) if underwriting else c["report"]
+    historical_as_of=prior.get("as_of") or c["financials"].get("model_as_of") or c["as_of"]
+    q=research["quotes"][t]
     nav='<nav class="tabbar" aria-label="Company research">'+''.join(f'<a href="{e(href(k))}"'+(' aria-current="page"' if k==t else '')+f'>{k}</a>' for k in research["companies"])+'</nav>'
     target=r["target_12m"]
-    doc=f'<article class="pane" id="{t}"><p class="eyebrow">JUSTIN / INVESTMENT RESEARCH · {e(c["as_of"])}</p><h2>{e(c["name"])} <small>{t}</small></h2>'+nav
+    pane_class="pane pane-underwriting" if underwriting else "pane"
+    doc=f'<article class="{pane_class}" id="{t}"><p class="eyebrow">JUSTIN / INVESTMENT RESEARCH · {e(c["as_of"])}</p><h2>{e(c["name"])} <small>{t}</small></h2>'+nav
+    if underwriting:
+        doc+=underwriting_report(underwriting)
+        doc+='<details class="uw-historical"><summary>Historical call and original operating model · information cutoff '+e(historical_as_of)+'</summary>'
+        doc+='<p class="uw-note">The original call and financial scenarios below are preserved. The new underwriting above explicitly models cash timing, financing and the per-share denominator; it does not overwrite these earlier operating estimates.</p>'
+    legacy_source_ids=[sid for sid,source in c["sources"].items()
+                       if not underwriting or (not sid.startswith("underwriting-")
+                       and (not source.get("published") or source["published"][:10]<=str(historical_as_of)[:10]))]
     doc+=f'<div class="call"><b>{e(r["rating"])}</b>{e(r["thesis"])}</div><div class="strip"><div><small>Nov 25 reference close</small><b><a href="{e(q["source_url"])}">${q["close"]:,.2f}</a></b></div><div><small>12-month target</small><b>{("Withheld" if target is None else f"${target:.2f}")}</b></div><div><small>Conviction</small><b>{e(r["conviction"])}</b></div></div>'
     if c.get("conflict_disclosure"):
         doc+=f'<p><b>Conflict disclosure.</b> {e(c["conflict_disclosure"]["text"])}</p>'
@@ -119,8 +142,10 @@ def company_view(t,c,research,href,base,offline):
         ("Financing and funding gaps",value(c["financing"]["analysis"])),
         ("Contract conversion",''.join(f'<h3>{e(a["customer"])}</h3>'+value(a)+sources(c,a["sources"]) for a in c["contracts"]["register"])),
         ("Capitalization and corporate actions",value(c["audit"]["ownership"])+value(c["audit"]["identity_and_actions"])),
-        ("Missing information",value(r["missing"])),("Primary evidence and other sources",sources(c,c["sources"]))]:
+        ("Missing information",value(r["missing"])),("Primary evidence and other sources",sources(c,legacy_source_ids))]:
         doc+=f'<details><summary>{title}</summary>{body}</details>'
+    if underwriting:
+        doc+='</details>'
     if not offline:doc+=f'<p><a href="{e(base)}api/v1/companies/{t}.json">Company research JSON</a> · <a href="{e(base)}research/">Back to the research brief</a></p>'
     return doc+'</article>'
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 import calendar
 import json
 import math
+from neocloud.equity_edition import investment_revision
 from neocloud.market_snapshot import load_market_snapshot
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -224,10 +225,10 @@ def public_company(company):
     import copy
     result = copy.deepcopy(company)
     for source in result["sources"].values():
-        source.setdefault("last_verified_at",result["as_of"])
+        source.setdefault("last_verified_at", result["financials"].get("model_as_of", result["as_of"]))
     for group in ("models",):
         for model in result["financials"][group]:
-            model.update(estimate_type="Justin modeled estimate",published_at=None, last_updated=result["as_of"],
+            model.update(estimate_type="Justin modeled estimate",published_at=None, last_updated=result["financials"].get("model_as_of",result["as_of"]),
                          verification_status="analyst assumptions; see linked reported anchors")
     result["financials"]["fact_metadata"] = "Dates refer to source publication and editorial verification. Source keys resolve to the local register; watch source_ids resolve to watch_sources."
 
@@ -249,6 +250,16 @@ def public_company(company):
         elif isinstance(record, list):
             for item in record:
                 strip(item)
+    # Keep the attributed reference close on the report only. Funding and
+    # valuation assumptions are authored estimates, distinct from market data.
+    if "underwriting" in result:
+        model = result["underwriting"]
+        model["reference"]["price"] = None
+        quote_key = model["reference"]["source"]
+        model["sources"][quote_key].pop("excerpt", None)
+        for key in (quote_key, "underwriting-" + quote_key):
+            if key in result["sources"]:
+                result["sources"][key].pop("excerpt", None)
     strip(result)
     return result
 
@@ -273,6 +284,18 @@ def build_research(watch):
         for i in referenced_ids(company["financing"]):
             if i in watch_sources:
                 company["watch_sources"][i] = watch_sources[i]
+        revision = investment_revision(ledger, DATA)
+        if revision:
+            model, report = revision
+            company["prior_report"] = company["report"]
+            company["underwriting"] = model
+            company["financials"]["model_as_of"] = ledger["as_of"]
+            company["report"] = report
+            company["as_of"] = report["as_of"]
+            company["events"]["catalysts"] = report["catalysts"]
+            company["freshness"].update(research_reviewed=report["as_of"], underwriting_cutoff=model["cutoff"])
+            for key, source in model["sources"].items():
+                company["sources"]["underwriting-" + key] = {**source, "last_verified_at": report["as_of"]}
         companies[ticker] = company
         path = DATA / "justin" / (ticker.lower()+".json")
         if path.exists():
@@ -280,7 +303,7 @@ def build_research(watch):
     benchmark_citations = [{"ticker":b["ticker"],"return_pct":b["price_audit"]["return_pct"],
                             "source":audit["sources"][b["price_audit"]["sources"][0]]["url"]}
                            for b in audit["benchmarks"]]
-    return {"benchmark_citations":benchmark_citations, "edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
+    return {"call_audit":read(DATA / "underwriting/audit.json"), "benchmark_citations":benchmark_citations, "edition":max(c["as_of"] for c in companies.values()), "companies":companies, "tactical":original,
             "quotes":quotes, "quote_date":rows["as_of"], "market":market_history(load_market_snapshot(DATA/"market_snapshot.json"), audit)}
 
 
@@ -354,16 +377,20 @@ def make_api(research, target, base="/", history_dir=None):
     emit("events", last_events)
     reports={}
     for ticker,c in rows.items():
+        ledger_date = c["financials"].get("model_as_of", c["as_of"])
         root = "companies/" + ticker
         emit(root,c)
         for section in ("financials","financing","contracts","valuation","events","audit"):
-            emit(root+"/"+section, {"ticker":ticker, "as_of":c["as_of"], **c[section],
+            emit(root+"/"+section, {"ticker":ticker, "as_of":ledger_date, **c[section],
                                     "sources":c["sources"], "watch_sources":c["watch_sources"]})
         reports[ticker] = {"investment":c["report"],"tactical":research["tactical"].get(ticker),
                            "tactical_status":"published" if ticker in research["tactical"] else "no_published_tactical_call",
                            "sources":c["sources"],"conflict_disclosure":c.get("conflict_disclosure")}
+        if "underwriting" in c:
+            emit(root+"/underwriting", c["underwriting"])
+    emit("justin/call-audit", research["call_audit"])
     emit("justin/research",reports)
-    emit("snapshot",{"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"history":history,"events":last_events})
+    emit("snapshot",{"overview":listing,"companies":rows,"justin":reports,"market":market,"scorecard":scores,"history":history,"events":last_events,"call_audit":research["call_audit"]})
     emit("index",dict(endpoints))
     (folder/"snapshot.md").write_text(markdown(rows,edition))
     return endpoints

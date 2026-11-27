@@ -1,0 +1,1509 @@
+{
+  "ticker": "NBIS",
+  "cutoff": "2026-11-27T09:00:00Z",
+  "reviewed_at": "2026-11-27T09:00:00Z",
+  "target_date": "2027-11-27",
+  "reference": {
+    "price": 84.99,
+    "as_of": "2026-11-25",
+    "source": "quote",
+    "note": "Latest verifiable regular-session close before cutoff. Thanksgiving closureNovember 26; no later regular session had occurred. After-hours excluded.",
+    "observed_at": "2026-11-25T21:00:00Z"
+  },
+  "sources": {
+    "balance": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+      "title": "Nebius September 2026 consolidated financial statements — balance sheet",
+      "published": "2026-11-12",
+      "period": "2026-09-30",
+      "unit": "USD millions unless otherwise specified",
+      "section": "F-2, condensed consolidated balance sheets; F-8 cash reconciliation",
+      "locator": "F-2, condensed consolidated balance sheets; F-8 cash reconciliation",
+      "excerpt": "Unrestricted cash 7,425.6; restricted cash 1,215.5; balance-sheet debt 14,190.8. Restricted cash is separate, not subtracted from unrestricted cash twice."
+    },
+    "cashflow": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+      "title": "Nebius September 2026 consolidated financial statements — cash flows",
+      "published": "2026-11-12",
+      "period": "Nine months ended 2026-09-30",
+      "unit": "USD millions unless otherwise specified",
+      "section": "F-7–F-8, condensed consolidated cash-flow statement",
+      "locator": "F-7–F-8, condensed consolidated cash-flow statement",
+      "excerpt": "Operating cash 4,231.1 includes deferred-revenue movement 7,829.0; purchases of PP&E/intangibles 15,430.7. Other investing advances are separately classified."
+    },
+    "customer": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+      "title": "Nebius Note 4 — deferred revenue, RPO and construction VIEs",
+      "published": "2026-11-12",
+      "period": "2026-09-30 and October 1 subsequent advance",
+      "unit": "USD millions unless otherwise specified",
+      "section": "Note 4, F-20–F-21, VIEs, Deferred Revenue and Remaining performance obligations",
+      "locator": "Note 4, F-20–F-21, VIEs, Deferred Revenue and Remaining performance obligations",
+      "excerpt": "Deferred revenue 9,409.2 versus 1,577.5 at December 31;9M increase 7,831.7;217.5 of opening deferred revenue recognized. October 1 additional construction-VIE note advance 230.6; up to 662.2 additional advances discretionary."
+    },
+    "debt": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+      "title": "Nebius Note 12 — debt principal, carrying values and secured-loan terms",
+      "published": "2026-11-12",
+      "period": "2026-09-30",
+      "unit": "USD millions unless otherwise specified",
+      "section": "Note 12, F-30–F-34, September 30 debt table and Term Loan Facility",
+      "locator": "Note 12, F-30–F-34, September 30 debt table and Term Loan Facility",
+      "excerpt": "Principal/redemption table 16,478.0 versus carrying 14,162.8. Balance-sheet current debt 187.5 differs from Note 12 current 159.5 by 28.0. Secured loan monthly amortization; minimum DSCR 1.15, liquidity covenant,80–100% hedge requirement."
+    },
+    "converts": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+      "title": "Nebius Note 12 — convertible original principal, accretion and conversion",
+      "published": "2026-11-12",
+      "period": "Outstanding 2026-09-30; August/March 2026 issuance",
+      "unit": "USD millions unless otherwise specified",
+      "section": "Note 12, F-31–F-34, Convertible Notes, August 2026, March 2026 and June 2025 exchange",
+      "locator": "Note 12, F-31–F-34, Convertible Notes, August 2026, March 2026 and June 2025 exchange",
+      "excerpt": "August notes gross 5,750, initial purchaser discount 71.9, net 5,678.1; total issuance costs 72.4 includes additional 0.5. June-note exchange 800 original principal for 15.770124M shares was noncash and already in opening shares. Coupons and conversion use original principal, not accreted maturity face."
+    },
+    "awards": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+      "title": "Nebius Notes 13–14 — share awards and economic capital",
+      "published": "2026-11-12",
+      "period": "2026-09-30",
+      "unit": "shares; USD/share; USD millions for proceeds",
+      "section": "Notes 13–14, F-35–F-37, parent share-option/RSU tables and Pre-Funded Warrants",
+      "locator": "Notes 13–14, F-35–F-37, parent share-option/RSU tables and Pre-Funded Warrants",
+      "excerpt": "Parent options 6,735,333 at weighted exercise $90.18; unvestedRSUs 5,493,478. Economic ordinary shares 292,902,405 plus 21,065,936 prefunded warrants with $0.0001 strike; treasury shares excluded. Avride awards are subsidiary claims, not parent shares."
+    },
+    "letter": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-2.htm",
+      "title": "Nebius Q3 2026 shareholder letter — capacity, funding and outlook",
+      "published": "2026-11-12",
+      "period": "FY2026 and preliminary FY2027 guidance",
+      "unit": "USD millions unless otherwise specified",
+      "section": "Financial update / Capital requirements and 2026/2027 guidance",
+      "locator": "Financial update / Capital requirements and 2026/2027 guidance",
+      "excerpt": "2027 revenue 12–13B; capex 40–45B; prepayments 17–20B;75–85% capex expected covered by advances plus asset-backed financing. 2026 capex approximately 27B. $7B February ARR milestone and remaining New Jersey deliveriesQ 22027 are expectations, not actual revenue."
+    },
+    "citi": {
+      "url": "https://nebius.com/newsroom/nebius-secures-3-5-billion-financing-facility-with-citi",
+      "title": "Nebius enters $3.5B Citi senior secured facility",
+      "published": "2026-10-22",
+      "period": "364-day facility entered October 22,2026",
+      "unit": "USD millions unless otherwise specified",
+      "section": "Release financing paragraphs; notes F-41, Subsequent Events",
+      "locator": "Release financing paragraphs; notes F-41, Subsequent Events",
+      "excerpt": "Facility 3,500;364-day maturity; initial TermSOFR+2.75%, rising margin to 3.50% subject adjustments. A signed commitment is verified; funded draw, fees and cash proceeds not disclosed."
+    },
+    "annual": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
+      "title": "Nebius 2025 Form 20-F — June/September 2025 convertibles",
+      "published": "2026-04-30",
+      "period": "2025 contractual debt terms",
+      "unit": "USD millions unless otherwise specified",
+      "section": "Debt note — June 2025 and September 2025 convertible notes",
+      "locator": "Debt note — June 2025 and September 2025 convertible notes",
+      "excerpt": "June conversion 19.4363 shares per $1,000 original principal. Original principal remaining after August 2026 exchange 87.5 each series; September 2025 original principal 1,581.25 per series. Initial conversion rules subject to eligibility, accretion and anti-dilution."
+    },
+    "sept25": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465925089203/tm2525502d2_fwp.htm",
+      "title": "Nebius September 2025 convertible pricing prospectus",
+      "published": "2025-09-10",
+      "period": "September 2025 notes due 2030/2032",
+      "unit": "USD millions unless otherwise specified",
+      "section": "Pricing release conversion/coupon/accretion paragraphs",
+      "locator": "Pricing release conversion/coupon/accretion paragraphs",
+      "excerpt": "Both series conversion 7.2072 shares per $1,000 original principal; coupons 1%/2.75% of original principal. Maturity principal 115% of original; conversion shares are not increased for accretion."
+    },
+    "quote": {
+      "url": "https://stockanalysis.com/stocks/nbis/",
+      "title": "NBIS dated regular-session stock observation",
+      "published": "2026-11-25",
+      "period": "2026-11-25T 21:00:00Z regular-session close",
+      "unit": "USD/share",
+      "section": "Page header, At close: Nov 25,2026,4:00PMEST",
+      "locator": "Page header, At close: Nov 25,2026,4:00PMEST",
+      "excerpt": "$84.99 regular-session close; later $88.23 after-hours is not the selected reference. Retrieved November 27 after holiday, before the next US regular session."
+    },
+    "filing-cover": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/0001104659-26-126238-index.htm",
+      "title": "Nebius detailed September statements — filing identity",
+      "published": "2026-11-12",
+      "period": "November 12,2026 Form 6-K",
+      "unit": "USD millions unless otherwise specified",
+      "section": "SEC accession index: filed 2026-11-12; accepted 2026-11-12 16:10:13 Eastern; detailed statements Exhibit 99.2",
+      "locator": "SEC filing cover and accession-directory timestamp 2026-11-12 16:10:13",
+      "excerpt": "Accession 0001104659-26-126238 contains the detailed quarterly statements; publication date November 12 verified against primary SEC accession directory."
+    },
+    "assumptions": {
+      "url": "https://github.com/joedatacap/aidatacenter2/blob/12e9c1e13acd2f17ceedac26ef9d6c8db550e899/neocloud/data/equity/nbis.json",
+      "title": "Justin analyst assumptions; linked immutable operating-model baseline",
+      "published": "2026-11-27",
+      "period": "Scenario cash periods through 2027-11-27; operating anchorFY 2027",
+      "unit": "USD millions; shares millions; decimal rates; USD/share",
+      "section": "Baseline FY2027 scenarios at commit 12e9c1e; new financing, timing and valuation assumptions are authored explicitly in this report’s cases and operating_assumptions, not claimed as issuer facts.",
+      "locator": "Baseline FY2027 scenarios at commit 12e9c1e; new financing, timing and valuation assumptions are authored explicitly in this report’s cases and operating_assumptions, not claimed as issuer facts.",
+      "excerpt": "The linked committed baseline supports the inherited MW, revenue, cost and prepayment assumptions. New timing allocations, funding access, issue terms, valuation multiples, minimum cash and future awards are independent analyst assumptions recorded in this report; the baseline does not establish these as reported facts.",
+      "local_record": "neocloud/data/underwriting/nbis.json",
+      "verification": "Baseline file verified in local git object 12e9c1e13acd2f17ceedac26ef9d6c8db550e899; new assumptions reproduce from this review record. GitHub connector retrieval required an unavailable link_id, so no live browser verification of the immutable URL is claimed."
+    },
+    "stakes": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+      "title": "Nebius Notes 5–6 — nonmarketable investments and measurement",
+      "published": "2026-11-12",
+      "period": "2026-09-30 carrying values; January16 measurement event",
+      "unit": "USD millions",
+      "section": "Note 5, F-23, nonmarketable equity table; Note 6, F-26, ClickHouse measurement inputs",
+      "locator": "ClickHouse1,517.7; Toloka preferred83.7; other2.5; total1,603.9. ClickHouse mark uses January2026 financing and a lack-of-marketability adjustment.",
+      "excerpt": "Nonmarketable investments total $1,603.9M. The ClickHouse measurement is based on an earlier observable financing transaction, not a liquid November quote; carrying amounts are not cash available for construction."
+    }
+  },
+  "opening": {
+    "as_of": "2026-09-30",
+    "cash": 7425.6,
+    "restricted_cash": 1215.5,
+    "cash_includes_restricted": false,
+    "minimum_cash": 1000,
+    "debt": 16478,
+    "shares": 313.968341,
+    "other_ev_claims": 29,
+    "source_ids": [
+      "balance",
+      "debt",
+      "awards"
+    ],
+    "note": "Reported unrestricted cash is $7.4256B; another $1.2155B is legally restricted and disclosed separately. The $1B minimum cash balance is an analyst reserve. Debt uses $16.478B of contractual redemption claims, including future accretion conservatively upfront, rather than a carrying value. Economic shares are 292.902405M ordinary shares plus 21.065936M prefunded warrants; 29.138539M treasury shares are excluded. Earlier ATM sales and the 15.770124M August exchange shares are already reflected.",
+    "shares_as_of": "2026-09-30"
+  },
+  "transactions": [
+    {
+      "id": "oct1-vie-advance",
+      "date": "2026-10-01",
+      "status": "closed",
+      "gross_proceeds": 0,
+      "fees": 0,
+      "repayment": 0,
+      "other_cash_uses": 230.6,
+      "debt_added": 0,
+      "debt_repaid": 0,
+      "shares_added": 0,
+      "source_ids": [
+        "customer"
+      ],
+      "note": "Actual additional construction-VIE note advance. Investing cash use, not lender repayment. Discretionary possible additional 662.2 is not a legal obligation or known draw."
+    },
+    {
+      "id": "citi-commitment",
+      "date": "2026-10-22",
+      "status": "conditional",
+      "gross_proceeds": 3500,
+      "fees": 0,
+      "repayment": 0,
+      "debt_added": 3500,
+      "debt_repaid": 0,
+      "shares_added": 0,
+      "source_ids": [
+        "citi"
+      ],
+      "note": "Executed facility commitment; funding/draw amount and fees unknown. Conditional record excluded from actual cash roll. Separate scenario period models possible draw/fees and full repayment before maturity;0 here is no assumed actual fee, not a disclosure of fee-free financing."
+    }
+  ],
+  "convertibles": [
+    {
+      "id": "jun2029",
+      "principal": 105,
+      "cash_coupon_base": 87.5,
+      "coupon_rate": 0.02,
+      "conversion_shares": 1.70067625,
+      "source_ids": [
+        "annual",
+        "converts"
+      ],
+      "maturity": "2029-06-05",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "87.5 USD millions original principal × 19.4363 shares per $1,000 /1,000 = 1.70067625 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    },
+    {
+      "id": "jun2031",
+      "principal": 109.4,
+      "cash_coupon_base": 87.5,
+      "coupon_rate": 0.03,
+      "conversion_shares": 1.70067625,
+      "source_ids": [
+        "annual",
+        "converts"
+      ],
+      "maturity": "2031-06-05",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "87.5 USD millions original principal × 19.4363 shares per $1,000 /1,000 = 1.70067625 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    },
+    {
+      "id": "sep2030",
+      "principal": 1818.4,
+      "cash_coupon_base": 1581.25,
+      "coupon_rate": 0.01,
+      "conversion_shares": 11.396385,
+      "source_ids": [
+        "debt",
+        "sept25"
+      ],
+      "maturity": "2030-09-15",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "1581.25 USD millions original principal × 7.2072 shares per $1,000 /1,000 = 11.396385 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    },
+    {
+      "id": "sep2032",
+      "principal": 1818.4,
+      "cash_coupon_base": 1581.25,
+      "coupon_rate": 0.0275,
+      "conversion_shares": 11.396385,
+      "source_ids": [
+        "debt",
+        "sept25"
+      ],
+      "maturity": "2032-09-15",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "1581.25 USD millions original principal × 7.2072 shares per $1,000 /1,000 = 11.396385 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    },
+    {
+      "id": "mar2031",
+      "principal": 3105,
+      "cash_coupon_base": 2587.5,
+      "coupon_rate": 0.0125,
+      "conversion_shares": 14.12231625,
+      "source_ids": [
+        "debt",
+        "converts"
+      ],
+      "maturity": "2031-03-15",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "2587.5 USD millions original principal × 5.4579 shares per $1,000 /1,000 = 14.12231625 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    },
+    {
+      "id": "mar2033",
+      "principal": 2100,
+      "cash_coupon_base": 1750,
+      "coupon_rate": 0.02625,
+      "conversion_shares": 9.7055,
+      "source_ids": [
+        "debt",
+        "converts"
+      ],
+      "maturity": "2033-03-15",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "1750 USD millions original principal × 5.546 shares per $1,000 /1,000 = 9.7055 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    },
+    {
+      "id": "feb2030",
+      "principal": 3795,
+      "cash_coupon_base": 3450,
+      "coupon_rate": 0.005,
+      "conversion_shares": 11.00619,
+      "source_ids": [
+        "debt",
+        "converts"
+      ],
+      "maturity": "2030-02-15",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "3450 USD millions original principal × 3.1902 shares per $1,000 /1,000 = 11.00619 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    },
+    {
+      "id": "feb2034",
+      "principal": 2875,
+      "cash_coupon_base": 2300,
+      "coupon_rate": 0.045,
+      "conversion_shares": 7.08446,
+      "source_ids": [
+        "debt",
+        "converts"
+      ],
+      "maturity": "2034-02-15",
+      "unit": "USD millions / shares millions / decimal annual coupon",
+      "conversion_formula": "2300 USD millions original principal × 3.0802 shares per $1,000 /1,000 = 7.08446 million shares",
+      "note": "Principal is Note 12 contractual redemption face including future accretion, not amortized carrying value. Coupons use original principal. Conversion removes this retained face claim and adds only contractual initial conversion shares. Not a forecast that eligibility/holder election occurs; make-whole/anti-dilution adjustments excluded as event-dependent.",
+      "conversion_date": "2027-10-01"
+    }
+  ],
+  "cases": [
+    {
+      "id": "bear",
+      "annual_operating": {
+        "year": 2027,
+        "revenue": 8050,
+        "ebitda_margin": 0.5001863354037267,
+        "adjusted_ebitda": 4476.5,
+        "ocf_before_interest": 12484.0,
+        "capex": 35000,
+        "prepayments_embedded": 15000,
+        "free_cash_flow_before_interest": -22516.0,
+        "note": "Full FY2027 operating valuation anchor, not cash flowing after the November 27 target. EBITDA includes SBC; adjusted EBITDA excludes it. Annual OCF includes advances minus prepaid-revenue recognition once. Tax provision is retained from original normalized forecast while new bridge cash interest is recalculated; a tax/interest feedback loop is not forecast."
+      },
+      "operating_assumptions": {
+        "avg_revenue_earning_mw": 400,
+        "realized_annual_revenue_per_mw_m": 20,
+        "other_revenue_m": 50,
+        "cash_cost_of_revenue_pct": 27.0,
+        "cash_opex_m": 1400,
+        "sbc_m": 450,
+        "average_in_service_gpu_cost_m": 20000,
+        "gpu_life_years": 5,
+        "infrastructure_da_m": 300,
+        "average_debt_m": 24000,
+        "cash_interest_rate_pct": 7.5,
+        "customer_financing_noncash_interest_m": 400,
+        "average_cash_m": 300,
+        "interest_income_rate_pct": 2.5,
+        "tax_rate_on_profit_pct": 20,
+        "capex_m": 35000,
+        "new_customer_prepayments_m": 15000,
+        "prepaid_revenue_recognition_m": 6000,
+        "other_working_capital_use_m": 1000,
+        "adjusted_ebitda_m": 4476.5,
+        "classification": "analyst assumptions; not consensus",
+        "source_ids": [
+          "letter",
+          "cashflow",
+          "assumptions"
+        ],
+        "unit": "USD millions except MW, years and percentage inputs",
+        "formula": "Cash earnings=revenue×(1−cash service-cost ratio)−cash opex. Pre-interest OCF=cash earnings−cash taxes+interest income−other WC+customer advances−recognition of prepaid revenue.",
+        "cash_tax": 0,
+        "cash_interest_income": 7.5,
+        "annual_project_debt": 10000,
+        "expected_capex_funding_coverage": 0.7142857142857143
+      },
+      "valuation": {
+        "method": "ev_revenue",
+        "multiple": 3.0,
+        "other_ev_claims": 29
+      },
+      "issue": {
+        "reference_price": 84.99,
+        "discount": 0.25,
+        "fee_rate": 0.03,
+        "available_gross_capacity": 486.78279594750006,
+        "available_capacity_as_of": "2026-09-30",
+        "available_capacity_note": "Illustrative gross proceeds from the 7.636707M shares unused under the original ATM at September 30, repriced at this scenario issue price. Remaining November capacity is unverified. This is not enough to authorize the entire hypothetical raise; new capacity and market demand are conditions."
+      },
+      "cash_debt_rate": 0.085,
+      "conversions": [],
+      "additional_shares": 18.228811,
+      "periods": [
+        {
+          "id": "2026Q4-before-Citi",
+          "start": "2026-10-01",
+          "end": "2026-10-21",
+          "ocf_before_interest": 228.26086956521738,
+          "capex": 2640.818478260869,
+          "other_uses": 0.0,
+          "new_debt": 0,
+          "debt_repayment": 9.130434782608695,
+          "prepayments": [
+            {
+              "id": "2026Q4-before-Citi-advance",
+              "amount": 570.6521739130435,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "cashflow",
+            "citi",
+            "assumptions"
+          ],
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+        },
+        {
+          "id": "2026Q4-after-Citi",
+          "start": "2026-10-22",
+          "end": "2026-12-31",
+          "ocf_before_interest": 771.7391304347826,
+          "capex": 8928.48152173913,
+          "other_uses": 52.5,
+          "new_debt": 3500,
+          "debt_repayment": 30.869565217391305,
+          "prepayments": [
+            {
+              "id": "2026Q4-after-Citi-advance",
+              "amount": 1929.3478260869565,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "cashflow",
+            "citi",
+            "assumptions"
+          ],
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+        },
+        {
+          "id": "2027Q1",
+          "start": "2027-01-01",
+          "end": "2027-03-31",
+          "ocf_before_interest": 3996.8,
+          "capex": 7000.0,
+          "other_uses": 40.0,
+          "new_debt": 2000.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q1-advance",
+              "amount": 4500.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q2",
+          "start": "2027-04-01",
+          "end": "2027-06-30",
+          "ocf_before_interest": 3871.0,
+          "capex": 8750.0,
+          "other_uses": 50.0,
+          "new_debt": 2500.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q2-advance",
+              "amount": 4500.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q3",
+          "start": "2027-07-01",
+          "end": "2027-09-30",
+          "ocf_before_interest": 2995.2,
+          "capex": 10500.0,
+          "other_uses": 60.0,
+          "new_debt": 3000.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q3-advance",
+              "amount": 3750.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q4-to-target",
+          "start": "2027-10-01",
+          "end": "2027-11-27",
+          "ocf_before_interest": 1021.9347826086955,
+          "capex": 5516.304347826087,
+          "other_uses": 31.521739130434785,
+          "new_debt": 1576.0869565217392,
+          "debt_repayment": 3525.217391304348,
+          "prepayments": [
+            {
+              "id": "2027Q4-to-target-advance",
+              "amount": 1418.4782608695652,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        }
+      ],
+      "source_ids": [
+        "balance",
+        "cashflow",
+        "letter",
+        "debt",
+        "awards",
+        "citi",
+        "assumptions"
+      ],
+      "assumptions": [
+        "Valuation anchor is fullFY 2027 consolidated recognized revenue; target dateNovember 27,2027 is distinct. EV/revenue multiple is an independent analytic assumption, not a trading comparable or observed market multiple.",
+        "Assume $10B of new asset-backed project borrowing in FY2027, subject to collateral, deliveries and lender approval. Together with $15B of customer advances, this covers 71.4% of assumed annual capex. These are scenario proceeds, not cash already available.",
+        "Reported cash 7,425.6 is already unrestricted. Legal restricted cash 1,215.5 is disclosed separately; modeled minimum operating cash 1,000 is an assumption and not another legal restriction.",
+        "Convertible debt is retained in every scenario with zero conversion shares. Contractual accreted redemption face is a conservative equity claim, not carrying debt or a cash payment due within target. All cash coupons remain included on original principal. Possible conversion sensitivity can be reproduced by explicitly selecting instrumentIDs; conversion conditions and holder/company elections are not presumed.",
+        "The target denominator reserves 18.228811M additional shares: all 6.735333M reported parent options, all 5.493478M unvested parent RSUs and 6M assumed future net awards. Full exercise and vesting by the target, with no exercise cash credited, is conservative. This reserve is an assumption, not a reported fully diluted share count; Avride awards are excluded.",
+        "No speculative proceeds from ClickHouse, Toloka or Avride disposal. Investment assets are not monetized or added at unverifiable market marks. Other EV claims 29 comprise bookNCI 1 plus conservative 28 unresolved debt-table discrepancy reserve; not reported fair values.",
+        "Citi draw timing and its assumed 1.5% fee are unverified. New project loans carry a modeled 2% fee, existing term-loan repayments are assumed at $40M a quarter, and equity discounts, issue fees, future awards and quarterly timing are analyst inputs. Period-end minimum cash does not prove that every bill can be paid within the period.",
+        "October 1 known VIE cash advance 230.6 is separate investing use; it is not a debt repayment or new customer prepayment. Inferize purchase consideration and discretionary further VIE advances are unquantified; stress separately rather than claim total liquidity completeness.",
+        "The original ATM had only 7.636707M shares unused at September 30. The modeled raise exceeds that dated capacity and needs new issuance capacity, required corporate approvals and willing buyers; no automatic authorization or execution is assumed. The 500M authorized Class A shares are not all free headroom because issued shares and contractual reservations must be reconciled."
+      ]
+    },
+    {
+      "id": "base",
+      "annual_operating": {
+        "year": 2027,
+        "revenue": 12550,
+        "ebitda_margin": 0.6026693227091634,
+        "adjusted_ebitda": 8063.5,
+        "ocf_before_interest": 19236.8,
+        "capex": 42500,
+        "prepayments_embedded": 18500,
+        "free_cash_flow_before_interest": -23263.2,
+        "note": "Full FY2027 operating valuation anchor, not cash flowing after the November 27 target. EBITDA includes SBC; adjusted EBITDA excludes it. Annual OCF includes advances minus prepaid-revenue recognition once. Tax provision is retained from original normalized forecast while new bridge cash interest is recalculated; a tax/interest feedback loop is not forecast."
+      },
+      "operating_assumptions": {
+        "avg_revenue_earning_mw": 500,
+        "realized_annual_revenue_per_mw_m": 25,
+        "other_revenue_m": 50,
+        "cash_cost_of_revenue_pct": 23.0,
+        "cash_opex_m": 1600,
+        "sbc_m": 500,
+        "average_in_service_gpu_cost_m": 26000,
+        "gpu_life_years": 5,
+        "infrastructure_da_m": 350,
+        "average_debt_m": 24000,
+        "cash_interest_rate_pct": 6.0,
+        "customer_financing_noncash_interest_m": 400,
+        "average_cash_m": 400,
+        "interest_income_rate_pct": 2.5,
+        "tax_rate_on_profit_pct": 20,
+        "capex_m": 42500,
+        "new_customer_prepayments_m": 18500,
+        "prepaid_revenue_recognition_m": 6500,
+        "other_working_capital_use_m": 800,
+        "adjusted_ebitda_m": 8063.5,
+        "classification": "analyst assumptions; not consensus",
+        "source_ids": [
+          "letter",
+          "cashflow",
+          "assumptions"
+        ],
+        "unit": "USD millions except MW, years and percentage inputs",
+        "formula": "Cash earnings=revenue×(1−cash service-cost ratio)−cash opex. Pre-interest OCF=cash earnings−cash taxes+interest income−other WC+customer advances−recognition of prepaid revenue.",
+        "cash_tax": 36.7,
+        "cash_interest_income": 10.0,
+        "annual_project_debt": 15500,
+        "expected_capex_funding_coverage": 0.8
+      },
+      "valuation": {
+        "method": "ev_revenue",
+        "multiple": 6.0,
+        "other_ev_claims": 29
+      },
+      "issue": {
+        "reference_price": 84.99,
+        "discount": 0.1,
+        "fee_rate": 0.02,
+        "available_gross_capacity": 584.139355137,
+        "available_capacity_as_of": "2026-09-30",
+        "available_capacity_note": "Illustrative gross proceeds from the 7.636707M shares unused under the original ATM at September 30, repriced at this scenario issue price. Remaining November capacity is unverified. This is not enough to authorize the entire hypothetical raise; new capacity and market demand are conditions."
+      },
+      "cash_debt_rate": 0.06,
+      "conversions": [],
+      "additional_shares": 15.228811,
+      "periods": [
+        {
+          "id": "2026Q4-before-Citi",
+          "start": "2026-10-01",
+          "end": "2026-10-21",
+          "ocf_before_interest": 410.86956521739125,
+          "capex": 2640.818478260869,
+          "other_uses": 0.0,
+          "new_debt": 0,
+          "debt_repayment": 9.130434782608695,
+          "prepayments": [
+            {
+              "id": "2026Q4-before-Citi-advance",
+              "amount": 798.9130434782609,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "cashflow",
+            "citi",
+            "assumptions"
+          ],
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+        },
+        {
+          "id": "2026Q4-after-Citi",
+          "start": "2026-10-22",
+          "end": "2026-12-31",
+          "ocf_before_interest": 1389.1304347826087,
+          "capex": 8928.48152173913,
+          "other_uses": 52.5,
+          "new_debt": 3500,
+          "debt_repayment": 30.869565217391305,
+          "prepayments": [
+            {
+              "id": "2026Q4-after-Citi-advance",
+              "amount": 2701.086956521739,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "cashflow",
+            "citi",
+            "assumptions"
+          ],
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+        },
+        {
+          "id": "2027Q1",
+          "start": "2027-01-01",
+          "end": "2027-03-31",
+          "ocf_before_interest": 5697.360000000001,
+          "capex": 8500.0,
+          "other_uses": 62.0,
+          "new_debt": 3100.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q1-advance",
+              "amount": 5550.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q2",
+          "start": "2027-04-01",
+          "end": "2027-06-30",
+          "ocf_before_interest": 5734.2,
+          "capex": 10625.0,
+          "other_uses": 77.5,
+          "new_debt": 3875.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q2-advance",
+              "amount": 5550.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q3",
+          "start": "2027-07-01",
+          "end": "2027-09-30",
+          "ocf_before_interest": 4846.04,
+          "capex": 12750.0,
+          "other_uses": 93.0,
+          "new_debt": 4650.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q3-advance",
+              "amount": 4625.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q4-to-target",
+          "start": "2027-10-01",
+          "end": "2027-11-27",
+          "ocf_before_interest": 1865.5826086956522,
+          "capex": 6698.369565217392,
+          "other_uses": 48.85869565217392,
+          "new_debt": 2442.934782608696,
+          "debt_repayment": 3525.217391304348,
+          "prepayments": [
+            {
+              "id": "2027Q4-to-target-advance",
+              "amount": 1749.4565217391305,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        }
+      ],
+      "source_ids": [
+        "balance",
+        "cashflow",
+        "letter",
+        "debt",
+        "awards",
+        "citi",
+        "assumptions"
+      ],
+      "assumptions": [
+        "Valuation anchor is fullFY 2027 consolidated recognized revenue; target dateNovember 27,2027 is distinct. EV/revenue multiple is an independent analytic assumption, not a trading comparable or observed market multiple.",
+        "Assume $15.5B of new asset-backed project borrowing in FY2027, subject to collateral, deliveries and lender approval. Together with $18.5B of customer advances, this covers 80.0% of assumed annual capex. These are scenario proceeds, not cash already available.",
+        "Reported cash 7,425.6 is already unrestricted. Legal restricted cash 1,215.5 is disclosed separately; modeled minimum operating cash 1,000 is an assumption and not another legal restriction.",
+        "Convertible debt is retained in every scenario with zero conversion shares. Contractual accreted redemption face is a conservative equity claim, not carrying debt or a cash payment due within target. All cash coupons remain included on original principal. Possible conversion sensitivity can be reproduced by explicitly selecting instrumentIDs; conversion conditions and holder/company elections are not presumed.",
+        "The target denominator reserves 15.228811M additional shares: all 6.735333M reported parent options, all 5.493478M unvested parent RSUs and 3M assumed future net awards. Full exercise and vesting by the target, with no exercise cash credited, is conservative. This reserve is an assumption, not a reported fully diluted share count; Avride awards are excluded.",
+        "No speculative proceeds from ClickHouse, Toloka or Avride disposal. Investment assets are not monetized or added at unverifiable market marks. Other EV claims 29 comprise bookNCI 1 plus conservative 28 unresolved debt-table discrepancy reserve; not reported fair values.",
+        "Citi draw timing and its assumed 1.5% fee are unverified. New project loans carry a modeled 2% fee, existing term-loan repayments are assumed at $40M a quarter, and equity discounts, issue fees, future awards and quarterly timing are analyst inputs. Period-end minimum cash does not prove that every bill can be paid within the period.",
+        "October 1 known VIE cash advance 230.6 is separate investing use; it is not a debt repayment or new customer prepayment. Inferize purchase consideration and discretionary further VIE advances are unquantified; stress separately rather than claim total liquidity completeness.",
+        "The original ATM had only 7.636707M shares unused at September 30. The modeled raise exceeds that dated capacity and needs new issuance capacity, required corporate approvals and willing buyers; no automatic authorization or execution is assumed. The 500M authorized Class A shares are not all free headroom because issued shares and contractual reservations must be reconciled."
+      ]
+    },
+    {
+      "id": "bull",
+      "annual_operating": {
+        "year": 2027,
+        "revenue": 16260,
+        "ebitda_margin": 0.6393234932349323,
+        "adjusted_ebitda": 10995.400000000001,
+        "ocf_before_interest": 22837.32,
+        "capex": 45000,
+        "prepayments_embedded": 20000,
+        "free_cash_flow_before_interest": -22162.68,
+        "note": "Full FY2027 operating valuation anchor, not cash flowing after the November 27 target. EBITDA includes SBC; adjusted EBITDA excludes it. Annual OCF includes advances minus prepaid-revenue recognition once. Tax provision is retained from original normalized forecast while new bridge cash interest is recalculated; a tax/interest feedback loop is not forecast."
+      },
+      "operating_assumptions": {
+        "avg_revenue_earning_mw": 600,
+        "realized_annual_revenue_per_mw_m": 27,
+        "other_revenue_m": 60,
+        "cash_cost_of_revenue_pct": 21.0,
+        "cash_opex_m": 1850,
+        "sbc_m": 600,
+        "average_in_service_gpu_cost_m": 30000,
+        "gpu_life_years": 5,
+        "infrastructure_da_m": 400,
+        "average_debt_m": 23000,
+        "cash_interest_rate_pct": 5.5,
+        "customer_financing_noncash_interest_m": 400,
+        "average_cash_m": 400,
+        "interest_income_rate_pct": 2.5,
+        "tax_rate_on_profit_pct": 20,
+        "capex_m": 45000,
+        "new_customer_prepayments_m": 20000,
+        "prepaid_revenue_recognition_m": 7000,
+        "other_working_capital_use_m": 700,
+        "adjusted_ebitda_m": 10995.4,
+        "classification": "analyst assumptions; not consensus",
+        "source_ids": [
+          "letter",
+          "cashflow",
+          "assumptions"
+        ],
+        "unit": "USD millions except MW, years and percentage inputs",
+        "formula": "Cash earnings=revenue×(1−cash service-cost ratio)−cash opex. Pre-interest OCF=cash earnings−cash taxes+interest income−other WC+customer advances−recognition of prepaid revenue.",
+        "cash_tax": 468.0799999999999,
+        "cash_interest_income": 10.0,
+        "annual_project_debt": 18250,
+        "expected_capex_funding_coverage": 0.85
+      },
+      "valuation": {
+        "method": "ev_revenue",
+        "multiple": 9.0,
+        "other_ev_claims": 29
+      },
+      "issue": {
+        "reference_price": 84.99,
+        "discount": 0.05,
+        "fee_rate": 0.015,
+        "available_gross_capacity": 616.5915415335,
+        "available_capacity_as_of": "2026-09-30",
+        "available_capacity_note": "Illustrative gross proceeds from the 7.636707M shares unused under the original ATM at September 30, repriced at this scenario issue price. Remaining November capacity is unverified. This is not enough to authorize the entire hypothetical raise; new capacity and market demand are conditions."
+      },
+      "cash_debt_rate": 0.055,
+      "conversions": [
+        "jun2029",
+        "jun2031",
+        "sep2030",
+        "sep2032"
+      ],
+      "additional_shares": 14.228811,
+      "periods": [
+        {
+          "id": "2026Q4-before-Citi",
+          "start": "2026-10-01",
+          "end": "2026-10-21",
+          "ocf_before_interest": 616.3043478260869,
+          "capex": 2640.818478260869,
+          "other_uses": 0.0,
+          "new_debt": 0,
+          "debt_repayment": 9.130434782608695,
+          "prepayments": [
+            {
+              "id": "2026Q4-before-Citi-advance",
+              "amount": 1027.1739130434783,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "cashflow",
+            "citi",
+            "assumptions"
+          ],
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+        },
+        {
+          "id": "2026Q4-after-Citi",
+          "start": "2026-10-22",
+          "end": "2026-12-31",
+          "ocf_before_interest": 2083.695652173913,
+          "capex": 8928.48152173913,
+          "other_uses": 52.5,
+          "new_debt": 3500,
+          "debt_repayment": 30.869565217391305,
+          "prepayments": [
+            {
+              "id": "2026Q4-after-Citi-advance",
+              "amount": 3472.8260869565215,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "cashflow",
+            "citi",
+            "assumptions"
+          ],
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+        },
+        {
+          "id": "2027Q1",
+          "start": "2027-01-01",
+          "end": "2027-03-31",
+          "ocf_before_interest": 6567.464,
+          "capex": 9000.0,
+          "other_uses": 73.0,
+          "new_debt": 3650.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q1-advance",
+              "amount": 6000.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q2",
+          "start": "2027-04-01",
+          "end": "2027-06-30",
+          "ocf_before_interest": 6709.33,
+          "capex": 11250.0,
+          "other_uses": 91.25,
+          "new_debt": 4562.5,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q2-advance",
+              "amount": 6000.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q3",
+          "start": "2027-07-01",
+          "end": "2027-09-30",
+          "ocf_before_interest": 5851.196,
+          "capex": 13500.0,
+          "other_uses": 109.5,
+          "new_debt": 5475.0,
+          "debt_repayment": 40,
+          "prepayments": [
+            {
+              "id": "2027Q3-advance",
+              "amount": 5000.0,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        },
+        {
+          "id": "2027Q4-to-target",
+          "start": "2027-10-01",
+          "end": "2027-11-27",
+          "ocf_before_interest": 2338.4906521739135,
+          "capex": 7092.391304347826,
+          "other_uses": 57.527173913043484,
+          "new_debt": 2876.358695652174,
+          "debt_repayment": 3525.217391304348,
+          "prepayments": [
+            {
+              "id": "2027Q4-to-target-advance",
+              "amount": 1891.304347826087,
+              "included_in_ocf": true
+            }
+          ],
+          "source_ids": [
+            "letter",
+            "debt",
+            "assumptions"
+          ],
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+        }
+      ],
+      "source_ids": [
+        "balance",
+        "cashflow",
+        "letter",
+        "debt",
+        "awards",
+        "citi",
+        "assumptions"
+      ],
+      "assumptions": [
+        "Valuation anchor is fullFY 2027 consolidated recognized revenue; target dateNovember 27,2027 is distinct. EV/revenue multiple is an independent analytic assumption, not a trading comparable or observed market multiple.",
+        "Assume $18.25B of new asset-backed project borrowing in FY2027, subject to collateral, deliveries and lender approval. Together with $20B of customer advances, this covers 85.0% of assumed annual capex. These are scenario proceeds, not cash already available.",
+        "Reported cash 7,425.6 is already unrestricted. Legal restricted cash 1,215.5 is disclosed separately; modeled minimum operating cash 1,000 is an assumption and not another legal restriction.",
+        "The bull assumes the June and September 2025 notes meet their sustained-price conversion conditions and holders convert on October 1, 2027. The model removes $3.8512B of retained redemption claims, adds 26.194122M contractual shares and stops those coupons from that date. March and August 2026 notes remain debt; their conversion requires separate eligibility analysis. A single target price does not establish the required earlier trading path.",
+        "The target denominator reserves 14.228811M additional shares: all 6.735333M reported parent options, all 5.493478M unvested parent RSUs and 2M assumed future net awards. Full exercise and vesting by the target, with no exercise cash credited, is conservative. This reserve is an assumption, not a reported fully diluted share count; Avride awards are excluded.",
+        "No speculative proceeds from ClickHouse, Toloka or Avride disposal. Investment assets are not monetized or added at unverifiable market marks. Other EV claims 29 comprise bookNCI 1 plus conservative 28 unresolved debt-table discrepancy reserve; not reported fair values.",
+        "Citi draw timing and its assumed 1.5% fee are unverified. New project loans carry a modeled 2% fee, existing term-loan repayments are assumed at $40M a quarter, and equity discounts, issue fees, future awards and quarterly timing are analyst inputs. Period-end minimum cash does not prove that every bill can be paid within the period.",
+        "October 1 known VIE cash advance 230.6 is separate investing use; it is not a debt repayment or new customer prepayment. Inferize purchase consideration and discretionary further VIE advances are unquantified; stress separately rather than claim total liquidity completeness.",
+        "The original ATM had only 7.636707M shares unused at September 30. The modeled raise exceeds that dated capacity and needs new issuance capacity, required corporate approvals and willing buyers; no automatic authorization or execution is assumed. The 500M authorized Class A shares are not all free headroom because issued shares and contractual reservations must be reconciled."
+      ]
+    }
+  ],
+  "sensitivity": {
+    "x": {
+      "field": "multiple",
+      "values": [
+        4,
+        6,
+        8
+      ]
+    },
+    "y": {
+      "field": "capex_scale",
+      "values": [
+        0.8,
+        1,
+        1.2
+      ]
+    },
+    "note": "Recomputes entire base funding, hypothetical equity and share value, holding operating revenue, receipt assumptions, debt access and issue terms fixed. Capex×20% does not mechanically bring 20% more advances or lender approval."
+  },
+  "call": {
+    "rating": "Hold / high risk",
+    "summary": "Hold at the verified $84.99 close. The base scenario values a share at $95.50, only 12.4% upside, while modeled existing-holder dilution reaches 34.7%.",
+    "driver": "The base requires $11.36B of net new equity through November 27, 2027, even with customer advances and project loans. That means 151.56M financing shares, plus a separate 15.23M reserve for share awards.",
+    "strongest_objection": "Management expects advances and asset-backed financing to cover 75–85% of 2027 capex. If spending is 20% lower while revenue and financing remain unchanged, modeled value rises to $132.32; preserving revenue with less spending is the optimistic assumption.",
+    "falsifier": "Upgrade only when a refreshed model offers at least 25% upside and no more than 25% dilution, supported by documented funding for at least 75% of planned capex and remaining New Jersey delivery by Q2 2027. Downgrade if funding coverage falls below 75% without replacement, or further delivery delays impair customer economics."
+  },
+  "historical": {
+    "as_of": "2026-11-26",
+    "rating": "Hold",
+    "report_path": "neocloud/data/equity/nbis.json",
+    "report_sha256": "f88faa27fb14d772a34bfac9e4dbdf5b469d3e9e93cc09db4f3974b254ad8b7b",
+    "original_model": {
+      "year": 2027,
+      "scenario": "base",
+      "period": "Calendar year 2027",
+      "inputs": {
+        "avg_revenue_earning_mw": 500,
+        "realized_annual_revenue_per_mw_m": 25,
+        "other_revenue_m": 50,
+        "cash_cost_of_revenue_pct": 23.0,
+        "cash_opex_m": 1600,
+        "sbc_m": 500,
+        "average_in_service_gpu_cost_m": 26000,
+        "gpu_life_years": 5,
+        "infrastructure_da_m": 350,
+        "average_debt_m": 24000,
+        "cash_interest_rate_pct": 6.0,
+        "customer_financing_noncash_interest_m": 400,
+        "average_cash_m": 400,
+        "interest_income_rate_pct": 2.5,
+        "tax_rate_on_profit_pct": 20,
+        "capex_m": 42500,
+        "new_customer_prepayments_m": 18500,
+        "prepaid_revenue_recognition_m": 6500,
+        "other_working_capital_use_m": 800,
+        "adjusted_ebitda_m": 8063.5
+      },
+      "metrics": {
+        "revenue": 12550,
+        "gross_profit": 4113.5,
+        "ebitda": 7563.5,
+        "net_income": 146.8,
+        "capex": 42500,
+        "fcf": -24703.2
+      },
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "sources": [
+        "letter",
+        "notes",
+        "q3"
+      ],
+      "gaps": [
+        "Average earning MW is a scenario driver, not disclosed live installed MW; utilization and commissioning embedded once.",
+        "New-contract >$25M ACV/MW is not fleet realized yield; selected lower/higher yields model mix and repricing.",
+        "Cohort commissioning, useful-life mix and cash prepayment recognition schedule are not disclosed in enough detail for precise GAAP forecasts.",
+        "No proceeds from strategic investment disposals; no speculative gains. All D&A assigned to gross profit analytically, unlike issuer presentation."
+      ]
+    },
+    "reproduced": {
+      "revenue": 12550,
+      "da": 5550,
+      "ebitda": 7563.5,
+      "pretax": 183.5,
+      "net_income": 146.8,
+      "ocf": 17796.8,
+      "fcf": -24703.2
+    },
+    "equations": [
+      "Revenue=500MW×$25M/MW+$50M=$12,550M.",
+      "D&A=$26,000M/5+$350M=$5,550M.",
+      "EBITDA=$12,550M×77%−$1,600M−$500M=$7,563.5M.",
+      "Pretax=$7,563.5M−$5,550M−$24,000M×6%−$400M+$400M×2.5%=$183.5M.",
+      "Net income=$183.5M×80%=$146.8M.",
+      "FCF=$146.8M+$5,550M+$500M+$400M+$18,500M−$6,500M−$800M−$42,500M=−$24,703.2M."
+    ],
+    "prepayment_audit": "The old model already includes gross new customer advances 18,500 once, offset by 6,500 recognition of prepaid revenue. No double count is present in its FCF formula. Adding the same 18,500 again as financing would double count; the new calculator marks embedded receipts and never re-adds them. Historical September deferred revenue 9,409.2 is already reflected in opening cash and never becomes new forecast funding.",
+    "comparison": "Historical forecast is preserved unchanged; new target bridge replaces assumed average-debt interest with instrument cash coupons plus modeled floating borrowing and models actual elapsed-period financing, fees, reserves and dilution. FY2027 FCF and a November 27 target cash bridge are different horizons."
+  },
+  "prepayment_reconciliation": {
+    "unit": "USD millions",
+    "period": "Nine months ended 2026-09-30",
+    "source_ids": [
+      "cashflow",
+      "customer"
+    ],
+    "opening_deferred_revenue": 1577.5,
+    "closing_deferred_revenue": 9409.2,
+    "balance_change": 7831.7,
+    "ocf_deferred_revenue_movement": 7829,
+    "unreconciled_other_adjustment": 2.7,
+    "note": "Balance change 7,831.7 differs from cash-flow movement 7,829.0 by 2.7; likely noncash/FX/acquisition effects not separately reconciled in this prototype. Do not equate either net movement to gross cash receipts. Recognition of 217.5 relates only to opening deferred revenue; total current-year prepaid-service recognition is not disclosed. Thus 2026 committed 10B cannot safely be reduced by 7.829B to invent remainingQ 4 cash. Reported cash and OCF already reflect historical customer funding."
+  },
+  "share_bridge": {
+    "period": "2026-09-30",
+    "unit": "million shares",
+    "ordinary": 292.902405,
+    "prefunded": 21.065936,
+    "economic": 313.968341,
+    "treasury_excluded": 29.138539,
+    "parent_options": 6.735333,
+    "parent_rsus": 5.493478,
+    "weighted_eps_incremental_not_point": 9.736161,
+    "source_ids": [
+      "awards"
+    ],
+    "reference_basic_equity_m": 24893.77540095,
+    "reference_economic_equity_m": 26684.16930159,
+    "note": "Provider 24.89B headline uses rounded ordinary shares; economic exposure includes prefunded warrants. Point awards come from Note 13, not weighted EPS increments. Scenario reserves are explicit and full-gross; no treasury-stock netting or presumed postSeptember share count. Exact shares at cutoff remain a dated reconciliation gap."
+  },
+  "upfront_financing_audit": [
+    {
+      "event": "August 2026 convertible sale — before opening, not rolled again",
+      "gross": 5750,
+      "initial_purchaser_discount": 71.9,
+      "net_disclosed": 5678.1,
+      "total_issuance_costs": 72.4,
+      "additional_costs_not_in_discount": 0.5,
+      "fully_costed_proceeds": 5677.6,
+      "noncash_exchange_original_principal": 800,
+      "exchange_shares": 15.770124,
+      "source_ids": [
+        "converts"
+      ],
+      "note": "Gross less 71.9 equals disclosed net 5,678.1; total issuance costs 72.4 also includes 0.5 additional costs, so fully costed estimate 5,677.6 assumes those costs paid. Both beforeSeptember 30 cash; never add either amount again. $800M exchange for shares was noncash, not a cash principal repayment."
+    },
+    {
+      "event": "March 2026 convertible sale — before opening, already in cash",
+      "gross": 4337.5,
+      "fees": 43.8,
+      "net": 4293.7,
+      "repayment": 0,
+      "source_ids": [
+        "converts"
+      ],
+      "period": "March 20,2026 close",
+      "unit": "USD millions",
+      "locator": "Note 12, March 2026 convertible notes; total original principal 2,587.5+1,750 and net proceeds paragraph",
+      "note": "Gross/net arithmetic reconciles. Excluded from subsequent cash roll; convertible principal claim and coupons are retained separately."
+    },
+    {
+      "event": "July secured term loan — before opening, already in cash",
+      "gross": 773.3,
+      "fees": 20.5,
+      "repayment": 21.5,
+      "net_after_fees_and_repayments": 731.3,
+      "source_ids": [
+        "cashflow",
+        "debt"
+      ],
+      "period": "Nine months endedSeptember 30,2026",
+      "unit": "USD millions",
+      "locator": "F-7 financing rows proceeds from long-term debt, long-term debt issuance costs/lender fees, repayments; Note 12 Term Loan Facility",
+      "note": "Loan principal outstanding 751.8 is 773.3−21.5. Carrying amount 733.1 includes remaining financing discounts/costs; neither carrying principal nor original gross proceeds is extra September cash."
+    },
+    {
+      "event": "Nine-month ATM treasury-share sales — before opening, already in cash/shares",
+      "gross": 3908.5,
+      "fees": 48.8,
+      "net": 3859.7,
+      "shares_m": 17.363293,
+      "source_ids": [
+        "cashflow",
+        "awards"
+      ],
+      "period": "Nine months endedSeptember 30,2026",
+      "unit": "USD millions; shares millions",
+      "locator": "F-7 sale-of-treasury-shares proceeds/issuance-cost rows; F-6 equity rollforward",
+      "note": "Cash-flow net 3859.7 differs from equity rollforward 3859.6 by 0.1 rounding/classification not resolved here. Already in opening shares; adding 17.363293 again would double count."
+    }
+  ],
+  "freshness": {
+    "cutoff": "2026-11-27T09:00:00Z",
+    "channels": [
+      {
+        "url": "https://nebius.com/newsroom",
+        "result": "The accessible issuer list shows the November 18 Physical AI awards and November 12 quarterly results. The latest financial guidance reviewed was published November 12."
+      },
+      {
+        "url": "https://data.sec.gov/submissions/CIK0001513845.json",
+        "result": "SEC daily-index review for November 17–25 (all sessions) found only NBIS Forms 4. November 12 detailed statements accession index verified directly: accepted 16:10:13 Eastern. No later corporate financing filing identified in those reviewed daily indexes; complete November 26–27 latest submission coverage remains subject to refresh."
+      }
+    ],
+    "gaps": [
+      "Daily-index coverage through November 25 corroborated by parent research; November 26 US holiday. A complete current SEC submission extraction for November 27 was not parsed here.",
+      "Newsroom/events can omit non-press-release filings.",
+      "No financing or quote first published after November 27 at 09:00 UTC enters this information cutoff."
+    ]
+  },
+  "gaps": [
+    "Actual postSeptember cash, Citi draws/fees, Inferize consideration and current share issuance not fully disclosed; cash roll is known-transactions-only, not a certified current cash balance.",
+    "Quarterly 2027 commissioning, customer receipts, prepaid revenue recognition and debt disbursement schedules are unavailable; model shows one transparent timing allocation plus sensitivities, not a reported quarterly forecast.",
+    "Opening debt-table/balance-sheet 28M discrepancy unresolved; retained conservatively as additional claim rather than fabricated reconciliation.",
+    "Contractual principal includes future accretion and is more conservative than current carrying debt; current redemption eligibility and exact dated accretion steps require indenture-level schedule.",
+    "GPU useful life, renewal pricing, capex basis and asset-backed lender terms can materially alter valuation; no selected coupon substitutes for company-wide future funding cost."
+  ],
+  "original_reconstruction": {
+    "as_of": "2026-11-26",
+    "rating": "Hold",
+    "report_path": "neocloud/data/equity/nbis.json",
+    "report_sha256": "f88faa27fb14d772a34bfac9e4dbdf5b469d3e9e93cc09db4f3974b254ad8b7b",
+    "original_model": {
+      "year": 2027,
+      "scenario": "base",
+      "period": "Calendar year 2027",
+      "inputs": {
+        "avg_revenue_earning_mw": 500,
+        "realized_annual_revenue_per_mw_m": 25,
+        "other_revenue_m": 50,
+        "cash_cost_of_revenue_pct": 23.0,
+        "cash_opex_m": 1600,
+        "sbc_m": 500,
+        "average_in_service_gpu_cost_m": 26000,
+        "gpu_life_years": 5,
+        "infrastructure_da_m": 350,
+        "average_debt_m": 24000,
+        "cash_interest_rate_pct": 6.0,
+        "customer_financing_noncash_interest_m": 400,
+        "average_cash_m": 400,
+        "interest_income_rate_pct": 2.5,
+        "tax_rate_on_profit_pct": 20,
+        "capex_m": 42500,
+        "new_customer_prepayments_m": 18500,
+        "prepaid_revenue_recognition_m": 6500,
+        "other_working_capital_use_m": 800,
+        "adjusted_ebitda_m": 8063.5
+      },
+      "metrics": {
+        "revenue": 12550,
+        "gross_profit": 4113.5,
+        "ebitda": 7563.5,
+        "net_income": 146.8,
+        "capex": 42500,
+        "fcf": -24703.2
+      },
+      "method": "Justin independent assumptions, not consensus or management guidance. Revenue=average revenue-earning MW×realized annual $M/MW+other. D&A=average in-service GPU cost/5+infrastructure D&A. Gross profit=revenue×(1−cash cost ratio)−all D&A (analytical fully burdened definition). EBITDA=revenue×(1−cash cost ratio)−cash opex−SBC; includes SBC, unlike issuer adjusted EBITDA shown in inputs. Pretax=EBITDA−D&A−average debt×cash interest rate−noncash customer-financing interest+average cash×cash yield. Net income=pretax−max(pretax,0)×20%; no tax benefit on losses or investment marks. FCF=net income+D&A+SBC+noncash customer-financing interest+new prepayments−recognition of prepaid revenue−other WC−capex. No debt proceeds in FCF. All debt interest expensed for conservative comparability; no capitalized-interest benefit.",
+      "sources": [
+        "letter",
+        "notes",
+        "q3"
+      ],
+      "gaps": [
+        "Average earning MW is a scenario driver, not disclosed live installed MW; utilization and commissioning embedded once.",
+        "New-contract >$25M ACV/MW is not fleet realized yield; selected lower/higher yields model mix and repricing.",
+        "Cohort commissioning, useful-life mix and cash prepayment recognition schedule are not disclosed in enough detail for precise GAAP forecasts.",
+        "No proceeds from strategic investment disposals; no speculative gains. All D&A assigned to gross profit analytically, unlike issuer presentation."
+      ]
+    },
+    "reproduced": {
+      "revenue": 12550,
+      "da": 5550,
+      "ebitda": 7563.5,
+      "pretax": 183.5,
+      "net_income": 146.8,
+      "ocf": 17796.8,
+      "fcf": -24703.2
+    },
+    "equations": [
+      "Revenue=500MW×$25M/MW+$50M=$12,550M.",
+      "D&A=$26,000M/5+$350M=$5,550M.",
+      "EBITDA=$12,550M×77%−$1,600M−$500M=$7,563.5M.",
+      "Pretax=$7,563.5M−$5,550M−$24,000M×6%−$400M+$400M×2.5%=$183.5M.",
+      "Net income=$183.5M×80%=$146.8M.",
+      "FCF=$146.8M+$5,550M+$500M+$400M+$18,500M−$6,500M−$800M−$42,500M=−$24,703.2M."
+    ],
+    "prepayment_audit": "The old model already includes gross new customer advances 18,500 once, offset by 6,500 recognition of prepaid revenue. No double count is present in its FCF formula. Adding the same 18,500 again as financing would double count; the new calculator marks embedded receipts and never re-adds them. Historical September deferred revenue 9,409.2 is already reflected in opening cash and never becomes new forecast funding.",
+    "comparison": "Historical forecast is preserved unchanged; new target bridge replaces assumed average-debt interest with instrument cash coupons plus modeled floating borrowing and models actual elapsed-period financing, fees, reserves and dilution. FY2027 FCF and a November 27 target cash bridge are different horizons."
+  },
+  "reference_denominator_bridge": {
+    "period": "Reference priceNovember 25,2026 × datedSeptember 30,2026 denominators",
+    "unit": "USD millions except shares millions and USD/share",
+    "source_ids": [
+      "quote",
+      "balance",
+      "debt",
+      "awards"
+    ],
+    "rows": [
+      {
+        "label": "Ordinary economic shares",
+        "value": 292.902405,
+        "basis": "reported excluding treasury"
+      },
+      {
+        "label": "Nominal-strike prefunded warrant exposure",
+        "value": 21.065936,
+        "basis": "reported contractual underlying shares"
+      },
+      {
+        "label": "Minimum economic denominator",
+        "value": 313.968341,
+        "basis": "calculated; not fully diluted/current"
+      },
+      {
+        "label": "Reference economic equity value",
+        "value": 26684.16930159,
+        "basis": "calculated; reference price×economic shares"
+      },
+      {
+        "label": "Contractual principal/redemption claim",
+        "value": 16478,
+        "basis": "reported Note 12; includes future accretion conservatively"
+      },
+      {
+        "label": "Unrestricted cash deduction",
+        "value": -7425.6,
+        "basis": "reported balance-sheet cash; restricted 1215.5 not deducted"
+      },
+      {
+        "label": "Other claim reserve",
+        "value": 29,
+        "basis": "bookNCI 1 plus assumed conservative 28 discrepancy reserve"
+      },
+      {
+        "label": "Historical mixed-date EV reference",
+        "value": 35765.569301589996,
+        "basis": "calculated; not current market EV or target EV"
+      }
+    ],
+    "note": "No current EV is claimed: reference quote and balances have different dates. Target EV/equity must instead use target borrowing/cash/shares from the timed bridge. September balance-sheet debt 14,190.8 and Note 12 carrying 14,162.8 remain unreconciled by 28.0; principal approach avoids treating accounting discounts as absent claims."
+  },
+  "multiple_rationale": {
+    "source_ids": [
+      "assumptions",
+      "letter"
+    ],
+    "classification": "Analyst valuation assumption, not an independently observed peer multiple",
+    "base_multiple": 6,
+    "base_ebitda_margin": 0.6026693227091634,
+    "base_implied_ev_ebitda": 9.955708336087788,
+    "rationale": "A 6× sales valuation capitalizes sustained growth beyond FY2027, not merely one year of customer advances. At the modeled 60.3% EBITDA margin, it implies about 10× EBITDA; at a mature 40% margin it is 15×, and at 30% it is 20×. The base therefore already requires strong economics and continued growth. It is an explicit risk hurdle, not evidence that NBIS is cheap versus observed peers.",
+    "mature_cash_illustrations": [
+      {
+        "ebitda_margin": 0.3,
+        "maintenance_capex_pct_revenue": 0.25,
+        "cash_tax_pct_revenue": 0.02,
+        "unlevered_cash_margin": 0.03,
+        "unlevered_cash_yield_at_6x_sales": 0.005
+      },
+      {
+        "ebitda_margin": 0.4,
+        "maintenance_capex_pct_revenue": 0.25,
+        "cash_tax_pct_revenue": 0.05,
+        "unlevered_cash_margin": 0.1,
+        "unlevered_cash_yield_at_6x_sales": 0.016666666666666666
+      },
+      {
+        "ebitda_margin": 0.6,
+        "maintenance_capex_pct_revenue": 0.25,
+        "cash_tax_pct_revenue": 0.07,
+        "unlevered_cash_margin": 0.28,
+        "unlevered_cash_yield_at_6x_sales": 0.04666666666666667
+      }
+    ],
+    "cash_note": "These are illustrative mature unlevered cash margins before financing, new growth capex and working capital, with maintenance capex and tax both assumed. They are not near-term free cash flow or a DCF. At 6× sales the implied cash yields are only 0.5%, 1.7% and 4.7%, so continued growth matters.",
+    "valuation_ranges": "Bear 3× sales reflects failed growth economics/funding; base 6× requires stronger execution; bull 9× prices durable premium growth. None is an independent trading-comparable observation."
+  },
+  "nonoperating_investments": {
+    "as_of": "2026-09-30",
+    "unit": "USD millions",
+    "source_ids": [
+      "stakes"
+    ],
+    "reported_book_values": {
+      "ClickHouse": 1517.7,
+      "Toloka_preferred": 83.7,
+      "other": 2.5,
+      "total": 1603.9
+    },
+    "base_credit": 0,
+    "basis": "Conservative exclusion from both scenario equity value and cash funding; not an assertion that stakes are worthless. No verified liquid quote, sale schedule, tax basis or net realizable proceeds. Avride and TripleTen are consolidated in operating forecasts and not added again as separate businesses.",
+    "illustrative_book_credit_alternative": {
+      "holding_fixed": "Base debt, cash, funding, share denominator and operating EV; no sale proceeds enter the cash bridge.",
+      "credit": 1603.9,
+      "increment_per_share": 3.336218090109467,
+      "value_per_share": 98.8326426559605,
+      "return_pct": 16.287378110319462
+    },
+    "note": "A full pre-tax carrying-value credit is an illustration, not a market-value upper bound. It raises base value by about $3.34 to $98.83, still below the 25% upside hurdle. No valuation or cash proceeds are plugged for a hypothetical stake sale."
+  },
+  "conversion_audit": {
+    "source_ids": [
+      "converts",
+      "annual",
+      "sept25"
+    ],
+    "timing": "Hypothetical October 1, 2027 conversion, after an assumed qualifying Q3 trading path; not a reported future event.",
+    "trigger_context": "A $267.72 bull target exceeds the June and September 2025 ordinary price-trigger ceilings even at maximum accretion (about $83.61 and $207.43). Eligibility also requires a sustained trading path and other contractual conditions. March 2026 ordinary trigger thresholds run from about $234–238 before accretion to about $281–286 at maximum accretion; the exact October 2027 stage and holder election are not reconstructed. August 2026 ordinary thresholds exceed about $407 before accretion and are not assumed met.",
+    "alternates": [
+      {
+        "label": "All convertibles retained — comparison only",
+        "conversion_date": "2027-10-01",
+        "instruments": [],
+        "value_per_share": 275.2443042763268,
+        "return_pct": 223.85492914028333,
+        "funding_gap": 6969.248371172216,
+        "post_financing_shares": 415.82825481739195,
+        "target_debt": 32856.641304347824,
+        "conversion_shares": 0.0,
+        "convertible_principal_removed": 0.0,
+        "cash_interest": 913.9018494330863
+      },
+      {
+        "label": "2025 tranches convert on October1 — default bull",
+        "conversion_date": "2027-10-01",
+        "instruments": [
+          "jun2029",
+          "jun2031",
+          "sep2030",
+          "sep2032"
+        ],
+        "value_per_share": 267.7230863507455,
+        "return_pct": 215.0053963416232,
+        "funding_gap": 6959.137573773174,
+        "post_financing_shares": 441.8952444790637,
+        "target_debt": 29005.441304347823,
+        "conversion_shares": 26.1941225,
+        "convertible_principal_removed": 3851.2000000000003,
+        "cash_interest": 903.7910520340446
+      },
+      {
+        "label": "March2026 also converts if eligible",
+        "conversion_date": "2027-10-01",
+        "instruments": [
+          "jun2029",
+          "jun2031",
+          "sep2030",
+          "sep2032",
+          "mar2031",
+          "mar2033"
+        ],
+        "value_per_share": 265.29075948177285,
+        "return_pct": 212.14349862545342,
+        "funding_gap": 6946.706875621224,
+        "post_financing_shares": 465.5667575339658,
+        "target_debt": 23800.441304347823,
+        "conversion_shares": 50.021938750000004,
+        "convertible_principal_removed": 9056.2,
+        "cash_interest": 891.3603538820939
+      }
+    ],
+    "qualification": "The default bull models June/September conversion rather than retaining cheap debt with no corresponding shares. March if-eligible sensitivity removes another $5.205B of claims and adds another 23.827816M shares. Cash coupons stop only on the selected date. Exact make-whole and anti-dilution events could change the results."
+  },
+  "equity_capacity_audit": {
+    "as_of": "2026-09-30",
+    "source_ids": [
+      "awards"
+    ],
+    "unit": "million shares; USD millions",
+    "original_atm_share_capacity": 25,
+    "already_sold": 17.363293,
+    "dated_unused_share_capacity": 7.636707,
+    "modeled_base_financing_shares": 151.5567905419797,
+    "excess_base_shares_above_dated_atm": 143.9200835419797,
+    "base_gross_capacity_at_scenario_price": 584.139355137,
+    "base_net_capacity_after_scenario_fees": 572.45656803426,
+    "note": "The base needs roughly 151.56M financing shares versus only 7.64M unused under the dated original ATM. New issuance authorization/capacity and investor demand are required; proceeds are hypothetical. Earlier ATM execution proves a financing mechanism existed, not that an approximately 20-fold larger share sale can clear near the assumed price. Current unused capacity and all contractual share reservations remain unverified."
+  },
+  "equity_capacity": {
+    "as_of": "2026-09-30",
+    "kind": "shares",
+    "amount": 7.636707,
+    "source_ids": [
+      "awards"
+    ],
+    "remaining_at_cutoff": null,
+    "note": "Note 14 explicitly reports 7,636,707 shares remaining under the original ATM at September 30. Current unused capacity is unverified, and the hypothetical raise requires much more than this dated remainder. No original program dollar ceiling is treated as current available cash."
+  }
+}

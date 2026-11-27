@@ -1,0 +1,999 @@
+{
+  "ticker": "CRWV",
+  "cutoff": "2026-11-27T09:00:00Z",
+  "reviewed_at": "2026-11-27T09:19:40Z",
+  "target_date": "2027-11-27",
+  "reference": {
+    "price": 42.57,
+    "as_of": "2026-11-25",
+    "source": "quote",
+    "observed_at": "2026-11-25T21:00:00Z",
+    "note": "Latest verified completed US regular session: November 26 Thanksgiving closure; cutoff precedes November 27 regular trading. Price is an attributed observation, not a live quote."
+  },
+  "sources": {
+    "balance": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: cash and claims",
+      "published": "2026-11-12",
+      "section": "p6 balance sheet; p12 cash reconciliation",
+      "excerpt": "Cash and cash equivalents | $ | 4,122 \u2026 Restricted cash and cash equivalents, current | 1,405 \u2026 Restricted cash and cash equivalents, non-current | 877",
+      "excerpt_note": "Selected table cells; whitespace normalized, omissions marked by ellipses.",
+      "period": "2026-09-30",
+      "unit": "USD millions"
+    },
+    "cashflow": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: historical operating and investing cash",
+      "published": "2026-11-12",
+      "section": "p12 nine-month cash-flow statement and supplemental cash interest",
+      "excerpt": "Net cash provided by operating activities; Purchases of property and equipment and software; Deferred revenue",
+      "period": "2026-01-01/2026-09-30",
+      "unit": "USD millions"
+    },
+    "customers": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: revenue, deferred revenue and concentration",
+      "published": "2026-11-12",
+      "section": "Note 2, pp16\u201318, Revenue, Deferred Revenue, Remaining Performance Obligations and Concentration",
+      "excerpt": "Revenue from contracts with customers; Remaining performance obligations; Deferred Revenue; Concentration",
+      "period": "Q3 and nine months ended2026-09-30; RPO recognition begins2026-10-01",
+      "unit": "USD millions; concentration percentages"
+    },
+    "debt": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: principal, carrying values and amortization",
+      "published": "2026-11-12",
+      "section": "Note 10, pp30\u201334; p31 future-principal table; pp53\u201354 liquidity",
+      "excerpt": "Remaining portion of 2026 | $ | 2,433 \u2026 2027 | 10,974 \u2026 Total | $ | 47,505",
+      "excerpt_note": "Future principal table cells; whitespace normalized, omissions marked by ellipses. Carrying-value reconciliation is a separate table in the cited section.",
+      "period": "2026-09-30; future principal maturities2026 onward",
+      "unit": "USD millions; annual interest rates"
+    },
+    "facilities": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: project recourse, draw conditions and cash sweep",
+      "published": "2026-11-12",
+      "section": "Note 10, pp31\u201334, Non-Recourse Debt, DDTL 4.0, 5.0 and 5.5; p52 liquidity footnote",
+      "excerpt": "These limited guarantees do not represent general guarantees of repayment of principal, interest or other ordinary debt service payments.",
+      "period": "2026-09-30 outstanding and available;2026-2027 draw/service terms",
+      "unit": "USD millions; annual interest rates; basis points where specified"
+    },
+    "converts": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: convertible notes",
+      "published": "2026-11-12",
+      "section": "Note 10, pp32\u201334, 2032 and 2033 Convertible Senior Notes; p30 principal table",
+      "excerpt": "2032 Convertible Senior Notes; 2033 Convertible Senior Notes",
+      "period": "Outstanding2026-09-30; April/September2026 issuances",
+      "unit": "USD millions in model; conversion shares perUSD1000 principal; per-shareUSD strikes; annual coupon decimals"
+    },
+    "convert2031": {
+      "url": "https://investors.coreweave.com/news/news-details/2025/CoreWeave-Prices-Upsized-2-25-Billion-Convertible-Senior-Notes-Offering/default.aspx",
+      "title": "CoreWeave 2031 convertible pricing",
+      "published": "2025-12-09",
+      "section": "Pricing release, conversion and settlement paragraphs",
+      "excerpt": "The initial conversion rate will be 9.2764 shares of CoreWeave\u2019s Class A common stock per $1,000 principal amount of Notes",
+      "period": "2031 notes priced2025-12-09; subsequent outstanding balance2026-09-30 fromdebt source",
+      "unit": "USD; initial conversion shares perUSD1000 principal; model cash/shares millions"
+    },
+    "shares": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: basic shares and equity overhang",
+      "published": "2026-11-12",
+      "section": "Cover, October30 shares; Note11, Equity Distribution Agreement:35million shares remaining at September30, maximum2% fee; Note13 EPS exclusions",
+      "excerpt": "465,847,732 shares of Class A common stock, 90,277,992 shares of Class B common stock",
+      "period": "Basic shares2026-10-30; ATM checkpoint2026-09-30",
+      "unit": "Actual shares in cover excerpt; model shares millions; ATM fee percent"
+    },
+    "leases": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: lease commitments and customer-supplier offset",
+      "published": "2026-11-12",
+      "section": "Note 8 pp26\u201329, maturities and uncommenced leases; p6 balance sheet; pp53\u201354 commitments",
+      "excerpt": "Finance lease liabilities, current; Finance lease liabilities, non-current; Operating lease liabilities, current",
+      "period": "2026-09-30 balance; remaining2026 andFY2027 cash maturities; future commitments",
+      "unit": "USD millions"
+    },
+    "guidance": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "title": "CoreWeave Q3 2026 earnings release",
+      "published": "2026-11-10",
+      "section": "Financial highlights, FY2026 outlook and non-GAAP reconciliation",
+      "excerpt": "Revenue; Adjusted EBITDA; Capital expenditures; Adjusted operating income; Interest expense",
+      "period": "Q3 and nine months2026; FY2026 outlook; December2026 exitARR",
+      "unit": "USD millions; annualized run-rate for exitARR; powerGW where stated"
+    },
+    "call": {
+      "url": "https://s205.q4cdn.com/133937190/files/content_files/CoreWeave-3Q26-Transcript-_1_.pdf",
+      "title": "CoreWeave Q3 2026 issuer-hosted earnings call transcript",
+      "published": "2026-11-11",
+      "section": "PDF pp2\u20133, CEO financing, prepayments and GPU renewal discussion; call held November10",
+      "excerpt": "In the next three months alone, we will collect approximately $9 billion in prepayments and deposits from signed customer contracts.",
+      "period": "Call held2026-11-10; prospective receipts nextthree months;2027-2028 renewals",
+      "unit": "USD billions in quoted passage; modelUSD millions; GPU units andGW only where specifically disclosed"
+    },
+    "quote": {
+      "url": "https://stockanalysis.com/stocks/crwv/history/",
+      "title": "Stock Analysis: CRWV historical quote observation",
+      "published": "2026-11-25",
+      "section": "Single November25 regular-session closing observation; displayed close time4:00PM EST",
+      "excerpt": "At close: Nov 25, 2026, 4:00 PM EST",
+      "rights_note": "Single attributed dated observation under the existing repository source audit; no price-series archive, feed, or broad redistribution license implied.",
+      "period": "2026-11-25 regular-session close",
+      "unit": "USD perClassA common share"
+    },
+    "indenture2031": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000105/exhibit41-indenture.htm",
+      "title": "CoreWeave 2031 convertible indenture",
+      "published": "2025-12-11",
+      "section": "Section13.01(b)(iv), conversion privilege; Section15.01 redemption",
+      "excerpt": "greater than or equal to 130% of the Conversion Price on each applicable Trading Day.",
+      "period": "2031 notes issued2025-12-11; contingent conversion through2031",
+      "unit": "USD principal; shares perUSD1000; trading-day counts and price-threshold percentages"
+    },
+    "indenture2032": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000164/ex43.htm",
+      "title": "CoreWeave 2032 convertible indenture",
+      "published": "2026-04-14",
+      "section": "Section13.01(b)(iii), conversion privilege; Section15.01 redemption",
+      "excerpt": "at least 20 Trading Days (whether or not consecutive) during the period of 30 consecutive Trading Days",
+      "period": "2032 notes issued2026-04-14; contingent conversion through2032",
+      "unit": "USD principal; shares perUSD1000; trading-day counts and price-threshold percentages"
+    },
+    "indenture2033": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000432/ex41-indenture.htm",
+      "title": "CoreWeave 2033 convertible indenture",
+      "published": "2026-09-22",
+      "section": "Section13.01(b)(iii), prior-quarter price test;13.02 settlement;15.01 redemption",
+      "excerpt": "during any fiscal quarter commencing after the fiscal quarter ending on December 31, 2026 (and only during such fiscal quarter)",
+      "period": "2033 notes issued2026-09-22; contingent conversion through2033",
+      "unit": "USD principal; shares perUSD1000; trading-day counts and price-threshold percentages"
+    },
+    "dcsp": {
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "title": "CoreWeave Q3 2026 Form 10-Q: DCSP net settlement and VIE exposure",
+      "published": "2026-11-12",
+      "period": "2026-09-30",
+      "unit": "USD millions",
+      "section": "Note 10, pp37\u201338, DCSP Financing Arrangements; ASC210 offset paragraph",
+      "excerpt": "the gross amount of the DCSP Note Receivable was $300 million, which is presented net of the financing obligation and finance lease of $229 million."
+    }
+  },
+  "opening": {
+    "as_of": "2026-09-30",
+    "cash": 4122,
+    "restricted_cash": 2282,
+    "cash_includes_restricted": false,
+    "minimum_cash": 3000,
+    "debt": 47505,
+    "shares": 556.125724,
+    "shares_as_of": "2026-10-30",
+    "other_ev_claims": 649,
+    "source_ids": [
+      "balance",
+      "debt",
+      "shares",
+      "leases"
+    ],
+    "note": "USDm. Cash excludes current restricted 1405 and noncurrent 877; do not deduct them again. Debt is contractual principal 47505, not carrying 46873; finance leases 649 sit separately in other EV claims. Shares are actual cover-date A+B, 465.847732+90.277992 million, not September 30 rounded balance-sheet shares. No fictional intervening cash update. Minimum cash 3000 is an analyst operating reserve, not legal restriction. Restricted cash is not forecast released."
+  },
+  "transactions": [],
+  "convertibles": [
+    {
+      "id": "convert2031",
+      "principal": 2588,
+      "cash_coupon_base": 2587.5,
+      "conversion_shares": 24.002685,
+      "coupon_rate": 0.0175,
+      "source_ids": [
+        "debt",
+        "converts",
+        "convert2031"
+      ],
+      "note": "No conversion assumed in any case. Principal and coupon remain payable; cash/share settlement is issuer-elective and early conversion conditional. Initial conversion rate 9.2764 shares/$1000. Principal figures follow rounded Q3 table; 2031 exact coupon/conversion base 2587.5. Capped calls are not unrestricted cash and no speculative cash recovery is credited."
+    },
+    {
+      "id": "convert2032",
+      "principal": 4000,
+      "cash_coupon_base": 4000,
+      "conversion_shares": 33.4448,
+      "coupon_rate": 0.0175,
+      "source_ids": [
+        "debt",
+        "converts"
+      ],
+      "note": "No conversion assumed in any case. Principal and coupon remain payable; cash/share settlement is issuer-elective and early conversion conditional. Initial conversion rate 8.3612 shares/$1000. Principal figures follow rounded Q3 table; 2031 exact coupon/conversion base 2587.5. Capped calls are not unrestricted cash and no speculative cash recovery is credited."
+    },
+    {
+      "id": "convert2033",
+      "principal": 4200,
+      "cash_coupon_base": 4200,
+      "conversion_shares": 42.92148,
+      "coupon_rate": 0.02875,
+      "source_ids": [
+        "debt",
+        "converts"
+      ],
+      "note": "No conversion assumed in any case. Principal and coupon remain payable; cash/share settlement is issuer-elective and early conversion conditional. Initial conversion rate 10.2194 shares/$1000. Principal figures follow rounded Q3 table; 2031 exact coupon/conversion base 2587.5. Capped calls are not unrestricted cash and no speculative cash recovery is credited."
+    }
+  ],
+  "cases": [
+    {
+      "id": "bear",
+      "annual_operating": {
+        "year": 2027,
+        "revenue": 18000,
+        "ebitda_margin": 0.55,
+        "ocf_before_interest": 10300.0,
+        "capex": 25000,
+        "prepayments_embedded": 4500,
+        "free_cash_flow_before_interest": -14700.0,
+        "cash_interest_assumption": 5000,
+        "cash_free_cash_flow": -19700.0,
+        "note": "Analyst full calendar FY2027, not issuer guidance and not the target-date stub. Cash FCF=OCF before interest\u2212separate annual cash-interest assumption\u2212cash capex; finance-lease principal is outside standard OCF/capex FCF. OCF=issuer-adjusted EBITDA proxy +new cash customer receipts\u221220% revenue previously prepaid\u2212500 other working capital/tax use. Cash-interest assumption includes finance-lease interest; target bridge separately models nonlease interest plus all finance-lease cash payments. FY figures include November 28\u2013December 31, the 34 days after November 27 that the target bridge excludes; no subsequent cash is added to target. Modeled cash capex excludes capitalized financing interest, because all modeled cash interest is a separate cash use; these forecast capex assumptions are not a reconciliation to reported/guided accounting capex."
+      },
+      "valuation": {
+        "method": "ev_ebitda",
+        "multiple": 4,
+        "other_ev_claims": 340,
+        "anchor": {
+          "normalized_unlevered_cash_conversion": 0.5,
+          "required_return": 0.125,
+          "perpetual_growth": 0,
+          "formula": "conversion*(1+g)/(required_return-g)",
+          "status": "illustrative_unverified_mature_fleet_cash_conversion"
+        }
+      },
+      "issue": {
+        "reference_price": 42.57,
+        "discount": 0.25,
+        "fee_rate": 0.02,
+        "available_share_capacity": 35,
+        "capacity_as_of": "2026-09-30",
+        "capacity_note": "Remaining September 30 ATM shares only; later usage/forward settlements not independently confirmed. This is not an authorization of the full modeled financing requirement."
+      },
+      "cash_debt_rate": 0.115,
+      "conversions": [],
+      "additional_shares": 20,
+      "periods": [
+        {
+          "id": "2026Q4",
+          "start": "2026-10-01",
+          "end": "2026-12-31",
+          "ocf_before_interest": 1340.1000000000001,
+          "capex": 9000,
+          "other_uses": 52.0,
+          "new_debt": 3500,
+          "debt_repayment": 2433,
+          "prepayments": [
+            {
+              "id": "customer-q426",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Full Q4 from reported September 30 opening. Revenue is within implied FY2026 outlook range, EBITDA margin and cash capex 9000 are analyst assumptions. Gross customer receipts enter OCF once; subtract 20% prepaid service recognition and 300 other cash working capital/tax use. Debt repayment 2433 is reported remainder 2026; new debt is conditional gross, inclusive of any refinancing.17 finance-lease cash payment plus 1% gross new-debt issuance fee is separate; no post-opening new-loan amortization starts before 2027 by analyst assumption. Receipt timing can cause a larger intraperiod deficit. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 35.0,
+          "finance_lease_cash_payment": 17,
+          "scheduled_existing_principal": 2433,
+          "assumed_new_facility_amortization": 0
+        },
+        {
+          "id": "2027Q1",
+          "start": "2027-01-01",
+          "end": "2027-03-31",
+          "ocf_before_interest": 5951.712328767123,
+          "capex": 7500.0,
+          "other_uses": 126.0,
+          "new_debt": 3698.6301369863013,
+          "debt_repayment": 2969.7196472133605,
+          "prepayments": [
+            {
+              "id": "customer-2027q1",
+              "amount": 4500,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 25% of FY, capex weight 30%; partialQ4 uses 58/92. Annual gross new debt 15000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 263.802 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 4500 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 36.986301369863014,
+          "finance_lease_cash_payment": 89.01369863013699,
+          "scheduled_existing_principal": 2705.917808219178,
+          "assumed_new_facility_amortization": 263.8018389941826
+        },
+        {
+          "id": "2027Q2",
+          "start": "2027-04-01",
+          "end": "2027-06-30",
+          "ocf_before_interest": 1450.3424657534247,
+          "capex": 6750.0,
+          "other_uses": 127.4,
+          "new_debt": 3739.72602739726,
+          "debt_repayment": 3175.012005130881,
+          "prepayments": [
+            {
+              "id": "customer-2027q2",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 25% of FY, capex weight 27%; partialQ4 uses 58/92. Annual gross new debt 15000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 439.028 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 37.397260273972606,
+          "finance_lease_cash_payment": 90.0027397260274,
+          "scheduled_existing_principal": 2735.9835616438354,
+          "assumed_new_facility_amortization": 439.0284434870455
+        },
+        {
+          "id": "2027Q3",
+          "start": "2027-07-01",
+          "end": "2027-09-30",
+          "ocf_before_interest": 1448.972602739726,
+          "capex": 5750.0,
+          "other_uses": 128.8,
+          "new_debt": 3780.821917808219,
+          "debt_repayment": 3377.3294188242153,
+          "prepayments": [
+            {
+              "id": "customer-2027q3",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 25% of FY, capex weight 23%; partialQ4 uses 58/92. Annual gross new debt 15000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 611.280 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 37.80821917808219,
+          "finance_lease_cash_payment": 90.99178082191781,
+          "scheduled_existing_principal": 2766.0493150684933,
+          "assumed_new_facility_amortization": 611.2801037557219
+        },
+        {
+          "id": "2027Q4stub",
+          "start": "2027-10-01",
+          "end": "2027-11-27",
+          "ocf_before_interest": 913.4827278141753,
+          "capex": 3152.1739130434785,
+          "other_uses": 81.2,
+          "new_debt": 2383.5616438356165,
+          "debt_repayment": 2207.71354193787,
+          "prepayments": [
+            {
+              "id": "customer-2027q4stub",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 25% of FY, capex weight 20%; partialQ4 uses 58/92. Annual gross new debt 15000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 463.900 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 23.835616438356166,
+          "finance_lease_cash_payment": 57.364383561643834,
+          "scheduled_existing_principal": 1743.813698630137,
+          "assumed_new_facility_amortization": 463.89984330773314
+        }
+      ],
+      "source_ids": [
+        "guidance",
+        "call",
+        "debt",
+        "facilities",
+        "cashflow",
+        "customers",
+        "shares",
+        "leases",
+        "dcsp"
+      ],
+      "assumptions": [
+        "FY2027 revenue 18000, EBITDA margin 55%, cash capex 25000 and other working-capital/tax use 500 are analyst assumptions. Revenue scale is bracketed against guided FY2026 exit ARR20\u201321B, not treated as FY2027 guidance.",
+        "Cash collection from November 10 stated 9B deposit expectation: Q40, Q14500; no other 2027 gross customer prepayment inflow assumed.20% service revenue assumed already prepaid. This is a sensitivity convention, not a disclosed billing schedule; historic 3,492 deferred-revenue CF benefit is not added again.",
+        "Gross new debt 3500 Q4 and 15000 FY2027 includes refinancing; repay 2433 Q4 and 10974 FY2027. Existing principal only 331/365 FY2027 modeled through target; additional 20% annual new-facility amortization begins 2027 on midpoint new-loan balances and 1% gross debt issuance fees are charged to other cash uses, both analyst assumptions. Disclosed conditional undrawn 5653 is far smaller; additional project approvals and lenders are required. No transaction proceeds are automatically added as closed.",
+        "Nonconvertible cash rate 11.5%, above/below different facility terms as scenario stress; converters retain exact coupons. Cash interest differs from GAAP expense and guided Q4 interest because capitalized/noncash components differ. Interest on new draws/repayments uses midpoint convention, not a loan-specific amortization model.",
+        "Illustrative EV/issuer-adjusted EBITDA multiple 4: normalized unlevered cash conversion 50% after cash taxes/replacement capex \u00d7(1+0.00%) / (12.50% required return\u22120.00% growth). Independent analyst capital-return anchor, not an observed peer multiple. Sustainable conversion and GPU residual values are unverified; high maintenance capex can invalidate it.",
+        "Hypothetical equity gap priced at 42.57 less 25% discount and 2% fees, not a forecast market price or committed placement. No rescue equity above a stated capacity is presumed feasible; modeled issuance may exceed 35M ATM and invalidate financing unless another offering closes.",
+        "Additional 20M net new shares reserve for post-October 30 equity compensation/option/warrant effects, no exercise proceeds. This is an analyst dilution reserve; does not mechanically add all 158M EPS-excluded securities or double-count already-issued RSAs. No converter automatically turns into equity.",
+        "Finance-lease claim at target 340 is an analyst runoff from opening 649: modeled lease cash 344.375 through target includes about 35.375 interest and 309 principal. Operating leases are already rent-expensed in EBITDA/OCF, so no additional EV subtraction. Preferred/NCI assumed 0 based on reported balance sheet, not proof of zero future project claims.",
+        "No terminal unrestricted cash from afterNovember 27 is added. Full FY2027 EBITDA is the valuation metric, explicitly a fiscal-year estimate with 34 days after the target; financing/interest/dilution stop at the target. No probability weighting or unconditional fair price is claimed.",
+        "Forecast cash capex is defined before capitalized financing interest: financing interest and debt issuance fees are separate uses, so no capitalized-interest double count is intended. Reported historical cash capex is shown as filed and is not mechanically converted into these forecast inputs. The precise issuer cash-interest capitalization/payment bridge remains a gap."
+      ]
+    },
+    {
+      "id": "base",
+      "annual_operating": {
+        "year": 2027,
+        "revenue": 23000,
+        "ebitda_margin": 0.6,
+        "ocf_before_interest": 11700.0,
+        "capex": 26000,
+        "prepayments_embedded": 3000,
+        "free_cash_flow_before_interest": -14300.0,
+        "cash_interest_assumption": 5000,
+        "cash_free_cash_flow": -19300.0,
+        "note": "Analyst full calendar FY2027, not issuer guidance and not the target-date stub. Cash FCF=OCF before interest\u2212separate annual cash-interest assumption\u2212cash capex; finance-lease principal is outside standard OCF/capex FCF. OCF=issuer-adjusted EBITDA proxy +new cash customer receipts\u221220% revenue previously prepaid\u2212500 other working capital/tax use. Cash-interest assumption includes finance-lease interest; target bridge separately models nonlease interest plus all finance-lease cash payments. FY figures include November 28\u2013December 31, the 34 days after November 27 that the target bridge excludes; no subsequent cash is added to target. Modeled cash capex excludes capitalized financing interest, because all modeled cash interest is a separate cash use; these forecast capex assumptions are not a reconciliation to reported/guided accounting capex."
+      },
+      "valuation": {
+        "method": "ev_ebitda",
+        "multiple": 6.8,
+        "other_ev_claims": 340,
+        "anchor": {
+          "normalized_unlevered_cash_conversion": 0.6,
+          "required_return": 0.11,
+          "perpetual_growth": 0.02,
+          "formula": "conversion*(1+g)/(required_return-g)",
+          "status": "illustrative_unverified_mature_fleet_cash_conversion"
+        }
+      },
+      "issue": {
+        "reference_price": 42.57,
+        "discount": 0.1,
+        "fee_rate": 0.02,
+        "available_share_capacity": 35,
+        "capacity_as_of": "2026-09-30",
+        "capacity_note": "Remaining September 30 ATM shares only; later usage/forward settlements not independently confirmed. This is not an authorization of the full modeled financing requirement."
+      },
+      "cash_debt_rate": 0.095,
+      "conversions": [],
+      "additional_shares": 15,
+      "periods": [
+        {
+          "id": "2026Q4",
+          "start": "2026-10-01",
+          "end": "2026-12-31",
+          "ocf_before_interest": 7634.400000000001,
+          "capex": 9000,
+          "other_uses": 42.0,
+          "new_debt": 2500,
+          "debt_repayment": 2433,
+          "prepayments": [
+            {
+              "id": "customer-q426",
+              "amount": 6000,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Full Q4 from reported September 30 opening. Revenue is within implied FY2026 outlook range, EBITDA margin and cash capex 9000 are analyst assumptions. Gross customer receipts enter OCF once; subtract 20% prepaid service recognition and 300 other cash working capital/tax use. Debt repayment 2433 is reported remainder 2026; new debt is conditional gross, inclusive of any refinancing.17 finance-lease cash payment plus 1% gross new-debt issuance fee is separate; no post-opening new-loan amortization starts before 2027 by analyst assumption. Receipt timing can cause a larger intraperiod deficit. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 25.0,
+          "finance_lease_cash_payment": 17,
+          "scheduled_existing_principal": 2433,
+          "assumed_new_facility_amortization": 0
+        },
+        {
+          "id": "2027Q1",
+          "start": "2027-01-01",
+          "end": "2027-03-31",
+          "ocf_before_interest": 4992.712328767123,
+          "capex": 7800.0,
+          "other_uses": 153.12328767123287,
+          "new_debt": 6410.958904109589,
+          "debt_repayment": 2987.283918183524,
+          "prepayments": [
+            {
+              "id": "customer-2027q1",
+              "amount": 3000,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 23% of FY, capex weight 30%; partialQ4 uses 58/92. Annual gross new debt 26000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 281.366 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 3000 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 64.10958904109589,
+          "finance_lease_cash_payment": 89.01369863013699,
+          "scheduled_existing_principal": 2705.917808219178,
+          "assumed_new_facility_amortization": 281.3661099643459
+        },
+        {
+          "id": "2027Q2",
+          "start": "2027-04-01",
+          "end": "2027-06-30",
+          "ocf_before_interest": 2083.3424657534247,
+          "capex": 7020.000000000001,
+          "other_uses": 154.82465753424657,
+          "new_debt": 6482.191780821918,
+          "debt_repayment": 3327.891874134035,
+          "prepayments": [
+            {
+              "id": "customer-2027q2",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 24% of FY, capex weight 27%; partialQ4 uses 58/92. Annual gross new debt 26000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 591.908 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 64.82191780821918,
+          "finance_lease_cash_payment": 90.0027397260274,
+          "scheduled_existing_principal": 2735.9835616438354,
+          "assumed_new_facility_amortization": 591.9083124901995
+        },
+        {
+          "id": "2027Q3",
+          "start": "2027-07-01",
+          "end": "2027-09-30",
+          "ocf_before_interest": 2173.972602739726,
+          "capex": 5980.0,
+          "other_uses": 156.5260273972603,
+          "new_debt": 6553.424657534247,
+          "debt_repayment": 3663.1924111750445,
+          "prepayments": [
+            {
+              "id": "customer-2027q3",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 25% of FY, capex weight 23%; partialQ4 uses 58/92. Annual gross new debt 26000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 897.143 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 65.53424657534246,
+          "finance_lease_cash_payment": 90.99178082191781,
+          "scheduled_existing_principal": 2766.0493150684933,
+          "assumed_new_facility_amortization": 897.1430961065512
+        },
+        {
+          "id": "2027Q4stub",
+          "start": "2027-10-01",
+          "end": "2027-11-27",
+          "ocf_before_interest": 1544.5479452054797,
+          "capex": 3278.2608695652175,
+          "other_uses": 98.67945205479452,
+          "new_debt": 4131.506849315068,
+          "debt_repayment": 2450.6799191323876,
+          "prepayments": [
+            {
+              "id": "customer-2027q4stub",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 28% of FY, capex weight 20%; partialQ4 uses 58/92. Annual gross new debt 26000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 706.866 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 41.31506849315068,
+          "finance_lease_cash_payment": 57.364383561643834,
+          "scheduled_existing_principal": 1743.813698630137,
+          "assumed_new_facility_amortization": 706.8662205022506
+        }
+      ],
+      "source_ids": [
+        "guidance",
+        "call",
+        "debt",
+        "facilities",
+        "cashflow",
+        "customers",
+        "shares",
+        "leases",
+        "dcsp"
+      ],
+      "assumptions": [
+        "FY2027 revenue 23000, EBITDA margin 60%, cash capex 26000 and other working-capital/tax use 500 are analyst assumptions. Revenue scale is bracketed against guided FY2026 exit ARR20\u201321B, not treated as FY2027 guidance.",
+        "Cash collection from November 10 stated 9B deposit expectation: Q46000, Q13000; no other 2027 gross customer prepayment inflow assumed.20% service revenue assumed already prepaid. This is a sensitivity convention, not a disclosed billing schedule; historic 3,492 deferred-revenue CF benefit is not added again.",
+        "Gross new debt 2500 Q4 and 26000 FY2027 includes refinancing; repay 2433 Q4 and 10974 FY2027. Existing principal only 331/365 FY2027 modeled through target; additional 20% annual new-facility amortization begins 2027 on midpoint new-loan balances and 1% gross debt issuance fees are charged to other cash uses, both analyst assumptions. Disclosed conditional undrawn 5653 is far smaller; additional project approvals and lenders are required. No transaction proceeds are automatically added as closed.",
+        "Nonconvertible cash rate 9.5%, above/below different facility terms as scenario stress; converters retain exact coupons. Cash interest differs from GAAP expense and guided Q4 interest because capitalized/noncash components differ. Interest on new draws/repayments uses midpoint convention, not a loan-specific amortization model.",
+        "Illustrative EV/issuer-adjusted EBITDA multiple 6.8: normalized unlevered cash conversion 60% after cash taxes/replacement capex \u00d7(1+2.00%) / (11.00% required return\u22122.00% growth). Independent analyst capital-return anchor, not an observed peer multiple. Sustainable conversion and GPU residual values are unverified; high maintenance capex can invalidate it.",
+        "Hypothetical equity gap priced at 42.57 less 10% discount and 2% fees, not a forecast market price or committed placement. No rescue equity above a stated capacity is presumed feasible; modeled issuance may exceed 35M ATM and invalidate financing unless another offering closes.",
+        "Additional 15M net new shares reserve for post-October 30 equity compensation/option/warrant effects, no exercise proceeds. This is an analyst dilution reserve; does not mechanically add all 158M EPS-excluded securities or double-count already-issued RSAs. No converter automatically turns into equity.",
+        "Finance-lease claim at target 340 is an analyst runoff from opening 649: modeled lease cash 344.375 through target includes about 35.375 interest and 309 principal. Operating leases are already rent-expensed in EBITDA/OCF, so no additional EV subtraction. Preferred/NCI assumed 0 based on reported balance sheet, not proof of zero future project claims.",
+        "No terminal unrestricted cash from afterNovember 27 is added. Full FY2027 EBITDA is the valuation metric, explicitly a fiscal-year estimate with 34 days after the target; financing/interest/dilution stop at the target. No probability weighting or unconditional fair price is claimed.",
+        "Forecast cash capex is defined before capitalized financing interest: financing interest and debt issuance fees are separate uses, so no capitalized-interest double count is intended. Reported historical cash capex is shown as filed and is not mechanically converted into these forecast inputs. The precise issuer cash-interest capitalization/payment bridge remains a gap."
+      ]
+    },
+    {
+      "id": "bull",
+      "annual_operating": {
+        "year": 2027,
+        "revenue": 25000,
+        "ebitda_margin": 0.62,
+        "ocf_before_interest": 10000.0,
+        "capex": 28000,
+        "prepayments_embedded": 0,
+        "free_cash_flow_before_interest": -18000.0,
+        "cash_interest_assumption": 4700,
+        "cash_free_cash_flow": -22700.0,
+        "note": "Analyst full calendar FY2027, not issuer guidance and not the target-date stub. Cash FCF=OCF before interest\u2212separate annual cash-interest assumption\u2212cash capex; finance-lease principal is outside standard OCF/capex FCF. OCF=issuer-adjusted EBITDA proxy +new cash customer receipts\u221220% revenue previously prepaid\u2212500 other working capital/tax use. Cash-interest assumption includes finance-lease interest; target bridge separately models nonlease interest plus all finance-lease cash payments. FY figures include November 28\u2013December 31, the 34 days after November 27 that the target bridge excludes; no subsequent cash is added to target. Modeled cash capex excludes capitalized financing interest, because all modeled cash interest is a separate cash use; these forecast capex assumptions are not a reconciliation to reported/guided accounting capex."
+      },
+      "valuation": {
+        "method": "ev_ebitda",
+        "multiple": 10,
+        "other_ev_claims": 340,
+        "anchor": {
+          "normalized_unlevered_cash_conversion": 0.7,
+          "required_return": 0.1021,
+          "perpetual_growth": 0.03,
+          "formula": "conversion*(1+g)/(required_return-g)",
+          "status": "illustrative_unverified_mature_fleet_cash_conversion"
+        }
+      },
+      "issue": {
+        "reference_price": 42.57,
+        "discount": 0.05,
+        "fee_rate": 0.02,
+        "available_share_capacity": 35,
+        "capacity_as_of": "2026-09-30",
+        "capacity_note": "Remaining September 30 ATM shares only; later usage/forward settlements not independently confirmed. This is not an authorization of the full modeled financing requirement."
+      },
+      "cash_debt_rate": 0.085,
+      "conversions": [],
+      "additional_shares": 10,
+      "periods": [
+        {
+          "id": "2026Q4",
+          "start": "2026-10-01",
+          "end": "2026-12-31",
+          "ocf_before_interest": 10794.119999999999,
+          "capex": 9000,
+          "other_uses": 32.0,
+          "new_debt": 1500,
+          "debt_repayment": 2433,
+          "prepayments": [
+            {
+              "id": "customer-q426",
+              "amount": 9000,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Full Q4 from reported September 30 opening. Revenue is within implied FY2026 outlook range, EBITDA margin and cash capex 9000 are analyst assumptions. Gross customer receipts enter OCF once; subtract 20% prepaid service recognition and 300 other cash working capital/tax use. Debt repayment 2433 is reported remainder 2026; new debt is conditional gross, inclusive of any refinancing.17 finance-lease cash payment plus 1% gross new-debt issuance fee is separate; no post-opening new-loan amortization starts before 2027 by analyst assumption. Receipt timing can cause a larger intraperiod deficit. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 15.0,
+          "finance_lease_cash_payment": 17,
+          "scheduled_existing_principal": 2433,
+          "assumed_new_facility_amortization": 0
+        },
+        {
+          "id": "2027Q1",
+          "start": "2027-01-01",
+          "end": "2027-03-31",
+          "ocf_before_interest": 2291.7123287671234,
+          "capex": 8400.0,
+          "other_uses": 162.986301369863,
+          "new_debt": 7397.260273972603,
+          "debt_repayment": 2962.2886094952146,
+          "prepayments": [
+            {
+              "id": "customer-2027q1",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 23% of FY, capex weight 30%; partialQ4 uses 58/92. Annual gross new debt 30000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 256.371 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 73.97260273972603,
+          "finance_lease_cash_payment": 89.01369863013699,
+          "scheduled_existing_principal": 2705.917808219178,
+          "assumed_new_facility_amortization": 256.3708012760367
+        },
+        {
+          "id": "2027Q2",
+          "start": "2027-04-01",
+          "end": "2027-06-30",
+          "ocf_before_interest": 2395.3424657534247,
+          "capex": 7560.000000000001,
+          "other_uses": 164.7972602739726,
+          "new_debt": 7479.45205479452,
+          "debt_repayment": 3353.3183619224865,
+          "prepayments": [
+            {
+              "id": "customer-2027q2",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 24% of FY, capex weight 27%; partialQ4 uses 58/92. Annual gross new debt 30000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 617.335 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 74.79452054794521,
+          "finance_lease_cash_payment": 90.0027397260274,
+          "scheduled_existing_principal": 2735.9835616438354,
+          "assumed_new_facility_amortization": 617.3348002786511
+        },
+        {
+          "id": "2027Q3",
+          "start": "2027-07-01",
+          "end": "2027-09-30",
+          "ocf_before_interest": 2498.972602739726,
+          "capex": 6440.0,
+          "other_uses": 166.6082191780822,
+          "new_debt": 7561.643835616438,
+          "debt_repayment": 3738.1656084065207,
+          "prepayments": [
+            {
+              "id": "customer-2027q3",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 25% of FY, capex weight 23%; partialQ4 uses 58/92. Annual gross new debt 30000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 972.116 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 75.61643835616438,
+          "finance_lease_cash_payment": 90.99178082191781,
+          "scheduled_existing_principal": 2766.0493150684933,
+          "assumed_new_facility_amortization": 972.1162933380274
+        },
+        {
+          "id": "2027Q4stub",
+          "start": "2027-10-01",
+          "end": "2027-11-27",
+          "ocf_before_interest": 1774.026206075045,
+          "capex": 3530.434782608696,
+          "other_uses": 105.03561643835616,
+          "new_debt": 4767.123287671233,
+          "debt_repayment": 2521.6841440947587,
+          "prepayments": [
+            {
+              "id": "customer-2027q4stub",
+              "amount": 0,
+              "included_in_ocf": true
+            }
+          ],
+          "note": "Analyst quarter/stub timing: revenue weight 28% of FY, capex weight 20%; partialQ4 uses 58/92. Annual gross new debt 30000 and reported 2027 principal 10974 allocated by calendar days, not a verified contractual quarter schedule. Additional new-facility amortization 777.870 assumes 20% annual repayment on midpoint outstanding post-opening project draws, beginning 2027, separate from the disclosed old-debt schedule. Gross customer receipts 0 already embedded in OCF; no financing add-back.20% revenue is assumed prepaid recognition, other working-capital/tax use 500/year. Finance leases 361/year and 1% gross new-debt issuance fees paid separately. New debt is conditional; scheduled repayments exclude further mandatory cash sweeps. Modeled cash capex excludes capitalized financing interest; interest is charged once by the debt model.",
+          "debt_issuance_fee": 47.67123287671233,
+          "finance_lease_cash_payment": 57.364383561643834,
+          "scheduled_existing_principal": 1743.813698630137,
+          "assumed_new_facility_amortization": 777.8704454646218
+        }
+      ],
+      "source_ids": [
+        "guidance",
+        "call",
+        "debt",
+        "facilities",
+        "cashflow",
+        "customers",
+        "shares",
+        "leases",
+        "dcsp"
+      ],
+      "assumptions": [
+        "FY2027 revenue 25000, EBITDA margin 62%, cash capex 28000 and other working-capital/tax use 500 are analyst assumptions. Revenue scale is bracketed against guided FY2026 exit ARR20\u201321B, not treated as FY2027 guidance.",
+        "Cash collection from November 10 stated 9B deposit expectation: Q49000, Q10; no other 2027 gross customer prepayment inflow assumed.20% service revenue assumed already prepaid. This is a sensitivity convention, not a disclosed billing schedule; historic 3,492 deferred-revenue CF benefit is not added again.",
+        "Gross new debt 1500 Q4 and 30000 FY2027 includes refinancing; repay 2433 Q4 and 10974 FY2027. Existing principal only 331/365 FY2027 modeled through target; additional 20% annual new-facility amortization begins 2027 on midpoint new-loan balances and 1% gross debt issuance fees are charged to other cash uses, both analyst assumptions. Disclosed conditional undrawn 5653 is far smaller; additional project approvals and lenders are required. No transaction proceeds are automatically added as closed.",
+        "Nonconvertible cash rate 8.5%, above/below different facility terms as scenario stress; converters retain exact coupons. Cash interest differs from GAAP expense and guided Q4 interest because capitalized/noncash components differ. Interest on new draws/repayments uses midpoint convention, not a loan-specific amortization model.",
+        "Illustrative EV/issuer-adjusted EBITDA multiple 10: normalized unlevered cash conversion 70% after cash taxes/replacement capex \u00d7(1+3.00%) / (10.21% required return\u22123.00% growth). Independent analyst capital-return anchor, not an observed peer multiple. Sustainable conversion and GPU residual values are unverified; high maintenance capex can invalidate it.",
+        "Hypothetical equity gap priced at 42.57 less 5% discount and 2% fees, not a forecast market price or committed placement. No rescue equity above a stated capacity is presumed feasible; modeled issuance may exceed 35M ATM and invalidate financing unless another offering closes.",
+        "Additional 10M net new shares reserve for post-October 30 equity compensation/option/warrant effects, no exercise proceeds. This is an analyst dilution reserve; does not mechanically add all 158M EPS-excluded securities or double-count already-issued RSAs. No converter automatically turns into equity.",
+        "Finance-lease claim at target 340 is an analyst runoff from opening 649: modeled lease cash 344.375 through target includes about 35.375 interest and 309 principal. Operating leases are already rent-expensed in EBITDA/OCF, so no additional EV subtraction. Preferred/NCI assumed 0 based on reported balance sheet, not proof of zero future project claims.",
+        "No terminal unrestricted cash from afterNovember 27 is added. Full FY2027 EBITDA is the valuation metric, explicitly a fiscal-year estimate with 34 days after the target; financing/interest/dilution stop at the target. No probability weighting or unconditional fair price is claimed.",
+        "Forecast cash capex is defined before capitalized financing interest: financing interest and debt issuance fees are separate uses, so no capitalized-interest double count is intended. Reported historical cash capex is shown as filed and is not mechanically converted into these forecast inputs. The precise issuer cash-interest capitalization/payment bridge remains a gap."
+      ]
+    }
+  ],
+  "sensitivity": {
+    "x": {
+      "field": "multiple",
+      "values": [
+        4,
+        6,
+        6.8,
+        8,
+        10,
+        12
+      ]
+    },
+    "y": {
+      "field": "capex_scale",
+      "values": [
+        0.8,
+        1,
+        1.2
+      ]
+    }
+  },
+  "call": {
+    "rating": "Hold / no new fundamental Buy",
+    "summary": "Hold / no new fundamental Buy at the $42.57 reference close. The illustrative base value is $48.60 (+14.2%), below a 30% analyst risk-margin hurdle. Its cash path still needs $26.08 billion of gross new borrowing plus $7.90 billion of gross equity, neither assured. This is a conditional scenario, not a firm fair-value target.",
+    "driver": "Collect the stated customer deposits, finance installed equipment with actually closed project facilities, and retain attractive renewal pricing. The base requires $7.74 billion net hypothetical equity and 206.19 million financing shares, far beyond the 35 million-share September 30 ATM capacity.",
+    "strongest_objection": "Management says project loans, prepayments and operating cash can cover the significant majority of capital needs; new contracts and paid-off GPUs may make this model too conservative. Conversely even 6.8 x EBITDA assumes 60% normalized unlevered cash conversion after maintenance replacement and tax, which is not established by disclosures.",
+    "falsifier": "A Buy case needs confirmed collection of the approximately $9 billion deposits expected by roughly February 2027, sufficient closed project financing to replace the hypothetical debt draws, and a credible replacement-capex burden. Failure to obtain that funding or cash conversion invalidates the base rather than creating an automatic equity rescue.",
+    "rating_hurdle": "A new fundamental Buy requires financing evidence and at least 30% base-case upside: at the current base cash path, a price no higher than about $37.39, or a defensible base value above $55.34 at the $42.57 reference price. Neither alone is sufficient while debt availability and mature-fleet replacement capex remain unverified."
+  },
+  "gaps": [
+    "No verified closed material financing after September 30 is added. SEC daily master indexes through November 25 show only Form 144/4 since November 17; November 26 was a US holiday. The IR index is partly rendered, so this is a bounded check rather than a guarantee of exhaustive issuer news.",
+    "Nine billion of prospective prepayments/deposits is a November 10 management expectation through roughly February 10,2027, not a confirmed subsequent cash balance. Collection, restriction, refund and recognition schedules are not publicly reconciled.",
+    "Quarterly 2027 principal repayment and capex timing are analyst allocations of annual totals. DDTL5.5 cash sweep and covenant-related accelerations can make actual payments earlier/higher than the smooth modeled schedule.",
+    "Future project borrowing well beyond disclosed undrawn capacity is required in every case. New-debt assumptions include refinancing and are not committed facilities. Failed loans or equity issuance invalidates the scenario; the calculator cannot guarantee funding.",
+    "The 35 million-share September 30 ATM capacity cannot fund the modeled downside/base equity gaps by itself. Any excess modeled issuance needs other registered offerings/authorizations and market demand; availability after September 30 is not independently confirmed.",
+    "No automatic conversion of out-of-money notes. Potential EPS-excluded options, warrants and unvested awards are not automatically added to basic shares; additional-share reserves are analyst estimates, not a fully reconciled vested/treasury-stock denominator.",
+    "Maintenance GPU replacement capex, recontracting retention and cash tax/capitalized-interest reconciliation remain insufficient for a defensible unconditional target. EBITDA cash-conversion anchors are illustrative and challenged explicitly; no implied peer multiple or fabricated consensus.",
+    "Enterprise valuation uses rent-expensed issuer-adjusted EBITDA. Operating lease liabilities are not also deducted as EV debt; operating rent is already in the cash operating margin. Finance leases are separate claims with cash payments in other uses. No NCI/preferred balance is reported; project cash leakage/claims could still differ.",
+    "Exact intraperiod shortfalls, accelerated sweeps, restricted draw proceeds, actual new-financing fees (1% assumed), asset-sale proceeds, interest income, and all local cash taxes are not independently forecast. Funding issuance is hypothetical at quarter/stub end, not assured liquidity throughout the interval.",
+    "Accounting interest scope: Note10 debt interest differs from the statement interest-expense total because other financing/lease items exist. Model rates estimate debt cash service, finance leases are separate, and forecast physical capex excludes capitalized financing interest. Exact future capitalized-interest and other cash-finance charges are not verified."
+  ],
+  "observed": {
+    "unit": "USD millions except shares millions, percentages, and power GW",
+    "balance": {
+      "as_of": "2026-09-30",
+      "cash": 4122,
+      "restricted_current": 1405,
+      "restricted_noncurrent": 877,
+      "cash_including_restricted": 6404,
+      "marketable_securities_excluded": 62,
+      "source_ids": [
+        "balance"
+      ]
+    },
+    "debt_reconciliation": {
+      "as_of": "2026-09-30",
+      "principal": 47505,
+      "issuance_costs": 632,
+      "carrying": 46873,
+      "principal_recourse": 42152,
+      "principal_nonrecourse": 5353,
+      "carrying_recourse": 41600,
+      "carrying_nonrecourse": 5273,
+      "finance_leases_separate": 649,
+      "source_ids": [
+        "debt",
+        "balance"
+      ]
+    },
+    "debt_maturities": {
+      "2026_remainder": 2433,
+      "2027": 10974,
+      "2028": 5479,
+      "2029": 4727,
+      "2030": 4247,
+      "thereafter": 19645,
+      "source_ids": [
+        "debt"
+      ]
+    },
+    "historical_cashflow": {
+      "period": "2026-01-01/2026-09-30",
+      "ocf_after_cash_interest": 5638,
+      "cash_capex": 23558,
+      "ocf_minus_cash_capex": -17920,
+      "deferred_revenue_cashflow_movement_included_in_ocf": 3492,
+      "cash_interest_paid_net_capitalized": 1339,
+      "gaap_interest": 1754,
+      "contractual_interest": 1841,
+      "capitalized_interest": 230,
+      "source_ids": [
+        "cashflow",
+        "debt"
+      ]
+    },
+    "customer_exposure": {
+      "q3_revenue": 3661,
+      "nine_month_revenue": 8314,
+      "q3_customer_A_revenue_pct": 24,
+      "q3_customer_B_revenue_pct": 30,
+      "nine_month_customer_A_pct": 33,
+      "nine_month_customer_B_pct": 26,
+      "committed_contract_revenue_pct": 98,
+      "deferred_revenue": 10002,
+      "opening_deferred_revenue": 8185,
+      "recognized_from_opening_deferred_pool_nine_months": 1000,
+      "reclassified_cancellable_customer_liability": 1900,
+      "rpo": 132300,
+      "rpo_recognition_first_24months_pct": 36,
+      "source_ids": [
+        "customers"
+      ],
+      "note": "Anonymous A/B labels are period-specific: no named-customer attribution inferred. RPO is not added to revenue backlog. Net deferred-revenue movement is not gross customer cash receipts; reclassification is not an assumed refund."
+    },
+    "conditional_funding": {
+      "as_of": "2026-09-30",
+      "secured_facility_available_capacity": 5653,
+      "revolver_available_component": 754,
+      "ddtl4_commitment": 8500,
+      "ddtl4_drawn": 4583,
+      "ddtl5_commitment": 3100,
+      "ddtl5_drawn": 2749,
+      "ddtl55_commitment": 2600,
+      "ddtl55_drawn": 1555,
+      "atm_shares_m": 35,
+      "atm_max_fee_pct": 2,
+      "source_ids": [
+        "facilities",
+        "debt",
+        "shares"
+      ],
+      "note": "Facility availability is conditional on eligible collateral/contracts, covenants and draw windows, not available unrestricted cash. Revolver availability is a component, not additional to 5653."
+    },
+    "recourse_and_covenants": {
+      "source_ids": [
+        "facilities"
+      ],
+      "note": "DDTL4 has limited non-recourse carve-outs. Other DDTLs are parent-guaranteed, so project/SPV naming alone does not remove parent recourse. DDTL4 reserve covers forward debt service/opex and requires hedging; DDTL5.5 draws expire December 31,2026, amortization starts February 2027 and excess cash sweeps until principal 1300, with specified mandatory prepayments."
+    },
+    "lease_scope": {
+      "finance_lease_balance": 649,
+      "operating_lease_balance": 18697,
+      "remaining_2026_finance_cash_payments": 17,
+      "fy2027_finance_cash_payments": 361,
+      "fy2027_operating_lease_payments": 2375,
+      "uncommenced_lease_commitments": 47400,
+      "additional_buildout_costs_for_leases_approx": 16900,
+      "other_binding_purchase_software_service_commitments_approx": 4000,
+      "source_ids": [
+        "leases",
+        "dcsp"
+      ],
+      "note": "Future commitments are not present debt or all-current-year cash outlays. No double addition to modeled cash capex. DCSP gross 300 receivable/229 obligation is netted 71; neither gross side is added without restoring the other."
+    },
+    "guidance": {
+      "fy2026_revenue_low": 13000,
+      "fy2026_revenue_high": 13300,
+      "fy2026_capex_low": 37000,
+      "fy2026_capex_high": 39000,
+      "q4_gaap_interest_low": 1050,
+      "q4_gaap_interest_high": 1150,
+      "fy2026_exit_arr_low": 20000,
+      "fy2026_exit_arr_high": 21000,
+      "source_ids": [
+        "guidance"
+      ],
+      "note": "Exit ARR is December revenue annualized, not FY2027 revenue guidance. Guided capex is not assumed identical to cash purchases; Q4 cash capex is separately estimated."
+    }
+  },
+  "conversion_audit": {
+    "status": "Illustrative matched-claim sensitivity; no entitlement, elected settlement or actual conversion forecast",
+    "source_ids": [
+      "indenture2031",
+      "indenture2032",
+      "indenture2033",
+      "converts",
+      "convert2031"
+    ],
+    "notes": [
+      "The retained-debt bull value is above nominal conversion strikes, but a target value is not a traded-price history. For the ordinary market-price route, holders need 20 of 30 trading days at 130% of the conversion price in the quarter ending before the conversion quarter. A single November 27 price does not establish eligibility.",
+      "Approximate 130% price thresholds are $140.14 for 2031, $155.48 for 2032 and $127.21 for 2033. The $137.40 retained-debt bull illustration exceeds only the 2033 threshold; even that needs the prior-quarter trading test. Other trading-price or corporate-event triggers may apply but are not assumed.",
+      "October 1,2027 physical-settlement illustrations assume the applicable September-quarter eligibility test was met and holders elected conversion; neither is known. Forced ordinary issuer redemption dates are later than target: December 5,2028 / October 8,2029 / April 5,2030 for 2031/2032/2033 respectively.",
+      "Every illustrated conversion removes the same principal from EV debt, adds only its contractual initial conversion shares, and saves its coupon from October 1 through target (58 days). No automatic principal-to-equity shortcut, retroactive interest saving or double count.",
+      "Gross physical-settlement illustrations give no capped-call recovery: strike/cap 2031 $107.80/$215.60,2032 $119.60/$230.00,2033 $97.85/$199.70. Early-unwind settlement, counterparties and make-whole rate changes are unknown. Capped calls could materially offset dilution, but their contractual eventual payoff is not assumed to be available cash in 2027."
+    ],
+    "illustrations": [
+      {
+        "label": "Retain all convertible notes",
+        "conversions": [],
+        "conversion_date": null,
+        "value_per_share": 137.4040578837431,
+        "cash_interest": 4396.489285618612,
+        "funding_gap": 5385.1551340164515,
+        "post_financing_shares": 702.0023917596147,
+        "target_debt": 61202.02272813581,
+        "conversion_shares": 0.0,
+        "convertible_principal_removed": 0.0,
+        "source_ids": [
+          "indenture2031",
+          "indenture2032",
+          "indenture2033",
+          "converts"
+        ]
+      },
+      {
+        "label": "2033 notes only, hypothetical October 1 conversion",
+        "conversions": [
+          "convert2033"
+        ],
+        "conversion_date": "2027-10-01",
+        "value_per_share": 135.2130036397732,
+        "cash_interest": 4377.314747630932,
+        "funding_gap": 5365.980596028772,
+        "post_financing_shares": 744.4400653951261,
+        "target_debt": 57002.02272813581,
+        "conversion_shares": 42.92148,
+        "convertible_principal_removed": 4200.0,
+        "source_ids": [
+          "indenture2031",
+          "indenture2032",
+          "indenture2033",
+          "converts"
+        ]
+      },
+      {
+        "label": "All three notes, hypothetical October 1 conversion",
+        "conversions": [
+          "convert2031",
+          "convert2032",
+          "convert2033"
+        ],
+        "conversion_date": "2027-10-01",
+        "value_per_share": 133.8189968452669,
+        "cash_interest": 4359.008621689796,
+        "funding_gap": 5347.674470087635,
+        "post_financing_shares": 801.4256555507682,
+        "target_debt": 50414.02272813581,
+        "conversion_shares": 100.368965,
+        "convertible_principal_removed": 10788.0,
+        "source_ids": [
+          "indenture2031",
+          "indenture2032",
+          "indenture2033",
+          "converts"
+        ]
+      }
+    ]
+  },
+  "equity_capacity": {
+    "as_of": "2026-09-30",
+    "kind": "shares",
+    "amount": 35,
+    "source_ids": [
+      "shares"
+    ],
+    "note": "The Q3 10-Q explicitly reports 35 million ATM shares remaining at September 30 and no ATM sales or collared forwards during the first nine months. Remaining capacity at the November 27 cutoff is unknown. This dated checkpoint is not proof of current issuance capacity or a guarantee that additional offerings can close.",
+    "remaining_at_cutoff": null
+  }
+}

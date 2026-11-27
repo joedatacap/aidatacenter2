@@ -4,6 +4,7 @@ No public backend, credentials, quote API or production deployment is involved.
 """
 from __future__ import annotations
 import argparse
+from html import escape
 import json
 from pathlib import Path
 import re
@@ -100,12 +101,13 @@ def build(*,base='/',output=None,release=False,history_dir=None):
     (ROOT/"work").mkdir(exist_ok=True)
     render_equity(equity,target,base,ROOT/"work/NCW-Equity-Research.html")
     api_docs(target,base,resources)
-    # Compile one dated briefing from the reviewed model inputs for both editions.
-    from neocloud.equity_pages import cash
-    nbis_base = next(m["metrics"] for m in equity["companies"]["NBIS"]["financials"]["models"] if m["year"]==2027 and m["scenario"]=="base")
-    crwv_base = next(m["metrics"] for m in equity["companies"]["CRWV"]["financials"]["models"] if m["year"]==2027 and m["scenario"]=="base")
-    brief_text = (f"Justin’s 2027 base case puts Nebius free cash flow at {cash(nbis_base['fcf'])} and CoreWeave’s at {cash(crwv_base['fcf'])}. "
-                  "Before adding risk, watch cash receipts at CoreWeave, contract acceptance at IREN and the first Georgia billing at Axe.")
+    # Use the same authored call as the report first screen.
+    focus = [equity["companies"][ticker] for ticker in ("NBIS", "CRWV")]
+    brief_text = " · ".join(
+        f"{c['ticker']} {c['report']['rating']} (base scenario ${c['report']['target_12m']:.2f})"
+        for c in focus
+    )
+    brief_text = escape(brief_text).replace("\\", "\\\\").replace("\n", " ")
     html=(source/'index.html').read_text()
     embed = embedded_json('watch-data', data)
     html=html.replace('</body>',embed+'</body>')
