@@ -34,7 +34,7 @@ jobs:
           (async () => {
             const browser = await chromium.launch({ executablePath: '/usr/bin/google-chrome' });
             try {
-              const base='https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/preview-funding-20261127/';
+              const base='https://htmlpreview.github.io/?https://raw.githubusercontent.com/joedatacap/aidatacenter2/'+process.env.GITHUB_SHA+'/';
               for (const width of [390, 1440]) {
                 const page=await browser.newPage({viewport:{width,height:844}});
                 for (const ticker of ['NBIS','CRWV']) {
