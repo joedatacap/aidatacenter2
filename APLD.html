@@ -93,6 +93,11 @@
 .uw-table td,.uw-table th{padding:9px}
 .uw-price-strip strong{font-size:1.45rem}
 }
+@media(max-width:700px) and (max-height:720px){
+.pane-underwriting>.eyebrow{order:2}
+.pane-underwriting>.uw-opening{display:flex;flex-direction:column}
+.uw-opening>.uw-stamp{order:1}
+}
 @media print{.uw-nav{display:none}
 .uw-source blockquote{break-inside:avoid}
 .uw-tests{grid-template-columns:1fr}
