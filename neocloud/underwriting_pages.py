@@ -102,6 +102,10 @@ CSS = """
 .pane-underwriting>.eyebrow{order:2}
 .pane-underwriting>.uw-opening{display:flex;flex-direction:column}
 .uw-opening>.uw-stamp{order:1}
+.uw-mobile-answers h3,.uw-mobile-answers p{display:inline}
+.uw-mobile-answers h3::after{content:" · "}
+.uw-mobile-answers>section{line-height:1.3}
+.top:has(+main .pane-underwriting){padding-block:9px}
 }
 @media print{.uw-nav{display:none}
 .uw-source blockquote{break-inside:avoid}
