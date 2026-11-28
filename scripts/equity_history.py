@@ -11,10 +11,14 @@ from datetime import date, datetime, timedelta, timezone
 import hashlib
 import json
 import math
+import sys
 from pathlib import Path
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+if __package__ in {None, ''}:
+    sys.path.insert(0, str(ROOT))
+
 HORIZONS = {'1w': (0, 7), '1m': (1, 0), '3m': (3, 0), '6m': (6, 0), '12m': (12, 0)}
 POLICY = ('Prospective underlying-stock price returns, not executed trades or rating win rates. '
           'Entry is the first observed session strictly after the version recording date; '
@@ -109,6 +113,12 @@ def snapshot_investment_reports(equity_dir, history_dir, cohort_members, recorde
             raise ValueError('Investment report rating required')
         content = {'report': report, 'research_package': package,
                    'cohort_members': sorted({m.upper() for m in cohort_members if m.lower() != company})}
+        # An earlier standalone ledger directory remains a valid history input.
+        if (path.parent.parent / 'underwriting' / path.name).is_file() and company in {'nbis', 'crwv'}:
+            from neocloud.equity_edition import investment_revision
+            underwriting, current = investment_revision(package, path.parent.parent)
+            content['report'] = {'id': company, **current}
+            content['underwriting'] = underwriting
         version_id = digest(content)
         row = existing.get((company, version_id))
         if row is None:

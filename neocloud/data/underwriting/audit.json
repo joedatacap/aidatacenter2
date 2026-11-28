@@ -1,0 +1,139 @@
+{
+  "cutoff": "2026-11-27T09:00:00Z",
+  "companies": [
+    {
+      "ticker": "CRWV",
+      "call": "Tactical: Hold existing / Wait new (low confidence, 30–90 days). Fundamental: Hold / no new fundamental Buy until financing and replacement economics are verified.",
+      "call_date": "2026-11-26",
+      "claim": "The operating ramp does not establish cash available to common: Q4 interest expense may exceed adjusted operating income, while expected customer prepayments are not already collected cash.",
+      "finding": "The issuer guides full-year adjusted operating income to $1.275–1.375B, against $528M reported for the first nine months, implying Q4 $747–847M. Q4 interest expense guidance is $1.05–1.15B. These use different accounting measures and do not constitute a cash-flow calculation. Approximately $9B of customer prepayments/deposits are expected over the next three months, not confirmed as collected unrestricted cash. The financing caution is supported; neither these disclosures nor an announcement alone validates the tactical $48 retest objective.",
+      "verdict": "partial",
+      "source_title": "CoreWeave Q3 2026 earnings release and non-GAAP reconciliation",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "publication_date": "2026-11-10",
+      "locator": "Business Outlook; liquidity/customer prepayments discussion; adjusted operating income reconciliation. USD billions.",
+      "gap": "Dated actual receipt of prepayments, cash capex after financing, usable liquidity, future hardware replacement economics and the fully diluted common-share denominator remain unresolved."
+    },
+    {
+      "ticker": "NBIS",
+      "call": "Hold (12-month research call; no separate tactical Justin card).",
+      "call_date": "2026-11-26",
+      "claim": "Funding and delivery determine per-share value: guided financing coverage leaves a material residual before opening cash, operating cash flow and other funding sources.",
+      "finding": "The issuer guides 2027 revenue of $12–13B and capital investment of $40–45B, with customer prepayments and available investment-grade asset-backed financing expected to cover 75–85% of investment. The resulting $6–11.25B arithmetic residual is a scenario range before other cash sources, not an issuer-reported net liquidity deficit or proof of equity issuance. Guidance supports the financing question but does not verify the report’s future cash-flow assumptions or a fair-value target.",
+      "verdict": "partial",
+      "source_title": "Nebius Q3 2026 shareholder letter",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126008/tm2629571d1_ex99-2.htm",
+      "publication_date": "2026-11-12",
+      "locator": "Financial update / capital requirements and 2027 outlook; $40B × 15% to $45B × 25%, all USD.",
+      "gap": "Quarterly timing and conditions of actual prepayment receipts, financing draws, cash construction spending and dilution; gross funding coverage is not a completed financing bridge."
+    },
+    {
+      "ticker": "IREN",
+      "call": "Watch / financing- and acceptance-dependent (no directional Buy/Hold/Sell rating and no 12-month target).",
+      "call_date": "2026-11-26",
+      "claim": "The remaining FY2027 construction plan depends on additional financing and customer acceptance; future contracted ARR is not current recognized revenue.",
+      "finding": "The issuer identifies approximately $15B of remaining FY2027 planned capex, $9B of cash plus committed GPU financing and customer prepayments, and $6B of targeted further funding subject to conditions. This is the remaining fiscal period through June 2027, not a rolling twelve-month gap. The greater-than-$4B contracted ARR milestone moves from year-end to January, potentially through February; it remains a future ramp target. Financing and timing caveats are supported, but this does not settle cash per common share.",
+      "verdict": "partial",
+      "source_title": "IREN Q1 FY2027 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000065/irenreportsq1-fy27result.htm",
+      "publication_date": "2026-11-05",
+      "locator": "Balance sheet and funding; CEO operating update on January/February ARR and supplier/design timing. USD amounts; fiscal year ending June 2027.",
+      "gap": "Executed terms and draw conditions for the targeted $6B, acceptance-linked billings, cash debt service, replacement capex and incremental common-equity claims."
+    },
+    {
+      "ticker": "APLD",
+      "call": "Tactical: Hold existing / Wait new (low confidence, 30–90 days). Fundamental: Under review; no 12-month rating or target.",
+      "call_date": "2026-11-26",
+      "claim": "Consolidated project cash and contracted rent cannot be treated as cash freely available to APLD common shareholders.",
+      "finding": "At August 31 the consolidated balance sheet reports $2.949909B cash and cash equivalents. The TopCo 2 summarized balance sheet separately reports $2.909372B cash; consolidated restricted cash is an additional $728.034M across current and noncurrent rows. This supports locating cash within the project/preferred-capital structure, not labeling all project cash legally restricted or adding restricted cash twice. November 24 Series G program expansion is authorized issuance capacity, not proof that $2.5B was raised. The tactical $14.20 objective remains unverified by a common-equity waterfall.",
+      "verdict": "partial",
+      "source_title": "Applied Digital Form 10-Q for the quarter ended August 31, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1144879/000114487926000059/apld-20260831.htm",
+      "publication_date": "2026-10-07",
+      "locator": "Consolidated balance sheet; temporary equity / TopCo 2 summarized financial information. Tables in USD thousands, converted to USD billions/millions.",
+      "gap": "Cash legally distributable to the parent/common after remaining construction, debt service, Macquarie preferred/minority entitlements and actual Series G issuance; commissioning and customer billing are separate stages."
+    },
+    {
+      "ticker": "HUT",
+      "call": "Under review (no directional investment rating and no 12-month price target).",
+      "call_date": "2026-11-26",
+      "claim": "Signed AI leases represent a future delivery-dependent rent stream, not operating capacity or current parent cash.",
+      "finding": "The issuer reports first-hall targets of Q2 2027 for River Bend, Q3 2027 for Beacon Point Phase 1 and Q2 2028 for Phase 2. These dates support keeping future lease economics separate from present operation. They do not establish project completion, cash distributable to common or a Buy/Hold/Sell recommendation; the original call remains explicitly under review.",
+      "verdict": "support",
+      "source_title": "Hut 8 Q3 2026 financial and operating results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1964789/000110465926122347/tm2628741d1_ex99-1.htm",
+      "publication_date": "2026-11-04",
+      "locator": "AI infrastructure project updates: River Bend and Beacon Point phased delivery targets.",
+      "gap": "Phase-specific cost to complete, funding conditions, restricted project liquidity and distributions to the parent; mining and digital-asset exposure require a separate valuation bridge."
+    },
+    {
+      "ticker": "WULF",
+      "call": "Under review (no directional investment rating and no 12-month price target).",
+      "call_date": "2026-11-26",
+      "claim": "Existing Lake Mariner capacity and rent must be separated from future Justified deliveries; accounting warrant gains are not operating cash conversion.",
+      "finding": "The filing identifies 102 MW of energized critical IT capacity at Lake Mariner as of September 30. This is a measured capacity stage, not evidence that all announced capacity or the Justified project is operating. The quarter’s fair-value movement in warrant liabilities materially affects GAAP net income, so net income cannot substitute for cash generation. This supports the factual caution while leaving the under-review investment stance unchanged.",
+      "verdict": "support",
+      "source_title": "TeraWulf Form 10-Q for the quarter ended September 30, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1083301/000162828026071671/wulf-20260930.htm",
+      "publication_date": "2026-11-06",
+      "locator": "MD&A Lake Mariner operating capacity; consolidated income statement and warrant liability fair-value note. MW refers to energized critical IT capacity.",
+      "gap": "Justified permanent funding versus interim bridge draws, remaining construction spending, net lease cash after power/pass-through items and common-share dilution from warrants; future 2027–28 deliveries remain targets."
+    },
+    {
+      "ticker": "WYFI",
+      "call": "Under review (no directional investment rating and no 12-month price target).",
+      "call_date": "2026-11-26",
+      "claim": "A signed $300M NC-1 credit commitment and prepaid customer contracts do not establish freely available funded cash.",
+      "finding": "The November 9 credit agreement has $300M of commitments, but the November 10 filing states no loans had been funded and funding is conditional. Customer arrangements also contain service-start/long-stop and refund protections. These disclosures support the financing caution; they do not establish that a later draw occurred, that every capacity stage is revenue-generating, or that a directional investment rating has been issued.",
+      "verdict": "support",
+      "source_title": "WhiteFiber Form 10-Q for the quarter ended September 30, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2042022/000121390026117728/ea0310427-10q_whitefiber.htm",
+      "publication_date": "2026-11-10",
+      "locator": "MD&A Financing Update / subsequent events: November 9 NC-1 Credit Agreement; customer long-stop/refund risk discussion. USD commitments, not funded principal.",
+      "gap": "Evidence of the first actual loan draw, remaining conditions, customer acceptance and refund exposure, and a reconciled utility-power/critical-IT/accepted-billable capacity ladder."
+    },
+    {
+      "ticker": "SHAZ",
+      "call": "Under review (no directional investment rating and no 12-month price target).",
+      "call_date": "2026-11-26",
+      "claim": "September RPO with an explicit recognition schedule is stronger evidence than simply annualizing November TCV, but capital commitments still require a financing bridge.",
+      "finding": "At September 30 the filing reports approximately $3.8B remaining performance obligations, with 35% expected in the first 24 months, 40% in months 25–48 and 25% in months 49–78. It also reports approximately $5.3B capital commitments plus $50M subsequent commitments. RPO is neither collected cash nor near-term annual revenue; commitments and the $356M customer-linked facility cannot be assumed funded in full. The November 24 covenant amendment disclosed in November 25 prospectus supplements is not a new cash receipt. The funding caution is supported but common-equity cash value remains unverified.",
+      "verdict": "partial",
+      "source_title": "SharonAI Holdings Form 10-Q for the quarter ended September 30, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/2068385/000149315226052382/form10-q.htm",
+      "publication_date": "2026-11-16",
+      "locator": "Revenue / remaining performance obligations note; commitments and subsequent events; customer-linked facility notes. Source tables in USD thousands where indicated.",
+      "gap": "Project-by-project capex dates, actual customer receipts and facility draws, loan guarantee/release conditions, power and compute go-lives, and equity needed before contracted cash becomes distributable."
+    },
+    {
+      "ticker": "AGPU",
+      "call": "Tactical: Hold existing / Wait new (low confidence, 30–90 days). Fundamental: Hold / evidence-gated speculative exposure; new capital waits for acceptance and funding economics.",
+      "call_date": "2026-11-26",
+      "claim": "A basic market-cap-versus-cash shortcut misstates the equity claim: prefunded warrants and customer obligations matter, while Georgia acceptance is a distinct revenue milestone.",
+      "finding": "September 30 legal common shares of 13,634,097 plus 7,736,379 prefunded $0.01 warrants equal 21,370,476 dated partial economic common claims; this is not current fully diluted capitalization or the 21,370,333 weighted-average EPS denominator. The November 13 cover count is 13,650,314 legal common shares, so unchanged September prefunded warrants must not simply be added to it without an exercise roll-forward. The filing’s Q3 operating result includes digital-asset gains and Georgia Build revenue is not established by energized/provisioned hardware. The November 24 proxy seeks additional plan authorization, not completed issuance. The tactical $7.91 objective is not independently underwritten.",
+      "verdict": "partial",
+      "source_title": "Axe Compute Form 10-Q for the quarter ended September 30, 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1446159/000117184326007507/agpu20260930_10q.htm",
+      "publication_date": "2026-11-17",
+      "locator": "Cover-page legal shares as of November 13; September 30 balance sheet; equity/warrants/options and EPS notes; operating segments and customer funding/contract obligations.",
+      "gap": "A single-date current economic share reconciliation including prefunded exercises, options, other warrants and Series B conversion rights; customer acceptance, recognized Build revenue, cash gross margin and the construction/customer-funding waterfall."
+    }
+  ],
+  "priorities": [
+    {
+      "ticker": "APLD",
+      "question": "How much of TopCo 2 cash and lease cash reaches APLD common after cost to complete, project debt service, Macquarie preferred/minority claims and actual Series G issuance?",
+      "why": "Largest immediate distinction between consolidated liquidity and common-equity value among the seven not receiving the NBIS/CRWV full deep dives. Build a dated project-to-parent cash waterfall before treating a low headline multiple or tactical bounce objective as valuation evidence."
+    },
+    {
+      "ticker": "AGPU",
+      "question": "After reconciling common shares and prefunded exercises at one date, do accepted Georgia billings and cash gross margins cover customer obligations, seller/debt payments and replacement costs per economic share?",
+      "why": "Both numerator and denominator can materially change apparent upside: dated legal shares understate economic claims, while energized GPUs and lifetime contract amounts do not prove accepted revenue or surplus cash."
+    },
+    {
+      "ticker": "SHAZ",
+      "question": "Which quarter-specific cash capex payments behind the $5.35B disclosed commitments are covered by actual customer receipts and drawn facilities, and what equity or recourse funding remains before service acceptance?",
+      "why": "The explicit RPO timetable enables a disciplined cash bridge, but the scale and conditions of commitments, customer-linked facilities and guarantees can change common-share value more than additional TCV announcements."
+    }
+  ]
+}

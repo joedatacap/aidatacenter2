@@ -1,0 +1,31 @@
+# CoreWeave: cash funding before common-share upside
+
+Information cutoff: **27 November 2026, 09:00 UTC**. Valuation date: **27 November 2027**. Reference: **$42.57**, the verified 25 November regular-session close. Thanksgiving closed the US market on 26 November; the cutoff precedes the next regular session. Source records, section locators and assumptions live in [the underwriting input](../neocloud/data/underwriting/crwv.json). The shared calculator, rather than handwritten outputs, drives the website.
+
+The call is **Hold / no new fundamental Buy**. The illustrative base produces $48.60, or 14.2% above the reference price, while requiring financing far beyond the last disclosed ATM capacity. It does not establish a firm price target. A 30% analyst risk-margin hurdle would require a price around $37.39 or lower at the same base path, or a defensible value above $55.34 at the reference price, **plus financing evidence**. These are decision rules, not issuer guidance.
+
+| Through target, USD billions except shares/value | Bear | Base | Bull |
+|---|---:|---:|---:|
+| Gross assumed new borrowing, including refinancing | 17.10 | 26.08 | 28.71 |
+| Principal repaid, including assumed new-facility amortization | 14.16 | 14.86 | 15.01 |
+| Net hypothetical equity funding gap | 22.91 | 7.74 | 5.39 |
+| Gross hypothetical equity, before 2% fees | 23.37 | 7.90 | 5.50 |
+| Post-financing shares, millions | 1,308.21 | 777.32 | 702.00 |
+| Debt / unrestricted cash | 50.44 / 3.00 | 58.72 / 3.00 | 61.20 / 3.00 |
+| Conditional common value per share | $0.00 | $48.60 | $137.40 |
+
+Forecast physical cash capex excludes capitalized financing interest, because interest is a separate bridge use. Historical filed cash capex is not restated or mechanically substituted into that assumption.
+
+The bridge starts with the last reported balance sheet, **30 September**, rather than pretending November cash is known. It models the entire fourth quarter, three 2027 quarters, and a 58-day fourth-quarter stub ending at target. Disclosed old-debt maturities are allocated by days; actual cash sweeps and loan-by-loan timing can be less favorable. Future gross borrowing carries assumed 1% fees and, from 2027, 20% annual principal amortization on midpoint new-loan balances. These are scenario assumptions, not contractual terms. The website must not describe a calculated equity shortfall as committed funding.
+
+The separately labeled **full FY2027** base has revenue $23.0 billion, adjusted EBITDA $13.8 billion, cash capex $26.0 billion, pre-interest OCF $11.7 billion and cash FCF **negative $19.3 billion**, using a $5.0 billion annual cash-interest assumption. Full-year cash flow includes the 34 days after target; that cash is never added to target equity. Annual interest is a separate estimate from the dated bridge’s computed interest. Finance-lease principal is outside standard OCF-minus-capex FCF; its payments remain explicit bridge uses.
+
+The financing audit keeps commitments separate from money received. September's **$5.653 billion** available secured capacity includes the revolver component; the model does not add it to cash or assume all conditions are met. Management's November call forecast of roughly **$9 billion** customer deposits over three months is not a confirmed balance. Base collection timing is $6 billion in Q4 and $3 billion in Q1, inside OCF once. The analyst recognition adjustment subtracts previously prepaid service revenue; the historical deferred-revenue cash-flow benefit is not added again. The September ATM checkpoint is only **35 million shares**, with current remaining availability unknown; base financing needs **206.19 million** new financing shares plus a separate 15 million-share award reserve. A further offering would be necessary.
+
+Project financing is not automatically nonrecourse. DDTL4 has limited carve-outs; other DDTLs carry parent guarantees. DDTL5.5's reserve/cash-sweep provisions can constrain cash availability. Restricted cash remains excluded from usable cash. Principal and carrying debt are reconciled; finance leases are separate claims; operating rent is already expensed, so operating lease liabilities are not also deducted from EV. The small customer-supplier asset/obligation offset is not grossed up on only one side.
+
+The 4x / 6.8x / 10x EBITDA anchors are **illustrative mature-fleet assumptions**, not observed peer multiples. Base 6.8x equals 60% normalized unlevered cash conversion after replacement capex/taxes, times 1.02, divided by an 11% return less 2% growth. Disclosure does not verify that conversion. The sensitivity reruns financing for 4–12x and 80–120% cash capex. The base market-price hurdle is about **6.46x** at fixed financing, shares and margin; reverse revenue holds cash assumptions fixed and is not a financing forecast.
+
+Convertibles stay debt in the principal cases. The bull value exceeds nominal strikes, but eligibility requires more than a point estimate: the ordinary holder route tests 20 of 30 trading days at 130% of strike in the preceding quarter. Approximate thresholds are $140.14 / $155.48 / $127.21 for the 2031 / 2032 / 2033 notes. A hypothetical 1 October 2027 physical conversion of **2033 only** retires $4.2 billion, adds 42.92148 million shares and saves $19.17 million coupons through target: bull value becomes **$135.21**. Hypothetically converting all three retires $10.788 billion, adds 100.368965 million shares and saves $37.48 million: **$133.82**. Prior-quarter eligibility and holder/issuer settlement elections are unknown. Ordinary issuer redemption dates are after target. These gross-share illustrations credit no capped-call early unwind; actual capped calls could offset dilution, but their 2027 settlement is not established.
+
+The research completeness limit is material: no verified subsequent material financing was found in the SEC daily-index checks through 25 November, and the IR index only partially renders. Actual customer receipt timing, replacement capex, project cash leakage, future lender advance rates, early sweeps and equity issuance feasibility remain open. Preserve the original historical ledgers; this is a separately versioned underwriting case, not a restatement of reported results.

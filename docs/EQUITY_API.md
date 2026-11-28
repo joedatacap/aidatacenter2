@@ -30,3 +30,11 @@ Source IDs resolve locally in sources, watch_sources or the audit source registe
 ## Versioning
 
 Investment drafts, publications and subsequent outcomes are distinct. Official public release notices attach to an exact immutable hash. Edited calls produce new records. Use scorecard status and matched dates before quoting any performance. The event monitor queues review candidates; subsequent model changes need supporting public evidence and a new edition.
+
+## November 27 underwriting edition
+
+The overview and the existing NBIS and CRWV investment routes use the current financing scenarios. The additive endpoints `/api/v1/companies/NBIS/underwriting.json` and `/api/v1/companies/CRWV/underwriting.json` expose dated sources, assumptions, cash rolls, period cash flows, share issuance, scenario values, reverse valuation and sensitivity results. Monetary inputs are in USD millions, share counts in millions and targets in USD per share. The attributed reference close is visible in the HTML report. The downloadable reference-price field remains null under the existing market-data policy.
+
+The current call in `justin/research.json` uses the base scenario's per-share value and return. A target here is conditional on the stated funding mix. In each company package, `prior_report` and `financials.model_as_of` identify the earlier report and forecasts. The rolling bridge through the November 27, 2027 target and the full FY2027 figures cover different periods. The review preserves both. The seven other investment reports and the shorter-horizon tactical calls retain their original dates.
+
+`/api/v1/justin/call-audit.json` contains the nine original calls, their source checks and the three ranked follow-ups. Versioned calls are recorded as previews by the existing history command. Recording a version does not register a public release or start a return measurement. See the [call audit](CALL_AUDIT_2026_11_27.md).
