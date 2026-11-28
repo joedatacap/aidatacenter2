@@ -1,0 +1,1163 @@
+{
+  "ticker": "CRWV",
+  "as_of": "2026-11-26",
+  "business_model": "Consolidated GPU cloud: capital-intensive contracted service revenue; debt/project financing and prepayments fund hardware before delivery. Enterprise growth must be translated through replacement costs and common-equity claims.",
+  "sources": {
+    "q3": {
+      "title": "CoreWeave Q3 2026 results and non-GAAP reconciliation",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000461/coreweave3q26earningspress.htm",
+      "published": "2026-11-10",
+      "period": "Quarter and nine months ended September 30, 2026; FY2026 outlook"
+    },
+    "10q": {
+      "title": "CoreWeave Q3 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000465/crwv-20260930.htm",
+      "published": "2026-11-12",
+      "period": "September 30 balance sheet; October 30 cover shares"
+    },
+    "q425": {
+      "title": "CoreWeave 2025 fourth-quarter results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000094/coreweave4q25earningspress.htm",
+      "published": "2026-02-26",
+      "period": "Quarter ended December 31, 2025"
+    },
+    "price": {
+      "title": "CRWV daily historical prices",
+      "url": "https://stockanalysis.com/stocks/crwv/history/",
+      "published": "2026-11-25",
+      "period": "November 25 completed session, 16:00 EST; reviewed November 26"
+    },
+    "pricing": {
+      "title": "New compute contracts at higher prices",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Continues-to-Contract-New-Compute-Capacity-at-Higher-Prices/default.aspx",
+      "published": "2026-09-17",
+      "period": "Selected three-to-six-month Q3 contracts, not whole fleet"
+    },
+    "loan55": {
+      "title": "DDTL 5.5 financing closed",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-Closes-2-6-Billion-Loan-Facility-Expanding-Financing-Flexibility-for-AI-Infrastructure/",
+      "published": "2026-08-10",
+      "period": "Facility launch; September 30 draws in 10-Q"
+    },
+    "conference": {
+      "title": "CFO UBS conference participation",
+      "url": "https://investors.coreweave.com/news/news-details/2026/CoreWeave-to-Participate-in-the-2026-UBS-Global-Technology-and-AI-Conference/default.aspx",
+      "published": "2026-11-23",
+      "period": "December 1, 2026, 11:35 Eastern"
+    },
+    "index": {
+      "title": "SEC submissions index",
+      "url": "https://data.sec.gov/submissions/CIK0001769628.json",
+      "published": null,
+      "period": "Observed November 26; mutable index, not a dated filing"
+    }
+  },
+  "facts": [
+    {
+      "metric": "price",
+      "value": 42.57,
+      "unit": "USD/share",
+      "period": "2026-11-25 16:00 EST",
+      "source": "price",
+      "status": "provider_reported",
+      "note": "Completed-session close, not executable quote."
+    },
+    {
+      "metric": "common_shares",
+      "value": 556.125724,
+      "unit": "million shares",
+      "period": "2026-10-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Cover: 465.847732M Class A +90.277992M Class B; zero Class C. Economic shares, not diluted EPS weighted average."
+    },
+    {
+      "metric": "diluted_shares",
+      "value": null,
+      "unit": "million shares",
+      "period": "Current",
+      "source": "10q",
+      "status": "unavailable",
+      "note": "Current dilution requires option strikes, vesting, conversion/capped-call treatment and later ATM use. Do not add all 158M anti-dilutive instruments mechanically."
+    },
+    {
+      "metric": "cash",
+      "value": 4122,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Cash and equivalents; not verified surplus after future delivery obligations."
+    },
+    {
+      "metric": "restricted_cash",
+      "value": 2282,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Current 1405 + noncurrent 877; excluded from valuation cash."
+    },
+    {
+      "metric": "debt",
+      "value": 47505,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Principal debt; carrying value 46873 is different. Recourse and non-recourse included."
+    },
+    {
+      "metric": "dcsp_net_financing_asset",
+      "value": 71,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Gross note receivable300 less financing/finance-lease obligations229 netted under ASC 210; do not add gross obligations again without restoring the receivable."
+    },
+    {
+      "metric": "finance_leases",
+      "value": 649,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Current296 + noncurrent 353; added to debt for EV."
+    },
+    {
+      "metric": "operating_leases",
+      "value": 18697,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Excluded from rent-expensed EBITDA EV convention."
+    },
+    {
+      "metric": "preferred",
+      "value": 0,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Balance sheet explicitly states no preferred shares issued and outstanding at September30 and December31; Note 11 says prior put right terminated September 2025."
+    },
+    {
+      "metric": "noncontrolling_interest",
+      "value": 0,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Reported balance-sheet residual: assets 91481−liabilities 87456−stockholders equity 4025=0; no separate NCI balance. Does not rule out all project-contract economic rights."
+    },
+    {
+      "metric": "cash_capex_9m",
+      "value": 23558,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Cash purchases of property/equipment and capitalized software, not total accrued/noncash capital expenditures."
+    },
+    {
+      "metric": "operating_cash_flow_9m",
+      "value": 5638,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Includes deferred-revenue working-capital benefit; not recurring unlevered cash flow."
+    },
+    {
+      "metric": "deferred_revenue",
+      "value": 10002,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Current2269+noncurrent 7733; model treats it as prepaid-service pool, an explicit simplification."
+    },
+    {
+      "metric": "rpo",
+      "value": 132300,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Note 2 remaining performance obligations, not additional to 132500 management backlog."
+    },
+    {
+      "metric": "rpo_initial_24m",
+      "value": 47628,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Calculated132300×36%; expected recognition October 2026–September 2028, not calendar2027/28 guidance."
+    },
+    {
+      "metric": "atm_authorized_shares",
+      "value": 35,
+      "unit": "million shares",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Unit is million shares despite financial ledger default; no sales or collared forwards through Sep30; later usage unknown."
+    },
+    {
+      "metric": "debt_due_2027",
+      "value": 10974,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Principal maturity/amortization schedule; excludes unidentified new borrowings and finance-lease principal."
+    },
+    {
+      "metric": "debt_due_2028",
+      "value": 5479,
+      "unit": "USD million",
+      "period": "2026-09-30",
+      "source": "10q",
+      "status": "verified",
+      "note": "Same historical maturity schedule."
+    },
+    {
+      "metric": "ttm_revenue",
+      "value": 9886,
+      "unit": "USD million",
+      "period": "12 months ended 2026-09-30",
+      "source": "q3",
+      "status": "verified",
+      "note": "Calculated8314 nine-month2026 +1572 Q4 2025; supporting Q4 source q425. Not exit ARR."
+    },
+    {
+      "metric": "ttm_ebitda",
+      "value": 5175,
+      "unit": "USD million",
+      "period": "12 months ended 2026-09-30",
+      "source": "q3",
+      "status": "verified",
+      "note": "Operating EBITDA, retaining SBC/acquisition costs: (nine-month GAAP operating income 14 +D&A4429)+(Q4 2025 operating loss−89 +D&A821)=5175. Excludes nonoperating income; not issuer adjusted EBITDA. Supporting Q4 source q425."
+    },
+    {
+      "metric": "ttm_adjusted_ebitda",
+      "value": 5821,
+      "unit": "USD million",
+      "period": "12 months ended 2026-09-30",
+      "source": "q3",
+      "status": "verified",
+      "note": "Issuer-adjusted EBITDA: nine-month4923 +Q4 2025 898. Separate from operating EBITDA5175; difference635 SBC +11 acquisition costs."
+    },
+    {
+      "metric": "ttm_net_income",
+      "value": -2527,
+      "unit": "USD million",
+      "period": "12 months ended 2026-09-30",
+      "source": "q3",
+      "status": "verified",
+      "note": "GAAP net loss: nine-month−2075 plusQ4 2025−452; supporting Q4 source q425."
+    },
+    {
+      "metric": "ttm_fcf",
+      "value": -20421,
+      "unit": "USD million",
+      "period": "12 months ended 2026-09-30",
+      "source": "q3",
+      "status": "verified",
+      "note": "Cash FCF=reported OCF minus cash PPE/software purchases: (5638+1559)−(23558+4060)=−20421. Includes actual working capital/prepayment timing; excludes acquisition/investment flows and noncash capex. Supporting Q4 cash-flow source q425."
+    },
+    {
+      "metric": "q3_adjusted_ebitda",
+      "value": 2256,
+      "unit": "USD million",
+      "period": "2026-Q3",
+      "source": "q3",
+      "status": "verified",
+      "note": "Adjusted EBITDA; GAAP operating income 207, adjusted operating income 379, net loss 709."
+    },
+    {
+      "metric": "q3_cash_capex",
+      "value": 9441,
+      "unit": "USD million",
+      "period": "2026-Q3",
+      "source": "q3",
+      "status": "verified",
+      "note": "Cash capex; no replacement/growth split disclosed."
+    },
+    {
+      "metric": "exit_arr_low",
+      "value": 20000,
+      "unit": "USD million annualized",
+      "period": "December 2026",
+      "source": "q3",
+      "status": "management_guidance",
+      "note": "December recognized revenue multiplied by12, not FY revenue."
+    },
+    {
+      "metric": "exit_arr_high",
+      "value": 21000,
+      "unit": "USD million annualized",
+      "period": "December 2026",
+      "source": "q3",
+      "status": "management_guidance",
+      "note": "Not FY2027 guidance."
+    }
+  ],
+  "models": [
+    {
+      "year": 2027,
+      "scenario": "bear",
+      "period": "Calendar year ending December 31,2027",
+      "inputs": {
+        "status": "Justin analyst assumptions, not guidance or consensus",
+        "revenue": 18000,
+        "adjusted_ebitda_margin": 0.55,
+        "da_to_revenue": 0.48,
+        "sbc_to_revenue": 0.04,
+        "cash_capex": 25000,
+        "annual_cash_interest_rate": 0.095,
+        "cash_interest": 6226.354855642991,
+        "tax_rate_on_positive_pretax": 0.25,
+        "customer_cash_receipts": 4500,
+        "prepaid_revenue_recognition_rate": 0.2,
+        "prepaid_revenue_recognized": 3600.0,
+        "opening_prepaid_balance_assumed": 9064.8,
+        "ending_prepaid_balance_assumed": 9964.8,
+        "net_customer_cash_benefit": 900.0,
+        "other_working_capital_cash": 0,
+        "opening_debt": 55841.9,
+        "opening_cash": 3000.0,
+        "minimum_operating_cash": 3000,
+        "scheduled_principal": 10974,
+        "new_atm_shares": 35,
+        "assumed_issue_price": 30,
+        "issuance_fee": 0.02,
+        "equity_proceeds": 1029.0,
+        "assumed_rsu_vesting": 15.5,
+        "ending_scenario_shares": 606.625724
+      },
+      "metrics": {
+        "revenue": 18000,
+        "gross_profit": null,
+        "ebitda": 9180.0,
+        "adjusted_ebitda": 9900.0,
+        "net_income": -5686.354855642991,
+        "capex": 25000,
+        "fcf": -20426.354855642992
+      },
+      "method": "Adjusted EBITDA=R×margin; EBITDA=adjusted EBITDA−SBC (other EBITDA adjustments assumed0). D&A=R×D&A ratio; SBC=R×SBC ratio. Pretax=adjusted EBITDA−D&A−SBC−interest; tax=25%×max(pretax,0); net income=pretax−tax (simplified GAAP-style forecast, not issuer adjusted net income). FCF=adjusted EBITDA−cash interest−cash tax−cash capex+customer receipts−prepaid revenue recognition (20%×R), with other working-capital changes assumed0. Equity proceeds=new ATM shares×assumed issue price×98%. New debt=max(0,3000−opening cash−FCF+scheduled principal−equity proceeds). Ending debt=opening debt−scheduled principal+new debt. Interest=rate×average opening/ending debt, solved iteratively; cash=opening cash+FCF+draw+equity proceeds−principal. Shares include assumed vesting/issuance, no automatic conversion.",
+      "sources": [
+        "10q",
+        "q3"
+      ],
+      "gaps": [
+        "Gross profit unavailable: issuer cost-of-revenue excludes substantial technology/infrastructure costs, including GPU depreciation; no comparable all-in gross margin forecast is asserted.",
+        "D&A, SBC, tax, interest and cash-capex assumptions are independent scenarios, not forecasts from management. GAAP other income/fair-value items and cash timing differences are omitted.",
+        "Future debt required is a financing NEED, not committed or assured funding. Model assumes required refinancing/draws succeed; failed funding makes this operating path infeasible.",
+        "Ending shares are a scenario denominator, not fully diluted shares: all 31M existing RSUs/RSAs assumed vest half each year; options/warrants and conversion settlement remain unresolved."
+      ]
+    },
+    {
+      "year": 2028,
+      "scenario": "bear",
+      "period": "Calendar year ending December 31,2028",
+      "inputs": {
+        "status": "Justin analyst assumptions, not guidance or consensus",
+        "revenue": 20555.2,
+        "adjusted_ebitda_margin": 0.53,
+        "da_to_revenue": 0.45,
+        "sbc_to_revenue": 0.04,
+        "cash_capex": 20000,
+        "annual_cash_interest_rate": 0.1,
+        "cash_interest": 8615.541774278105,
+        "tax_rate_on_positive_pretax": 0.25,
+        "customer_cash_receipts": 0,
+        "prepaid_revenue_recognition_rate": 0.2,
+        "prepaid_revenue_recognized": 4111.04,
+        "opening_prepaid_balance_assumed": 9964.8,
+        "ending_prepaid_balance_assumed": 5853.759999999999,
+        "net_customer_cash_benefit": -4111.04,
+        "other_working_capital_cash": 0,
+        "opening_debt": 75239.254855643,
+        "opening_cash": 3000.0,
+        "minimum_operating_cash": 3000,
+        "scheduled_principal": 5479,
+        "new_atm_shares": 0,
+        "assumed_issue_price": 30,
+        "issuance_fee": 0.02,
+        "equity_proceeds": 0.0,
+        "assumed_rsu_vesting": 15.5,
+        "ending_scenario_shares": 622.125724
+      },
+      "metrics": {
+        "revenue": 20555.2,
+        "gross_profit": null,
+        "ebitda": 10072.048,
+        "adjusted_ebitda": 10894.256000000001,
+        "net_income": -7793.333774278104,
+        "capex": 20000,
+        "fcf": -21832.325774278106
+      },
+      "method": "Adjusted EBITDA=R×margin; EBITDA=adjusted EBITDA−SBC (other EBITDA adjustments assumed0). D&A=R×D&A ratio; SBC=R×SBC ratio. Pretax=adjusted EBITDA−D&A−SBC−interest; tax=25%×max(pretax,0); net income=pretax−tax (simplified GAAP-style forecast, not issuer adjusted net income). FCF=adjusted EBITDA−cash interest−cash tax−cash capex+customer receipts−prepaid revenue recognition (20%×R), with other working-capital changes assumed0. Equity proceeds=new ATM shares×assumed issue price×98%. New debt=max(0,3000−opening cash−FCF+scheduled principal−equity proceeds). Ending debt=opening debt−scheduled principal+new debt. Interest=rate×average opening/ending debt, solved iteratively; cash=opening cash+FCF+draw+equity proceeds−principal. Shares include assumed vesting/issuance, no automatic conversion.",
+      "sources": [
+        "10q",
+        "q3"
+      ],
+      "gaps": [
+        "Gross profit unavailable: issuer cost-of-revenue excludes substantial technology/infrastructure costs, including GPU depreciation; no comparable all-in gross margin forecast is asserted.",
+        "D&A, SBC, tax, interest and cash-capex assumptions are independent scenarios, not forecasts from management. GAAP other income/fair-value items and cash timing differences are omitted.",
+        "Future debt required is a financing NEED, not committed or assured funding. Model assumes required refinancing/draws succeed; failed funding makes this operating path infeasible.",
+        "Ending shares are a scenario denominator, not fully diluted shares: all 31M existing RSUs/RSAs assumed vest half each year; options/warrants and conversion settlement remain unresolved."
+      ]
+    },
+    {
+      "year": 2027,
+      "scenario": "base",
+      "period": "Calendar year ending December 31,2027",
+      "inputs": {
+        "status": "Justin analyst assumptions, not guidance or consensus",
+        "revenue": 23000,
+        "adjusted_ebitda_margin": 0.6,
+        "da_to_revenue": 0.45,
+        "sbc_to_revenue": 0.035,
+        "cash_capex": 26000,
+        "annual_cash_interest_rate": 0.085,
+        "cash_interest": 4938.711770885077,
+        "tax_rate_on_positive_pretax": 0.25,
+        "customer_cash_receipts": 3000,
+        "prepaid_revenue_recognition_rate": 0.2,
+        "prepaid_revenue_recognized": 4600.0,
+        "opening_prepaid_balance_assumed": 15034.8,
+        "ending_prepaid_balance_assumed": 13434.8,
+        "net_customer_cash_benefit": -1600.0,
+        "other_working_capital_cash": 0,
+        "opening_debt": 49419.1355367386,
+        "opening_cash": 3000.0,
+        "minimum_operating_cash": 3000,
+        "scheduled_principal": 10974,
+        "new_atm_shares": 35,
+        "assumed_issue_price": 40,
+        "issuance_fee": 0.02,
+        "equity_proceeds": 1372.0,
+        "assumed_rsu_vesting": 15.5,
+        "ending_scenario_shares": 606.625724
+      },
+      "metrics": {
+        "revenue": 23000,
+        "gross_profit": null,
+        "ebitda": 12995.0,
+        "adjusted_ebitda": 13800.0,
+        "net_income": -2293.7117708850774,
+        "capex": 26000,
+        "fcf": -18738.71177088508
+      },
+      "method": "Adjusted EBITDA=R×margin; EBITDA=adjusted EBITDA−SBC (other EBITDA adjustments assumed0). D&A=R×D&A ratio; SBC=R×SBC ratio. Pretax=adjusted EBITDA−D&A−SBC−interest; tax=25%×max(pretax,0); net income=pretax−tax (simplified GAAP-style forecast, not issuer adjusted net income). FCF=adjusted EBITDA−cash interest−cash tax−cash capex+customer receipts−prepaid revenue recognition (20%×R), with other working-capital changes assumed0. Equity proceeds=new ATM shares×assumed issue price×98%. New debt=max(0,3000−opening cash−FCF+scheduled principal−equity proceeds). Ending debt=opening debt−scheduled principal+new debt. Interest=rate×average opening/ending debt, solved iteratively; cash=opening cash+FCF+draw+equity proceeds−principal. Shares include assumed vesting/issuance, no automatic conversion.",
+      "sources": [
+        "10q",
+        "q3"
+      ],
+      "gaps": [
+        "Gross profit unavailable: issuer cost-of-revenue excludes substantial technology/infrastructure costs, including GPU depreciation; no comparable all-in gross margin forecast is asserted.",
+        "D&A, SBC, tax, interest and cash-capex assumptions are independent scenarios, not forecasts from management. GAAP other income/fair-value items and cash timing differences are omitted.",
+        "Future debt required is a financing NEED, not committed or assured funding. Model assumes required refinancing/draws succeed; failed funding makes this operating path infeasible.",
+        "Ending shares are a scenario denominator, not fully diluted shares: all 31M existing RSUs/RSAs assumed vest half each year; options/warrants and conversion settlement remain unresolved."
+      ]
+    },
+    {
+      "year": 2028,
+      "scenario": "base",
+      "period": "Calendar year ending December 31,2028",
+      "inputs": {
+        "status": "Justin analyst assumptions, not guidance or consensus",
+        "revenue": 26389.333333333332,
+        "adjusted_ebitda_margin": 0.61,
+        "da_to_revenue": 0.42,
+        "sbc_to_revenue": 0.03,
+        "cash_capex": 22000,
+        "annual_cash_interest_rate": 0.085,
+        "cash_interest": 6425.026514688623,
+        "tax_rate_on_positive_pretax": 0.25,
+        "customer_cash_receipts": 0,
+        "prepaid_revenue_recognition_rate": 0.2,
+        "prepaid_revenue_recognized": 5277.866666666667,
+        "opening_prepaid_balance_assumed": 13434.8,
+        "ending_prepaid_balance_assumed": 8156.9333333333325,
+        "net_customer_cash_benefit": -5277.866666666667,
+        "other_working_capital_cash": 0,
+        "opening_debt": 66785.84730762368,
+        "opening_cash": 3000.0,
+        "minimum_operating_cash": 3000,
+        "scheduled_principal": 5479,
+        "new_atm_shares": 0,
+        "assumed_issue_price": 40,
+        "issuance_fee": 0.02,
+        "equity_proceeds": 0.0,
+        "assumed_rsu_vesting": 15.5,
+        "ending_scenario_shares": 622.125724
+      },
+      "metrics": {
+        "revenue": 26389.333333333332,
+        "gross_profit": null,
+        "ebitda": 15305.813333333332,
+        "adjusted_ebitda": 16097.493333333332,
+        "net_income": -2202.73318135529,
+        "capex": 22000,
+        "fcf": -17605.39984802196
+      },
+      "method": "Adjusted EBITDA=R×margin; EBITDA=adjusted EBITDA−SBC (other EBITDA adjustments assumed0). D&A=R×D&A ratio; SBC=R×SBC ratio. Pretax=adjusted EBITDA−D&A−SBC−interest; tax=25%×max(pretax,0); net income=pretax−tax (simplified GAAP-style forecast, not issuer adjusted net income). FCF=adjusted EBITDA−cash interest−cash tax−cash capex+customer receipts−prepaid revenue recognition (20%×R), with other working-capital changes assumed0. Equity proceeds=new ATM shares×assumed issue price×98%. New debt=max(0,3000−opening cash−FCF+scheduled principal−equity proceeds). Ending debt=opening debt−scheduled principal+new debt. Interest=rate×average opening/ending debt, solved iteratively; cash=opening cash+FCF+draw+equity proceeds−principal. Shares include assumed vesting/issuance, no automatic conversion.",
+      "sources": [
+        "10q",
+        "q3"
+      ],
+      "gaps": [
+        "Gross profit unavailable: issuer cost-of-revenue excludes substantial technology/infrastructure costs, including GPU depreciation; no comparable all-in gross margin forecast is asserted.",
+        "D&A, SBC, tax, interest and cash-capex assumptions are independent scenarios, not forecasts from management. GAAP other income/fair-value items and cash timing differences are omitted.",
+        "Future debt required is a financing NEED, not committed or assured funding. Model assumes required refinancing/draws succeed; failed funding makes this operating path infeasible.",
+        "Ending shares are a scenario denominator, not fully diluted shares: all 31M existing RSUs/RSAs assumed vest half each year; options/warrants and conversion settlement remain unresolved."
+      ]
+    },
+    {
+      "year": 2027,
+      "scenario": "bull",
+      "period": "Calendar year ending December 31,2027",
+      "inputs": {
+        "status": "Justin analyst assumptions, not guidance or consensus",
+        "revenue": 25000,
+        "adjusted_ebitda_margin": 0.62,
+        "da_to_revenue": 0.4,
+        "sbc_to_revenue": 0.03,
+        "cash_capex": 28000,
+        "annual_cash_interest_rate": 0.075,
+        "cash_interest": 4226.942508038289,
+        "tax_rate_on_positive_pretax": 0.25,
+        "customer_cash_receipts": 0,
+        "prepaid_revenue_recognition_rate": 0.2,
+        "prepaid_revenue_recognized": 5000.0,
+        "opening_prepaid_balance_assumed": 18004.8,
+        "ending_prepaid_balance_assumed": 13004.8,
+        "net_customer_cash_benefit": -5000.0,
+        "other_working_capital_cash": 0,
+        "opening_debt": 46287.88,
+        "opening_cash": 3000.0,
+        "minimum_operating_cash": 3000,
+        "scheduled_principal": 10974,
+        "new_atm_shares": 35,
+        "assumed_issue_price": 50,
+        "issuance_fee": 0.02,
+        "equity_proceeds": 1715.0,
+        "assumed_rsu_vesting": 15.5,
+        "ending_scenario_shares": 606.625724
+      },
+      "metrics": {
+        "revenue": 25000,
+        "gross_profit": null,
+        "ebitda": 14750.0,
+        "adjusted_ebitda": 15500.0,
+        "net_income": 392.2931189712833,
+        "capex": 28000,
+        "fcf": -21857.706881028716
+      },
+      "method": "Adjusted EBITDA=R×margin; EBITDA=adjusted EBITDA−SBC (other EBITDA adjustments assumed0). D&A=R×D&A ratio; SBC=R×SBC ratio. Pretax=adjusted EBITDA−D&A−SBC−interest; tax=25%×max(pretax,0); net income=pretax−tax (simplified GAAP-style forecast, not issuer adjusted net income). FCF=adjusted EBITDA−cash interest−cash tax−cash capex+customer receipts−prepaid revenue recognition (20%×R), with other working-capital changes assumed0. Equity proceeds=new ATM shares×assumed issue price×98%. New debt=max(0,3000−opening cash−FCF+scheduled principal−equity proceeds). Ending debt=opening debt−scheduled principal+new debt. Interest=rate×average opening/ending debt, solved iteratively; cash=opening cash+FCF+draw+equity proceeds−principal. Shares include assumed vesting/issuance, no automatic conversion.",
+      "sources": [
+        "10q",
+        "q3"
+      ],
+      "gaps": [
+        "Gross profit unavailable: issuer cost-of-revenue excludes substantial technology/infrastructure costs, including GPU depreciation; no comparable all-in gross margin forecast is asserted.",
+        "D&A, SBC, tax, interest and cash-capex assumptions are independent scenarios, not forecasts from management. GAAP other income/fair-value items and cash timing differences are omitted.",
+        "Future debt required is a financing NEED, not committed or assured funding. Model assumes required refinancing/draws succeed; failed funding makes this operating path infeasible.",
+        "Ending shares are a scenario denominator, not fully diluted shares: all 31M existing RSUs/RSAs assumed vest half each year; options/warrants and conversion settlement remain unresolved."
+      ]
+    },
+    {
+      "year": 2028,
+      "scenario": "bull",
+      "period": "Calendar year ending December 31,2028",
+      "inputs": {
+        "status": "Justin analyst assumptions, not guidance or consensus",
+        "revenue": 30000,
+        "adjusted_ebitda_margin": 0.63,
+        "da_to_revenue": 0.35,
+        "sbc_to_revenue": 0.025,
+        "cash_capex": 23000,
+        "annual_cash_interest_rate": 0.07,
+        "cash_interest": 5207.269403514135,
+        "tax_rate_on_positive_pretax": 0.25,
+        "customer_cash_receipts": 0,
+        "prepaid_revenue_recognition_rate": 0.2,
+        "prepaid_revenue_recognized": 6000.0,
+        "opening_prepaid_balance_assumed": 13004.8,
+        "ending_prepaid_balance_assumed": 7004.799999999999,
+        "net_customer_cash_benefit": -6000.0,
+        "other_working_capital_cash": 0,
+        "opening_debt": 66430.58688102872,
+        "opening_cash": 3000.0,
+        "minimum_operating_cash": 3000,
+        "scheduled_principal": 5479,
+        "new_atm_shares": 0,
+        "assumed_issue_price": 50,
+        "issuance_fee": 0.02,
+        "equity_proceeds": 0.0,
+        "assumed_rsu_vesting": 15.5,
+        "ending_scenario_shares": 622.125724
+      },
+      "metrics": {
+        "revenue": 30000,
+        "gross_profit": null,
+        "ebitda": 18150.0,
+        "adjusted_ebitda": 18900.0,
+        "net_income": 1832.0479473643989,
+        "capex": 23000,
+        "fcf": -15917.952052635603
+      },
+      "method": "Adjusted EBITDA=R×margin; EBITDA=adjusted EBITDA−SBC (other EBITDA adjustments assumed0). D&A=R×D&A ratio; SBC=R×SBC ratio. Pretax=adjusted EBITDA−D&A−SBC−interest; tax=25%×max(pretax,0); net income=pretax−tax (simplified GAAP-style forecast, not issuer adjusted net income). FCF=adjusted EBITDA−cash interest−cash tax−cash capex+customer receipts−prepaid revenue recognition (20%×R), with other working-capital changes assumed0. Equity proceeds=new ATM shares×assumed issue price×98%. New debt=max(0,3000−opening cash−FCF+scheduled principal−equity proceeds). Ending debt=opening debt−scheduled principal+new debt. Interest=rate×average opening/ending debt, solved iteratively; cash=opening cash+FCF+draw+equity proceeds−principal. Shares include assumed vesting/issuance, no automatic conversion.",
+      "sources": [
+        "10q",
+        "q3"
+      ],
+      "gaps": [
+        "Gross profit unavailable: issuer cost-of-revenue excludes substantial technology/infrastructure costs, including GPU depreciation; no comparable all-in gross margin forecast is asserted.",
+        "D&A, SBC, tax, interest and cash-capex assumptions are independent scenarios, not forecasts from management. GAAP other income/fair-value items and cash timing differences are omitted.",
+        "Future debt required is a financing NEED, not committed or assured funding. Model assumes required refinancing/draws succeed; failed funding makes this operating path infeasible.",
+        "Ending shares are a scenario denominator, not fully diluted shares: all 31M existing RSUs/RSAs assumed vest half each year; options/warrants and conversion settlement remain unresolved."
+      ]
+    }
+  ],
+  "model_assumptions": {
+    "revenue": "Base assumes23,000M in 2027;2028=(47,628−4,836−23,000)/0.75=26,389.333M, using uniform2028 recognition within the first9months. Bear recognizes80% of disclosed initial 24-monthRPO:2028=(47,628×0.8−4,686−18,000)/0.75=20,555.2M. Bull25,000/30,000M implies4,986+25,000+0.75×30,000=52,486M through Sep2028,4,858M above the old47,628M schedule; this explicitly requires incremental contracts/acceleration. These allocation assumptions are NOT issuer FY2027/28 forecasts.",
+    "operating_costs": "Observed Q3 adjusted EBITDA margin 61.62%; Q3 PPE depreciation approximately1.9B is about 52% of revenue. Scenario margins53–63%, D&A35–48% of revenue and SBC 2.5–4% are explicit scale/efficiency stresses; historical Q3 SBC 160M/3661M=4.37%. Lower future D&A ratios require revenue growth relative to deployed asset depreciation, not a proven equipment-life extension.",
+    "capex": "Annual cash capex 20–28B assumes moderation from nine-month2026 cash purchases23.558B (31.4B annualized) while maintaining contracted delivery. This is a key unverified assumption, not the37–39B2026 management capital-expenditure measure, which is not directly interchangeable with cash capex. All forecast capex includes replacement and growth; separate components unknown.",
+    "funding": "Q4 cash capex 9B approximates observed Q3 cash purchases9.441B; other cash uses300M are an explicit reserve. Expected9B customer funds: bear receives4.5B in 2027, base6B inQ4 plus3B2027, bull9B inQ4. These are modeled new cash receipts, not verified receipts or additive revenue. Each period subtracts20% of recognized revenue as assumed recognition of prior prepayments; the20% is the midpoint of historical15–25% active-contract prepayments disclosed for2023–25, NOT a verified2027 recognition ratio. Opening deferred revenue 10.002B is used solely as the assumed prepaid liability pool and rolled forward. No additional recurring new customer prepayments are credited after 2027; cash receipts could therefore differ materially. Cash minimum 3B is analyst liquidity reserve, not covenant. Rate7–10% applied to average gross debt is an aggregate cash-cost sensitivity anchored to Q4 interest guidance annualized4.2–4.6B versusSep principal 47.505B; not facility coupon or current market yield.",
+    "equity": "Each scenario assumes entire35M ATM authorization issued in 2027 at analyst issue prices30/40/50, less2%fee, plus15.5M annual vesting from existing31M RSU/RSA pool. Issue prices are financing stresses, not targets. Proceeds reduce debt needs; dilution is not charged again in FCF. Conversion remains debt; new financing and employee grants beyond those assumptions absent.",
+    "valuation": "Normalized unlevered cash conversion20/35/50% of adjusted EBITDA, return 15/12/10%, growth 0/2/3% are independent economic assumptions. Base/bull conversion requires large improvement from Q3 adjusted operating-income/EBITDA ratio~16.8%, after considering replacement/tax/working-capital demands. No quote, tactical price range or peer multiple is used to choose them. Because replacement economics are unverified, outputs are transparent sensitivities, not an endorsed fundamental target."
+  },
+  "contracts": [
+    {
+      "customer": "Committed customer portfolio; identities not inferred",
+      "description": "Take-or-pay commitments produced98% of Q3 revenue. Service may start on fixed dates or capacity delivery; credits/delays can reduce transaction price.",
+      "stage": "Operating and future delivery",
+      "original_timing": "As contracted; contract-level schedules not publicly mapped",
+      "current_timing": "RPO132.3B at Sep30:36% initial 24months,38% months 25–48,26% months 49–86",
+      "recognition": "Revenue upon performance;47.628B expected Oct2026–Sep2028 is a schedule anchor, not guaranteed cash or calendar-year guidance.",
+      "sources": [
+        "10q"
+      ]
+    },
+    {
+      "customer": "Selected short-duration customers; names undisclosed",
+      "description": "Issuer disclosed approximately40M annualized revenue perMW on three-to-six-month contracts signed in Q3.",
+      "stage": "Signed selected contracts",
+      "original_timing": "Three-to-six-month terms, September 17 disclosure",
+      "current_timing": "Renewal outcomes not verified",
+      "recognition": "Do not multiply40M/MW by total active/contractedMW; selected annualized pricing is not fleet revenue or contract duration.",
+      "sources": [
+        "pricing"
+      ]
+    },
+    {
+      "customer": "DDTL5.5 customer pool",
+      "description": "Average initial customer term about 3years backs a roughly5year financing; renewal/redeployment risk persists.",
+      "stage": "Facility closed;1.555B drawn at Sep30 of 2.6B commitment",
+      "original_timing": "August 7 credit agreement; August 10 announcement",
+      "current_timing": "Legal maturity September 2031; scheduled final payment July 2031 per filing",
+      "recognition": "Debt capacity is not sales; customer service revenue recognized separately.",
+      "sources": [
+        "loan55",
+        "10q"
+      ]
+    },
+    {
+      "customer": "Unnamed data-center provider:453MW site",
+      "description": "Capacity contracted but delivery not yet occurred as ofSep30.",
+      "stage": "Future phased infrastructure delivery",
+      "original_timing": "First reviewed filing describes phases across2026 and2028; earlier original deadlines unverified",
+      "current_timing": "No actual handover verification in this ledger",
+      "recognition": "Infrastructure availability is not GPU utilization, accepted customer service or billed revenue.",
+      "sources": [
+        "10q"
+      ]
+    }
+  ],
+  "valuation": {
+    "method": "Independent normalized unlevered cash capitalization; no market-calibrated fair multiple",
+    "published_target": null,
+    "current_historical_claims_bridge": {
+      "status": "Dated basic-share EV proxy; not strict current fully diluted EV",
+      "preferred": 0,
+      "noncontrolling_interest": 0,
+      "excluded_net_financing_asset": 71,
+      "excluded_marketable_securities": 62,
+      "price": 42.57,
+      "basic_shares": 556.125724,
+      "debt_principal": 47505,
+      "finance_leases": 649,
+      "cash": 4122,
+      "equity_capitalization": 23674.27207068,
+      "enterprise_value": 67706.27207068,
+      "period_warning": "Mixed dates:Nov25 price/Oct30 shares/Sep30 debt and cash; not current fully diluted EV. Sep30 preferred0 explicitly verified; NCI0 reconciles balance sheet. NetDCSP financing asset71 and marketable securities62 excluded conservatively; contingent economic rights/current denominator remain unresolved."
+    },
+    "cases": [
+      {
+        "year": 2027,
+        "scenario": "bear",
+        "status": "Independent normalized-cash sensitivity, NOT a published price target",
+        "normalized_unlevered_fcf_fraction_of_adjusted_ebitda": 0.2,
+        "required_enterprise_return": 0.15,
+        "perpetual_growth": 0,
+        "implied_ev_adjusted_ebitda_multiple": 1.3333333333333335,
+        "enterprise_value": 13200.000000000002,
+        "debt_including_finance_leases": 75239.254855643,
+        "surplus_cash": 0,
+        "operating_cash_excluded": 3000.0,
+        "additional_claims_assumed": 0,
+        "scenario_shares": 606.625724,
+        "raw_equity": -62039.254855643,
+        "equity": 0,
+        "per_share": 0.0,
+        "reverse_reference_price": 42.57,
+        "reverse_required_adjusted_ebitda": 75797.48394474223,
+        "reverse_required_revenue": 137813.60717225858,
+        "sources": [
+          "10q",
+          "q3",
+          "price"
+        ],
+        "method": "Multiple=normalized unlevered FCF/adjusted EBITDA×(1+g)/(required enterprise return−g). EV=year EBITDA×multiple; equity=EV−horizon debt+surplus cash−other claims; display floor0 separately. This is a stylized capitalization at horizon, not a DCF of explicit build-year cash flows. Reverse revenue=(42.57×scenario shares+horizon debt)/(multiple×scenario EBITDA margin); descriptive hurdle, not a market forecast."
+      },
+      {
+        "year": 2028,
+        "scenario": "bear",
+        "status": "Independent normalized-cash sensitivity, NOT a published price target",
+        "normalized_unlevered_fcf_fraction_of_adjusted_ebitda": 0.2,
+        "required_enterprise_return": 0.15,
+        "perpetual_growth": 0,
+        "implied_ev_adjusted_ebitda_multiple": 1.3333333333333335,
+        "enterprise_value": 14525.67466666667,
+        "debt_including_finance_leases": 97071.58062992111,
+        "surplus_cash": 0,
+        "operating_cash_excluded": 3000.0,
+        "additional_claims_assumed": 0,
+        "scenario_shares": 622.125724,
+        "raw_equity": -82545.90596325444,
+        "equity": 0,
+        "per_share": 0.0,
+        "reverse_reference_price": 42.57,
+        "reverse_required_adjusted_ebitda": 92666.60452545082,
+        "reverse_required_revenue": 174842.6500480204,
+        "sources": [
+          "10q",
+          "q3",
+          "price"
+        ],
+        "method": "Multiple=normalized unlevered FCF/adjusted EBITDA×(1+g)/(required enterprise return−g). EV=year EBITDA×multiple; equity=EV−horizon debt+surplus cash−other claims; display floor0 separately. This is a stylized capitalization at horizon, not a DCF of explicit build-year cash flows. Reverse revenue=(42.57×scenario shares+horizon debt)/(multiple×scenario EBITDA margin); descriptive hurdle, not a market forecast."
+      },
+      {
+        "year": 2027,
+        "scenario": "base",
+        "status": "Independent normalized-cash sensitivity, NOT a published price target",
+        "normalized_unlevered_fcf_fraction_of_adjusted_ebitda": 0.35,
+        "required_enterprise_return": 0.12,
+        "perpetual_growth": 0.02,
+        "implied_ev_adjusted_ebitda_multiple": 3.5700000000000003,
+        "enterprise_value": 49266.00000000001,
+        "debt_including_finance_leases": 66785.84730762368,
+        "surplus_cash": 0,
+        "operating_cash_excluded": 3000.0,
+        "additional_claims_assumed": 0,
+        "scenario_shares": 606.625724,
+        "raw_equity": -17519.847307623677,
+        "equity": 0,
+        "per_share": 0.0,
+        "reverse_reference_price": 42.57,
+        "reverse_required_adjusted_ebitda": 25941.149685799348,
+        "reverse_required_revenue": 43235.24947633225,
+        "sources": [
+          "10q",
+          "q3",
+          "price"
+        ],
+        "method": "Multiple=normalized unlevered FCF/adjusted EBITDA×(1+g)/(required enterprise return−g). EV=year EBITDA×multiple; equity=EV−horizon debt+surplus cash−other claims; display floor0 separately. This is a stylized capitalization at horizon, not a DCF of explicit build-year cash flows. Reverse revenue=(42.57×scenario shares+horizon debt)/(multiple×scenario EBITDA margin); descriptive hurdle, not a market forecast."
+      },
+      {
+        "year": 2028,
+        "scenario": "base",
+        "status": "Independent normalized-cash sensitivity, NOT a published price target",
+        "normalized_unlevered_fcf_fraction_of_adjusted_ebitda": 0.35,
+        "required_enterprise_return": 0.12,
+        "perpetual_growth": 0.02,
+        "implied_ev_adjusted_ebitda_multiple": 3.5700000000000003,
+        "enterprise_value": 57468.0512,
+        "debt_including_finance_leases": 84391.24715564564,
+        "surplus_cash": 0,
+        "operating_cash_excluded": 3000.0,
+        "additional_claims_assumed": 0,
+        "scenario_shares": 622.125724,
+        "raw_equity": -26923.195955645642,
+        "equity": 0,
+        "per_share": 0.0,
+        "reverse_reference_price": 42.57,
+        "reverse_required_adjusted_ebitda": 31057.46196815844,
+        "reverse_required_revenue": 50913.87207894826,
+        "sources": [
+          "10q",
+          "q3",
+          "price"
+        ],
+        "method": "Multiple=normalized unlevered FCF/adjusted EBITDA×(1+g)/(required enterprise return−g). EV=year EBITDA×multiple; equity=EV−horizon debt+surplus cash−other claims; display floor0 separately. This is a stylized capitalization at horizon, not a DCF of explicit build-year cash flows. Reverse revenue=(42.57×scenario shares+horizon debt)/(multiple×scenario EBITDA margin); descriptive hurdle, not a market forecast."
+      },
+      {
+        "year": 2027,
+        "scenario": "bull",
+        "status": "Independent normalized-cash sensitivity, NOT a published price target",
+        "normalized_unlevered_fcf_fraction_of_adjusted_ebitda": 0.5,
+        "required_enterprise_return": 0.1,
+        "perpetual_growth": 0.03,
+        "implied_ev_adjusted_ebitda_multiple": 7.357142857142857,
+        "enterprise_value": 114035.71428571428,
+        "debt_including_finance_leases": 66430.58688102872,
+        "surplus_cash": 0,
+        "operating_cash_excluded": 3000.0,
+        "additional_claims_assumed": 0,
+        "scenario_shares": 606.625724,
+        "raw_equity": 47605.127404685554,
+        "equity": 47605.127404685554,
+        "per_share": 78.47528636073065,
+        "reverse_reference_price": 42.57,
+        "reverse_required_adjusted_ebitda": 12539.466168193418,
+        "reverse_required_revenue": 20224.945432570028,
+        "sources": [
+          "10q",
+          "q3",
+          "price"
+        ],
+        "method": "Multiple=normalized unlevered FCF/adjusted EBITDA×(1+g)/(required enterprise return−g). EV=year EBITDA×multiple; equity=EV−horizon debt+surplus cash−other claims; display floor0 separately. This is a stylized capitalization at horizon, not a DCF of explicit build-year cash flows. Reverse revenue=(42.57×scenario shares+horizon debt)/(multiple×scenario EBITDA margin); descriptive hurdle, not a market forecast."
+      },
+      {
+        "year": 2028,
+        "scenario": "bull",
+        "status": "Independent normalized-cash sensitivity, NOT a published price target",
+        "normalized_unlevered_fcf_fraction_of_adjusted_ebitda": 0.5,
+        "required_enterprise_return": 0.1,
+        "perpetual_growth": 0.03,
+        "implied_ev_adjusted_ebitda_multiple": 7.357142857142857,
+        "enterprise_value": 139050.0,
+        "debt_including_finance_leases": 82348.53893366433,
+        "surplus_cash": 0,
+        "operating_cash_excluded": 3000.0,
+        "additional_claims_assumed": 0,
+        "scenario_shares": 622.125724,
+        "raw_equity": 56701.46106633567,
+        "equity": 56701.46106633567,
+        "per_share": 91.14148294941052,
+        "reverse_reference_price": 42.57,
+        "reverse_required_adjusted_ebitda": 14792.757612240977,
+        "reverse_required_revenue": 23480.56763847774,
+        "sources": [
+          "10q",
+          "q3",
+          "price"
+        ],
+        "method": "Multiple=normalized unlevered FCF/adjusted EBITDA×(1+g)/(required enterprise return−g). EV=year EBITDA×multiple; equity=EV−horizon debt+surplus cash−other claims; display floor0 separately. This is a stylized capitalization at horizon, not a DCF of explicit build-year cash flows. Reverse revenue=(42.57×scenario shares+horizon debt)/(multiple×scenario EBITDA margin); descriptive hurdle, not a market forecast."
+      }
+    ],
+    "limitations": [
+      "No terminal-value multiple is source-reported. Cash-conversion/return/growth assumptions must be challenged; no statistically calibrated scenario probabilities.",
+      "Future operating cash reserve is excluded from surplus cash in equity bridge; additional claims assumed0 only for illustration, not verified absent.",
+      "Year-end sensitivity values are not discounted toNovember26 present value and are not 12-month targets. Negative residual equity is floored atzero for display, not a bankruptcy forecast."
+    ]
+  },
+  "financing": {
+    "units": "USD million",
+    "opening_period": "2026-09-30",
+    "period_warning": "Annual year-end bridges span15/27months fromSep30, not exact rolling12/24months. Indicative12/24month needs below prorate annual flows and maturities; actual intra-year payment dates/cash restrictions could materially differ.",
+    "bridges": {
+      "bear": {
+        "transition": {
+          "period": "2026-Q4 analyst bridge, not actual",
+          "opening_debt": 48154,
+          "opening_cash": 4122,
+          "revenue": 4686,
+          "adjusted_ebitda": 2577.3,
+          "cash_interest": 1150,
+          "cash_capex": 9000,
+          "cash_other": 300,
+          "customer_cash_receipts": 0,
+          "prepaid_revenue_recognized": 937.2,
+          "net_customer_cash_benefit": -937.2,
+          "fcf": -8809.9,
+          "scheduled_principal": 2433,
+          "new_debt_required": 10120.9,
+          "ending_debt": 55841.9,
+          "ending_cash": 3000.0,
+          "equity_proceeds": 0,
+          "ending_prepaid_balance_assumed": 9064.8
+        },
+        "annual": [
+          {
+            "year": 2027,
+            "opening_debt": 55841.9,
+            "opening_cash": 3000.0,
+            "fcf": -20426.354855642992,
+            "new_debt_required": 30371.354855642992,
+            "equity_proceeds": 1029.0,
+            "scheduled_principal": 10974,
+            "ending_debt": 75239.254855643,
+            "ending_cash": 3000.0,
+            "ending_scenario_shares": 606.625724
+          },
+          {
+            "year": 2028,
+            "opening_debt": 75239.254855643,
+            "opening_cash": 3000.0,
+            "fcf": -21832.325774278106,
+            "new_debt_required": 27311.325774278106,
+            "equity_proceeds": 0.0,
+            "scheduled_principal": 5479,
+            "ending_debt": 97071.58062992111,
+            "ending_cash": 3000.0,
+            "ending_scenario_shares": 622.125724
+          }
+        ]
+      },
+      "base": {
+        "transition": {
+          "period": "2026-Q4 analyst bridge, not actual",
+          "opening_debt": 48154,
+          "opening_cash": 4122,
+          "revenue": 4836,
+          "adjusted_ebitda": 2980.064463261404,
+          "cash_interest": 1100,
+          "cash_capex": 9000,
+          "cash_other": 300,
+          "customer_cash_receipts": 6000,
+          "prepaid_revenue_recognized": 967.2,
+          "net_customer_cash_benefit": 5032.8,
+          "fcf": -2387.135536738596,
+          "scheduled_principal": 2433,
+          "new_debt_required": 3698.135536738596,
+          "ending_debt": 49419.1355367386,
+          "ending_cash": 3000.0,
+          "equity_proceeds": 0,
+          "ending_prepaid_balance_assumed": 15034.8
+        },
+        "annual": [
+          {
+            "year": 2027,
+            "opening_debt": 49419.1355367386,
+            "opening_cash": 3000.0,
+            "fcf": -18738.71177088508,
+            "new_debt_required": 28340.71177088508,
+            "equity_proceeds": 1372.0,
+            "scheduled_principal": 10974,
+            "ending_debt": 66785.84730762368,
+            "ending_cash": 3000.0,
+            "ending_scenario_shares": 606.625724
+          },
+          {
+            "year": 2028,
+            "opening_debt": 66785.84730762368,
+            "opening_cash": 3000.0,
+            "fcf": -17605.39984802196,
+            "new_debt_required": 23084.39984802196,
+            "equity_proceeds": 0.0,
+            "scheduled_principal": 5479,
+            "ending_debt": 84391.24715564564,
+            "ending_cash": 3000.0,
+            "ending_scenario_shares": 622.125724
+          }
+        ]
+      },
+      "bull": {
+        "transition": {
+          "period": "2026-Q4 analyst bridge, not actual",
+          "opening_debt": 48154,
+          "opening_cash": 4122,
+          "revenue": 4986,
+          "adjusted_ebitda": 3091.32,
+          "cash_interest": 1050,
+          "cash_capex": 9000,
+          "cash_other": 300,
+          "customer_cash_receipts": 9000,
+          "prepaid_revenue_recognized": 997.2,
+          "net_customer_cash_benefit": 8002.8,
+          "fcf": 744.1199999999997,
+          "scheduled_principal": 2433,
+          "new_debt_required": 566.8800000000003,
+          "ending_debt": 46287.88,
+          "ending_cash": 3000.0,
+          "equity_proceeds": 0,
+          "ending_prepaid_balance_assumed": 18004.8
+        },
+        "annual": [
+          {
+            "year": 2027,
+            "opening_debt": 46287.88,
+            "opening_cash": 3000.0,
+            "fcf": -21857.706881028716,
+            "new_debt_required": 31116.706881028716,
+            "equity_proceeds": 1715.0,
+            "scheduled_principal": 10974,
+            "ending_debt": 66430.58688102872,
+            "ending_cash": 3000.0,
+            "ending_scenario_shares": 606.625724
+          },
+          {
+            "year": 2028,
+            "opening_debt": 66430.58688102872,
+            "opening_cash": 3000.0,
+            "fcf": -15917.952052635603,
+            "new_debt_required": 21396.952052635603,
+            "equity_proceeds": 0.0,
+            "scheduled_principal": 5479,
+            "ending_debt": 82348.53893366433,
+            "ending_cash": 3000.0,
+            "ending_scenario_shares": 622.125724
+          }
+        ]
+      }
+    },
+    "rolling_estimates": [
+      {
+        "scenario": "bear",
+        "months": 12,
+        "period_end": "2027-09-30",
+        "cash_fcf": -24129.666141732247,
+        "assumed_equity_proceeds": 771.75,
+        "prorated_principal_due": 10663.5,
+        "external_debt_needed": 32899.41614173225,
+        "method": "max(0,minimum cash 3000−opening cash 4122−cumulative FCF+prorated principal−assumed net equity); annual uniformity approximation, not a contractual funding gap."
+      },
+      {
+        "scenario": "bear",
+        "months": 24,
+        "period_end": "2028-09-30",
+        "cash_fcf": -45610.49918635157,
+        "assumed_equity_proceeds": 1029.0,
+        "prorated_principal_due": 17516.25,
+        "external_debt_needed": 60975.74918635157,
+        "method": "max(0,minimum cash 3000−opening cash 4122−cumulative FCF+prorated principal−assumed net equity); annual uniformity approximation, not a contractual funding gap."
+      },
+      {
+        "scenario": "base",
+        "months": 12,
+        "period_end": "2027-09-30",
+        "cash_fcf": -16441.169364902406,
+        "assumed_equity_proceeds": 1029.0,
+        "prorated_principal_due": 10663.5,
+        "external_debt_needed": 24953.669364902406,
+        "method": "max(0,minimum cash 3000−opening cash 4122−cumulative FCF+prorated principal−assumed net equity); annual uniformity approximation, not a contractual funding gap."
+      },
+      {
+        "scenario": "base",
+        "months": 24,
+        "period_end": "2028-09-30",
+        "cash_fcf": -34329.89719364014,
+        "assumed_equity_proceeds": 1372.0,
+        "prorated_principal_due": 17516.25,
+        "external_debt_needed": 49352.14719364014,
+        "method": "max(0,minimum cash 3000−opening cash 4122−cumulative FCF+prorated principal−assumed net equity); annual uniformity approximation, not a contractual funding gap."
+      },
+      {
+        "scenario": "bull",
+        "months": 12,
+        "period_end": "2027-09-30",
+        "cash_fcf": -15649.160160771538,
+        "assumed_equity_proceeds": 1286.25,
+        "prorated_principal_due": 10663.5,
+        "external_debt_needed": 23904.41016077154,
+        "method": "max(0,minimum cash 3000−opening cash 4122−cumulative FCF+prorated principal−assumed net equity); annual uniformity approximation, not a contractual funding gap."
+      },
+      {
+        "scenario": "bull",
+        "months": 24,
+        "period_end": "2028-09-30",
+        "cash_fcf": -33052.05092050542,
+        "assumed_equity_proceeds": 1715.0,
+        "prorated_principal_due": 17516.25,
+        "external_debt_needed": 47731.30092050542,
+        "method": "max(0,minimum cash 3000−opening cash 4122−cumulative FCF+prorated principal−assumed net equity); annual uniformity approximation, not a contractual funding gap."
+      }
+    ],
+    "committed_vs_needed": "New debt_required is financing to be raised under assumed successful refinancing, not committed capacity. No unidentified debt facilities or press-reported planned loan are credited as available cash.",
+    "caveats": [
+      "Existing2.433B remaining 2026,10.974B2027 and5.479B2028 maturities included in gross borrowing needs; avoid adding them twice to net debt.",
+      "Finance-lease649M is held in opening claims; its future principal amortization not separately reconciled.",
+      "Uncommenced leases47.4B and commitments cannot be blindly added to cash capex; overlap/timing incomplete.",
+      "No complete collateral/covenant/sweep or site-level project-funding model; new debt availability not assured."
+    ],
+    "sources": [
+      "10q",
+      "q3"
+    ]
+  },
+  "ownership_audit": {
+    "verified_basic_shares": 556.125724,
+    "as_of": "2026-10-30",
+    "fully_diluted_shares": null,
+    "potential_instruments": {
+      "convertible_equivalents_million": 100,
+      "options_million": 23,
+      "rsu_rsa_million": 31,
+      "warrants_million": 4
+    },
+    "atm_authorization_million": 35,
+    "atm_usage_verified_through": "2026-09-30",
+    "conversion_policy": "2033 convertible4.2B,2.875%coupon, initial 97.85 conversion price; capped-call initial cap199.70. Conditional conversion and cash/share election prohibit automatic share addition. Keep debt unless modeling conversion extinguishment consistently.",
+    "audit": "November 24 tax-withholding Form4 sales do not establish discretionary selling or update consolidated shares. Provider cap near23.7B reconciles approximately to dated basic count×42.57, but not proof of a current fully diluted denominator. No share split/reverse-split adjustment asserted.",
+    "preferred_audit": "No preferred shares issued/outstandingSep30. Prior redeemable-common put terminatedSeptember2025; not a current preferred obligation.",
+    "minority_audit": "Sep30 assets 91481−liabilities 87456−stockholders equity 4025=0; zero reported NCI residual, not a claim of no contractual project participation.",
+    "lease_and_setoff_audit": "Principal debt includes nonrecourse obligations5353 before 80 issuance costs. Finance leases649 added; operating leases18697 excluded under rent-expensed earnings. DCSP note300 netted against financing/lease229 leaves netasset71; excluded conservatively. Never count gross229 again without restoring receivable300. No separate securitization deduction assumed.",
+    "sources": [
+      "10q",
+      "price",
+      "index"
+    ]
+  },
+  "report": {
+    "rating": "Hold / no new fundamental Buy until financing and replacement economics are verified",
+    "thesis": "Contracted revenue supports a multi-year operating ramp, but a cash-intensive delivery model can increase debt faster than cash generation. The question is not whether backlog is large; it is how much sustainable unlevered cash survives hardware replacement and then belongs to common shareholders.",
+    "conviction": "Low on fair value; moderate on identified financing and delivery risks. Six explicit cases are decision sensitivities, not consensus estimates.",
+    "target_12m": null,
+    "target_reason": "No independently verified replacement-capex/cash-conversion or horizon fully diluted claims bridge. Publishing a single target would overstate the evidence.",
+    "catalysts": [
+      {
+        "date": "2026-12-01",
+        "event": "CFO UBS conference11:35ET: receipts, project funding terms and delivery update",
+        "source": "conference"
+      },
+      {
+        "date": "2026-12-31",
+        "event": "FY operating target endpoint; public outcome may arrive later",
+        "source": "q3"
+      },
+      {
+        "date": "Around2027-02-10",
+        "event": "Review three-month customer-cash expectation; analyst window, not contractual deadline",
+        "source": "q3"
+      }
+    ],
+    "risks": [
+      "Shorter customer terms than project finance tenor create renewal/redeployment exposure.",
+      "Annual recognized revenue may lag capacity deployment and funding; take-or-pay is conditional on service obligations.",
+      "Dilution, refinancing terms and GPU replacement costs can dominate shareholder returns despite EBITDA growth."
+    ],
+    "invalidation": [
+      "Bear concern weakens if verified collections plus executable financing cover delivery without disproportionate dilution and replacement economics support sustainable cash conversion.",
+      "Positive long-term thesis fails if recognition delays persist, financing cannot close, or annual cash capex fails to moderate without harming contracted delivery."
+    ],
+    "missing": [
+      "Site/cohort replacement and utilization data: obtain issuer deployment/renewal economics and capex split in earnings disclosures.",
+      "Current fully diluted capitalization and cash restrictions: reconcile next10-Q/8-K, ATM usage, conversion settlements and project covenants."
+    ],
+    "sources": [
+      "10q",
+      "q3",
+      "pricing",
+      "loan55",
+      "conference"
+    ]
+  }
+}

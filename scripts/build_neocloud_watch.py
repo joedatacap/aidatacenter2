@@ -4,12 +4,15 @@ No public backend, credentials, quote API or production deployment is involved.
 """
 from __future__ import annotations
 import argparse
+from html import escape
 import json
 from pathlib import Path
 import re
 import tempfile
 from urllib.parse import urlparse
 import importlib.util
+from neocloud.equity import build_research, make_api
+from neocloud.equity_pages import render as render_equity, api_docs
 from neocloud.directory import build_directory
 from neocloud.website_v2 import build_website_v2
 from neocloud.watch import build_watch
@@ -78,7 +81,7 @@ def research_snapshot(data):
     return {**data, 'companies': companies}
 
 
-def build(*,base='/',output=None,release=False):
+def build(*,base='/',output=None,release=False,history_dir=None):
     base=base_path(base)
     source=ROOT/'watch-preview'
     if release and output is None:
@@ -93,6 +96,18 @@ def build(*,base='/',output=None,release=False):
     data=load_snapshot()
     if release:
         require_complete_data_quality(data)
+    equity = build_research(data)
+    resources = make_api(equity, target, base, history_dir)
+    (ROOT/"work").mkdir(exist_ok=True)
+    render_equity(equity,target,base,ROOT/"work/NCW-Equity-Research.html")
+    api_docs(target,base,resources)
+    # Use the same authored call as the report first screen.
+    focus = [equity["companies"][ticker] for ticker in ("NBIS", "CRWV")]
+    brief_text = " · ".join(
+        f"{c['ticker']} {c['report']['rating']} (base scenario ${c['report']['target_12m']:.2f})"
+        for c in focus
+    )
+    brief_text = escape(brief_text).replace("\\", "\\\\").replace("\n", " ")
     html=(source/'index.html').read_text()
     embed = embedded_json('watch-data', data)
     html=html.replace('</body>',embed+'</body>')
@@ -103,7 +118,7 @@ def build(*,base='/',output=None,release=False):
         destination=target/route/'index.html';destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(hosted)
     # The hosted and standalone editions share the same CSS and JS.
     # Keep chart functions inside the app closure to reuse evidence and URL helpers.
-    js = (source/'watch.js').read_text()
+    js = (source/'watch.js').read_text().replace('__EQUITY_EDITION__',equity['edition']).replace('__EQUITY_BRIEF__',brief_text)
     for component in ('overview-charts', 'tradingview', 'market-cap-chart'):
         marker = f'/* @include {component}.js */'
         if js.count(marker) != 1:
@@ -148,16 +163,17 @@ def build(*,base='/',output=None,release=False):
     terminal_file.write_text(hosted_document(terminal_hosted))
     terminal_offline = artifact.parent/'Neocloud-Intelligence-Terminal.html'
     terminal_offline.write_text(connect_terminal(terminal, './Neocloud-Watch-V2.html#/overview/', './Neocloud-Watch-V2.html#/markets/'))
-    return {'site':str(target),'offline':str(artifact),'companies':len(data['companies']),'routes':len(routes)+1,'base_path':base}
+    return {'research_endpoints':len(resources),'site':str(target),'offline':str(artifact),'companies':len(data['companies']),'routes':len(routes)+1,'base_path':base}
 
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-path',default='/');parser.add_argument('--output')
     parser.add_argument('--release', action='store_true', help='Stage the public widget edition into an empty output directory.')
+    parser.add_argument('--history-dir', type=Path, help='Reviewed immutable event/scorecard archive for this build')
     args=parser.parse_args()
     try:
-        receipt = build(base=args.base_path, output=args.output, release=args.release)
+        receipt = build(base=args.base_path, output=args.output, release=args.release, history_dir=args.history_dir)
     except ValueError as exc:
         parser.exit(1, f'{exc}\n')
     print(json.dumps(receipt, indent=2))
