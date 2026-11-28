@@ -82,14 +82,14 @@
       "excerpt": "2027 revenue 12–13B; capex 40–45B; prepayments 17–20B;75–85% capex expected covered by advances plus asset-backed financing. 2026 capex approximately 27B. $7B February ARR milestone and remaining New Jersey deliveriesQ 22027 are expectations, not actual revenue."
     },
     "citi": {
-      "url": "https://nebius.com/newsroom/nebius-secures-3-5-billion-financing-facility-with-citi",
-      "title": "Nebius enters $3.5B Citi senior secured facility",
+      "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926117978/tm2628078d1_6k.htm",
+      "title": "Nebius Form 6-K reporting Citi senior secured bridge terms",
       "published": "2026-10-22",
-      "period": "364-day facility entered October 22,2026",
+      "period": "6-K filed October 22, 2026: signed October 17, 2026, maturity October 16, 2027",
       "unit": "USD millions unless otherwise specified",
-      "section": "Release financing paragraphs; notes F-41, Subsequent Events",
-      "locator": "Release financing paragraphs; notes F-41, Subsequent Events",
-      "excerpt": "Facility 3,500;364-day maturity; initial TermSOFR+2.75%, rising margin to 3.50% subject adjustments. A signed commitment is verified; funded draw, fees and cash proceeds not disclosed."
+      "section": "Credit Facility; compare Q3 Subsequent Events, F-41",
+      "locator": "Credit Facility, first, third and fifth paragraphs; Q3 F-41",
+      "excerpt": "The 6-K provides explicit dates. F-41 later describes October 22 signing and a 364-day term. Timing of draws is unverified. Principal up to $3.5B; initial SOFR + 275bp steps up 25bp per 90 days to 350bp. Parent and two subsidiaries are co-borrowers, with substantially all borrower assets securing obligations subject to exceptions."
     },
     "annual": {
       "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm",
@@ -190,7 +190,7 @@
     },
     {
       "id": "citi-commitment",
-      "date": "2026-10-22",
+      "date": "2026-10-17",
       "status": "conditional",
       "gross_proceeds": 3500,
       "fees": 0,
@@ -201,7 +201,7 @@
       "source_ids": [
         "citi"
       ],
-      "note": "Executed facility commitment; funding/draw amount and fees unknown. Conditional record excluded from actual cash roll. Separate scenario period models possible draw/fees and full repayment before maturity;0 here is no assumed actual fee, not a disclosure of fee-free financing."
+      "note": "The dedicated 6-K records signing on October 17. The Q3 subsequent-events note says October 22. Actual draw, fees and net cash are unverified. The commitment is excluded from actual cash. The separate scenario models a draw in the period beginning October 22 and repayment within its final quarterly stub."
     }
   ],
   "convertibles": [
@@ -421,7 +421,7 @@
             "citi",
             "assumptions"
           ],
-          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw is allocated to the period beginning October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
         },
         {
           "id": "2026Q4-after-Citi",
@@ -445,7 +445,7 @@
             "citi",
             "assumptions"
           ],
-          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw is allocated to the period beginning October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
         },
         {
           "id": "2027Q1",
@@ -468,7 +468,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q2",
@@ -491,7 +491,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q3",
@@ -514,7 +514,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q4-to-target",
@@ -537,7 +537,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         }
       ],
       "source_ids": [
@@ -647,7 +647,7 @@
             "citi",
             "assumptions"
           ],
-          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw is allocated to the period beginning October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
         },
         {
           "id": "2026Q4-after-Citi",
@@ -671,7 +671,7 @@
             "citi",
             "assumptions"
           ],
-          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw is allocated to the period beginning October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
         },
         {
           "id": "2027Q1",
@@ -694,7 +694,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q2",
@@ -717,7 +717,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q3",
@@ -740,7 +740,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q4-to-target",
@@ -763,7 +763,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         }
       ],
       "source_ids": [
@@ -878,7 +878,7 @@
             "citi",
             "assumptions"
           ],
-          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw is allocated to the period beginning October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
         },
         {
           "id": "2026Q4-after-Citi",
@@ -902,7 +902,7 @@
             "citi",
             "assumptions"
           ],
-          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw starts only after October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
+          "note": "Q4 capex uses the $27B annual guidance less $15.4307B of nine-month cash purchases as a planning proxy; issuer capex and cash purchases may differ. Operating cash and customer receipt timing are estimates. The modeled $3.5B Citi draw is allocated to the period beginning October 22, with a 1.5% assumed fee; actual draw and fees are unverified. Existing loan repayments total an assumed $40M for Q4. Customer advances are already in operating cash."
         },
         {
           "id": "2027Q1",
@@ -925,7 +925,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q2",
@@ -948,7 +948,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q3",
@@ -971,7 +971,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         },
         {
           "id": "2027Q4-to-target",
@@ -994,7 +994,7 @@
             "debt",
             "assumptions"
           ],
-          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final period repays the modeled $3.5B Citi draw by its October 21 maturity. Interest uses average period balances."
+          "note": "Assumed quarterly operations and capex weights are 20%, 25%, 30% and 25%; customer receipts arrive 30%, 30%, 25% and 15%. The last period uses 58/92 of Q4 and stops on November 27. Operating cash includes advances less prepaid-service recognition. New project loans are contingent; a 2% fee is a separate use. The final 58-day period includes repayment of the modeled $3.5B Citi draw. The dedicated 6-K gives October 16 maturity. Period averaging does not test cash availability on that day."
         }
       ],
       "source_ids": [

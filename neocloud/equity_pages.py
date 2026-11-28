@@ -90,6 +90,8 @@ def overview(research, href, base, offline):
     doc=(new_overview or brief(research, href))
     if not new_overview and research.get("call_audit"):
         doc+=underwriting_audit(research["call_audit"],href)
+    if new_overview:
+        doc += '<p><a href="https://github.com/joedatacap/aidatacenter2/blob/main/docs/NEOCLOUD_CREDIT_REVIEW.md">Compare financing across 11 issuers</a> · <a href="https://github.com/joedatacap/aidatacenter2/blob/main/docs/NEOCLOUD_RESEARCH_PLAN.md">Research plan and open questions</a></p>'
     doc+='<section class="section"><h2>Relative value</h2><p>Basic equity uses the November 25 close and each issuer’s dated common share count. Compare within the same business model. A dash indicates missing claims or consolidated earnings inputs.</p>'
     benchmarks = " · ".join(f'<a href="{e(b["source"])}">{e(b["ticker"])} {b["return_pct"]:+.1f}%</a>' for b in research["benchmark_citations"])
     doc+=f'<p><b>Five-session benchmarks</b> · {benchmarks}</p>'
@@ -111,10 +113,21 @@ def company_view(t,c,research,href,base,offline):
     target=r["target_12m"]
     pane_class="pane pane-underwriting" if underwriting else "pane"
     doc=f'<article class="{pane_class}" id="{t}"><p class="eyebrow">JUSTIN / INVESTMENT RESEARCH · {e(c["as_of"])}</p><h2>{e(c["name"])} <small>{t}</small></h2>'+nav
+    supplements = {
+        "NBIS": ("Financing and dilution stress tests", "NBIS_FINANCING_TESTS_2026_11_28.md"),
+        "CRWV": ("Deposit timing and fleet replacement stress tests", "CRWV_FINANCING_TEST.md"),
+        "APLD": ("Harwood project cash available to common shareholders", "APLD_PROJECT_CASH_2026_11_27.md"),
+    }
+    if t in supplements:
+        label, path = supplements[t]
+        evidence_link = f'<p><a href="https://github.com/joedatacap/aidatacenter2/blob/main/docs/{path}">{label}</a></p>'
     if underwriting:
         doc+=underwriting_report(underwriting)
+        doc+=evidence_link
         doc+='<details class="uw-historical"><summary>Historical call and original operating model · information cutoff '+e(historical_as_of)+'</summary>'
         doc+='<p class="uw-note">The original call and financial scenarios below are preserved. The new underwriting above explicitly models cash timing, financing and the per-share denominator; it does not overwrite these earlier operating estimates.</p>'
+    elif t in supplements:
+        doc+=evidence_link
     legacy_source_ids=[sid for sid,source in c["sources"].items()
                        if not underwriting or (not sid.startswith("underwriting-")
                        and (not source.get("published") or source["published"][:10]<=str(historical_as_of)[:10]))]
