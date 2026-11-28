@@ -4,6 +4,7 @@ import json
 import pytest
 from bs4 import BeautifulSoup
 
+from neocloud.equity import DATA
 from scripts.build_neocloud_watch import build
 
 
@@ -41,7 +42,13 @@ def test_reports_and_archive_agree(site, ticker):
     assert any(not v["current_edition"] and v["rating"] == company["prior_report"]["rating"] for v in calls)
     active, = [v for v in calls if v["current_edition"]]
     assert active["rating"] == current["rating"] and active["target_12m"] == current["target_12m"]
-    assert active["publication_status"] == "publication_pending"
+    notice_file = DATA / "equity-history" / "release-notices" / f"{active['version_id']}.json"
+    if notice_file.exists():
+        assert active["publication_status"] == "released"
+        assert active["release"] == json.loads(notice_file.read_text())
+    else:
+        assert active["publication_status"] == "publication_pending"
+        assert active["release"] is None
 
 
 def test_original_calls_audited_without_changing_coverage(site):
