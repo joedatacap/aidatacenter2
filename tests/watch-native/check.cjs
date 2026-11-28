@@ -357,11 +357,23 @@ async function researchChecks(page,origin,label) {
 
 async function verifyAssets(request,origin) {
   const result={};
-  for(const asset of ['watch.js','watch.css','data.json']){
+  for(const asset of ['watch.js','watch.css','data.json','api/v1/justin/history.json','api/v1/justin/scorecard.json','api/v1/companies/NBIS/underwriting.json','api/v1/companies/CRWV/underwriting.json']){
     const expected=await fs.readFile(path.join(SITE,asset));
     const response=await request.get(origin+'/'+asset);assert(response.ok(),'Expected public asset served: '+asset);
     const actual=await response.body();assert.equal(hash(actual),hash(expected),'Served asset differs from accepted build: '+asset);
     result[asset]={sha256:hash(actual),bytes:actual.length};
+  }
+  for (const [route, values] of [
+    ['research/', ['NEOCLOUD_CREDIT_REVIEW.md','NEOCLOUD_RESEARCH_PLAN.md']],
+    ['research/nbis/', ['95.50','NBIS_FINANCING_TESTS_2026_11_28.md','Hold']],
+    ['research/crwv/', ['48.60','CRWV_FINANCING_TEST.md','Hold']],
+    ['research/apld/', ['APLD_PROJECT_CASH_2026_11_27.md']],
+  ]) {
+    const response = await request.get(origin + '/' + route);
+    assert(response.ok(), 'Public research route: ' + route);
+    const body = await response.text();
+    for (const value of values) assert(body.includes(value), route + ': ' + value);
+    result[route] = { status: response.status(), verified: values };
   }
   // Read only known application paths; never print or retain any returned body.
   for(const protectedPath of ['/.env','/neocloud/app.py','/AGENTS.md']){
